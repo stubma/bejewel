@@ -11962,15 +11962,15 @@ T(function() {
 U(function() {
 			GameFramework.widgets.Ta.c()
 		});
-GameFramework.widgets.cv = function() {
+GameFramework.widgets.ClassicWidgetAppState = function() {
 	this.fe = new GameFramework.widgets.Ta;
 	this.Vh = this.Al = null;
 	this.zB = [];
 	this.iH = Array.O(GameFramework.la.VZ | 0, null);
-	E(GameFramework.widgets.cv, this);
+	E(GameFramework.widgets.ClassicWidgetAppState, this);
 	this.fe.wd = this
 };
-GameFramework.widgets.cv.prototype = {
+GameFramework.widgets.ClassicWidgetAppState.prototype = {
 	fe : null,
 	Uc : null,
 	no : false,
@@ -12063,13 +12063,13 @@ GameFramework.widgets.cv.prototype = {
 		this.Vh != null && this.Vh.Tk(b)
 	}
 };
-GameFramework.widgets.cv.c = t();
+GameFramework.widgets.ClassicWidgetAppState.c = t();
 T(function() {
-			GameFramework.widgets.cv.u("GameFramework.widgets.ClassicWidgetAppState",
+			GameFramework.widgets.ClassicWidgetAppState.u("GameFramework.widgets.ClassicWidgetAppState",
 					GameFramework.gb.Qk, GameFramework.iea)
 		});
 U(function() {
-			GameFramework.widgets.cv.c()
+			GameFramework.widgets.ClassicWidgetAppState.c()
 		});
 GameFramework.widgets.ih = function(b, c) {
 	E(GameFramework.widgets.ih, this, [b]);
@@ -14970,7 +14970,7 @@ Game.BejApp.prototype = {
 						new GameFramework.W.cb("WebGL", this.kc()),
 						new GameFramework.W.cb("ArtRes", this.aj),
 						new GameFramework.W.cb("PlatformInfo", this.UY)]);
-		this.Nh = new GameFramework.widgets.cv;
+		this.Nh = new GameFramework.widgets.ClassicWidgetAppState;
 		this.Nh.Uc = this.Uc;
 		this.fe = this.Nh.fe;
 		this.pt(this.Nh)
