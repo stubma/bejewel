@@ -10179,7 +10179,7 @@ GameFramework.b.Sc.prototype = {
 		return b
 	},
 	t : function() {
-		GameFramework.l.Ta.prototype.t.apply(this);
+		GameFramework.widgets.Ta.prototype.t.apply(this);
 		this.Kc.t();
 		this.Kc = null
 	},
@@ -10802,7 +10802,7 @@ GameFramework.b.Sc.prototype = {
 	},
 	ca : function() {
 		if (this.ue
-				&& (GameFramework.l.Ta.prototype.ca.apply(this), this.mw(null)))
+				&& (GameFramework.widgets.Ta.prototype.ca.apply(this), this.mw(null)))
 			this.q5(this.KV), this.JL(this.Kc, null, this.n, false), this.vy = false, this.no
 					|| (this.LU(this.Kc, null), this.jQ(this.Kc))
 	}
@@ -10827,7 +10827,7 @@ GameFramework.b.Sc.c = function() {
 };
 T(function() {
 			GameFramework.b.Sc.u("GameFramework.resources.PopAnimResource",
-					GameFramework.l.Ta)
+					GameFramework.widgets.Ta)
 		});
 U(function() {
 			GameFramework.b.Sc.c()
@@ -11577,15 +11577,15 @@ T(function() {
 U(function() {
 			GameFramework.b.Fa.Kq.c()
 		});
-GameFramework.l = Type.ci("GameFramework.widgets");
-GameFramework.l.td = function(b) {
+GameFramework.widgets = Type.ci("GameFramework.widgets");
+GameFramework.widgets.td = function(b) {
 	b === UNDEF && (b = 0);
 	this.pe = Array.O(2, null, 4294967295, 4294967295);
 	this.wM = this.RM = this.rm = this.Sj = this.ZB = this.wb = this.U = null;
-	E(GameFramework.l.td, this);
+	E(GameFramework.widgets.td, this);
 	this.xa = b
 };
-GameFramework.l.td.prototype = {
+GameFramework.widgets.td.prototype = {
 	pe : null,
 	L : 1,
 	a7 : 0.5,
@@ -11612,12 +11612,12 @@ GameFramework.l.td.prototype = {
 		return b != null || c != -1
 	},
 	tK : function(b, c) {
-		this.pl || GameFramework.l.Ta.prototype.tK.apply(this, [b, c])
+		this.pl || GameFramework.widgets.Ta.prototype.tK.apply(this, [b, c])
 	},
 	Ok : function(b) {
 		var c = this.L != 1;
 		c && b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.L | 0));
-		GameFramework.l.Ta.prototype.Ok.apply(this, [b]);
+		GameFramework.widgets.Ta.prototype.Ok.apply(this, [b]);
 		c && b.pb()
 	},
 	iq : function(b, c, d, f, g) {
@@ -11650,7 +11650,7 @@ GameFramework.l.td.prototype = {
 								this.On, 0, 0) : this.Ps(this.Sj, this.Rj)
 								? this.iq(b, this.Sj, this.Rj, 1, 1)
 								: this.iq(b, this.wb, this.io, 1, 1), b
-								.Q(this.pe[GameFramework.l.td.DD]), this.ZB != null
+								.Q(this.pe[GameFramework.widgets.td.DD]), this.ZB != null
 								? b.Ba(this.ZB, 0 + g, 0 + g)
 								: this.Id != null && b.Cc(this.Id, d + g, f + g))
 						: (this.pl && this.Ps(this.RM, this.vW)
@@ -11672,29 +11672,29 @@ GameFramework.l.td.prototype = {
 												: this.Ps(this.wb, this.io)
 														&& this.iq(b, this.wb,
 																this.io, 0, 0), this.dh
-								? b.Q(this.pe[GameFramework.l.td.DD])
-								: b.Q(this.pe[GameFramework.l.td.UI]), this.ZB != null
+								? b.Q(this.pe[GameFramework.widgets.td.DD])
+								: b.Q(this.pe[GameFramework.widgets.td.UI]), this.ZB != null
 								? b.Ba(this.ZB, 0, 0)
 								: this.Id != null && b.Cc(this.Id, d, f)), b.pb())
 	},
 	an : function(b, c) {
-		return GameFramework.l.Ta.prototype.an.apply(this, [b, c])
+		return GameFramework.widgets.Ta.prototype.an.apply(this, [b, c])
 				&& this.L > this.a7
 				&& (this.Uw == 0 || (b - this.s / 2) * (b - this.s / 2)
 						+ (c - this.z / 2) * (c - this.z / 2) < this.Uw
 						* this.Uw) && (this.wM == null || this.wM.an(b, c))
 	}
 };
-GameFramework.l.td.c = function() {
-	GameFramework.l.td.UI = 0;
-	GameFramework.l.td.DD = 1
+GameFramework.widgets.td.c = function() {
+	GameFramework.widgets.td.UI = 0;
+	GameFramework.widgets.td.DD = 1
 };
 T(function() {
-			GameFramework.l.td.u("GameFramework.widgets.ButtonWidget",
-					GameFramework.l.Ta)
+			GameFramework.widgets.td.u("GameFramework.widgets.ButtonWidget",
+					GameFramework.widgets.Ta)
 		});
 U(function() {
-			GameFramework.l.td.c()
+			GameFramework.widgets.td.c()
 		});
 Game = Type.ci("Game");
 Game.aq = function(b, c) {
@@ -11719,14 +11719,14 @@ Game.aq.prototype = {
 	aW : 0,
 	L : 1,
 	Af : function(b, c) {
-		GameFramework.l.Ta.prototype.Af.apply(this, [b, c]);
+		GameFramework.widgets.Ta.prototype.Af.apply(this, [b, c]);
 		this.ti = !this.ti;
-		this.ld(new GameFramework.l.wa(GameFramework.l.wa.NP))
+		this.ld(new GameFramework.widgets.wa(GameFramework.widgets.wa.NP))
 	},
 	ja : function(b) {
 		var c = this.L != 0;
 		c && b.Q(GameFramework.gfx.k.Jb(this.L));
-		GameFramework.l.Ta.prototype.ja.apply(this, [b]);
+		GameFramework.widgets.Ta.prototype.ja.apply(this, [b]);
 		if (this.EM.s == 0 && this.qG != null && this.hD != null)
 			this.ti ? b.Ba(this.qG, 0, 0) : b.Ba(this.hD, 0, 0);
 		else if (!(this.EM.s != 0 && this.hD != null) && this.hD == null
@@ -11757,16 +11757,16 @@ Game.aq.prototype = {
 };
 Game.aq.c = t();
 T(function() {
-			Game.aq.u("Game.Checkbox", GameFramework.l.Ta)
+			Game.aq.u("Game.Checkbox", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.aq.c()
 		});
-GameFramework.l.Ta = function() {
+GameFramework.widgets.Ta = function() {
 	this.cf = [];
-	E(GameFramework.l.Ta, this)
+	E(GameFramework.widgets.Ta, this)
 };
-GameFramework.l.Ta.prototype = {
+GameFramework.widgets.Ta.prototype = {
 	cf : null,
 	aa : 0,
 	Qb : null,
@@ -11875,25 +11875,25 @@ GameFramework.l.Ta.prototype = {
 		this.v = c
 	},
 	Aq : function(b) {
-		var c = new GameFramework.l.wa(GameFramework.l.wa.MS);
+		var c = new GameFramework.widgets.wa(GameFramework.widgets.wa.MS);
 		c.hH = b;
 		this.ld(c)
 	},
 	Pz : function(b) {
-		var c = new GameFramework.l.wa(GameFramework.l.wa.NS);
+		var c = new GameFramework.widgets.wa(GameFramework.widgets.wa.NS);
 		c.hH = b;
 		this.ld(c)
 	},
 	Tk : function(b) {
-		var c = new GameFramework.l.wa(GameFramework.l.wa.kK);
+		var c = new GameFramework.widgets.wa(GameFramework.widgets.wa.kK);
 		c.KN = b;
 		this.ld(c)
 	},
 	Ys : function() {
-		this.ld(new GameFramework.l.wa(GameFramework.l.wa.WS))
+		this.ld(new GameFramework.widgets.wa(GameFramework.widgets.wa.WS))
 	},
 	kn : function() {
-		this.ld(new GameFramework.l.wa(GameFramework.l.wa.E2))
+		this.ld(new GameFramework.widgets.wa(GameFramework.widgets.wa.E2))
 	},
 	wR : function(b, c) {
 		for (var d = this.cf.length - 1; d >= 0; --d) {
@@ -11910,7 +11910,7 @@ GameFramework.l.Ta.prototype = {
 		}
 	},
 	Af : function(b, c) {
-		var d = new GameFramework.l.wa(GameFramework.l.wa.Fq);
+		var d = new GameFramework.widgets.wa(GameFramework.widgets.wa.Fq);
 		d.w = b;
 		d.v = c;
 		this.ld(d);
@@ -11922,13 +11922,13 @@ GameFramework.l.Ta.prototype = {
 		}
 	},
 	tK : function(b, c) {
-		var d = new GameFramework.l.wa(GameFramework.l.wa.Ld);
+		var d = new GameFramework.widgets.wa(GameFramework.widgets.wa.Ld);
 		d.w = b;
 		d.v = c;
 		this.ld(d)
 	},
 	Wk : function(b, c) {
-		var d = new GameFramework.l.wa(GameFramework.l.wa.XS);
+		var d = new GameFramework.widgets.wa(GameFramework.widgets.wa.XS);
 		d.w = b;
 		d.v = c;
 		this.ld(d);
@@ -11954,23 +11954,23 @@ GameFramework.l.Ta.prototype = {
 		return false
 	}
 };
-GameFramework.l.Ta.c = t();
+GameFramework.widgets.Ta.c = t();
 T(function() {
-			GameFramework.l.Ta.u("GameFramework.widgets.ClassicWidget",
+			GameFramework.widgets.Ta.u("GameFramework.widgets.ClassicWidget",
 					GameFramework.gb.Qk)
 		});
 U(function() {
-			GameFramework.l.Ta.c()
+			GameFramework.widgets.Ta.c()
 		});
-GameFramework.l.cv = function() {
-	this.fe = new GameFramework.l.Ta;
+GameFramework.widgets.cv = function() {
+	this.fe = new GameFramework.widgets.Ta;
 	this.Vh = this.Al = null;
 	this.zB = [];
 	this.iH = Array.O(GameFramework.la.VZ | 0, null);
-	E(GameFramework.l.cv, this);
+	E(GameFramework.widgets.cv, this);
 	this.fe.wd = this
 };
-GameFramework.l.cv.prototype = {
+GameFramework.widgets.cv.prototype = {
 	fe : null,
 	Uc : null,
 	no : false,
@@ -12044,60 +12044,60 @@ GameFramework.l.cv.prototype = {
 	},
 	Pz : function(b) {
 		this.iH[b | 0] = false;
-		var c = new GameFramework.l.wa(GameFramework.l.wa.NS);
+		var c = new GameFramework.widgets.wa(GameFramework.widgets.wa.NS);
 		c.hH = b;
 		GameFramework.BaseApp.M.ld(c);
 		this.Vh != null && this.Vh.Pz(b)
 	},
 	Aq : function(b) {
 		this.iH[b | 0] = true;
-		var c = new GameFramework.l.wa(GameFramework.l.wa.MS);
+		var c = new GameFramework.widgets.wa(GameFramework.widgets.wa.MS);
 		c.hH = b;
 		GameFramework.BaseApp.M.ld(c);
 		this.Vh != null && this.Vh.Aq(b)
 	},
 	Tk : function(b) {
-		var c = new GameFramework.l.wa(GameFramework.l.wa.kK);
+		var c = new GameFramework.widgets.wa(GameFramework.widgets.wa.kK);
 		c.KN = b;
 		GameFramework.BaseApp.M.ld(c);
 		this.Vh != null && this.Vh.Tk(b)
 	}
 };
-GameFramework.l.cv.c = t();
+GameFramework.widgets.cv.c = t();
 T(function() {
-			GameFramework.l.cv.u("GameFramework.widgets.ClassicWidgetAppState",
+			GameFramework.widgets.cv.u("GameFramework.widgets.ClassicWidgetAppState",
 					GameFramework.gb.Qk, GameFramework.iea)
 		});
 U(function() {
-			GameFramework.l.cv.c()
+			GameFramework.widgets.cv.c()
 		});
-GameFramework.l.ih = function(b, c) {
-	E(GameFramework.l.ih, this, [b]);
+GameFramework.widgets.ih = function(b, c) {
+	E(GameFramework.widgets.ih, this, [b]);
 	this.E7 = c
 };
-GameFramework.l.ih.prototype = {
+GameFramework.widgets.ih.prototype = {
 	rB : -1,
 	E7 : null,
 	$A : function() {
-		return this.rB == GameFramework.l.rb.BS
+		return this.rB == GameFramework.widgets.rb.BS
 	}
 };
-GameFramework.l.ih.c = function() {
-	GameFramework.l.ih.CLOSED = "closed"
+GameFramework.widgets.ih.c = function() {
+	GameFramework.widgets.ih.CLOSED = "closed"
 };
 T(function() {
-			GameFramework.l.ih.u("GameFramework.widgets.DialogEvent",
+			GameFramework.widgets.ih.u("GameFramework.widgets.DialogEvent",
 					GameFramework.gb.Mc)
 		});
 U(function() {
-			GameFramework.l.ih.c()
+			GameFramework.widgets.ih.c()
 		});
-GameFramework.l.rb = function(b, c, d, f, g, h, j) {
+GameFramework.widgets.rb = function(b, c, d, f, g, h, j) {
 	this.pe = Array.O(6, null, 4294967295, 4294967295, 4294967295, 4294967295,
 			4294967295, 4294967295);
 	this.Df = new GameFramework.sj;
 	this.Fd = new GameFramework.sj;
-	E(GameFramework.l.rb, this);
+	E(GameFramework.widgets.rb, this);
 	this.Fi = 2147483647;
 	this.gr = b;
 	this.zl = this.EY = false;
@@ -12108,15 +12108,15 @@ GameFramework.l.rb = function(b, c, d, f, g, h, j) {
 	this.AB = f;
 	this.It = h;
 	this.Bt = j;
-	this.Bt == GameFramework.l.rb.Io || this.Bt == GameFramework.l.rb.EZ
-			? (this.tb = this.eq(c), this.tb.Ra(GameFramework.l.wa.Ld, ss.ra
+	this.Bt == GameFramework.widgets.rb.Io || this.Bt == GameFramework.widgets.rb.EZ
+			? (this.tb = this.eq(c), this.tb.Ra(GameFramework.widgets.wa.Ld, ss.ra
 							.create(this, this.wS)), this.Fg = this.eq(c), this.Fg
-					.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.G1)), this.Bt == GameFramework.l.rb.Io
+					.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.G1)), this.Bt == GameFramework.widgets.rb.Io
 					? (this.tb.Id = "YES", this.Fg.Id = "NO")
 					: (this.tb.Id = "OK", this.Fg.Id = "CANCEL"))
-			: this.Bt == GameFramework.l.rb.Zp
+			: this.Bt == GameFramework.widgets.rb.Zp
 					? (this.tb = this.eq(c), this.tb.Id = this.It, this.tb.Ra(
-							GameFramework.l.wa.Ld, ss.ra.create(this, this.wS)), this
+							GameFramework.widgets.wa.Ld, ss.ra.create(this, this.wS)), this
 							.Bc(this.tb), this.Fg = null)
 					: (this.Fg = this.tb = null, this.F8 = 0);
 	this.EG = g;
@@ -12124,10 +12124,10 @@ GameFramework.l.rb = function(b, c, d, f, g, h, j) {
 	this.fo = this.Xf = null;
 	this.ql = false;
 	c == null
-			? (this.pe[GameFramework.l.rb.RI] = 4278190080, this.pe[GameFramework.l.rb.SI] = 4278190080)
-			: (this.pe[GameFramework.l.rb.RI] = 4294967295, this.pe[GameFramework.l.rb.SI] = 4294967295)
+			? (this.pe[GameFramework.widgets.rb.RI] = 4278190080, this.pe[GameFramework.widgets.rb.SI] = 4278190080)
+			: (this.pe[GameFramework.widgets.rb.RI] = 4294967295, this.pe[GameFramework.widgets.rb.SI] = 4294967295)
 };
-GameFramework.l.rb.prototype = {
+GameFramework.widgets.rb.prototype = {
 	pe : null,
 	gr : null,
 	EY : null,
@@ -12156,7 +12156,7 @@ GameFramework.l.rb.prototype = {
 	mG : 0,
 	nG : 0,
 	eq : function(b) {
-		var c = new GameFramework.l.td(0);
+		var c = new GameFramework.widgets.td(0);
 		this.rQ(c, b);
 		return c
 	},
@@ -12171,13 +12171,13 @@ GameFramework.l.rb.prototype = {
 		this.Bc(b)
 	},
 	am : function(b, c) {
-		b == GameFramework.l.rb.RI
-				? (this.tb != null && this.tb.am(GameFramework.l.td.UI, c), this.Fg != null
-						&& this.Fg.am(GameFramework.l.td.UI, c))
-				: b == GameFramework.l.rb.SI
+		b == GameFramework.widgets.rb.RI
+				? (this.tb != null && this.tb.am(GameFramework.widgets.td.UI, c), this.Fg != null
+						&& this.Fg.am(GameFramework.widgets.td.UI, c))
+				: b == GameFramework.widgets.rb.SI
 						&& (this.tb != null
-								&& this.tb.am(GameFramework.l.td.DD, c), this.Fg != null
-								&& this.Fg.am(GameFramework.l.td.DD, c));
+								&& this.tb.am(GameFramework.widgets.td.DD, c), this.Fg != null
+								&& this.Fg.am(GameFramework.widgets.td.DD, c));
 		this.pe[b] = c
 	},
 	dL : function(b) {
@@ -12198,7 +12198,7 @@ GameFramework.l.rb.prototype = {
 								d), c += d.OW + d.gN, d = true);
 		this.It != null
 				&& this.It.length != 0
-				&& this.Bt != GameFramework.l.rb.Zp
+				&& this.Bt != GameFramework.widgets.rb.Zp
 				&& this.Xf != null
 				&& (d && (c += this.fo.Sl() - this.fo.Rl()), c += this.Xf.wz()
 						| 0, d = true);
@@ -12214,7 +12214,7 @@ GameFramework.l.rb.prototype = {
 		if (this.gr != null)
 			this.EY || b.dk(this.gr, c.w, c.v, c.s, c.z, 0);
 		else {
-			c = b.Q(this.pe[GameFramework.l.rb.CD]);
+			c = b.Q(this.pe[GameFramework.widgets.rb.CD]);
 			try {
 				b.fc(13, 13, this.s - 24 - 2, this.z - 24 - 2)
 			} finally {
@@ -12232,7 +12232,7 @@ GameFramework.l.rb.prototype = {
 		if (this.AB.length > 0) {
 			c += this.Xf.Rl() - this.Xf.DR();
 			b.kb(this.Xf);
-			var d = b.Q(this.pe[GameFramework.l.rb.TZ]);
+			var d = b.Q(this.pe[GameFramework.widgets.rb.TZ]);
 			try {
 				b.zb(this.AB, 0, c, this.s, 0)
 			} finally {
@@ -12248,7 +12248,7 @@ GameFramework.l.rb.prototype = {
 			c += this.Qr
 		}
 		b.kb(this.fo);
-		d = b.Q(this.pe[GameFramework.l.rb.VI]);
+		d = b.Q(this.pe[GameFramework.widgets.rb.VI]);
 		try {
 			b.zb(this.EG, this.Df.yh + this.Fd.yh + 2, c + this.fo.Rl(), this.s
 							- this.Fd.yh - this.Fd.Vj - this.Df.yh - this.Df.Vj
@@ -12257,11 +12257,11 @@ GameFramework.l.rb.prototype = {
 			d.t()
 		}
 		if (this.It != null && this.It.length != 0
-				&& this.Bt != GameFramework.l.rb.Zp) {
+				&& this.Bt != GameFramework.widgets.rb.Zp) {
 			c += 8;
 			c += this.Xf.wz();
 			b.kb(this.Xf);
-			d = b.Q(this.pe[GameFramework.l.rb.SZ]);
+			d = b.Q(this.pe[GameFramework.widgets.rb.SZ]);
 			try {
 				b.zb(this.It, 0, c, this.s, 0)
 			} finally {
@@ -12270,7 +12270,7 @@ GameFramework.l.rb.prototype = {
 		}
 	},
 	Lb : function(b, c, d, f) {
-		GameFramework.l.Ta.prototype.Lb.apply(this, [b, c, d, f]);
+		GameFramework.widgets.Ta.prototype.Lb.apply(this, [b, c, d, f]);
 		if (this.tb != null && this.Fg != null)
 			b = (this.s - this.Fd.yh - this.Fd.Vj - this.Df.yh - this.Df.Vj
 					- this.nG * 2 - this.mG)
@@ -12284,12 +12284,12 @@ GameFramework.l.rb.prototype = {
 	},
 	Af : function(b, c) {
 		if (this.dh && this.X6 && !this.ql
-				&& GameFramework.l.Ta.prototype.an.apply(this, [b, c]))
+				&& GameFramework.widgets.Ta.prototype.an.apply(this, [b, c]))
 			this.ql = true, this.Kt = b, this.Lt = c;
-		GameFramework.l.Ta.prototype.Af.apply(this, [b, c])
+		GameFramework.widgets.Ta.prototype.Af.apply(this, [b, c])
 	},
 	ln : function(b, c) {
-		GameFramework.l.Ta.prototype.ln.apply(this, [b, c]);
+		GameFramework.widgets.Ta.prototype.ln.apply(this, [b, c]);
 		if (this.ql) {
 			var d = this.w + b - this.Kt, f = this.v + c - this.Lt;
 			d < -8 ? d = -8 : d + this.s > GameFramework.BaseApp.M.s + 8
@@ -12310,20 +12310,20 @@ GameFramework.l.rb.prototype = {
 		}
 	},
 	an : function(b, c) {
-		return this.Bx || GameFramework.l.Ta.prototype.an.apply(this, [b, c])
+		return this.Bx || GameFramework.widgets.Ta.prototype.an.apply(this, [b, c])
 	},
 	Wk : function(b, c) {
 		if (this.ql)
 			this.ql = false;
-		GameFramework.l.Ta.prototype.Wk.apply(this, [b, c])
+		GameFramework.widgets.Ta.prototype.Wk.apply(this, [b, c])
 	},
 	ca : function() {
-		GameFramework.l.Ta.prototype.ca.apply(this)
+		GameFramework.widgets.Ta.prototype.ca.apply(this)
 	},
 	Te : function() {
 		if (!this.zl) {
 			this.zl = true;
-			var b = new GameFramework.l.ih(GameFramework.l.ih.CLOSED, this);
+			var b = new GameFramework.widgets.ih(GameFramework.widgets.ih.CLOSED, this);
 			b.rB = this.Fi;
 			this.ld(b);
 			this.Qb.pn(this)
@@ -12331,55 +12331,55 @@ GameFramework.l.rb.prototype = {
 	},
 	wS : function() {
 		if (!this.zl)
-			this.Fi = GameFramework.l.rb.BS, this.Te()
+			this.Fi = GameFramework.widgets.rb.BS, this.Te()
 	},
 	G1 : function() {
 		if (!this.zl)
-			this.Fi = GameFramework.l.rb.V1, this.Te()
+			this.Fi = GameFramework.widgets.rb.V1, this.Te()
 	}
 };
-GameFramework.l.rb.c = function() {
-	GameFramework.l.rb.DZ = 0;
-	GameFramework.l.rb.Io = 1;
-	GameFramework.l.rb.EZ = 2;
-	GameFramework.l.rb.Zp = 3;
-	GameFramework.l.rb.TZ = 0;
-	GameFramework.l.rb.VI = 1;
-	GameFramework.l.rb.SZ = 2;
-	GameFramework.l.rb.RI = 3;
-	GameFramework.l.rb.SI = 4;
-	GameFramework.l.rb.CD = 5;
-	GameFramework.l.rb.TP = 6;
-	GameFramework.l.rb.BS = 1E3;
-	GameFramework.l.rb.V1 = 1001;
-	GameFramework.l.rb.mea = 1E3;
-	GameFramework.l.rb.U1 = 1001;
-	GameFramework.l.rb.lea = 1E3
+GameFramework.widgets.rb.c = function() {
+	GameFramework.widgets.rb.DZ = 0;
+	GameFramework.widgets.rb.Io = 1;
+	GameFramework.widgets.rb.EZ = 2;
+	GameFramework.widgets.rb.Zp = 3;
+	GameFramework.widgets.rb.TZ = 0;
+	GameFramework.widgets.rb.VI = 1;
+	GameFramework.widgets.rb.SZ = 2;
+	GameFramework.widgets.rb.RI = 3;
+	GameFramework.widgets.rb.SI = 4;
+	GameFramework.widgets.rb.CD = 5;
+	GameFramework.widgets.rb.TP = 6;
+	GameFramework.widgets.rb.BS = 1E3;
+	GameFramework.widgets.rb.V1 = 1001;
+	GameFramework.widgets.rb.mea = 1E3;
+	GameFramework.widgets.rb.U1 = 1001;
+	GameFramework.widgets.rb.lea = 1E3
 };
 T(function() {
-			GameFramework.l.rb.u("GameFramework.widgets.Dialog",
-					GameFramework.l.Ta)
+			GameFramework.widgets.rb.u("GameFramework.widgets.Dialog",
+					GameFramework.widgets.Ta)
 		});
 U(function() {
-			GameFramework.l.rb.c()
+			GameFramework.widgets.rb.c()
 		});
-GameFramework.l.DF = t();
-GameFramework.l.DF.prototype = {
+GameFramework.widgets.DF = t();
+GameFramework.widgets.DF.prototype = {
 	QG : null,
 	s : 0
 };
-GameFramework.l.DF.c = t();
+GameFramework.widgets.DF.c = t();
 T(function() {
-			GameFramework.l.DF.u("GameFramework.widgets.WidthCheckEntry", null)
+			GameFramework.widgets.DF.u("GameFramework.widgets.WidthCheckEntry", null)
 		});
 U(function() {
-			GameFramework.l.DF.c()
+			GameFramework.widgets.DF.c()
 		});
-GameFramework.l.ig = function() {
+GameFramework.widgets.ig = function() {
 	this.BI = [];
 	this.pe = Array.O(5, null, 4294967295, 4278190080, 4278190080, 4278190080,
 			4294967295);
-	E(GameFramework.l.ig, this);
+	E(GameFramework.widgets.ig, this);
 	this.U = null;
 	this.uN = false;
 	this.xr = this.bc = -1;
@@ -12390,7 +12390,7 @@ GameFramework.l.ig = function() {
 	this.VV = 40;
 	this.kx = -1
 };
-GameFramework.l.ig.prototype = {
+GameFramework.widgets.ig.prototype = {
 	sI : null,
 	Za : "",
 	wC : null,
@@ -12431,18 +12431,18 @@ GameFramework.l.ig.prototype = {
 		return this.wC
 	},
 	Lb : function(b, c, d, f) {
-		GameFramework.l.Ta.prototype.Lb.apply(this, [b, c, d, f]);
+		GameFramework.widgets.Ta.prototype.Lb.apply(this, [b, c, d, f]);
 		this.lv(false)
 	},
 	ja : function(b) {
 		this.cE();
-		var c = b.Q(this.pe[GameFramework.l.ig.TP]);
+		var c = b.Q(this.pe[GameFramework.widgets.ig.TP]);
 		try {
 			b.fc(-1, -1, this.s - 1, this.z - 1)
 		} finally {
 			c.t()
 		}
-		c = b.Q(this.pe[GameFramework.l.ig.CD]);
+		c = b.Q(this.pe[GameFramework.widgets.ig.CD]);
 		try {
 			b.fc(1, 1, this.s - 2, this.z - 2)
 		} finally {
@@ -12459,14 +12459,14 @@ GameFramework.l.ig.prototype = {
 				if (this.bc != -1 && h >= this.bc && h < this.Qa
 						|| h >= this.Qa && h < this.bc)
 					if (d == 0) {
-						j = b.Q(this.pe[GameFramework.l.ig.TI]);
+						j = b.Q(this.pe[GameFramework.widgets.ig.TI]);
 						try {
 							b.fc(this.eB(f, c), 1, k + 3, this.z - 2)
 						} finally {
 							j.t()
 						}
 					} else {
-						var l = b.Q(this.pe[GameFramework.l.ig.SP]);
+						var l = b.Q(this.pe[GameFramework.widgets.ig.SP]);
 						try {
 							this.U.ja(b, "" + String.fromCharCode(j), this.eB(
 											f, c), (this.z - this.U.Sl()) / 2
@@ -12476,7 +12476,7 @@ GameFramework.l.ig.prototype = {
 						}
 					}
 				else if (d == 1) {
-					l = b.Q(this.pe[GameFramework.l.ig.UZ]);
+					l = b.Q(this.pe[GameFramework.widgets.ig.UZ]);
 					try {
 						this.U.ja(b, "" + String.fromCharCode(j),
 								this.eB(f, c), (this.z - this.U.Sl()) / 2
@@ -12490,7 +12490,7 @@ GameFramework.l.ig.prototype = {
 			}
 			if (d == 0 && this.xu) {
 				g = this.eB(g, c);
-				f = b.Q(this.pe[GameFramework.l.ig.TI]);
+				f = b.Q(this.pe[GameFramework.widgets.ig.TI]);
 				try {
 					b.fc(g + 3, 1, 3, this.z - 2)
 				} finally {
@@ -12507,16 +12507,16 @@ GameFramework.l.ig.prototype = {
 		return b + (this.s - c)
 	},
 	PJ : function() {
-		GameFramework.l.Ta.prototype.PJ.apply(this);
+		GameFramework.widgets.Ta.prototype.PJ.apply(this);
 		this.xu = true;
 		this.mB = 0
 	},
 	EE : function() {
-		GameFramework.l.Ta.prototype.EE.apply(this);
+		GameFramework.widgets.Ta.prototype.EE.apply(this);
 		this.xu = false
 	},
 	ca : function() {
-		GameFramework.l.Ta.prototype.ca.apply(this);
+		GameFramework.widgets.Ta.prototype.ca.apply(this);
 		if (this.vN && ++this.mB > this.VV)
 			this.mB = 0, this.xu = !this.xu
 	},
@@ -12607,7 +12607,7 @@ GameFramework.l.ig.prototype = {
 						: b == GameFramework.la.fz
 								? this.Qa = this.Za.length
 								: b == GameFramework.la.P3
-										? (d = new GameFramework.l.wa(GameFramework.l.wa.aR), d.Za = this.Za, this
+										? (d = new GameFramework.widgets.wa(GameFramework.widgets.wa.aR), d.Za = this.Za, this
 												.ld(d))
 										: (d = c | 0, f = ""
 												+ String.fromCharCode(c), d >= 32
@@ -12667,11 +12667,11 @@ GameFramework.l.ig.prototype = {
 	},
 	Aq : function(b) {
 		((b | 0) < 65 || (b | 0) >= 90) && this.sT(b, 0);
-		GameFramework.l.Ta.prototype.Aq.apply(this, [b])
+		GameFramework.widgets.Ta.prototype.Aq.apply(this, [b])
 	},
 	Tk : function(b) {
 		this.sI.bR(this, b) && this.sT(0, b);
-		GameFramework.l.Ta.prototype.Tk.apply(this, [b])
+		GameFramework.widgets.Ta.prototype.Tk.apply(this, [b])
 	},
 	Fs : function(b) {
 		var c = 0, d = this.cE(), f = 0;
@@ -12698,13 +12698,13 @@ GameFramework.l.ig.prototype = {
 						| 0
 	},
 	Af : function(b, c) {
-		GameFramework.l.Ta.prototype.Af.apply(this, [b, c]);
+		GameFramework.widgets.Ta.prototype.Af.apply(this, [b, c]);
 		this.bc = -1;
 		this.Qa = this.Fs(b, c);
 		this.lv(false)
 	},
 	Wk : function(b, c) {
-		GameFramework.l.Ta.prototype.Wk.apply(this, [b, c]);
+		GameFramework.widgets.Ta.prototype.Wk.apply(this, [b, c]);
 		if (this.bc == this.Qa)
 			this.bc = -1;
 		if (this.uN)
@@ -12731,25 +12731,25 @@ GameFramework.l.ig.prototype = {
 		}
 	},
 	Ys : function() {
-		GameFramework.l.Ta.prototype.Ys.apply(this)
+		GameFramework.widgets.Ta.prototype.Ys.apply(this)
 	},
 	kn : function() {
-		GameFramework.l.Ta.prototype.kn.apply(this)
+		GameFramework.widgets.Ta.prototype.kn.apply(this)
 	}
 };
-GameFramework.l.ig.c = function() {
-	GameFramework.l.ig.CD = 0;
-	GameFramework.l.ig.TP = 1;
-	GameFramework.l.ig.UZ = 2;
-	GameFramework.l.ig.TI = 3;
-	GameFramework.l.ig.SP = 4
+GameFramework.widgets.ig.c = function() {
+	GameFramework.widgets.ig.CD = 0;
+	GameFramework.widgets.ig.TP = 1;
+	GameFramework.widgets.ig.UZ = 2;
+	GameFramework.widgets.ig.TI = 3;
+	GameFramework.widgets.ig.SP = 4
 };
 T(function() {
-			GameFramework.l.ig.u("GameFramework.widgets.EditWidget",
-					GameFramework.l.Ta)
+			GameFramework.widgets.ig.u("GameFramework.widgets.EditWidget",
+					GameFramework.widgets.Ta)
 		});
 U(function() {
-			GameFramework.l.ig.c()
+			GameFramework.widgets.ig.c()
 		});
 Game.nt = function(b, c) {
 	b === UNDEF && (b = null);
@@ -12784,10 +12784,10 @@ Game.nt.prototype = {
 			this.af = 0;
 		else if (this.af > 1)
 			this.af = 1;
-		this.af != c && this.ld(new GameFramework.l.wa(GameFramework.l.wa.DA))
+		this.af != c && this.ld(new GameFramework.widgets.wa(GameFramework.widgets.wa.DA))
 	},
 	ca : function() {
-		GameFramework.l.Ta.prototype.ca.apply(this);
+		GameFramework.widgets.Ta.prototype.ca.apply(this);
 		this.h9 = this.g9 = false
 	},
 	ja : function(b) {
@@ -12831,7 +12831,7 @@ Game.nt.prototype = {
 					| 0, c >= f && c < f + d
 					? (this.ql = true, this.eY = c - f)
 					: this.lF(c / this.z);
-		GameFramework.l.Ta.prototype.Af.apply(this, [b, c])
+		GameFramework.widgets.Ta.prototype.Af.apply(this, [b, c])
 	},
 	uK : function(b, c) {
 		if (this.ql) {
@@ -12846,55 +12846,55 @@ Game.nt.prototype = {
 			if (this.af > 1)
 				this.af = 1;
 			this.af != d
-					&& this.ld(new GameFramework.l.wa(GameFramework.l.wa.DA))
+					&& this.ld(new GameFramework.widgets.wa(GameFramework.widgets.wa.DA))
 		}
 	},
 	Wk : function(b, c) {
 		this.ql = false;
-		this.ld(new GameFramework.l.wa(GameFramework.l.wa.DA));
-		GameFramework.l.Ta.prototype.Wk.apply(this, [b, c])
+		this.ld(new GameFramework.widgets.wa(GameFramework.widgets.wa.DA));
+		GameFramework.widgets.Ta.prototype.Wk.apply(this, [b, c])
 	},
 	kn : function() {
-		GameFramework.l.Ta.prototype.kn.apply(this)
+		GameFramework.widgets.Ta.prototype.kn.apply(this)
 	}
 };
 Game.nt.c = t();
 T(function() {
-			Game.nt.u("Game.Slider", GameFramework.l.Ta)
+			Game.nt.u("Game.Slider", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.nt.c()
 		});
-GameFramework.l.wa = function(b) {
-	E(GameFramework.l.wa, this, [b])
+GameFramework.widgets.wa = function(b) {
+	E(GameFramework.widgets.wa, this, [b])
 };
-GameFramework.l.wa.prototype = {
+GameFramework.widgets.wa.prototype = {
 	w : 0,
 	v : 0,
 	Za : null,
 	hH : null,
 	KN : 0
 };
-GameFramework.l.wa.c = function() {
-	GameFramework.l.wa.Ld = "clicked";
-	GameFramework.l.wa.Fq = "mouse_down";
-	GameFramework.l.wa.XS = "mouse_up";
-	GameFramework.l.wa.WS = "mouse_enter";
-	GameFramework.l.wa.E2 = "mouse_leave";
-	GameFramework.l.wa.aR = "edit_text";
-	GameFramework.l.wa.NP = "checkbox_checked";
-	GameFramework.l.wa.DA = "slider_changed";
-	GameFramework.l.wa.coa = "slider_release";
-	GameFramework.l.wa.MS = "key_down";
-	GameFramework.l.wa.NS = "key_down";
-	GameFramework.l.wa.kK = "key_char"
+GameFramework.widgets.wa.c = function() {
+	GameFramework.widgets.wa.Ld = "clicked";
+	GameFramework.widgets.wa.Fq = "mouse_down";
+	GameFramework.widgets.wa.XS = "mouse_up";
+	GameFramework.widgets.wa.WS = "mouse_enter";
+	GameFramework.widgets.wa.E2 = "mouse_leave";
+	GameFramework.widgets.wa.aR = "edit_text";
+	GameFramework.widgets.wa.NP = "checkbox_checked";
+	GameFramework.widgets.wa.DA = "slider_changed";
+	GameFramework.widgets.wa.coa = "slider_release";
+	GameFramework.widgets.wa.MS = "key_down";
+	GameFramework.widgets.wa.NS = "key_down";
+	GameFramework.widgets.wa.kK = "key_char"
 };
 T(function() {
-			GameFramework.l.wa.u("GameFramework.widgets.WidgetEvent",
+			GameFramework.widgets.wa.u("GameFramework.widgets.WidgetEvent",
 					GameFramework.gb.Mc)
 		});
 U(function() {
-			GameFramework.l.wa.c()
+			GameFramework.widgets.wa.c()
 		});
 GameFramework = Type.ci("GameFramework");
 GameFramework.JSBaseApp = function() {
@@ -14363,7 +14363,7 @@ Game.Tb.prototype = {
 	t : function() {
 		this.hf != null && this.pn(this.hf);
 		this.UK(true);
-		GameFramework.l.Ta.prototype.t.apply(this)
+		GameFramework.widgets.Ta.prototype.t.apply(this)
 	},
 	ja : function(b) {
 		var c = false, d = this.n != GameFramework.gfx.k.pi;
@@ -14400,7 +14400,7 @@ Game.Tb.prototype = {
 		this.JW.V()
 	},
 	ca : function() {
-		GameFramework.l.Ta.prototype.ca.apply(this);
+		GameFramework.widgets.Ta.prototype.ca.apply(this);
 		var b = this.Hk;
 		this.Hk = Game.BejApp.q.Ka.vt && Game.BejApp.q.kc();
 		b != this.Hk && this.Hk && this.hf == null && this.CU(this.Dt);
@@ -14471,7 +14471,7 @@ Game.Tb.c = function() {
 	Game.Tb.iC = Array.O(Game.Tb.lm.length, null)
 };
 T(function() {
-			Game.Tb.u("Game.Background", GameFramework.l.Ta)
+			Game.Tb.u("Game.Background", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.Tb.c()
@@ -14483,13 +14483,13 @@ Game.Lk.prototype = {
 	m : 1,
 	ja : function(b) {
 		this.m != 1 && b.nc(this.m, this.m, this.s / 2, this.z / 2);
-		GameFramework.l.td.prototype.ja.apply(this, [b]);
+		GameFramework.widgets.td.prototype.ja.apply(this, [b]);
 		this.m != 1 && b.Ab()
 	}
 };
 Game.Lk.c = t();
 T(function() {
-			Game.Lk.u("Game.Bej3Button", GameFramework.l.td)
+			Game.Lk.u("Game.Bej3Button", GameFramework.widgets.td)
 		});
 U(function() {
 			Game.Lk.c()
@@ -14508,13 +14508,13 @@ Game.Wu.prototype = {
 	Ok : function(b) {
 		var c = b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.L | 0));
 		try {
-			GameFramework.l.td.prototype.Ok.apply(this, [b])
+			GameFramework.widgets.td.prototype.Ok.apply(this, [b])
 		} finally {
 			c.t()
 		}
 	},
 	ca : function() {
-		GameFramework.l.td.prototype.ca.apply(this);
+		GameFramework.widgets.td.prototype.ca.apply(this);
 		this.dh
 				&& this.gP != null
 				&& this.gP.length > 0
@@ -14524,18 +14524,18 @@ Game.Wu.prototype = {
 										this.v + 0), 400, Game.rh.Wc.CP, 10)
 	},
 	Ys : function() {
-		GameFramework.l.td.prototype.Ys.apply(this);
+		GameFramework.widgets.td.prototype.Ys.apply(this);
 		Game.BejApp.q.mi(Game.a.SOUND_BUTTON_MOUSEOVER)
 	},
 	kn : function() {
-		GameFramework.l.td.prototype.kn.apply(this);
+		GameFramework.widgets.td.prototype.kn.apply(this);
 		Game.BejApp.q.mi(Game.a.SOUND_BUTTON_MOUSELEAVE);
 		Game.BejApp.q.OX = -10
 	}
 };
 Game.Wu.c = t();
 T(function() {
-			Game.Wu.u("Game.Bej3DialogButton", GameFramework.l.td)
+			Game.Wu.u("Game.Bej3DialogButton", GameFramework.widgets.td)
 		});
 U(function() {
 			Game.Wu.c()
@@ -14574,7 +14574,7 @@ Game.Qc.prototype = {
 	PM : null,
 	B8 : null,
 	ja : function(b) {
-		GameFramework.l.rb.prototype.ja.apply(this, [b])
+		GameFramework.widgets.rb.prototype.ja.apply(this, [b])
 	},
 	Ok : function(b) {
 		this.L.D() != 1 && b.Q(GameFramework.gfx.k.Jb(this.L.D()));
@@ -14586,12 +14586,12 @@ Game.Qc.prototype = {
 				d = this.QH, f = this.MO;
 			b.nc(this.m.D(), this.m.D(), d, f)
 		}
-		GameFramework.l.rb.prototype.Ok.apply(this, [b]);
+		GameFramework.widgets.rb.prototype.Ok.apply(this, [b]);
 		c && b.Ab();
 		this.L.D() != 1 && b.pb()
 	},
 	ca : function() {
-		GameFramework.l.rb.prototype.ca.apply(this);
+		GameFramework.widgets.rb.prototype.ca.apply(this);
 		this.QH = this.s / 2;
 		this.MO = this.z / 2;
 		this.L.$a();
@@ -14601,7 +14601,7 @@ Game.Qc.prototype = {
 	Te : function() {
 		if (!this.zl) {
 			this.zl = true;
-			var b = new GameFramework.l.ih(GameFramework.l.ih.CLOSED, this);
+			var b = new GameFramework.widgets.ih(GameFramework.widgets.ih.CLOSED, this);
 			b.rB = this.Fi;
 			this.ld(b);
 			b = this.m.V();
@@ -14616,8 +14616,8 @@ Game.Qc.prototype = {
 		this.rQ(c, b);
 		c.U = Game.a.FONT_DIALOG_BUTTONS;
 		c.LN = -4;
-		c.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.Mi));
-		c.Ra(GameFramework.l.wa.Fq, ss.ra.create(this, this.MP));
+		c.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Mi));
+		c.Ra(GameFramework.widgets.wa.Fq, ss.ra.create(this, this.MP));
 		return c
 	},
 	O2 : function(b, c) {
@@ -14630,28 +14630,28 @@ Game.Qc.prototype = {
 		b.kb(Game.a.FONT_DIALOG_BUTTONS);
 		this.Bc(b);
 		Game.BejApp.q.Hy(b);
-		b.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.Mi));
-		b.Ra(GameFramework.l.wa.Fq, ss.ra.create(this, this.MP));
+		b.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Mi));
+		b.Ra(GameFramework.widgets.wa.Fq, ss.ra.create(this, this.MP));
 		return b
 	},
 	Aq : function(b) {
 		if (b == GameFramework.la.fR && this.YV
 				&& (b = this.Fg != null ? this.Fg : this.tb, b != null)) {
-			var c = new GameFramework.l.wa(GameFramework.l.wa.Ld);
+			var c = new GameFramework.widgets.wa(GameFramework.widgets.wa.Ld);
 			c.w = b.w;
 			c.v = b.v;
 			b.ld(c)
 		}
 	},
 	Af : function(b, c) {
-		GameFramework.l.rb.prototype.Af.apply(this, [b, c])
+		GameFramework.widgets.rb.prototype.Af.apply(this, [b, c])
 	},
 	MP : t(),
 	Mi : t()
 };
 Game.Qc.c = t();
 T(function() {
-			Game.Qc.u("Game.Bej3Dialog", GameFramework.l.rb)
+			Game.Qc.u("Game.Bej3Dialog", GameFramework.widgets.rb)
 		});
 U(function() {
 			Game.Qc.c()
@@ -14743,7 +14743,7 @@ Game.zw.prototype = {
 		this.xl = true;
 		this.ag.Ub(Game.a.FONT_FLAREGOTHIC16);
 		GameFramework.BaseApp.M
-				.Ra(GameFramework.l.wa.kK, ss.ra.create(this, this.E1))
+				.Ra(GameFramework.widgets.wa.kK, ss.ra.create(this, this.E1))
 	},
 	E1 : function(b) {
 		this.xl
@@ -14755,11 +14755,11 @@ Game.zw.prototype = {
 										.sz())))
 	},
 	ca : function() {
-		this.xl && (GameFramework.l.Ta.prototype.ca.apply(this), this.ag.ca())
+		this.xl && (GameFramework.widgets.Ta.prototype.ca.apply(this), this.ag.ca())
 	},
 	ja : function(b) {
 		if (this.xl
-				&& (GameFramework.l.Ta.prototype.ja.apply(this, [b]), this.ag
+				&& (GameFramework.widgets.Ta.prototype.ja.apply(this, [b]), this.ag
 						.ja(b, 10, Game.BejApp.q.z + 20), Game.BejApp.q.hr))
 			for (var c = 0; c < 2; ++c) {
 				c == 0 && (b.Q(4278190080), b.gc(-1, -1));
@@ -14776,7 +14776,7 @@ Game.zw.prototype = {
 };
 Game.zw.c = t();
 T(function() {
-			Game.zw.u("Game.TopWidget", GameFramework.l.Ta)
+			Game.zw.u("Game.TopWidget", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.zw.c()
@@ -14902,18 +14902,18 @@ Game.BejApp.prototype = {
 		}
 	},
 	Hy : function(b) {
-		b.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.j3));
-		b.Ra(GameFramework.l.wa.Fq, ss.ra.create(this, this.k3))
+		b.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.j3));
+		b.Ra(GameFramework.widgets.wa.Fq, ss.ra.create(this, this.k3))
 	},
 	LP : function(b) {
 		b = b.target;
-		Type.vf(b.Qb, GameFramework.l.rb) ? b.Qb.Te() : b.Qb.Qb.pn(b.Qb)
+		Type.vf(b.Qb, GameFramework.widgets.rb) ? b.Qb.Te() : b.Qb.Qb.pn(b.Qb)
 	},
 	$v : function(b) {
 		this.mi(b)
 	},
 	k3 : function(b) {
-		b = Type.di(b.target, GameFramework.l.td);
+		b = Type.di(b.target, GameFramework.widgets.td);
 		b != null && b.pl || this.mi(Game.a.SOUND_BUTTON_PRESS)
 	},
 	j3 : function() {
@@ -14970,7 +14970,7 @@ Game.BejApp.prototype = {
 						new GameFramework.W.cb("WebGL", this.kc()),
 						new GameFramework.W.cb("ArtRes", this.aj),
 						new GameFramework.W.cb("PlatformInfo", this.UY)]);
-		this.Nh = new GameFramework.l.cv;
+		this.Nh = new GameFramework.widgets.cv;
 		this.Nh.Uc = this.Uc;
 		this.fe = this.Nh.fe;
 		this.pt(this.Nh)
@@ -14984,7 +14984,7 @@ Game.BejApp.prototype = {
 		this.w = -this.fe.w | 0;
 		this.ix = this.s + this.fe.w * 2;
 		this.hx = this.z;
-		this.nx = new GameFramework.l.Ta;
+		this.nx = new GameFramework.widgets.Ta;
 		this.fe.Bc(this.nx);
 		this.te = new Game.Nk;
 		this.fe.Bc(this.te);
@@ -15128,7 +15128,7 @@ Game.BejApp.prototype = {
 		b.gL(Game.a.FONT_DIALOG_HEADER);
 		b.aU(Game.a.FONT_DIALOG_TEXT);
 		b.Fd = new GameFramework.sj(128, 20, 128, 64);
-		b.am(GameFramework.l.rb.VI, 4278190080);
+		b.am(GameFramework.widgets.rb.VI, 4278190080);
 		b.Qr = 32;
 		b.Lb(300, 300, 1E3, b.Qo(1E3));
 		this.te.Ho(b);
@@ -16405,8 +16405,8 @@ Game.r.prototype = {
 		if (this.yo == Game.r.Pi.OA || this.yo == Game.r.Pi.Dw) {
 			if (this.Ib == null) {
 				this.Ib = new Game.Lk(Game.r.el.FZ | 0);
-				this.Ib.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.O1));
-				this.Ib.Ra(GameFramework.l.wa.Fq, ss.ra.create(this, this.OI));
+				this.Ib.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.O1));
+				this.Ib.Ra(GameFramework.widgets.wa.Fq, ss.ra.create(this, this.OI));
 				if (this.yo == Game.r.Pi.OA)
 					this.Ib.wb = Game.a.IMAGE_BOARD_HINT_BUTTON_CLASSIC;
 				else if (this.yo == Game.r.Pi.Dw)
@@ -16426,8 +16426,8 @@ Game.r.prototype = {
 					this.fd.wb = Game.a.IMAGE_BOARD_MENU_BUTTON_CLASSIC;
 				else if (this.yo == Game.r.Pi.Dw)
 					this.fd.wb = Game.a.IMAGE_BOARD_MENU_BUTTON_LIGHTNING;
-				this.fd.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.Wz));
-				this.fd.Ra(GameFramework.l.wa.Fq, ss.ra.create(this, this.OI));
+				this.fd.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Wz));
+				this.fd.Ra(GameFramework.widgets.wa.Fq, ss.ra.create(this, this.OI));
 				this.fd.rm = this.fd.wb;
 				this.fd.Sj = this.fd.wb;
 				this.fd.Rj = 1;
@@ -16442,9 +16442,9 @@ Game.r.prototype = {
 			case Game.r.Pi.Dw :
 				if (this.hd == null)
 					this.hd = new Game.Lk(Game.r.el.HZ | 0), this.hd.wb = Game.a.IMAGE_BOARD_RESET_BUTTON_LIGHTNING, this.hd
-							.Ra(GameFramework.l.wa.Ld, ss.ra.create(this,
+							.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this,
 											this.L3)), this.hd.Ra(
-							GameFramework.l.wa.Fq, ss.ra.create(this, this.OI)), this.hd.rm = this.hd.wb, this.hd.Sj = this.hd.wb, this.hd.Rj = 1, this.hd.On = 1, this.hd.Uw = 50, this.hd
+							GameFramework.widgets.wa.Fq, ss.ra.create(this, this.OI)), this.hd.rm = this.hd.wb, this.hd.Sj = this.hd.wb, this.hd.Rj = 1, this.hd.On = 1, this.hd.Uw = 50, this.hd
 							.Lb(this.is + this.hd.wb.sf + 0, this.hd.wb.Oe,
 									this.hd.wb.s, this.hd.wb.z), this
 							.Bc(this.hd)
@@ -16563,7 +16563,7 @@ Game.r.prototype = {
 		this.qc.clear();
 		this.Jf = null;
 		this.kQ();
-		GameFramework.l.Ta.prototype.t.apply(this);
+		GameFramework.widgets.Ta.prototype.t.apply(this);
 		if (this.Jg != null)
 			this.Jg.t(), this.Jg = null;
 		if (this.ob != null)
@@ -18772,7 +18772,7 @@ Game.r.prototype = {
 		Game.BejApp.q.te.Ho(b);
 		b.w = this.Se() - b.s / 2;
 		b.v = 200;
-		b.Ra(GameFramework.l.ih.CLOSED, ss.ra.create(this, this.L6))
+		b.Ra(GameFramework.widgets.ih.CLOSED, ss.ra.create(this, this.L6))
 	},
 	L6 : function(b) {
 		if (b.rB == (Game.ph.cn.JP | 0))
@@ -18789,9 +18789,9 @@ Game.r.prototype = {
 		if (!this.xc.Hz() && this.pf == 0) {
 			var b = Game.BejApp.q.gq("RESET",
 					"Abandon the current game and start over?", "",
-					GameFramework.l.rb.Io, Game.f.mb.JK);
+					GameFramework.widgets.rb.Io, Game.f.mb.JK);
 			b.Lb(this.Se() - 425, 350, 850, b.Qo(850));
-			b.Ra(GameFramework.l.ih.CLOSED, ss.ra.create(this, this.R6))
+			b.Ra(GameFramework.widgets.ih.CLOSED, ss.ra.create(this, this.R6))
 		}
 	},
 	R6 : function(b) {
@@ -19118,7 +19118,7 @@ Game.r.prototype = {
 						c = new Game.vq(c, d, true);
 						c.wo = b.wo;
 						Game.BejApp.q.te.Ho(c);
-						c.Ra(GameFramework.l.ih.CLOSED, ss.ra.create(this,
+						c.Ra(GameFramework.widgets.ih.CLOSED, ss.ra.create(this,
 										this.D1));
 						c.Pt = 1;
 						b = this.lh(b.lu);
@@ -19727,7 +19727,7 @@ Game.r.prototype = {
 								if (d.eh += 0.02, d.eh >= 1)
 									d.eh = 0
 					} else
-						this.z5(), GameFramework.l.Ta.prototype.ca.apply(this), this
+						this.z5(), GameFramework.widgets.Ta.prototype.ca.apply(this), this
 								.s5()
 				}
 		}
@@ -20643,7 +20643,7 @@ Game.r.prototype = {
 			this.zQ();
 			c && b.nc(this.m.D(), this.m.D(), 800, 600);
 			this.gx
-					&& (b.sa.Ca += this.Ir, b.sa.Da += this.lo, GameFramework.l.Ta.prototype.Ok
+					&& (b.sa.Ca += this.Ir, b.sa.Da += this.lo, GameFramework.widgets.Ta.prototype.Ok
 							.apply(this, [b]), b.sa.Ca -= this.Ir, b.sa.Da -= this.lo);
 			c && b.Ab()
 		}
@@ -20652,7 +20652,7 @@ Game.r.prototype = {
 		return this.xc.P5() && this.xc.vE(b, c)
 	},
 	Af : function(b, c) {
-		GameFramework.l.Ta.prototype.Af.apply(this, [b, c]);
+		GameFramework.widgets.Ta.prototype.Af.apply(this, [b, c]);
 		if (this.dh && !(this.L.D() != 1 || this.m.D() != 1))
 			if (this.es || this.Bo > 0.5)
 				this.es = false;
@@ -20697,7 +20697,7 @@ Game.r.prototype = {
 			}
 	},
 	Wk : function(b, c) {
-		GameFramework.l.Ta.prototype.Wk.apply(this, [b, c]);
+		GameFramework.widgets.Ta.prototype.Wk.apply(this, [b, c]);
 		this.wH = false;
 		var d = this.Ro();
 		d != null && d == this.oC && !this.hn(d)
@@ -20707,7 +20707,7 @@ Game.r.prototype = {
 	ln : function(b, c) {
 		this.ao = b;
 		this.bo = c;
-		GameFramework.l.Ta.prototype.ln.apply(this, [b, c]);
+		GameFramework.widgets.Ta.prototype.ln.apply(this, [b, c]);
 		(this.Vn || this.wd.hK(GameFramework.la.Ty)) && this.uK(b | 0, c | 0)
 	},
 	uK : function(b, c) {
@@ -20733,7 +20733,7 @@ Game.r.prototype = {
 		}
 	},
 	Pz : function(b) {
-		GameFramework.l.Ta.prototype.Pz.apply(this, [b]);
+		GameFramework.widgets.Ta.prototype.Pz.apply(this, [b]);
 		if (b == GameFramework.la.Ty && (b = this.Ro(), b != null))
 			b.ij = false, b.Gi.Aa(0), this.oC = null
 	},
@@ -20815,7 +20815,7 @@ Game.r.prototype = {
 		}
 	},
 	Tk : function(b) {
-		GameFramework.l.Ta.prototype.Tk.apply(this, [b]);
+		GameFramework.widgets.Ta.prototype.Tk.apply(this, [b]);
 		if (Game.BejApp.q.hr) {
 			var c = this.rq(this.ao | 0, this.bo | 0);
 			if (b == 116)
@@ -20976,7 +20976,7 @@ Game.r.c = function() {
 	Game.r.Rn = Array.O(9, null)
 };
 T(function() {
-			Game.r.u("Game.Board", GameFramework.l.Ta)
+			Game.r.u("Game.Board", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.r.c()
@@ -21417,7 +21417,7 @@ Game.kd.prototype = {
 		return (d * d + f * f) * 0.1675 / this.m.D() < 15E3
 	},
 	nh : function(b, c) {
-		GameFramework.l.td.prototype.nh.apply(this, [b, c]);
+		GameFramework.widgets.td.prototype.nh.apply(this, [b, c]);
 		var d = new GameFramework.geom.xb;
 		d.th();
 		var f = this.m.V();
@@ -21562,13 +21562,13 @@ Game.kd.prototype = {
 		}
 	},
 	ca : function() {
-		GameFramework.l.td.prototype.ca.apply(this);
+		GameFramework.widgets.td.prototype.ca.apply(this);
 		if (this.ec)
 			++this.aa, this.sr.ca(), this.Mr.ca(), this.nC = this.dh ? Math
 					.min(1, this.nC + 0.05) : Math.max(0, this.nC - 0.05)
 	},
 	Af : function(b, c) {
-		GameFramework.l.td.prototype.Af.apply(this, [b, c])
+		GameFramework.widgets.td.prototype.Af.apply(this, [b, c])
 	}
 };
 Game.kd.c = function() {
@@ -21576,7 +21576,7 @@ Game.kd.c = function() {
 	Game.kd.Yk = 30
 };
 T(function() {
-			Game.kd.u("Game.CrystalBall", GameFramework.l.td)
+			Game.kd.u("Game.CrystalBall", GameFramework.widgets.td)
 		});
 U(function() {
 			Game.kd.c()
@@ -21677,7 +21677,7 @@ Game.Nk.prototype = {
 		}
 		f < 0 && (f = 0);
 		for (g = 0; g < this.cf.length; ++g) {
-			var h = Type.di(this.cf[g], GameFramework.l.Ta);
+			var h = Type.di(this.cf[g], GameFramework.widgets.Ta);
 			if (h.ec) {
 				g == f && this.pV(b);
 				var j = b.gc(h.w, h.v);
@@ -21704,7 +21704,7 @@ Game.Nk.prototype = {
 		}
 	},
 	ca : function() {
-		GameFramework.l.Ta.prototype.ca.apply(this);
+		GameFramework.widgets.Ta.prototype.ca.apply(this);
 		this.Ht.D() != 0
 				&& this.Ht.Js() != 0
 				&& (this.se.length == 0 || Type.vf(this.se[this.se.length - 1],
@@ -21741,7 +21741,7 @@ Game.Nk.c = function() {
 	Game.Nk.te = null
 };
 T(function() {
-			Game.Nk.u("Game.DialogMgr", GameFramework.l.Ta)
+			Game.Nk.u("Game.DialogMgr", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.Nk.c()
@@ -22160,7 +22160,7 @@ Game.lq.prototype = {
 		this.bq()
 	},
 	ca : function() {
-		GameFramework.l.Ta.prototype.ca.apply(this);
+		GameFramework.widgets.Ta.prototype.ca.apply(this);
 		if (!(this.e != null && this.e.En == 1)) {
 			this.s = GameFramework.BaseApp.M.s;
 			this.z = GameFramework.BaseApp.M.z;
@@ -22318,7 +22318,7 @@ Game.lq.prototype = {
 		this.EQ(b, false)
 	},
 	jq : function(b) {
-		GameFramework.l.Ta.prototype.jq.apply(this, [b]);
+		GameFramework.widgets.Ta.prototype.jq.apply(this, [b]);
 		this.EQ(b, true)
 	},
 	EQ : function(b, c) {
@@ -22549,7 +22549,7 @@ Game.lq.prototype = {
 };
 Game.lq.c = t();
 T(function() {
-			Game.lq.u("Game.EffectsManager", GameFramework.l.Ta)
+			Game.lq.u("Game.EffectsManager", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.lq.c()
@@ -22558,7 +22558,7 @@ Game.Xu = function() {
 	E(Game.Xu, this);
 	this.kb(Game.a.FONT_GAMEOVER_DIALOG);
 	GameFramework.BaseApp.M.kc()
-			|| (this.pe[GameFramework.l.ig.CD] = 4285554768, this.pe[GameFramework.l.ig.TI] = 4278190080, this.pe[GameFramework.l.ig.SP] = 4294967295)
+			|| (this.pe[GameFramework.widgets.ig.CD] = 4285554768, this.pe[GameFramework.widgets.ig.TI] = 4278190080, this.pe[GameFramework.widgets.ig.SP] = 4294967295)
 };
 Game.Xu.prototype = {
 	L : 1,
@@ -22566,7 +22566,7 @@ Game.Xu.prototype = {
 		this.L != 0
 				&& (this.L < 1 && b.Q(GameFramework.gfx.k.Jb(this.L)), Game.a.FONT_GAMEOVER_DIALOG
 						.Ia("OUTLINE", GameFramework.gfx.k.Ma(64, 24, 8, 0)), Game.a.FONT_GAMEOVER_DIALOG
-						.Ia("GLOW", GameFramework.gfx.k.Ma(0, 0, 0, 0)), GameFramework.l.ig.prototype.ja
+						.Ia("GLOW", GameFramework.gfx.k.Ma(0, 0, 0, 0)), GameFramework.widgets.ig.prototype.ja
 						.apply(this, [b]), Game.a.FONT_GAMEOVER_DIALOG
 						.ib("OUTLINE"), Game.a.FONT_GAMEOVER_DIALOG.ib("GLOW"), this.L < 1
 						&& b.pb())
@@ -22574,7 +22574,7 @@ Game.Xu.prototype = {
 };
 Game.Xu.c = t();
 T(function() {
-			Game.Xu.u("Game.Bej3EditWidget", GameFramework.l.ig)
+			Game.Xu.u("Game.Bej3EditWidget", GameFramework.widgets.ig)
 		});
 U(function() {
 			Game.Xu.c()
@@ -22624,20 +22624,20 @@ Game.Xc = function(b) {
 	c.Lb(this.s / 2 - (b / 2 | 0) + 325, this.z - this.Fd.bj - c.z + 0, b, c.z);
 	c.Id = "MAIN MENU";
 	this.We[c.xa] = c;
-	c.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.Mi));
+	c.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Mi));
 	this.Bc(c);
 	c = this.ME(Game.Xc.ug.qV | 0, b, Game.a.IMAGE_DIALOG_SMALL_BUTTON);
 	c.Lb(this.s / 2 - (b / 2 | 0) - 325, this.z - this.Fd.bj - c.z + 0, b, c.z);
 	c.Id = "RECORDS";
 	this.We[c.xa] = c;
-	c.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.Mi));
+	c.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Mi));
 	this.Bc(c);
 	b += 80;
 	c = this.O2(Game.Xc.ug.QF | 0, b);
 	c.Lb(this.s / 2 - (b / 2 | 0) - 0, this.z - this.Fd.bj - c.z + 10, b, c.z);
 	c.Id = "PLAY AGAIN";
 	this.We[c.xa] = c;
-	c.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.Mi));
+	c.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Mi));
 	this.Bc(c);
 	this.Pt = 100;
 	this.dM = false;
@@ -22697,7 +22697,7 @@ Game.Xc.prototype = {
 		if (this.VC != "") {
 			if (this.Vd == null)
 				this.Vd = new Game.Xu, this.Vd.V9(0), this.Vd.gU(
-						Game.BejApp.q.Ka.Km, false), this.Vd.Ra(GameFramework.l.wa.aR,
+						Game.BejApp.q.Ka.Km, false), this.Vd.Ra(GameFramework.widgets.wa.aR,
 						ss.ra.create(this, this.M6)), Game.BejApp.q.Nh.oi(this.Vd), this
 						.Bc(this.Vd), this.Vd.sI = this;
 			if (this.Yf == null)
@@ -22705,7 +22705,7 @@ Game.Xc.prototype = {
 						Game.a.IMAGE_DIALOG_SMALL_BUTTON), this.Yf.Lb(this.s
 								/ 2 - 140 + 325, this.z - this.Fd.bj
 								- this.Yf.z + 0, 280, this.Yf.z), this.Yf.Id = "OK", this.We[this.Yf.xa] = this.Yf, this.Yf
-						.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.Mi)), this
+						.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Mi)), this
 						.Bc(this.Yf);
 			this.Vd.Jx = 480;
 			this.Yf.nh(this.s / 2 - this.Yf.s / 2, 590);
@@ -22719,7 +22719,7 @@ Game.Xc.prototype = {
 	},
 	u4 : function() {
 		var b = Game.BejApp.q.gq("INVALID NAME", "Please enter a valid name.", "OK",
-				GameFramework.l.rb.Zp, Game.f.mb.DU), c = b.Qo(850);
+				GameFramework.widgets.rb.Zp, Game.f.mb.DU), c = b.Qo(850);
 		b.Lb(this.w + this.s / 2 - 425, this.v + this.z / 2 - c / 2, 850, c)
 	},
 	p2 : function() {
@@ -22742,7 +22742,7 @@ Game.Xc.prototype = {
 										? (this.m
 												.ea("b;0,1,0.01,0.25,~t4G         ~O###"), b = new Game.$l(true), Game.BejApp.q.te
 												.Ho(b), b.Ra(
-												GameFramework.l.ih.CLOSED,
+												GameFramework.widgets.ih.CLOSED,
 												ss.ra.create(this, this.P6)))
 										: b.target == this.We[Game.Xc.ug.$L | 0]
 												&& this.eQ())
@@ -22781,7 +22781,7 @@ Game.Xc.prototype = {
 				&& (Game.Qc.prototype.ca.apply(this), this.Jd.D() > 0
 						&& this.Vd != null && this.JU(), this.uB.$a(), Game.BejApp.q.uh != Game.f.xf.jk
 						&& !this.m.wg() && this.m.V() == 1 && this.aa >= 300)) {
-			var b = this.We[Game.Xc.ug.QF | 0], c = new GameFramework.l.wa(GameFramework.l.wa.Ld);
+			var b = this.We[Game.Xc.ug.QF | 0], c = new GameFramework.widgets.wa(GameFramework.widgets.wa.Ld);
 			c.w = b.w;
 			c.v = b.v;
 			b.ld(c)
@@ -22813,7 +22813,7 @@ Game.Xc.prototype = {
 	},
 	Aq : function(b) {
 		if (b == GameFramework.la.fR) {
-			var b = this.We[Game.Xc.ug.PF | 0], c = new GameFramework.l.wa(GameFramework.l.wa.Ld);
+			var b = this.We[Game.Xc.ug.PF | 0], c = new GameFramework.widgets.wa(GameFramework.widgets.wa.Ld);
 			c.w = b.w;
 			c.v = b.v;
 			b.ld(c)
@@ -23011,7 +23011,7 @@ Game.Xc.c = function() {
 	Game.Xc.HE = 5
 };
 T(function() {
-			Game.Xc.u("Game.EndLevelDialog", Game.Qc, GameFramework.l.$ba)
+			Game.Xc.u("Game.EndLevelDialog", Game.Qc, GameFramework.widgets.$ba)
 		});
 U(function() {
 			Game.Xc.c()
@@ -26675,13 +26675,13 @@ Game.vq = function(b, c, d, f, g) {
 							? Game.a.IMAGE_DIALOG_BACKGROUND
 							: Game.a.IMAGE_DIALOG_HEADERLESS_BKG,
 					Game.a.IMAGE_DIALOG_BUTTON, Game.f.mb.vn, true, b, c, "",
-					d ? GameFramework.l.rb.Zp : GameFramework.l.rb.DZ]);
+					d ? GameFramework.widgets.rb.Zp : GameFramework.widgets.rb.DZ]);
 	this.uI = g;
 	this.Bx = this.gs = f;
 	this.Fd = new GameFramework.sj(128, 20, 128, 64);
 	this.dL(Game.a.FONT_DIALOG_BUTTONS);
 	this.gL(Game.a.FONT_DIALOG_HEADER);
-	this.am(GameFramework.l.rb.VI, 4278190080);
+	this.am(GameFramework.widgets.rb.VI, 4278190080);
 	this.Qr = 32;
 	this.gr == Game.a.IMAGE_DIALOG_HEADERLESS_BKG
 			&& (this.Fd.Um += 30, this.Fd.bj += 20, this.Qr -= 15);
@@ -26690,7 +26690,7 @@ Game.vq = function(b, c, d, f, g) {
 				Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED), this.Pj.Lb(0, 0,
 				Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED.s,
 				Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED.z), this.Pj.ti = false, this.Pj.L = 1, this.Pj
-				.Ra(GameFramework.l.wa.NP, ss.ra.create(this, this.K6)), this
+				.Ra(GameFramework.widgets.wa.NP, ss.ra.create(this, this.K6)), this
 				.Bc(this.Pj);
 	if (this.tb != null)
 		this.tb.Id = "OK";
@@ -26997,7 +26997,7 @@ Game.lc.c = function() {
 	Game.lc.Nla = 4
 };
 T(function() {
-			Game.lc.u("Game.Hyperspace", GameFramework.l.Ta)
+			Game.lc.u("Game.Hyperspace", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.lc.c()
@@ -27872,7 +27872,7 @@ Game.Qs.prototype = {
 };
 Game.Qs.c = t();
 T(function() {
-			Game.Qs.u("Game.IconButton", GameFramework.l.Ta)
+			Game.Qs.u("Game.IconButton", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.Qs.c()
@@ -27909,12 +27909,12 @@ Game.Sz.prototype = {
 		}
 	},
 	ca : function() {
-		GameFramework.l.Ta.prototype.ca.apply(this)
+		GameFramework.widgets.Ta.prototype.ca.apply(this)
 	}
 };
 Game.Sz.c = t();
 T(function() {
-			Game.Sz.u("Game.LoadingScreen", GameFramework.l.Ta)
+			Game.Sz.u("Game.LoadingScreen", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.Sz.c()
@@ -27944,12 +27944,12 @@ Game.ev.prototype = {
 	eM : null,
 	ca : function() {
 		this.L = this.eM.D();
-		GameFramework.l.td.prototype.ca.apply(this)
+		GameFramework.widgets.td.prototype.ca.apply(this)
 	}
 };
 Game.ev.c = t();
 T(function() {
-			Game.ev.u("Game.CurvedAlphaButton", GameFramework.l.td)
+			Game.ev.u("Game.CurvedAlphaButton", GameFramework.widgets.td)
 		});
 U(function() {
 			Game.ev.c()
@@ -27959,14 +27959,14 @@ Game.mv = function() {
 };
 Game.mv.prototype = {
 	ja : function(b) {
-		GameFramework.l.td.prototype.ja.apply(this, [b]);
+		GameFramework.widgets.td.prototype.ja.apply(this, [b]);
 		b.Ba(Game.a.IMAGE_BOARD_HDSD_BUTTON_FRAME.vd(), -160 - this.w, 0
 						- this.v)
 	}
 };
 Game.mv.c = t();
 T(function() {
-			Game.mv.u("Game.FrameButton", GameFramework.l.td)
+			Game.mv.u("Game.FrameButton", GameFramework.widgets.td)
 		});
 U(function() {
 			Game.mv.c()
@@ -28100,7 +28100,7 @@ Game.mc.prototype = {
 	aH : 1,
 	Z_ : null,
 	dK : function() {
-		var b = new GameFramework.l.td;
+		var b = new GameFramework.widgets.td;
 		b.wb = Game.a.IMAGE_BOARD_SD;
 		b.w = b.wb.sf - 160;
 		b.v = b.wb.Oe;
@@ -28109,7 +28109,7 @@ Game.mc.prototype = {
 		Game.BejApp.q.aj == 768
 				? (b.io = 0, b.Sj = b.wb, b.Rj = 1, b.rm = b.wb, b.On = 1)
 				: (b.io = 2, b.pl = true);
-		b.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.R3));
+		b.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.R3));
 		this.Bc(b);
 		this.RC = b;
 		b = new Game.mv;
@@ -28121,7 +28121,7 @@ Game.mc.prototype = {
 		Game.BejApp.q.aj == 480
 				? (b.io = 0, b.Sj = b.wb, b.Rj = 1, b.rm = b.wb, b.On = 1)
 				: (b.io = 2, b.pl = true);
-		b.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.y1));
+		b.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.y1));
 		this.Bc(b);
 		this.PB = b
 	},
@@ -28138,9 +28138,9 @@ Game.mc.prototype = {
 						.gq(
 								"SWITCH RESOLUTION",
 								"Are you sure you want to switch to Standard Definition?\n\nThis will reload the game.",
-								null, GameFramework.l.rb.Io), b.tb.Ra(
-						GameFramework.l.wa.Ld, ss.ra.create(this, this.NT)), b.Fg
-						.Ra(GameFramework.l.wa.Ld, ss.ra.create(Game.BejApp.q,
+								null, GameFramework.widgets.rb.Io), b.tb.Ra(
+						GameFramework.widgets.wa.Ld, ss.ra.create(this, this.NT)), b.Fg
+						.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(Game.BejApp.q,
 										Game.BejApp.q.LP)))
 				: this.NT(b)
 	},
@@ -28153,9 +28153,9 @@ Game.mc.prototype = {
 						.gq(
 								"SWITCH RESOLUTION",
 								"Are you sure you want to switch to High Definition?\n\nThis will reload the game.",
-								null, GameFramework.l.rb.Io), b.tb.Ra(
-						GameFramework.l.wa.Ld, ss.ra.create(this, this.sS)), b.Fg
-						.Ra(GameFramework.l.wa.Ld, ss.ra.create(Game.BejApp.q,
+								null, GameFramework.widgets.rb.Io), b.tb.Ra(
+						GameFramework.widgets.wa.Ld, ss.ra.create(this, this.sS)), b.Fg
+						.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(Game.BejApp.q,
 										Game.BejApp.q.LP)))
 				: this.sS(b)
 	},
@@ -28178,8 +28178,8 @@ Game.mc.prototype = {
 		this.We[Game.mc.gg.SK | 0] = this.Tj;
 		this.Bc(this.Tj);
 		for (var b = 0; b < this.We.length; ++b)
-			this.We[b].Ra(GameFramework.l.wa.Fq, ss.ra.create(this, this.Mi)), this.We[b]
-					.Ra(GameFramework.l.wa.WS, ss.ra.create(this, this.RZ));
+			this.We[b].Ra(GameFramework.widgets.wa.Fq, ss.ra.create(this, this.Mi)), this.We[b]
+					.Ra(GameFramework.widgets.wa.WS, ss.ra.create(this, this.RZ));
 		this.z9 = null;
 		this.or = true;
 		this.ad.ec = false;
@@ -28205,7 +28205,7 @@ Game.mc.prototype = {
 		b.Rj = 1;
 		b.rm = b.wb;
 		b.On = 1;
-		b.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.F1));
+		b.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.F1));
 		this.Bc(b);
 		this.fd = b
 	},
@@ -28230,7 +28230,7 @@ Game.mc.prototype = {
 			this.or = this.ec;
 			if (this.ue)
 				this.ad.ec = this.or, this.Pe.ec = this.or, this.Tj.ec = this.or;
-			GameFramework.l.Ta.prototype.ca.apply(this);
+			GameFramework.widgets.Ta.prototype.ca.apply(this);
 			if (this.or)
 				if (this.Qx.length > 0) {
 					this.vC = 1;
@@ -28375,7 +28375,7 @@ Game.mc.prototype = {
 					}
 				}
 		} else
-			GameFramework.l.Ta.prototype.ca.apply(this)
+			GameFramework.widgets.Ta.prototype.ca.apply(this)
 	},
 	ja : function(b) {
 		if (this.or) {
@@ -28578,9 +28578,9 @@ Game.mc.prototype = {
 										.gq(
 												"SPEED MODE",
 												"New to Bejeweled?\nTry Classic Mode first.\n\nPlay Speed Mode?",
-												"", GameFramework.l.rb.Io,
+												"", GameFramework.widgets.rb.Io,
 												Game.f.mb.Z2).Ra(
-												GameFramework.l.ih.CLOSED,
+												GameFramework.widgets.ih.CLOSED,
 												ss.ra.create(this, this.O6))
 								: this.IQ();
 						break;
@@ -28643,7 +28643,7 @@ Game.mc.c = function() {
 	Game.mc.Ov = 50
 };
 T(function() {
-			Game.mc.u("Game.MainMenu", GameFramework.l.Ta)
+			Game.mc.u("Game.MainMenu", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.mc.c()
@@ -28935,7 +28935,7 @@ U(function() {
 Game.ph = function(b) {
 	E(Game.ph, this, [Game.a.IMAGE_DIALOG_HEADERLESS_BKG,
 					Game.a.IMAGE_DIALOG_BUTTON, Game.f.mb.bA, true, "", "", "",
-					GameFramework.l.rb.Zp]);
+					GameFramework.widgets.rb.Zp]);
 	this.tI = !Game.BejApp.q.$f && Game.BejApp.q.kc() || !Game.BejApp.q.Ka.vt;
 	b = (this.Wn = b) ? 740 : 850;
 	this.tI || (b -= 94);
@@ -28943,30 +28943,30 @@ Game.ph = function(b) {
 	this.Lb(350, this.Wn ? 250 : 180, 900, b);
 	Game.BejApp.q.Nh.oi(this);
 	this.tb.Id = "OK";
-	this.tb.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.J1));
+	this.tb.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.J1));
 	this.hd = this.eq(Game.a.IMAGE_DIALOG_BUTTON);
 	this.hd.Id = "  RESET";
 	this.hd.m = 0.7;
-	this.hd.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.H1));
+	this.hd.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.H1));
 	this.Bx = true;
 	this.zm = this.eq(Game.a.IMAGE_DIALOG_BUTTON);
 	this.zm.Id = "HELP";
 	if (!this.Wn)
 		this.zm.Id = " " + this.zm.Id;
-	this.zm.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.TJ));
+	this.zm.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.TJ));
 	if (this.Wn)
 		this.Ow = this.eq(Game.a.IMAGE_DIALOG_BUTTON), this.Ow.Id = "MAIN MENU", this.Ow
-				.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.TJ)), this.ey = this
+				.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.TJ)), this.ey = this
 				.eq(Game.a.IMAGE_DIALOG_BUTTON), this.ey.Id = "RESUME PLAY", this.ey
-				.Ra(GameFramework.l.wa.Ld, ss.ra.create(this, this.TJ));
+				.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.TJ));
 	this.Er = new Game.nt(Game.a.IMAGE_DIALOG_SLIDERBAR,
 			Game.a.IMAGE_DIALOG_SLIDERHANDLE);
-	this.Er.Ra(GameFramework.l.wa.DA, ss.ra.create(this, this.vS));
+	this.Er.Ra(GameFramework.widgets.wa.DA, ss.ra.create(this, this.vS));
 	this.Bc(this.Er);
 	this.wm = new Game.nt(Game.a.IMAGE_DIALOG_SLIDERBAR,
 			Game.a.IMAGE_DIALOG_SLIDERHANDLE);
-	this.wm.Ra(GameFramework.l.wa.DA, ss.ra.create(this, this.vS));
-	this.wm.Ra(GameFramework.l.wa.XS, ss.ra.create(this, this.I1));
+	this.wm.Ra(GameFramework.widgets.wa.DA, ss.ra.create(this, this.vS));
+	this.wm.Ra(GameFramework.widgets.wa.XS, ss.ra.create(this, this.I1));
 	this.Bc(this.wm);
 	if (this.tI)
 		this.lp = new Game.aq(Game.a.IMAGE_DIALOG_CHECKBOX_BLANK,
@@ -28999,9 +28999,9 @@ Game.ph.prototype = {
 		else if (b.target == this.Ow)
 			b = Game.BejApp.q.gq("MAIN MENU",
 					"Abandon the current game and go to main menu?", "",
-					GameFramework.l.rb.Io, Game.f.mb.FE), b.Lb(this.w + this.s
+					GameFramework.widgets.rb.Io, Game.f.mb.FE), b.Lb(this.w + this.s
 							/ 2 - 425, 350, 850, b.Qo(850)), b.Ra(
-					GameFramework.l.ih.CLOSED, ss.ra.create(this, this.AV));
+					GameFramework.widgets.ih.CLOSED, ss.ra.create(this, this.AV));
 		else if (b.target == this.ey)
 			this.Fi = Game.ph.cn.O3 | 0, this.gt(), this.Te()
 	},
@@ -29028,12 +29028,12 @@ Game.ph.prototype = {
 						.gq(
 								"SHOW TUTORIAL?",
 								"This will end your current game and start the tutorial. Continue?",
-								"", GameFramework.l.rb.Io, Game.f.mb.FE)
+								"", GameFramework.widgets.rb.Io, Game.f.mb.FE)
 				: Game.BejApp.q.gq("RESET TUTORIALS",
 						"This will reset all hints\nand tutorials.\nContinue?",
-						"", GameFramework.l.rb.Io, Game.f.mb.FE);
+						"", GameFramework.widgets.rb.Io, Game.f.mb.FE);
 		b.Lb(this.w + this.s / 2 - 425, 350, 850, b.Qo(850));
-		b.Ra(GameFramework.l.ih.CLOSED, ss.ra.create(this, this.Q6))
+		b.Ra(GameFramework.widgets.ih.CLOSED, ss.ra.create(this, this.Q6))
 	},
 	gt : function() {
 		this.vZ();
@@ -29817,7 +29817,7 @@ Game.bw.prototype = {
 };
 Game.bw.c = t();
 T(function() {
-			Game.bw.u("Game.PointsManager", GameFramework.l.Ta)
+			Game.bw.u("Game.PointsManager", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.bw.c()
@@ -30001,7 +30001,7 @@ Game.Lq.prototype = {
 	FO : null,
 	HH : null,
 	ca : function() {
-		GameFramework.l.Ta.prototype.ca.apply(this);
+		GameFramework.widgets.Ta.prototype.ca.apply(this);
 		var b = Game.BejApp.q;
 		if (b.Zd(Game.f.mb.EU) == null && this.e != null)
 			if (this.$x.$a(), this.Zx > 0)
@@ -30075,12 +30075,12 @@ Game.Lq.prototype = {
 				| 0
 	},
 	Ys : function() {
-		GameFramework.l.Ta.prototype.Ys.apply(this);
+		GameFramework.widgets.Ta.prototype.Ys.apply(this);
 		if (Game.BejApp.q.hr)
 			this.HH = Game.BejApp.q.Nh.Vh, Game.BejApp.q.Nh.oi(this)
 	},
 	kn : function() {
-		GameFramework.l.Ta.prototype.kn.apply(this);
+		GameFramework.widgets.Ta.prototype.kn.apply(this);
 		Game.BejApp.q.hr && this.HH != null && Game.BejApp.q.Nh.oi(this.HH)
 	},
 	Tk : function(b) {
@@ -30102,12 +30102,12 @@ Game.Lq.prototype = {
 						this.qm = 0
 					}
 			}
-		GameFramework.l.Ta.prototype.Tk.apply(this, [b])
+		GameFramework.widgets.Ta.prototype.Tk.apply(this, [b])
 	}
 };
 Game.Lq.c = t();
 T(function() {
-			Game.Lq.u("Game.RankBarWidget", GameFramework.l.Ta)
+			Game.Lq.u("Game.RankBarWidget", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.Lq.c()
@@ -30115,7 +30115,7 @@ U(function() {
 Game.uA = function(b) {
 	this.KC = new GameFramework.B;
 	E(Game.uA, this, [null, Game.a.IMAGE_DIALOG_BUTTON, Game.f.mb.w3, true,
-					"RANK UP", "", "", GameFramework.l.rb.Zp]);
+					"RANK UP", "", "", GameFramework.widgets.rb.Zp]);
 	this.e = b;
 	this.Fd.Um = 17;
 	this.Tp = null;
@@ -30189,7 +30189,7 @@ Game.uA.prototype = {
 		Game.Qc.prototype.ca.apply(this);
 		if (Game.BejApp.q.uh != Game.f.xf.jk && !this.m.wg() && this.m.V() == 1
 				&& this.aa >= 300) {
-			var b = new GameFramework.l.wa(GameFramework.l.wa.Ld);
+			var b = new GameFramework.widgets.wa(GameFramework.widgets.wa.Ld);
 			b.w = this.tb.w;
 			b.v = this.tb.v;
 			this.tb.ld(b)
@@ -30216,7 +30216,7 @@ Game.$l = function(b) {
 	this.FM = [];
 	E(Game.$l, this, [Game.a.IMAGE_DIALOG_HEADERLESS_BKG,
 					Game.a.IMAGE_DIALOG_BUTTON, Game.f.mb.vT, true, "", "", "",
-					GameFramework.l.rb.Zp]);
+					GameFramework.widgets.rb.Zp]);
 	this.LB = b;
 	this.Gl = new Game.Lq(1195, null, null, true);
 	this.Gl.nh(200, 240);
@@ -33636,7 +33636,7 @@ Game.yw.prototype = {
 };
 Game.yw.c = t();
 T(function() {
-			Game.yw.u("Game.TooltipManager", GameFramework.l.Ta)
+			Game.yw.u("Game.TooltipManager", GameFramework.widgets.Ta)
 		});
 U(function() {
 			Game.yw.c()
@@ -33852,7 +33852,7 @@ Game.ha.prototype = {
 		else if (this.Fb == Game.ha.hg.Wo || this.Fb == Game.ha.hg.sK)
 			this.Hd = new Game.vq(this.Fk, this.Re, true, false), this.Hd.gs = false, this.Hd.XH = 0;
 		Game.BejApp.q.te.Ho(this.Hd);
-		this.Hd.Ra(GameFramework.l.ih.CLOSED, ss.ra.create(this, this.N6));
+		this.Hd.Ra(GameFramework.widgets.ih.CLOSED, ss.ra.create(this, this.N6));
 		this.Hd.Pt = 1;
 		if (this.Fj != 0 || this.CG != 0) {
 			if (this.DG != null)

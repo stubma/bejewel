@@ -8,7 +8,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365264647261" ignored="false" />
     <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365336645136" ignored="false" />
-    <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365413887403" ignored="false" />
+    <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365414230682" ignored="false" />
     <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365408132098" ignored="false" />
     <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365409991440" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,7 +60,7 @@
       <file leaf-file-name="Bejeweled_min.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12173" column="29" selection-start="306019" selection-end="306026" vertical-scroll-proportion="0.33125">
+            <state line="11968" column="36" selection-start="301500" selection-end="301505" vertical-scroll-proportion="0.33125">
               <folding />
             </state>
           </provider>
@@ -312,14 +312,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="806" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32848838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23429781" sideWeight="0.60465115" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39534885" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39534885" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978156" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -497,7 +497,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12173" column="29" selection-start="306019" selection-end="306026" vertical-scroll-proportion="0.33125">
+        <state line="11968" column="36" selection-start="301500" selection-end="301505" vertical-scroll-proportion="0.33125">
           <folding />
         </state>
       </provider>
