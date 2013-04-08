@@ -1997,17 +1997,17 @@ function $c(b, c, d) {
 Type.ci("System");
 System.Wl = t();
 GameFramework = Type.ci("GameFramework");
-GameFramework.Kz = t();
-GameFramework.Kz.prototype = {
+GameFramework.JSONHelperData = t();
+GameFramework.JSONHelperData.prototype = {
 	hC : 1,
 	Jl : 0
 };
-GameFramework.Kz.c = t();
+GameFramework.JSONHelperData.c = t();
 T(function() {
-			GameFramework.Kz.u("GameFramework.JSONHelperData", null)
+			GameFramework.JSONHelperData.u("GameFramework.JSONHelperData", null)
 		});
 U(function() {
-			GameFramework.Kz.c()
+			GameFramework.JSONHelperData.c()
 		});
 GameFramework.Ev = function(b, c) {
 	E(GameFramework.Ev, this, [b.H6() + " at line " + c.hC]);
@@ -12929,7 +12929,7 @@ GameFramework.JSBaseApp.prototype = {
 		vb = c
 	},
 	uQ : function() {
-		return new GameFramework.Av
+		return new GameFramework.JSDataBufferData
 	},
 	wQ : function() {
 		this.Uc = this.m8 = new GameFramework.d.Bv(this.Di, this.Ig)
@@ -13157,7 +13157,7 @@ GameFramework.JSBaseApp.prototype = {
 	},
 	ND : function(b, c) {
 		if (b.length != 0) {
-			for (var d = new GameFramework.Kz; d.Jl < b.length
+			for (var d = new GameFramework.JSONHelperData; d.Jl < b.length
 					&& GameFramework.h.jK(b.charCodeAt(d.Jl));)
 				d.Jl++;
 			d.Jl++;
@@ -13244,10 +13244,10 @@ T(function() {
 U(function() {
 			GameFramework.JSBaseApp.c()
 		});
-GameFramework.Av = function() {
-	E(GameFramework.Av, this)
+GameFramework.JSDataBufferData = function() {
+	E(GameFramework.JSDataBufferData, this)
 };
-GameFramework.Av.prototype = {
+GameFramework.JSDataBufferData.prototype = {
 	Ya : null,
 	vV : function() {
 		return this.Ya.length
@@ -13288,13 +13288,13 @@ GameFramework.Av.prototype = {
 		return b | 0
 	}
 };
-GameFramework.Av.c = t();
+GameFramework.JSDataBufferData.c = t();
 T(function() {
-			GameFramework.Av.u("GameFramework.JSDataBufferData",
+			GameFramework.JSDataBufferData.u("GameFramework.JSDataBufferData",
 					GameFramework.fv)
 		});
 U(function() {
-			GameFramework.Av.c()
+			GameFramework.JSDataBufferData.c()
 		});
 GameFramework.d = Type.ci("GameFramework.gfx");
 GameFramework.d.Bv = function(b, c) {
@@ -15343,13 +15343,13 @@ T(function() {
 U(function() {
 			Game.BejApp.c()
 		});
-Game.QA = function() {
+Game.SwapData = function() {
 	this.rc = this.Xb = null;
 	this.Wj = new GameFramework.i.ic(0, 0);
 	this.Ek = new GameFramework.B;
 	this.qx = new GameFramework.B
 };
-Game.QA.prototype = {
+Game.SwapData.prototype = {
 	Xb : null,
 	rc : null,
 	Wj : null,
@@ -15362,12 +15362,12 @@ Game.QA.prototype = {
 	Gt : false,
 	fx : null
 };
-Game.QA.c = t();
+Game.SwapData.c = t();
 T(function() {
-			Game.QA.u("Game.SwapData", null)
+			Game.SwapData.u("Game.SwapData", null)
 		});
 U(function() {
-			Game.QA.c()
+			Game.SwapData.c()
 		});
 Game.Zz = t();
 Game.Zz.prototype = {
@@ -17588,7 +17588,7 @@ Game.r.prototype = {
 		if (l != null)
 			l.ed = false;
 		this.yl = false;
-		g = new Game.QA;
+		g = new Game.SwapData;
 		g.Xb = b;
 		g.rc = l;
 		g.Wj = new GameFramework.i.ic(d - b.Ja, c - b.La);
