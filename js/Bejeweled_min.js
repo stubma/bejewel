@@ -1885,7 +1885,7 @@ function Vc() {
 var wb = false;
 window.JSFExt_Init = function(app, canvas) {
 	curApp = app;
-	if (app.Xm) {
+	if (app.useGL) {
 		var config = {
 			alpha : true,
 			depth : true,
@@ -1901,9 +1901,9 @@ window.JSFExt_Init = function(app, canvas) {
 		} catch (f) {
 		}
 		if (gl == null)
-			app.Xm = false
+			app.useGL = false
 	}
-	if (app.Xm)
+	if (app.useGL)
 		gl.vra = canvas.width, gl.ura = canvas.height, gl.clearColor(0, 0.5, 0, 1), gl
 				.enable(gl.BLEND), gl.activeTexture(gl.TEXTURE0), nb = gl
 				.createBuffer(), J = new Float32Array(4096), ob = gl
@@ -12908,14 +12908,14 @@ GameFramework.Ih.prototype = {
 	fu : null,
 	m8 : null,
 	tN : null,
-	Xm : true,
+	useGL : true,
 	nX : 0,
 	Op : "",
 	wW : true,
 	NB : null,
 	RN : 0,
 	YW : false,
-	kc : ha("Xm"),
+	kc : ha("useGL"),
 	Ub : function() {
 		GameFramework.I.prototype.Ub.apply(this);
 		this.vb = this.fu = new GameFramework.b.Hv
@@ -13312,7 +13312,7 @@ GameFramework.d.Bv.prototype = {
 	},
 	fc : function(b, c, d, f) {
 		var g = this.JR();
-		if (GameFramework.Ih.Cx.Xm) {
+		if (GameFramework.Ih.Cx.useGL) {
 			var g = (b * this.sa.Ua + this.sa.Ca) * this.m | 0, h = (c
 					* this.sa.Va + this.sa.Da)
 					* this.m | 0, b = ((b + d) * this.sa.Ua + this.sa.Ca)
@@ -13352,7 +13352,7 @@ GameFramework.d.Bv.prototype = {
 					* this.m, k = (this.sa.Da + this.sa.ub * b[b.g * c + 4] + this.sa.Va
 					* b[b.g * c + 5])
 					* this.m;
-			if (GameFramework.Ih.Cx.Xm) {
+			if (GameFramework.Ih.Cx.useGL) {
 				var l = this.n, m = Pa;
 				K > 1E3 && $b();
 				if (xb != m || Sc != false)
@@ -13396,7 +13396,7 @@ GameFramework.d.Bv.prototype = {
 					* this.m, l = (this.sa.Da + this.sa.ub * c[c.g * d + 2].x + this.sa.Va
 					* c[c.g * d + 2].y)
 					* this.m;
-			if (GameFramework.Ih.Cx.Xm) {
+			if (GameFramework.Ih.Cx.useGL) {
 				var m = b.vh, o = (c[d * 3 + 0].Ng * b.Hg + b.Vp) / b.Sm, q = (c[d
 						* 3 + 0].Ob
 						* b.Gg + b.Wp)
@@ -13628,7 +13628,7 @@ GameFramework.b.Us.prototype = {
 				h.Ca = c;
 				h.Da = d
 			}
-			GameFramework.Ih.Cx.Xm
+			GameFramework.Ih.Cx.useGL
 					? Tc(this.jj.vh, h.Ca, h.Da, h.Ua, h.Sb, h.ub, h.Va,
 							this.he + this.jj.Vp, this.uf + this.jj.Wp,
 							this.jd, this.ge, this.jj.Sm, this.jj.Rm, this.pc,
@@ -13681,7 +13681,7 @@ GameFramework.b.Vs.prototype = {
 			l.Ca = c;
 			l.Da = d
 		}
-		GameFramework.Ih.Cx.Xm ? Tc(this.vh, l.Ca, l.Da, l.Ua, l.Sb, l.ub,
+		GameFramework.Ih.Cx.useGL ? Tc(this.vh, l.Ca, l.Da, l.Ua, l.Sb, l.ub,
 				l.Va, h * j + this.Vp, g * k + this.Wp, j, k, this.Sm, this.Rm,
 				this.pc, b.n) : lc(this.ym, (b.n >>> 24) / 255, this.pc, l.Ua,
 				l.Sb, l.ub, l.Va, l.Ca, l.Da, this.Vp + h * j, this.Wp + g * k,
@@ -14934,8 +14934,8 @@ Game.BejApp.prototype = {
 	SetUserAgent : w("UY"),
 	SetUserId : w("zo"),
 	GetUserId : ha("zo"),
-	SetUseGL : w("Xm"),
-	GetUseGL : ha("Xm"),
+	SetUseGL : w("useGL"),
+	GetUseGL : ha("useGL"),
     SetBkgImagePath : function(b, c) {
 		Game.Tb.cL(b, c)
 	},
