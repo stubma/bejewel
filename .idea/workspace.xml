@@ -39,19 +39,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="18" selection-start="6219" selection-end="6219" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bejeweled_min.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29855" column="0" selection-start="926640" selection-end="926640" vertical-scroll-proportion="0.378125">
+            <state line="168" column="18" selection-start="6219" selection-end="6219" vertical-scroll-proportion="0.2">
               <folding />
             </state>
           </provider>
@@ -488,16 +479,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
+    <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="18" selection-start="6219" selection-end="6219" vertical-scroll-proportion="0.0">
+        <state line="15340" column="64" selection-start="395076" selection-end="395076" vertical-scroll-proportion="114.75313">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
+    <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29855" column="0" selection-start="926640" selection-end="926640" vertical-scroll-proportion="0.378125">
+        <state line="168" column="18" selection-start="6219" selection-end="6219" vertical-scroll-proportion="0.2">
           <folding />
         </state>
       </provider>

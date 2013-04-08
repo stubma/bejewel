@@ -12897,14 +12897,14 @@ U(function() {
 			GameFramework.l.wa.c()
 		});
 GameFramework = Type.ci("GameFramework");
-GameFramework.Ih = function() {
+GameFramework.JSBaseApp = function() {
 	this.tN = {};
 	this.NB = {};
-	E(GameFramework.Ih, this);
-	GameFramework.Ih.Cx = this;
+	E(GameFramework.JSBaseApp, this);
+	GameFramework.JSBaseApp.Cx = this;
 	this.RN = GameFramework.h.sq()
 };
-GameFramework.Ih.prototype = {
+GameFramework.JSBaseApp.prototype = {
 	fu : null,
 	m8 : null,
 	tN : null,
@@ -13235,14 +13235,14 @@ GameFramework.Ih.prototype = {
 		return new GameFramework.b.Iv(b)
 	}
 };
-GameFramework.Ih.c = function() {
-	GameFramework.Ih.Cx = null
+GameFramework.JSBaseApp.c = function() {
+	GameFramework.JSBaseApp.Cx = null
 };
 T(function() {
-			GameFramework.Ih.u("GameFramework.JSBaseApp", GameFramework.BaseApp)
+			GameFramework.JSBaseApp.u("GameFramework.JSBaseApp", GameFramework.BaseApp)
 		});
 U(function() {
-			GameFramework.Ih.c()
+			GameFramework.JSBaseApp.c()
 		});
 GameFramework.Av = function() {
 	E(GameFramework.Av, this)
@@ -13312,7 +13312,7 @@ GameFramework.d.Bv.prototype = {
 	},
 	fc : function(b, c, d, f) {
 		var g = this.JR();
-		if (GameFramework.Ih.Cx.useGL) {
+		if (GameFramework.JSBaseApp.Cx.useGL) {
 			var g = (b * this.sa.Ua + this.sa.Ca) * this.m | 0, h = (c
 					* this.sa.Va + this.sa.Da)
 					* this.m | 0, b = ((b + d) * this.sa.Ua + this.sa.Ca)
@@ -13352,7 +13352,7 @@ GameFramework.d.Bv.prototype = {
 					* this.m, k = (this.sa.Da + this.sa.ub * b[b.g * c + 4] + this.sa.Va
 					* b[b.g * c + 5])
 					* this.m;
-			if (GameFramework.Ih.Cx.useGL) {
+			if (GameFramework.JSBaseApp.Cx.useGL) {
 				var l = this.n, m = Pa;
 				K > 1E3 && $b();
 				if (xb != m || Sc != false)
@@ -13396,7 +13396,7 @@ GameFramework.d.Bv.prototype = {
 					* this.m, l = (this.sa.Da + this.sa.ub * c[c.g * d + 2].x + this.sa.Va
 					* c[c.g * d + 2].y)
 					* this.m;
-			if (GameFramework.Ih.Cx.useGL) {
+			if (GameFramework.JSBaseApp.Cx.useGL) {
 				var m = b.vh, o = (c[d * 3 + 0].Ng * b.Hg + b.Vp) / b.Sm, q = (c[d
 						* 3 + 0].Ob
 						* b.Gg + b.Wp)
@@ -13628,7 +13628,7 @@ GameFramework.b.Us.prototype = {
 				h.Ca = c;
 				h.Da = d
 			}
-			GameFramework.Ih.Cx.useGL
+			GameFramework.JSBaseApp.Cx.useGL
 					? Tc(this.jj.vh, h.Ca, h.Da, h.Ua, h.Sb, h.ub, h.Va,
 							this.he + this.jj.Vp, this.uf + this.jj.Wp,
 							this.jd, this.ge, this.jj.Sm, this.jj.Rm, this.pc,
@@ -13681,7 +13681,7 @@ GameFramework.b.Vs.prototype = {
 			l.Ca = c;
 			l.Da = d
 		}
-		GameFramework.Ih.Cx.useGL ? Tc(this.vh, l.Ca, l.Da, l.Ua, l.Sb, l.ub,
+		GameFramework.JSBaseApp.Cx.useGL ? Tc(this.vh, l.Ca, l.Da, l.Ua, l.Sb, l.ub,
 				l.Va, h * j + this.Vp, g * k + this.Wp, j, k, this.Sm, this.Rm,
 				this.pc, b.n) : lc(this.ym, (b.n >>> 24) / 255, this.pc, l.Ua,
 				l.Sb, l.ub, l.Va, l.Ca, l.Da, this.Vp + h * j, this.Wp + g * k,
@@ -14868,7 +14868,7 @@ Game.BejApp.prototype = {
 	ca : function() {
 		this.Jp.ca();
 		if (this.Bi == null)
-			GameFramework.Ih.prototype.ca.apply(this);
+			GameFramework.JSBaseApp.prototype.ca.apply(this);
 		else {
 			if (this.Bi.ue) {
 				if (this.aa % 20 == 0) {
@@ -14897,7 +14897,7 @@ Game.BejApp.prototype = {
 			}
 			b = 0;
 			this.e != null && this.e.CF() && (b = 35);
-			this.OX <= b && GameFramework.Ih.prototype.ca.apply(this);
+			this.OX <= b && GameFramework.JSBaseApp.prototype.ca.apply(this);
 			this.KU()
 		}
 	},
@@ -14940,7 +14940,7 @@ Game.BejApp.prototype = {
 		Game.Tb.cL(b, c)
 	},
     SizeChanged : function(b, c) {
-		GameFramework.Ih.prototype.KA.apply(this, [b, c])
+		GameFramework.JSBaseApp.prototype.KA.apply(this, [b, c])
 	},
     Init : function() {
 		this.po = "Bejeweled";
@@ -14949,7 +14949,7 @@ Game.BejApp.prototype = {
 		var b = this.aj, c = this.Is(this.po, "ArtRes");
 		if (c != null)
 			this.aj = GameFramework.h.Hc(c);
-		GameFramework.Ih.prototype.Ub.apply(this);
+		GameFramework.JSBaseApp.prototype.Ub.apply(this);
 		this.sY = GameFramework.h.eJ();
 		if (this.zo == null)
 			this.zo = this.Is("Global", "UserId");
@@ -15338,7 +15338,7 @@ Game.BejApp.c = function() {
 	Game.BejApp.q = null
 };
 T(function() {
-			Game.BejApp.u("Game.BejApp", GameFramework.Ih)
+			Game.BejApp.u("Game.BejApp", GameFramework.JSBaseApp)
 		});
 U(function() {
 			Game.BejApp.c()
