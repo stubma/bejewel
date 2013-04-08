@@ -3302,7 +3302,7 @@ function SoundManager(smURL, smID) {
     _s.filePattern = _s.filePatterns[(_fV !== 8?'flash9':'flash8')];
 
     // if applicable, use _debug versions of SWFs
-    _s.movieURL = (_fV === 8?'soundmanager2.swf':'soundmanager2_flash9.swf').replace('.swf', isDebug);
+    _s.movieURL = (_fV === 8?'swf/soundmanager2.swf':'swf/soundmanager2_flash9.swf').replace('.swf', isDebug);
 
     _s.features.peakData = _s.features.waveformData = _s.features.eqData = (_fV > 8);
 
