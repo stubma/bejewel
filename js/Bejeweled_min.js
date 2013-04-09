@@ -14808,7 +14808,7 @@ Game.BejApp = function() {
 	this.Di = 1024;
 	this.aj = this.Ig = 768;
 	this.m = this.Ig / this.dC;
-	this.Ka = new Game.Wi;
+	this.Ka = new Game.Profile;
 	this.C8 = new Game.$z;
 	this.V8 = new Game.CA;
 	this.uk = new Game.uq;
@@ -20935,7 +20935,7 @@ Game.Board.prototype = {
 				for (c = 0; c < (Game.f.T.Zc | 0); c++)
 					Game.BejApp.q.Ka.xe[c] = 0
 			} else if (b == 82)
-				this.ag.HI("RESET PROFILE", 4294927974), Game.BejApp.q.Ka = new Game.Wi;
+				this.ag.HI("RESET PROFILE", 4294927974), Game.BejApp.q.Ka = new Game.Profile;
 			else if (b == 72)
 				this.ag.HI("RESET HIGH SCORES", 4294927974), Game.BejApp.q.uk = new Game.uq, Game.BejApp.q
 						.FS(), Game.BejApp.q.uk.gt()
@@ -29832,13 +29832,13 @@ T(function() {
 U(function() {
 			Game.PointsManager.c()
 		});
-Game.Wi = function() {
+Game.Profile = function() {
 	this.xe = Array.O(Game.f.T.Zc | 0, 0);
 	this.od = Array.O(Game.f.T.Zc | 0, 0);
 	this.d_();
 	this.Km = "Player"
 };
-Game.Wi.prototype = {
+Game.Profile.prototype = {
 	Km : null,
 	uc : 0,
 	D8 : null,
@@ -29878,7 +29878,7 @@ Game.Wi.prototype = {
 	},
 	OL : function() {
 		var b = {};
-		b._VERSION = Game.Wi.VERSION;
+		b._VERSION = Game.Profile.VERSION;
 		b.OfflineRank = this.Qj;
 		b.OfflineRankPoints = this.El;
 		b.TutorialEnabled = this.Zj;
@@ -29953,24 +29953,24 @@ Game.Wi.prototype = {
 		return c
 	}
 };
-Game.Wi.c = function() {
-	Game.Wi.VERSION = 1
+Game.Profile.c = function() {
+	Game.Profile.VERSION = 1
 };
 T(function() {
-			Game.Wi.u("Game.Profile", null)
+			Game.Profile.u("Game.Profile", null)
 		});
 U(function() {
-			Game.Wi.c()
+			Game.Profile.c()
 		});
-Game.Wi.Zv = {};
-Game.Wi.Zv.c = function() {
-	Game.Wi.Zv.Lma = 0;
-	Game.Wi.Zv.eba = 1;
-	Game.Wi.Zv.jea = 2;
-	Game.Wi.Zv.Uda = 3
+Game.Profile.Zv = {};
+Game.Profile.Zv.c = function() {
+	Game.Profile.Zv.Lma = 0;
+	Game.Profile.Zv.eba = 1;
+	Game.Profile.Zv.jea = 2;
+	Game.Profile.Zv.Uda = 3
 };
 T(function() {
-			Game.Wi.Zv.c()
+			Game.Profile.Zv.c()
 		});
 GameDll = Type.ci("GameDll");
 GameDll.hw = t();
