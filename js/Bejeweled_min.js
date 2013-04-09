@@ -14689,10 +14689,10 @@ T(function() {
 U(function() {
 			Game.LoadingError.c()
 		});
-Game.FA = function() {
-	E(Game.FA, this)
+Game.ScalingIconButton = function() {
+	E(Game.ScalingIconButton, this)
 };
-Game.FA.prototype = {
+Game.ScalingIconButton.prototype = {
 	aX : null,
 	d8 : 0,
 	e8 : 0,
@@ -14713,12 +14713,12 @@ Game.FA.prototype = {
 		}
 	}
 };
-Game.FA.c = t();
+Game.ScalingIconButton.c = t();
 T(function() {
-			Game.FA.u("Game.ScalingIconButton", Game.Qs)
+			Game.ScalingIconButton.u("Game.ScalingIconButton", Game.Qs)
 		});
 U(function() {
-			Game.FA.c()
+			Game.ScalingIconButton.c()
 		});
 Game.$z = t();
 Game.$z.prototype = {};
