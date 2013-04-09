@@ -18778,16 +18778,16 @@ Game.Board.prototype = {
 	},
 	Wz : function() {
 		Game.SoundUtil.Play(Game.a.SOUND_BUTTON_RELEASE);
-		var b = new Game.ph(true);
+		var b = new Game.OptionsDialog(true);
 		Game.BejApp.q.te.Ho(b);
 		b.w = this.Se() - b.s / 2;
 		b.v = 200;
 		b.Ra(GameFramework.widgets.ih.CLOSED, ss.Delegate.create(this, this.L6))
 	},
 	L6 : function(b) {
-		if (b.rB == (Game.ph.cn.JP | 0))
+		if (b.rB == (Game.OptionsDialog.cn.JP | 0))
 			this.Iy();
-		else if (b.rB == (Game.ph.cn.QS | 0))
+		else if (b.rB == (Game.OptionsDialog.cn.QS | 0))
 			this.lD = true;
 		!this.xc.Ka.Zj
 				&& this.iK()
@@ -28136,7 +28136,7 @@ Game.MainMenu.prototype = {
 		this.PB = b
 	},
 	F1 : function() {
-		var b = new Game.ph(false);
+		var b = new Game.OptionsDialog(false);
 		Game.BejApp.q.te.Ho(b)
 	},
 	NT : function() {
@@ -28942,8 +28942,8 @@ T(function() {
 U(function() {
 			Game.MTRand.c()
 		});
-Game.ph = function(b) {
-	E(Game.ph, this, [Game.a.IMAGE_DIALOG_HEADERLESS_BKG,
+Game.OptionsDialog = function(b) {
+	E(Game.OptionsDialog, this, [Game.a.IMAGE_DIALOG_HEADERLESS_BKG,
 					Game.a.IMAGE_DIALOG_BUTTON, Game.f.mb.bA, true, "", "", "",
 					GameFramework.widgets.rb.Zp]);
 	this.tI = !Game.BejApp.q.$f && Game.BejApp.q.kc() || !Game.BejApp.q.Ka.vt;
@@ -28990,7 +28990,7 @@ Game.ph = function(b) {
 	this.tb.w -= 20;
 	this.tb.s += 40
 };
-Game.ph.prototype = {
+Game.OptionsDialog.prototype = {
 	Er : null,
 	wm : null,
 	lp : null,
@@ -29013,7 +29013,7 @@ Game.ph.prototype = {
 							/ 2 - 425, 350, 850, b.Qo(850)), b.Ra(
 					GameFramework.widgets.ih.CLOSED, ss.Delegate.create(this, this.AV));
 		else if (b.target == this.ey)
-			this.Fi = Game.ph.cn.O3 | 0, this.gt(), this.Te()
+			this.Fi = Game.OptionsDialog.cn.O3 | 0, this.gt(), this.Te()
 	},
 	Te : function() {
 		Game.Qc.prototype.Te.apply(this);
@@ -29021,7 +29021,7 @@ Game.ph.prototype = {
 	},
 	AV : function(b) {
 		if (b.$A())
-			this.Fi = Game.ph.cn.JP | 0, this.gt(), this.Te()
+			this.Fi = Game.OptionsDialog.cn.JP | 0, this.gt(), this.Te()
 	},
 	I1 : function(b) {
 		b.target == this.wm
@@ -29054,7 +29054,7 @@ Game.ph.prototype = {
 	},
 	Q6 : function(b) {
 		if (b.$A())
-			Game.BejApp.q.Ka.Wm &= 1 << (Game.f.Xa.RE | 0), Game.BejApp.q.Ka.Zj = true, this.cs.ti = true, this.Fi = Game.ph.cn.QS
+			Game.BejApp.q.Ka.Wm &= 1 << (Game.f.Xa.RE | 0), Game.BejApp.q.Ka.Zj = true, this.cs.ti = true, this.Fi = Game.OptionsDialog.cn.QS
 					| 0, this.gt(), this.Wn && this.Te()
 	},
 	G5 : function() {
@@ -29139,21 +29139,21 @@ Game.ph.prototype = {
 		Game.Qc.prototype.Af.apply(this, [b, c])
 	}
 };
-Game.ph.c = t();
+Game.OptionsDialog.c = t();
 T(function() {
-			Game.ph.u("Game.OptionsDialog", Game.Qc)
+			Game.OptionsDialog.u("Game.OptionsDialog", Game.Qc)
 		});
 U(function() {
-			Game.ph.c()
+			Game.OptionsDialog.c()
 		});
-Game.ph.cn = {};
-Game.ph.cn.c = function() {
-	Game.ph.cn.JP = 0;
-	Game.ph.cn.O3 = 1;
-	Game.ph.cn.QS = 2
+Game.OptionsDialog.cn = {};
+Game.OptionsDialog.cn.c = function() {
+	Game.OptionsDialog.cn.JP = 0;
+	Game.OptionsDialog.cn.O3 = 1;
+	Game.OptionsDialog.cn.QS = 2
 };
 T(function() {
-			Game.ph.cn.c()
+			Game.OptionsDialog.cn.c()
 		});
 Game.J = function(b) {
 	this.m = new GameFramework.CurvedVal;
