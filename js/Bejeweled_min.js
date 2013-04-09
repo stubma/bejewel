@@ -1656,14 +1656,14 @@ ab.g6(Math.random(), document.documentElement.clientWidth,
 		document.documentElement.clientHeight, window.screenX
 				? window.screenX
 				: 0, window.screenY ? window.screenY : 0);
-var nb, J, K = 0, ob, L, N = 0, pb = (new Date).getTime(), qb = 0, rb = 0.2, sb = 1, tb = true, ub, vb;
+var nb, J, K = 0, ob, L, N = 0, lastFrameTime = (new Date).getTime(), delta = 0, rb = 0.2, speedFactor = 1, tb = true, ub, vb;
 function drawFrame() {
 	var now = (new Date).getTime();
-	qb += (now - pb) * sb;
-	pb = now;
-	qb >= 500 && (qb = 500);
+	delta += (now - lastFrameTime) * speedFactor;
+	lastFrameTime = now;
+	delta >= 500 && (delta = 500);
 	if (curApp != null && !curApp.EW) {
-		for (var b = 0, c = false; qb >= curApp.Le;) {
+		for (var b = 0, c = false; delta >= curApp.Le;) {
 			if (tb)
 				try {
 					curApp.ca()
@@ -1672,7 +1672,7 @@ function drawFrame() {
 				}
 			else
 				curApp.ca();
-			qb -= curApp.Le;
+			delta -= curApp.Le;
 			if (++b >= 50)
 				break;
 			c = true
