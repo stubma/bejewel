@@ -22750,7 +22750,7 @@ Game.Xc.prototype = {
 												.oi(b)))
 								: b.target == this.We[Game.Xc.ug.qV | 0]
 										? (this.m
-												.ea("b;0,1,0.01,0.25,~t4G         ~O###"), b = new Game.$l(true), Game.BejApp.q.te
+												.ea("b;0,1,0.01,0.25,~t4G         ~O###"), b = new Game.RecordsDialog(true), Game.BejApp.q.te
 												.Ho(b), b.Ra(
 												GameFramework.widgets.ih.CLOSED,
 												ss.Delegate.create(this, this.P6)))
@@ -28595,7 +28595,7 @@ Game.MainMenu.prototype = {
 								: this.IQ();
 						break;
 					case Game.MainMenu.gg.SK | 0 :
-						b = new Game.$l, Game.BejApp.q.mi(Game.a.SOUND_MENUSPIN), Game.BejApp.q.te
+						b = new Game.RecordsDialog, Game.BejApp.q.mi(Game.a.SOUND_MENUSPIN), Game.BejApp.q.te
 								.Ho(b)
 				}
 		}
@@ -30220,11 +30220,11 @@ T(function() {
 U(function() {
 			Game.uA.c()
 		});
-Game.$l = function(b) {
+Game.RecordsDialog = function(b) {
 	b === UNDEF && (b = false);
 	this.UO = [];
 	this.FM = [];
-	E(Game.$l, this, [Game.a.IMAGE_DIALOG_HEADERLESS_BKG,
+	E(Game.RecordsDialog, this, [Game.a.IMAGE_DIALOG_HEADERLESS_BKG,
 					Game.a.IMAGE_DIALOG_BUTTON, Game.f.mb.vT, true, "", "", "",
 					GameFramework.widgets.rb.Zp]);
 	this.LB = b;
@@ -30236,7 +30236,7 @@ Game.$l = function(b) {
 	this.oQ("Classic", this.FM);
 	this.tb.Id = "OK"
 };
-Game.$l.prototype = {
+Game.RecordsDialog.prototype = {
 	Gl : null,
 	LB : null,
 	UO : null,
@@ -30275,7 +30275,7 @@ Game.$l.prototype = {
 		for (var c = "N/A", d = -1, f = 0, g = 0; g < 7; g++)
 			Game.BejApp.q.Ka.xe[(Game.f.T.IK | 0) + g] > f
 					&& (f = Game.BejApp.q.Ka.xe[(Game.f.T.IK | 0) + g], d = g);
-		d > -1 && (c = Game.$l.t7[d]);
+		d > -1 && (c = Game.RecordsDialog.t7[d]);
 		f = Game.BejApp.q.Ka.xe[Game.f.T.aF | 0] / 10 | 0;
 		f < 60 ? (g = String.Mb("{0} second", f), f != 1
 				&& (g += String.fromCharCode(115))) : f < 3600 ? (f = f / 60
@@ -30302,7 +30302,7 @@ Game.$l.prototype = {
 			for (var k = 0; k < f.length; ++k) {
 				b.Cc(f[k], 205, h);
 				var l = g[k] == c && d >= 0;
-				l && b.am(Game.$l.s7[d]);
+				l && b.am(Game.RecordsDialog.s7[d]);
 				b.zb(g[k], 1189, h, 0, 1);
 				l && b.FU();
 				h += 46
@@ -30385,17 +30385,17 @@ Game.$l.prototype = {
 		this.Te()
 	}
 };
-Game.$l.c = function() {
-	Game.$l.t7 = Array.O(7, 7, "Red", "White", "Green", "Yellow", "Purple",
+Game.RecordsDialog.c = function() {
+	Game.RecordsDialog.t7 = Array.O(7, 7, "Red", "White", "Green", "Yellow", "Purple",
 			"Orange", "Blue");
-	Game.$l.s7 = Array.O(7, 7, 4294901760, 4294967295, 4278255360, 4294967040,
+	Game.RecordsDialog.s7 = Array.O(7, 7, 4294901760, 4294967295, 4278255360, 4294967040,
 			4294902015, 4294940928, 4278229503)
 };
 T(function() {
-			Game.$l.u("Game.RecordsDialog", Game.Qc)
+			Game.RecordsDialog.u("Game.RecordsDialog", Game.Qc)
 		});
 U(function() {
-			Game.$l.c()
+			Game.RecordsDialog.c()
 		});
 Game.a = t();
 Game.a.prototype = {};
