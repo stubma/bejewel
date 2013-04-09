@@ -14993,7 +14993,7 @@ Game.BejApp.prototype = {
 		this.fe.Bc(this.nI);
 		if (this.ZN == null)
 			this.Bi = new Game.mc, this.Bi.s = 1600, this.Bi.z = 1200, this.nx
-					.Bc(this.Bi), this.Bi.ca(), this.Nh.oi(this.Bi), this.hP = new Game.yw, this.fe
+					.Bc(this.Bi), this.Bi.ca(), this.Nh.oi(this.Bi), this.hP = new Game.TooltipManager, this.fe
 					.Bc(this.hP);
 		var b = this.vb.J4("http://127.0.0.1/~maruojie/properties/resources.xml");
 		b.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(this, this.M3));
@@ -33572,16 +33572,16 @@ T(function() {
 U(function() {
 			Game.SpreadCurve.c()
 		});
-Game.yw = function() {
+Game.TooltipManager = function() {
 	this.oW = new GameFramework.geom.ba(0, 0);
 	this.uy = [];
 	this.L = new GameFramework.B;
 	this.MV = new GameFramework.B;
-	E(Game.yw, this);
+	E(Game.TooltipManager, this);
 	this.L.ea("b+0,1,0.01,1,####         ~~###");
 	this.MV.Aa(-16)
 };
-Game.yw.prototype = {
+Game.TooltipManager.prototype = {
 	oW : null,
 	uy : null,
 	L : null,
@@ -33634,12 +33634,12 @@ Game.yw.prototype = {
 		this.oW = new GameFramework.geom.ba(f.x, f.y)
 	}
 };
-Game.yw.c = t();
+Game.TooltipManager.c = t();
 T(function() {
-			Game.yw.u("Game.TooltipManager", GameFramework.widgets.Ta)
+			Game.TooltipManager.u("Game.TooltipManager", GameFramework.widgets.Ta)
 		});
 U(function() {
-			Game.yw.c()
+			Game.TooltipManager.c()
 		});
 Game.rh = function() {
 	this.PC = new GameFramework.geom.ba(0, 0);
