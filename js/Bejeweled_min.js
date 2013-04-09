@@ -28678,18 +28678,18 @@ Game.MainMenu.Pl.c = function() {
 T(function() {
 			Game.MainMenu.Pl.c()
 		});
-Game.Xz = t();
-Game.Xz.prototype = {
+Game.MessagerMsg = t();
+Game.MessagerMsg.prototype = {
 	wF : null,
 	Lv : 0,
 	AL : 0
 };
-Game.Xz.c = t();
+Game.MessagerMsg.c = t();
 T(function() {
-			Game.Xz.u("Game.MessagerMsg", null)
+			Game.MessagerMsg.u("Game.MessagerMsg", null)
 		});
 U(function() {
-			Game.Xz.c()
+			Game.MessagerMsg.c()
 		});
 Game.Vk = function() {
 	this.Ip = [];
@@ -28720,7 +28720,7 @@ Game.Vk.prototype = {
 		this.EP(b, this.tW, c)
 	},
 	EP : function(b, c, d) {
-		var f = new Game.Xz;
+		var f = new Game.MessagerMsg;
 		f.Lv = d < 0 ? this.MM : d;
 		f.AL = c;
 		f.wF = b;
