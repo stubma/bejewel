@@ -3002,10 +3002,10 @@ T(function() {
 U(function() {
 			GameFramework.TArray.c()
 		});
-GameFramework.SA = function() {
+GameFramework.TDictionary = function() {
 	this.wh = {}
 };
-GameFramework.SA.prototype = {
+GameFramework.TDictionary.prototype = {
 	wh : null,
 	xA : function(b) {
 		delete this.wh[b]
@@ -3017,13 +3017,13 @@ GameFramework.SA.prototype = {
 		return new GameFramework.uw(this.wh.Si(), false)
 	}
 };
-GameFramework.SA.c = t();
+GameFramework.TDictionary.c = t();
 T(function() {
-			GameFramework.SA.u("GameFramework.TDictionary", null,
+			GameFramework.TDictionary.u("GameFramework.TDictionary", null,
 					GameFramework.W.ZJ)
 		});
 U(function() {
-			GameFramework.SA.c()
+			GameFramework.TDictionary.c()
 		});
 GameFramework.uw = function(b, c) {
 	this.Bg = b;
@@ -13092,7 +13092,7 @@ GameFramework.JSBaseApp.prototype = {
 					g.$c = new GameFramework.hp, g.$c.vm = [];
 				g.$c.vm.push(j);
 				if (g.OB == null)
-					g.OB = new GameFramework.SA;
+					g.OB = new GameFramework.TDictionary;
 				g.OB[h] == null
 						? (k = new GameFramework.hp, g.OB[h] = k)
 						: k = g.OB[h];
