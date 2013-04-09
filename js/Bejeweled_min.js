@@ -15800,7 +15800,7 @@ Game.LightningStorm.prototype = {
 									+ (Game.Board.bb / 2 | 0), (l.v | 0)
 									+ (Game.Board.ab / 2 | 0));
 					if (this.aa - this.oH >= 20 || this.oH == 0)
-						Game.fb.Play(Game.a.SOUND_ELECTRO_PATH2), this.oH = 0
+						Game.SoundUtil.Play(Game.a.SOUND_ELECTRO_PATH2), this.oH = 0
 				} else
 					k = g[this.e.Of.Dd() % h];
 				k.aC = true
@@ -15932,7 +15932,7 @@ Game.LightningStorm.prototype = {
 		this.zH.$a();
 		this.tC.$a();
 		this.Qe == Game.LightningStorm.Yb.mq && this.tC.aJ(1.6)
-				&& Game.fb.Play(Game.a.SOUND_BOMB_EXPLODE);
+				&& Game.SoundUtil.Play(Game.a.SOUND_BOMB_EXPLODE);
 		for (var b = 0; b < (this.Pu.length | 0); b++)
 			this.Pu[b].ca();
 		this.lN = Math.max(0, this.lN - 0.0167);
@@ -16733,7 +16733,7 @@ Game.Board.prototype = {
 			f.Ic = 0.1002;
 			f.m = 300;
 			this.ob.Gc(f);
-			Game.fb.Play(Game.a.SOUND_GEM_COUNTDOWN_DESTROYED);
+			Game.SoundUtil.Play(Game.a.SOUND_GEM_COUNTDOWN_DESTROYED);
 			this.OZ(b, 2);
 			for (f = 0; f < 20; f++) {
 				var g = this.ob.wf(Game.R.da.ED);
@@ -16856,12 +16856,12 @@ Game.Board.prototype = {
 	p5 : function() {
 		if (this.Ft.length != 0)
 			for (var b = 0; b < this.Ft.length;)
-				this.Me >= this.Ft[b].FX ? (Game.fb.Play(this.Ft[b].xa), C(
+				this.Me >= this.Ft[b].FX ? (Game.SoundUtil.Play(this.Ft[b].xa), C(
 						this.Ft, b)) : ++b
 	},
 	JQ : function() {
-		Game.fb.Play(Game.a.SOUND_FLAMEBONUS);
-		Game.fb.Play(Game.a.SOUND_VOICE_BLAZINGSPEED);
+		Game.SoundUtil.Play(Game.a.SOUND_FLAMEBONUS);
+		Game.SoundUtil.Play(Game.a.SOUND_VOICE_BLAZINGSPEED);
 		this.PG.ea("b;0,1,0.01,8,~###        h~### 9#:tT");
 		this.DQ(6);
 		var b;
@@ -16879,7 +16879,7 @@ Game.Board.prototype = {
 	DQ : function(b) {
 		var c = Array.O(7, "", Game.a.b4, Game.a.Z3, Game.a.X3, Game.a.c4,
 				Game.a.a4, Game.a.d4, Game.a.Y3);
-		Game.fb.$v(GameFramework.BaseApp.M.vb.mE(c[b]));
+		Game.SoundUtil.$v(GameFramework.BaseApp.M.vb.mE(c[b]));
 		this.ax = b;
 		this.ax > 0
 				&& (this.$w.ea("b+0,1,0.005714,1,#### 0~r2d        q#G_h"), this.sG
@@ -17045,9 +17045,9 @@ Game.Board.prototype = {
 	},
 	GJ : function() {
 		this.Hh() == 0 && this.zf() > 0
-				? (new Game.Announcement(this, "TIME UP"), Game.fb
+				? (new Game.Announcement(this, "TIME UP"), Game.SoundUtil
 						.Play(Game.a.SOUND_VOICE_TIMEUP))
-				: (new Game.Announcement(this, "GAME OVER"), Game.fb
+				: (new Game.Announcement(this, "GAME OVER"), Game.SoundUtil
 						.Play(Game.a.SOUND_VOICE_GAMEOVER))
 	},
 	rZ : function() {
@@ -17163,7 +17163,7 @@ Game.Board.prototype = {
 	},
 	YD : function(b) {
 		if ((b.n | 0) != -1 && b.cl(Game.J.K.Be)) {
-			Game.fb.Play(Game.a.SOUND_POWERGEM_CREATED);
+			Game.SoundUtil.Play(Game.a.SOUND_POWERGEM_CREATED);
 			b.mQ();
 			b.Pq(Game.J.K.$u, false);
 			b.Pq(Game.J.K.ns, false);
@@ -17195,11 +17195,11 @@ Game.Board.prototype = {
 		if (b.GD(Game.J.K.sc))
 			b.cJ(), b.cl(Game.J.K.sc), b.Gn = this.aa, b.Am = b.n, b.n = Game.f.Ha.sc, b.wl = 25, b
 					.cq(Game.J.K.Be), c
-					&& (this.qU(b), Game.fb.Play(Game.a.SOUND_HYPERCUBE_CREATE))
+					&& (this.qU(b), Game.SoundUtil.Play(Game.a.SOUND_HYPERCUBE_CREATE))
 	},
 	zE : function(b) {
 		if ((b.n | 0) != -1 && b.cl(Game.J.K.Ue))
-			Game.fb.Play(Game.a.SOUND_LASERGEM_CREATED), b.mQ(), b.Pq(
+			Game.SoundUtil.Play(Game.a.SOUND_LASERGEM_CREATED), b.mQ(), b.Pq(
 					Game.J.K.$u, false), b.Pq(Game.J.K.ns, false), b.Pq(Game.J.K.ap, false), b.wl = 25, this
 					.rU(b)
 	},
@@ -17480,7 +17480,7 @@ Game.Board.prototype = {
 	},
 	FQ : function(b, c) {
 		this.GQ(b, c.n);
-		Game.fb.Play(Game.a.SOUND_ELECTRO_PATH);
+		Game.SoundUtil.Play(Game.a.SOUND_ELECTRO_PATH);
 		this.qc[this.qc.length - 1].DP((b.w | 0) + (Game.Board.bb / 2 | 0),
 				(b.v | 0) + (Game.Board.ab / 2 | 0), (c.w | 0)
 						+ (Game.Board.bb / 2 | 0), (c.v | 0) + (Game.Board.ab / 2 | 0))
@@ -17511,10 +17511,10 @@ Game.Board.prototype = {
 		this.cQ();
 		var c = this.Hh();
 		if (this.aa - this.eo >= 35 + (c * 0.1 | 0) && c > 0 && this.xn())
-			Game.fb.Play(Game.a.SOUND_COUNTDOWN_WARNING), this.eo = this.aa;
+			Game.SoundUtil.Play(Game.a.SOUND_COUNTDOWN_WARNING), this.eo = this.aa;
 		if (c == 1800 && this.Ar == 0) {
 			if (this.mr)
-				this.mr = false, Game.fb.Play(Game.a.SOUND_VOICE_THIRTYSECONDS)
+				this.mr = false, Game.SoundUtil.Play(Game.a.SOUND_VOICE_THIRTYSECONDS)
 		} else
 			this.mr = true;
 		return b
@@ -17589,7 +17589,7 @@ Game.Board.prototype = {
 			this.FQ(l, b);
 			return true
 		}
-		g && Game.fb.Play(Game.a.SOUND_START_ROTATE);
+		g && Game.SoundUtil.Play(Game.a.SOUND_START_ROTATE);
 		b.Yn = this.aa;
 		if (l != null)
 			l.Yn = this.aa - 1;
@@ -17855,7 +17855,7 @@ Game.Board.prototype = {
 										}
 									}
 							}
-						f.ex == 0 && Game.fb.Play(Game.a.SOUND_ELECTRO_EXPLODE);
+						f.ex == 0 && Game.SoundUtil.Play(Game.a.SOUND_ELECTRO_EXPLODE);
 						f.ex++;
 						f.ex < f.Du && (h = false);
 						if (h) {
@@ -18721,14 +18721,14 @@ Game.Board.prototype = {
 		}
 		if (Dc) {
 			var kb = this.hE((j / g | 0) + (Game.Board.bb / 2 | 0));
-			g > 1 && Game.fb.Ug(Game.a.SOUND_DOUBLESET, kb, 1);
+			g > 1 && Game.SoundUtil.Ug(Game.a.SOUND_DOUBLESET, kb, 1);
 			var lb = this.WR(Game.f.T.AD) + 1;
 			h == 0 && (lb = 1);
 			lb > 6 && (lb = 6);
-			b && this.ng > 0 ? this.Ch > 0.01 ? Game.fb.Ug(
-					Game.a.SOUND_FLAMESPEED1, kb, 1) : Game.fb.Ug(
+			b && this.ng > 0 ? this.Ch > 0.01 ? Game.SoundUtil.Ug(
+					Game.a.SOUND_FLAMESPEED1, kb, 1) : Game.SoundUtil.Ug(
 					GameFramework.BaseApp.M.vb.mE("SOUND_SPEEDMATCH"
-							+ (Math.min(9, this.ng + 1) | 0)), kb, 1) : Game.fb
+							+ (Math.min(9, this.ng + 1) | 0)), kb, 1) : Game.SoundUtil
 					.Ug(GameFramework.BaseApp.M.vb.mE("SOUND_COMBO_" + (lb + 1)), kb,
 							1);
 			for (var Yb = 0; Yb < z.length; ++Yb)
@@ -18762,7 +18762,7 @@ Game.Board.prototype = {
 		}
 	},
 	OI : function() {
-		Game.fb.Play(Game.a.SOUND_BUTTON_PRESS)
+		Game.SoundUtil.Play(Game.a.SOUND_BUTTON_PRESS)
 	},
 	O1 : function() {
 		var b = this.xc.ii();
@@ -18771,13 +18771,13 @@ Game.Board.prototype = {
 				return;
 			b.Il == Game.TutorialStep.Qg.qE && b.Cs()
 		}
-		Game.fb.Play(Game.a.SOUND_BUTTON_RELEASE);
+		Game.SoundUtil.Play(Game.a.SOUND_BUTTON_RELEASE);
 		this.kU(true);
 		this.Ib.kL(false);
 		this.qD(Game.f.T.tS, 1)
 	},
 	Wz : function() {
-		Game.fb.Play(Game.a.SOUND_BUTTON_RELEASE);
+		Game.SoundUtil.Play(Game.a.SOUND_BUTTON_RELEASE);
 		var b = new Game.ph(true);
 		Game.BejApp.q.te.Ho(b);
 		b.w = this.Se() - b.s / 2;
@@ -18795,7 +18795,7 @@ Game.Board.prototype = {
 						&& b.Te())
 	},
 	L3 : function() {
-		Game.fb.Play(Game.a.SOUND_BUTTON_RELEASE);
+		Game.SoundUtil.Play(Game.a.SOUND_BUTTON_RELEASE);
 		if (!this.xc.Hz() && this.pf == 0) {
 			var b = Game.BejApp.q.gq("RESET",
 					"Abandon the current game and start over?", "",
@@ -19221,7 +19221,7 @@ Game.Board.prototype = {
 						}
 						c.fx ? this.So(Game.f.T.xK) : this.So(Game.f.T.wK);
 						this.So(Game.f.T.LE);
-						Game.fb.Play(Game.a.SOUND_BADMOVE);
+						Game.SoundUtil.Play(Game.a.SOUND_BADMOVE);
 						c.Zt = 0;
 						c.RG = false;
 						c.Ek
@@ -19263,7 +19263,7 @@ Game.Board.prototype = {
 					}
 				}
 			if (b > 0 && Math.abs(this.PN - this.aa) >= 5)
-				this.PN = this.aa, Game.fb.Ug(Game.a.SOUND_GEM_HIT, this.hE(c
+				this.PN = this.aa, Game.SoundUtil.Ug(Game.a.SOUND_GEM_HIT, this.hE(c
 								/ b | 0), 1)
 		} else {
 			this.VG > 0 && --this.VG;
@@ -19440,7 +19440,7 @@ Game.Board.prototype = {
 					.w5(), this.D5(), this.r5());
 			this.AC = Math.max(0, this.AC - 1) | 0;
 			if (this.AC == 0 && this.BC.length > 0)
-				Game.fb.Play(this.BC[0]), C(this.BC, 0), this.AC = 40 / 1.67
+				Game.SoundUtil.Play(this.BC[0]), C(this.BC, 0), this.AC = 40 / 1.67
 						| 0;
 			if (!this.os()) {
 				var b = this.Ro();
@@ -19522,11 +19522,11 @@ Game.Board.prototype = {
 			}
 			f
 					? (d > 0
-							&& (Game.fb.Play(Game.a.SOUND_PREBLAST), Game.fb
+							&& (Game.SoundUtil.Play(Game.a.SOUND_PREBLAST), Game.SoundUtil
 									.Ug(Game.a.SOUND_GEM_SHATTERS, this.hE(g
-													/ d | 0), 1)), Game.fb
+													/ d | 0), 1)), Game.SoundUtil
 							.Play(Game.a.SOUND_BOMB_EXPLODE))
-					: b && Game.fb.Play(Game.a.SOUND_SMALL_EXPLODE);
+					: b && Game.SoundUtil.Play(Game.a.SOUND_SMALL_EXPLODE);
 			b = this.e;
 			for (c = 0; c < b.length; c++)
 				d = b[c], d != null
@@ -19597,7 +19597,7 @@ Game.Board.prototype = {
 				b = new Game.Announcement(this, "LEVEL\nCOMPLETE");
 				b.Tw = false;
 				b.cx = false;
-				Game.fb.Play(Game.a.SOUND_VOICE_LEVELCOMPLETE);
+				Game.SoundUtil.Play(Game.a.SOUND_VOICE_LEVELCOMPLETE);
 				GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f
 						? (this.Jf = new Game.N(this), Game.BejApp.q.nx.Bc(this.Jf))
 						: (this.Jf = new Game.yv(this), b = this.Qb, this.Mq(), b
@@ -19706,11 +19706,11 @@ Game.Board.prototype = {
 							&& Game.Nk.te.se.length == 0 && this.pf == 0
 							&& this.Wt && !this.iK()) {
 						if (this.ay > 0 && --this.ay == 110)
-							b = new Game.Announcement(this, "GET READY"), b.Tw = false, b.L.Ye *= 3, b.m.Ye *= 3, b.cx = false, Game.fb
+							b = new Game.Announcement(this, "GET READY"), b.Tw = false, b.L.Ye *= 3, b.m.Ye *= 3, b.cx = false, Game.SoundUtil
 									.$v(Game.a.SOUND_VOICE_GETREADY);
 						if ((this.Zr.D() == 0 || this.zf() == 0 || this.Tt > 1)
 								&& this.Tt >= 0 && --this.Tt == 0)
-							b = new Game.Announcement(this, "GO!"), b.Tw = false, b.L.Ye *= 3, b.m.Ye *= 3, b.cx = false, Game.fb
+							b = new Game.Announcement(this, "GO!"), b.Tw = false, b.L.Ye *= 3, b.m.Ye *= 3, b.cx = false, Game.SoundUtil
 									.$v(Game.a.SOUND_VOICE_GO)
 					}
 					for (b = 0; b < (this.HC.length | 0); b++)
@@ -20688,7 +20688,7 @@ Game.Board.prototype = {
 										&& !this.jw(g, f, d, false, true, false, false))
 									if (g.ij = false, g.Gi.Aa(0), Game.BejApp.q.Ka.xe[Game.f.T.vK
 											| 0] < 3)
-										Game.fb.Play(Game.a.SOUND_BADMOVE);
+										Game.SoundUtil.Play(Game.a.SOUND_BADMOVE);
 									else if (h != null)
 										h.ij = true, h.Gi.Aa(1)
 							} else {
@@ -20697,7 +20697,7 @@ Game.Board.prototype = {
 											? this
 													.jw(h, h.La, h.Ja, false, true, false,
 															false)
-											: (h.ij = true, h.Gi.Aa(1), Game.fb
+											: (h.ij = true, h.Gi.Aa(1), Game.SoundUtil
 													.Play(Game.a.SOUND_SELECT))
 							}
 						else if (g != null)
@@ -21040,7 +21040,7 @@ Game.ClassicBoard.prototype = {
 	},
 	GJ : function() {
 		new Game.Announcement(this, "NO MORE\nMOVES");
-		Game.fb.Play(Game.a.SOUND_VOICE_NOMOREMOVES)
+		Game.SoundUtil.Play(Game.a.SOUND_VOICE_NOMOREMOVES)
 	},
 	HJ : function() {
 		Game.BejApp.q.uk.qq("Classic").rF(Game.BejApp.q.Ka.Km, this.Z) && Game.BejApp.q.$K(false);
@@ -32049,7 +32049,7 @@ Game.SpeedBoard.prototype = {
 	},
 	GJ : function() {
 		new Game.Announcement(this, "TIME UP");
-		Game.fb.Play(Game.a.SOUND_VOICE_TIMEUP)
+		Game.SoundUtil.Play(Game.a.SOUND_VOICE_TIMEUP)
 	},
 	EK : function(b) {
 		if (b.Y(Game.J.K.Yg)) {
@@ -32062,8 +32062,8 @@ Game.SpeedBoard.prototype = {
 			c.Ub(b);
 			b.L.Aa(0);
 			b.qe == 5
-					? Game.fb.Play(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_5)
-					: Game.fb.Play(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_10);
+					? Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_5)
+					: Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_10);
 			(Math.max(0, this.ri - 60) | 0) > 0
 					&& this.oj(b.Ad() | 0, b.Rd() | 0, b.qe * 50, Game.f.Yi[b.n
 									| 0], b.Lf, true, true, b.Pa, false, Game.Board.je.sn);
@@ -32118,7 +32118,7 @@ Game.SpeedBoard.prototype = {
 		var b = this.NY;
 		this.fD = Math.max(0, this.fD - this.ry * b);
 		this.ry = Math.max(0, this.ry - this.eP * b);
-		Game.fb.Play(Game.a.SOUND_SPEEDBOARD_BACKGROUND_CHANGE)
+		Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_BACKGROUND_CHANGE)
 	},
 	nS : function() {
 		return Game.Board.prototype.nS.apply(this)
@@ -32161,8 +32161,8 @@ Game.SpeedBoard.prototype = {
 					var d = new GameFramework.CurvedVal;
 					d.vj("SpeedBoard_cs_11_21_11__05_58_39_924");
 					Game.BejApp.q.kA(Game.a.V3, d, false);
-					Game.fb.Play(Game.a.SOUND_BOMB_EXPLODE);
-					Game.fb.Play(Game.a.SOUND_VOICE_TIMEUP);
+					Game.SoundUtil.Play(Game.a.SOUND_BOMB_EXPLODE);
+					Game.SoundUtil.Play(Game.a.SOUND_VOICE_TIMEUP);
 					this.CB = true;
 					new Game.Announcement(this, "TIME UP")
 				}
@@ -32203,7 +32203,7 @@ Game.SpeedBoard.prototype = {
 	},
 	HQ : function() {
 		if (!this.uE()) {
-			Game.fb.Play(Game.a.SOUND_SPEEDBOARD_LIGHTNING_ENERGIZE);
+			Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_LIGHTNING_ENERGIZE);
 			this.yF("energize", 15);
 			this.Bj.hF("b;0,1,0.01,1,~###         ~####");
 			this.jI.ea("b;0,1,0.01,1,####  K~###       U####");
@@ -32223,7 +32223,7 @@ Game.SpeedBoard.prototype = {
 				case 3 :
 					b = Game.a.SOUND_SPEEDBOARD_MULTIPLIER_UP2_4
 			}
-			Game.fb.Play(b);
+			Game.SoundUtil.Play(b);
 			this.FC.ea("b+0,1,0.01,1,~###         ~####");
 			this.Ze.ea("b+0,1,0.008333,1,~###         ~~###");
 			this.Jr.Aa(0);
@@ -32272,7 +32272,7 @@ Game.SpeedBoard.prototype = {
 				this.Eh = true, this.No();
 			c = b * 4E3 | 0;
 			if (this.aa - this.eo >= 35 + (c * 0.1 | 0) && c > 0 && c <= 1E3)
-				Game.fb.Ug(Game.a.SOUND_COUNTDOWN_WARNING, 0, Math.min(1, 0.5
+				Game.SoundUtil.Ug(Game.a.SOUND_COUNTDOWN_WARNING, 0, Math.min(1, 0.5
 										- c * 5.0E-4)), this.eo = this.aa;
 			return b
 		}
@@ -32284,15 +32284,15 @@ Game.SpeedBoard.prototype = {
 			var c = this.Hh(), d = 35 + (c * 0.1 | 0);
 			if (this.rI) {
 				if (this.aa - this.eo >= d && c > 0 && c <= 1E3)
-					Game.fb.Ug(Game.a.SOUND_COUNTDOWN_WARNING, 0, Math.min(1,
+					Game.SoundUtil.Ug(Game.a.SOUND_COUNTDOWN_WARNING, 0, Math.min(1,
 									0.5 - c * 5.0E-4)), this.eo = this.aa
 			} else if (this.aa - this.eo >= d && c > 0 && this.xn() && !this.jH)
-				Game.fb.Ug(Game.a.SOUND_COUNTDOWN_WARNING, 0, Math
+				Game.SoundUtil.Ug(Game.a.SOUND_COUNTDOWN_WARNING, 0, Math
 								.min(1, 0.5 - c / (this.zf() > 60 ? 1500 : 1E3)
 												/ 2)), this.eo = this.aa;
 			if (c == 1800 && this.Ar == 0) {
 				if (this.mr)
-					this.mr = false, Game.fb.Play(Game.a.SOUND_VOICE_THIRTYSECONDS)
+					this.mr = false, Game.SoundUtil.Play(Game.a.SOUND_VOICE_THIRTYSECONDS)
 			} else
 				this.mr = true
 		}
@@ -32344,16 +32344,16 @@ Game.SpeedBoard.prototype = {
 		if (c > 0
 				&& (d = this.Of.Dd() % (b.length | 0) | 0, b = b[d], b.uc == 0))
 			b.cl(Game.J.K.Yg), b.qe = c, b.qe == 5
-					? Game.fb.Ug(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_5,
+					? Game.SoundUtil.Ug(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_5,
 							this.aS(b), 1)
-					: Game.fb.Ug(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_10,
+					: Game.SoundUtil.Ug(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_10,
 							this.aS(b), 1);
 		return true
 	},
 	V4 : function(b) {
 		b <= 5
-				? Game.fb.Play(Game.a.SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_5)
-				: Game.fb.Play(Game.a.SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_10);
+				? Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_5)
+				: Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_10);
 		b = this.Bj.V();
 		this.Bj.ea("b;0,1,0.02,1,#.^$         ~~###");
 		this.Bj.zd = b;
@@ -32387,7 +32387,7 @@ Game.SpeedBoard.prototype = {
 				var d = this.Hh();
 				d % 60 == 0 && d > 0 && d <= 480 && d != this.uH
 						&& c != (this.wp | 0)
-						&& Game.fb.Play(Game.a.SOUND_TICK)
+						&& Game.SoundUtil.Play(Game.a.SOUND_TICK)
 			}
 		}
 		this.CB && this.Xr++;
@@ -32402,7 +32402,7 @@ Game.SpeedBoard.prototype = {
 		if (this.Me % 240 == 0 && b != this.Me)
 			this.wy = Math.max(5, this.wy - this.Of.Dd() % 5 | 0) | 0;
 		if (this.rI && this.Z > this.Vx)
-			Game.fb.Play(Game.a.SOUND_SPEEDBOARD_BACKGROUND_CHANGE), this.Qm++, this.JH = this.Vx, this.Vx += this.jD
+			Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_BACKGROUND_CHANGE), this.Qm++, this.JH = this.Vx, this.Vx += this.jD
 					? (this.DC + this.XF * Math.pow(this.Qm, this.yO) | 0)
 							* (this.Qm + 1)
 					: this.DC + this.XF * Math.pow(this.Qm, this.yO) | 0, this.Me = 0;
@@ -33267,7 +33267,7 @@ Game.SpeedCollectEffect.prototype = {
 		if (this.pG) {
 			if (this.w = this.Lg.x + this.Ii.V() * (this.Nb.e.Se() - this.Lg.x), this.v = this.Lg.y
 					+ this.Ii.V() * (this.Nb.e.W0() - this.Lg.y), !this.Ii.$a())
-				Game.fb.Play(Game.a.SOUND_QUEST_GET), this.Ii
+				Game.SoundUtil.Play(Game.a.SOUND_QUEST_GET), this.Ii
 						.ea("b-0,1,0.01,2,####  `D2UB       A~###"), this.Ii
 						.hL(0, this.Ii.Oc * this.hI), this.pG = false, this.Hi.Kk(
 						this.w, this.v), this.Hi.Kk(800, 150), this.Hi.Kk(600,
@@ -34289,29 +34289,29 @@ T(function() {
 U(function() {
 			Game.MathUtil.c()
 		});
-Game.fb = t();
-Game.fb.Play = function(b) {
-	Game.fb.Ug(b, 0, 1)
+Game.SoundUtil = t();
+Game.SoundUtil.Play = function(b) {
+	Game.SoundUtil.Ug(b, 0, 1)
 };
-Game.fb.Ug = function(b, c, d) {
+Game.SoundUtil.Ug = function(b, c, d) {
 	GameFramework.BaseApp.M.FK(b, d, c)
 };
-Game.fb.$v = function(b) {
-	Game.fb.m3(b)
+Game.SoundUtil.$v = function(b) {
+	Game.SoundUtil.m3(b)
 };
-Game.fb.m3 = function(b) {
-	Game.fb.a8 || Game.fb.Ug(b, 0, 1)
+Game.SoundUtil.m3 = function(b) {
+	Game.SoundUtil.a8 || Game.SoundUtil.Ug(b, 0, 1)
 };
-Game.fb.prototype = {};
-Game.fb.c = function() {
-	Game.fb.a8 = false;
-	Game.fb.bra = null
+Game.SoundUtil.prototype = {};
+Game.SoundUtil.c = function() {
+	Game.SoundUtil.a8 = false;
+	Game.SoundUtil.bra = null
 };
 T(function() {
-			Game.fb.u("Game.SoundUtil", null)
+			Game.SoundUtil.u("Game.SoundUtil", null)
 		});
 U(function() {
-			Game.fb.c()
+			Game.SoundUtil.c()
 		});
 Game.Util = t();
 Game.Util.Fc = function() {
