@@ -1512,7 +1512,7 @@ if (typeof webkitRequestAnimationFrame == "function")
 else if (typeof window.G9 == "function")
 	Qa = window.G9;
 Qa ? Qa(Ra) : setInterval("JSFExt_Timer()", 16);
-var curApp, gl = null, Ua = null;
+var curApp, gl = null, context = null;
 function Ja(b) {
 	if (gl != null) {
 		var c = gl.createTexture();
@@ -1540,13 +1540,13 @@ function Wa(b) {
 		return c
 	}
 }
-var Xa = false;
+var requiresBinaryHack = false;
 window.JFSExt_SetRequiresBinaryHack = function(b) {
-	Xa = b
+	requiresBinaryHack = b
 };
 function Ya(b, c) {
 	var d = new XMLHttpRequest;
-	d.overrideMimeType || !Xa ? d.open("GET", c, true) : d.open("GET",
+	d.overrideMimeType || !requiresBinaryHack ? d.open("GET", c, true) : d.open("GET",
 			"file_getter.php?path=" + c, true);
 	d.onreadystatechange = function() {
 		if (d.readyState == 4)
@@ -1559,7 +1559,7 @@ function Ya(b, c) {
 }
 function Za(b, c, d) {
 	var f = d.indexOf(".utf8") != -1, ajax = new XMLHttpRequest;
-	ajax.overrideMimeType || !Xa || f ? ajax.open("GET", d, true) : ajax.open("GET",
+	ajax.overrideMimeType || !requiresBinaryHack || f ? ajax.open("GET", d, true) : ajax.open("GET",
 			"file_getter.php?path=" + d, true);
 	ajax.onreadystatechange = function() {
 		if (ajax.readyState == 4)
@@ -1683,7 +1683,7 @@ function Ra() {
 							&& (rb = 0), gl.clearColor(0, 0, 0.1, 1), gl
 							.colorMask(1, 1, 1, 1), gl.clear(gl.COLOR_BUFFER_BIT), gl
 							.colorMask(1, 1, 1, 0), xb = null);
-			Ua = document.getElementById("GameCanvas").getContext("2d");
+			context = document.getElementById("GameCanvas").getContext("2d");
 			if (tb)
 				try {
 					curApp.ja()
@@ -1732,13 +1732,13 @@ var hc = false, ic = false, jc = 1, kc = true;
 function lc(b, c, d, f, g, h, j, k, l, m, o, q, r) {
 	if (c != 0) {
 		var v = g != 0 || h != 0;
-		hc != v && !v && (Ua.setTransform(1, 0, 0, 1, 0, 0), hc = false);
+		hc != v && !v && (context.setTransform(1, 0, 0, 1, 0, 0), hc = false);
 		if (ic != d && (kc || !d))
-			Ua.globalCompositeOperation = d ? "lighter" : "source-over", ic = d;
+			context.globalCompositeOperation = d ? "lighter" : "source-over", ic = d;
 		if (c != jc)
-			jc = Ua.globalAlpha = c;
-		v ? (Ua.setTransform(f, g, h, j, k, l), Ua.drawImage(b, m, o, q, r, 0,
-				0, q, r), hc = true) : Ua.drawImage(b, m, o, q, r, k, l, q * f, r
+			jc = context.globalAlpha = c;
+		v ? (context.setTransform(f, g, h, j, k, l), context.drawImage(b, m, o, q, r, 0,
+				0, q, r), hc = true) : context.drawImage(b, m, o, q, r, k, l, q * f, r
 						* j)
 	}
 }
@@ -2207,7 +2207,7 @@ GameFramework.BaseApp.prototype = {
 	},
 	ja : function() {
 		this.Bb != null && this.Bb.ja(10);
-		var b = GameFramework.Utils.sq();
+		var b = GameFramework.Utils.bootTime();
 		this.XM[this.VM % 100] = b;
 		for (var c = 0, d = 0, f = b, g = -1; g > -100 && d < 1E3;) {
 			var h = this.XM[(this.VM + 100 + g) % 100];
@@ -3392,7 +3392,7 @@ GameFramework.Utils.ei = function(b) {
 };
 GameFramework.Utils.Tna = ga();
 GameFramework.Utils.rqa = ga();
-GameFramework.Utils.sqa = ga();
+GameFramework.Utils.bootTimea = ga();
 GameFramework.Utils.Ec = function() {
 	return Math.random()
 };
@@ -3575,7 +3575,7 @@ GameFramework.Utils.eJ = function() {
 					.charCodeAt(c));
 	return b
 };
-GameFramework.Utils.sq = function() {
+GameFramework.Utils.bootTime = function() {
 	if (GameFramework.Utils.wP == 0)
 		GameFramework.Utils.wP = (new Date).getTime();
 	return (new Date).getTime() - GameFramework.Utils.wP
@@ -12902,7 +12902,7 @@ GameFramework.JSBaseApp = function() {
 	this.NB = {};
 	E(GameFramework.JSBaseApp, this);
 	GameFramework.JSBaseApp.Cx = this;
-	this.RN = GameFramework.Utils.sq()
+	this.RN = GameFramework.Utils.bootTime()
 };
 GameFramework.JSBaseApp.prototype = {
 	fu : null,
@@ -12910,7 +12910,7 @@ GameFramework.JSBaseApp.prototype = {
 	tN : null,
 	useGL : true,
 	nX : 0,
-	Op : "",
+	pathPrefix : "",
 	wW : true,
 	NB : null,
 	RN : 0,
@@ -12964,7 +12964,7 @@ GameFramework.JSBaseApp.prototype = {
 	ca : function() {
 		GameFramework.BaseApp.prototype.ca.apply(this);
 		for (var b = false, c = false, d = false, f = 0; f < this.Ck.length; f++) {
-			if (this.wW && GameFramework.Utils.sq() - this.nX >= 100)
+			if (this.wW && GameFramework.Utils.bootTime() - this.nX >= 100)
 				break;
 			var stream = this.Ck[f];
 			stream.Pf == GameFramework.resources.ResourceManager.tA
@@ -12974,10 +12974,10 @@ GameFramework.JSBaseApp.prototype = {
 				if (stream.Pf === GameFramework.resources.ResourceManager.sA)
 					stream.Kb != null && stream.Kb.Qb != null ? this.vb.Gs(stream.Kb.Qb) != null
 							&& stream.Or != stream.Uj && stream.Or++ : stream.rd = stream.Kb != null
-							&& stream.Kb.gX ? Oa(stream, stream.vc ? this.Op + stream.vc : null, stream.Rx
-									? this.Op + stream.Rx
-									: null) : Na(stream, stream.vc ? this.Op + stream.vc : null,
-							stream.Rx ? this.Op + stream.Rx : null);
+							&& stream.Kb.gX ? Oa(stream, stream.vc ? this.pathPrefix + stream.vc : null, stream.Rx
+									? this.pathPrefix + stream.Rx
+									: null) : Na(stream, stream.vc ? this.pathPrefix + stream.vc : null,
+							stream.Rx ? this.pathPrefix + stream.Rx : null);
 				else if (stream.Pf === GameFramework.resources.ResourceManager.tA) {
 					var h = stream.vc;
 					h.indexOf(".") === -1 && (h += stream.Kb.Jj[0]);
@@ -13005,7 +13005,7 @@ GameFramework.JSBaseApp.prototype = {
 							}
 						} else {
 							this.NB[h] = true;
-							k = this.Op + h;
+							k = this.pathPrefix + h;
 							if(!(new XMLHttpRequest).overrideMimeType) {
 								j = k.indexOf(".bin");
 								if(j != -1) {
@@ -13015,12 +13015,12 @@ GameFramework.JSBaseApp.prototype = {
 							Za(stream, h, k);
 						}
 					} else
-						h = Ya(stream, this.Op + stream.vc), h.nY = stream, this.tN[h
+						h = Ya(stream, this.pathPrefix + stream.vc), h.nY = stream, this.tN[h
 								.toString()] = stream, stream.rd = h;
 				else
-					h = stream.vc.indexOf(".json") !== -1 ? $.get(this.Op + stream.vc, null,
+					h = stream.vc.indexOf(".json") !== -1 ? $.get(this.pathPrefix + stream.vc, null,
 							ss.Delegate.create(this, this.KT), "text") : $.get(
-							this.Op + stream.vc, null, ss.Delegate.create(this, this.KT)), h.nY = stream, this.tN[h
+							this.pathPrefix + stream.vc, null, ss.Delegate.create(this, this.KT)), h.nY = stream, this.tN[h
 							.toString()] = stream, stream.rd = h;
 			if (stream.OM && !GameFramework.BaseApp.M.vb.YO)
 				stream.OM(), stream.OM = null;
@@ -13032,16 +13032,16 @@ GameFramework.JSBaseApp.prototype = {
 						this.Ck, f), f--, b = true;
 			f == this.Ck.length - 1 && b && (f = -1, b = false)
 		}
-		c && !d && !this.YW && GameFramework.Utils.sq() - this.RN >= 3E4
+		c && !d && !this.YW && GameFramework.Utils.bootTime() - this.RN >= 3E4
 				&& ca(new System.wJ("Sound loading stalled"));
 		this.FL()
 	},
 	ja : function() {
 		GameFramework.BaseApp.prototype.ja.apply(this);
-		this.nX = GameFramework.Utils.sq()
+		this.nX = GameFramework.Utils.bootTime();
 	},
 	nk : function(b, c) {
-		this.RN = GameFramework.Utils.sq();
+		this.RN = GameFramework.Utils.bootTime();
 		c.rd = b;
 		if (c.Pf == GameFramework.resources.ResourceManager.tA)
 			this.YW = true;
@@ -14934,7 +14934,7 @@ Game.BejApp.prototype = {
 	},
 	GetArtRes : ha("aj"),
 	SetArtRes : w("aj"),
-	SetPathPrefix : w("Op"),
+	SetPathPrefix : w("pathPrefix"),
     SetMetricsURL : function(b) {
 		this.Jp.iL(b)
 	},
@@ -15068,7 +15068,7 @@ Game.BejApp.prototype = {
 		this.uk.gt()
 	},
 	dK : function() {
-		if (GameFramework.Utils.sq() > 25E3)
+		if (GameFramework.Utils.bootTime() > 25E3)
 			this.Ka.Fr = 0;
 		if (this.ZN != null)
 			this.ZN.XW = true;
@@ -15106,7 +15106,7 @@ Game.BejApp.prototype = {
 		this.Ut--;
 		if (this.Ut == 0 && !this.jC)
 			this.wW = false, this.dl("Music"), this.tw("load_complete",
-					[new GameFramework.W.cb("LoadSeconds", GameFramework.Utils.sq()
+					[new GameFramework.W.cb("LoadSeconds", GameFramework.Utils.bootTime()
 									/ 1E3 | 0)]), this.bU(this.Ka.Fr), this
 					.lL(this.Ka.tu), this.kA(Game.a.QT), this.nI.f2(), this.jC = true, Game.a.FONT_DIALOG_BUTTONS
 					.Ia("MAIN", GameFramework.gfx.k.Ma(255, 255, 255, 230)), Game.a.FONT_DIALOG_BUTTONS
