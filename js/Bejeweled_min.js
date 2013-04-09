@@ -6790,39 +6790,39 @@ T(function() {
 U(function() {
 			GameFramework.resources.PILifeValueSample.c()
 		});
-GameFramework.resources.yb = t();
-GameFramework.resources.yb.prototype = {
+GameFramework.resources.PILifeValueTable = t();
+GameFramework.resources.PILifeValueTable.prototype = {
 	qf : null,
 	t : t()
 };
-GameFramework.resources.yb.c = function() {
-	GameFramework.resources.yb.jn = 32;
-	GameFramework.resources.yb.Uo = 26
+GameFramework.resources.PILifeValueTable.c = function() {
+	GameFramework.resources.PILifeValueTable.jn = 32;
+	GameFramework.resources.PILifeValueTable.Uo = 26
 };
 T(function() {
-			GameFramework.resources.yb.u("GameFramework.resources.PILifeValueTable", null,
+			GameFramework.resources.PILifeValueTable.u("GameFramework.resources.PILifeValueTable", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.yb.c()
+			GameFramework.resources.PILifeValueTable.c()
 		});
-GameFramework.resources.yb.Nd = {};
-GameFramework.resources.yb.Nd.c = function() {
-	GameFramework.resources.yb.Nd.Wg = 0;
-	GameFramework.resources.yb.Nd.Xg = 1;
-	GameFramework.resources.yb.Nd.xj = 2;
-	GameFramework.resources.yb.Nd.Ed = 3;
-	GameFramework.resources.yb.Nd.md = 4;
-	GameFramework.resources.yb.Nd.ud = 5;
-	GameFramework.resources.yb.Nd.QI = 6;
-	GameFramework.resources.yb.Nd.ALPHA = 7;
-	GameFramework.resources.yb.Nd.Jh = 8
+GameFramework.resources.PILifeValueTable.Nd = {};
+GameFramework.resources.PILifeValueTable.Nd.c = function() {
+	GameFramework.resources.PILifeValueTable.Nd.Wg = 0;
+	GameFramework.resources.PILifeValueTable.Nd.Xg = 1;
+	GameFramework.resources.PILifeValueTable.Nd.xj = 2;
+	GameFramework.resources.PILifeValueTable.Nd.Ed = 3;
+	GameFramework.resources.PILifeValueTable.Nd.md = 4;
+	GameFramework.resources.PILifeValueTable.Nd.ud = 5;
+	GameFramework.resources.PILifeValueTable.Nd.QI = 6;
+	GameFramework.resources.PILifeValueTable.Nd.ALPHA = 7;
+	GameFramework.resources.PILifeValueTable.Nd.Jh = 8
 };
 T(function() {
-			GameFramework.resources.yb.Nd.c()
+			GameFramework.resources.PILifeValueTable.Nd.c()
 		});
-GameFramework.resources.ua = t();
-GameFramework.resources.ua.prototype = {
+GameFramework.resources.PIParticleDef = t();
+GameFramework.resources.PIParticleDef.prototype = {
 	fj : null,
 	Qb : null,
 	sb : null,
@@ -6864,53 +6864,53 @@ GameFramework.resources.ua.prototype = {
 	L : null,
 	t : t()
 };
-GameFramework.resources.ua.c = function() {
-	GameFramework.resources.ua.cra = {}
+GameFramework.resources.PIParticleDef.c = function() {
+	GameFramework.resources.PIParticleDef.cra = {}
 };
 T(function() {
-			GameFramework.resources.ua.u("GameFramework.resources.PIParticleDef", null,
+			GameFramework.resources.PIParticleDef.u("GameFramework.resources.PIParticleDef", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.ua.c()
+			GameFramework.resources.PIParticleDef.c()
 		});
-GameFramework.resources.ua.p = {};
-GameFramework.resources.ua.p.c = function() {
-	GameFramework.resources.ua.p.Uk = 0;
-	GameFramework.resources.ua.p.Xo = 1;
-	GameFramework.resources.ua.p.Wg = 2;
-	GameFramework.resources.ua.p.xj = 3;
-	GameFramework.resources.ua.p.Ed = 4;
-	GameFramework.resources.ua.p.md = 5;
-	GameFramework.resources.ua.p.ud = 6;
-	GameFramework.resources.ua.p.Ae = 7;
-	GameFramework.resources.ua.p.u2 = 8;
-	GameFramework.resources.ua.p.cT = 9;
-	GameFramework.resources.ua.p.T3 = 10;
-	GameFramework.resources.ua.p.H5 = 11;
-	GameFramework.resources.ua.p.K5 = 12;
-	GameFramework.resources.ua.p.h4 = 13;
-	GameFramework.resources.ua.p.D2 = 14;
-	GameFramework.resources.ua.p.CZ = 15;
-	GameFramework.resources.ua.p.S3 = 16;
-	GameFramework.resources.ua.p.KL = 17;
-	GameFramework.resources.ua.p.LL = 18;
-	GameFramework.resources.ua.p.XK = 19;
-	GameFramework.resources.ua.p.VS = 20;
-	GameFramework.resources.ua.p.NI = 21;
-	GameFramework.resources.ua.p.ZA = 22;
-	GameFramework.resources.ua.p.xs = 23;
-	GameFramework.resources.ua.p.ys = 24;
-	GameFramework.resources.ua.p.Xg = 25;
-	GameFramework.resources.ua.p.PT = 26;
-	GameFramework.resources.ua.p.OT = 27;
-	GameFramework.resources.ua.p.Jh = 28
+GameFramework.resources.PIParticleDef.p = {};
+GameFramework.resources.PIParticleDef.p.c = function() {
+	GameFramework.resources.PIParticleDef.p.Uk = 0;
+	GameFramework.resources.PIParticleDef.p.Xo = 1;
+	GameFramework.resources.PIParticleDef.p.Wg = 2;
+	GameFramework.resources.PIParticleDef.p.xj = 3;
+	GameFramework.resources.PIParticleDef.p.Ed = 4;
+	GameFramework.resources.PIParticleDef.p.md = 5;
+	GameFramework.resources.PIParticleDef.p.ud = 6;
+	GameFramework.resources.PIParticleDef.p.Ae = 7;
+	GameFramework.resources.PIParticleDef.p.u2 = 8;
+	GameFramework.resources.PIParticleDef.p.cT = 9;
+	GameFramework.resources.PIParticleDef.p.T3 = 10;
+	GameFramework.resources.PIParticleDef.p.H5 = 11;
+	GameFramework.resources.PIParticleDef.p.K5 = 12;
+	GameFramework.resources.PIParticleDef.p.h4 = 13;
+	GameFramework.resources.PIParticleDef.p.D2 = 14;
+	GameFramework.resources.PIParticleDef.p.CZ = 15;
+	GameFramework.resources.PIParticleDef.p.S3 = 16;
+	GameFramework.resources.PIParticleDef.p.KL = 17;
+	GameFramework.resources.PIParticleDef.p.LL = 18;
+	GameFramework.resources.PIParticleDef.p.XK = 19;
+	GameFramework.resources.PIParticleDef.p.VS = 20;
+	GameFramework.resources.PIParticleDef.p.NI = 21;
+	GameFramework.resources.PIParticleDef.p.ZA = 22;
+	GameFramework.resources.PIParticleDef.p.xs = 23;
+	GameFramework.resources.PIParticleDef.p.ys = 24;
+	GameFramework.resources.PIParticleDef.p.Xg = 25;
+	GameFramework.resources.PIParticleDef.p.PT = 26;
+	GameFramework.resources.PIParticleDef.p.OT = 27;
+	GameFramework.resources.PIParticleDef.p.Jh = 28
 };
 T(function() {
-			GameFramework.resources.ua.p.c()
+			GameFramework.resources.PIParticleDef.p.c()
 		});
-GameFramework.resources.ma = t();
-GameFramework.resources.ma.prototype = {
+GameFramework.resources.PIEmitter = t();
+GameFramework.resources.PIEmitter.prototype = {
 	sb : null,
 	F : null,
 	tf : null,
@@ -6922,65 +6922,65 @@ GameFramework.resources.ma.prototype = {
 	nl : 0,
 	t : t()
 };
-GameFramework.resources.ma.c = t();
+GameFramework.resources.PIEmitter.c = t();
 T(function() {
-			GameFramework.resources.ma.u("GameFramework.resources.PIEmitter", null,
+			GameFramework.resources.PIEmitter.u("GameFramework.resources.PIEmitter", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.ma.c()
+			GameFramework.resources.PIEmitter.c()
 		});
-GameFramework.resources.ma.p = {};
-GameFramework.resources.ma.p.c = function() {
-	GameFramework.resources.ma.p.r0 = 0;
-	GameFramework.resources.ma.p.Pda = 1;
-	GameFramework.resources.ma.p.A0 = 2;
-	GameFramework.resources.ma.p.qR = 3;
-	GameFramework.resources.ma.p.nR = 4;
-	GameFramework.resources.ma.p.lR = 5;
-	GameFramework.resources.ma.p.zJ = 6;
-	GameFramework.resources.ma.p.Rda = 7;
-	GameFramework.resources.ma.p.Uk = 8;
-	GameFramework.resources.ma.p.Xo = 9;
-	GameFramework.resources.ma.p.Wg = 10;
-	GameFramework.resources.ma.p.Xg = 11;
-	GameFramework.resources.ma.p.xj = 12;
-	GameFramework.resources.ma.p.Ed = 13;
-	GameFramework.resources.ma.p.md = 14;
-	GameFramework.resources.ma.p.ud = 15;
-	GameFramework.resources.ma.p.Ae = 16;
-	GameFramework.resources.ma.p.Uq = 17;
-	GameFramework.resources.ma.p.ZA = 18;
-	GameFramework.resources.ma.p.eqa = 19;
-	GameFramework.resources.ma.p.ep = 20;
-	GameFramework.resources.ma.p.xs = 21;
-	GameFramework.resources.ma.p.ys = 22;
-	GameFramework.resources.ma.p.s0 = 23;
-	GameFramework.resources.ma.p.Qda = 24;
-	GameFramework.resources.ma.p.w0 = 25;
-	GameFramework.resources.ma.p.y0 = 26;
-	GameFramework.resources.ma.p.B0 = 27;
-	GameFramework.resources.ma.p.C0 = 28;
-	GameFramework.resources.ma.p.z0 = 29;
-	GameFramework.resources.ma.p.t0 = 30;
-	GameFramework.resources.ma.p.q0 = 31;
-	GameFramework.resources.ma.p.E0 = 32;
-	GameFramework.resources.ma.p.u0 = 33;
-	GameFramework.resources.ma.p.v0 = 34;
-	GameFramework.resources.ma.p.x0 = 35;
-	GameFramework.resources.ma.p.pR = 36;
-	GameFramework.resources.ma.p.rR = 37;
-	GameFramework.resources.ma.p.oR = 38;
-	GameFramework.resources.ma.p.mR = 39;
-	GameFramework.resources.ma.p.AJ = 40;
-	GameFramework.resources.ma.p.D0 = 41;
-	GameFramework.resources.ma.p.Jh = 42
+GameFramework.resources.PIEmitter.p = {};
+GameFramework.resources.PIEmitter.p.c = function() {
+	GameFramework.resources.PIEmitter.p.r0 = 0;
+	GameFramework.resources.PIEmitter.p.Pda = 1;
+	GameFramework.resources.PIEmitter.p.A0 = 2;
+	GameFramework.resources.PIEmitter.p.qR = 3;
+	GameFramework.resources.PIEmitter.p.nR = 4;
+	GameFramework.resources.PIEmitter.p.lR = 5;
+	GameFramework.resources.PIEmitter.p.zJ = 6;
+	GameFramework.resources.PIEmitter.p.Rda = 7;
+	GameFramework.resources.PIEmitter.p.Uk = 8;
+	GameFramework.resources.PIEmitter.p.Xo = 9;
+	GameFramework.resources.PIEmitter.p.Wg = 10;
+	GameFramework.resources.PIEmitter.p.Xg = 11;
+	GameFramework.resources.PIEmitter.p.xj = 12;
+	GameFramework.resources.PIEmitter.p.Ed = 13;
+	GameFramework.resources.PIEmitter.p.md = 14;
+	GameFramework.resources.PIEmitter.p.ud = 15;
+	GameFramework.resources.PIEmitter.p.Ae = 16;
+	GameFramework.resources.PIEmitter.p.Uq = 17;
+	GameFramework.resources.PIEmitter.p.ZA = 18;
+	GameFramework.resources.PIEmitter.p.eqa = 19;
+	GameFramework.resources.PIEmitter.p.ep = 20;
+	GameFramework.resources.PIEmitter.p.xs = 21;
+	GameFramework.resources.PIEmitter.p.ys = 22;
+	GameFramework.resources.PIEmitter.p.s0 = 23;
+	GameFramework.resources.PIEmitter.p.Qda = 24;
+	GameFramework.resources.PIEmitter.p.w0 = 25;
+	GameFramework.resources.PIEmitter.p.y0 = 26;
+	GameFramework.resources.PIEmitter.p.B0 = 27;
+	GameFramework.resources.PIEmitter.p.C0 = 28;
+	GameFramework.resources.PIEmitter.p.z0 = 29;
+	GameFramework.resources.PIEmitter.p.t0 = 30;
+	GameFramework.resources.PIEmitter.p.q0 = 31;
+	GameFramework.resources.PIEmitter.p.E0 = 32;
+	GameFramework.resources.PIEmitter.p.u0 = 33;
+	GameFramework.resources.PIEmitter.p.v0 = 34;
+	GameFramework.resources.PIEmitter.p.x0 = 35;
+	GameFramework.resources.PIEmitter.p.pR = 36;
+	GameFramework.resources.PIEmitter.p.rR = 37;
+	GameFramework.resources.PIEmitter.p.oR = 38;
+	GameFramework.resources.PIEmitter.p.mR = 39;
+	GameFramework.resources.PIEmitter.p.AJ = 40;
+	GameFramework.resources.PIEmitter.p.D0 = 41;
+	GameFramework.resources.PIEmitter.p.Jh = 42
 };
 T(function() {
-			GameFramework.resources.ma.p.c()
+			GameFramework.resources.PIEmitter.p.c()
 		});
-GameFramework.resources.Ea = function() {
-	this.lb = Array.O(GameFramework.resources.Ea.Sa.Jh | 0, null);
+GameFramework.resources.PIParticleInstance = function() {
+	this.lb = Array.O(GameFramework.resources.PIParticleInstance.Sa.Jh | 0, null);
 	this.Na = new GameFramework.geom.Matrix;
 	this.gd = this.Ei = null;
 	this.u9 = 1;
@@ -6990,7 +6990,7 @@ GameFramework.resources.Ea = function() {
 	this.Yh = null;
 	this.ul = false
 };
-GameFramework.resources.Ea.prototype = {
+GameFramework.resources.PIParticleInstance.prototype = {
 	gd : null,
 	Jc : null,
 	Im : null,
@@ -7030,34 +7030,34 @@ GameFramework.resources.Ea.prototype = {
 	Oa : null,
 	t : t()
 };
-GameFramework.resources.Ea.c = t();
+GameFramework.resources.PIParticleInstance.c = t();
 T(function() {
-			GameFramework.resources.Ea.u("GameFramework.resources.PIParticleInstance",
+			GameFramework.resources.PIParticleInstance.u("GameFramework.resources.PIParticleInstance",
 					null, GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.Ea.c()
+			GameFramework.resources.PIParticleInstance.c()
 		});
-GameFramework.resources.Ea.Sa = {};
-GameFramework.resources.Ea.Sa.c = function() {
-	GameFramework.resources.Ea.Sa.ud = 0;
-	GameFramework.resources.Ea.Sa.xj = 1;
-	GameFramework.resources.Ea.Sa.Ed = 2;
-	GameFramework.resources.Ea.Sa.md = 3;
-	GameFramework.resources.Ea.Sa.Wg = 4;
-	GameFramework.resources.Ea.Sa.Xg = 5;
-	GameFramework.resources.Ea.Sa.Ae = 6;
-	GameFramework.resources.Ea.Sa.Uk = 7;
-	GameFramework.resources.Ea.Sa.Uq = 8;
-	GameFramework.resources.Ea.Sa.Jh = 9
+GameFramework.resources.PIParticleInstance.Sa = {};
+GameFramework.resources.PIParticleInstance.Sa.c = function() {
+	GameFramework.resources.PIParticleInstance.Sa.ud = 0;
+	GameFramework.resources.PIParticleInstance.Sa.xj = 1;
+	GameFramework.resources.PIParticleInstance.Sa.Ed = 2;
+	GameFramework.resources.PIParticleInstance.Sa.md = 3;
+	GameFramework.resources.PIParticleInstance.Sa.Wg = 4;
+	GameFramework.resources.PIParticleInstance.Sa.Xg = 5;
+	GameFramework.resources.PIParticleInstance.Sa.Ae = 6;
+	GameFramework.resources.PIParticleInstance.Sa.Uk = 7;
+	GameFramework.resources.PIParticleInstance.Sa.Uq = 8;
+	GameFramework.resources.PIParticleInstance.Sa.Jh = 9
 };
 T(function() {
-			GameFramework.resources.Ea.Sa.c()
+			GameFramework.resources.PIParticleInstance.Sa.c()
 		});
-GameFramework.resources.nn = function() {
+GameFramework.resources.PIParticleDefInstance = function() {
 	this.Vg()
 };
-GameFramework.resources.nn.prototype = {
+GameFramework.resources.PIParticleDefInstance.prototype = {
 	ku : 0,
 	xG : 0,
 	uO : 0,
@@ -7071,22 +7071,22 @@ GameFramework.resources.nn.prototype = {
 	},
 	t : t()
 };
-GameFramework.resources.nn.c = t();
+GameFramework.resources.PIParticleDefInstance.c = t();
 T(function() {
-			GameFramework.resources.nn.u(
+			GameFramework.resources.PIParticleDefInstance.u(
 					"GameFramework.resources.PIParticleDefInstance", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.nn.c()
+			GameFramework.resources.PIParticleDefInstance.c()
 		});
-GameFramework.resources.Vv = function() {
+GameFramework.resources.PIParticleGroup = function() {
 	this.bf = this.Ac = false;
 	this.cg = this.pd = null;
 	this.be = 0;
 	this.RB = this.SB = this.YG = this.ux = this.ZG = this.wN = this.XG = this.$G = this.QB = false
 };
-GameFramework.resources.Vv.prototype = {
+GameFramework.resources.PIParticleGroup.prototype = {
 	pd : null,
 	cg : null,
 	be : 0,
@@ -7103,55 +7103,55 @@ GameFramework.resources.Vv.prototype = {
 	RB : null,
 	t : t()
 };
-GameFramework.resources.Vv.c = t();
+GameFramework.resources.PIParticleGroup.c = t();
 T(function() {
-			GameFramework.resources.Vv.u("GameFramework.resources.PIParticleGroup", null,
+			GameFramework.resources.PIParticleGroup.u("GameFramework.resources.PIParticleGroup", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.Vv.c()
+			GameFramework.resources.PIParticleGroup.c()
 		});
-GameFramework.resources.$s = function() {
-	this.Wb = new GameFramework.resources.Vv
+GameFramework.resources.PIEmitterBase = function() {
+	this.Wb = new GameFramework.resources.PIParticleGroup
 };
-GameFramework.resources.$s.prototype = {
+GameFramework.resources.PIEmitterBase.prototype = {
 	Bh : null,
 	Wb : null,
 	t : function() {
 		this.Wb.t()
 	}
 };
-GameFramework.resources.$s.c = t();
+GameFramework.resources.PIEmitterBase.c = t();
 T(function() {
-			GameFramework.resources.$s.u("GameFramework.resources.PIEmitterBase", null,
+			GameFramework.resources.PIEmitterBase.u("GameFramework.resources.PIEmitterBase", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.$s.c()
+			GameFramework.resources.PIEmitterBase.c()
 		});
-GameFramework.resources.bt = function() {
-	this.kg = new GameFramework.resources.$s;
-	E(GameFramework.resources.bt, this);
+GameFramework.resources.PIFreeEmitterInstance = function() {
+	this.kg = new GameFramework.resources.PIEmitterBase;
+	E(GameFramework.resources.PIFreeEmitterInstance, this);
 	this.kg.Wb.bf = true
 };
-GameFramework.resources.bt.prototype = {
+GameFramework.resources.PIFreeEmitterInstance.prototype = {
 	kg : null,
 	t : function() {
 		this.kg.t();
-		GameFramework.resources.Ea.prototype.t.apply(this)
+		GameFramework.resources.PIParticleInstance.prototype.t.apply(this)
 	}
 };
-GameFramework.resources.bt.c = t();
+GameFramework.resources.PIFreeEmitterInstance.c = t();
 T(function() {
-			GameFramework.resources.bt.u(
+			GameFramework.resources.PIFreeEmitterInstance.u(
 					"GameFramework.resources.PIFreeEmitterInstance",
-					GameFramework.resources.Ea)
+					GameFramework.resources.PIParticleInstance)
 		});
 U(function() {
-			GameFramework.resources.bt.c()
+			GameFramework.resources.PIFreeEmitterInstance.c()
 		});
-GameFramework.resources.$ = t();
-GameFramework.resources.$.prototype = {
+GameFramework.resources.PIEmitterInstanceDef = t();
+GameFramework.resources.PIEmitterInstanceDef.prototype = {
 	sb : null,
 	SG : 0,
 	um : 0,
@@ -7169,53 +7169,53 @@ GameFramework.resources.$.prototype = {
 	Ln : 0,
 	t : t()
 };
-GameFramework.resources.$.c = t();
+GameFramework.resources.PIEmitterInstanceDef.c = t();
 T(function() {
-			GameFramework.resources.$.u("GameFramework.resources.PIEmitterInstanceDef",
+			GameFramework.resources.PIEmitterInstanceDef.u("GameFramework.resources.PIEmitterInstanceDef",
 					null, GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.$.c()
+			GameFramework.resources.PIEmitterInstanceDef.c()
 		});
-GameFramework.resources.$.p = {};
-GameFramework.resources.$.p.c = function() {
-	GameFramework.resources.$.p.Uk = 0;
-	GameFramework.resources.$.p.Xo = 1;
-	GameFramework.resources.$.p.Wg = 2;
-	GameFramework.resources.$.p.xj = 3;
-	GameFramework.resources.$.p.Ed = 4;
-	GameFramework.resources.$.p.md = 5;
-	GameFramework.resources.$.p.ud = 6;
-	GameFramework.resources.$.p.Ae = 7;
-	GameFramework.resources.$.p.Uq = 8;
-	GameFramework.resources.$.p.ZA = 9;
-	GameFramework.resources.$.p.ep = 10;
-	GameFramework.resources.$.p.xs = 11;
-	GameFramework.resources.$.p.ys = 12;
-	GameFramework.resources.$.p.Go = 13;
-	GameFramework.resources.$.p.Ru = 14;
-	GameFramework.resources.$.p.Fw = 15;
-	GameFramework.resources.$.p.EF = 16;
-	GameFramework.resources.$.p.Xg = 17;
-	GameFramework.resources.$.p.a5 = 18;
-	GameFramework.resources.$.p.Jh = 19
+GameFramework.resources.PIEmitterInstanceDef.p = {};
+GameFramework.resources.PIEmitterInstanceDef.p.c = function() {
+	GameFramework.resources.PIEmitterInstanceDef.p.Uk = 0;
+	GameFramework.resources.PIEmitterInstanceDef.p.Xo = 1;
+	GameFramework.resources.PIEmitterInstanceDef.p.Wg = 2;
+	GameFramework.resources.PIEmitterInstanceDef.p.xj = 3;
+	GameFramework.resources.PIEmitterInstanceDef.p.Ed = 4;
+	GameFramework.resources.PIEmitterInstanceDef.p.md = 5;
+	GameFramework.resources.PIEmitterInstanceDef.p.ud = 6;
+	GameFramework.resources.PIEmitterInstanceDef.p.Ae = 7;
+	GameFramework.resources.PIEmitterInstanceDef.p.Uq = 8;
+	GameFramework.resources.PIEmitterInstanceDef.p.ZA = 9;
+	GameFramework.resources.PIEmitterInstanceDef.p.ep = 10;
+	GameFramework.resources.PIEmitterInstanceDef.p.xs = 11;
+	GameFramework.resources.PIEmitterInstanceDef.p.ys = 12;
+	GameFramework.resources.PIEmitterInstanceDef.p.Go = 13;
+	GameFramework.resources.PIEmitterInstanceDef.p.Ru = 14;
+	GameFramework.resources.PIEmitterInstanceDef.p.Fw = 15;
+	GameFramework.resources.PIEmitterInstanceDef.p.EF = 16;
+	GameFramework.resources.PIEmitterInstanceDef.p.Xg = 17;
+	GameFramework.resources.PIEmitterInstanceDef.p.a5 = 18;
+	GameFramework.resources.PIEmitterInstanceDef.p.Jh = 19
 };
 T(function() {
-			GameFramework.resources.$.p.c()
+			GameFramework.resources.PIEmitterInstanceDef.p.c()
 		});
-GameFramework.resources.$.ke = {};
-GameFramework.resources.$.ke.c = function() {
-	GameFramework.resources.$.ke.a3 = 0;
-	GameFramework.resources.$.ke.Qz = 1;
-	GameFramework.resources.$.ke.tJ = 2;
-	GameFramework.resources.$.ke.Fy = 3;
-	GameFramework.resources.$.ke.Zu = 4
+GameFramework.resources.PIEmitterInstanceDef.ke = {};
+GameFramework.resources.PIEmitterInstanceDef.ke.c = function() {
+	GameFramework.resources.PIEmitterInstanceDef.ke.a3 = 0;
+	GameFramework.resources.PIEmitterInstanceDef.ke.Qz = 1;
+	GameFramework.resources.PIEmitterInstanceDef.ke.tJ = 2;
+	GameFramework.resources.PIEmitterInstanceDef.ke.Fy = 3;
+	GameFramework.resources.PIEmitterInstanceDef.ke.Zu = 4
 };
 T(function() {
-			GameFramework.resources.$.ke.c()
+			GameFramework.resources.PIEmitterInstanceDef.ke.c()
 		});
 GameFramework.resources.at = function() {
-	this.$h = new GameFramework.resources.Vv;
+	this.$h = new GameFramework.resources.PIParticleGroup;
 	this.Na = new GameFramework.geom.Matrix;
 	this.de = new GameFramework.geom.TPoint;
 	E(GameFramework.resources.at, this);
@@ -7240,13 +7240,13 @@ GameFramework.resources.at.prototype = {
 	tn : w("ec"),
 	t : function() {
 		this.$h.t();
-		GameFramework.resources.$s.prototype.t.apply(this)
+		GameFramework.resources.PIEmitterBase.prototype.t.apply(this)
 	}
 };
 GameFramework.resources.at.c = t();
 T(function() {
 			GameFramework.resources.at.u("GameFramework.resources.PIEmitterInstance",
-					GameFramework.resources.$s)
+					GameFramework.resources.PIEmitterBase)
 		});
 U(function() {
 			GameFramework.resources.at.c()
@@ -7446,20 +7446,20 @@ GameFramework.resources.va.i2 = function(b, c, d, f, g, h, j, k, l) {
 						y = l.bd / 2147483647;
 						m = v.kG;
 						m *= h.Ac
-								? (h.bf ? f.F[GameFramework.resources.ma.p.Ae | 0]
-										.G(b.A) : d.Wa.F[GameFramework.resources.$.p.Ae
+								? (h.bf ? f.F[GameFramework.resources.PIEmitter.p.Ae | 0]
+										.G(b.A) : d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ae
 										| 0].G(b.A))
-										* f.F[GameFramework.resources.ma.p.AJ | 0].G(y,
+										* f.F[GameFramework.resources.PIEmitter.p.AJ | 0].G(y,
 												1)
-										* (f.F[GameFramework.resources.ma.p.zJ | 0]
-												.G(b.A) + l.lb[GameFramework.resources.Ea.Sa.Ae
+										* (f.F[GameFramework.resources.PIEmitter.p.zJ | 0]
+												.G(b.A) + l.lb[GameFramework.resources.PIParticleInstance.Sa.Ae
 												| 0])
-								: (h.bf ? f.F[GameFramework.resources.ma.p.Ae | 0]
-										.G(b.A) : d.Wa.F[GameFramework.resources.$.p.Ae
+								: (h.bf ? f.F[GameFramework.resources.PIEmitter.p.Ae | 0]
+										.G(b.A) : d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ae
 										| 0].G(b.A))
-										* g.F[GameFramework.resources.ua.p.NI | 0].G(y)
-										* (g.F[GameFramework.resources.ua.p.Ae | 0]
-												.G(b.A) + l.lb[GameFramework.resources.Ea.Sa.Ae
+										* g.F[GameFramework.resources.PIParticleDef.p.NI | 0].G(y)
+										* (g.F[GameFramework.resources.PIParticleDef.p.Ae | 0]
+												.G(b.A) + l.lb[GameFramework.resources.PIParticleInstance.Sa.Ae
 												| 0]);
 						y = new GameFramework.geom.TPoint(j.x, j.y);
 						z = y.x * A.x + y.y * A.y;
@@ -7594,11 +7594,11 @@ GameFramework.resources.va.prototype = {
 				k.Bh = [];
 				k.Bh.length = l.tf.length;
 				for (j = 0; j < k.Bh.length; j++)
-					k.Bh[j] = new GameFramework.resources.nn;
+					k.Bh[j] = new GameFramework.resources.PIParticleDefInstance;
 				k.Kl = [];
 				k.Kl.length = h.Kl.length;
 				for (h = 0; h < k.Kl.length; h++)
-					k.Kl[h] = new GameFramework.resources.nn
+					k.Kl[h] = new GameFramework.resources.PIParticleDefInstance
 			}
 		}
 		this.AQ();
@@ -7785,7 +7785,7 @@ GameFramework.resources.va.prototype = {
 		b.tf.length = c;
 		for (var d = 0; d < c; d++) {
 			GameFramework.resources.va.z6++;
-			var f = new GameFramework.resources.ua;
+			var f = new GameFramework.resources.PIParticleDef;
 			this.Qi("CEmParticleType");
 			this.C.H();
 			this.C.H();
@@ -7842,8 +7842,8 @@ GameFramework.resources.va.prototype = {
 				this.Qi("CAlphaPoint"), j = this.C.eb(), k = this.C.fa(), l = new GameFramework.resources.PIInterpolatorPoint, l.oa = j, l.Eb = k, f.L.Zf
 						.push(l);
 			f.F = [];
-			f.F.length = GameFramework.resources.ua.p.Jh | 0;
-			for (g = 0; g < (GameFramework.resources.ua.p.Jh | 0); g++)
+			f.F.length = GameFramework.resources.PIParticleDef.p.Jh | 0;
+			for (g = 0; g < (GameFramework.resources.PIParticleDef.p.Jh | 0); g++)
 				f.F[g] = new GameFramework.resources.PIValue;
 			for (g = 0; g < 23; g++)
 				this.Bf(f.F[g]);
@@ -7860,16 +7860,16 @@ GameFramework.resources.va.prototype = {
 			this.C.H();
 			this.C.H();
 			f.$N = this.C.oc();
-			this.Bf(f.F[GameFramework.resources.ua.p.Xg | 0]);
-			this.Bf(f.F[GameFramework.resources.ua.p.PT | 0]);
-			this.Bf(f.F[GameFramework.resources.ua.p.OT | 0]);
+			this.Bf(f.F[GameFramework.resources.PIParticleDef.p.Xg | 0]);
+			this.Bf(f.F[GameFramework.resources.PIParticleDef.p.PT | 0]);
+			this.Bf(f.F[GameFramework.resources.PIParticleDef.p.OT | 0]);
 			f.IV = this.C.H();
 			f.GV = this.C.H();
 			f.rx = this.C.oc();
 			f.Ku = this.C.oc();
 			f.TY = this.C.oc();
-			this.Bf(f.F[GameFramework.resources.ua.p.xs | 0]);
-			this.Bf(f.F[GameFramework.resources.ua.p.ys | 0]);
+			this.Bf(f.F[GameFramework.resources.PIParticleDef.p.xs | 0]);
+			this.Bf(f.F[GameFramework.resources.PIParticleDef.p.ys | 0]);
 			this.C.H();
 			this.Bf(new GameFramework.resources.PIValue);
 			f.kP = this.C.oc();
@@ -7877,69 +7877,69 @@ GameFramework.resources.va.prototype = {
 			f.lP = this.C.oc();
 			f.nO = this.C.H();
 			f.sx = this.C.oc();
-			g = new GameFramework.resources.yb;
-			g.qf = Array.O(GameFramework.resources.yb.jn + 1, null);
-			for (h = 0; h < (GameFramework.resources.yb.Nd.Jh | 0); h++) {
+			g = new GameFramework.resources.PILifeValueTable;
+			g.qf = Array.O(GameFramework.resources.PILifeValueTable.jn + 1, null);
+			for (h = 0; h < (GameFramework.resources.PILifeValueTable.Nd.Jh | 0); h++) {
 				l = k = null;
 				j = [];
 				switch (h) {
-					case GameFramework.resources.yb.Nd.Wg | 0 :
-						k = f.F[GameFramework.resources.ua.p.S3 | 0];
+					case GameFramework.resources.PILifeValueTable.Nd.Wg | 0 :
+						k = f.F[GameFramework.resources.PIParticleDef.p.S3 | 0];
 						break;
-					case GameFramework.resources.yb.Nd.Xg | 0 :
-						k = f.F[GameFramework.resources.ua.p.OT | 0];
+					case GameFramework.resources.PILifeValueTable.Nd.Xg | 0 :
+						k = f.F[GameFramework.resources.PIParticleDef.p.OT | 0];
 						break;
-					case GameFramework.resources.yb.Nd.xj | 0 :
-						k = f.F[GameFramework.resources.ua.p.KL | 0];
+					case GameFramework.resources.PILifeValueTable.Nd.xj | 0 :
+						k = f.F[GameFramework.resources.PIParticleDef.p.KL | 0];
 						break;
-					case GameFramework.resources.yb.Nd.Ed | 0 :
-						k = f.F[GameFramework.resources.ua.p.LL | 0];
+					case GameFramework.resources.PILifeValueTable.Nd.Ed | 0 :
+						k = f.F[GameFramework.resources.PIParticleDef.p.LL | 0];
 						break;
-					case GameFramework.resources.yb.Nd.md | 0 :
-						k = f.F[GameFramework.resources.ua.p.XK | 0];
+					case GameFramework.resources.PILifeValueTable.Nd.md | 0 :
+						k = f.F[GameFramework.resources.PIParticleDef.p.XK | 0];
 						break;
-					case GameFramework.resources.yb.Nd.ud | 0 :
-						k = f.F[GameFramework.resources.ua.p.VS | 0];
+					case GameFramework.resources.PILifeValueTable.Nd.ud | 0 :
+						k = f.F[GameFramework.resources.PIParticleDef.p.VS | 0];
 						break;
-					case GameFramework.resources.yb.Nd.QI | 0 :
+					case GameFramework.resources.PILifeValueTable.Nd.QI | 0 :
 						l = f.n;
 						break;
-					case GameFramework.resources.yb.Nd.ALPHA | 0 :
+					case GameFramework.resources.PILifeValueTable.Nd.ALPHA | 0 :
 						l = f.L
 				}
-				for (var m = 0; m < GameFramework.resources.yb.jn + 1; m++) {
-					var o = m / GameFramework.resources.yb.jn;
-					h == (GameFramework.resources.yb.Nd.QI | 0)
+				for (var m = 0; m < GameFramework.resources.PILifeValueTable.jn + 1; m++) {
+					var o = m / GameFramework.resources.PILifeValueTable.jn;
+					h == (GameFramework.resources.PILifeValueTable.Nd.QI | 0)
 							? o *= f.iY + 1
-							: h == (GameFramework.resources.yb.Nd.ALPHA | 0)
+							: h == (GameFramework.resources.PILifeValueTable.Nd.ALPHA | 0)
 									&& (o *= f.hY + 1);
 					o > 1.0001 && (o -= o | 0);
 					var q = 0, r = 0;
 					k != null ? r = k.G(o) : q = l.G(o);
 					switch (h) {
-						case GameFramework.resources.yb.Nd.Wg | 0 :
+						case GameFramework.resources.PILifeValueTable.Nd.Wg | 0 :
 							g.qf[m] = new GameFramework.resources.PILifeValueSample;
 							g.qf[m].jy = r;
 							break;
-						case GameFramework.resources.yb.Nd.Xg | 0 :
+						case GameFramework.resources.PILifeValueTable.Nd.Xg | 0 :
 							g.qf[m].ky = r;
 							break;
-						case GameFramework.resources.yb.Nd.xj | 0 :
+						case GameFramework.resources.PILifeValueTable.Nd.xj | 0 :
 							g.qf[m].Gk = r;
 							break;
-						case GameFramework.resources.yb.Nd.Ed | 0 :
+						case GameFramework.resources.PILifeValueTable.Nd.Ed | 0 :
 							g.qf[m].Nu = r - 1;
 							break;
-						case GameFramework.resources.yb.Nd.md | 0 :
+						case GameFramework.resources.PILifeValueTable.Nd.md | 0 :
 							g.qf[m].Au = r - 1;
 							break;
-						case GameFramework.resources.yb.Nd.ud | 0 :
+						case GameFramework.resources.PILifeValueTable.Nd.ud | 0 :
 							g.qf[m].mC = r;
 							break;
-						case GameFramework.resources.yb.Nd.QI | 0 :
+						case GameFramework.resources.PILifeValueTable.Nd.QI | 0 :
 							g.qf[m].n = q & 16777215;
 							break;
-						case GameFramework.resources.yb.Nd.ALPHA | 0 :
+						case GameFramework.resources.PILifeValueTable.Nd.ALPHA | 0 :
 							g.qf[m].n |= q << 24
 					}
 				}
@@ -7991,7 +7991,7 @@ GameFramework.resources.va.prototype = {
 		if (d.Jc != null && d.Jc.il)
 			d.mo.x = b.Zl(), d.mo.y = b.Zl(), d.AH = b.fa();
 		d.Vc = b.fa();
-		for (var f = b.Ga(), g = 0; g < (GameFramework.resources.Ea.Sa.Jh | 0); g++)
+		for (var f = b.Ga(), g = 0; g < (GameFramework.resources.PIParticleInstance.Sa.Jh | 0); g++)
 			d.lb[g] = (f & 1 << g) != 0 ? b.fa() : 0;
 		d.Bu = b.fa();
 		d.Cu = b.fa();
@@ -8015,7 +8015,7 @@ GameFramework.resources.va.prototype = {
 		d === UNDEF && (d = null);
 		var f = null, g = b.Wa;
 		switch (g.Gj) {
-			case GameFramework.resources.$.ke.Qz :
+			case GameFramework.resources.PIEmitterInstanceDef.ke.Qz :
 				if (g.Z.length >= 2) {
 					for (var h = f = 0, j, k, l, m = 0, o = 0; o < (g.Z.length | 0)
 							- 1; o++)
@@ -8045,9 +8045,9 @@ GameFramework.resources.va.prototype = {
 									* Math.PI / 2)
 				}
 				break;
-			case GameFramework.resources.$.ke.tJ :
-				l = b.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A);
-				f = b.Wa.F[GameFramework.resources.$.p.EF | 0].G(this.A);
+			case GameFramework.resources.PIEmitterInstanceDef.ke.tJ :
+				l = b.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Fw | 0].G(this.A);
+				f = b.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.EF | 0].G(this.A);
 				g.Ud != 0 ? (c = c.Dm % g.Ud * Math.PI * 2 / g.Ud, c > Math.PI
 						&& (c -= Math.PI * 2)) : c = this.P() * Math.PI;
 				l > f
@@ -8108,8 +8108,8 @@ GameFramework.resources.va.prototype = {
 						&& (d.bs += c + (g.IG ? g.JG ? this.MJ() : -1 : 1)
 								* Math.PI / 2);
 				break;
-			case GameFramework.resources.$.ke.Zu :
-				l = b.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A);
+			case GameFramework.resources.PIEmitterInstanceDef.ke.Zu :
+				l = b.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Fw | 0].G(this.A);
 				c = g.Ud != 0 ? c.Dm % g.Ud * Math.PI * 2 / g.Ud : this.P()
 						* Math.PI;
 				f = new GameFramework.geom.TPoint(Math.cos(c) * l, Math.sin(c) * l);
@@ -8117,9 +8117,9 @@ GameFramework.resources.va.prototype = {
 						&& (d.bs += c + (g.IG ? g.JG ? this.MJ() : -1 : 1)
 								* Math.PI / 2);
 				break;
-			case GameFramework.resources.$.ke.Fy :
-				d = b.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A);
-				l = b.Wa.F[GameFramework.resources.$.p.EF | 0].G(this.A);
+			case GameFramework.resources.PIEmitterInstanceDef.ke.Fy :
+				d = b.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Fw | 0].G(this.A);
+				l = b.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.EF | 0].G(this.A);
 				if (g.Ud != 0) {
 					h = c.Dm % g.Ud;
 					c = (c.Dm / g.Ud | 0) % g.pr;
@@ -8132,7 +8132,7 @@ GameFramework.resources.va.prototype = {
 					f = new GameFramework.geom.TPoint(this.P() * d / 2, this.P() * l
 									/ 2);
 				break;
-			case GameFramework.resources.$.ke.a3 :
+			case GameFramework.resources.PIEmitterInstanceDef.ke.a3 :
 				f = new GameFramework.geom.TPoint
 		}
 		f = f.add(this.ov(b, false));
@@ -8180,7 +8180,7 @@ GameFramework.resources.va.prototype = {
 		this.ga.Hf = [];
 		this.ga.Hf.length = k;
 		for (d = 0; d < k; d++)
-			this.ga.Hf[d] = new GameFramework.resources.ma, this.Qi("CEmitterType"), this.Ai
+			this.ga.Hf[d] = new GameFramework.resources.PIEmitter, this.Qi("CEmitterType"), this.Ai
 					|| (this.ga.KG[this.Eu.length | 0] = d), this
 					.C3(this.ga.Hf[d]);
 		f = [];
@@ -8205,7 +8205,7 @@ GameFramework.resources.va.prototype = {
 			j.Uh.length = k;
 			for (var m = 0; m < k; m++) {
 				var o;
-				j.Uh[m] = o = new GameFramework.resources.$;
+				j.Uh[m] = o = new GameFramework.resources.PIEmitterInstanceDef;
 				var q;
 				l.mf[m] = q = new GameFramework.resources.at;
 				q.Wa = o;
@@ -8230,8 +8230,8 @@ GameFramework.resources.va.prototype = {
 				o.Gj = this.C.H();
 				this.C.fa();
 				this.C.fa();
-				if (this.C.oc() && o.Gj == GameFramework.resources.$.ke.tJ)
-					o.Gj = GameFramework.resources.$.ke.Zu;
+				if (this.C.oc() && o.Gj == GameFramework.resources.PIEmitterInstanceDef.ke.tJ)
+					o.Gj = GameFramework.resources.PIEmitterInstanceDef.ke.Zu;
 				o.IG = this.C.oc();
 				o.JG = this.C.oc();
 				var r;
@@ -8256,7 +8256,7 @@ GameFramework.resources.va.prototype = {
 				q.Bh = [];
 				q.Bh.length = r.tf.length;
 				for (var v = 0; v < (r.tf.length | 0); v++)
-					q.Bh[v] = new GameFramework.resources.nn, d[r.tf[v].lj] = true;
+					q.Bh[v] = new GameFramework.resources.PIParticleDefInstance, d[r.tf[v].lj] = true;
 				o.oo = new GameFramework.resources.PIValue2D;
 				this.wA(o.oo);
 				r = this.C.Ga();
@@ -8270,16 +8270,16 @@ GameFramework.resources.va.prototype = {
 					o.Z.push(u)
 				}
 				o.F = [];
-				o.F.length = GameFramework.resources.$.p.Jh | 0;
-				for (r = 0; r < (GameFramework.resources.$.p.Jh | 0); r++)
+				o.F.length = GameFramework.resources.PIEmitterInstanceDef.p.Jh | 0;
+				for (r = 0; r < (GameFramework.resources.PIEmitterInstanceDef.p.Jh | 0); r++)
 					o.F[r] = new GameFramework.resources.PIValue;
 				for (r = 0; r < 17; r++)
 					this.Bf(o.F[r]);
 				o.pr = this.C.H();
 				this.C.H();
-				this.Bf(o.F[GameFramework.resources.$.p.Xg | 0]);
+				this.Bf(o.F[GameFramework.resources.PIEmitterInstanceDef.p.Xg | 0]);
 				this.C.H();
-				this.Bf(o.F[GameFramework.resources.$.p.a5 | 0]);
+				this.Bf(o.F[GameFramework.resources.PIEmitterInstanceDef.p.a5 | 0]);
 				r = this.C.Ga();
 				for (v = 0; v < r; v++)
 					this.ni();
@@ -8300,7 +8300,7 @@ GameFramework.resources.va.prototype = {
 				q.Kl = [];
 				q.Kl.length = r;
 				for (o = 0; o < q.Kl.length; o++)
-					q.Kl[o] = new GameFramework.resources.nn;
+					q.Kl[o] = new GameFramework.resources.PIParticleDefInstance;
 				this.C.H();
 				this.C.fa();
 				this.C.fa()
@@ -8519,7 +8519,7 @@ GameFramework.resources.va.prototype = {
 					for (m = 0; m < k.ej.length; m++)
 						this.oK(b, j.Kl[m]);
 					for (var m = b.H(), o = 0; o < m; o++) {
-						var q = new GameFramework.resources.bt, r = b.Ga();
+						var q = new GameFramework.resources.PIFreeEmitterInstance, r = b.Ga();
 						q.Uf = this.ga.Hf[k.ej[r]];
 						q.Yh = null;
 						q.Jc = null;
@@ -8528,7 +8528,7 @@ GameFramework.resources.va.prototype = {
 						r = q.Uf;
 						q.kg.Bh = [];
 						for (var v = 0; v < r.tf.length; v++) {
-							var u = new GameFramework.resources.nn;
+							var u = new GameFramework.resources.PIParticleDefInstance;
 							q.kg.Bh.push(u);
 							this.oK(b, u)
 						}
@@ -8537,7 +8537,7 @@ GameFramework.resources.va.prototype = {
 						j.$h.be++;
 						r = b.H();
 						for (v = 0; v < r; v++) {
-							u = new GameFramework.resources.Ea;
+							u = new GameFramework.resources.PIParticleInstance;
 							u.Uf = q.Uf;
 							u.Yh = q;
 							var y = b.Ga();
@@ -8555,7 +8555,7 @@ GameFramework.resources.va.prototype = {
 					}
 					k = b.H();
 					for (m = 0; m < k; m++)
-						o = new GameFramework.resources.Ea, o.Uf = l, o.Yh = null, q = b
+						o = new GameFramework.resources.PIParticleInstance, o.Uf = l, o.Yh = null, q = b
 								.Ga(), o.Jc = o.Uf.tf[q], o.Im = j.Bh[q], o.Dm = m, this
 								.nK(b, f, o), this
 								.qj(f, j, o.Uf, o.Jc, j.Wb, o), m > 0
@@ -8629,15 +8629,15 @@ GameFramework.resources.va.prototype = {
 	qj : function(b, c, d, f, g, h) {
 		var j = c.Wa, k = new GameFramework.geom.Matrix, l, m, o = new GameFramework.geom.Matrix, q;
 		if (f != null) {
-			m = f.fj.qf[h.bd / (2147483647 / GameFramework.resources.yb.jn | 0) | 0];
+			m = f.fj.qf[h.bd / (2147483647 / GameFramework.resources.PILifeValueTable.jn | 0) | 0];
 			q = f.Xj[h.zp];
 			h.ai = q;
 			if (f.fh)
-				h.Bu = c.Wa.F[GameFramework.resources.$.p.Wg | 0].G(this.A)
-						* (f.F[GameFramework.resources.ua.p.Wg | 0].G(this.A) + h.lb[GameFramework.resources.Ea.Sa.Wg
-								| 0]), h.Cu = c.Wa.F[GameFramework.resources.$.p.Xg | 0]
+				h.Bu = c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Wg | 0].G(this.A)
+						* (f.F[GameFramework.resources.PIParticleDef.p.Wg | 0].G(this.A) + h.lb[GameFramework.resources.PIParticleInstance.Sa.Wg
+								| 0]), h.Cu = c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Xg | 0]
 						.G(this.A)
-						* (f.F[GameFramework.resources.ua.p.Xg | 0].G(this.A) + h.lb[GameFramework.resources.Ea.Sa.Xg
+						* (f.F[GameFramework.resources.PIParticleDef.p.Xg | 0].G(this.A) + h.lb[GameFramework.resources.PIParticleInstance.Sa.Xg
 								| 0]);
 			l = Math.max(m.jy * h.Bu, 1.5);
 			m = Math.max(m.ky * h.Cu, 1.5);
@@ -8654,8 +8654,8 @@ GameFramework.resources.va.prototype = {
 			if (f.fh && (!f.fm || f.il))
 				r += j.Ln;
 			if (f != null && f.fh)
-				h.bi = c.Wa.F[GameFramework.resources.$.p.Uq | 0].G(this.A)
-						* d.F[GameFramework.resources.ma.p.Uq | 0].G(this.A, 1);
+				h.bi = c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Uq | 0].G(this.A)
+						* d.F[GameFramework.resources.PIEmitter.p.Uq | 0].G(this.A, 1);
 			d = h.qa;
 			if (f.il)
 				j = new GameFramework.geom.Matrix, j.rotate(h.AH), j = k.Wd(j.Wd(d)), d.x = d.x
@@ -8715,32 +8715,32 @@ GameFramework.resources.va.prototype = {
 		if (f != null)
 			g.$i = (((this.n >>> 24 & 255) * (b.n >>> 24 & 255) * 256 / 255 | 0)
 					/ 255 | 0)
-					* d.Wa.F[GameFramework.resources.$.p.ZA | 0].G(this.A)
-					* c.F[GameFramework.resources.ma.p.ZA | 0].G(this.A, 1)
-					* f.F[GameFramework.resources.ua.p.ZA | 0].G(this.A) | 0, g.vi = f.F[GameFramework.resources.ua.p.Ed
-					| 0].G(this.A), g.Cj = f.F[GameFramework.resources.ua.p.md | 0]
-					.G(this.A), g.nl = f.F[GameFramework.resources.ua.p.ud | 0]
+					* d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ZA | 0].G(this.A)
+					* c.F[GameFramework.resources.PIEmitter.p.ZA | 0].G(this.A, 1)
+					* f.F[GameFramework.resources.PIParticleDef.p.ZA | 0].G(this.A) | 0, g.vi = f.F[GameFramework.resources.PIParticleDef.p.Ed
+					| 0].G(this.A), g.Cj = f.F[GameFramework.resources.PIParticleDef.p.md | 0]
+					.G(this.A), g.nl = f.F[GameFramework.resources.PIParticleDef.p.ud | 0]
 					.G(this.A);
 		if (g.ie % 25 == 0 && !h.Ac)
 			g.xG = g.ie == 0 ? this.P() * 0.5
-					* f.F[GameFramework.resources.ua.p.cT | 0].G(this.A) / 2 : this.P()
-					* 0.75 * f.F[GameFramework.resources.ua.p.cT | 0].G(this.A) / 2;
+					* f.F[GameFramework.resources.PIParticleDef.p.cT | 0].G(this.A) / 2 : this.P()
+					* 0.75 * f.F[GameFramework.resources.PIParticleDef.p.cT | 0].G(this.A) / 2;
 		g.ie++;
 		h.Ac
-				? b = c.F[GameFramework.resources.ma.p.Xo | 0].G(this.A)
-						* d.Wa.F[GameFramework.resources.$.p.Xo | 0].G(this.A)
+				? b = c.F[GameFramework.resources.PIEmitter.p.Xo | 0].G(this.A)
+						* d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Xo | 0].G(this.A)
 				: (b = (h.bf
-						? c.F[GameFramework.resources.ma.p.Xo | 0].G(this.A)
-						: d.Wa.F[GameFramework.resources.$.p.Xo | 0].G(this.A))
-						* (f.F[GameFramework.resources.ua.p.Xo | 0].G(this.A) + g.xG)
-						* c.F[GameFramework.resources.ma.p.u0 | 0].G(m, 1), b = Math
+						? c.F[GameFramework.resources.PIEmitter.p.Xo | 0].G(this.A)
+						: d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Xo | 0].G(this.A))
+						* (f.F[GameFramework.resources.PIParticleDef.p.Xo | 0].G(this.A) + g.xG)
+						* c.F[GameFramework.resources.PIEmitter.p.u0 | 0].G(m, 1), b = Math
 						.max(0, b), h.bf && m >= 1 && (b = 0));
 		b *= d.EX;
 		if (h.Ac)
 			b *= 30;
 		else if (!h.bf)
 			switch (k.Gj) {
-				case GameFramework.resources.$.ke.Qz :
+				case GameFramework.resources.PIEmitterInstanceDef.ke.Qz :
 					if (k.Ud != 0)
 						b *= k.Ud;
 					else {
@@ -8751,20 +8751,20 @@ GameFramework.resources.va.prototype = {
 						b *= o / 35
 					}
 					break;
-				case GameFramework.resources.$.ke.tJ :
-					o = d.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A);
-					q = d.Wa.F[GameFramework.resources.$.p.EF | 0].G(this.A);
+				case GameFramework.resources.PIEmitterInstanceDef.ke.tJ :
+					o = d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Fw | 0].G(this.A);
+					q = d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.EF | 0].G(this.A);
 					b *= k.Ud != 0 ? k.Ud : 6.28318
 							* Math.sqrt((o * o + q * q) / 2) / 35;
 					break;
-				case GameFramework.resources.$.ke.Zu :
-					o = d.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A);
+				case GameFramework.resources.PIEmitterInstanceDef.ke.Zu :
+					o = d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Fw | 0].G(this.A);
 					b *= k.Ud != 0 ? k.Ud : 6.28318 * Math.sqrt(o * o) / 35;
 					break;
-				case GameFramework.resources.$.ke.Fy :
+				case GameFramework.resources.PIEmitterInstanceDef.ke.Fy :
 					k.Ud != 0
 							? b *= k.Ud * k.pr
-							: (o = d.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A), q = d.Wa.F[GameFramework.resources.$.p.EF
+							: (o = d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Fw | 0].G(this.A), q = d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.EF
 									| 0].G(this.A), b *= 1 + o * q / 900 / 4)
 			}
 		g.ku += b / l * GameFramework.resources.va.S7 * this.ga.jW;
@@ -8772,10 +8772,10 @@ GameFramework.resources.va.prototype = {
 			g.ku = 0;
 		b = true;
 		if (!h.Ac && f.fh) {
-			k = k.Gj == GameFramework.resources.$.ke.Qz
-					|| k.Gj == GameFramework.resources.$.ke.Zu
+			k = k.Gj == GameFramework.resources.PIEmitterInstanceDef.ke.Qz
+					|| k.Gj == GameFramework.resources.PIEmitterInstanceDef.ke.Zu
 					? k.Ud
-					: k.Gj == GameFramework.resources.$.ke.Fy ? k.Ud * k.pr : 1;
+					: k.Gj == GameFramework.resources.PIEmitterInstanceDef.ke.Fy ? k.Ud * k.pr : 1;
 			k == 0 && (b = false, k = 1);
 			o = 0;
 			for (q = h.pd; q != null;)
@@ -8785,31 +8785,31 @@ GameFramework.resources.va.prototype = {
 		for (; g.ku >= 1;) {
 			g.ku -= 1;
 			if (h.Ac) {
-				k = new GameFramework.resources.bt;
+				k = new GameFramework.resources.PIFreeEmitterInstance;
 				k.kg.Bh = [];
 				for (o = 0; o < c.tf.length; o++)
-					k.kg.Bh.push(new GameFramework.resources.nn)
+					k.kg.Bh.push(new GameFramework.resources.PIParticleDefInstance)
 			} else
-				k = new GameFramework.resources.Ea;
+				k = new GameFramework.resources.PIParticleInstance;
 			k.Jc = f;
 			k.Im = g;
 			k.Uf = c;
 			k.Yh = j;
 			k.Dm = g.uO++;
-			o = h.Ac ? d.Wa.F[GameFramework.resources.$.p.xs | 0].G(this.A)
-					+ d.Wa.F[GameFramework.resources.$.p.ys | 0].G(this.A) * this.P()
+			o = h.Ac ? d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.xs | 0].G(this.A)
+					+ d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ys | 0].G(this.A) * this.P()
 					/ 2 : f.TY ? h.bf
-					? c.F[GameFramework.resources.ma.p.xs | 0].G(this.A)
-							+ c.F[GameFramework.resources.ma.p.ys | 0].G(this.A)
+					? c.F[GameFramework.resources.PIEmitter.p.xs | 0].G(this.A)
+							+ c.F[GameFramework.resources.PIEmitter.p.ys | 0].G(this.A)
 							* this.P() / 2
-					: d.Wa.F[GameFramework.resources.$.p.xs | 0].G(this.A)
-							+ d.Wa.F[GameFramework.resources.$.p.ys | 0].G(this.A)
-							* this.P() / 2 : f.F[GameFramework.resources.ua.p.xs | 0]
+					: d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.xs | 0].G(this.A)
+							+ d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ys | 0].G(this.A)
+							* this.P() / 2 : f.F[GameFramework.resources.PIParticleDef.p.xs | 0]
 					.G(this.A)
-					+ f.F[GameFramework.resources.ua.p.ys | 0].G(this.A) * this.P() / 2;
+					+ f.F[GameFramework.resources.PIParticleDef.p.ys | 0].G(this.A) * this.P() / 2;
 			o = GameFramework.resources.va.Rc(-o);
 			q = j != null ? j.Vc : GameFramework.resources.va
-					.Rc(-d.Wa.F[GameFramework.resources.$.p.Ru | 0].G(this.A));
+					.Rc(-d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru | 0].G(this.A));
 			o += q;
 			k.AH = q;
 			k.gm = f != null && f.$F ? GameFramework.Utils.Sk() & 32767 : 0;
@@ -8817,63 +8817,63 @@ GameFramework.resources.va.prototype = {
 					&& (q = this.ga.gh[f.lj], k.zp = k.gm % q.zk, f.Fe == -1))
 				k.zp = k.gm % q.zk;
 			k.bi = h.bf
-					? c.F[GameFramework.resources.ma.p.Uq | 0].G(this.A)
-					: d.Wa.F[GameFramework.resources.$.p.Uq | 0].G(this.A);
+					? c.F[GameFramework.resources.PIEmitter.p.Uq | 0].G(this.A)
+					: d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Uq | 0].G(this.A);
 			h.Ac
-					? (k.lb[GameFramework.resources.Ea.Sa.Uk | 0] = this.Ti()
-							* c.F[GameFramework.resources.ma.p.s0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Wg
+					? (k.lb[GameFramework.resources.PIParticleInstance.Sa.Uk | 0] = this.Ti()
+							* c.F[GameFramework.resources.PIEmitter.p.s0 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.Wg
 							| 0] = this.P()
-							* c.F[GameFramework.resources.ma.p.w0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Xg
+							* c.F[GameFramework.resources.PIEmitter.p.w0 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.Xg
 							| 0] = f == null || f.$N
-							? k.lb[GameFramework.resources.Ea.Sa.Wg | 0]
+							? k.lb[GameFramework.resources.PIParticleInstance.Sa.Wg | 0]
 							: this.P()
-									* c.F[GameFramework.resources.ma.p.y0 | 0]
-											.G(this.A), k.lb[GameFramework.resources.Ea.Sa.xj
+									* c.F[GameFramework.resources.PIEmitter.p.y0 | 0]
+											.G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.xj
 							| 0] = this.Ti()
-							* c.F[GameFramework.resources.ma.p.B0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Ed
+							* c.F[GameFramework.resources.PIEmitter.p.B0 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.Ed
 							| 0] = this.Ti()
-							* c.F[GameFramework.resources.ma.p.C0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.md
+							* c.F[GameFramework.resources.PIEmitter.p.C0 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.md
 							| 0] = this.Ti()
-							* c.F[GameFramework.resources.ma.p.z0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.ud
+							* c.F[GameFramework.resources.PIEmitter.p.z0 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.ud
 							| 0] = this.Ti()
-							* c.F[GameFramework.resources.ma.p.t0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Ae
+							* c.F[GameFramework.resources.PIEmitter.p.t0 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.Ae
 							| 0] = this.Ti()
-							* c.F[GameFramework.resources.ma.p.q0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Uq
+							* c.F[GameFramework.resources.PIEmitter.p.q0 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.Uq
 							| 0] = this.Ti()
-							* c.F[GameFramework.resources.ma.p.E0 | 0].G(this.A))
-					: (k.lb[GameFramework.resources.Ea.Sa.Uk | 0] = this.Ti()
-							* f.F[GameFramework.resources.ua.p.u2 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Wg
+							* c.F[GameFramework.resources.PIEmitter.p.E0 | 0].G(this.A))
+					: (k.lb[GameFramework.resources.PIParticleInstance.Sa.Uk | 0] = this.Ti()
+							* f.F[GameFramework.resources.PIParticleDef.p.u2 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.Wg
 							| 0] = this.Ti()
-							* f.F[GameFramework.resources.ua.p.T3 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Xg
+							* f.F[GameFramework.resources.PIParticleDef.p.T3 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.Xg
 							| 0] = f == null || f.$N
-							? k.lb[GameFramework.resources.Ea.Sa.Wg | 0]
+							? k.lb[GameFramework.resources.PIParticleInstance.Sa.Wg | 0]
 							: this.Ti()
-									* f.F[GameFramework.resources.ua.p.PT | 0]
-											.G(this.A), k.lb[GameFramework.resources.Ea.Sa.xj
+									* f.F[GameFramework.resources.PIParticleDef.p.PT | 0]
+											.G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.xj
 							| 0] = this.Ti()
-							* f.F[GameFramework.resources.ua.p.H5 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Ed
+							* f.F[GameFramework.resources.PIParticleDef.p.H5 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.Ed
 							| 0] = this.Ti()
-							* f.F[GameFramework.resources.ua.p.K5 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.md
+							* f.F[GameFramework.resources.PIParticleDef.p.K5 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.md
 							| 0] = this.Ti()
-							* f.F[GameFramework.resources.ua.p.h4 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.ud
+							* f.F[GameFramework.resources.PIParticleDef.p.h4 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.ud
 							| 0] = this.Ti()
-							* f.F[GameFramework.resources.ua.p.D2 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Ae
+							* f.F[GameFramework.resources.PIParticleDef.p.D2 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.Ae
 							| 0] = this.Ti()
-							* f.F[GameFramework.resources.ua.p.CZ | 0].G(this.A), k.Bu = (h.bf
-							? c.F[GameFramework.resources.ma.p.Wg | 0].G(this.A)
-							: d.Wa.F[GameFramework.resources.$.p.Wg | 0].G(this.A))
-							* (f.F[GameFramework.resources.ua.p.Wg | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.Wg
+							* f.F[GameFramework.resources.PIParticleDef.p.CZ | 0].G(this.A), k.Bu = (h.bf
+							? c.F[GameFramework.resources.PIEmitter.p.Wg | 0].G(this.A)
+							: d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Wg | 0].G(this.A))
+							* (f.F[GameFramework.resources.PIParticleDef.p.Wg | 0].G(this.A) + k.lb[GameFramework.resources.PIParticleInstance.Sa.Wg
 									| 0]), k.Cu = (h.bf
-							? c.F[GameFramework.resources.ma.p.Xg | 0].G(this.A)
-							: d.Wa.F[GameFramework.resources.$.p.Xg | 0].G(this.A))
-							* (f.F[GameFramework.resources.ua.p.Xg | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.Xg
+							? c.F[GameFramework.resources.PIEmitter.p.Xg | 0].G(this.A)
+							: d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Xg | 0].G(this.A))
+							* (f.F[GameFramework.resources.PIParticleDef.p.Xg | 0].G(this.A) + k.lb[GameFramework.resources.PIParticleInstance.Sa.Xg
 									| 0]), h.bf
-							&& (k.Bu *= (1 + j.lb[GameFramework.resources.Ea.Sa.Wg | 0])
-									* c.F[GameFramework.resources.ma.p.v0 | 0].G(m, 1), k.Cu *= (1 + j.lb[GameFramework.resources.Ea.Sa.Xg
+							&& (k.Bu *= (1 + j.lb[GameFramework.resources.PIParticleInstance.Sa.Wg | 0])
+									* c.F[GameFramework.resources.PIEmitter.p.v0 | 0].G(m, 1), k.Cu *= (1 + j.lb[GameFramework.resources.PIParticleInstance.Sa.Xg
 									| 0])
-									* c.F[GameFramework.resources.ma.p.x0 | 0].G(m, 1), k.bi *= (1 + j.lb[GameFramework.resources.Ea.Sa.Uq
+									* c.F[GameFramework.resources.PIEmitter.p.x0 | 0].G(m, 1), k.bi *= (1 + j.lb[GameFramework.resources.PIParticleInstance.Sa.Uq
 									| 0])
-									* c.F[GameFramework.resources.ma.p.D0 | 0].G(m, 1)));
+									* c.F[GameFramework.resources.PIEmitter.p.D0 | 0].G(m, 1)));
 			GameFramework.resources.va.Qu.bs = o;
 			GameFramework.resources.va.Qu.S6 = false;
 			k.tx = this.Ec();
@@ -8881,13 +8881,13 @@ GameFramework.resources.va.prototype = {
 			k.Ur = this.P();
 			k.Vc = 0;
 			k.Cr = h.Ac
-					? (c.F[GameFramework.resources.ma.p.r0 | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.Uk
+					? (c.F[GameFramework.resources.PIEmitter.p.r0 | 0].G(this.A) + k.lb[GameFramework.resources.PIParticleInstance.Sa.Uk
 							| 0])
-							* 5 * d.Wa.F[GameFramework.resources.$.p.Uk | 0].G(this.A)
+							* 5 * d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Uk | 0].G(this.A)
 					: (h.bf
-							? c.F[GameFramework.resources.ma.p.Uk | 0].G(this.A)
-							: d.Wa.F[GameFramework.resources.$.p.Uk | 0].G(this.A))
-							* (f.F[GameFramework.resources.ua.p.Uk | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.Uk
+							? c.F[GameFramework.resources.PIEmitter.p.Uk | 0].G(this.A)
+							: d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Uk | 0].G(this.A))
+							* (f.F[GameFramework.resources.PIParticleDef.p.Uk | 0].G(this.A) + k.lb[GameFramework.resources.PIParticleInstance.Sa.Uk
 									| 0]);
 			if (k.Cr <= 1.0E-8)
 				k.Dr = 1;
@@ -8909,13 +8909,13 @@ GameFramework.resources.va.prototype = {
 				k.Gf = this.ov(d, true), k.Zn = k.Gf, b
 						&& (o = this.JJ(d, k, GameFramework.resources.va.Qu).rg(k.Gf));
 			q = h.Ac
-					? d.Wa.F[GameFramework.resources.$.p.xj | 0].G(this.A)
-							* (c.F[GameFramework.resources.ma.p.A0 | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.xj
+					? d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.xj | 0].G(this.A)
+							* (c.F[GameFramework.resources.PIEmitter.p.A0 | 0].G(this.A) + k.lb[GameFramework.resources.PIParticleInstance.Sa.xj
 									| 0]) * 160
 					: (h.bf
-							? c.F[GameFramework.resources.ma.p.xj | 0].G(this.A)
-							: d.Wa.F[GameFramework.resources.$.p.xj | 0].G(this.A))
-							* (f.F[GameFramework.resources.ua.p.xj | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.xj
+							? c.F[GameFramework.resources.PIEmitter.p.xj | 0].G(this.A)
+							: d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.xj | 0].G(this.A))
+							* (f.F[GameFramework.resources.PIParticleDef.p.xj | 0].G(this.A) + k.lb[GameFramework.resources.PIParticleInstance.Sa.xj
 									| 0]);
 			k.qa = new GameFramework.geom.TPoint(0, 0);
 			k.Db = new GameFramework.geom.TPoint(Math.cos(GameFramework.resources.va.Qu.bs)
@@ -8927,7 +8927,7 @@ GameFramework.resources.va.prototype = {
 										&& f.fm
 										&& !f.il
 										&& (k.Vc += GameFramework.resources.va
-												.Rc(d.Wa.F[GameFramework.resources.$.p.Ru
+												.Rc(d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru
 														| 0].G(this.A))))
 								: k.Vc = -GameFramework.resources.va.Qu.bs, k.Vc += GameFramework.resources.va
 								.Rc(f.ar))
@@ -8950,7 +8950,7 @@ GameFramework.resources.va.prototype = {
 			k.qa = new GameFramework.geom.TPoint;
 			k.mo = o;
 			q = new GameFramework.geom.Matrix;
-			q.rotate(-GameFramework.resources.va.Rc(d.Wa.F[GameFramework.resources.$.p.Ru | 0]
+			q.rotate(-GameFramework.resources.va.Rc(d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru | 0]
 					.G(this.A)));
 			o = q.Wd(o);
 			k.Gf.x += o.x;
@@ -8991,8 +8991,8 @@ GameFramework.resources.va.prototype = {
 			g.ie += 1 / f;
 			var q;
 			if (m != null && m.fh) {
-				q = c.Wa.F[GameFramework.resources.$.p.Go | 0].gE(this.A);
-				var r = c.Wa.F[GameFramework.resources.$.p.Go | 0].YR(this.A);
+				q = c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Go | 0].gE(this.A);
+				var r = c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Go | 0].YR(this.A);
 				q = q >= this.A && r == 1 ? Math.min(1, (this.A + j.SG)
 								/ Math.max(1, q)) : 0.02
 			} else
@@ -9029,44 +9029,44 @@ GameFramework.resources.va.prototype = {
 							? Math
 									.max(
 											0,
-											c.Wa.F[GameFramework.resources.$.p.ud | 0]
+											c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ud | 0]
 													.G(this.A)
-													* l.F[GameFramework.resources.ma.p.mR
+													* l.F[GameFramework.resources.PIEmitter.p.mR
 															| 0].G(q, 1)
-													* (l.F[GameFramework.resources.ma.p.lR
-															| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.ud
+													* (l.F[GameFramework.resources.PIEmitter.p.lR
+															| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.ud
 															| 0]))
 									* 30
 							: Math
 									.max(
 											0,
 											(d.bf
-													? l.F[GameFramework.resources.ma.p.ud
+													? l.F[GameFramework.resources.PIEmitter.p.ud
 															| 0].G(this.A)
-													: c.Wa.F[GameFramework.resources.$.p.ud
+													: c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ud
 															| 0].G(this.A))
-													* m.F[GameFramework.resources.ua.p.ud
+													* m.F[GameFramework.resources.PIParticleDef.p.ud
 															| 0].G(q)
-													* (m.F[GameFramework.resources.ua.p.ud
-															| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.ud
+													* (m.F[GameFramework.resources.PIParticleDef.p.ud
+															| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.ud
 															| 0]));
 					g.Db.x += r * u;
 					g.Db.y += v * u
 				}
 				r = d.Ac
-						? c.Wa.F[GameFramework.resources.$.p.Ed | 0].G(this.A)
-								* (l.F[GameFramework.resources.ma.p.rR | 0].G(q, 1) - 1)
-								* (l.F[GameFramework.resources.ma.p.qR | 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ed
+						? c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ed | 0].G(this.A)
+								* (l.F[GameFramework.resources.PIEmitter.p.rR | 0].G(q, 1) - 1)
+								* (l.F[GameFramework.resources.PIEmitter.p.qR | 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.Ed
 										| 0]) / 2 * 100
-						: c.Wa.F[GameFramework.resources.$.p.Ed | 0].G(this.A)
-								* (m.F[GameFramework.resources.ua.p.LL | 0].G(q) - 1)
-								* (m.F[GameFramework.resources.ua.p.Ed | 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ed
+						: c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ed | 0].G(this.A)
+								* (m.F[GameFramework.resources.PIParticleDef.p.LL | 0].G(q) - 1)
+								* (m.F[GameFramework.resources.PIParticleDef.p.Ed | 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.Ed
 										| 0]) * 100;
 				r *= 1 + (this.Vf - 100) * 5.0E-4;
 				g.Db.y += r / f;
 				r = d.Ac
-						? l.F[GameFramework.resources.ma.p.pR | 0].G(q, 1)
-						: m.F[GameFramework.resources.ua.p.KL | 0].G(q);
+						? l.F[GameFramework.resources.PIEmitter.p.pR | 0].G(q, 1)
+						: m.F[GameFramework.resources.PIParticleDef.p.KL | 0].G(q);
 				r = new GameFramework.geom.TPoint(g.Db.x * r / f, g.Db.y * r / f);
 				v = null;
 				if (!o && h.Rh.length > 0) {
@@ -9097,24 +9097,24 @@ GameFramework.resources.va.prototype = {
 									v = z.kG;
 									v *= d.Ac
 											? (d.bf
-													? l.F[GameFramework.resources.ma.p.Ae
+													? l.F[GameFramework.resources.PIEmitter.p.Ae
 															| 0].G(this.A)
-													: c.Wa.F[GameFramework.resources.$.p.Ae
+													: c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ae
 															| 0].G(this.A))
-													* l.F[GameFramework.resources.ma.p.AJ
+													* l.F[GameFramework.resources.PIEmitter.p.AJ
 															| 0].G(q, 1)
-													* (l.F[GameFramework.resources.ma.p.zJ
-															| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ae
+													* (l.F[GameFramework.resources.PIEmitter.p.zJ
+															| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.Ae
 															| 0])
 											: (d.bf
-													? l.F[GameFramework.resources.ma.p.Ae
+													? l.F[GameFramework.resources.PIEmitter.p.Ae
 															| 0].G(this.A)
-													: c.Wa.F[GameFramework.resources.$.p.Ae
+													: c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ae
 															| 0].G(this.A))
-													* m.F[GameFramework.resources.ua.p.NI
+													* m.F[GameFramework.resources.PIParticleDef.p.NI
 															| 0].G(q)
-													* (m.F[GameFramework.resources.ua.p.Ae
-															| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ae
+													* (m.F[GameFramework.resources.PIParticleDef.p.Ae
+															| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.Ae
 															| 0]);
 									B = new GameFramework.geom.TPoint(r.x, r.y);
 									G = B.x * D.x + B.y * D.y;
@@ -9161,16 +9161,16 @@ GameFramework.resources.va.prototype = {
 					g.Vc = Math.atan2(r.y, r.x) + GameFramework.resources.va.Rc(m.ar)
 			} else if (m.fh) {
 				r = false;
-				j.Gj == GameFramework.resources.$.ke.Qz
-						|| j.Gj == GameFramework.resources.$.ke.Zu
+				j.Gj == GameFramework.resources.PIEmitterInstanceDef.ke.Qz
+						|| j.Gj == GameFramework.resources.PIEmitterInstanceDef.ke.Zu
 						? r = j.Ud != 0
-						: j.Gj == GameFramework.resources.$.ke.Fy
+						: j.Gj == GameFramework.resources.PIEmitterInstanceDef.ke.Fy
 								&& (r = j.Ud * j.pr != 0);
 				if (r)
 					r = this.JJ(c, g), g.Gf = this.ov(c, true), g.Zn = g.Gf, g.mo = r
 							.rg(g.Gf), v = new GameFramework.geom.Matrix, v
 							.rotate(GameFramework.resources.va
-									.Rc(c.Wa.F[GameFramework.resources.$.p.Ru | 0]
+									.Rc(c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru | 0]
 											.G(this.A))), r = v.Wd(r), g.Gf.x += r.x, g.Gf.y += r.y;
 				if (m.fm && !m.il)
 					r = j.oo.oS(this.A), g.Vc = r.x != 0 || r.y != 0 ? Math
@@ -9193,21 +9193,21 @@ GameFramework.resources.va.prototype = {
 			}
 			d.Ac
 					? g.Vc += GameFramework.resources.va
-							.Rc(-(c.Wa.F[GameFramework.resources.$.p.md | 0].G(this.A)
-									* (l.F[GameFramework.resources.ma.p.oR | 0].G(q, 1) - 1) * (l.F[GameFramework.resources.ma.p.nR
-									| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.md
+							.Rc(-(c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.md | 0].G(this.A)
+									* (l.F[GameFramework.resources.PIEmitter.p.oR | 0].G(q, 1) - 1) * (l.F[GameFramework.resources.PIEmitter.p.nR
+									| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.md
 									| 0])))
 							/ f * 160
 					: m.fm
 							|| (g.Vc += GameFramework.resources.va
 									.Rc(-((d.bf
-											? l.F[GameFramework.resources.ma.p.md | 0]
+											? l.F[GameFramework.resources.PIEmitter.p.md | 0]
 													.G(this.A)
-											: c.Wa.F[GameFramework.resources.$.p.md | 0]
+											: c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.md | 0]
 													.G(this.A))
-											* (m.F[GameFramework.resources.ua.p.XK | 0]
-													.G(q) - 1) * (m.F[GameFramework.resources.ua.p.md
-											| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.md
+											* (m.F[GameFramework.resources.PIParticleDef.p.XK | 0]
+													.G(q) - 1) * (m.F[GameFramework.resources.PIParticleDef.p.md
+											| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.md
 											| 0])))
 									/ f);
 			g = k
@@ -9219,8 +9219,8 @@ GameFramework.resources.va.prototype = {
 			g.ie += 1 / f;
 			var q;
 			if (m != null && m.fh) {
-				q = c.Wa.F[GameFramework.resources.$.p.Go | 0].gE(this.A);
-				var r = c.Wa.F[GameFramework.resources.$.p.Go | 0].YR(this.A);
+				q = c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Go | 0].gE(this.A);
+				var r = c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Go | 0].YR(this.A);
 				q = q >= this.A && r == 1 ? Math.min(1, (this.A + j.SG)
 								/ Math.max(1, q)) : 0.02
 			} else
@@ -9241,46 +9241,46 @@ GameFramework.resources.va.prototype = {
 								? Math
 										.max(
 												0,
-												c.Wa.F[GameFramework.resources.$.p.ud
+												c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ud
 														| 0].G(this.A)
-														* l.F[GameFramework.resources.ma.p.mR
+														* l.F[GameFramework.resources.PIEmitter.p.mR
 																| 0].G(q, 1)
-														* (l.F[GameFramework.resources.ma.p.lR
-																| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.ud
+														* (l.F[GameFramework.resources.PIEmitter.p.lR
+																| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.ud
 																| 0]))
 										* 30
 								: Math
 										.max(
 												0,
 												(d.bf
-														? l.F[GameFramework.resources.ma.p.ud
+														? l.F[GameFramework.resources.PIEmitter.p.ud
 																| 0].G(this.A)
-														: c.Wa.F[GameFramework.resources.$.p.ud
+														: c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ud
 																| 0].G(this.A))
-														* m.F[GameFramework.resources.ua.p.VS
+														* m.F[GameFramework.resources.PIParticleDef.p.VS
 																| 0].G(q)
-														* (m.F[GameFramework.resources.ua.p.ud
-																| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.ud
+														* (m.F[GameFramework.resources.PIParticleDef.p.ud
+																| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.ud
 																| 0]));
 						g.Db.x += r * u;
 						g.Db.y += v * u
 					}
 					r = d.Ac
-							? c.Wa.F[GameFramework.resources.$.p.Ed | 0].G(this.A)
-									* (l.F[GameFramework.resources.ma.p.rR | 0].G(q, 1) - 1)
-									* (l.F[GameFramework.resources.ma.p.qR | 0]
-											.G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ed
+							? c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ed | 0].G(this.A)
+									* (l.F[GameFramework.resources.PIEmitter.p.rR | 0].G(q, 1) - 1)
+									* (l.F[GameFramework.resources.PIEmitter.p.qR | 0]
+											.G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.Ed
 											| 0]) / 2 * 100
-							: c.Wa.F[GameFramework.resources.$.p.Ed | 0].G(this.A)
-									* (m.F[GameFramework.resources.ua.p.LL | 0].G(q) - 1)
-									* (m.F[GameFramework.resources.ua.p.Ed | 0]
-											.G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ed
+							: c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ed | 0].G(this.A)
+									* (m.F[GameFramework.resources.PIParticleDef.p.LL | 0].G(q) - 1)
+									* (m.F[GameFramework.resources.PIParticleDef.p.Ed | 0]
+											.G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.Ed
 											| 0]) * 100;
 					r *= 1 + (this.Vf - 100) * 5.0E-4;
 					g.Db.y += r / f;
 					r = d.Ac
-							? l.F[GameFramework.resources.ma.p.pR | 0].G(q, 1)
-							: m.F[GameFramework.resources.ua.p.KL | 0].G(q);
+							? l.F[GameFramework.resources.PIEmitter.p.pR | 0].G(q, 1)
+							: m.F[GameFramework.resources.PIParticleDef.p.KL | 0].G(q);
 					r = new GameFramework.geom.TPoint(g.Db.x * r / f, g.Db.y * r / f);
 					v = null;
 					if (!o && h.Rh.length > 0) {
@@ -9312,24 +9312,24 @@ GameFramework.resources.va.prototype = {
 										v = z.kG;
 										v *= d.Ac
 												? (d.bf
-														? l.F[GameFramework.resources.ma.p.Ae
+														? l.F[GameFramework.resources.PIEmitter.p.Ae
 																| 0].G(this.A)
-														: c.Wa.F[GameFramework.resources.$.p.Ae
+														: c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ae
 																| 0].G(this.A))
-														* l.F[GameFramework.resources.ma.p.AJ
+														* l.F[GameFramework.resources.PIEmitter.p.AJ
 																| 0].G(q, 1)
-														* (l.F[GameFramework.resources.ma.p.zJ
-																| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ae
+														* (l.F[GameFramework.resources.PIEmitter.p.zJ
+																| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.Ae
 																| 0])
 												: (d.bf
-														? l.F[GameFramework.resources.ma.p.Ae
+														? l.F[GameFramework.resources.PIEmitter.p.Ae
 																| 0].G(this.A)
-														: c.Wa.F[GameFramework.resources.$.p.Ae
+														: c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ae
 																| 0].G(this.A))
-														* m.F[GameFramework.resources.ua.p.NI
+														* m.F[GameFramework.resources.PIParticleDef.p.NI
 																| 0].G(q)
-														* (m.F[GameFramework.resources.ua.p.Ae
-																| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ae
+														* (m.F[GameFramework.resources.PIParticleDef.p.Ae
+																| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.Ae
 																| 0]);
 										B = new GameFramework.geom.TPoint(r.x, r.y);
 										G = B.x * D.x + B.y * D.y;
@@ -9380,16 +9380,16 @@ GameFramework.resources.va.prototype = {
 								+ GameFramework.resources.va.Rc(m.ar)
 				} else if (m.fh) {
 					r = false;
-					j.Gj == GameFramework.resources.$.ke.Qz
-							|| j.Gj == GameFramework.resources.$.ke.Zu
+					j.Gj == GameFramework.resources.PIEmitterInstanceDef.ke.Qz
+							|| j.Gj == GameFramework.resources.PIEmitterInstanceDef.ke.Zu
 							? r = j.Ud != 0
-							: j.Gj == GameFramework.resources.$.ke.Fy
+							: j.Gj == GameFramework.resources.PIEmitterInstanceDef.ke.Fy
 									&& (r = j.Ud * j.pr != 0);
 					if (r)
 						r = this.JJ(c, g), g.Gf = this.ov(c, true), g.Zn = g.Gf, g.mo = r
 								.rg(g.Gf), v = new GameFramework.geom.Matrix, v
 								.rotate(GameFramework.resources.va
-										.Rc(c.Wa.F[GameFramework.resources.$.p.Ru | 0]
+										.Rc(c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru | 0]
 												.G(this.A))), r = v.Wd(r), g.Gf.x += r.x, g.Gf.y += r.y;
 					if (m.fm && !m.il)
 						r = j.oo.oS(this.A), g.Vc = r.x != 0 || r.y != 0 ? Math
@@ -9412,23 +9412,23 @@ GameFramework.resources.va.prototype = {
 				}
 				d.Ac
 						? g.Vc += GameFramework.resources.va
-								.Rc(-(c.Wa.F[GameFramework.resources.$.p.md | 0]
+								.Rc(-(c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.md | 0]
 										.G(this.A)
-										* (l.F[GameFramework.resources.ma.p.oR | 0].G(
-												q, 1) - 1) * (l.F[GameFramework.resources.ma.p.nR
-										| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.md
+										* (l.F[GameFramework.resources.PIEmitter.p.oR | 0].G(
+												q, 1) - 1) * (l.F[GameFramework.resources.PIEmitter.p.nR
+										| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.md
 										| 0])))
 								/ f * 160
 						: m.fm
 								|| (g.Vc += GameFramework.resources.va
 										.Rc(-((d.bf
-												? l.F[GameFramework.resources.ma.p.md
+												? l.F[GameFramework.resources.PIEmitter.p.md
 														| 0].G(this.A)
-												: c.Wa.F[GameFramework.resources.$.p.md
+												: c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.md
 														| 0].G(this.A))
-												* (m.F[GameFramework.resources.ua.p.XK
-														| 0].G(q) - 1) * (m.F[GameFramework.resources.ua.p.md
-												| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.md
+												* (m.F[GameFramework.resources.PIParticleDef.p.XK
+														| 0].G(q) - 1) * (m.F[GameFramework.resources.PIParticleDef.p.md
+												| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.md
 												| 0])))
 										/ f)
 			}
@@ -9460,14 +9460,14 @@ GameFramework.resources.va.prototype = {
 				for (r = false; j != null;) {
 					m = j.gd;
 					if (l != j.Jc)
-						o = j.Uf, l = j.Jc, u = c.Wa.F[GameFramework.resources.$.p.Ed
+						o = j.Uf, l = j.Jc, u = c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ed
 								| 0].G(this.A)
-								* 100, y = l.F[GameFramework.resources.ua.p.Ed | 0]
-								.G(this.A), z = c.Wa.F[GameFramework.resources.$.p.md
+								* 100, y = l.F[GameFramework.resources.PIParticleDef.p.Ed | 0]
+								.G(this.A), z = c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.md
 								| 0].G(this.A)
-								* h, A = l.F[GameFramework.resources.ua.p.md | 0]
-								.G(this.A), B = c.Wa.F[GameFramework.resources.$.p.ud
-								| 0].G(this.A), G = l.F[GameFramework.resources.ua.p.ud
+								* h, A = l.F[GameFramework.resources.PIParticleDef.p.md | 0]
+								.G(this.A), B = c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ud
+								| 0].G(this.A), G = l.F[GameFramework.resources.PIParticleDef.p.ud
 								| 0].G(this.A), v = l != null
 								&& (l.rx || l.Ku || l.sx || l.Lu), r = this.ga.gh[l.lj], r = l.Fe != -1
 								&& r.zk > 1;
@@ -9476,7 +9476,7 @@ GameFramework.resources.va.prototype = {
 						this.Ds(this, j, d);
 					else {
 						D = l.fj.qf[j.bd
-								/ (2147483647 / GameFramework.resources.yb.jn | 0) | 0];
+								/ (2147483647 / GameFramework.resources.PILifeValueTable.jn | 0) | 0];
 						if (r)
 							j.zp = ((j.ie * this.Vf / (l.Fe + 1) | 0) + j.gm)
 									% this.ga.gh[l.lj].zk;
@@ -9486,10 +9486,10 @@ GameFramework.resources.va.prototype = {
 							GameFramework.resources.va.sh = (GameFramework.resources.va.sh + 2)
 									% 1024;
 							var Z = B * D.mC
-									* (G + j.lb[GameFramework.resources.Ea.Sa.ud | 0]);
+									* (G + j.lb[GameFramework.resources.PIParticleInstance.Sa.ud | 0]);
 							Z > 0 && (j.Db.x += F * Z, j.Db.y += P * Z)
 						}
-						F = u * D.Nu * (y + j.lb[GameFramework.resources.Ea.Sa.Ed | 0]);
+						F = u * D.Nu * (y + j.lb[GameFramework.resources.PIParticleInstance.Sa.Ed | 0]);
 						F *= g;
 						j.Db.y += F;
 						F = new GameFramework.geom.TPoint(j.Db.x / f * D.Gk, j.Db.y
@@ -9516,7 +9516,7 @@ GameFramework.resources.va.prototype = {
 										+ GameFramework.resources.va.Rc(l.ar)
 						} else
 							j.Vc += z * D.Au
-									* (A + j.lb[GameFramework.resources.Ea.Sa.md | 0])
+									* (A + j.lb[GameFramework.resources.PIParticleInstance.Sa.md | 0])
 					}
 					j = m
 				}
@@ -9531,7 +9531,7 @@ GameFramework.resources.va.prototype = {
 						this.Ds(this, j, d);
 					else {
 						c = l.fj.qf[j.bd
-								/ (2147483647 / GameFramework.resources.yb.jn | 0) | 0];
+								/ (2147483647 / GameFramework.resources.PILifeValueTable.jn | 0) | 0];
 						if (r)
 							j.ie += 1 / f, j.zp = ((j.ie * this.Vf / (l.Fe + 1) | 0) + j.gm)
 									% this.ga.gh[l.lj].zk;
@@ -9540,10 +9540,10 @@ GameFramework.resources.va.prototype = {
 									+ 1], GameFramework.resources.va.sh = (GameFramework.resources.va.sh + 2)
 									% 1024, k = o.nl
 									* c.mC
-									* (m.nl + j.lb[GameFramework.resources.Ea.Sa.ud | 0]), k > 0
+									* (m.nl + j.lb[GameFramework.resources.PIParticleInstance.Sa.ud | 0]), k > 0
 									&& (j.Db.x += g * k, j.Db.y += h * k);
 						g = o.vi * c.Nu
-								* (m.vi + j.lb[GameFramework.resources.Ea.Sa.Ed | 0]);
+								* (m.vi + j.lb[GameFramework.resources.PIParticleInstance.Sa.Ed | 0]);
 						j.Db.y += g;
 						h = j.Db.x / f * c.Gk;
 						k = j.Db.y / f * c.Gk;
@@ -9556,7 +9556,7 @@ GameFramework.resources.va.prototype = {
 										+ GameFramework.resources.va.Rc(l.ar)
 						} else
 							j.Vc += z * c.Au
-									* (A + j.lb[GameFramework.resources.Ea.Sa.md | 0])
+									* (A + j.lb[GameFramework.resources.PIParticleInstance.Sa.md | 0])
 					}
 					j = b
 				}
@@ -9567,30 +9567,30 @@ GameFramework.resources.va.prototype = {
 					z = j.gd, l = j.Jc, m = j.Im, o = j.Uf, j.bd += j.Dl, (j.bd & 2147483648) != 0
 							? this.Ds(this, j, d)
 							: (l = l.fj.qf[j.bd
-									/ (2147483647 / GameFramework.resources.yb.jn | 0)
+									/ (2147483647 / GameFramework.resources.PILifeValueTable.jn | 0)
 									| 0], A = GameFramework.resources.va.An[GameFramework.resources.va.sh], r = GameFramework.resources.va.An[GameFramework.resources.va.sh
 									+ 1], GameFramework.resources.va.sh = (GameFramework.resources.va.sh + 2)
 									% 1024, b = o.nl
 									* l.mC
-									* (m.nl + j.lb[GameFramework.resources.Ea.Sa.ud | 0]), b > 0
+									* (m.nl + j.lb[GameFramework.resources.PIParticleInstance.Sa.ud | 0]), b > 0
 									&& (j.Db.x += A * b, j.Db.y += r * b), j.Db.y += o.vi
 									* l.Nu
-									* (m.vi + j.lb[GameFramework.resources.Ea.Sa.Ed | 0]), j.qa.x += j.Db.x
+									* (m.vi + j.lb[GameFramework.resources.PIParticleInstance.Sa.Ed | 0]), j.qa.x += j.Db.x
 									/ f * l.Gk, j.qa.y += j.Db.y / f * l.Gk, j.Vc += o.Cj
 									* l.Au
-									* (m.Cj + j.lb[GameFramework.resources.Ea.Sa.md | 0])), j = z;
+									* (m.Cj + j.lb[GameFramework.resources.PIParticleInstance.Sa.md | 0])), j = z;
 			else
 				for (; j != null;)
 					z = j.gd, l = j.Jc, m = j.Im, o = j.Uf, j.bd += j.Dl, (j.bd & 2147483648) != 0
 							? this.Ds(this, j, d)
 							: (l = l.fj.qf[j.bd
-									/ (2147483647 / GameFramework.resources.yb.jn | 0)
+									/ (2147483647 / GameFramework.resources.PILifeValueTable.jn | 0)
 									| 0], j.Db.y += o.vi
 									* l.Nu
-									* (m.vi + j.lb[GameFramework.resources.Ea.Sa.Ed | 0]), j.qa.x += j.Db.x
+									* (m.vi + j.lb[GameFramework.resources.PIParticleInstance.Sa.Ed | 0]), j.qa.x += j.Db.x
 									/ f * l.Gk, j.qa.y += j.Db.y / f * l.Gk, j.Vc += o.Cj
 									* l.Au
-									* (m.Cj + j.lb[GameFramework.resources.Ea.Sa.md | 0])), j = z
+									* (m.Cj + j.lb[GameFramework.resources.PIParticleInstance.Sa.md | 0])), j = z
 		}
 	},
 	ca : function() {
@@ -9652,12 +9652,12 @@ GameFramework.resources.va.prototype = {
 								k = g.mf[h];
 								k.gD = k.sy;
 								j.Ln = GameFramework.resources.va
-										.Rc(j.F[GameFramework.resources.$.p.Ru | 0]
+										.Rc(j.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru | 0]
 												.G(this.A));
 								for (var m = l = 0, o = 1; k.ec && o > 0;) {
 									m = l = 0;
 									o--;
-									var q = j.F[GameFramework.resources.$.p.Go | 0]
+									var q = j.F[GameFramework.resources.PIEmitterInstanceDef.p.Go | 0]
 											.oq(this.A) > 0.99;
 									q
 											? k.Co
@@ -9665,10 +9665,10 @@ GameFramework.resources.va.prototype = {
 															| 0)
 											: o = 0;
 									k.Co = q;
-									var r = j.F[GameFramework.resources.$.p.Go | 0]
-											.i1(this.Dp + 1), v = j.F[GameFramework.resources.$.p.Go
+									var r = j.F[GameFramework.resources.PIEmitterInstanceDef.p.Go | 0]
+											.i1(this.Dp + 1), v = j.F[GameFramework.resources.PIEmitterInstanceDef.p.Go
 											| 0].oq(this.Dp + 1);
-									k.Ou = this.A >= j.F[GameFramework.resources.$.p.Go
+									k.Ou = this.A >= j.F[GameFramework.resources.PIEmitterInstanceDef.p.Go
 											| 0].gE(0)
 											&& (this.A < r || v > 0.99)
 											&& (this.tm || this.A < this.Dp);
@@ -9679,13 +9679,13 @@ GameFramework.resources.va.prototype = {
 													* 5.0E-4)
 													/ d, u = -GameFramework.resources.va
 													.Rc(1 / d);
-											r.vi = r.F[GameFramework.resources.ma.p.Ed
+											r.vi = r.F[GameFramework.resources.PIEmitter.p.Ed
 													| 0].G(this.A)
 													* 100 * v;
-											r.Cj = r.F[GameFramework.resources.ma.p.md
+											r.Cj = r.F[GameFramework.resources.PIEmitter.p.md
 													| 0].G(this.A)
 													* u;
-											r.nl = r.F[GameFramework.resources.ma.p.ud
+											r.nl = r.F[GameFramework.resources.PIEmitter.p.ud
 													| 0].G(this.A);
 											this.HL(g, r, k, null, k.Kl[q], k.$h,
 													null)
@@ -9707,13 +9707,13 @@ GameFramework.resources.va.prototype = {
 										r = k;
 										v = (1 + (this.Vf - 100) * 5.0E-4) / d;
 										u = -GameFramework.resources.va.Rc(1 / d);
-										q.vi = r.Wa.F[GameFramework.resources.$.p.Ed
+										q.vi = r.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ed
 												| 0].G(this.A)
 												* 100 * v;
-										q.Cj = r.Wa.F[GameFramework.resources.$.p.md
+										q.Cj = r.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.md
 												| 0].G(this.A)
 												* u;
-										q.nl = r.Wa.F[GameFramework.resources.$.p.ud
+										q.nl = r.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ud
 												| 0].G(this.A);
 										for (r = 0; (r | 0) < (q.tf.length | 0); r++)
 											this.HL(g, q, k, q.tf[r], k.Bh[r],
@@ -9742,12 +9742,12 @@ GameFramework.resources.va.prototype = {
 								&& g;
 					if (!q) {
 						if (m != v.Uf)
-							m = v.Uf, o = d.Wa.F[GameFramework.resources.$.p.ep | 0]
+							m = v.Uf, o = d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ep | 0]
 									.G(this.A)
-									* m.F[GameFramework.resources.ma.p.ep | 0].G(
+									* m.F[GameFramework.resources.PIEmitter.p.ep | 0].G(
 											this.A, 1);
 						var y = k.fj.qf[v.bd
-								/ (2147483647 / GameFramework.resources.yb.jn | 0) | 0].n;
+								/ (2147483647 / GameFramework.resources.PILifeValueTable.jn | 0) | 0].n;
 						k.rx && (y = y & 4278190080 | v.jf & 16777215);
 						k.sx && (y = y & 16777215 | v.jf & 4278190080);
 						o != 0 && (y = this.zq(y, d.sy, o));
@@ -9790,14 +9790,14 @@ GameFramework.resources.va.prototype = {
 				if (!g) {
 					g = f.pd;
 					if (g != null)
-						l = g.Im, m = g.Uf, o = d.Wa.F[GameFramework.resources.$.p.ep
+						l = g.Im, m = g.Uf, o = d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ep
 								| 0].G(this.A)
-								* m.F[GameFramework.resources.ma.p.ep | 0].G(this.A, 1);
+								* m.F[GameFramework.resources.PIEmitter.p.ep | 0].G(this.A, 1);
 					for (; g != null;) {
 						q = g.gd;
 						k = g.Jc;
 						r = k.fj.qf[g.bd
-								/ (2147483647 / GameFramework.resources.yb.jn | 0) | 0].n
+								/ (2147483647 / GameFramework.resources.PILifeValueTable.jn | 0) | 0].n
 								& g.Jn | g.kl;
 						o != 0 && (r = this.zq(r, d.gD, o));
 						j
@@ -9845,9 +9845,9 @@ GameFramework.resources.va.prototype = {
 					g = 1E3 / this.Le / this.Fe;
 					q = f.pd;
 					if (q != null)
-						l = q.Im, m = q.Uf, o = d.Wa.F[GameFramework.resources.$.p.ep
+						l = q.Im, m = q.Uf, o = d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ep
 								| 0].G(this.A)
-								* m.F[GameFramework.resources.ma.p.ep | 0].G(this.A, 1);
+								* m.F[GameFramework.resources.PIEmitter.p.ep | 0].G(this.A, 1);
 					if (this.vr)
 						for (; q != null;) {
 							r = q.gd;
@@ -9855,20 +9855,20 @@ GameFramework.resources.va.prototype = {
 							q.bd += q.Dl;
 							if ((q.bd & 2147483648) != 0)
 								this.Ds(this, q, f);
-							else if (u = q.bd >> GameFramework.resources.yb.Uo, v = k.fj.qf[u], u = k.fj.qf[u
-									+ 1], z = (q.bd & (1 << GameFramework.resources.yb.Uo)
+							else if (u = q.bd >> GameFramework.resources.PILifeValueTable.Uo, v = k.fj.qf[u], u = k.fj.qf[u
+									+ 1], z = (q.bd & (1 << GameFramework.resources.PILifeValueTable.Uo)
 									- 1)
-									/ (1 << GameFramework.resources.yb.Uo), A = GameFramework.resources.va.An[GameFramework.resources.va.sh], y = GameFramework.resources.va.An[GameFramework.resources.va.sh
+									/ (1 << GameFramework.resources.PILifeValueTable.Uo), A = GameFramework.resources.va.An[GameFramework.resources.va.sh], y = GameFramework.resources.va.An[GameFramework.resources.va.sh
 									+ 1], GameFramework.resources.va.sh = (GameFramework.resources.va.sh + 2)
 									% 1024, G = m.nl
 									* v.mC
-									* (l.nl + q.lb[GameFramework.resources.Ea.Sa.ud | 0]), G > 0
+									* (l.nl + q.lb[GameFramework.resources.PIParticleInstance.Sa.ud | 0]), G > 0
 									&& (q.Db.x += A * G, q.Db.y += y * G), q.Db.y += m.vi
 									* v.Nu
-									* (l.vi + q.lb[GameFramework.resources.Ea.Sa.Ed | 0]), q.qa.x += q.Db.x
+									* (l.vi + q.lb[GameFramework.resources.PIParticleInstance.Sa.Ed | 0]), q.qa.x += q.Db.x
 									/ g * v.Gk, q.qa.y += q.Db.y / g * v.Gk, q.Vc += m.Cj
 									* v.Au
-									* (l.Cj + q.lb[GameFramework.resources.Ea.Sa.md | 0]), v = this
+									* (l.Cj + q.lb[GameFramework.resources.PIParticleInstance.Sa.md | 0]), v = this
 									.zq(v.n, u.n, z)
 									& q.Jn | q.kl, o != 0
 									&& (v = this.zq(v, d.gD, o)), j
@@ -9917,17 +9917,17 @@ GameFramework.resources.va.prototype = {
 							q.bd += q.Dl;
 							if ((q.bd & 2147483648) != 0)
 								this.Ds(this, q, f);
-							else if (u = q.bd >> GameFramework.resources.yb.Uo, v = k.fj.qf[u], A = k.fj.qf[u
-									+ 1], y = (q.bd & (1 << GameFramework.resources.yb.Uo)
+							else if (u = q.bd >> GameFramework.resources.PILifeValueTable.Uo, v = k.fj.qf[u], A = k.fj.qf[u
+									+ 1], y = (q.bd & (1 << GameFramework.resources.PILifeValueTable.Uo)
 									- 1)
-									/ (1 << GameFramework.resources.yb.Uo), u = v.jy
+									/ (1 << GameFramework.resources.PILifeValueTable.Uo), u = v.jy
 									* (1 - y) + A.jy * y, z = v.ky * (1 - y)
 									+ A.ky * y, q.Db.y += m.vi
 									* v.Nu
-									* (l.vi + q.lb[GameFramework.resources.Ea.Sa.Ed | 0]), q.qa.x += q.Db.x
+									* (l.vi + q.lb[GameFramework.resources.PIParticleInstance.Sa.Ed | 0]), q.qa.x += q.Db.x
 									/ g * v.Gk, q.qa.y += q.Db.y / g * v.Gk, q.Vc += m.Cj
 									* v.Au
-									* (l.Cj + q.lb[GameFramework.resources.Ea.Sa.md | 0]), v = this
+									* (l.Cj + q.lb[GameFramework.resources.PIParticleInstance.Sa.md | 0]), v = this
 									.zq(v.n, A.n, y)
 									& q.Jn | q.kl, o != 0
 									&& (v = this.zq(v, d.gD, o)), j
@@ -9973,17 +9973,17 @@ GameFramework.resources.va.prototype = {
 			} else if (!g) {
 				g = f.pd;
 				if (g != null)
-					m = g.Uf, o = d.Wa.F[GameFramework.resources.$.p.ep | 0].G(this.A)
-							* m.F[GameFramework.resources.ma.p.ep | 0].G(this.A, 1);
+					m = g.Uf, o = d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ep | 0].G(this.A)
+							* m.F[GameFramework.resources.PIEmitter.p.ep | 0].G(this.A, 1);
 				for (; g != null;) {
 					q = g.gd;
 					k = g.Jc;
 					l = g.Im;
-					v = g.bd >> GameFramework.resources.yb.Uo;
+					v = g.bd >> GameFramework.resources.PILifeValueTable.Uo;
 					if (!(v + 1 >= k.fj.qf.length)
-							&& (r = k.fj.qf[v], z = k.fj.qf[v + 1], A = (g.bd & (1 << GameFramework.resources.yb.Uo)
+							&& (r = k.fj.qf[v], z = k.fj.qf[v + 1], A = (g.bd & (1 << GameFramework.resources.PILifeValueTable.Uo)
 									- 1)
-									/ (1 << GameFramework.resources.yb.Uo), v = r.jy
+									/ (1 << GameFramework.resources.PILifeValueTable.Uo), v = r.jy
 									* (1 - A) + z.jy * A, u = r.ky * (1 - A)
 									+ z.ky * A, r = this.zq(r.n, z.n, A) & g.Jn
 									| g.kl, o != 0 && (r = this.zq(r, d.gD, o)), j
@@ -10038,13 +10038,13 @@ GameFramework.resources.va.prototype = {
 								var l = 1E3 / this.Le / this.Fe, m = this.ga.Hf[g.ej[k]], o = (1 + (this.Vf - 100)
 										* 5.0E-4)
 										/ l, l = -GameFramework.resources.va.Rc(1 / l);
-								m.vi = m.F[GameFramework.resources.ma.p.Ed | 0]
+								m.vi = m.F[GameFramework.resources.PIEmitter.p.Ed | 0]
 										.G(this.A)
 										* 100 * o;
-								m.Cj = m.F[GameFramework.resources.ma.p.md | 0]
+								m.Cj = m.F[GameFramework.resources.PIEmitter.p.md | 0]
 										.G(this.A)
 										* l;
-								m.nl = m.F[GameFramework.resources.ma.p.ud | 0]
+								m.nl = m.F[GameFramework.resources.PIEmitter.p.ud | 0]
 										.G(this.A);
 								for (m = h.$h.pd; m != null;)
 									this.RQ(b, c, h, m.kg.Wb, j == 0), m = m.gd
@@ -10053,11 +10053,11 @@ GameFramework.resources.va.prototype = {
 							k = this.ga.Hf[g.um], m = h, l = 1E3 / this.Le
 									/ this.Fe, o = (1 + (this.Vf - 100)
 									* 5.0E-4)
-									/ l, l = -GameFramework.resources.va.Rc(1 / l), k.vi = m.Wa.F[GameFramework.resources.$.p.Ed
+									/ l, l = -GameFramework.resources.va.Rc(1 / l), k.vi = m.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ed
 									| 0].G(this.A)
-									* 100 * o, k.Cj = m.Wa.F[GameFramework.resources.$.p.md
+									* 100 * o, k.Cj = m.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.md
 									| 0].G(this.A)
-									* l, k.nl = m.Wa.F[GameFramework.resources.$.p.ud
+									* l, k.nl = m.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ud
 									| 0].G(this.A), this.RQ(b, c, h, h.Wb,
 									j == 0)
 		}
@@ -10081,7 +10081,7 @@ GameFramework.resources.va.prototype = {
 				for (var f = 0; f < d.mf.length; f++) {
 					var g = c.Uh[f], h = d.mf[f];
 					if (h.ec) {
-						if (g.F[GameFramework.resources.$.p.Go | 0].gE(this.A) >= this.A)
+						if (g.F[GameFramework.resources.PIEmitterInstanceDef.p.Go | 0].gE(this.A) >= this.A)
 							return true;
 						if (h.Ou)
 							return true;
@@ -32417,15 +32417,15 @@ Game.SpeedBoard.prototype = {
 		c = Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.fn(0);
 		for (d = 0; d < 2; d++) {
 			var f = c.xk.Uh[d];
-			f.F[GameFramework.resources.$.p.Uk | 0].dc[0].oa = 0.75 + b * 1.5;
-			f.F[GameFramework.resources.$.p.Xo | 0].dc[0].oa = this.Bj.V() > 0 ? 0.33
+			f.F[GameFramework.resources.PIEmitterInstanceDef.p.Uk | 0].dc[0].oa = 0.75 + b * 1.5;
+			f.F[GameFramework.resources.PIEmitterInstanceDef.p.Xo | 0].dc[0].oa = this.Bj.V() > 0 ? 0.33
 					+ b * 1 : 0;
-			f.F[GameFramework.resources.$.p.Wg | 0].dc[0].oa = 0.75 + b * 0.5;
-			f.F[GameFramework.resources.$.p.Xg | 0].dc[0].oa = 0.75 + b * 0.5
+			f.F[GameFramework.resources.PIEmitterInstanceDef.p.Wg | 0].dc[0].oa = 0.75 + b * 0.5;
+			f.F[GameFramework.resources.PIEmitterInstanceDef.p.Xg | 0].dc[0].oa = 0.75 + b * 0.5
 		}
 		c = Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.fn(0);
 		for (d = 0; d < 2; d++)
-			c.xk.Uh[d].F[GameFramework.resources.$.p.Xo | 0].dc[0].oa = this.Bj.V() > 0
+			c.xk.Uh[d].F[GameFramework.resources.PIEmitterInstanceDef.p.Xo | 0].dc[0].oa = this.Bj.V() > 0
 					? 0.1 + b * 0.9
 					: 0;
 		Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.ca();
