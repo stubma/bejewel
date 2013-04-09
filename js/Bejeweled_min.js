@@ -14521,7 +14521,7 @@ Game.Wu.prototype = {
 				&& Game.BejApp.q.hP
 						.J3(this, this.t9, "^FFAACC^" + this.gP,
 								new GameFramework.geom.ba(this.w + this.s / 2,
-										this.v + 0), 400, Game.rh.Wc.CP, 10)
+										this.v + 0), 400, Game.Tooltip.Wc.CP, 10)
 	},
 	Ys : function() {
 		GameFramework.widgets.td.prototype.Ys.apply(this);
@@ -33595,7 +33595,7 @@ Game.TooltipManager.prototype = {
 				this.uy[b].LV = true;
 				return
 			}
-		b = new Game.rh;
+		b = new Game.Tooltip;
 		b.V7 = c;
 		b.WV = d;
 		b.PC = new GameFramework.geom.ba(f.x, f.y);
@@ -33615,19 +33615,19 @@ Game.TooltipManager.prototype = {
 		b.Hm.x = b.PC.x;
 		b.Hm.y = b.PC.y;
 		switch (b.hm) {
-			case Game.rh.Wc.lZ :
+			case Game.Tooltip.Wc.lZ :
 				b.Hm.x += -b.s / 2;
 				b.Hm.y += 20;
 				break;
-			case Game.rh.Wc.CP :
+			case Game.Tooltip.Wc.CP :
 				b.Hm.x += -b.s / 2;
 				b.Hm.y += -b.z - 20;
 				break;
-			case Game.rh.Wc.jZ :
+			case Game.Tooltip.Wc.jZ :
 				b.Hm.x += 20;
 				b.Hm.y += -b.z / 2;
 				break;
-			case Game.rh.Wc.kZ :
+			case Game.Tooltip.Wc.kZ :
 				b.Hm.x += -b.s - 20, b.Hm.y += -b.z / 2
 		}
 		this.uy.push(b);
@@ -33641,11 +33641,11 @@ T(function() {
 U(function() {
 			Game.TooltipManager.c()
 		});
-Game.rh = function() {
+Game.Tooltip = function() {
 	this.PC = new GameFramework.geom.ba(0, 0);
 	this.Hm = new GameFramework.geom.ba(0, 0)
 };
-Game.rh.prototype = {
+Game.Tooltip.prototype = {
 	PC : null,
 	Hm : null,
 	s : 0,
@@ -33660,23 +33660,23 @@ Game.rh.prototype = {
 	QG : null,
 	n : 0
 };
-Game.rh.c = t();
+Game.Tooltip.c = t();
 T(function() {
-			Game.rh.u("Game.Tooltip", null)
+			Game.Tooltip.u("Game.Tooltip", null)
 		});
 U(function() {
-			Game.rh.c()
+			Game.Tooltip.c()
 		});
-Game.rh.Wc = {};
-Game.rh.Wc.c = function() {
-	Game.rh.Wc.lZ = 0;
-	Game.rh.Wc.CP = 1;
-	Game.rh.Wc.jZ = 2;
-	Game.rh.Wc.kZ = 3;
-	Game.rh.Wc.NONE = 4
+Game.Tooltip.Wc = {};
+Game.Tooltip.Wc.c = function() {
+	Game.Tooltip.Wc.lZ = 0;
+	Game.Tooltip.Wc.CP = 1;
+	Game.Tooltip.Wc.jZ = 2;
+	Game.Tooltip.Wc.kZ = 3;
+	Game.Tooltip.Wc.NONE = 4
 };
 T(function() {
-			Game.rh.Wc.c()
+			Game.Tooltip.Wc.c()
 		});
 Game.ha = function() {
 	this.Fb = Game.ha.hg.KE;
