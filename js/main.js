@@ -21,7 +21,7 @@ function wantsHighRes() {
         return true; // Accelerated IE?
     if (/CrOS /.test(navigator.userAgent))
         return false; // Chromebook
-    return gApp.GetUseGL(); // No WebGL on these platforms means no acceleration
+    return gApp.isUseGL(); // No WebGL on these platforms means no acceleration
 }
 
 function ResizeElements() {
@@ -180,7 +180,7 @@ function Startup() {
     }
     if (!wantsHighRes())
         gApp.SetArtRes(480);
-    if (!gApp.GetUseGL())
+    if (!gApp.isUseGL())
         gApp.SetPathPrefix('../html5canvas/');
     gApp.Init();
 
@@ -202,6 +202,7 @@ soundManager.waitForWindowLoad = true;
 soundManager.onload = JSFExt_SoundManagerReady;
 soundManager.onerror = JSFExt_SoundError;
 
+alert('hidd');
 JS_Init();
 gApp = new Game.BejApp();
 JFSExt_SetRequiresBinaryHack(false);

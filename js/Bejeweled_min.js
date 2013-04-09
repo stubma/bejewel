@@ -14945,7 +14945,7 @@ Game.BejApp.prototype = {
 	SetUserId : w("zo"),
 	GetUserId : ha("zo"),
 	SetUseGL : w("useGL"),
-	GetUseGL : ha("useGL"),
+	isUseGL : ha("useGL"),
     SetBkgImagePath : function(b, c) {
 		Game.Background.cL(b, c)
 	},
@@ -15338,7 +15338,7 @@ Game.BejApp.prototype.SetUserAgent = Game.BejApp.prototype.SetUserAgent;
 Game.BejApp.prototype.SetUserId = Game.BejApp.prototype.SetUserId;
 Game.BejApp.prototype.GetUserId = Game.BejApp.prototype.GetUserId;
 Game.BejApp.prototype.SetUseGL = Game.BejApp.prototype.SetUseGL;
-Game.BejApp.prototype.GetUseGL = Game.BejApp.prototype.GetUseGL;
+Game.BejApp.prototype.isUseGL = Game.BejApp.prototype.isUseGL;
 Game.BejApp.prototype.SetBkgImagePath = Game.BejApp.prototype.SetBkgImagePath;
 Game.BejApp.prototype.SizeChanged = Game.BejApp.prototype.SizeChanged;
 Game.BejApp.prototype.Init = Game.BejApp.prototype.Init;
