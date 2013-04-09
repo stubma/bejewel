@@ -21352,7 +21352,7 @@ T(function() {
 U(function() {
 			Game.ColorCycle.c()
 		});
-Game.kd = function(b, c) {
+Game.CrystalBall = function(b, c) {
 	this.Oa = null;
 	this.$B = new GameFramework.qt(0, 0, 0, 0);
 	this.Tc = new GameFramework.CurvedVal;
@@ -21362,13 +21362,13 @@ Game.kd = function(b, c) {
 	this.oD = new GameFramework.CurvedVal;
 	this.u8 = new GameFramework.CurvedVal;
 	this.Z8 = new GameFramework.CurvedVal;
-	this.EB = Array.O(Game.kd.Yo, null);
-	this.eD = Array.O(Game.kd.Yo, null);
-	this.YF = Array.O(Game.kd.Yo, null);
-	this.HG = Array.O(Game.kd.Yk + 1, null);
-	this.YH = Array.O(Game.kd.Yk + 1, null);
-	this.uG = Array.O(Game.kd.Yk + 1, null);
-	E(Game.kd, this, [c]);
+	this.EB = Array.O(Game.CrystalBall.Yo, null);
+	this.eD = Array.O(Game.CrystalBall.Yo, null);
+	this.YF = Array.O(Game.CrystalBall.Yo, null);
+	this.HG = Array.O(Game.CrystalBall.Yk + 1, null);
+	this.YH = Array.O(Game.CrystalBall.Yk + 1, null);
+	this.uG = Array.O(Game.CrystalBall.Yk + 1, null);
+	E(Game.CrystalBall, this, [c]);
 	this.Pt = -1;
 	this.m.Aa(0.17);
 	this.eg = 0;
@@ -21392,7 +21392,7 @@ Game.kd = function(b, c) {
 	this.oD.jL(GameFramework.CurvedVal.Uz);
 	this.oD.zx = GameFramework.Utils.Sk() % 100
 };
-Game.kd.prototype = {
+Game.CrystalBall.prototype = {
 	Oa : null,
 	$B : null,
 	sr : null,
@@ -21485,25 +21485,25 @@ Game.kd.prototype = {
 					l.t()
 				}
 				if (!this.Hx) {
-					for (j = 0; j < Game.kd.Yo; j++)
-						this.EB[j] = j / (Game.kd.Yo - 2.5), this.eD[j] = Math
+					for (j = 0; j < Game.CrystalBall.Yo; j++)
+						this.EB[j] = j / (Game.CrystalBall.Yo - 2.5), this.eD[j] = Math
 								.pow(this.EB[j], 1 + (1 - this.Tc.V()) * 1), this.EB[j] *= c, this.YF[j] = this.pM
 								+ this.Tc.V()
 								* (1 - this.pM)
 								- this.eD[j]
 								* 0.5 * (1 - this.Tc.V()), this.eD[j] *= 0.75
-								+ this.Tc.V() * 0.25, j == Game.kd.Yo - 1
+								+ this.Tc.V() * 0.25, j == Game.CrystalBall.Yo - 1
 								&& (this.YF[j] = 1 - (1 - this.Tc.V()) * 10);
-					for (j = 0; j <= Game.kd.Yk; j++) {
-						var v = (j + 0.5) / Game.kd.Yk * 6.28318;
+					for (j = 0; j <= Game.CrystalBall.Yk; j++) {
+						var v = (j + 0.5) / Game.CrystalBall.Yk * 6.28318;
 						this.YH[j] = Math.sin(v);
 						this.uG[j] = Math.cos(v);
 						this.HG[j] = 1 + this.Tc.V()
 								* Math.pow(Math.abs(Math.sin(v * 2)), 6) * 0.2
 					}
 					if (this.Oa != null) {
-						for (var u = Array.Sd(Game.kd.Yk, Game.kd.Yo, null), v = 0; v < Game.kd.Yo; v++)
-							for (j = 0; j < Game.kd.Yk; j++) {
+						for (var u = Array.Sd(Game.CrystalBall.Yk, Game.CrystalBall.Yo, null), v = 0; v < Game.CrystalBall.Yo; v++)
+							for (j = 0; j < Game.CrystalBall.Yk; j++) {
 								var y = this.EB[v] * this.HG[j], z = 600 + 360
 										* this.Tc.V(), k = z / 600 / 1.6, A = this.eD[v]
 										* this.HG[j], l = 0;
@@ -21520,14 +21520,14 @@ Game.kd.prototype = {
 												this.YF[v])));
 								u[u.g * j + v] = B
 							}
-						for (var G = Array.O(Game.kd.Yk * 2 + 2, null), y = 0; y < Game.kd.Yo
+						for (var G = Array.O(Game.CrystalBall.Yk * 2 + 2, null), y = 0; y < Game.CrystalBall.Yo
 								- 1; y++) {
-							for (z = 0; z <= Game.kd.Yk; z++)
-								G[z * 2] = u[u.g * (z % Game.kd.Yk) + y], G[z
-										* 2 + 1] = u[u.g * (z % Game.kd.Yk) + y
+							for (z = 0; z <= Game.CrystalBall.Yk; z++)
+								G[z * 2] = u[u.g * (z % Game.CrystalBall.Yk) + y], G[z
+										* 2 + 1] = u[u.g * (z % Game.CrystalBall.Yk) + y
 										+ 1];
 							if (Game.BejApp.q.kc()) {
-								var A = z = 0, D = Game.kd.Yk * 2, F = Array
+								var A = z = 0, D = Game.CrystalBall.Yk * 2, F = Array
 										.Sd(D, 3, null);
 								F[F.g * z + 0] = G[A++];
 								F[F.g * z + 1] = G[A++];
@@ -21581,15 +21581,15 @@ Game.kd.prototype = {
 		GameFramework.widgets.td.prototype.Af.apply(this, [b, c])
 	}
 };
-Game.kd.c = function() {
-	Game.kd.Yo = 10;
-	Game.kd.Yk = 30
+Game.CrystalBall.c = function() {
+	Game.CrystalBall.Yo = 10;
+	Game.CrystalBall.Yk = 30
 };
 T(function() {
-			Game.kd.u("Game.CrystalBall", GameFramework.widgets.td)
+			Game.CrystalBall.u("Game.CrystalBall", GameFramework.widgets.td)
 		});
 U(function() {
-			Game.kd.c()
+			Game.CrystalBall.c()
 		});
 Game.cd = t();
 Game.cd.prototype = {};
@@ -27785,8 +27785,8 @@ Game.yv = function(b) {
 	this.AO = new GameFramework.CurvedVal;
 	E(Game.yv, this);
 	this.e = this.e = b;
-	this.KB = new Game.kd("", 0);
-	this.ty = new Game.kd("", 0);
+	this.KB = new Game.CrystalBall("", 0);
+	this.ty = new Game.CrystalBall("", 0);
 	this.ty.zY = false;
 	this.sl.ea("b+0,1,0.0025,1,~###  .~###   4####    b####");
 	this.fP.me("b+0,1,0.003333,1,####   g####     K~###m~###", this.sl);
@@ -28178,13 +28178,13 @@ Game.mc.prototype = {
 			return false;
 		this.xH = false;
 		this.Kg.Aa(0);
-		this.ad = new Game.kd("CLASSIC", Game.mc.gg.bJ | 0);
+		this.ad = new Game.CrystalBall("CLASSIC", Game.mc.gg.bJ | 0);
 		this.We[Game.mc.gg.bJ | 0] = this.ad;
 		this.Bc(this.ad);
-		this.Pe = new Game.kd("SPEED", Game.mc.gg.tL | 0);
+		this.Pe = new Game.CrystalBall("SPEED", Game.mc.gg.tL | 0);
 		this.We[Game.mc.gg.tL | 0] = this.Pe;
 		this.Bc(this.Pe);
-		this.Tj = new Game.kd("RECORDS", Game.mc.gg.SK | 0);
+		this.Tj = new Game.CrystalBall("RECORDS", Game.mc.gg.SK | 0);
 		this.We[Game.mc.gg.SK | 0] = this.Tj;
 		this.Bc(this.Tj);
 		for (var b = 0; b < this.We.length; ++b)
