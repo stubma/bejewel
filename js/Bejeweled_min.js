@@ -3788,16 +3788,16 @@ T(function() {
 U(function() {
 			GameFramework.connected.SocialService.c()
 		});
-GameFramework.connected.AF = t();
-GameFramework.connected.AF.prototype = {
+GameFramework.connected.UserInfo = t();
+GameFramework.connected.UserInfo.prototype = {
 	sb : null
 };
-GameFramework.connected.AF.c = t();
+GameFramework.connected.UserInfo.c = t();
 T(function() {
-			GameFramework.connected.AF.u("GameFramework.connected.UserInfo", null)
+			GameFramework.connected.UserInfo.u("GameFramework.connected.UserInfo", null)
 		});
 U(function() {
-			GameFramework.connected.AF.c()
+			GameFramework.connected.UserInfo.c()
 		});
 GameFramework.events = Type.ci("GameFramework.events");
 GameFramework.events.Event = w("type");
