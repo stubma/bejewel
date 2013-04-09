@@ -1113,9 +1113,9 @@ Type.G6 = function(b) {
 Type.parse = function(b) {
 	return Type.G6(b)
 };
-ss.VD = t();
-ss.VD.u("Enum");
-ss.VD.parse = function(b, c) {
+ss.Enum = t();
+ss.Enum.u("Enum");
+ss.Enum.parse = function(b, c) {
 	var d = b.prototype;
 	if (b.ZU) {
 		for (var f = c.split("|"), g = 0, h = true, j = f.length - 1; j >= 0; j--) {
@@ -1139,7 +1139,7 @@ ss.VD.parse = function(b, c) {
 				return d[m];
 	ca("Invalid Enumeration Value")
 };
-ss.VD.X5 = function(b) {
+ss.Enum.toString = function(b) {
 	var c = this.prototype;
 	if (!this.ZU || b === 0) {
 		for (var d in c)
@@ -1382,7 +1382,7 @@ for (Ea in Da.prototype)
 	Da[Ea] = Da.prototype[Ea];
 Da.qi = "CollectionChangedAction";
 Da.YU = true;
-Da.toString = ss.VD.X5;
+Da.toString = ss.Enum.toString;
 ss.dJ = function(b, c, d) {
 	E(ss.dJ, this);
 	this.mqa = b;
