@@ -14046,7 +14046,7 @@ GameFramework.resources.JSResourceManager = function() {
 GameFramework.resources.JSResourceManager.prototype = {
 	dp : function(b, c) {
 		GameFramework.resources.ResourceManager.prototype.dp.apply(this, [b, c]);
-		Game.a[b] = c
+		Game.Resources[b] = c
 	},
 	f3 : function(b) {
 		var c = new GameFramework.resources.JSRenderEffect;
@@ -14225,7 +14225,7 @@ Game.Announcement = function(b, c) {
 	this.m.ea("b+0,1,0.003333,1,#### Q~###       #~### O####");
 	this.xx.Aa(1);
 	this.Tw = this.cx = true;
-	this.U = Game.a.FONT_HUGE;
+	this.U = Game.Resources.FONT_HUGE;
 	this.e != null && this.e.B1(this)
 };
 Game.Announcement.prototype = {
@@ -14507,8 +14507,8 @@ U(function() {
 Game.Wu = function(b) {
 	E(Game.Wu, this, [b]);
 	this.L = 1;
-	this.kb(Game.a.FONT_DIALOG_BUTTONS);
-	this.wb = Game.a.IMAGE_DIALOG_BUTTON;
+	this.kb(Game.Resources.FONT_DIALOG_BUTTONS);
+	this.wb = Game.Resources.IMAGE_DIALOG_BUTTON;
 	this.Rj = 1;
 	this.On = 2
 };
@@ -14535,11 +14535,11 @@ Game.Wu.prototype = {
 	},
 	Ys : function() {
 		GameFramework.widgets.td.prototype.Ys.apply(this);
-		Game.BejApp.q.mi(Game.a.SOUND_BUTTON_MOUSEOVER)
+		Game.BejApp.q.mi(Game.Resources.SOUND_BUTTON_MOUSEOVER)
 	},
 	kn : function() {
 		GameFramework.widgets.td.prototype.kn.apply(this);
-		Game.BejApp.q.mi(Game.a.SOUND_BUTTON_MOUSELEAVE);
+		Game.BejApp.q.mi(Game.Resources.SOUND_BUTTON_MOUSELEAVE);
 		Game.BejApp.q.OX = -10
 	}
 };
@@ -14566,9 +14566,9 @@ Game.Qc = function(b, c, d, f, g, h, j, k) {
 	this.mG = 10;
 	this.nG = 25;
 	this.gj = -3;
-	this.gL(Game.a.FONT_DIALOG_HEADER);
-	this.aU(Game.a.FONT_DIALOG_SMALL_TEXT);
-	this.dL(Game.a.FONT_DIALOG_BUTTONS);
+	this.gL(Game.Resources.FONT_DIALOG_HEADER);
+	this.aU(Game.Resources.FONT_DIALOG_SMALL_TEXT);
+	this.dL(Game.Resources.FONT_DIALOG_BUTTONS);
 	this.m.ea("b+0,2,0.033333,1,####        HY### XPV}f");
 	this.L.ea("b+0,1,0.033333,1,#%t=.####=#2h3       J~P##  1~P##")
 };
@@ -14624,7 +14624,7 @@ Game.Qc.prototype = {
 		var c = new Game.Bej3Button(0);
 		Game.BejApp.q.Hy(c);
 		this.rQ(c, b);
-		c.U = Game.a.FONT_DIALOG_BUTTONS;
+		c.U = Game.Resources.FONT_DIALOG_BUTTONS;
 		c.LN = -4;
 		c.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.Mi));
 		c.Ra(GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.MP));
@@ -14634,10 +14634,10 @@ Game.Qc.prototype = {
 		return this.ME(b, c, null)
 	},
 	ME : function(b, c, d) {
-		d = d == null ? Game.a.IMAGE_DIALOG_BUTTON : d;
+		d = d == null ? Game.Resources.IMAGE_DIALOG_BUTTON : d;
 		b = new Game.Wu(b);
 		b.Lb(0, 0, c, d.z);
-		b.kb(Game.a.FONT_DIALOG_BUTTONS);
+		b.kb(Game.Resources.FONT_DIALOG_BUTTONS);
 		this.Bc(b);
 		Game.BejApp.q.Hy(b);
 		b.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.Mi));
@@ -14751,7 +14751,7 @@ Game.TopWidget.prototype = {
 	xl : false,
 	f2 : function() {
 		this.xl = true;
-		this.ag.Ub(Game.a.FONT_FLAREGOTHIC16);
+		this.ag.Ub(Game.Resources.FONT_FLAREGOTHIC16);
 		GameFramework.BaseApp.M
 				.Ra(GameFramework.widgets.wa.kK, ss.Delegate.create(this, this.E1))
 	},
@@ -14773,7 +14773,7 @@ Game.TopWidget.prototype = {
 						.ja(b, 10, Game.BejApp.q.z + 20), Game.BejApp.q.hr))
 			for (var c = 0; c < 2; ++c) {
 				c == 0 && (b.Q(4278190080), b.gc(-1, -1));
-				b.kb(Game.a.FONT_FLAREGOTHIC16);
+				b.kb(Game.Resources.FONT_FLAREGOTHIC16);
 				Game.BejApp.q.uh != Game.f.xf.jk
 						&& b.Cc(String.Mb("Autoplay: {0} -- {1}",
 										Game.f.sV[Game.BejApp.q.uh | 0], Game.Util
@@ -14924,10 +14924,10 @@ Game.BejApp.prototype = {
 	},
 	k3 : function(b) {
 		b = Type.di(b.target, GameFramework.widgets.td);
-		b != null && b.pl || this.mi(Game.a.SOUND_BUTTON_PRESS)
+		b != null && b.pl || this.mi(Game.Resources.SOUND_BUTTON_PRESS)
 	},
 	j3 : function() {
-		this.mi(Game.a.SOUND_BUTTON_RELEASE)
+		this.mi(Game.Resources.SOUND_BUTTON_RELEASE)
 	},
 	SetDebugMode : function() {
 		this.hr = true
@@ -15085,7 +15085,7 @@ Game.BejApp.prototype = {
 		this.dl("Board");
 		this.dl("Additive");
 		this.dl("MainMenu");
-		b = this.vb.H4(Game.a.z3);
+		b = this.vb.H4(Game.Resources.z3);
 		this.Ut++;
 		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.R1));
 		b.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz))
@@ -15108,14 +15108,14 @@ Game.BejApp.prototype = {
 			this.wW = false, this.dl("Music"), this.tw("load_complete",
 					[new GameFramework.W.cb("LoadSeconds", GameFramework.Utils.bootTime()
 									/ 1E3 | 0)]), this.bU(this.Ka.Fr), this
-					.lL(this.Ka.tu), this.kA(Game.a.QT), this.nI.f2(), this.jC = true, Game.a.FONT_DIALOG_BUTTONS
-					.Ia("MAIN", GameFramework.gfx.k.Ma(255, 255, 255, 230)), Game.a.FONT_DIALOG_BUTTONS
-					.Ia("OUTLINE", GameFramework.gfx.k.Ma(255, 255, 255, 255)), Game.a.FONT_DIALOG_BUTTONS
-					.Ia("GLOW", GameFramework.gfx.k.Ma(255, 255, 255, 128)), Game.a.FONT_DIALOG_HEADER
-					.Ia("MAIN", GameFramework.gfx.k.Ma(255, 255, 255, 230)), Game.a.FONT_DIALOG_HEADER
-					.Ia("OUTLINE", GameFramework.gfx.k.Ma(255, 255, 255, 255)), Game.a.FONT_DIALOG_HEADER
-					.Ia("GLOW", GameFramework.gfx.k.Ma(255, 255, 255, 128)), Game.a.IMAGE_BOARD_TIMER.Mf = GameFramework.resources.De.ik, Game.a.IMAGE_BOARD_TIMER_RED.Mf = GameFramework.resources.De.ik, Game.a.IMAGE_BOARD_TIMER_GOLD.Mf = GameFramework.resources.De.ik, Game.a.IMAGE_LIGHTNING_TIMER_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.a.IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.a.IMAGE_LIGHTNING_TIMER_RED_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.a.FONT_TIMER_LARGE
-					.dU(GameFramework.resources.De.ik), Game.a.FONT_TIMER_SMALL
+					.lL(this.Ka.tu), this.kA(Game.Resources.QT), this.nI.f2(), this.jC = true, Game.Resources.FONT_DIALOG_BUTTONS
+					.Ia("MAIN", GameFramework.gfx.k.Ma(255, 255, 255, 230)), Game.Resources.FONT_DIALOG_BUTTONS
+					.Ia("OUTLINE", GameFramework.gfx.k.Ma(255, 255, 255, 255)), Game.Resources.FONT_DIALOG_BUTTONS
+					.Ia("GLOW", GameFramework.gfx.k.Ma(255, 255, 255, 128)), Game.Resources.FONT_DIALOG_HEADER
+					.Ia("MAIN", GameFramework.gfx.k.Ma(255, 255, 255, 230)), Game.Resources.FONT_DIALOG_HEADER
+					.Ia("OUTLINE", GameFramework.gfx.k.Ma(255, 255, 255, 255)), Game.Resources.FONT_DIALOG_HEADER
+					.Ia("GLOW", GameFramework.gfx.k.Ma(255, 255, 255, 128)), Game.Resources.IMAGE_BOARD_TIMER.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_BOARD_TIMER_RED.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_BOARD_TIMER_GOLD.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_LIGHTNING_TIMER_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_LIGHTNING_TIMER_RED_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.Resources.FONT_TIMER_LARGE
+					.dU(GameFramework.resources.De.ik), Game.Resources.FONT_TIMER_SMALL
 					.dU(GameFramework.resources.De.ik), this.Sn.push(this.vb.Po(this.vb
 					.al("3d/gemRed.p3d"))), this.Sn.push(this.vb.Po(this.vb
 					.al("3d/gemWhite.p3d"))), this.Sn.push(this.vb.Po(this.vb
@@ -15132,11 +15132,11 @@ Game.BejApp.prototype = {
 	gq : function(b, c, d, f, g) {
 		if (g === UNDEF)
 			g = Game.f.mb.DU;
-		b = new Game.Qc(Game.a.IMAGE_DIALOG_BACKGROUND,
-				Game.a.IMAGE_DIALOG_BUTTON, g, true, b, c, d, f);
-		b.dL(Game.a.FONT_DIALOG_BUTTONS);
-		b.gL(Game.a.FONT_DIALOG_HEADER);
-		b.aU(Game.a.FONT_DIALOG_TEXT);
+		b = new Game.Qc(Game.Resources.IMAGE_DIALOG_BACKGROUND,
+				Game.Resources.IMAGE_DIALOG_BUTTON, g, true, b, c, d, f);
+		b.dL(Game.Resources.FONT_DIALOG_BUTTONS);
+		b.gL(Game.Resources.FONT_DIALOG_HEADER);
+		b.aU(Game.Resources.FONT_DIALOG_TEXT);
 		b.Fd = new GameFramework.Insets(128, 20, 128, 64);
 		b.am(GameFramework.widgets.rb.VI, 4278190080);
 		b.Qr = 32;
@@ -15158,7 +15158,7 @@ Game.BejApp.prototype = {
 		this.Nh.oi(this.e);
 		this.e.Ge.ec = false;
 		if (this.Bi != null)
-			this.Bi.ad.Oa = Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_FLATTENEDPAM;
+			this.Bi.ad.Oa = Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_FLATTENEDPAM;
 		qb = 0
 	},
 	lL : function(b) {
@@ -15201,7 +15201,7 @@ Game.BejApp.prototype = {
 		this.Bi.l3();
 		var b = new GameFramework.CurvedVal;
 		b.vj("BejApp_cs_11_21_11__05_46_54_679");
-		Game.BejApp.q.kA(Game.a.QT, b)
+		Game.BejApp.q.kA(Game.Resources.QT, b)
 	},
 	y_ : function() {
 		this.oV(new Game.ClassicBoard(this))
@@ -15530,7 +15530,7 @@ Game.Mv.prototype = {
 	ce : null,
 	IW : null,
 	ca : function() {
-		var b = Game.a.IMAGE_LIGHTNING;
+		var b = Game.Resources.IMAGE_LIGHTNING;
 		this.jP++;
 		this.$e += 0.167;
 		var c = this.Mt.x - this.Lg.x, d = this.Mt.y - this.Lg.y, f = Math.max(
@@ -15563,7 +15563,7 @@ Game.Mv.prototype = {
 			this.ce = true
 	},
 	ja : function(b) {
-		var c = Game.a.IMAGE_LIGHTNING, d = Math.max(0, Math.min((1 - this.Zh)
+		var c = Game.Resources.IMAGE_LIGHTNING, d = Math.max(0, Math.min((1 - this.Zh)
 								* 8, 1))
 				* this.e.Yc();
 		c.pc = true;
@@ -15623,9 +15623,9 @@ Game.Mv.prototype = {
 					j.color = q;
 					var r = Array.Sd(2, 3, 6, h[0], h[1], h[2], h[2], h[3],
 							h[0]);
-					Game.a.IMAGE_GRITTYBLURRY.qg(true);
-					b.bn(Game.a.IMAGE_GRITTYBLURRY, r);
-					b.bn(Game.a.IMAGE_GRITTYBLURRY, r)
+					Game.Resources.IMAGE_GRITTYBLURRY.qg(true);
+					b.bn(Game.Resources.IMAGE_GRITTYBLURRY, r);
+					b.bn(Game.Resources.IMAGE_GRITTYBLURRY, r)
 				}
 			} finally {
 				f.t()
@@ -15800,7 +15800,7 @@ Game.LightningStorm.prototype = {
 									+ (Game.Board.bb / 2 | 0), (l.v | 0)
 									+ (Game.Board.ab / 2 | 0));
 					if (this.aa - this.oH >= 20 || this.oH == 0)
-						Game.SoundUtil.Play(Game.a.SOUND_ELECTRO_PATH2), this.oH = 0
+						Game.SoundUtil.Play(Game.Resources.SOUND_ELECTRO_PATH2), this.oH = 0
 				} else
 					k = g[this.e.Of.Dd() % h];
 				k.aC = true
@@ -15872,13 +15872,13 @@ Game.LightningStorm.prototype = {
 											q.x, q.y, 1, v, u));
 					j++
 				}
-				Game.a.IMAGE_LIGHTNING_TEX.qg(true);
-				b.bn(Game.a.IMAGE_LIGHTNING_TEX, h);
+				Game.Resources.IMAGE_LIGHTNING_TEX.qg(true);
+				b.bn(Game.Resources.IMAGE_LIGHTNING_TEX, h);
 				d = h;
 				for (f = 0; f < d.length; f++)
 					d[f].color = g;
-				Game.a.IMAGE_LIGHTNING_CENTER.qg(true);
-				b.bn(Game.a.IMAGE_LIGHTNING_CENTER, h)
+				Game.Resources.IMAGE_LIGHTNING_CENTER.qg(true);
+				b.bn(Game.Resources.IMAGE_LIGHTNING_CENTER, h)
 			} else {
 				h = GameFramework.gfx.k.Zg(Game.f.RF[(this.n | 0) + 1], f * 255
 								| 0);
@@ -15932,7 +15932,7 @@ Game.LightningStorm.prototype = {
 		this.zH.$a();
 		this.tC.$a();
 		this.Qe == Game.LightningStorm.Yb.mq && this.tC.aJ(1.6)
-				&& Game.SoundUtil.Play(Game.a.SOUND_BOMB_EXPLODE);
+				&& Game.SoundUtil.Play(Game.Resources.SOUND_BOMB_EXPLODE);
 		for (var b = 0; b < (this.Pu.length | 0); b++)
 			this.Pu[b].ca();
 		this.lN = Math.max(0, this.lN - 0.0167);
@@ -16165,8 +16165,8 @@ Game.Board = function() {
 	this.zj = [];
 	this.EL = Array.O(6, 0, 3, 6, 12, 20, 30, 45);
 	E(Game.Board, this);
-	this.Ef = Game.Util.aK(Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD) + this.is;
-	this.tM = Game.Util.bK(Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD) - 60;
+	this.Ef = Game.Util.aK(Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD) + this.is;
+	this.tM = Game.Util.bK(Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD) - 60;
 	this.OO = false;
 	this.Ux = new GameFramework.geom.ba(-70, -200)
 };
@@ -16418,9 +16418,9 @@ Game.Board.prototype = {
 				this.Ib.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.O1));
 				this.Ib.Ra(GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.OI));
 				if (this.yo == Game.Board.Pi.OA)
-					this.Ib.wb = Game.a.IMAGE_BOARD_HINT_BUTTON_CLASSIC;
+					this.Ib.wb = Game.Resources.IMAGE_BOARD_HINT_BUTTON_CLASSIC;
 				else if (this.yo == Game.Board.Pi.Dw)
-					this.Ib.wb = Game.a.IMAGE_BOARD_HINT_BUTTON_LIGHTNING;
+					this.Ib.wb = Game.Resources.IMAGE_BOARD_HINT_BUTTON_LIGHTNING;
 				this.Ib.rm = this.Ib.wb;
 				this.Ib.Sj = this.Ib.wb;
 				this.Ib.Rj = 1;
@@ -16433,9 +16433,9 @@ Game.Board.prototype = {
 			if (this.fd == null) {
 				this.fd = new Game.Bej3Button(Game.Board.el.GZ | 0);
 				if (this.yo == Game.Board.Pi.OA)
-					this.fd.wb = Game.a.IMAGE_BOARD_MENU_BUTTON_CLASSIC;
+					this.fd.wb = Game.Resources.IMAGE_BOARD_MENU_BUTTON_CLASSIC;
 				else if (this.yo == Game.Board.Pi.Dw)
-					this.fd.wb = Game.a.IMAGE_BOARD_MENU_BUTTON_LIGHTNING;
+					this.fd.wb = Game.Resources.IMAGE_BOARD_MENU_BUTTON_LIGHTNING;
 				this.fd.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.Wz));
 				this.fd.Ra(GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.OI));
 				this.fd.rm = this.fd.wb;
@@ -16451,7 +16451,7 @@ Game.Board.prototype = {
 		switch (this.yo) {
 			case Game.Board.Pi.Dw :
 				if (this.hd == null)
-					this.hd = new Game.Bej3Button(Game.Board.el.HZ | 0), this.hd.wb = Game.a.IMAGE_BOARD_RESET_BUTTON_LIGHTNING, this.hd
+					this.hd = new Game.Bej3Button(Game.Board.el.HZ | 0), this.hd.wb = Game.Resources.IMAGE_BOARD_RESET_BUTTON_LIGHTNING, this.hd
 							.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this,
 											this.L3)), this.hd.Ra(
 							GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.OI)), this.hd.rm = this.hd.wb, this.hd.Sj = this.hd.wb, this.hd.Rj = 1, this.hd.On = 1, this.hd.Uw = 50, this.hd
@@ -16654,7 +16654,7 @@ Game.Board.prototype = {
 		this.m.ea("b;1,1.2,0.02,1,####         ~~^bn");
 		this.rl != null && this.rl.t();
 		this.rl = null;
-		Game.BejApp.q.mi(Game.a.SOUND_BACKTOMAIN);
+		Game.BejApp.q.mi(Game.Resources.SOUND_BACKTOMAIN);
 		this.jH = true;
 		this.xc.Te();
 		Game.BejApp.q.Iy();
@@ -16733,7 +16733,7 @@ Game.Board.prototype = {
 			f.Ic = 0.1002;
 			f.m = 300;
 			this.ob.Gc(f);
-			Game.SoundUtil.Play(Game.a.SOUND_GEM_COUNTDOWN_DESTROYED);
+			Game.SoundUtil.Play(Game.Resources.SOUND_GEM_COUNTDOWN_DESTROYED);
 			this.OZ(b, 2);
 			for (f = 0; f < 20; f++) {
 				var g = this.ob.wf(Game.Effect.da.ED);
@@ -16860,16 +16860,16 @@ Game.Board.prototype = {
 						this.Ft, b)) : ++b
 	},
 	JQ : function() {
-		Game.SoundUtil.Play(Game.a.SOUND_FLAMEBONUS);
-		Game.SoundUtil.Play(Game.a.SOUND_VOICE_BLAZINGSPEED);
+		Game.SoundUtil.Play(Game.Resources.SOUND_FLAMEBONUS);
+		Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_BLAZINGSPEED);
 		this.PG.ea("b;0,1,0.01,8,~###        h~### 9#:tT");
 		this.DQ(6);
 		var b;
-		b = Game.a.PIEFFECT_SPEEDBOARD_FLAME.gi();
+		b = Game.Resources.PIEFFECT_SPEEDBOARD_FLAME.gi();
 		b.za.translate(1040, 120);
 		b.za.scale(1, 1);
 		this.Pm[0] = b;
-		b = Game.a.PIEFFECT_SPEEDBOARD_FLAME.gi();
+		b = Game.Resources.PIEFFECT_SPEEDBOARD_FLAME.gi();
 		b.za.translate(1040, 1165);
 		b.za.scale(1, 1);
 		this.Pm[1] = b;
@@ -16877,8 +16877,8 @@ Game.Board.prototype = {
 		this.So(Game.f.T.d2)
 	},
 	DQ : function(b) {
-		var c = Array.O(7, "", Game.a.b4, Game.a.Z3, Game.a.X3, Game.a.c4,
-				Game.a.a4, Game.a.d4, Game.a.Y3);
+		var c = Array.O(7, "", Game.Resources.b4, Game.Resources.Z3, Game.Resources.X3, Game.Resources.c4,
+				Game.Resources.a4, Game.Resources.d4, Game.Resources.Y3);
 		Game.SoundUtil.$v(GameFramework.BaseApp.M.vb.mE(c[b]));
 		this.ax = b;
 		this.ax > 0
@@ -17046,9 +17046,9 @@ Game.Board.prototype = {
 	GJ : function() {
 		this.Hh() == 0 && this.zf() > 0
 				? (new Game.Announcement(this, "TIME UP"), Game.SoundUtil
-						.Play(Game.a.SOUND_VOICE_TIMEUP))
+						.Play(Game.Resources.SOUND_VOICE_TIMEUP))
 				: (new Game.Announcement(this, "GAME OVER"), Game.SoundUtil
-						.Play(Game.a.SOUND_VOICE_GAMEOVER))
+						.Play(Game.Resources.SOUND_VOICE_GAMEOVER))
 	},
 	rZ : function() {
 		return this.Jf == null && !this.Yp
@@ -17163,13 +17163,13 @@ Game.Board.prototype = {
 	},
 	YD : function(b) {
 		if ((b.n | 0) != -1 && b.cl(Game.Piece.K.Be)) {
-			Game.SoundUtil.Play(Game.a.SOUND_POWERGEM_CREATED);
+			Game.SoundUtil.Play(Game.Resources.SOUND_POWERGEM_CREATED);
 			b.mQ();
 			b.Pq(Game.Piece.K.$u, false);
 			b.Pq(Game.Piece.K.ns, false);
 			b.Pq(Game.Piece.K.ap, false);
 			b.wl = 25;
-			var c = new Game.Zo(Game.a.POPANIM_FLAMEGEMCREATION);
+			var c = new Game.Zo(Game.Resources.POPANIM_FLAMEGEMCREATION);
 			c.w = b.Ad();
 			c.v = b.Rd();
 			c.m = 2;
@@ -17177,7 +17177,7 @@ Game.Board.prototype = {
 			c.UE("Creation_Below Gem_Horizontal");
 			c.ca();
 			this.Jg.Gc(c);
-			c = new Game.Zo(Game.a.POPANIM_FLAMEGEMCREATION);
+			c = new Game.Zo(Game.Resources.POPANIM_FLAMEGEMCREATION);
 			c.w = b.Ad();
 			c.v = b.Rd();
 			c.m = 2;
@@ -17195,11 +17195,11 @@ Game.Board.prototype = {
 		if (b.GD(Game.Piece.K.sc))
 			b.cJ(), b.cl(Game.Piece.K.sc), b.Gn = this.aa, b.Am = b.n, b.n = Game.f.Ha.sc, b.wl = 25, b
 					.cq(Game.Piece.K.Be), c
-					&& (this.qU(b), Game.SoundUtil.Play(Game.a.SOUND_HYPERCUBE_CREATE))
+					&& (this.qU(b), Game.SoundUtil.Play(Game.Resources.SOUND_HYPERCUBE_CREATE))
 	},
 	zE : function(b) {
 		if ((b.n | 0) != -1 && b.cl(Game.Piece.K.Ue))
-			Game.SoundUtil.Play(Game.a.SOUND_LASERGEM_CREATED), b.mQ(), b.Pq(
+			Game.SoundUtil.Play(Game.Resources.SOUND_LASERGEM_CREATED), b.mQ(), b.Pq(
 					Game.Piece.K.$u, false), b.Pq(Game.Piece.K.ns, false), b.Pq(Game.Piece.K.ap, false), b.wl = 25, this
 					.rU(b)
 	},
@@ -17213,7 +17213,7 @@ Game.Board.prototype = {
 	},
 	A4 : function(b) {
 		var c;
-		c = new Game.ParticleEffect(Game.a.PIEFFECT_FIREGEM_HYPERSPACE);
+		c = new Game.ParticleEffect(Game.Resources.PIEFFECT_FIREGEM_HYPERSPACE);
 		c.jt(true);
 		c.lr = true;
 		c.uc |= Game.Effect.K.uS | 0;
@@ -17230,7 +17230,7 @@ Game.Board.prototype = {
 	},
 	P2 : function(b) {
 		var c, d;
-		c = new Game.ParticleEffect(Game.a.PIEFFECT_STARGEM);
+		c = new Game.ParticleEffect(Game.Resources.PIEFFECT_STARGEM);
 		c.jt(true);
 		c.lr = true;
 		for (var f = 0; f < 7; f++)
@@ -17243,7 +17243,7 @@ Game.Board.prototype = {
 	},
 	N2 : function(b) {
 		var c, d;
-		c = new Game.ParticleEffect(Game.a.PIEFFECT_STARGEM);
+		c = new Game.ParticleEffect(Game.Resources.PIEFFECT_STARGEM);
 		c.jt(true);
 		c.lr = true;
 		c.nr = true;
@@ -17259,7 +17259,7 @@ Game.Board.prototype = {
 	sU : function(b) {
 		b.gM.ea("b390,-90,0.005,1,~         ~#");
 		b.gM.jL(GameFramework.CurvedVal.Uz);
-		var c = new Game.ParticleEffect(Game.a.PIEFFECT_MULTIPLIER);
+		var c = new Game.ParticleEffect(Game.Resources.PIEFFECT_MULTIPLIER);
 		c.qd = b.xa;
 		c.lr = true;
 		c.nr = true;
@@ -17272,7 +17272,7 @@ Game.Board.prototype = {
 	},
 	qU : function(b) {
 		if (GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f) {
-			var c = new Game.ParticleEffect(Game.a.PIEFFECT_HYPERCUBE);
+			var c = new Game.ParticleEffect(Game.Resources.PIEFFECT_HYPERCUBE);
 			c.qd = b.xa;
 			c.jt(true);
 			c.lr = true;
@@ -17480,7 +17480,7 @@ Game.Board.prototype = {
 	},
 	FQ : function(b, c) {
 		this.GQ(b, c.n);
-		Game.SoundUtil.Play(Game.a.SOUND_ELECTRO_PATH);
+		Game.SoundUtil.Play(Game.Resources.SOUND_ELECTRO_PATH);
 		this.qc[this.qc.length - 1].DP((b.w | 0) + (Game.Board.bb / 2 | 0),
 				(b.v | 0) + (Game.Board.ab / 2 | 0), (c.w | 0)
 						+ (Game.Board.bb / 2 | 0), (c.v | 0) + (Game.Board.ab / 2 | 0))
@@ -17511,10 +17511,10 @@ Game.Board.prototype = {
 		this.cQ();
 		var c = this.Hh();
 		if (this.aa - this.eo >= 35 + (c * 0.1 | 0) && c > 0 && this.xn())
-			Game.SoundUtil.Play(Game.a.SOUND_COUNTDOWN_WARNING), this.eo = this.aa;
+			Game.SoundUtil.Play(Game.Resources.SOUND_COUNTDOWN_WARNING), this.eo = this.aa;
 		if (c == 1800 && this.Ar == 0) {
 			if (this.mr)
-				this.mr = false, Game.SoundUtil.Play(Game.a.SOUND_VOICE_THIRTYSECONDS)
+				this.mr = false, Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_THIRTYSECONDS)
 		} else
 			this.mr = true;
 		return b
@@ -17589,7 +17589,7 @@ Game.Board.prototype = {
 			this.FQ(l, b);
 			return true
 		}
-		g && Game.SoundUtil.Play(Game.a.SOUND_START_ROTATE);
+		g && Game.SoundUtil.Play(Game.Resources.SOUND_START_ROTATE);
 		b.Yn = this.aa;
 		if (l != null)
 			l.Yn = this.aa - 1;
@@ -17855,7 +17855,7 @@ Game.Board.prototype = {
 										}
 									}
 							}
-						f.ex == 0 && Game.SoundUtil.Play(Game.a.SOUND_ELECTRO_EXPLODE);
+						f.ex == 0 && Game.SoundUtil.Play(Game.Resources.SOUND_ELECTRO_EXPLODE);
 						f.ex++;
 						f.ex < f.Du && (h = false);
 						if (h) {
@@ -18051,7 +18051,7 @@ Game.Board.prototype = {
 		this.SF = 0;
 		this.QZ(b, c, 1);
 		this.i0(b, c);
-		var d = new Game.Zo(Game.a.POPANIM_FLAMEGEMEXPLODE);
+		var d = new Game.Zo(Game.Resources.POPANIM_FLAMEGEMEXPLODE);
 		d.w = b;
 		d.v = c;
 		d.Ak = true;
@@ -18689,7 +18689,7 @@ Game.Board.prototype = {
 							ba.Ej = za.La;
 							var Lc = za.Ja - ba.Ja, cd = za.La - ba.La;
 							if (za.Y(Game.Piece.K.Be)) {
-								var ta = new Game.Zo(Game.a.POPANIM_FLAMEGEMCREATION);
+								var ta = new Game.Zo(Game.Resources.POPANIM_FLAMEGEMCREATION);
 								ta.qd = ba.xa;
 								ta.w = ba.Ad();
 								ta.v = ba.Rd();
@@ -18721,12 +18721,12 @@ Game.Board.prototype = {
 		}
 		if (Dc) {
 			var kb = this.hE((j / g | 0) + (Game.Board.bb / 2 | 0));
-			g > 1 && Game.SoundUtil.Ug(Game.a.SOUND_DOUBLESET, kb, 1);
+			g > 1 && Game.SoundUtil.Ug(Game.Resources.SOUND_DOUBLESET, kb, 1);
 			var lb = this.WR(Game.f.T.AD) + 1;
 			h == 0 && (lb = 1);
 			lb > 6 && (lb = 6);
 			b && this.ng > 0 ? this.Ch > 0.01 ? Game.SoundUtil.Ug(
-					Game.a.SOUND_FLAMESPEED1, kb, 1) : Game.SoundUtil.Ug(
+					Game.Resources.SOUND_FLAMESPEED1, kb, 1) : Game.SoundUtil.Ug(
 					GameFramework.BaseApp.M.vb.mE("SOUND_SPEEDMATCH"
 							+ (Math.min(9, this.ng + 1) | 0)), kb, 1) : Game.SoundUtil
 					.Ug(GameFramework.BaseApp.M.vb.mE("SOUND_COMBO_" + (lb + 1)), kb,
@@ -18762,7 +18762,7 @@ Game.Board.prototype = {
 		}
 	},
 	OI : function() {
-		Game.SoundUtil.Play(Game.a.SOUND_BUTTON_PRESS)
+		Game.SoundUtil.Play(Game.Resources.SOUND_BUTTON_PRESS)
 	},
 	O1 : function() {
 		var b = this.xc.ii();
@@ -18771,13 +18771,13 @@ Game.Board.prototype = {
 				return;
 			b.Il == Game.TutorialStep.Qg.qE && b.Cs()
 		}
-		Game.SoundUtil.Play(Game.a.SOUND_BUTTON_RELEASE);
+		Game.SoundUtil.Play(Game.Resources.SOUND_BUTTON_RELEASE);
 		this.kU(true);
 		this.Ib.kL(false);
 		this.qD(Game.f.T.tS, 1)
 	},
 	Wz : function() {
-		Game.SoundUtil.Play(Game.a.SOUND_BUTTON_RELEASE);
+		Game.SoundUtil.Play(Game.Resources.SOUND_BUTTON_RELEASE);
 		var b = new Game.OptionsDialog(true);
 		Game.BejApp.q.te.Ho(b);
 		b.w = this.Se() - b.s / 2;
@@ -18795,7 +18795,7 @@ Game.Board.prototype = {
 						&& b.Te())
 	},
 	L3 : function() {
-		Game.SoundUtil.Play(Game.a.SOUND_BUTTON_RELEASE);
+		Game.SoundUtil.Play(Game.Resources.SOUND_BUTTON_RELEASE);
 		if (!this.xc.Hz() && this.pf == 0) {
 			var b = Game.BejApp.q.gq("RESET",
 					"Abandon the current game and start over?", "",
@@ -18813,7 +18813,7 @@ Game.Board.prototype = {
 		b.vx.ea("b+0,1,0.006667,1,#### ;~###       O~### 9####");
 		b.XB.ea("b+80,64,0.006667,1,####  &}### |####  #~### z####  &~###");
 		if (c) {
-			var d = new Game.ParticleEffect(Game.a.PIEFFECT_HINTFLASH);
+			var d = new Game.ParticleEffect(Game.Resources.PIEFFECT_HINTFLASH);
 			d.qd = b.xa;
 			d.nr = true;
 			this.ob.Gc(d)
@@ -19221,7 +19221,7 @@ Game.Board.prototype = {
 						}
 						c.fx ? this.So(Game.f.T.xK) : this.So(Game.f.T.wK);
 						this.So(Game.f.T.LE);
-						Game.SoundUtil.Play(Game.a.SOUND_BADMOVE);
+						Game.SoundUtil.Play(Game.Resources.SOUND_BADMOVE);
 						c.Zt = 0;
 						c.RG = false;
 						c.Ek
@@ -19263,7 +19263,7 @@ Game.Board.prototype = {
 					}
 				}
 			if (b > 0 && Math.abs(this.PN - this.aa) >= 5)
-				this.PN = this.aa, Game.SoundUtil.Ug(Game.a.SOUND_GEM_HIT, this.hE(c
+				this.PN = this.aa, Game.SoundUtil.Ug(Game.Resources.SOUND_GEM_HIT, this.hE(c
 								/ b | 0), 1)
 		} else {
 			this.VG > 0 && --this.VG;
@@ -19522,11 +19522,11 @@ Game.Board.prototype = {
 			}
 			f
 					? (d > 0
-							&& (Game.SoundUtil.Play(Game.a.SOUND_PREBLAST), Game.SoundUtil
-									.Ug(Game.a.SOUND_GEM_SHATTERS, this.hE(g
+							&& (Game.SoundUtil.Play(Game.Resources.SOUND_PREBLAST), Game.SoundUtil
+									.Ug(Game.Resources.SOUND_GEM_SHATTERS, this.hE(g
 													/ d | 0), 1)), Game.SoundUtil
-							.Play(Game.a.SOUND_BOMB_EXPLODE))
-					: b && Game.SoundUtil.Play(Game.a.SOUND_SMALL_EXPLODE);
+							.Play(Game.Resources.SOUND_BOMB_EXPLODE))
+					: b && Game.SoundUtil.Play(Game.Resources.SOUND_SMALL_EXPLODE);
 			b = this.e;
 			for (c = 0; c < b.length; c++)
 				d = b[c], d != null
@@ -19597,7 +19597,7 @@ Game.Board.prototype = {
 				b = new Game.Announcement(this, "LEVEL\nCOMPLETE");
 				b.Tw = false;
 				b.cx = false;
-				Game.SoundUtil.Play(Game.a.SOUND_VOICE_LEVELCOMPLETE);
+				Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_LEVELCOMPLETE);
 				GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f
 						? (this.Jf = new Game.N(this), Game.BejApp.q.nx.Bc(this.Jf))
 						: (this.Jf = new Game.yv(this), b = this.Qb, this.Mq(), b
@@ -19620,7 +19620,7 @@ Game.Board.prototype = {
 			this.TH > 0 && this.TH--;
 			if (this.rl == null)
 				this.rl = GameFramework.BaseApp.M
-						.yz(Game.a.SOUND_SPEEDBOARD_FLAMELOOP), this.rl != null
+						.yz(Game.Resources.SOUND_SPEEDBOARD_FLAMELOOP), this.rl != null
 						&& (this.rl.Rq(0), this.rl.Ug(true, false));
 			this.rl != null
 					&& this.rl.Rq(Math.max(this.PG.V(), Math.max(0, 1
@@ -19707,11 +19707,11 @@ Game.Board.prototype = {
 							&& this.Wt && !this.iK()) {
 						if (this.ay > 0 && --this.ay == 110)
 							b = new Game.Announcement(this, "GET READY"), b.Tw = false, b.L.Ye *= 3, b.m.Ye *= 3, b.cx = false, Game.SoundUtil
-									.$v(Game.a.SOUND_VOICE_GETREADY);
+									.$v(Game.Resources.SOUND_VOICE_GETREADY);
 						if ((this.Zr.D() == 0 || this.zf() == 0 || this.Tt > 1)
 								&& this.Tt >= 0 && --this.Tt == 0)
 							b = new Game.Announcement(this, "GO!"), b.Tw = false, b.L.Ye *= 3, b.m.Ye *= 3, b.cx = false, Game.SoundUtil
-									.$v(Game.a.SOUND_VOICE_GO)
+									.$v(Game.Resources.SOUND_VOICE_GO)
 					}
 					for (b = 0; b < (this.HC.length | 0); b++)
 						if (c = this.HC[b], this.aa >= c.aa) {
@@ -19844,10 +19844,10 @@ Game.Board.prototype = {
 					g = c.dd() + c.vu | 0;
 					for (h = 0; h < d.length; h++)
 						if (d[h] != 0 && c.n != Game.f.Ha.sc) {
-							Game.a.IMAGE_GEMLIGHTING.pc = true;
+							Game.Resources.IMAGE_GEMLIGHTING.pc = true;
 							j = b.Q(GameFramework.gfx.k.Jb(d[h]));
 							try {
-								b.Bd(Game.a.IMAGE_GEMLIGHTING.vd(), f, g,
+								b.Bd(Game.Resources.IMAGE_GEMLIGHTING.vd(), f, g,
 										(c.n | 0) * 9 + h)
 							} finally {
 								j.t()
@@ -19857,7 +19857,7 @@ Game.Board.prototype = {
 			}
 			if (this.Fu.wE()
 					&& !this.Fu.Dz()
-					&& (Game.a.IMAGE_GEMLIGHTING.pc = true, g = (c.Ad() - this.Ef + (c
+					&& (Game.Resources.IMAGE_GEMLIGHTING.pc = true, g = (c.Ad() - this.Ef + (c
 							.Rd() - this.vg(0)))
 							* 0.707 - this.Fu.D(), !(Math.abs(g) > 160))) {
 				d = c.$d() + c.uu | 0;
@@ -19866,7 +19866,7 @@ Game.Board.prototype = {
 				if (h > 0) {
 					h = b.Q(GameFramework.gfx.k.Jb(h));
 					try {
-						b.Bd(Game.a.IMAGE_GEMLIGHTING.vd(), d, f, (c.n | 0) * 9
+						b.Bd(Game.Resources.IMAGE_GEMLIGHTING.vd(), d, f, (c.n | 0) * 9
 										+ 1)
 					} finally {
 						h.t()
@@ -19876,7 +19876,7 @@ Game.Board.prototype = {
 				if (h > 0) {
 					h = b.Q(GameFramework.gfx.k.Jb(h));
 					try {
-						b.Bd(Game.a.IMAGE_GEMLIGHTING.vd(), d, f, (c.n | 0) * 9
+						b.Bd(Game.Resources.IMAGE_GEMLIGHTING.vd(), d, f, (c.n | 0) * 9
 										+ 8)
 					} finally {
 						h.t()
@@ -19886,7 +19886,7 @@ Game.Board.prototype = {
 				if (g > 0) {
 					g = b.Q(GameFramework.gfx.k.Jb(g));
 					try {
-						b.Bd(Game.a.IMAGE_GEMLIGHTING.vd(), d, f, (c.n | 0) * 9
+						b.Bd(Game.Resources.IMAGE_GEMLIGHTING.vd(), d, f, (c.n | 0) * 9
 										+ 5)
 					} finally {
 						g.t()
@@ -19898,9 +19898,9 @@ Game.Board.prototype = {
 	N_ : function(b, c) {
 		var d = (Game.BejApp.q.aa / 3 | 0) % 60;
 		b.Q(GameFramework.gfx.k.Jb(this.Yc()));
-		b.Bd(Game.a.IMAGE_HYPERCUBE_FRAME.vd(), c.$d() - 16, c.dd() - 16, d);
+		b.Bd(Game.Resources.IMAGE_HYPERCUBE_FRAME.vd(), c.$d() - 16, c.dd() - 16, d);
 		kc = true;
-		var f = Game.a.IMAGE_HYPERCUBE_COLORGLOW;
+		var f = Game.Resources.IMAGE_HYPERCUBE_COLORGLOW;
 		f.pc = true;
 		b.Bd(f.vd(), f.sf + c.$d() - 16, f.Oe + c.dd() - 16, d);
 		f.pc = false;
@@ -19916,12 +19916,12 @@ Game.Board.prototype = {
 		h = this.Jf != null ? c.L.D() * this.Jf.Yc() : c.L.D() * this.Yc();
 		b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * h | 0));
 		if (c.Y(Game.Piece.K.xg))
-			h = Math.min(c.eh * Game.a.IMAGE_GEMS_RED.Em,
-					Game.a.IMAGE_GEMS_RED.Em - 1)
+			h = Math.min(c.eh * Game.Resources.IMAGE_GEMS_RED.Em,
+					Game.Resources.IMAGE_GEMS_RED.Em - 1)
 					| 0, b.Bd(Game.BejUtil.PR(c.n).vd(), f, g, h);
 		else if ((c.n | 0) > -1 && (c.n | 0) < 7 || c.Y(Game.Piece.K.Ue))
-			h = Math.min(c.eh * Game.a.IMAGE_GEMS_RED.Em | 0,
-					Game.a.IMAGE_GEMS_RED.Em - 1)
+			h = Math.min(c.eh * Game.Resources.IMAGE_GEMS_RED.Em | 0,
+					Game.Resources.IMAGE_GEMS_RED.Em - 1)
 					| 0, b.Bd(Game.BejUtil.PR(c.n).vd(), f, g, h);
 		b.pb();
 		d != 1 && b.Ab()
@@ -19938,7 +19938,7 @@ Game.Board.prototype = {
 					&& b.nc(g, g, c.$d() + (Game.Board.bb / 2 | 0), c.dd()
 									+ (Game.Board.ab / 2 | 0));
 			this.yY
-					&& (b.Q(GameFramework.gfx.k.pi), b.kb(Game.a.FONT_HUMANST19), c.Pa != -1
+					&& (b.Q(GameFramework.gfx.k.pi), b.kb(Game.Resources.FONT_HUMANST19), c.Pa != -1
 							&& b.Cc(GameFramework.Utils.wj(c.Pa), c.$d() + 10, c
 											.dd()
 											+ 20), c.qe != 0
@@ -19953,7 +19953,7 @@ Game.Board.prototype = {
 			j
 					&& c.n >= 0
 					&& (this.$P(c)
-							? b.Bd(Game.a.IMAGE_GEMS_SHADOWED.vd(), d, f, c.n
+							? b.Bd(Game.Resources.IMAGE_GEMS_SHADOWED.vd(), d, f, c.n
 											| 0)
 							: (h = Array.O(7, null, GameFramework.gfx.k.ta(255, 255,
 											255), GameFramework.gfx.k.ta(192,
@@ -19977,7 +19977,7 @@ Game.Board.prototype = {
 							Game.Board.bb - 2, Game.Board.ab - 2), b.pb());
 			c.Gi.D() != 0
 					&& (b.Q(GameFramework.gfx.k.Jb(c.Gi.D() * this.Yc())), b.Ba(
-							Game.a.IMAGE_SELECTOR, c.$d(), c.dd()), b.pb())
+							Game.Resources.IMAGE_SELECTOR, c.$d(), c.dd()), b.pb())
 		}
 	},
 	OQ : function(b) {
@@ -19986,10 +19986,10 @@ Game.Board.prototype = {
 	},
 	W_ : function(b) {
 		b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.Rf() | 0));
-		b.Ba(Game.a.IMAGE_BOARD_TOP_FRAME.Ee(), this.Se(), this.Cd() - 5);
+		b.Ba(Game.Resources.IMAGE_BOARD_TOP_FRAME.Ee(), this.Se(), this.Cd() - 5);
 		if (this.xn()) {
 			b.Q(this.vv());
-			var c = Game.a.IMAGE_BOARD_TOP_FRAME_GLOW;
+			var c = Game.Resources.IMAGE_BOARD_TOP_FRAME_GLOW;
 			c.pc = true;
 			b.Ba(c.Ee(), this.Se(), this.Cd() - 5);
 			c.pc = false;
@@ -20003,7 +20003,7 @@ Game.Board.prototype = {
 			var c = b.Q(GameFramework.gfx.k
 					.Ma(255, 255, 255, 255 * this.Rf() | 0));
 			try {
-				b.Ba(Game.a.IMAGE_BOARD_BOTTOM_FRAME.Ee(), this.Se(), this.Cd()
+				b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_FRAME.Ee(), this.Se(), this.Cd()
 								+ Game.Board.ab * this.wc + 33)
 			} finally {
 				c.t()
@@ -20012,7 +20012,7 @@ Game.Board.prototype = {
 			this.kJ(b);
 			c = b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.Rf() | 0));
 			try {
-				b.Ba(Game.a.IMAGE_BOARD_BOTTOM_FRAME.Ee(), this.Se(), this.Cd()
+				b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_FRAME.Ee(), this.Se(), this.Cd()
 								+ Game.Board.ab * this.wc + 33)
 			} finally {
 				c.t()
@@ -20020,7 +20020,7 @@ Game.Board.prototype = {
 		} else {
 			c = b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.Rf() | 0));
 			try {
-				b.Ba(Game.a.IMAGE_BOARD_THIN_BOTTOM_FRAME.Ee(), this.Se(), this
+				b.Ba(Game.Resources.IMAGE_BOARD_THIN_BOTTOM_FRAME.Ee(), this.Se(), this
 								.Cd()
 								+ Game.Board.ab * this.wc + 11)
 			} finally {
@@ -20031,9 +20031,9 @@ Game.Board.prototype = {
 			c = b.Q(this.vv());
 			try {
 				this.OU() || this.zf() > 0 ? b.Ba(
-						Game.a.IMAGE_BOARD_BOTTOM_FRAME_GLOW.Ee(), this.Se(),
+						Game.Resources.IMAGE_BOARD_BOTTOM_FRAME_GLOW.Ee(), this.Se(),
 						this.Cd() + Game.Board.ab * this.wc + 33) : b.Ba(
-						Game.a.IMAGE_BOARD_THIN_BOTTOM_FRAME_GLOW.Ee(), this
+						Game.Resources.IMAGE_BOARD_THIN_BOTTOM_FRAME_GLOW.Ee(), this
 								.Se(), this.Cd() + Game.Board.ab * this.wc + 11)
 			} finally {
 				c.t()
@@ -20044,7 +20044,7 @@ Game.Board.prototype = {
 		var c = Math.pow(this.Rf(), 4), d = b.Q(GameFramework.gfx.k.Ma(255, 255,
 				255, this.Rf() * 255 | 0));
 		try {
-			b.Ba(Game.a.IMAGE_BOARD_BOTTOM_FRAME_BACK.Ee(), this.Se(), this
+			b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_FRAME_BACK.Ee(), this.Se(), this
 							.Cd()
 							+ 1054);
 			var f = this.qv(), g = !GameFramework.BaseApp.M.kc();
@@ -20059,7 +20059,7 @@ Game.Board.prototype = {
 				}
 			}
 			for (k = 0; k < this.Cn.length; k++) {
-				var l = this.Cn[k], m = Game.a.IMAGE_BARFILL.dv(l.he * 1E3
+				var l = this.Cn[k], m = Game.Resources.IMAGE_BARFILL.dv(l.he * 1E3
 								* b.m | 0, l.uf * 210 * b.m | 0, j * b.m | 0,
 						f.z * b.m | 0);
 				if (!g)
@@ -20089,7 +20089,7 @@ Game.Board.prototype = {
 				.Q(GameFramework.gfx.k.Ma(255, 255, 255, this.Rf() * 255 | 0));
 		try {
 			d = this.Se(), f = this.Cd() + Game.Board.ab * this.wc + 30, b.Ba(
-					Game.a.IMAGE_BOARD_BOTTOM_FRAME_BACK.Ee(), d, f)
+					Game.Resources.IMAGE_BOARD_BOTTOM_FRAME_BACK.Ee(), d, f)
 		} finally {
 			h.t()
 		}
@@ -20100,7 +20100,7 @@ Game.Board.prototype = {
 				if (j > 16777215) {
 					var k = b.Q(j);
 					try {
-						b.Ba(Game.a.IMAGE_BOARD_BOTTOM_FRAME_BACK.Ee(), d, f)
+						b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_FRAME_BACK.Ee(), d, f)
 					} finally {
 						k.t()
 					}
@@ -20130,7 +20130,7 @@ Game.Board.prototype = {
 				var f = GameFramework.gfx.k.ta(96, 96, 255);
 				d = this.vg(3) + Game.Board.ab * -0.185 | 0;
 				var g = this.St.D() * this.Yc(), h = 2 + (1 - this.St.D()) * 2, j = GameFramework.Utils
-						.wj(this.mN), k = Game.a.FONT_POPUP_COUNT, l = k.hc(j)
+						.wj(this.mN), k = Game.Resources.FONT_POPUP_COUNT, l = k.hc(j)
 						| 0, m = k.Rl() | 0;
 				b.kb(k);
 				b.nc(h, h, c, d);
@@ -20147,7 +20147,7 @@ Game.Board.prototype = {
 				b.Q(GameFramework.gfx.k.Zg(f, 255 * g | 0));
 				b.Cc(j, c - (l / 2 | 0), d + (m / 2 | 0));
 				b.pb();
-				b.kb(Game.a.FONT_POPUP_TEXT);
+				b.kb(Game.Resources.FONT_POPUP_TEXT);
 				j = "GEMS";
 				f = c - ((b.hc(j) | 0) / 2 | 0) + 10;
 				d += 130;
@@ -20160,7 +20160,7 @@ Game.Board.prototype = {
 				f = GameFramework.gfx.k.ta(255, 64, 64), d = this.vg(4)
 						+ (0.6 * Game.Board.ab | 0), g = this.CM.D() * this.Yc(), h = 1
 						+ (1 - this.CM.D()) * 0.9, j = GameFramework.Utils
-						.wj(this.BM), k = Game.a.FONT_POPUP_COUNT, l = k.hc(j)
+						.wj(this.BM), k = Game.Resources.FONT_POPUP_COUNT, l = k.hc(j)
 						| 0, m = k.Rl() | 0, b.kb(k), b.nc(h, h, c, d), b
 						.Q(GameFramework.gfx.k.Zg(f, 255 * g | 0)), b.Cc(j, c
 								- (l / 2 | 0), d + (m / 2 | 0)), b.pb(), h = this.oG
@@ -20170,7 +20170,7 @@ Game.Board.prototype = {
 						c - (l / 2 | 0) + 8, d + (m / 2 | 0) + 8), b.pb(), b
 						.Q(GameFramework.gfx.k.Ma(255, 64, 64, 255 * g | 0)), b
 						.Cc(j, c - (l / 2 | 0), d + (m / 2 | 0)), b.pb(), b
-						.kb(Game.a.FONT_POPUP_TEXT), j = "CASCADES", c = c
+						.kb(Game.Resources.FONT_POPUP_TEXT), j = "CASCADES", c = c
 						- ((b.hc(j) | 0) / 2 | 0) + 0, d += 130, b
 						.Q(GameFramework.gfx.k.Jb(g)), b.Cc(j, c, d), b.pb(), b
 						.Ab()
@@ -20178,8 +20178,8 @@ Game.Board.prototype = {
 	},
 	F_ : function(b) {
 		if (this.$w.D() != 0 && this.ax != -1 && GameFramework.BaseApp.M.kc()) {
-			var c = Array.O(7, "", Game.a.a2, Game.a.Y1, Game.a.W1, Game.a.b2,
-					Game.a.Z1, Game.a.c2, Game.a.X1);
+			var c = Array.O(7, "", Game.Resources.a2, Game.Resources.Y1, Game.Resources.W1, Game.Resources.b2,
+					Game.Resources.Z1, Game.Resources.c2, Game.Resources.X1);
 			b.Q(GameFramework.gfx.k.Jb(this.$w.D() * this.Yc()));
 			b.nc(this.sG.D(), this.sG.D(), this.Se(), 450);
 			b.Ba(GameFramework.BaseApp.M.vb.Gs(c[this.ax]).Ee(), this.Se(), 450);
@@ -20227,12 +20227,12 @@ Game.Board.prototype = {
 									255 * this.Yc() * (1 - this.to.D())
 											* this.Sx.D() * (1 - this.Jr.D())
 											* 0.5 | 0), b.Q(d), b.Bd(
-									Game.a.IMAGE_MULTIPLIER_LARGE_BACK.Ee(),
+									Game.Resources.IMAGE_MULTIPLIER_LARGE_BACK.Ee(),
 									h.x, h.y, Math.min(9, this.Nf) - 1 | 0), b
 									.pb(), d = GameFramework.gfx.k.Zg(d, 255
 											* this.Yc() * (1 - this.to.D())
 											* (1 - this.Jr.D()) | 0), b.Q(d), b
-									.Bd(	Game.a.IMAGE_MULTIPLIER_LARGE_FRONT
+									.Bd(	Game.Resources.IMAGE_MULTIPLIER_LARGE_FRONT
 													.Ee(), h.x, h.y, Math.min(
 													9, this.Nf)
 													- 1 | 0), b.pb());
@@ -20240,25 +20240,25 @@ Game.Board.prototype = {
 				}
 			} else if (this.FC.D(), this.Ze.D() == 1
 					&& (this.Nf >= 1 || this.Eh && this.Nf > 0)) {
-				Game.a.FONT_MULTIPLIER.Ia("MAIN", GameFramework.gfx.k.Ma(255,
+				Game.Resources.FONT_MULTIPLIER.Ia("MAIN", GameFramework.gfx.k.Ma(255,
 								255, 255, 230));
-				Game.a.FONT_MULTIPLIER.Ia("OUTLINE", GameFramework.gfx.k.Ma(128,
+				Game.Resources.FONT_MULTIPLIER.Ia("OUTLINE", GameFramework.gfx.k.Ma(128,
 								0, 80, 230));
-				Game.a.FONT_MULTIPLIER.Ia("GLOW", GameFramework.gfx.k.Ma(255, 0,
+				Game.Resources.FONT_MULTIPLIER.Ia("GLOW", GameFramework.gfx.k.Ma(255, 0,
 								160, 128));
-				b.kb(Game.a.FONT_MULTIPLIER);
+				b.kb(Game.Resources.FONT_MULTIPLIER);
 				h = "x" + GameFramework.Utils.wj(this.Nf);
 				d = b.Q(GameFramework.gfx.k.Jb(this.kh()));
 				try {
-					b.Cc(h, 241 - Game.a.FONT_MULTIPLIER.hc(h) * 0.5
+					b.Cc(h, 241 - Game.Resources.FONT_MULTIPLIER.hc(h) * 0.5
 									+ Game.f.Z4 * this.to.D() + this.Ux.x, 275
 									+ this.Ux.y)
 				} finally {
 					d.t()
 				}
-				Game.a.FONT_MULTIPLIER.ib("MAIN");
-				Game.a.FONT_MULTIPLIER.ib("OUTLINE");
-				Game.a.FONT_MULTIPLIER.ib("GLOW")
+				Game.Resources.FONT_MULTIPLIER.ib("MAIN");
+				Game.Resources.FONT_MULTIPLIER.ib("OUTLINE");
+				Game.Resources.FONT_MULTIPLIER.ib("GLOW")
 			}
 		}
 	},
@@ -20276,7 +20276,7 @@ Game.Board.prototype = {
 		this.lJ(b);
 		this.CF()
 				&& this.Bo > 0
-				&& (b.kb(Game.a.FONT_HUGE), b.Q(GameFramework.gfx.k.Jb(this.Bo)), b
+				&& (b.kb(Game.Resources.FONT_HUGE), b.Q(GameFramework.gfx.k.Jb(this.Bo)), b
 						.Cc("PAUSED", this.Se() - b.U.hc("PAUSED") / 2, 540), b
 						.pb());
 		this.EC.jq(b);
@@ -20285,7 +20285,7 @@ Game.Board.prototype = {
 		this.TQ(b, true);
 		this.zj.length > 0 && this.zj[0].ja(b);
 		Game.BejApp.q.hr
-				&& (b.kb(Game.a.FONT_DEFAULT), b.zb(GameFramework.Utils
+				&& (b.kb(Game.Resources.FONT_DEFAULT), b.zb(GameFramework.Utils
 								.wj(GameFramework.BaseApp.M.ml), 1585, 1185, 0, 1));
 		this.NU() && this.WQ(b);
 		this.xc.ja(b);
@@ -20325,18 +20325,18 @@ Game.Board.prototype = {
 							.Cd(), l = 0.5 + 2.5 * Math.pow(this.zI, 0.5), m = b
 							.Q(GameFramework.gfx.k.st(this.C9, this.zI));
 					try {
-						b.Ba(Game.a.IMAGE_DANGERBORDERUP, j, k);
-						b.Ba(Game.a.IMAGE_DANGERBORDERLEFT, j, k);
+						b.Ba(Game.Resources.IMAGE_DANGERBORDERUP, j, k);
+						b.Ba(Game.Resources.IMAGE_DANGERBORDERLEFT, j, k);
 						var o = new GameFramework.geom.xb;
 						o.scale(g, 0 - l);
 						var q = b.jg(o);
 						try {
 							b
 									.Ba(
-											Game.a.IMAGE_DANGERBORDERUP,
+											Game.Resources.IMAGE_DANGERBORDERUP,
 											j + (g / 2 | 0),
 											h
-													+ (Game.a.IMAGE_DANGERBORDERUP.z
+													+ (Game.Resources.IMAGE_DANGERBORDERUP.z
 															/ 2 | 0))
 						} finally {
 							q.t()
@@ -20386,11 +20386,11 @@ Game.Board.prototype = {
 		try {
 			switch (this.yo) {
 				case Game.Board.Pi.OA :
-					b.Ba(Game.a.IMAGE_BOARD_BOTTOM_WIDGET_CLASSIC.vd(),
+					b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_WIDGET_CLASSIC.vd(),
 							this.is, 0);
 					break;
 				case Game.Board.Pi.Dw :
-					b.Ba(Game.a.IMAGE_BOARD_BOTTOM_WIDGET_LIGHTNING.vd(),
+					b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_WIDGET_LIGHTNING.vd(),
 							this.is, 0);
 					break
 			}
@@ -20406,7 +20406,7 @@ Game.Board.prototype = {
 			g.length == 1 && (g = "0" + g);
 			g = GameFramework.Utils.wj(((c + 59) / 60 | 0) / 60 | 0) + ":" + g;
 			if (this.Zr.D() > 0) {
-				b.kb(Game.a.FONT_TIMER_LARGE);
+				b.kb(Game.Resources.FONT_TIMER_LARGE);
 				c = b.nc(f, f, d.x, d.y);
 				try {
 					var h = b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255
@@ -20421,8 +20421,8 @@ Game.Board.prototype = {
 					c.t()
 				}
 			} else if (this.Zr.D() == 0) {
-				b.kb(Game.a.FONT_TIMER_SMALL);
-				Game.a.FONT_TIMER_SMALL.Ia("GLOW", GameFramework.gfx.k.Uu);
+				b.kb(Game.Resources.FONT_TIMER_SMALL);
+				Game.Resources.FONT_TIMER_SMALL.Ia("GLOW", GameFramework.gfx.k.Uu);
 				h = b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.kh()
 								* this.Yr.D() | 0));
 				try {
@@ -20430,7 +20430,7 @@ Game.Board.prototype = {
 				} finally {
 					h.t()
 				}
-				Game.a.FONT_TIMER_SMALL.ib("GLOW")
+				Game.Resources.FONT_TIMER_SMALL.ib("GLOW")
 			}
 		}
 	},
@@ -20451,16 +20451,16 @@ Game.Board.prototype = {
 				var d = b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.kh()
 								* this.so.D() | 0));
 				try {
-					Game.a.FONT_SPEED_SCORE.Ia("OUTLINE", GameFramework.gfx.k.Uu);
-					Game.a.FONT_SPEED_SCORE.Ia("GLOW", GameFramework.gfx.k
+					Game.Resources.FONT_SPEED_SCORE.Ia("OUTLINE", GameFramework.gfx.k.Uu);
+					Game.Resources.FONT_SPEED_SCORE.Ia("GLOW", GameFramework.gfx.k
 									.Jb(this.$C.V()));
-					Game.a.FONT_SPEED_TEXT.Ia("OUTLINE", GameFramework.gfx.k.Uu);
-					b.kb(Game.a.FONT_SPEED_TEXT);
+					Game.Resources.FONT_SPEED_TEXT.Ia("OUTLINE", GameFramework.gfx.k.Uu);
+					b.kb(Game.Resources.FONT_SPEED_TEXT);
 					b.jh(	String.Mb("{0} MATCH CHAIN", this.ng == 0
 											? this.aI
 											: this.ng), 244, 120);
 					if (this.Up.D() > 0 || this.ng > 0) {
-						b.kb(Game.a.FONT_SPEED_SCORE);
+						b.kb(Game.Resources.FONT_SPEED_SCORE);
 						var f = String.Mb("SPEED +{0}", Math
 										.min(200, ((this.ng == 0
 														? this.aI
@@ -20494,8 +20494,8 @@ Game.Board.prototype = {
 							o > 0 && (m = (j - q) / o);
 							if (this.Ch > 0)
 								if (!GameFramework.BaseApp.M.kc()
-										&& Game.a.FONT_SPEED_SCORE_ORANGE != null) {
-									b.kb(Game.a.FONT_SPEED_SCORE_ORANGE);
+										&& Game.Resources.FONT_SPEED_SCORE_ORANGE != null) {
+									b.kb(Game.Resources.FONT_SPEED_SCORE_ORANGE);
 									if (h.length > 0) {
 										var r = b.Q(4294967295);
 										try {
@@ -20519,7 +20519,7 @@ Game.Board.prototype = {
 									if (h.length > 0) {
 										var u = b.Q(4292907072);
 										try {
-											b.kb(Game.a.FONT_SPEED_SCORE), b
+											b.kb(Game.Resources.FONT_SPEED_SCORE), b
 													.Cc(h, 244 - g / 2, 66)
 										} finally {
 											u.t()
@@ -20539,9 +20539,9 @@ Game.Board.prototype = {
 								}
 						}
 					}
-					Game.a.FONT_SPEED_SCORE.ib("OUTLINE");
-					Game.a.FONT_SPEED_SCORE.ib("GLOW");
-					Game.a.FONT_SPEED_TEXT.ib("OUTLINE")
+					Game.Resources.FONT_SPEED_SCORE.ib("OUTLINE");
+					Game.Resources.FONT_SPEED_SCORE.ib("GLOW");
+					Game.Resources.FONT_SPEED_TEXT.ib("OUTLINE")
 				} finally {
 					d.t()
 				}
@@ -20579,7 +20579,7 @@ Game.Board.prototype = {
 								var m = j.zg();
 								m.translate(g.Ad() + k[l].x, g.Rd() + k[l].y);
 								b.jg(m);
-								b.Ba(Game.a.IMAGE_HINTARROW.Ee(), 0, 0);
+								b.Ba(Game.Resources.IMAGE_HINTARROW.Ee(), 0, 0);
 								b.Ab();
 								j.rotate(Game.MathUtil.Y2)
 							}
@@ -20632,16 +20632,16 @@ Game.Board.prototype = {
 				&& this.Ro() == null
 				&& (b.Q(GameFramework.gfx.k
 						.Ma(255, 255, 255, 255 * this.Yc() | 0)), b.Ba(
-						Game.a.IMAGE_SELECTOR, this.Ef + this.Ri(this.ah.x),
+						Game.Resources.IMAGE_SELECTOR, this.Ef + this.Ri(this.ah.x),
 						this.Cd() + this.vg(this.ah.y)), b.pb())
 	},
 	Y_ : function(b) {
 		this.VQ(b);
 		var c = b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.kh() | 0));
 		try {
-			var d = Game.a.IMAGE_BOARD_TOP_WIDGET;
+			var d = Game.Resources.IMAGE_BOARD_TOP_WIDGET;
 			b.Bd(d, 0 + d.sf - 160, d.Oe, 0);
-			b.kb(Game.a.FONT_LEVEL);
+			b.kb(Game.Resources.FONT_LEVEL);
 			b.zb(GameFramework.Utils.ei(this.Bl + 1), 243, 250, 0, 0)
 		} finally {
 			c.t()
@@ -20688,7 +20688,7 @@ Game.Board.prototype = {
 										&& !this.jw(g, f, d, false, true, false, false))
 									if (g.ij = false, g.Gi.Aa(0), Game.BejApp.q.Ka.xe[Game.f.T.vK
 											| 0] < 3)
-										Game.SoundUtil.Play(Game.a.SOUND_BADMOVE);
+										Game.SoundUtil.Play(Game.Resources.SOUND_BADMOVE);
 									else if (h != null)
 										h.ij = true, h.Gi.Aa(1)
 							} else {
@@ -20698,7 +20698,7 @@ Game.Board.prototype = {
 													.jw(h, h.La, h.Ja, false, true, false,
 															false)
 											: (h.ij = true, h.Gi.Aa(1), Game.SoundUtil
-													.Play(Game.a.SOUND_SELECT))
+													.Play(Game.Resources.SOUND_SELECT))
 							}
 						else if (g != null)
 							g.ij = false, g.Gi.Aa(0)
@@ -20945,14 +20945,14 @@ Game.Board.prototype = {
 	},
 	Mi : t(),
 	nJ : function(b) {
-		b.kb(Game.a.FONT_SCORE);
-		Game.a.FONT_SCORE.Ia("GLOW", 2667577344);
+		b.kb(Game.Resources.FONT_SCORE);
+		Game.Resources.FONT_SCORE.Ia("GLOW", 2667577344);
 		var c = GameFramework.Utils.ei(this.pm);
 		this.xY && (c += " of " + GameFramework.Utils.ei(this.rv()));
 		b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.kh() | 0));
 		b.zb(c, 242, 202, 0, 0);
 		b.pb();
-		Game.a.FONT_SCORE.ib("GLOW")
+		Game.Resources.FONT_SCORE.ib("GLOW")
 	},
 	B1 : function(b) {
 		this.zj.push(b)
@@ -21026,9 +21026,9 @@ T(function() {
 		});
 Game.ClassicBoard = function(b) {
 	E(Game.ClassicBoard, this, [b]);
-	this.Ef = Game.Util.aK(Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC)
+	this.Ef = Game.Util.aK(Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC)
 			+ this.is;
-	this.tM = Game.Util.bK(Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC) - 60
+	this.tM = Game.Util.bK(Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC) - 60
 };
 Game.ClassicBoard.prototype = {
 	dE : x("Classic"),
@@ -21036,11 +21036,11 @@ Game.ClassicBoard.prototype = {
 		Game.Board.prototype.Ub.apply(this);
 		var b = new GameFramework.CurvedVal;
 		b.vj("ClassicBoard_cs_11_21_11__05_39_07_684");
-		Game.BejApp.q.kA(Game.a.U3, b)
+		Game.BejApp.q.kA(Game.Resources.U3, b)
 	},
 	GJ : function() {
 		new Game.Announcement(this, "NO MORE\nMOVES");
-		Game.SoundUtil.Play(Game.a.SOUND_VOICE_NOMOREMOVES)
+		Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_NOMOREMOVES)
 	},
 	HJ : function() {
 		Game.BejApp.q.uk.qq("Classic").rF(Game.BejApp.q.Ka.Km, this.Z) && Game.BejApp.q.$K(false);
@@ -21214,7 +21214,7 @@ Game.ClassicEndLevelDialog.prototype = {
 		var f = b.gc(c, d - 90);
 		try {
 			var g = this.s / 2;
-			b.kb(Game.a.FONT_GAMEOVER_DIALOG);
+			b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 			b.U.Ia("MAIN", 4287121432);
 			b.U.Ia("OUTLINE", 4294967295);
 			b.U.Ia("GLOW", 0);
@@ -21224,9 +21224,9 @@ Game.ClassicEndLevelDialog.prototype = {
 			b.U.ib("GLOW");
 			var h = b.Q(4294243536);
 			try {
-				b.kb(Game.a.FONT_GAMEOVER_DIALOG), Game.a.FONT_GAMEOVER_DIALOG
-						.Ia("MAIN", -1), Game.a.FONT_GAMEOVER_DIALOG.Ia(
-						"OUTLINE", 4282400768), Game.a.FONT_GAMEOVER_DIALOG.Ia(
+				b.kb(Game.Resources.FONT_GAMEOVER_DIALOG), Game.Resources.FONT_GAMEOVER_DIALOG
+						.Ia("MAIN", -1), Game.Resources.FONT_GAMEOVER_DIALOG.Ia(
+						"OUTLINE", 4282400768), Game.Resources.FONT_GAMEOVER_DIALOG.Ia(
 						"GLOW", 0), b.jh("Please enter your name:", g, 500)
 			} finally {
 				h.t()
@@ -21235,9 +21235,9 @@ Game.ClassicEndLevelDialog.prototype = {
 			this.Vd.L = this.Jd.D();
 			this.Yf.nh(this.s / 2 - this.Yf.s / 2 + c, 570 + d);
 			this.Yf.L = this.Jd.D();
-			Game.a.FONT_GAMEOVER_DIALOG.ib("MAIN");
-			Game.a.FONT_GAMEOVER_DIALOG.ib("OUTLINE");
-			Game.a.FONT_GAMEOVER_DIALOG.ib("GLOW")
+			Game.Resources.FONT_GAMEOVER_DIALOG.ib("MAIN");
+			Game.Resources.FONT_GAMEOVER_DIALOG.ib("OUTLINE");
+			Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW")
 		} finally {
 			f.t()
 		}
@@ -21245,11 +21245,11 @@ Game.ClassicEndLevelDialog.prototype = {
 	PQ : function(b) {
 		var c = b.gc(0, 60);
 		try {
-			b.dk(Game.a.IMAGE_GAMEOVER_SECTION_LABEL, 195, 385, 600,
-					Game.a.IMAGE_GAMEOVER_SECTION_LABEL.z, 0);
+			b.dk(Game.Resources.IMAGE_GAMEOVER_SECTION_LABEL, 195, 385, 600,
+					Game.Resources.IMAGE_GAMEOVER_SECTION_LABEL.z, 0);
 			var d = b.gc(0, 60);
 			try {
-				b.dk(Game.a.IMAGE_GAMEOVER_LIGHT_BOX, 195, 385, 602, 282, 0)
+				b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 195, 385, 602, 282, 0)
 			} finally {
 				d.t()
 			}
@@ -21380,9 +21380,9 @@ Game.CrystalBall = function(b, c) {
 	this.aa = 0;
 	this.r9 = false;
 	this.GW = 0;
-	this.sr = Game.a.PIEFFECT_CRYSTALBALL.gi();
+	this.sr = Game.Resources.PIEFFECT_CRYSTALBALL.gi();
 	this.sr.tm = true;
-	this.Mr = Game.a.PIEFFECT_CRYSTALRAYS.gi();
+	this.Mr = Game.Resources.PIEFFECT_CRYSTALRAYS.gi();
 	this.Mr.tm = true;
 	this.O7 = GameFramework.gfx.k.Ma(128, 0, 64, 160);
 	this.nD.ea("b;-3,3,0.003333,1,####     $~###    }####");
@@ -21468,7 +21468,7 @@ Game.CrystalBall.prototype = {
 					var q = b.jg(o);
 					try {
 						this.zY
-								&& b.Ba(Game.a.IMAGE_CRYSTALBALL_SHADOW.Ee(),
+								&& b.Ba(Game.Resources.IMAGE_CRYSTALBALL_SHADOW.Ee(),
 										0, 0)
 					} finally {
 						q.t()
@@ -21477,7 +21477,7 @@ Game.CrystalBall.prototype = {
 					o.scale(g, h);
 					var r = b.jg(o);
 					try {
-						b.Bd(Game.a.IMAGE_CRYSTALBALL.Ee(), 0, 0, m)
+						b.Bd(Game.Resources.IMAGE_CRYSTALBALL.Ee(), 0, 0, m)
 					} finally {
 						r.t()
 					}
@@ -21553,14 +21553,14 @@ Game.CrystalBall.prototype = {
 			c *= g.Ks(this.nC) * 4 + this.GW;
 			g = (1 - this.Tc.V() * 2) * this.gI;
 			if (this.Id.length > 0 && g > 0) {
-				b.kb(Game.a.FONT_PLAYBUTTONS);
+				b.kb(Game.Resources.FONT_PLAYBUTTONS);
 				c = b.nc(c, c, this.s / 2, this.z / 2);
 				try {
 					var P = b.Q(GameFramework.gfx.k
 							.Ma(255, 255, 255, 255 * g | 0));
 					try {
 						b.Cc(this.Id, this.s / 2
-										- Game.a.FONT_PLAYBUTTONS.hc(this.Id)
+										- Game.Resources.FONT_PLAYBUTTONS.hc(this.Id)
 										/ 2, this.z / 2 + 34)
 					} finally {
 						P.t()
@@ -21780,7 +21780,7 @@ Game.Effect = function(b) {
 	this.Cg = false;
 	switch (this.Fb) {
 		case Game.Effect.da.cp :
-			this.Oa = Game.a.IMAGE_FX_STEAM;
+			this.Oa = Game.Resources.IMAGE_FX_STEAM;
 			this.yi = -0.00835;
 			if (GameFramework.BaseApp.M.kc())
 				this.Hb = GameFramework.Utils.P() * 3.141593, this.Qh = GameFramework.Utils
@@ -21808,7 +21808,7 @@ Game.Effect = function(b) {
 			this.Et = 1;
 			break;
 		case Game.Effect.da.EJ :
-			this.Oa = Game.a.IMAGE_GEM_FRUIT_SPARK;
+			this.Oa = Game.Resources.IMAGE_GEM_FRUIT_SPARK;
 			this.Cg = true;
 			this.yi = 0.01;
 			this.L = 1;
@@ -21829,7 +21829,7 @@ Game.Effect = function(b) {
 		case Game.Effect.da.ws :
 		case Game.Effect.da.TD :
 		case Game.Effect.da.cz :
-			this.Oa = Game.a.IMAGE_FIREPARTICLE;
+			this.Oa = Game.Resources.IMAGE_FIREPARTICLE;
 			this.n = GameFramework.gfx.k.Ma(255, Game.Util.Fc() % 64 + 64, Game.Util
 							.Fc()
 							% 32 + 30, 255);
@@ -21862,19 +21862,19 @@ Game.Effect = function(b) {
 			this.$e = 0.5 + Math.abs(GameFramework.Utils.P()) * 0.75;
 			break;
 		case Game.Effect.da.bF :
-			this.Oa = Game.a.IMAGE_SMOKE;
+			this.Oa = Game.Resources.IMAGE_SMOKE;
 			this.yi = -0.0050;
 			this.L = 0.5;
 			this.Ic = -0.0050;
 			break;
 		case Game.Effect.da.gJ :
-			this.Oa = Game.a.IMAGE_DRIP;
+			this.Oa = Game.Resources.IMAGE_DRIP;
 			this.Ic = 0;
 			this.yi = 0.05;
 			break;
 		case Game.Effect.da.YK :
 			this.oa = Array.O(2, null);
-			this.Oa = Game.a.IMAGE_FX_STEAM;
+			this.Oa = Game.Resources.IMAGE_FX_STEAM;
 			this.yi = -0.0050;
 			this.Hb = GameFramework.Utils.P() * 3.141593;
 			this.Qh = GameFramework.Utils.P() * 0.04;
@@ -21987,7 +21987,7 @@ Game.TextNotifyEffect = function() {
 	E(Game.TextNotifyEffect, this, [Game.Effect.da.Py]);
 	this.aa = 0;
 	this.ZM = 200;
-	this.U = Game.a.FONT_HUGE;
+	this.U = Game.Resources.FONT_HUGE;
 	this.Ic = 0;
 	this.qJ = (new GameFramework.CurvedVal).ea("b+0,1.3,0,0.2,#6g<     8~###    ii###");
 	this.rJ = (new GameFramework.CurvedVal).ea("b+0,1,0,0.2,~###         ~#>Hu")
@@ -22402,14 +22402,14 @@ Game.lq.prototype = {
 										q = GameFramework.gfx.k
 												.Zg(q, m * 255 | 0);
 										b.Q(q);
-										Game.a.IMAGE_SM_SHARDS.pc = true;
-										b.Bd(Game.a.IMAGE_SM_SHARDS, 0, 0, 0);
-										Game.a.IMAGE_SM_SHARDS.pc = false;
+										Game.Resources.IMAGE_SM_SHARDS.pc = true;
+										b.Bd(Game.Resources.IMAGE_SM_SHARDS, 0, 0, 0);
+										Game.Resources.IMAGE_SM_SHARDS.pc = false;
 										b.pb();
 										b.Ab();
 										break;
 									case Game.Effect.da.EA :
-										q = Game.a.IMAGE_SPARKLE;
+										q = Game.Resources.IMAGE_SPARKLE;
 										q.pc = true;
 										k.n = GameFramework.gfx.k.Zg(k.n, 255 * m
 														| 0);
@@ -22566,7 +22566,7 @@ U(function() {
 		});
 Game.Xu = function() {
 	E(Game.Xu, this);
-	this.kb(Game.a.FONT_GAMEOVER_DIALOG);
+	this.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 	GameFramework.BaseApp.M.kc()
 			|| (this.pe[GameFramework.widgets.ig.CD] = 4285554768, this.pe[GameFramework.widgets.ig.TI] = 4278190080, this.pe[GameFramework.widgets.ig.SP] = 4294967295)
 };
@@ -22574,11 +22574,11 @@ Game.Xu.prototype = {
 	L : 1,
 	ja : function(b) {
 		this.L != 0
-				&& (this.L < 1 && b.Q(GameFramework.gfx.k.Jb(this.L)), Game.a.FONT_GAMEOVER_DIALOG
-						.Ia("OUTLINE", GameFramework.gfx.k.Ma(64, 24, 8, 0)), Game.a.FONT_GAMEOVER_DIALOG
+				&& (this.L < 1 && b.Q(GameFramework.gfx.k.Jb(this.L)), Game.Resources.FONT_GAMEOVER_DIALOG
+						.Ia("OUTLINE", GameFramework.gfx.k.Ma(64, 24, 8, 0)), Game.Resources.FONT_GAMEOVER_DIALOG
 						.Ia("GLOW", GameFramework.gfx.k.Ma(0, 0, 0, 0)), GameFramework.widgets.ig.prototype.ja
-						.apply(this, [b]), Game.a.FONT_GAMEOVER_DIALOG
-						.ib("OUTLINE"), Game.a.FONT_GAMEOVER_DIALOG.ib("GLOW"), this.L < 1
+						.apply(this, [b]), Game.Resources.FONT_GAMEOVER_DIALOG
+						.ib("OUTLINE"), Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW"), this.L < 1
 						&& b.pb())
 	}
 };
@@ -22630,13 +22630,13 @@ Game.Xc = function(b) {
 	this.Lb(0, 0, 1600, 1200);
 	this.Fd.bj = 60;
 	b = 280;
-	c = this.ME(Game.Xc.ug.PF | 0, b, Game.a.IMAGE_DIALOG_SMALL_BUTTON);
+	c = this.ME(Game.Xc.ug.PF | 0, b, Game.Resources.IMAGE_DIALOG_SMALL_BUTTON);
 	c.Lb(this.s / 2 - (b / 2 | 0) + 325, this.z - this.Fd.bj - c.z + 0, b, c.z);
 	c.Id = "MAIN MENU";
 	this.We[c.xa] = c;
 	c.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.Mi));
 	this.Bc(c);
-	c = this.ME(Game.Xc.ug.qV | 0, b, Game.a.IMAGE_DIALOG_SMALL_BUTTON);
+	c = this.ME(Game.Xc.ug.qV | 0, b, Game.Resources.IMAGE_DIALOG_SMALL_BUTTON);
 	c.Lb(this.s / 2 - (b / 2 | 0) - 325, this.z - this.Fd.bj - c.z + 0, b, c.z);
 	c.Id = "RECORDS";
 	this.We[c.xa] = c;
@@ -22712,7 +22712,7 @@ Game.Xc.prototype = {
 						.Bc(this.Vd), this.Vd.sI = this;
 			if (this.Yf == null)
 				this.Yf = this.ME(Game.Xc.ug.$L | 0, 280,
-						Game.a.IMAGE_DIALOG_SMALL_BUTTON), this.Yf.Lb(this.s
+						Game.Resources.IMAGE_DIALOG_SMALL_BUTTON), this.Yf.Lb(this.s
 								/ 2 - 140 + 325, this.z - this.Fd.bj
 								- this.Yf.z + 0, 280, this.Yf.z), this.Yf.Id = "OK", this.We[this.Yf.xa] = this.Yf, this.Yf
 						.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.Mi)), this
@@ -22810,9 +22810,9 @@ Game.Xc.prototype = {
 		}
 	},
 	ja : function(b) {
-		b.dk(Game.a.IMAGE_GAMEOVER_DIALOG, 110, 0, 1380, 1200, 0);
-		b.Ba(Game.a.IMAGE_GAMEOVER_STAMP.vd(), -160, 0);
-		b.kb(Game.a.FONT_GAMEOVER_DIALOG_HUGE);
+		b.dk(Game.Resources.IMAGE_GAMEOVER_DIALOG, 110, 0, 1380, 1200, 0);
+		b.Ba(Game.Resources.IMAGE_GAMEOVER_STAMP.vd(), -160, 0);
+		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG_HUGE);
 		b.U.Ia("MAIN", 4287121432);
 		b.jh("Final Score:", 800, 140);
 		b.U.ib("MAIN");
@@ -22845,56 +22845,56 @@ Game.Xc.prototype = {
 			this.We[$enum1].v += b
 	},
 	T_ : function(b) {
-		b.Ba(Game.a.IMAGE_GAMEOVER_SECTION_SMALL.vd(), -195, 280);
-		b.Ba(Game.a.IMAGE_GAMEOVER_ICON_FLAME_LRG.vd(), -130, 175);
-		b.Ba(Game.a.IMAGE_GAMEOVER_ICON_STAR_LRG.vd(), 60, 175);
-		b.Ba(Game.a.IMAGE_GAMEOVER_ICON_HYPERCUBE_LRG.vd(), 250, 170);
-		b.kb(Game.a.FONT_GAMEOVER_DIALOG);
-		Game.a.FONT_GAMEOVER_DIALOG.Ia("GLOW", 0);
-		Game.a.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 0);
+		b.Ba(Game.Resources.IMAGE_GAMEOVER_SECTION_SMALL.vd(), -195, 280);
+		b.Ba(Game.Resources.IMAGE_GAMEOVER_ICON_FLAME_LRG.vd(), -130, 175);
+		b.Ba(Game.Resources.IMAGE_GAMEOVER_ICON_STAR_LRG.vd(), 60, 175);
+		b.Ba(Game.Resources.IMAGE_GAMEOVER_ICON_HYPERCUBE_LRG.vd(), 250, 170);
+		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
+		Game.Resources.FONT_GAMEOVER_DIALOG.Ia("GLOW", 0);
+		Game.Resources.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 0);
 		b.zb(String.Mb("x {0:d}", this.od[Game.f.T.kv | 0]), 400, 900, -1, -1);
 		b.zb(String.Mb("x {0:d}", this.od[Game.f.T.Kv | 0]), 780, 900, -1, -1);
 		b.zb(String.Mb("x {0:d}", this.od[Game.f.T.Cz | 0]), 1150, 900, -1, -1);
-		Game.a.FONT_GAMEOVER_DIALOG.ib("OUTLINE");
-		Game.a.FONT_GAMEOVER_DIALOG.ib("GLOW")
+		Game.Resources.FONT_GAMEOVER_DIALOG.ib("OUTLINE");
+		Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW")
 	},
 	$y : function(b) {
-		b.dk(Game.a.IMAGE_GAMEOVER_LIGHT_BOX, 800, 385, 600, 280, 0);
+		b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 800, 385, 600, 280, 0);
 		for (var c = false, d = 0; d < (Math.min(Game.Xc.HE, this.zc.length) | 0); ++d)
 			this.zc[d].vk && (c = true);
 		for (d = 0; d < (Math.min(Game.Xc.HE, this.zc.length) | 0); ++d) {
 			var f = Game.Ns.HU(GameFramework.Utils.ei(this.zc[d].Hl)), g = 455
 					- (b.hc(f) | 0), h = -1;
 			if (this.zc[d].vk || d == -1) {
-				Game.a.FONT_GAMEOVER_DIALOG.Ia("GLOW", 0);
+				Game.Resources.FONT_GAMEOVER_DIALOG.Ia("GLOW", 0);
 				if (GameFramework.BaseApp.M.kc()) {
-					Game.a.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 1090519039);
+					Game.Resources.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 1090519039);
 					var j = this.aa % 45 / 45;
 					j > 0.5 && (j = 1 - j);
 					j *= 2;
-					Game.a.FONT_GAMEOVER_DIALOG.Ia("MAIN", Game.Util.pE(185
+					Game.Resources.FONT_GAMEOVER_DIALOG.Ia("MAIN", Game.Util.pE(185
 											+ (j * 20 | 0), 150))
 				} else
-					Game.a.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", GameFramework.gfx.k
+					Game.Resources.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", GameFramework.gfx.k
 									.Jb(Math.max(0, Math
 													.min(1, (Math.cos(this.aa
 																	* 0.1) + 1)
-																	/ 2)))), Game.a.FONT_GAMEOVER_DIALOG
-							.Ia("GLOW", 4294967295), Game.a.FONT_GAMEOVER_DIALOG
+																	/ 2)))), Game.Resources.FONT_GAMEOVER_DIALOG
+							.Ia("GLOW", 4294967295), Game.Resources.FONT_GAMEOVER_DIALOG
 							.Ia("MAIN", 4294967295);
 				this.Vd.Jx = g
 			} else
-				Game.a.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 4294967295), Game.a.FONT_GAMEOVER_DIALOG
+				Game.Resources.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 4294967295), Game.Resources.FONT_GAMEOVER_DIALOG
 						.Ia("GLOW", 0), c && !GameFramework.BaseApp.M.kc()
-						? Game.a.FONT_GAMEOVER_DIALOG.Ia("MAIN", 3372220415)
-						: (h = 4294953816, Game.a.FONT_GAMEOVER_DIALOG.Ia(
+						? Game.Resources.FONT_GAMEOVER_DIALOG.Ia("MAIN", 3372220415)
+						: (h = 4294953816, Game.Resources.FONT_GAMEOVER_DIALOG.Ia(
 								"MAIN", -1));
 			h = b.Q(h);
 			try {
 				b.zb(String.Mb("{0:d}.", d + 1), 830, 455 + 45 * d, 1, -1), b
 						.zb(Game.GfxUtil.LR(b, this.zc[d].sb, g), 880, 455 + 45 * d,
-								-1, -1), b.zb(f, 1370, 455 + 45 * d, -1, 1), Game.a.FONT_GAMEOVER_DIALOG
-						.ib("OUTLINE"), Game.a.FONT_GAMEOVER_DIALOG.ib("GLOW"), Game.a.FONT_GAMEOVER_DIALOG
+								-1, -1), b.zb(f, 1370, 455 + 45 * d, -1, 1), Game.Resources.FONT_GAMEOVER_DIALOG
+						.ib("OUTLINE"), Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW"), Game.Resources.FONT_GAMEOVER_DIALOG
 						.ib("MAIN")
 			} finally {
 				h.t()
@@ -22904,9 +22904,9 @@ Game.Xc.prototype = {
 	oJ : t(),
 	pJ : t(),
 	P_ : function(b) {
-		b.dk(Game.a.IMAGE_GAMEOVER_SECTION_LABEL, 800, 385, 600,
-				Game.a.IMAGE_GAMEOVER_SECTION_LABEL.z, 0);
-		b.kb(Game.a.FONT_GAMEOVER_DIALOG);
+		b.dk(Game.Resources.IMAGE_GAMEOVER_SECTION_LABEL, 800, 385, 600,
+				Game.Resources.IMAGE_GAMEOVER_SECTION_LABEL.z, 0);
+		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 		b.U.Ia("MAIN", 4287121432);
 		b.U.Ia("OUTLINE", 4294967295);
 		b.U.Ia("GLOW", 0);
@@ -22922,7 +22922,7 @@ Game.Xc.prototype = {
 		}
 	},
 	YQ : function(b) {
-		b.kb(Game.a.FONT_GAMEOVER_DIALOG);
+		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 		b.U.Ia("MAIN", -1);
 		b.U.Ia("GLOW", 0);
 		var c = b.Q(4294243536);
@@ -22941,7 +22941,7 @@ Game.Xc.prototype = {
 		b.U.ib("GLOW")
 	},
 	Q_ : function(b) {
-		b.kb(Game.a.FONT_GAMEOVER_DIALOG);
+		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 		b.U.Ia("MAIN", 4287121432);
 		b.U.Ia("OUTLINE", 4294967295);
 		b.U.Ia("GLOW", 0);
@@ -22959,14 +22959,14 @@ Game.Xc.prototype = {
 	mJ : function(b, c, d) {
 		var f = b.gc(c, d);
 		try {
-			b.kb(Game.a.FONT_GAMEOVER_DIALOG);
-			Game.a.FONT_GAMEOVER_DIALOG.Ia("MAIN", -1);
-			Game.a.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 4282400768);
-			Game.a.FONT_GAMEOVER_DIALOG.Ia("GLOW", 0);
+			b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
+			Game.Resources.FONT_GAMEOVER_DIALOG.Ia("MAIN", -1);
+			Game.Resources.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 4282400768);
+			Game.Resources.FONT_GAMEOVER_DIALOG.Ia("GLOW", 0);
 			var g = b.Q(4294243536);
 			try {
 				var h = this.s / 2;
-				b.kb(Game.a.FONT_DIALOG_HEADER);
+				b.kb(Game.Resources.FONT_DIALOG_HEADER);
 				var j = 4294967295, k = 4278190080;
 				this.ho.D() != 1
 						&& (j = GameFramework.Utils.Dq(j, 4294963861, Math.min(1, 5
@@ -22984,7 +22984,7 @@ Game.Xc.prototype = {
 				b.U.ib("MAIN");
 				b.U.ib("OUTLINE");
 				b.U.ib("GLOW");
-				b.kb(Game.a.FONT_GAMEOVER_DIALOG);
+				b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 				b.jh("Please enter your name:", h, 515)
 			} finally {
 				g.t()
@@ -22993,15 +22993,15 @@ Game.Xc.prototype = {
 			this.Vd.L = this.Jd.D();
 			this.Yf.nh(this.s / 2 - this.Yf.s / 2 + c, 590 + d);
 			this.Yf.L = this.Jd.D();
-			Game.a.FONT_GAMEOVER_DIALOG.ib("MAIN");
-			Game.a.FONT_GAMEOVER_DIALOG.ib("OUTLINE");
-			Game.a.FONT_GAMEOVER_DIALOG.ib("GLOW")
+			Game.Resources.FONT_GAMEOVER_DIALOG.ib("MAIN");
+			Game.Resources.FONT_GAMEOVER_DIALOG.ib("OUTLINE");
+			Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW")
 		} finally {
 			f.t()
 		}
 	},
 	PQ : function(b) {
-		b.dk(Game.a.IMAGE_GAMEOVER_LIGHT_BOX, 195, 385, 602, 282, 0);
+		b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 195, 385, 602, 282, 0);
 		this.Jd.D() > 0
 				&& this.Vd != null
 				&& (this.Jd.D() < 1 && b.Q(GameFramework.gfx.k.Jb(this.Jd.D())), this
@@ -26682,24 +26682,24 @@ Game.vq = function(b, c, d, f, g) {
 	this.wo = Game.f.Xa.NONE;
 	E(Game.vq, this, [
 					f
-							? Game.a.IMAGE_DIALOG_BACKGROUND
-							: Game.a.IMAGE_DIALOG_HEADERLESS_BKG,
-					Game.a.IMAGE_DIALOG_BUTTON, Game.f.mb.vn, true, b, c, "",
+							? Game.Resources.IMAGE_DIALOG_BACKGROUND
+							: Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG,
+					Game.Resources.IMAGE_DIALOG_BUTTON, Game.f.mb.vn, true, b, c, "",
 					d ? GameFramework.widgets.rb.Zp : GameFramework.widgets.rb.DZ]);
 	this.uI = g;
 	this.Bx = this.gs = f;
 	this.Fd = new GameFramework.Insets(128, 20, 128, 64);
-	this.dL(Game.a.FONT_DIALOG_BUTTONS);
-	this.gL(Game.a.FONT_DIALOG_HEADER);
+	this.dL(Game.Resources.FONT_DIALOG_BUTTONS);
+	this.gL(Game.Resources.FONT_DIALOG_HEADER);
 	this.am(GameFramework.widgets.rb.VI, 4278190080);
 	this.Qr = 32;
-	this.gr == Game.a.IMAGE_DIALOG_HEADERLESS_BKG
+	this.gr == Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG
 			&& (this.Fd.Um += 30, this.Fd.bj += 20, this.Qr -= 15);
 	if (this.uI)
-		this.Pj = new Game.aq(Game.a.IMAGE_DIALOG_CHECKBOX_BLANK,
-				Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED), this.Pj.Lb(0, 0,
-				Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED.s,
-				Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED.z), this.Pj.ti = false, this.Pj.L = 1, this.Pj
+		this.Pj = new Game.aq(Game.Resources.IMAGE_DIALOG_CHECKBOX_BLANK,
+				Game.Resources.IMAGE_DIALOG_CHECKBOX_CHECKED), this.Pj.Lb(0, 0,
+				Game.Resources.IMAGE_DIALOG_CHECKBOX_CHECKED.s,
+				Game.Resources.IMAGE_DIALOG_CHECKBOX_CHECKED.z), this.Pj.ti = false, this.Pj.L = 1, this.Pj
 				.Ra(GameFramework.widgets.wa.NP, ss.Delegate.create(this, this.K6)), this
 				.Bc(this.Pj);
 	if (this.tb != null)
@@ -26718,7 +26718,7 @@ Game.vq.prototype = {
 	wo : null,
 	Lb : function(b, c, d, f) {
 		Game.Qc.prototype.Lb.apply(this, [b, c, d, f]);
-		this.tb != null && this.gr == Game.a.IMAGE_DIALOG_HEADERLESS_BKG
+		this.tb != null && this.gr == Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG
 				&& (this.tb.v += 20)
 	},
 	K6 : function(b) {
@@ -26742,21 +26742,21 @@ Game.vq.prototype = {
 		var c = Math.max(this.XH, this.Lp.D());
 		if (this.tb != null)
 			this.tb.L = Math.max(0, Math.min(1, (c - 0.5) * 2));
-		this.gr == Game.a.IMAGE_DIALOG_HEADERLESS_BKG
+		this.gr == Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG
 				&& (this.Xf.Ia("MAIN", 4294894263), this.Xf.Ia("GLOW",
 						4278190080), this.Xf.Ia("OUTLINE", 4278190080));
 		Game.Qc.prototype.ja.apply(this, [b]);
-		this.gr == Game.a.IMAGE_DIALOG_HEADERLESS_BKG
+		this.gr == Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG
 				&& (this.Xf.ib("MAIN"), this.Xf.ib("GLOW"), this.Xf
 						.ib("OUTLINE"));
 		if (this.uI) {
-			b.kb(Game.a.FONT_DISABLE_HINTS);
+			b.kb(Game.Resources.FONT_DISABLE_HINTS);
 			var d = (0.5 + 0.5 * this.Lp.D()) * 255 | 0, d = b
 					.Q(GameFramework.gfx.k.Zg(4294967295, d));
 			try {
 				var f = this.s / 2 - 45, g = this.z - 160;
 				g += this.tb == null ? 85 : (1 - c) * 100;
-				this.gr == Game.a.IMAGE_DIALOG_HEADERLESS_BKG && (g -= 20);
+				this.gr == Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG && (g -= 20);
 				b.Cc("Disable Hints", f, g);
 				this.Pj.nh(f - 60, g - 30)
 			} finally {
@@ -27050,8 +27050,8 @@ Game.N = function(b) {
 		for (var d = 0; d < Game.Board.oh; d++)
 			this.Wh[this.Wh.g * c + d] = new Game.qz, this.Wh[this.Wh.g * c + d]
 					.Ub(b.e[b.e.g * c + d], this.ae);
-	Game.N.$t[0] = Game.a.IMAGE_WARP_LINES_01;
-	Game.N.$t[1] = Game.a.IMAGE_HYPERSPACE_INITIAL;
+	Game.N.$t[0] = Game.Resources.IMAGE_WARP_LINES_01;
+	Game.N.$t[1] = Game.Resources.IMAGE_HYPERSPACE_INITIAL;
 	this.Bb = Game.N.ya.S2;
 	this.bm(Game.N.ya.Ub)
 };
@@ -27224,7 +27224,7 @@ Game.N.prototype = {
 							this.Wh[this.Wh.g * b + c].Pn = true;
 					break;
 				case Game.N.ya.en :
-					GameFramework.BaseApp.M.mi(Game.a.SOUND_HYPERSPACE);
+					GameFramework.BaseApp.M.mi(Game.Resources.SOUND_HYPERSPACE);
 					this.kf.e.Zb(Game.lc.Zb.AS);
 					this.Ju = 0;
 					this.kB.ea("b+1,8,0.004762,1,####     l#Pr]'#*NA    1}dR)");
@@ -27232,12 +27232,12 @@ Game.N.prototype = {
 					this.pu
 							.ea("b+0,255,0.004255,1,##xa  @L6zN d~}Q&    I~P## T#<G{");
 					this.hs.ea("b+0,1,0.004348,1,####      W+(q>   I~cu?");
-					b = Array.O(4, 4, Game.a.IMAGE_WARP_LINES_01,
-							Game.a.IMAGE_WARP_LINES_01,
-							Game.a.IMAGE_WARP_LINES_01,
-							Game.a.IMAGE_WARP_LINES_01);
+					b = Array.O(4, 4, Game.Resources.IMAGE_WARP_LINES_01,
+							Game.Resources.IMAGE_WARP_LINES_01,
+							Game.Resources.IMAGE_WARP_LINES_01,
+							Game.Resources.IMAGE_WARP_LINES_01);
 					Game.N.$t[0] = b[GameFramework.Utils.Sk() % 4];
-					Game.N.$t[1] = Game.a.IMAGE_HYPERSPACE_INITIAL;
+					Game.N.$t[1] = Game.Resources.IMAGE_HYPERSPACE_INITIAL;
 					break;
 				case Game.N.ya.Oo :
 					this.Ay.Aa(0);
@@ -27246,8 +27246,8 @@ Game.N.prototype = {
 				case Game.N.ya.ak :
 					this.kf.e.Zb(Game.lc.Zb.ak);
 					this.wu.ea("b+0.8,2.4,0.008333,1,#.ov         ~~###");
-					Game.a.POPANIM_ANIMS_BOARDSHATTER.Play("shatter");
-					GameFramework.BaseApp.M.mi(Game.a.SOUND_HYPERSPACE_SHATTER_1);
+					Game.Resources.POPANIM_ANIMS_BOARDSHATTER.Play("shatter");
+					GameFramework.BaseApp.M.mi(Game.Resources.SOUND_HYPERSPACE_SHATTER_1);
 					break;
 				case Game.N.ya.fw :
 					this.kf.e.Zb(Game.lc.Zb.AK);
@@ -27256,7 +27256,7 @@ Game.N.prototype = {
 					this.Kp.Aa(1);
 					this.pu.Aa(0);
 					this.hs.Aa(1);
-					Game.N.$t[1] = Game.a.IMAGE_HYPERSPACE;
+					Game.N.$t[1] = Game.Resources.IMAGE_HYPERSPACE;
 					break;
 				case Game.N.ya.Bq :
 					for (b = 0; b < Game.Board.Zk; ++b)
@@ -27336,8 +27336,8 @@ Game.N.prototype = {
 		f.yg(d.x, d.y, d.ia);
 		f.Aw(c.x, c.y, c.ia);
 		this.kf.pk(f);
-		Game.a.POPANIM_ANIMS_BOARDSHATTER.Ts()
-				&& Game.a.POPANIM_ANIMS_BOARDSHATTER.ca()
+		Game.Resources.POPANIM_ANIMS_BOARDSHATTER.Ts()
+				&& Game.Resources.POPANIM_ANIMS_BOARDSHATTER.ca()
 	},
 	d5 : function() {
 		if (this.ae.Rk() >= 68)
@@ -27355,14 +27355,14 @@ Game.N.prototype = {
 				if (this.Bb == Game.N.ya.Bq && k.Pn && this.ae.Rk() >= k.sM) {
 					k.Pp.L.Aa(1);
 					k.Pn = false;
-					var l = Array.O(7, 7, Game.a.SOUND_HYPERSPACE_GEM_LAND_1,
-							Game.a.SOUND_HYPERSPACE_GEM_LAND_2,
-							Game.a.SOUND_HYPERSPACE_GEM_LAND_3,
-							Game.a.SOUND_HYPERSPACE_GEM_LAND_4,
-							Game.a.SOUND_HYPERSPACE_GEM_LAND_5,
-							Game.a.SOUND_HYPERSPACE_GEM_LAND_6,
-							Game.a.SOUND_HYPERSPACE_GEM_LAND_7), m;
-					m = Game.a.PIEFFECT_GEM_LANDING_FX;
+					var l = Array.O(7, 7, Game.Resources.SOUND_HYPERSPACE_GEM_LAND_1,
+							Game.Resources.SOUND_HYPERSPACE_GEM_LAND_2,
+							Game.Resources.SOUND_HYPERSPACE_GEM_LAND_3,
+							Game.Resources.SOUND_HYPERSPACE_GEM_LAND_4,
+							Game.Resources.SOUND_HYPERSPACE_GEM_LAND_5,
+							Game.Resources.SOUND_HYPERSPACE_GEM_LAND_6,
+							Game.Resources.SOUND_HYPERSPACE_GEM_LAND_7), m;
+					m = Game.Resources.PIEFFECT_GEM_LANDING_FX;
 					l = l[this.nN % l.length];
 					if (this.ae.Rk() > 270 && this.ie - this.oN > 2)
 						GameFramework.BaseApp.M.mi(l), this.oN = this.ie | 0, this.nN++;
@@ -27455,8 +27455,8 @@ Game.N.prototype = {
 	},
 	B5 : function() {
 		this.ae.Rk() == 68 ? GameFramework.BaseApp.M.FK(
-				Game.a.SOUND_HYPERSPACE_SHATTER_2, 0.5, 0) : this.ae.Rk() == 76
-				&& GameFramework.BaseApp.M.FK(Game.a.SOUND_HYPERSPACE_SHATTER_2, 0.5,
+				Game.Resources.SOUND_HYPERSPACE_SHATTER_2, 0.5, 0) : this.ae.Rk() == 76
+				&& GameFramework.BaseApp.M.FK(Game.Resources.SOUND_HYPERSPACE_SHATTER_2, 0.5,
 						0)
 	},
 	Zy : function(b) {
@@ -27484,7 +27484,7 @@ Game.N.prototype = {
 			default :
 				Game.N.nb.kF(1, true)
 		}
-		var b = Game.a.EFFECT_TUBE_3D, c = b.xD(Game.N.nb, "Tube3D");
+		var b = Game.Resources.EFFECT_TUBE_3D, c = b.xD(Game.N.nb, "Tube3D");
 		try {
 			b.kt("time", this.Ju / 100);
 			var d = Array.O(4, 4, this.Kp.D(), this.hs.D(), 0.5, 1);
@@ -27516,7 +27516,7 @@ Game.N.prototype = {
 			Game.N.nb.it(GameFramework.gfx.hb.yf.Ws, false);
 			Game.N.nb.Oq(GameFramework.gfx.hb.Dc.oU, GameFramework.gfx.hb.Dc.fT);
 			Game.N.nb.kF(0, true);
-			var b = Game.a.EFFECT_TUBECAP_3D, c = b.xD(Game.N.nb, "TubeCap3D");
+			var b = Game.Resources.EFFECT_TUBECAP_3D, c = b.xD(Game.N.nb, "TubeCap3D");
 			try {
 				b.kt("time", this.Ju / 100);
 				var d = new GameFramework.geom.Ce;
@@ -27543,12 +27543,12 @@ Game.N.prototype = {
 		}
 	},
 	LQ : function(b) {
-		if (Game.a.POPANIM_ANIMS_BOARDSHATTER.Ts()) {
+		if (Game.Resources.POPANIM_ANIMS_BOARDSHATTER.Ts()) {
 			var c = b.gc(210, -150);
 			try {
 				var d = b.nc(this.wu.D(), this.wu.D(), 750, 750);
 				try {
-					Game.a.POPANIM_ANIMS_BOARDSHATTER.ja(b)
+					Game.Resources.POPANIM_ANIMS_BOARDSHATTER.ja(b)
 				} finally {
 					d.t()
 				}
@@ -27566,7 +27566,7 @@ Game.N.prototype = {
 		c.X[c.X.g * 1 + 1] += 0.0030;
 		var d = new GameFramework.geom.Ce;
 		this.si.sv(d);
-		var f = Game.a.EFFECT_GEM_3D, g = f.xD(Game.N.nb, "Gem3D");
+		var f = Game.Resources.EFFECT_GEM_3D, g = f.xD(Game.N.nb, "Gem3D");
 		try {
 			Game.N.nb.mt(c);
 			Game.N.nb.GA(d);
@@ -27815,7 +27815,7 @@ Game.yv.prototype = {
 	ca : function() {
 		Game.lc.prototype.ca.apply(this);
 		this.aa == 2 && this.e.Zb(Game.lc.Zb.Pv);
-		this.aa == 100 && Game.BejApp.q.mi(Game.a.SOUND_NEXTLEVEL);
+		this.aa == 100 && Game.BejApp.q.mi(Game.Resources.SOUND_NEXTLEVEL);
 		this.sl.$a() || this.e.Zb(Game.lc.Zb.Cs);
 		this.aa == 180
 				&& (this.e.we.Aa(0), this.e.PK(), this.e.Zb(Game.lc.Zb.AK));
@@ -27907,7 +27907,7 @@ Game.Sz.prototype = {
 				c.t()
 			}
 		} else if (this.XW) {
-			b.kb(Game.a.FONT_DEFAULT);
+			b.kb(Game.Resources.FONT_DEFAULT);
 			c = "Loading";
 			Game.BejApp.q.gW && Game.BejApp.q.Ut == 1 && (c = "Connecting");
 			for (var d = 0; d < (this.aa / 80 | 0) % 4; d++)
@@ -27970,7 +27970,7 @@ Game.mv = function() {
 Game.mv.prototype = {
 	ja : function(b) {
 		GameFramework.widgets.td.prototype.ja.apply(this, [b]);
-		b.Ba(Game.a.IMAGE_BOARD_HDSD_BUTTON_FRAME.vd(), -160 - this.w, 0
+		b.Ba(Game.Resources.IMAGE_BOARD_HDSD_BUTTON_FRAME.vd(), -160 - this.w, 0
 						- this.v)
 	}
 };
@@ -27984,7 +27984,7 @@ U(function() {
 Game.WA = function(b, c) {
 	this.LO = new GameFramework.CurvedVal;
 	E(Game.WA, this, [c]);
-	this.U = Game.a.FONT_MENU_BTN;
+	this.U = Game.Resources.FONT_MENU_BTN;
 	this.LO.Aa(1);
 	this.Re = b;
 	this.dZ()
@@ -28111,7 +28111,7 @@ Game.MainMenu.prototype = {
 	Z_ : null,
 	dK : function() {
 		var b = new GameFramework.widgets.td;
-		b.wb = Game.a.IMAGE_BOARD_SD;
+		b.wb = Game.Resources.IMAGE_BOARD_SD;
 		b.w = b.wb.sf - 160;
 		b.v = b.wb.Oe;
 		b.s = b.wb.s;
@@ -28123,7 +28123,7 @@ Game.MainMenu.prototype = {
 		this.Bc(b);
 		this.RC = b;
 		b = new Game.mv;
-		b.wb = Game.a.IMAGE_BOARD_HD;
+		b.wb = Game.Resources.IMAGE_BOARD_HD;
 		b.w = b.wb.sf - 160;
 		b.v = b.wb.Oe;
 		b.s = b.wb.s;
@@ -28201,12 +28201,12 @@ Game.MainMenu.prototype = {
 	oZ : function() {
 		var b = new Game.ev;
 		b.eM.vj("MainMenu_cs_11_21_11__15_34_43_243");
-		b.wb = Game.a.IMAGE_BOARD_MENUBTN;
+		b.wb = Game.Resources.IMAGE_BOARD_MENUBTN;
 		b.w = b.wb.sf - 160;
 		b.v = b.wb.Oe;
 		b.s = b.wb.s;
 		b.z = b.wb.z;
-		b.U = Game.a.FONT_FLAREGOTHICBOLD42;
+		b.U = Game.Resources.FONT_FLAREGOTHICBOLD42;
 		b.Id = "MENU";
 		Game.BejApp.q.Hy(b);
 		b.LN = -10;
@@ -28255,8 +28255,8 @@ Game.MainMenu.prototype = {
 					if (this.ue && this.Kg.V() == 0 && !this.dN)
 						this.oZ(), this.dN = true, Game.BejApp.q.Ka.Km.length == 0
 								? Game.BejApp.q
-										.$v(Game.a.SOUND_VOICE_WELCOMETOBEJEWELED)
-								: Game.BejApp.q.$v(Game.a.SOUND_VOICE_WELCOMEBACK);
+										.$v(Game.Resources.SOUND_VOICE_WELCOMETOBEJEWELED)
+								: Game.BejApp.q.$v(Game.Resources.SOUND_VOICE_WELCOMEBACK);
 					this.ue && this.Kg.V();
 					if (this.ad != null && this.ad.Tc.V() == 1)
 						this.ad.m.Aa(0.17), this.ad.Tc.Aa(0), this.ec = false;
@@ -28424,7 +28424,7 @@ Game.MainMenu.prototype = {
 						c = b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255
 										* this.Xp.V() | 0));
 						try {
-							b.Ba(Game.a.IMAGE_TITLE, GameFramework.BaseApp.M.w, 0)
+							b.Ba(Game.Resources.IMAGE_TITLE, GameFramework.BaseApp.M.w, 0)
 						} finally {
 							c.t()
 						}
@@ -28434,16 +28434,16 @@ Game.MainMenu.prototype = {
 						try {
 							b
 									.Ba(
-											Game.a.IMAGE_LOADER_POPCAP,
+											Game.Resources.IMAGE_LOADER_POPCAP,
 											this.s
 													/ 2
-													- (Game.a.IMAGE_LOADER_POPCAP.s
+													- (Game.Resources.IMAGE_LOADER_POPCAP.s
 															/ 2 | 0), 300)
 						} finally {
 							c.t()
 						}
 					}
-					b.kb(Game.a.FONT_LOADER_TIP);
+					b.kb(Game.Resources.FONT_LOADER_TIP);
 					b.U.Ia("GLOW", GameFramework.gfx.k.Ma(64, 0, 32, 128));
 					b.U.Ia("OUTLINE", 0);
 					c = (Math.sin(this.aa * 0.03) * 0.125 + 0.75) * this.Gx.V();
@@ -28480,12 +28480,12 @@ Game.MainMenu.prototype = {
 							l = new GameFramework.gfx.jc(
 									this.s / 2 + Math.cos(m) * 180,
 									300
-											+ (Game.a.IMAGE_LOADER_POPCAP.z / 2 | 0)
+											+ (Game.Resources.IMAGE_LOADER_POPCAP.z / 2 | 0)
 											+ Math.sin(m) * 180, o, 0, f);
 							m = new GameFramework.gfx.jc(
 									this.s / 2 + Math.cos(m) * 240,
 									300
-											+ (Game.a.IMAGE_LOADER_POPCAP.z / 2 | 0)
+											+ (Game.Resources.IMAGE_LOADER_POPCAP.z / 2 | 0)
 											+ Math.sin(m) * 240, o, 1, f);
 							k != 0
 									&& (c[c.g * g + 0] = h, c[c.g * g + 1] = j, c[c.g
@@ -28494,7 +28494,7 @@ Game.MainMenu.prototype = {
 							h = l;
 							j = m
 						}
-						b.bn(Game.a.IMAGE_LOADER_WHITEDOT, c)
+						b.bn(Game.Resources.IMAGE_LOADER_WHITEDOT, c)
 					}
 					if (Game.BejApp.q.mI.length != 0 && Game.BejApp.q.kI > 0) {
 						c = b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255
@@ -28502,7 +28502,7 @@ Game.MainMenu.prototype = {
 										* Math.max(0, Math.min(1, this.Mn * 2
 																- 0.15)) | 0));
 						try {
-							b.kb(Game.a.FONT_LOADER_TIP), b.U.Ia("GLOW",
+							b.kb(Game.Resources.FONT_LOADER_TIP), b.U.Ia("GLOW",
 									GameFramework.gfx.k.Ma(64, 0, 32, 128)), b.U
 									.Ia("OUTLINE", 0), b.jh(
 									Game.BejApp.q.mI[(Game.BejApp.q.kI - 1)
@@ -28564,7 +28564,7 @@ Game.MainMenu.prototype = {
 		return this.ad != null && this.ad.m.wg() || this.Pe != null && this.Pe.m.wg()
 	},
 	RZ : function() {
-		this.ue && this.ec && Game.BejApp.q.mi(Game.a.SOUND_BUTTON_MOUSEOVER)
+		this.ue && this.ec && Game.BejApp.q.mi(Game.Resources.SOUND_BUTTON_MOUSEOVER)
 	},
 	Mi : function(b) {
 		if (this.ue && this.ec) {
@@ -28595,7 +28595,7 @@ Game.MainMenu.prototype = {
 								: this.IQ();
 						break;
 					case Game.MainMenu.gg.SK | 0 :
-						b = new Game.RecordsDialog, Game.BejApp.q.mi(Game.a.SOUND_MENUSPIN), Game.BejApp.q.te
+						b = new Game.RecordsDialog, Game.BejApp.q.mi(Game.Resources.SOUND_MENUSPIN), Game.BejApp.q.te
 								.Ho(b)
 				}
 		}
@@ -28613,7 +28613,7 @@ Game.MainMenu.prototype = {
 	CQ : function(b) {
 		if (b != null) {
 			var c = Game.BejApp.q.e;
-			Game.BejApp.q.mi(Game.a.SOUND_CLICKFLYIN);
+			Game.BejApp.q.mi(Game.Resources.SOUND_CLICKFLYIN);
 			b.Tc.ea("b;0,1,0.01,1,####         ~~###");
 			b.m.ea("b;0.17,0.88,0.01,1,####         ~~Q(j");
 			var d = b.Qb;
@@ -28626,7 +28626,7 @@ Game.MainMenu.prototype = {
 									0, 0, 0))
 							: (c.L.ea("b;0,1,0.012,1,#########         ~~###"), c.Ge.yp
 									.ea("b;0.001,1,0.012,1,####   B####      _~###"))
-					: b.Oa = Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_FLATTENEDPAM
+					: b.Oa = Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_FLATTENEDPAM
 		}
 	},
 	jS : function() {
@@ -28943,8 +28943,8 @@ U(function() {
 			Game.MTRand.c()
 		});
 Game.OptionsDialog = function(b) {
-	E(Game.OptionsDialog, this, [Game.a.IMAGE_DIALOG_HEADERLESS_BKG,
-					Game.a.IMAGE_DIALOG_BUTTON, Game.f.mb.bA, true, "", "", "",
+	E(Game.OptionsDialog, this, [Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG,
+					Game.Resources.IMAGE_DIALOG_BUTTON, Game.f.mb.bA, true, "", "", "",
 					GameFramework.widgets.rb.Zp]);
 	this.tI = !Game.BejApp.q.$f && Game.BejApp.q.kc() || !Game.BejApp.q.Ka.vt;
 	b = (this.Wn = b) ? 740 : 850;
@@ -28954,35 +28954,35 @@ Game.OptionsDialog = function(b) {
 	Game.BejApp.q.Nh.oi(this);
 	this.tb.Id = "OK";
 	this.tb.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.J1));
-	this.hd = this.eq(Game.a.IMAGE_DIALOG_BUTTON);
+	this.hd = this.eq(Game.Resources.IMAGE_DIALOG_BUTTON);
 	this.hd.Id = "  RESET";
 	this.hd.m = 0.7;
 	this.hd.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.H1));
 	this.Bx = true;
-	this.zm = this.eq(Game.a.IMAGE_DIALOG_BUTTON);
+	this.zm = this.eq(Game.Resources.IMAGE_DIALOG_BUTTON);
 	this.zm.Id = "HELP";
 	if (!this.Wn)
 		this.zm.Id = " " + this.zm.Id;
 	this.zm.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.TJ));
 	if (this.Wn)
-		this.Ow = this.eq(Game.a.IMAGE_DIALOG_BUTTON), this.Ow.Id = "MAIN MENU", this.Ow
+		this.Ow = this.eq(Game.Resources.IMAGE_DIALOG_BUTTON), this.Ow.Id = "MAIN MENU", this.Ow
 				.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.TJ)), this.ey = this
-				.eq(Game.a.IMAGE_DIALOG_BUTTON), this.ey.Id = "RESUME PLAY", this.ey
+				.eq(Game.Resources.IMAGE_DIALOG_BUTTON), this.ey.Id = "RESUME PLAY", this.ey
 				.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.TJ));
-	this.Er = new Game.nt(Game.a.IMAGE_DIALOG_SLIDERBAR,
-			Game.a.IMAGE_DIALOG_SLIDERHANDLE);
+	this.Er = new Game.nt(Game.Resources.IMAGE_DIALOG_SLIDERBAR,
+			Game.Resources.IMAGE_DIALOG_SLIDERHANDLE);
 	this.Er.Ra(GameFramework.widgets.wa.DA, ss.Delegate.create(this, this.vS));
 	this.Bc(this.Er);
-	this.wm = new Game.nt(Game.a.IMAGE_DIALOG_SLIDERBAR,
-			Game.a.IMAGE_DIALOG_SLIDERHANDLE);
+	this.wm = new Game.nt(Game.Resources.IMAGE_DIALOG_SLIDERBAR,
+			Game.Resources.IMAGE_DIALOG_SLIDERHANDLE);
 	this.wm.Ra(GameFramework.widgets.wa.DA, ss.Delegate.create(this, this.vS));
 	this.wm.Ra(GameFramework.widgets.wa.XS, ss.Delegate.create(this, this.I1));
 	this.Bc(this.wm);
 	if (this.tI)
-		this.lp = new Game.aq(Game.a.IMAGE_DIALOG_CHECKBOX_BLANK,
-				Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED), this.Bc(this.lp);
-	this.cs = new Game.aq(Game.a.IMAGE_DIALOG_CHECKBOX_BLANK,
-			Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED);
+		this.lp = new Game.aq(Game.Resources.IMAGE_DIALOG_CHECKBOX_BLANK,
+				Game.Resources.IMAGE_DIALOG_CHECKBOX_CHECKED), this.Bc(this.lp);
+	this.cs = new Game.aq(Game.Resources.IMAGE_DIALOG_CHECKBOX_BLANK,
+			Game.Resources.IMAGE_DIALOG_CHECKBOX_CHECKED);
 	this.Bc(this.cs);
 	this.G5();
 	this.Pt = 100;
@@ -29025,7 +29025,7 @@ Game.OptionsDialog.prototype = {
 	},
 	I1 : function(b) {
 		b.target == this.wm
-				&& (Game.BejApp.q.lL(this.wm.af), Game.BejApp.q.mi(Game.a.SOUND_COMBO_2))
+				&& (Game.BejApp.q.lL(this.wm.af), Game.BejApp.q.mi(Game.Resources.SOUND_COMBO_2))
 	},
 	vS : function(b) {
 		b.target == this.wm ? Game.BejApp.q.lL(this.wm.af) : b.target == this.Er
@@ -29081,19 +29081,19 @@ Game.OptionsDialog.prototype = {
 								- 200);
 		this.qr = 80;
 		var b = this.Un.Vj - 510, c = this.Un.Um - 40, d = GameFramework.BaseApp.M.Uc;
-		this.wm.Lb(d.mh(b), d.uv(c), 510, Game.a.IMAGE_DIALOG_SLIDERHANDLE.z);
+		this.wm.Lb(d.mh(b), d.uv(c), 510, Game.Resources.IMAGE_DIALOG_SLIDERHANDLE.z);
 		this.Er.Lb(d.mh(b), d.uv(c + this.qr), 510,
-				Game.a.IMAGE_DIALOG_SLIDERHANDLE.z);
+				Game.Resources.IMAGE_DIALOG_SLIDERHANDLE.z);
 		this.cs.Lb(d.mh(this.Un.Vj - this.cs.s), d.uv(c + this.qr * 2 + 1),
-				Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED.s,
-				Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED.z);
+				Game.Resources.IMAGE_DIALOG_CHECKBOX_CHECKED.s,
+				Game.Resources.IMAGE_DIALOG_CHECKBOX_CHECKED.z);
 		this.hd.nh(d.mh(this.Un.Vj - this.hd.s - this.cs.s + 14), d.uv(c
 						+ this.qr * 2 - 16));
 		this.lp != null
 				&& this.lp.Lb(d.mh(this.Un.Vj - this.lp.s), d.uv(c + this.qr
 								* 3 + 1),
-						Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED.s,
-						Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED.z);
+						Game.Resources.IMAGE_DIALOG_CHECKBOX_CHECKED.s,
+						Game.Resources.IMAGE_DIALOG_CHECKBOX_CHECKED.z);
 		c = this.Un.bj;
 		this.ey != null
 				&& (this.ey.Lb(this.tb.w, c, this.tb.s, this.tb.z), c -= this.tb.z);
@@ -29109,7 +29109,7 @@ Game.OptionsDialog.prototype = {
 		this.A5();
 		var c = b.gc(this.Un.yh, this.Un.Um);
 		try {
-			b.kb(Game.a.FONT_DIALOG_TEXT);
+			b.kb(Game.Resources.FONT_DIALOG_TEXT);
 			var d = b.Q(4278190080);
 			try {
 				b.Cc("Sound", 0, 0), b.Cc("Music", 0, this.qr), b.Cc(
@@ -29125,11 +29125,11 @@ Game.OptionsDialog.prototype = {
 			c = this.s / 2 - 2;
 			d = b.nc(0.65, 0.65, c, 142);
 			try {
-				b.Ba(Game.a.IMAGE_GAMEOVER_STAMP.Ee(), c, 142)
+				b.Ba(Game.Resources.IMAGE_GAMEOVER_STAMP.Ee(), c, 142)
 			} finally {
 				d.t()
 			}
-			b.kb(Game.a.FONT_GAMEOVER_DIALOG_HUGE);
+			b.kb(Game.Resources.FONT_GAMEOVER_DIALOG_HUGE);
 			b.U.Ia("MAIN", 4287121432);
 			b.jh("Options", this.s / 2, 152);
 			b.U.ib("MAIN")
@@ -29388,7 +29388,7 @@ Game.Piece.prototype = {
 								c.n = GameFramework.gfx.k.ta(255, 255, 255)
 						} else if (f = Game.Util.Fc() % 2 == 0
 								? this.e.ob
-								: this.e.Jg, c = f.wf(Game.Effect.da.cz), c.L = 1, c.m = 2, c.Ag = -0.0167, c.nf = 0, c.Oa = Game.a.IMAGE_SPARKLET, c.Vb = (-0.4 + GameFramework.Utils
+								: this.e.Jg, c = f.wf(Game.Effect.da.cz), c.L = 1, c.m = 2, c.Ag = -0.0167, c.nf = 0, c.Oa = Game.Resources.IMAGE_SPARKLET, c.Vb = (-0.4 + GameFramework.Utils
 								.P()
 								* 0.15)
 								* 1.67, c.n = GameFramework.gfx.k.ta(128, Game.Util
@@ -29681,7 +29681,7 @@ Game.Points.prototype = {
 	t4 : function(b) {
 		b.kb(this.U);
 		b = Array.O(3, "", "GLOW", "MAIN", "OUTLINE");
-		if (this.U == Game.a.FONT_FLOATERS)
+		if (this.U == Game.Resources.FONT_FLOATERS)
 			for (var c = 0; c < b.length; c++) {
 				var d = 4294967295, d = c == this.TN - 1 ? this.GM
 						? this.Je[this.TN - 1].n
@@ -29692,7 +29692,7 @@ Game.Points.prototype = {
 	},
 	H0 : function() {
 		var b = Array.O(3, "", "GLOW", "MAIN", "OUTLINE");
-		if (this.U == Game.a.FONT_FLOATERS)
+		if (this.U == Game.Resources.FONT_FLOATERS)
 			for (var c = 0; c < b.length; c++)
 				this.U.ib(b[c])
 	}
@@ -29765,8 +29765,8 @@ Game.PointsManager.prototype = {
 			var o = Math.max(0, Math.min(1, (k - 50) / 1E3)), q = Math.max(0,
 					Math.min(1, (l - 50) / 1E3)), r = 0.6 + Math.min(1, o * 2)
 					* 0.4, c = Math.max(c, 120) | 0;
-			if (h == null && Game.a.FONT_FLOATERS != null) {
-				h = new Game.Points(Game.BejApp.q, Game.a.FONT_FLOATERS, m, b, c, 1, 0,
+			if (h == null && Game.Resources.FONT_FLOATERS != null) {
+				h = new Game.Points(Game.BejApp.q, Game.Resources.FONT_FLOATERS, m, b, c, 1, 0,
 						f, -1);
 				h.Pa = j;
 				h.xa = g;
@@ -30017,11 +30017,11 @@ Game.RankBarWidget.prototype = {
 			if (this.$x.$a(), this.Zx > 0)
 				--this.Zx;
 			else if (this.qm < 0 && this.aa >= 90) {
-				this.aa % 12 == 0 && b.mi(Game.a.SOUND_RANK_COUNTUP);
+				this.aa % 12 == 0 && b.mi(Game.Resources.SOUND_RANK_COUNTUP);
 				this.qm = Math.min(0, this.qm + -this.qm / 100 + 0.1);
 				var c = b.Ka.fS((this.qm | 0) + Game.BejApp.q.Ka.El) | 0;
 				if (c > this.dx)
-					b.mi(Game.a.SOUND_RANKUP), this.dx = c, this.qm = 0, this.Zx = 84, this.$x
+					b.mi(Game.Resources.SOUND_RANKUP), this.dx = c, this.qm = 0, this.Zx = 84, this.$x
 							.ea("b+0,1,0.004167,1,#### 9~### (#### 5g### .#### 3W### ;#### BJ### X####"), this.FO != null
 							&& this.FO.A_()
 			}
@@ -30029,25 +30029,25 @@ Game.RankBarWidget.prototype = {
 	ja : function(b) {
 		var c = Game.BejApp.q;
 		if (this.e != null || c.Bi.or) {
-			b.kb(Game.a.FONT_GAMEOVER_DIALOG);
+			b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 			b.U.Ia("MAIN", 4294967295);
 			b.U.Ia("OUTLINE", 4278190080);
 			b.U.Ia("GLOW", 0);
 			var d = this.jE(), f = this.gS(), g = this.ZR(), h = c.Ka.tv(d | 0);
 			this.Zx > 0 && (h = c.Ka.tv((d | 0) - 1));
 			f = Math.min((f - h + this.qm) / (g - h), 1);
-			b.Ba(Game.a.IMAGE_RECORDS_RANK_PLATE.vd(), 0, 0);
+			b.Ba(Game.Resources.IMAGE_RECORDS_RANK_PLATE.vd(), 0, 0);
 			f != 0
-					&& (f = Game.a.IMAGE_RECORDS_RANK_FILL.dv(0, 0,
-							Game.a.IMAGE_RECORDS_RANK_FILL.Hg * f | 0,
-							Game.a.IMAGE_RECORDS_RANK_FILL.Gg), b.Ba(f,
-							Game.a.IMAGE_RECORDS_RANK_FILL.sf,
-							Game.a.IMAGE_RECORDS_RANK_FILL.Oe));
+					&& (f = Game.Resources.IMAGE_RECORDS_RANK_FILL.dv(0, 0,
+							Game.Resources.IMAGE_RECORDS_RANK_FILL.Hg * f | 0,
+							Game.Resources.IMAGE_RECORDS_RANK_FILL.Gg), b.Ba(f,
+							Game.Resources.IMAGE_RECORDS_RANK_FILL.sf,
+							Game.Resources.IMAGE_RECORDS_RANK_FILL.Oe));
 			if (this.$x != null && this.$x.D() != 0) {
-				Game.a.IMAGE_RECORDS_RANK_GLOW.pc = true;
+				Game.Resources.IMAGE_RECORDS_RANK_GLOW.pc = true;
 				f = b.Q(GameFramework.gfx.k.Jb(this.$x.D()));
 				try {
-					b.Ba(Game.a.IMAGE_RECORDS_RANK_GLOW.vd(), 0, 0)
+					b.Ba(Game.Resources.IMAGE_RECORDS_RANK_GLOW.vd(), 0, 0)
 				} finally {
 					f.t()
 				}
@@ -30124,7 +30124,7 @@ U(function() {
 		});
 Game.uA = function(b) {
 	this.KC = new GameFramework.CurvedVal;
-	E(Game.uA, this, [null, Game.a.IMAGE_DIALOG_BUTTON, Game.f.mb.w3, true,
+	E(Game.uA, this, [null, Game.Resources.IMAGE_DIALOG_BUTTON, Game.f.mb.w3, true,
 					"RANK UP", "", "", GameFramework.widgets.rb.Zp]);
 	this.e = b;
 	this.Fd.Um = 17;
@@ -30147,7 +30147,7 @@ Game.uA.prototype = {
 		var c = b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.e.Rf() | 0));
 		try {
 			var d = this.Tp.jE(), f = this.s / 2 | 0, g = 150;
-			b.kb(Game.a.FONT_DIALOG_SMALL_TEXT);
+			b.kb(Game.Resources.FONT_DIALOG_SMALL_TEXT);
 			var h = b.Q(GameFramework.gfx.k.ta(80, 40, 20));
 			try {
 				b.jh("You have been promoted to:", f, g), g += 270, b.jh(
@@ -30156,12 +30156,12 @@ Game.uA.prototype = {
 				h.t()
 			}
 			(this.Tp.OJ() | 0) > 0
-					&& (b.kb(Game.a.FONT_GAMEOVER_DIALOG), Game.a.FONT_GAMEOVER_DIALOG
-							.Ia("GLOW", GameFramework.gfx.k.Ma(192, 96, 48, 80)), Game.a.FONT_GAMEOVER_DIALOG
+					&& (b.kb(Game.Resources.FONT_GAMEOVER_DIALOG), Game.Resources.FONT_GAMEOVER_DIALOG
+							.Ia("GLOW", GameFramework.gfx.k.Ma(192, 96, 48, 80)), Game.Resources.FONT_GAMEOVER_DIALOG
 							.Ia("OUTLINE", GameFramework.gfx.k.ta(64, 32, 16)), b
 							.jh(	GameFramework.Utils.ei(this.Tp.OJ() | 0)
-											+ ",000 Points", f, g), Game.a.FONT_GAMEOVER_DIALOG
-							.ib("GLOW"), Game.a.FONT_GAMEOVER_DIALOG
+											+ ",000 Points", f, g), Game.Resources.FONT_GAMEOVER_DIALOG
+							.ib("GLOW"), Game.Resources.FONT_GAMEOVER_DIALOG
 							.ib("OUTLINE"));
 			g -= 260;
 			var j = new GameFramework.CurvedVal;
@@ -30170,7 +30170,7 @@ Game.uA.prototype = {
 			k.me("b#1,2,0,1,#         ~~", this.KC);
 			var l = new GameFramework.CurvedVal;
 			l.me("b+0,1,0,1,####     $~###    }####", this.KC);
-			b.kb(Game.a.FONT_RANKUP_NAME);
+			b.kb(Game.Resources.FONT_RANKUP_NAME);
 			var m = b.nc(j.V(), j.V(), f, g - 20);
 			try {
 				b.U.Ia("GLOW", GameFramework.gfx.k.ta(192, 96, 48)), b.U.Ia(
@@ -30224,8 +30224,8 @@ Game.RecordsDialog = function(b) {
 	b === UNDEF && (b = false);
 	this.UO = [];
 	this.FM = [];
-	E(Game.RecordsDialog, this, [Game.a.IMAGE_DIALOG_HEADERLESS_BKG,
-					Game.a.IMAGE_DIALOG_BUTTON, Game.f.mb.vT, true, "", "", "",
+	E(Game.RecordsDialog, this, [Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG,
+					Game.Resources.IMAGE_DIALOG_BUTTON, Game.f.mb.vT, true, "", "", "",
 					GameFramework.widgets.rb.Zp]);
 	this.LB = b;
 	this.Gl = new Game.RankBarWidget(1195, null, null, true);
@@ -30252,11 +30252,11 @@ Game.RecordsDialog.prototype = {
 		Game.Qc.prototype.ja.apply(this, [b]);
 		var c = this.s / 2 - 2, d = b.nc(0.65, 0.65, c, 142);
 		try {
-			b.Ba(Game.a.IMAGE_GAMEOVER_STAMP.Ee(), c, 142)
+			b.Ba(Game.Resources.IMAGE_GAMEOVER_STAMP.Ee(), c, 142)
 		} finally {
 			d.t()
 		}
-		b.kb(Game.a.FONT_GAMEOVER_DIALOG_HUGE);
+		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG_HUGE);
 		b.U.Ia("MAIN", 4287121432);
 		b.jh("Records", this.s / 2, 152);
 		b.U.ib("MAIN");
@@ -30269,7 +30269,7 @@ Game.RecordsDialog.prototype = {
 		this.X_(b)
 	},
 	U_ : function(b) {
-		b.kb(Game.a.FONT_GAMEOVER_DIALOG);
+		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 		b.U.Ia("OUTLINE", GameFramework.gfx.k.ta(64, 24, 8));
 		b.U.Ia("GLOW", GameFramework.gfx.k.Ma(0, 0, 0, 0));
 		for (var c = "N/A", d = -1, f = 0, g = 0; g < 7; g++)
@@ -30289,11 +30289,11 @@ Game.RecordsDialog.prototype = {
 						.ei(Game.BejApp.q.Ka.xe[Game.f.T.dn | 0]), c);
 		this.LB && b.gc(0, -120);
 		this.LB
-				? b.dk(Game.a.IMAGE_GAMEOVER_LIGHT_BOX, 110, 650, 1175, 260, 0)
-				: b.dk(Game.a.IMAGE_GAMEOVER_LIGHT_BOX, 110, 610, 1175, 300, 0);
+				? b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 110, 650, 1175, 260, 0)
+				: b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 110, 610, 1175, 300, 0);
 		var h = b.Q(4292725930);
 		try {
-			b.dk(Game.a.IMAGE_GAMEOVER_LIGHT_BOX, 125, 670, 1145, 225, 0)
+			b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 125, 670, 1145, 225, 0)
 		} finally {
 			h.t()
 		}
@@ -30341,12 +30341,12 @@ Game.RecordsDialog.prototype = {
 		b.U.ib("MAIN");
 		b.U.ib("OUTLINE");
 		b.U.ib("GLOW");
-		b.kb(Game.a.FONT_GAMEOVER_DIALOG);
-		b.dk(Game.a.IMAGE_GAMEOVER_LIGHT_BOX, 0, 0, 600, 280, 0);
+		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
+		b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 0, 0, 600, 280, 0);
 		for (c = 0; c < (Math.min(5, d.length) | 0); ++c) {
 			d[c].vk || c == -1
-					? (Game.a.FONT_GAMEOVER_DIALOG.Ia("MAIN", 4294834096), Game.a.FONT_GAMEOVER_DIALOG
-							.Ia("OUTLINE", 4282400768), Game.a.FONT_GAMEOVER_DIALOG
+					? (Game.Resources.FONT_GAMEOVER_DIALOG.Ia("MAIN", 4294834096), Game.Resources.FONT_GAMEOVER_DIALOG
+							.Ia("OUTLINE", 4282400768), Game.Resources.FONT_GAMEOVER_DIALOG
 							.Ia(
 									"GLOW",
 									GameFramework.gfx.k
@@ -30359,8 +30359,8 @@ Game.RecordsDialog.prototype = {
 																	* Math
 																			.sin(this.aa
 																					* 0.07) | 0))))
-					: (Game.a.FONT_GAMEOVER_DIALOG.Ia("MAIN", 4294834096), Game.a.FONT_GAMEOVER_DIALOG
-							.Ia("OUTLINE", 4282400768), Game.a.FONT_GAMEOVER_DIALOG
+					: (Game.Resources.FONT_GAMEOVER_DIALOG.Ia("MAIN", 4294834096), Game.Resources.FONT_GAMEOVER_DIALOG
+							.Ia("OUTLINE", 4282400768), Game.Resources.FONT_GAMEOVER_DIALOG
 							.Ia("GLOW", 0));
 			var f = b.Q(-1);
 			try {
@@ -30372,9 +30372,9 @@ Game.RecordsDialog.prototype = {
 					b.zb(g, 570, 70 + 45 * c, -1, 1)
 				} else
 					c == 0 && b.zb("No scores posted", 300, 120, -1, 0);
-				Game.a.FONT_GAMEOVER_DIALOG.ib("MAIN");
-				Game.a.FONT_GAMEOVER_DIALOG.ib("OUTLINE");
-				Game.a.FONT_GAMEOVER_DIALOG.ib("GLOW")
+				Game.Resources.FONT_GAMEOVER_DIALOG.ib("MAIN");
+				Game.Resources.FONT_GAMEOVER_DIALOG.ib("OUTLINE");
+				Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW")
 			} finally {
 				f.t()
 			}
@@ -30397,1387 +30397,1387 @@ T(function() {
 U(function() {
 			Game.RecordsDialog.c()
 		});
-Game.a = t();
-Game.a.prototype = {};
-Game.a.c = function() {
-	Game.a.tja = "IMAGE_GEMLIGHTING";
-	Game.a.gla = "IMAGE_SPARKLE";
-	Game.a.ska = "IMAGE_PARTICLES_BOARD_FLAME_EMBERS_0_BASIC_BLUR";
-	Game.a.tka = "IMAGE_PARTICLES_COUNTDOWNBAR_0_SMALL_BLUR_STAR";
-	Game.a.uka = "IMAGE_PARTICLES_COUNTDOWNBAR_1_BASIC_BLUR";
-	Game.a.xka = "IMAGE_PARTICLES_DISCOBALL_0_DISCO_GLOW";
-	Game.a.yka = "IMAGE_PARTICLES_DISCOBALL_1_DISCO_GLOW";
-	Game.a.zka = "IMAGE_PARTICLES_DISCOBALL_2_BLURRED_SHARP_STAR";
-	Game.a.Bka = "IMAGE_PARTICLES_FIRE_TRAIL_0_BASIC_BLUR";
-	Game.a.Aka = "IMAGE_PARTICLES_FIREGEM_HYPERSPACE_0_BASIC_BLUR";
-	Game.a.Cka = "IMAGE_PARTICLES_GEM_LANDING_FX_0_CERCLEM";
-	Game.a.Dka = "IMAGE_PARTICLES_GEM_LANDING_FX_1_BLURRED_SHARP_STAR";
-	Game.a.Eka = "IMAGE_PARTICLES_HINTFLASH_0_CERCLEM";
-	Game.a.Fka = "IMAGE_PARTICLES_HYPERCUBE_0_BASIC_BLUR";
-	Game.a.Gka = "IMAGE_PARTICLES_LIGHTNING_POWERED_BOTTOM_0_LIGHTNINGPARTICLE";
-	Game.a.Hka = "IMAGE_PARTICLES_LIGHTNING_POWERED_LEFTRIGHT_0_LIGHTNINGPARTICLE";
-	Game.a.Ika = "IMAGE_PARTICLES_LIGHTNING_POWERED_LEFTRIGHT_1_LIGHTNINGPARTICLE";
-	Game.a.Jka = "IMAGE_PARTICLES_LIGHTNING_POWERED_MEGASHARD_0_LIGHTNINGPARTICLE";
-	Game.a.Kka = "IMAGE_PARTICLES_LIGHTNING_POWERED_MEGASHARD_1_LIGHTNINGPARTICLE";
-	Game.a.Lka = "IMAGE_PARTICLES_LIGHTNING_STEAMPULSE_0_BASIC_BLUR";
-	Game.a.Mka = "IMAGE_PARTICLES_MAINMENU3_0_BLURRED_SPLOTCH";
-	Game.a.Nka = "IMAGE_PARTICLES_MULTIPLIER_0_RAY";
-	Game.a.Oka = "IMAGE_PARTICLES_QUEST_DIG_COLLECT_GOLD_0_SMALL_BLUR_STAR";
-	Game.a.Pka = "IMAGE_PARTICLES_QUEST_DIG_COLLECT_GOLD_1_BASIC_BLUR";
-	Game.a.Qka = "IMAGE_PARTICLES_SPEEDBOARD_FLAME_0_FLAME1";
-	Game.a.Rka = "IMAGE_PARTICLES_SPEEDTEXT_FLAME_0_TRUEFLAME5X";
-	Game.a.Ska = "IMAGE_PARTICLES_STARGEM_0_SMALL_BLUR_STAR";
-	Game.a.Tka = "IMAGE_PARTICLES_STARGEM_1_CORONAGLOW";
-	Game.a.Uka = "IMAGE_PARTICLES_STARGEM_2_STAR_GLOW";
-	Game.a.eka = "IMAGE_LIGHTNING";
-	Game.a.Fia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME1";
-	Game.a.Gia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME2";
-	Game.a.Hia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME3";
-	Game.a.Iia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME4";
-	Game.a.Jia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME5";
-	Game.a.Kia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME6";
-	Game.a.Lia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME7";
-	Game.a.Mia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME8";
-	Game.a.Nia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME9";
-	Game.a.Dia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME10";
-	Game.a.Eia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME11";
-	Game.a.Oia = "IMAGE_FLAMEGEMCREATION_FLAMEGEM_BLUR";
-	Game.a.Pia = "IMAGE_FLAMEGEMCREATION_FLAMEGEM_FLASH_1";
-	Game.a.Qia = "IMAGE_FLAMEGEMCREATION_FLAMEGEM_FLASH_2";
-	Game.a.Ria = "IMAGE_FLAMEGEMCREATION_FLAMEGEM_LARGE_RING";
-	Game.a.Sia = "IMAGE_FLAMEGEMCREATION_FLAMEGEM_RING_OF_FLAME";
-	Game.a.Cia = "IMAGE_FIREPARTICLE";
-	Game.a.ela = "IMAGE_SPARKLET";
-	Game.a.Kja = "IMAGE_GEM_FRUIT_SPARK";
-	Game.a.Bia = "IMAGE_ELECTROTEX";
-	Game.a.Aia = "IMAGE_ELECTROTEX_CENTER";
-	Game.a.Rja = "IMAGE_HYPERFLARELINE";
-	Game.a.Sja = "IMAGE_HYPERFLARERING";
-	Game.a.uja = "IMAGE_GEMOUTLINES";
-	Game.a.k$ = "ATLASIMAGE_ATLAS_ADDITIVE_480_00";
-	Game.a.l$ = "ATLASIMAGE_ATLAS_ADDITIVE_480_01";
-	Game.a.iaa = "ATLASIMAGE_RT_ATLAS_ADDITIVE_480_00";
-	Game.a.m$ = "ATLASIMAGE_ATLAS_ADDITIVE_768_00";
-	Game.a.n$ = "ATLASIMAGE_ATLAS_ADDITIVE_768_01";
-	Game.a.jaa = "ATLASIMAGE_RT_ATLAS_ADDITIVE_768_00";
-	Game.a.ffa = "IMAGE_BACKGROUNDS_BLOWING_SNOW04_0_SNOWBLOW";
-	Game.a.gfa = "IMAGE_BACKGROUNDS_BLOWING_SNOW04_1_DOTS";
-	Game.a.pga = "IMAGE_BACKGROUNDS_LANTERNPLANT01_0_BASIC_BLUR";
-	Game.a.qga = "IMAGE_BACKGROUNDS_LANTERNPLANT01_1_SQUARE_STAR";
-	Game.a.dha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF01_0_WATERPART01";
-	Game.a.eha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF02_0_FLAME320004C7";
-	Game.a.o$ = "ATLASIMAGE_ATLAS_BACKGROUNDS_480_00";
-	Game.a.kaa = "ATLASIMAGE_RT_ATLAS_BACKGROUNDS_480_00";
-	Game.a.p$ = "ATLASIMAGE_ATLAS_BACKGROUNDS_768_00";
-	Game.a.laa = "ATLASIMAGE_RT_ATLAS_BACKGROUNDS_768_00";
-	Game.a.yfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_FLATTENEDPAM";
-	Game.a.hfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_1920X1200";
-	Game.a.wfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50";
-	Game.a.ofa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_2";
-	Game.a.pfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_3";
-	Game.a.qfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_4";
-	Game.a.rfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_5";
-	Game.a.sfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_6";
-	Game.a.tfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_7";
-	Game.a.ufa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_8";
-	Game.a.vfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_9";
-	Game.a.ifa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_10";
-	Game.a.jfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_11";
-	Game.a.kfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_12";
-	Game.a.lfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_13";
-	Game.a.mfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_14";
-	Game.a.nfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_15";
-	Game.a.xfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_965X935";
-	Game.a.Rma = "POPANIM_BACKGROUNDS_CANYON_WALL_CASTLE";
-	Game.a.q$ = "ATLASIMAGE_ATLAS_BG_CANYONWALLCASTLE_480_00";
-	Game.a.maa = "ATLASIMAGE_RT_ATLAS_BG_CANYONWALLCASTLE_480_00";
-	Game.a.r$ = "ATLASIMAGE_ATLAS_BG_CANYONWALLCASTLE_768_00";
-	Game.a.naa = "ATLASIMAGE_RT_ATLAS_BG_CANYONWALLCASTLE_768_00";
-	Game.a.zfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLATTENEDPAM";
-	Game.a.Efa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1920X1200";
-	Game.a.Afa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1127X272";
-	Game.a.Bfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1254X573";
-	Game.a.Cfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_16X63";
-	Game.a.Dfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1920X1186";
-	Game.a.Ffa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_214X81";
-	Game.a.Gfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_439X551";
-	Game.a.Vfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17";
-	Game.a.Nfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_2";
-	Game.a.Ofa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_3";
-	Game.a.Pfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_4";
-	Game.a.Qfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_5";
-	Game.a.Rfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_6";
-	Game.a.Sfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_7";
-	Game.a.Tfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_8";
-	Game.a.Ufa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_9";
-	Game.a.Hfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_10";
-	Game.a.Ifa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_11";
-	Game.a.Jfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_12";
-	Game.a.Kfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_13";
-	Game.a.Lfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_14";
-	Game.a.Mfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_15";
-	Game.a.Wfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_576X369";
-	Game.a.Xfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_619X198";
-	Game.a.Yfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_629X243";
-	Game.a.$fa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_724X147";
-	Game.a.Zfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_724X147_2";
-	Game.a.Sma = "POPANIM_BACKGROUNDS_FLOATING_ROCK_CITY";
-	Game.a.s$ = "ATLASIMAGE_ATLAS_BG_FLOATINGROCKCITY_480_00";
-	Game.a.oaa = "ATLASIMAGE_RT_ATLAS_BG_FLOATINGROCKCITY_480_00";
-	Game.a.t$ = "ATLASIMAGE_ATLAS_BG_FLOATINGROCKCITY_768_00";
-	Game.a.paa = "ATLASIMAGE_RT_ATLAS_BG_FLOATINGROCKCITY_768_00";
-	Game.a.aga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_FLATTENEDPAM";
-	Game.a.iga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_1920X1200";
-	Game.a.bga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_11X10";
-	Game.a.cga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_11X19";
-	Game.a.dga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_12X11";
-	Game.a.ega = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_13X14";
-	Game.a.fga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_14X14";
-	Game.a.gga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_15X13";
-	Game.a.hga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_16X10";
-	Game.a.jga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_22X13";
-	Game.a.kga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_23X8";
-	Game.a.lga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_25X10";
-	Game.a.mga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_62X884";
-	Game.a.nga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_6X19";
-	Game.a.oga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_779X876";
-	Game.a.Tma = "POPANIM_BACKGROUNDS_HORSE_FOREST_TREE";
-	Game.a.u$ = "ATLASIMAGE_ATLAS_BG_HORSEFORESTTREE_480_00";
-	Game.a.qaa = "ATLASIMAGE_RT_ATLAS_BG_HORSEFORESTTREE_480_00";
-	Game.a.v$ = "ATLASIMAGE_ATLAS_BG_HORSEFORESTTREE_768_00";
-	Game.a.raa = "ATLASIMAGE_RT_ATLAS_BG_HORSEFORESTTREE_768_00";
-	Game.a.rga = "IMAGE_BACKGROUNDS_LANTERN_PLANTS_WORLD_FLATTENEDPAM";
-	Game.a.sga = "IMAGE_BACKGROUNDS_LANTERN_PLANTS_WORLD_LANTERN_PLANTS_WORLD_1920X1200";
-	Game.a.Uma = "POPANIM_BACKGROUNDS_LANTERN_PLANTS_WORLD";
-	Game.a.tga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_FLATTENEDPAM";
-	Game.a.Bga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_1920X1200";
-	Game.a.uga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_11X19";
-	Game.a.vga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_12X11";
-	Game.a.wga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_13X14";
-	Game.a.xga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_14X14";
-	Game.a.yga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_15X13";
-	Game.a.zga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_16X10";
-	Game.a.Aga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_179X67";
-	Game.a.Cga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_22X13";
-	Game.a.Dga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_23X8";
-	Game.a.Ega = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_25X10";
-	Game.a.Fga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_279X293";
-	Game.a.Gga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_303X68";
-	Game.a.Hga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_558X504";
-	Game.a.Iga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_617X180";
-	Game.a.Jga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_650X300";
-	Game.a.Kga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_663X239";
-	Game.a.Lga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_693X281";
-	Game.a.Mga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_694X323";
-	Game.a.Nga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_6X19";
-	Game.a.bha = "IMAGE_BACKGROUNDS_WATERFALL10_0_WHITEPHOOP_RIGHT2";
-	Game.a.cha = "IMAGE_BACKGROUNDS_WATERFALL10_1_WATERPART";
-	Game.a.Vma = "POPANIM_BACKGROUNDS_LION_TOWER_CASCADE";
-	Game.a.w$ = "ATLASIMAGE_ATLAS_BG_LIONTOWERCASCADE_480_00";
-	Game.a.saa = "ATLASIMAGE_RT_ATLAS_BG_LIONTOWERCASCADE_480_00";
-	Game.a.x$ = "ATLASIMAGE_ATLAS_BG_LIONTOWERCASCADE_768_00";
-	Game.a.taa = "ATLASIMAGE_RT_ATLAS_BG_LIONTOWERCASCADE_768_00";
-	Game.a.Oga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_FLATTENEDPAM";
-	Game.a.Sga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_1920X1200";
-	Game.a.Pga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_133X135";
-	Game.a.Qga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_135X118";
-	Game.a.Rga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_16X63";
-	Game.a.Tga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_192X94";
-	Game.a.Uga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_578X432";
-	Game.a.Vga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_840X355";
-	Game.a.Wma = "POPANIM_BACKGROUNDS_POINTY_ICE_PATH";
-	Game.a.y$ = "ATLASIMAGE_ATLAS_BG_POINTYICEPATH_480_00";
-	Game.a.uaa = "ATLASIMAGE_RT_ATLAS_BG_POINTYICEPATH_480_00";
-	Game.a.z$ = "ATLASIMAGE_ATLAS_BG_POINTYICEPATH_768_00";
-	Game.a.vaa = "ATLASIMAGE_RT_ATLAS_BG_POINTYICEPATH_768_00";
-	Game.a.Wga = "IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_FLATTENEDPAM";
-	Game.a.Xga = "IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_1920X1200";
-	Game.a.aha = "IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82";
-	Game.a.Yga = "IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82_2";
-	Game.a.Zga = "IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82_3";
-	Game.a.$ga = "IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82_4";
-	Game.a.Xma = "POPANIM_BACKGROUNDS_SNOWY_CLIFFS_CASTLE";
-	Game.a.A$ = "ATLASIMAGE_ATLAS_BG_SNOWYCLIFFSCASTLE_480_00";
-	Game.a.waa = "ATLASIMAGE_RT_ATLAS_BG_SNOWYCLIFFSCASTLE_480_00";
-	Game.a.B$ = "ATLASIMAGE_ATLAS_BG_SNOWYCLIFFSCASTLE_768_00";
-	Game.a.xaa = "ATLASIMAGE_RT_ATLAS_BG_SNOWYCLIFFSCASTLE_768_00";
-	Game.a.fha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_FLATTENEDPAM";
-	Game.a.mha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_1920X1200";
-	Game.a.gha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_11X19";
-	Game.a.hha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_12X11";
-	Game.a.iha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_13X14";
-	Game.a.jha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_14X14";
-	Game.a.kha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_15X13";
-	Game.a.lha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_16X10";
-	Game.a.nha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_22X13";
-	Game.a.oha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_23X8";
-	Game.a.pha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_25X10";
-	Game.a.qha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_449X521";
-	Game.a.rha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_497X955";
-	Game.a.sha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_676X834";
-	Game.a.tha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_6X19";
-	Game.a.Yma = "POPANIM_BACKGROUNDS_WATER_FALL_CLIFF";
-	Game.a.C$ = "ATLASIMAGE_ATLAS_BG_WATERFALLCLIFF_480_00";
-	Game.a.yaa = "ATLASIMAGE_RT_ATLAS_BG_WATERFALLCLIFF_480_00";
-	Game.a.D$ = "ATLASIMAGE_ATLAS_BG_WATERFALLCLIFF_768_00";
-	Game.a.zaa = "ATLASIMAGE_RT_ATLAS_BG_WATERFALLCLIFF_768_00";
-	Game.a.Rea = "IMAGE_ANIMS_LIGHTNINGUI_ENERGIZE_PULSERING";
-	Game.a.Sea = "IMAGE_ANIMS_LIGHTNINGUI_LEFT_DEAD";
-	Game.a.Tea = "IMAGE_ANIMS_LIGHTNINGUI_LEFT_GOLD";
-	Game.a.Uea = "IMAGE_ANIMS_LIGHTNINGUI_LEFT_PURPLE";
-	Game.a.Vea = "IMAGE_ANIMS_LIGHTNINGUI_MULTI_GOLD";
-	Game.a.Wea = "IMAGE_ANIMS_LIGHTNINGUI_MULTI_PULSERING";
-	Game.a.Xea = "IMAGE_ANIMS_LIGHTNINGUI_RIGHT_DEAD";
-	Game.a.Yea = "IMAGE_ANIMS_LIGHTNINGUI_RIGHT_GOLD";
-	Game.a.Zea = "IMAGE_ANIMS_LIGHTNINGUI_RIGHT_PURPLE";
-	Game.a.$ea = "IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDL";
-	Game.a.afa = "IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDM1";
-	Game.a.bfa = "IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDM2";
-	Game.a.cfa = "IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDR";
-	Game.a.efa = "IMAGE_ANIMS_LIGHTNINGUI_UITOP";
-	Game.a.dfa = "IMAGE_ANIMS_LIGHTNINGUI_UITOP_DAMAGE";
-	Game.a.zea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_BOTTOM_DEAD";
-	Game.a.Aea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_BOTTOM_GOLD";
-	Game.a.Bea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_BOTTOM_PURPLE";
-	Game.a.Cea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_ENERGIZE_PULSERING";
-	Game.a.Dea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_LEFT_DEAD";
-	Game.a.Eea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_LEFT_GOLD";
-	Game.a.Fea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_LEFT_PURPLE";
-	Game.a.Gea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_MULTI_GOLD";
-	Game.a.Hea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_MULTI_PULSERING";
-	Game.a.Iea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RIGHT_DEAD";
-	Game.a.Jea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RIGHT_GOLD";
-	Game.a.Kea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RIGHT_PURPLE";
-	Game.a.Lea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDL";
-	Game.a.Mea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDM1";
-	Game.a.Nea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDM2";
-	Game.a.Oea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDR";
-	Game.a.Pea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_UIBOTTOM";
-	Game.a.Qea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_UITOP";
-	Game.a.sea = "IMAGE_ANIMS_GEM_MEGA_MEGA_CUFF";
-	Game.a.qea = "IMAGE_ANIMS_GEM_MEGA_MEGA_CUFFDEAD";
-	Game.a.rea = "IMAGE_ANIMS_GEM_MEGA_MEGA_CUFFGLOW";
-	Game.a.tea = "IMAGE_ANIMS_GEM_MEGA_MEGA_DEAD";
-	Game.a.uea = "IMAGE_ANIMS_GEM_MEGA_MEGA_GOLD";
-	Game.a.vea = "IMAGE_ANIMS_GEM_MEGA_MEGA_PURPLE";
-	Game.a.wea = "IMAGE_ANIMS_GEM_MEGA_MULTI_PULSERING";
-	Game.a.xea = "IMAGE_ANIMS_GEM_MEGA_SHATTER_MEGA_0_SHARD";
-	Game.a.yea = "IMAGE_ANIMS_GEM_MEGA_SHATTER_MEGA_1_BASIC_BLUR";
-	Game.a.yha = "IMAGE_BOARD_BOTTOM_FRAME";
-	Game.a.wha = "IMAGE_BOARD_BOTTOM_FRAME_BACK";
-	Game.a.xha = "IMAGE_BOARD_BOTTOM_FRAME_GLOW";
-	Game.a.zha = "IMAGE_BOARD_BOTTOM_WIDGET_CLASSIC";
-	Game.a.Aha = "IMAGE_BOARD_BOTTOM_WIDGET_LIGHTNING";
-	Game.a.Dha = "IMAGE_BOARD_HIGHLIGHT_ARROW";
-	Game.a.Eha = "IMAGE_BOARD_HIGHLIGHT_CIRCLE";
-	Game.a.Fha = "IMAGE_BOARD_HIGHLIGHT_FULL";
-	Game.a.Gha = "IMAGE_BOARD_HINT_BUTTON_CLASSIC";
-	Game.a.Hha = "IMAGE_BOARD_HINT_BUTTON_LIGHTNING";
-	Game.a.Jha = "IMAGE_BOARD_MARKER_CHECKERBOARD";
-	Game.a.Iha = "IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC";
-	Game.a.Lha = "IMAGE_BOARD_MENU_BUTTON_CLASSIC";
-	Game.a.Mha = "IMAGE_BOARD_MENU_BUTTON_LIGHTNING";
-	Game.a.Kha = "IMAGE_BOARD_MENUBTN";
-	Game.a.Nha = "IMAGE_BOARD_RESET_BUTTON_LIGHTNING";
-	Game.a.Qha = "IMAGE_BOARD_THIN_BOTTOM_FRAME";
-	Game.a.Pha = "IMAGE_BOARD_THIN_BOTTOM_FRAME_GLOW";
-	Game.a.Sha = "IMAGE_BOARD_TICK";
-	Game.a.Rha = "IMAGE_BOARD_TICK_GLOW";
-	Game.a.Uha = "IMAGE_BOARD_TIMER";
-	Game.a.Tha = "IMAGE_BOARD_TIMER_GOLD";
-	Game.a.Vha = "IMAGE_BOARD_TIMER_RED";
-	Game.a.Wha = "IMAGE_BOARD_TOP_BACK";
-	Game.a.Yha = "IMAGE_BOARD_TOP_FRAME";
-	Game.a.Xha = "IMAGE_BOARD_TOP_FRAME_GLOW";
-	Game.a.Zha = "IMAGE_BOARD_TOP_WIDGET";
-	Game.a.vha = "IMAGE_BARFILL";
-	Game.a.uha = "IMAGE_BARFILLRED";
-	Game.a.Vja = "IMAGE_LIGHTNING_BOTTOM_RED_LIGHTNING";
-	Game.a.Wja = "IMAGE_LIGHTNING_CENTER";
-	Game.a.fka = "IMAGE_LIGHTNING_MEGASHARD_RED_LIGHTNING";
-	Game.a.gka = "IMAGE_LIGHTNING_MULTI_PULSE_RING_LIGHTNING";
-	Game.a.hka = "IMAGE_LIGHTNING_TEX";
-	Game.a.ika = "IMAGE_LIGHTNING_TIMER_DEAD_LIGHTNING";
-	Game.a.jka = "IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING";
-	Game.a.kka = "IMAGE_LIGHTNING_TIMER_LIGHTNING";
-	Game.a.lka = "IMAGE_LIGHTNING_TIMER_RED_LIGHTNING";
-	Game.a.mka = "IMAGE_LIGHTNING_TOP_BACK_LIGHTNING";
-	Game.a.nka = "IMAGE_LIGHTNING_TOP_RED_LIGHTNING";
-	Game.a.E$ = "ATLASIMAGE_ATLAS_BOARD_480_00";
-	Game.a.F$ = "ATLASIMAGE_ATLAS_BOARD_480_01";
-	Game.a.Aaa = "ATLASIMAGE_RT_ATLAS_BOARD_480_00";
-	Game.a.G$ = "ATLASIMAGE_ATLAS_BOARD_768_00";
-	Game.a.H$ = "ATLASIMAGE_ATLAS_BOARD_768_01";
-	Game.a.Baa = "ATLASIMAGE_RT_ATLAS_BOARD_768_00";
-	Game.a.oia = "IMAGE_DIALOG_HELP_GLOW";
-	Game.a.pia = "IMAGE_DIALOG_LISTBOX";
-	Game.a.iia = "IMAGE_DIALOG_BUTTON";
-	Game.a.eia = "IMAGE_DIALOG_BACKGROUND";
-	Game.a.fia = "IMAGE_DIALOG_BLACK_BOX";
-	Game.a.gia = "IMAGE_DIALOG_BLUE_GEM";
-	Game.a.hia = "IMAGE_DIALOG_BUTTON_DISABLED";
-	Game.a.jia = "IMAGE_DIALOG_CHECKBOX_BLANK";
-	Game.a.kia = "IMAGE_DIALOG_CHECKBOX_CHECKED";
-	Game.a.lia = "IMAGE_DIALOG_EDITBOX";
-	Game.a.mia = "IMAGE_DIALOG_GOLD_COIN";
-	Game.a.nia = "IMAGE_DIALOG_HEADERLESS_BKG";
-	Game.a.qia = "IMAGE_DIALOG_LISTSELECT";
-	Game.a.ria = "IMAGE_DIALOG_OPTIONS_DECOR";
-	Game.a.sia = "IMAGE_DIALOG_PLAQUE";
-	Game.a.tia = "IMAGE_DIALOG_SILVER_COIN";
-	Game.a.uia = "IMAGE_DIALOG_SLIDERBAR";
-	Game.a.via = "IMAGE_DIALOG_SLIDERBAR_VERTICAL";
-	Game.a.wia = "IMAGE_DIALOG_SLIDERHANDLE";
-	Game.a.xia = "IMAGE_DIALOG_SMALL_BUTTON";
-	Game.a.yia = "IMAGE_DIALOG_TAB";
-	Game.a.Xia = "IMAGE_GAMEOVER_BAR__PINK";
-	Game.a.Via = "IMAGE_GAMEOVER_BAR_ORANGE";
-	Game.a.Wia = "IMAGE_GAMEOVER_BAR_YELLOW";
-	Game.a.Yia = "IMAGE_GAMEOVER_BOX_ORANGE";
-	Game.a.Zia = "IMAGE_GAMEOVER_BOX_PINK";
-	Game.a.$ia = "IMAGE_GAMEOVER_BOX_YELLOW";
-	Game.a.aja = "IMAGE_GAMEOVER_DARKER_BOX";
-	Game.a.bja = "IMAGE_GAMEOVER_DARKEST_BOX";
-	Game.a.cja = "IMAGE_GAMEOVER_DIALOG";
-	Game.a.dja = "IMAGE_GAMEOVER_HORIZONTAL_BAR";
-	Game.a.eja = "IMAGE_GAMEOVER_HORIZONTAL_BAR_OVERLAY";
-	Game.a.fja = "IMAGE_GAMEOVER_ICON_FLAME";
-	Game.a.gja = "IMAGE_GAMEOVER_ICON_FLAME_LRG";
-	Game.a.hja = "IMAGE_GAMEOVER_ICON_HYPERCUBE";
-	Game.a.ija = "IMAGE_GAMEOVER_ICON_HYPERCUBE_LRG";
-	Game.a.jja = "IMAGE_GAMEOVER_ICON_LIGHTNING";
-	Game.a.kja = "IMAGE_GAMEOVER_ICON_STAR";
-	Game.a.lja = "IMAGE_GAMEOVER_ICON_STAR_LRG";
-	Game.a.mja = "IMAGE_GAMEOVER_LIGHT_BOX";
-	Game.a.oja = "IMAGE_GAMEOVER_LINE_SINGLE";
-	Game.a.nja = "IMAGE_GAMEOVER_LINES";
-	Game.a.pja = "IMAGE_GAMEOVER_SECTION_GRAPH";
-	Game.a.qja = "IMAGE_GAMEOVER_SECTION_LABEL";
-	Game.a.rja = "IMAGE_GAMEOVER_SECTION_SMALL";
-	Game.a.sja = "IMAGE_GAMEOVER_STAMP";
-	Game.a.I$ = "ATLASIMAGE_ATLAS_DIALOG_480_00";
-	Game.a.J$ = "ATLASIMAGE_ATLAS_DIALOG_480_01";
-	Game.a.Caa = "ATLASIMAGE_RT_ATLAS_DIALOG_480_00";
-	Game.a.K$ = "ATLASIMAGE_ATLAS_DIALOG_768_00";
-	Game.a.L$ = "ATLASIMAGE_ATLAS_DIALOG_768_01";
-	Game.a.Daa = "ATLASIMAGE_RT_ATLAS_DIALOG_768_00";
-	Game.a.mda = "FONT_HUMANST521BT40";
-	Game.a.uda = "FONT_MULTIPLIER";
-	Game.a.vda = "FONT_PLAYBUTTONS";
-	Game.a.Jda = "FONT_SPEED_TEXT";
-	Game.a.eda = "FONT_FLOATERS";
-	Game.a.Fda = "FONT_SCORE";
-	Game.a.Gda = "FONT_SCORE_LARGE";
-	Game.a.rda = "FONT_LEVEL";
-	Game.a.xda = "FONT_POPUP_TEXT";
-	Game.a.wda = "FONT_POPUP_COUNT";
-	Game.a.zda = "FONT_RANKUP_NAME";
-	Game.a.tda = "FONT_MENU_BTN";
-	Game.a.jda = "FONT_HUGE";
-	Game.a.Fca = "FONT_DIALOG_HEADER";
-	Game.a.gda = "FONT_GAMEOVER_DIALOG";
-	Game.a.ida = "FONT_GAMEOVER_DIALOG_SMALL";
-	Game.a.hda = "FONT_GAMEOVER_DIALOG_MED";
-	Game.a.fda = "FONT_GAMEOVER_DIALOG_HUGE";
-	Game.a.Hca = "FONT_DIALOG_TEXT";
-	Game.a.Ica = "FONT_DISABLE_HINTS";
-	Game.a.Gca = "FONT_DIALOG_SMALL_TEXT";
-	Game.a.Eca = "FONT_DIALOG_BUTTONS";
-	Game.a.Cda = "FONT_RECORDS_DIALOG_BUTTONS";
-	Game.a.Hda = "FONT_SPEED_SCORE";
-	Game.a.Kda = "FONT_TIMER_LARGE";
-	Game.a.Lda = "FONT_TIMER_SMALL";
-	Game.a.Dda = "FONT_RECORDS_NAME";
-	Game.a.Eda = "FONT_RECORDS_SCORE";
-	Game.a.Bda = "FONT_RECORDS_DATE";
-	Game.a.Ada = "FONT_RECORDS_COLUMN_HEADER";
-	Game.a.Jca = "FONT_ENDLEVEL_TEXT_BIG";
-	Game.a.Kca = "FONT_ENDLEVEL_TEXT";
-	Game.a.Yca = "FONT_FLAREGOTHICBOLD20_DISABLEHINTS";
-	Game.a.ada = "FONT_FLAREGOTHICBOLD42";
-	Game.a.Rca = "FONT_FLAREGOTHIC25";
-	Game.a.Nca = "FONT_FLAREGOTHIC16";
-	Game.a.qda = "FONT_KOZUKAMINPROH120";
-	Game.a.cda = "FONT_FLAREGOTHICBOLD80SCORE";
-	Game.a.dda = "FONT_FLAREGOTHICBOLDBUTTON66";
-	Game.a.pda = "FONT_KOZUKAGOTHPROB";
-	Game.a.oda = "FONT_KOZGOPROHEAVY30";
-	Game.a.Oca = "FONT_FLAREGOTHIC17";
-	Game.a.Mca = "FONT_FLAREGOTHIC14";
-	Game.a.Wca = "FONT_FLAREGOTHICBOLD100";
-	Game.a.Lca = "FONT_FLAREBOLD120SIDEBAR";
-	Game.a.Pca = "FONT_FLAREGOTHIC19ZEN";
-	Game.a.Tca = "FONT_FLAREGOTHIC32";
-	Game.a.Uca = "FONT_FLAREGOTHIC55";
-	Game.a.Zca = "FONT_FLAREGOTHICBOLD20";
-	Game.a.kda = "FONT_HUMANST19";
-	Game.a.lda = "FONT_HUMANST28";
-	Game.a.yda = "FONT_QUINCYCAPS25";
-	Game.a.M$ = "ATLASIMAGE_ATLAS_FONTS_480_00";
-	Game.a.N$ = "ATLASIMAGE_ATLAS_FONTS_480_01";
-	Game.a.Eaa = "ATLASIMAGE_RT_ATLAS_FONTS_480_00";
-	Game.a.O$ = "ATLASIMAGE_ATLAS_FONTS_768_00";
-	Game.a.Faa = "ATLASIMAGE_RT_ATLAS_FONTS_768_00";
-	Game.a.Ida = "FONT_SPEED_SCORE_ORANGE";
-	Game.a.Oda = "FONT_TOOLTIP";
-	Game.a.Nda = "FONT_TOOLTIP_BOLD";
-	Game.a.Mda = "FONT_TOOLTIP_BIG";
-	Game.a.bda = "FONT_FLAREGOTHICBOLD42_ORANGE";
-	Game.a.$ca = "FONT_FLAREGOTHICBOLD42_BLACK";
-	Game.a.Qca = "FONT_FLAREGOTHIC25_BLACK";
-	Game.a.P$ = "ATLASIMAGE_ATLAS_FONTS_IGNORED_480_00";
-	Game.a.Gaa = "ATLASIMAGE_RT_ATLAS_FONTS_IGNORED_480_00";
-	Game.a.Q$ = "ATLASIMAGE_ATLAS_FONTS_IGNORED_768_00";
-	Game.a.Haa = "ATLASIMAGE_RT_ATLAS_FONTS_IGNORED_768_00";
-	Game.a.Gja = "IMAGE_GEMS_RED";
-	Game.a.Ija = "IMAGE_GEMS_WHITE";
-	Game.a.Dja = "IMAGE_GEMS_GREEN";
-	Game.a.Jja = "IMAGE_GEMS_YELLOW";
-	Game.a.Fja = "IMAGE_GEMS_PURPLE";
-	Game.a.Eja = "IMAGE_GEMS_ORANGE";
-	Game.a.Cja = "IMAGE_GEMS_BLUE";
-	Game.a.zja = "IMAGE_GEMSSHADOW_RED";
-	Game.a.Aja = "IMAGE_GEMSSHADOW_WHITE";
-	Game.a.wja = "IMAGE_GEMSSHADOW_GREEN";
-	Game.a.Bja = "IMAGE_GEMSSHADOW_YELLOW";
-	Game.a.yja = "IMAGE_GEMSSHADOW_PURPLE";
-	Game.a.xja = "IMAGE_GEMSSHADOW_ORANGE";
-	Game.a.vja = "IMAGE_GEMSSHADOW_BLUE";
-	Game.a.bka = "IMAGE_LIGHTNING_GEMNUMS_RED";
-	Game.a.cka = "IMAGE_LIGHTNING_GEMNUMS_WHITE";
-	Game.a.Zja = "IMAGE_LIGHTNING_GEMNUMS_GREEN";
-	Game.a.dka = "IMAGE_LIGHTNING_GEMNUMS_YELLOW";
-	Game.a.aka = "IMAGE_LIGHTNING_GEMNUMS_PURPLE";
-	Game.a.$ja = "IMAGE_LIGHTNING_GEMNUMS_ORANGE";
-	Game.a.Xja = "IMAGE_LIGHTNING_GEMNUMS_BLUE";
-	Game.a.Yja = "IMAGE_LIGHTNING_GEMNUMS_CLEAR";
-	Game.a.Zka = "IMAGE_SMOKE";
-	Game.a.zia = "IMAGE_DRIP";
-	Game.a.Uia = "IMAGE_FX_STEAM";
-	Game.a.Tia = "IMAGE_FLAMEGEMEXPLODE_FLAMEEXPLODETEST_LAYER_1";
-	Game.a.Hja = "IMAGE_GEMS_SHADOWED";
-	Game.a.Oja = "IMAGE_HINTARROW";
-	Game.a.Yka = "IMAGE_SELECTOR";
-	Game.a.$ka = "IMAGE_SM_SHARDS";
-	Game.a.ala = "IMAGE_SM_SHARDS_OUTLINE";
-	Game.a.Zma = "POPANIM_FLAMEGEMCREATION";
-	Game.a.R$ = "ATLASIMAGE_ATLAS_GAMEPLAY_480_00";
-	Game.a.Iaa = "ATLASIMAGE_RT_ATLAS_GAMEPLAY_480_00";
-	Game.a.S$ = "ATLASIMAGE_ATLAS_GAMEPLAY_768_00";
-	Game.a.Jaa = "ATLASIMAGE_RT_ATLAS_GAMEPLAY_768_00";
-	Game.a.Dca = "FONT_DEFAULT";
-	Game.a.Sca = "FONT_FLAREGOTHIC28";
-	Game.a.sda = "FONT_LOADER_TIP";
-	Game.a.Ina = "RESFILE_PROPERTIES_BADGES";
-	Game.a.Jna = "RESFILE_PROPERTIES_DEFAULTQUEST";
-	Game.a.Kna = "RESFILE_PROPERTIES_MUSIC";
-	Game.a.Lna = "RESFILE_PROPERTIES_QUEST";
-	Game.a.Mna = "RESFILE_PROPERTIES_RANKS";
-	Game.a.Nna = "RESFILE_PROPERTIES_SECRET";
-	Game.a.Ona = "RESFILE_PROPERTIES_SPEED";
-	Game.a.Pna = "RESFILE_PROPERTIES_TIPS";
-	Game.a.Oha = "IMAGE_BOARD_SD";
-	Game.a.Cha = "IMAGE_BOARD_HD";
-	Game.a.Bha = "IMAGE_BOARD_HDSD_BUTTON_FRAME";
-	Game.a.pka = "IMAGE_LOADER_WHITEDOT";
-	Game.a.oka = "IMAGE_LOADER_POPCAP";
-	Game.a.Sba = "EFFECT_BOARD_3D";
-	Game.a.Tba = "EFFECT_GEM_3D";
-	Game.a.Vba = "EFFECT_TUBE_3D";
-	Game.a.Uba = "EFFECT_TUBECAP_3D";
-	Game.a.T$ = "ATLASIMAGE_ATLAS_INIT_480_00";
-	Game.a.U$ = "ATLASIMAGE_ATLAS_INIT_480_01";
-	Game.a.Kaa = "ATLASIMAGE_RT_ATLAS_INIT_480_00";
-	Game.a.V$ = "ATLASIMAGE_ATLAS_INIT_768_00";
-	Game.a.W$ = "ATLASIMAGE_ATLAS_INIT_768_01";
-	Game.a.Laa = "ATLASIMAGE_RT_ATLAS_INIT_768_00";
-	Game.a.Vca = "FONT_FLAREGOTHIC8";
-	Game.a.Xca = "FONT_FLAREGOTHICBOLD10";
-	Game.a.nda = "FONT_HUMANST9";
-	Game.a.tna = "RESFILE_3D_GEMBLUE";
-	Game.a.una = "RESFILE_3D_GEMGREEN";
-	Game.a.vna = "RESFILE_3D_GEMORANGE";
-	Game.a.wna = "RESFILE_3D_GEMPURPLE";
-	Game.a.xna = "RESFILE_3D_GEMRED";
-	Game.a.yna = "RESFILE_3D_GEMWHITE";
-	Game.a.zna = "RESFILE_3D_GEMYELLOW";
-	Game.a.z3 = "RESFILE_3D_HYPERSPACE_MAIN_0";
-	Game.a.Bna = "RESFILE_3D_WARPTUBE";
-	Game.a.Ana = "RESFILE_3D_WARPTUBE_CAP";
-	Game.a.Cna = "RESFILE_AFFIRMATIONS_GENERAL";
-	Game.a.Dna = "RESFILE_AFFIRMATIONS_POSITIVE_THINKING";
-	Game.a.Ena = "RESFILE_AFFIRMATIONS_PROSPERITY";
-	Game.a.Fna = "RESFILE_AFFIRMATIONS_QUIT_BAD_HABITS";
-	Game.a.Gna = "RESFILE_AFFIRMATIONS_SELF_CONFIDENCE";
-	Game.a.Hna = "RESFILE_AFFIRMATIONS_WEIGHT_LOSS";
-	Game.a.Uja = "IMAGE_HYPERSPACE_INITIAL";
-	Game.a.Tja = "IMAGE_HYPERSPACE";
-	Game.a.vla = "IMAGE_WARP_LINES_01";
-	Game.a.a2 = "IMAGE_COMPLEMENT_GOOD";
-	Game.a.Y1 = "IMAGE_COMPLEMENT_EXCELLENT";
-	Game.a.W1 = "IMAGE_COMPLEMENT_AWESOME";
-	Game.a.b2 = "IMAGE_COMPLEMENT_SPECTACULAR";
-	Game.a.Z1 = "IMAGE_COMPLEMENT_EXTRAORDINARY";
-	Game.a.c2 = "IMAGE_COMPLEMENT_UNBELIEVABLE";
-	Game.a.X1 = "IMAGE_COMPLEMENT_BLAZINGSPEED";
-	Game.a.ula = "IMAGE_VERTICAL_STREAK";
-	Game.a.Pja = "IMAGE_HYPERCUBE_COLORGLOW";
-	Game.a.Qja = "IMAGE_HYPERCUBE_FRAME";
-	Game.a.tla = "IMAGE_TRANSPARENT_HOLE";
-	Game.a.Nja = "IMAGE_GRITTYBLURRY";
-	Game.a.nea = "IMAGE_ANIMS_BOARDSHATTER_BOTTOM";
-	Game.a.oea = "IMAGE_ANIMS_BOARDSHATTER_GRID";
-	Game.a.pea = "IMAGE_ANIMS_BOARDSHATTER_TOP";
-	Game.a.cia = "IMAGE_DANGERBORDERLEFT";
-	Game.a.dia = "IMAGE_DANGERBORDERUP";
-	Game.a.Lja = "IMAGE_GRIDPAINT_BLANK";
-	Game.a.Mja = "IMAGE_GRIDPAINT_FILLED";
-	Game.a.qka = "IMAGE_MULTIPLIER_LARGE_BACK";
-	Game.a.rka = "IMAGE_MULTIPLIER_LARGE_FRONT";
-	Game.a.Vka = "IMAGE_RECORDS_RANK_FILL";
-	Game.a.Wka = "IMAGE_RECORDS_RANK_GLOW";
-	Game.a.Xka = "IMAGE_RECORDS_RANK_PLATE";
-	Game.a.bla = "IMAGE_SOLID_BLACK";
-	Game.a.fla = "IMAGE_SPARKLE_FAT";
-	Game.a.cla = "IMAGE_SPARKLET_BIG";
-	Game.a.dla = "IMAGE_SPARKLET_FAT";
-	Game.a.sla = "IMAGE_TOOLTIP";
-	Game.a.rla = "IMAGE_TOOLTIP_ARROW";
-	Game.a.lma = "PIEFFECT_ANIMS_GEM_MEGA_SHATTER_MEGA";
-	Game.a.mma = "PIEFFECT_BACKGROUNDS_BLOWING_SNOW04";
-	Game.a.nma = "PIEFFECT_BACKGROUNDS_LANTERNPLANT01";
-	Game.a.pma = "PIEFFECT_BACKGROUNDS_WATER_FALL_CLIFF01";
-	Game.a.qma = "PIEFFECT_BACKGROUNDS_WATER_FALL_CLIFF02";
-	Game.a.oma = "PIEFFECT_BACKGROUNDS_WATERFALL10";
-	Game.a.rma = "PIEFFECT_BOARD_FLAME_EMBERS";
-	Game.a.sma = "PIEFFECT_COUNTDOWNBAR";
-	Game.a.tma = "PIEFFECT_CRYSTALBALL";
-	Game.a.uma = "PIEFFECT_CRYSTALRAYS";
-	Game.a.vma = "PIEFFECT_DISCOBALL";
-	Game.a.xma = "PIEFFECT_FIRE_TRAIL";
-	Game.a.wma = "PIEFFECT_FIREGEM_HYPERSPACE";
-	Game.a.yma = "PIEFFECT_GEM_LANDING_FX";
-	Game.a.zma = "PIEFFECT_HINTFLASH";
-	Game.a.Ama = "PIEFFECT_HYPERCUBE";
-	Game.a.Bma = "PIEFFECT_LIGHTNING_POWERED_BOTTOM";
-	Game.a.Cma = "PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT";
-	Game.a.Dma = "PIEFFECT_LIGHTNING_POWERED_MEGASHARD";
-	Game.a.Ema = "PIEFFECT_LIGHTNING_STEAMPULSE";
-	Game.a.Fma = "PIEFFECT_MAINMENU3";
-	Game.a.Gma = "PIEFFECT_MULTIPLIER";
-	Game.a.Hma = "PIEFFECT_QUEST_DIG_COLLECT_GOLD";
-	Game.a.Ima = "PIEFFECT_SPEEDBOARD_FLAME";
-	Game.a.Jma = "PIEFFECT_SPEEDTEXT_FLAME";
-	Game.a.Kma = "PIEFFECT_STARGEM";
-	Game.a.Qma = "POPANIM_ANIMS_LIGHTNINGUI";
-	Game.a.Pma = "POPANIM_ANIMS_LIGHTNINGUIBOTTOM";
-	Game.a.Nma = "POPANIM_ANIMS_BOARDSHATTER";
-	Game.a.Oma = "POPANIM_ANIMS_GEM_MEGA";
-	Game.a.$ma = "POPANIM_FLAMEGEMEXPLODE";
-	Game.a.hoa = "SOUND_BUTTON_MOUSEOVER";
-	Game.a.goa = "SOUND_BUTTON_MOUSELEAVE";
-	Game.a.doa = "SOUND_BACKTOMAIN";
-	Game.a.eoa = "SOUND_BADMOVE";
-	Game.a.foa = "SOUND_BOMB_EXPLODE";
-	Game.a.ioa = "SOUND_BUTTON_PRESS";
-	Game.a.joa = "SOUND_BUTTON_RELEASE";
-	Game.a.koa = "SOUND_CLICKFLYIN";
-	Game.a.loa = "SOUND_COMBO_1";
-	Game.a.moa = "SOUND_COMBO_2";
-	Game.a.noa = "SOUND_COMBO_3";
-	Game.a.ooa = "SOUND_COMBO_4";
-	Game.a.poa = "SOUND_COMBO_5";
-	Game.a.qoa = "SOUND_COMBO_6";
-	Game.a.roa = "SOUND_COMBO_7";
-	Game.a.soa = "SOUND_COUNTDOWN_WARNING";
-	Game.a.toa = "SOUND_DOUBLESET";
-	Game.a.uoa = "SOUND_ELECTRO_EXPLODE";
-	Game.a.woa = "SOUND_ELECTRO_PATH";
-	Game.a.voa = "SOUND_ELECTRO_PATH2";
-	Game.a.xoa = "SOUND_FLAMEBONUS";
-	Game.a.yoa = "SOUND_FLAMESPEED1";
-	Game.a.zoa = "SOUND_GEM_COUNTDOWN_DESTROYED";
-	Game.a.Aoa = "SOUND_GEM_HIT";
-	Game.a.Boa = "SOUND_GEM_SHATTERS";
-	Game.a.Coa = "SOUND_HYPERCUBE_CREATE";
-	Game.a.Koa = "SOUND_HYPERSPACE";
-	Game.a.Doa = "SOUND_HYPERSPACE_GEM_LAND_1";
-	Game.a.Eoa = "SOUND_HYPERSPACE_GEM_LAND_2";
-	Game.a.Foa = "SOUND_HYPERSPACE_GEM_LAND_3";
-	Game.a.Goa = "SOUND_HYPERSPACE_GEM_LAND_4";
-	Game.a.Hoa = "SOUND_HYPERSPACE_GEM_LAND_5";
-	Game.a.Ioa = "SOUND_HYPERSPACE_GEM_LAND_6";
-	Game.a.Joa = "SOUND_HYPERSPACE_GEM_LAND_7";
-	Game.a.Loa = "SOUND_HYPERSPACE_SHATTER_1";
-	Game.a.Moa = "SOUND_HYPERSPACE_SHATTER_2";
-	Game.a.Noa = "SOUND_LASERGEM_CREATED";
-	Game.a.Ooa = "SOUND_MENUSPIN";
-	Game.a.Poa = "SOUND_NEXTLEVEL";
-	Game.a.Qoa = "SOUND_POWERGEM_CREATED";
-	Game.a.Roa = "SOUND_PREBLAST";
-	Game.a.Soa = "SOUND_QUEST_GET";
-	Game.a.Uoa = "SOUND_RANK_COUNTUP";
-	Game.a.Toa = "SOUND_RANKUP";
-	Game.a.Voa = "SOUND_SELECT";
-	Game.a.Woa = "SOUND_SMALL_EXPLODE";
-	Game.a.Xoa = "SOUND_SPEEDBOARD_BACKGROUND_CHANGE";
-	Game.a.Yoa = "SOUND_SPEEDBOARD_FLAMELOOP";
-	Game.a.Zoa = "SOUND_SPEEDBOARD_LIGHTNING_ENERGIZE";
-	Game.a.apa = "SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_5";
-	Game.a.$oa = "SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_10";
-	Game.a.bpa = "SOUND_SPEEDBOARD_MULTIPLIER_UP2_1";
-	Game.a.cpa = "SOUND_SPEEDBOARD_MULTIPLIER_UP2_2";
-	Game.a.dpa = "SOUND_SPEEDBOARD_MULTIPLIER_UP2_3";
-	Game.a.epa = "SOUND_SPEEDBOARD_MULTIPLIER_UP2_4";
-	Game.a.gpa = "SOUND_SPEEDBOARD_TIMEBONUS_5";
-	Game.a.fpa = "SOUND_SPEEDBOARD_TIMEBONUS_10";
-	Game.a.ipa = "SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_5";
-	Game.a.hpa = "SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_10";
-	Game.a.jpa = "SOUND_SPEEDMATCH1";
-	Game.a.kpa = "SOUND_SPEEDMATCH2";
-	Game.a.lpa = "SOUND_SPEEDMATCH3";
-	Game.a.mpa = "SOUND_SPEEDMATCH4";
-	Game.a.npa = "SOUND_SPEEDMATCH5";
-	Game.a.opa = "SOUND_SPEEDMATCH6";
-	Game.a.ppa = "SOUND_SPEEDMATCH7";
-	Game.a.qpa = "SOUND_SPEEDMATCH8";
-	Game.a.rpa = "SOUND_SPEEDMATCH9";
-	Game.a.spa = "SOUND_START_ROTATE";
-	Game.a.tpa = "SOUND_TICK";
-	Game.a.upa = "SOUND_TOOLTIP";
-	Game.a.X3 = "SOUND_VOICE_AWESOME";
-	Game.a.Y3 = "SOUND_VOICE_BLAZINGSPEED";
-	Game.a.Z3 = "SOUND_VOICE_EXCELLENT";
-	Game.a.a4 = "SOUND_VOICE_EXTRAORDINARY";
-	Game.a.vpa = "SOUND_VOICE_GAMEOVER";
-	Game.a.wpa = "SOUND_VOICE_GETREADY";
-	Game.a.xpa = "SOUND_VOICE_GO";
-	Game.a.b4 = "SOUND_VOICE_GOOD";
-	Game.a.ypa = "SOUND_VOICE_LEVELCOMPLETE";
-	Game.a.zpa = "SOUND_VOICE_NOMOREMOVES";
-	Game.a.c4 = "SOUND_VOICE_SPECTACULAR";
-	Game.a.Apa = "SOUND_VOICE_THIRTYSECONDS";
-	Game.a.Bpa = "SOUND_VOICE_TIMEUP";
-	Game.a.d4 = "SOUND_VOICE_UNBELIEVABLE";
-	Game.a.Cpa = "SOUND_VOICE_WELCOMEBACK";
-	Game.a.Dpa = "SOUND_VOICE_WELCOMETOBEJEWELED";
-	Game.a.X$ = "ATLASIMAGE_ATLAS_LOADINGTHREAD_480_00";
-	Game.a.Y$ = "ATLASIMAGE_ATLAS_LOADINGTHREAD_480_01";
-	Game.a.Z$ = "ATLASIMAGE_ATLAS_LOADINGTHREAD_480_02";
-	Game.a.$$ = "ATLASIMAGE_ATLAS_LOADINGTHREAD_480_03";
-	Game.a.Maa = "ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_480_00";
-	Game.a.Naa = "ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_480_01";
-	Game.a.aaa = "ATLASIMAGE_ATLAS_LOADINGTHREAD_768_00";
-	Game.a.baa = "ATLASIMAGE_ATLAS_LOADINGTHREAD_768_01";
-	Game.a.caa = "ATLASIMAGE_ATLAS_LOADINGTHREAD_768_02";
-	Game.a.Oaa = "ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_768_00";
-	Game.a.daa = "ATLASIMAGE_ATLAS_LOADINGTHREAD_COMMON_00";
-	Game.a.Paa = "ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_COMMON_00";
-	Game.a.aia = "IMAGE_CRYSTALBALL";
-	Game.a.bia = "IMAGE_CRYSTALBALL_SHADOW";
-	Game.a.$ha = "IMAGE_CRYSTALBALL_GLOW";
-	Game.a.qla = "IMAGE_TITLE";
-	Game.a.vka = "IMAGE_PARTICLES_CRYSTALBALL_0_BASIC_BLUR";
-	Game.a.wka = "IMAGE_PARTICLES_CRYSTALRAYS_0_RAY";
-	Game.a.eaa = "ATLASIMAGE_ATLAS_MAINMENU_480_00";
-	Game.a.faa = "ATLASIMAGE_ATLAS_MAINMENU_480_01";
-	Game.a.Qaa = "ATLASIMAGE_RT_ATLAS_MAINMENU_480_00";
-	Game.a.gaa = "ATLASIMAGE_ATLAS_MAINMENU_768_00";
-	Game.a.haa = "ATLASIMAGE_ATLAS_MAINMENU_768_01";
-	Game.a.Raa = "ATLASIMAGE_RT_ATLAS_MAINMENU_768_00";
-	Game.a.U3 = "SOUND_MUSIC_CLASSIC";
-	Game.a.QT = "SOUND_MUSIC_MENU";
-	Game.a.W3 = "SOUND_MUSIC_SPEED";
-	Game.a.V3 = "SOUND_MUSIC_SPEED_END";
-	Game.a.hla = "IMAGE_TEX_BLUE_GEM";
-	Game.a.ila = "IMAGE_TEX_GREEN_GE";
-	Game.a.jla = "IMAGE_TEX_ORANGE_G";
-	Game.a.kla = "IMAGE_TEX_PURPLE_G";
-	Game.a.lla = "IMAGE_TEX_RED_GEM";
-	Game.a.mla = "IMAGE_TEX_TUBECAP";
-	Game.a.nla = "IMAGE_TEX_WARP_LIN";
-	Game.a.ola = "IMAGE_TEX_WHITE_GE";
-	Game.a.pla = "IMAGE_TEX_YELLOW_G";
-	Game.a.IMAGE_GEMLIGHTING = null;
-	Game.a.IMAGE_SPARKLE = null;
-	Game.a.IMAGE_PARTICLES_BOARD_FLAME_EMBERS_0_BASIC_BLUR = null;
-	Game.a.IMAGE_PARTICLES_COUNTDOWNBAR_0_SMALL_BLUR_STAR = null;
-	Game.a.IMAGE_PARTICLES_COUNTDOWNBAR_1_BASIC_BLUR = null;
-	Game.a.IMAGE_PARTICLES_DISCOBALL_0_DISCO_GLOW = null;
-	Game.a.IMAGE_PARTICLES_DISCOBALL_1_DISCO_GLOW = null;
-	Game.a.IMAGE_PARTICLES_DISCOBALL_2_BLURRED_SHARP_STAR = null;
-	Game.a.IMAGE_PARTICLES_FIRE_TRAIL_0_BASIC_BLUR = null;
-	Game.a.IMAGE_PARTICLES_FIREGEM_HYPERSPACE_0_BASIC_BLUR = null;
-	Game.a.IMAGE_PARTICLES_GEM_LANDING_FX_0_CERCLEM = null;
-	Game.a.IMAGE_PARTICLES_GEM_LANDING_FX_1_BLURRED_SHARP_STAR = null;
-	Game.a.IMAGE_PARTICLES_HINTFLASH_0_CERCLEM = null;
-	Game.a.IMAGE_PARTICLES_HYPERCUBE_0_BASIC_BLUR = null;
-	Game.a.IMAGE_PARTICLES_LIGHTNING_POWERED_BOTTOM_0_LIGHTNINGPARTICLE = null;
-	Game.a.IMAGE_PARTICLES_LIGHTNING_POWERED_LEFTRIGHT_0_LIGHTNINGPARTICLE = null;
-	Game.a.IMAGE_PARTICLES_LIGHTNING_POWERED_LEFTRIGHT_1_LIGHTNINGPARTICLE = null;
-	Game.a.IMAGE_PARTICLES_LIGHTNING_POWERED_MEGASHARD_0_LIGHTNINGPARTICLE = null;
-	Game.a.IMAGE_PARTICLES_LIGHTNING_POWERED_MEGASHARD_1_LIGHTNINGPARTICLE = null;
-	Game.a.IMAGE_PARTICLES_LIGHTNING_STEAMPULSE_0_BASIC_BLUR = null;
-	Game.a.IMAGE_PARTICLES_MAINMENU3_0_BLURRED_SPLOTCH = null;
-	Game.a.IMAGE_PARTICLES_MULTIPLIER_0_RAY = null;
-	Game.a.IMAGE_PARTICLES_QUEST_DIG_COLLECT_GOLD_0_SMALL_BLUR_STAR = null;
-	Game.a.IMAGE_PARTICLES_QUEST_DIG_COLLECT_GOLD_1_BASIC_BLUR = null;
-	Game.a.IMAGE_PARTICLES_SPEEDBOARD_FLAME_0_FLAME1 = null;
-	Game.a.IMAGE_PARTICLES_SPEEDTEXT_FLAME_0_TRUEFLAME5X = null;
-	Game.a.IMAGE_PARTICLES_STARGEM_0_SMALL_BLUR_STAR = null;
-	Game.a.IMAGE_PARTICLES_STARGEM_1_CORONAGLOW = null;
-	Game.a.IMAGE_PARTICLES_STARGEM_2_STAR_GLOW = null;
-	Game.a.IMAGE_LIGHTNING = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME1 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME2 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME3 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME4 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME5 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME6 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME7 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME8 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME9 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME10 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME11 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_FLAMEGEM_BLUR = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_FLAMEGEM_FLASH_1 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_FLAMEGEM_FLASH_2 = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_FLAMEGEM_LARGE_RING = null;
-	Game.a.IMAGE_FLAMEGEMCREATION_FLAMEGEM_RING_OF_FLAME = null;
-	Game.a.IMAGE_FIREPARTICLE = null;
-	Game.a.IMAGE_SPARKLET = null;
-	Game.a.IMAGE_GEM_FRUIT_SPARK = null;
-	Game.a.IMAGE_ELECTROTEX = null;
-	Game.a.IMAGE_ELECTROTEX_CENTER = null;
-	Game.a.IMAGE_HYPERFLARELINE = null;
-	Game.a.IMAGE_HYPERFLARERING = null;
-	Game.a.IMAGE_GEMOUTLINES = null;
-	Game.a.ATLASIMAGE_ATLAS_ADDITIVE_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_ADDITIVE_480_01 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_ADDITIVE_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_ADDITIVE_768_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_ADDITIVE_768_01 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_ADDITIVE_768_00 = null;
-	Game.a.IMAGE_BACKGROUNDS_BLOWING_SNOW04_0_SNOWBLOW = null;
-	Game.a.IMAGE_BACKGROUNDS_BLOWING_SNOW04_1_DOTS = null;
-	Game.a.IMAGE_BACKGROUNDS_LANTERNPLANT01_0_BASIC_BLUR = null;
-	Game.a.IMAGE_BACKGROUNDS_LANTERNPLANT01_1_SQUARE_STAR = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF01_0_WATERPART01 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF02_0_FLAME320004C7 = null;
-	Game.a.ATLASIMAGE_ATLAS_BACKGROUNDS_480_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BACKGROUNDS_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_BACKGROUNDS_768_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BACKGROUNDS_768_00 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_FLATTENEDPAM = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_1920X1200 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_2 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_3 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_4 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_5 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_6 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_7 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_8 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_9 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_10 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_11 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_12 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_13 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_14 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_15 = null;
-	Game.a.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_965X935 = null;
-	Game.a.POPANIM_BACKGROUNDS_CANYON_WALL_CASTLE = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_CANYONWALLCASTLE_480_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_CANYONWALLCASTLE_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_CANYONWALLCASTLE_768_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_CANYONWALLCASTLE_768_00 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLATTENEDPAM = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1920X1200 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1127X272 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1254X573 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_16X63 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1920X1186 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_214X81 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_439X551 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_2 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_3 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_4 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_5 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_6 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_7 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_8 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_9 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_10 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_11 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_12 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_13 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_14 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_15 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_576X369 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_619X198 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_629X243 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_724X147 = null;
-	Game.a.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_724X147_2 = null;
-	Game.a.POPANIM_BACKGROUNDS_FLOATING_ROCK_CITY = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_FLOATINGROCKCITY_480_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_FLOATINGROCKCITY_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_FLOATINGROCKCITY_768_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_FLOATINGROCKCITY_768_00 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_FLATTENEDPAM = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_1920X1200 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_11X10 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_11X19 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_12X11 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_13X14 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_14X14 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_15X13 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_16X10 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_22X13 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_23X8 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_25X10 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_62X884 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_6X19 = null;
-	Game.a.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_779X876 = null;
-	Game.a.POPANIM_BACKGROUNDS_HORSE_FOREST_TREE = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_HORSEFORESTTREE_480_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_HORSEFORESTTREE_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_HORSEFORESTTREE_768_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_HORSEFORESTTREE_768_00 = null;
-	Game.a.IMAGE_BACKGROUNDS_LANTERN_PLANTS_WORLD_FLATTENEDPAM = null;
-	Game.a.IMAGE_BACKGROUNDS_LANTERN_PLANTS_WORLD_LANTERN_PLANTS_WORLD_1920X1200 = null;
-	Game.a.POPANIM_BACKGROUNDS_LANTERN_PLANTS_WORLD = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_FLATTENEDPAM = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_1920X1200 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_11X19 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_12X11 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_13X14 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_14X14 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_15X13 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_16X10 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_179X67 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_22X13 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_23X8 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_25X10 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_279X293 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_303X68 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_558X504 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_617X180 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_650X300 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_663X239 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_693X281 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_694X323 = null;
-	Game.a.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_6X19 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATERFALL10_0_WHITEPHOOP_RIGHT2 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATERFALL10_1_WATERPART = null;
-	Game.a.POPANIM_BACKGROUNDS_LION_TOWER_CASCADE = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_LIONTOWERCASCADE_480_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_LIONTOWERCASCADE_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_LIONTOWERCASCADE_768_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_LIONTOWERCASCADE_768_00 = null;
-	Game.a.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_FLATTENEDPAM = null;
-	Game.a.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_1920X1200 = null;
-	Game.a.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_133X135 = null;
-	Game.a.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_135X118 = null;
-	Game.a.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_16X63 = null;
-	Game.a.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_192X94 = null;
-	Game.a.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_578X432 = null;
-	Game.a.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_840X355 = null;
-	Game.a.POPANIM_BACKGROUNDS_POINTY_ICE_PATH = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_POINTYICEPATH_480_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_POINTYICEPATH_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_POINTYICEPATH_768_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_POINTYICEPATH_768_00 = null;
-	Game.a.IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_FLATTENEDPAM = null;
-	Game.a.IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_1920X1200 = null;
-	Game.a.IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82 = null;
-	Game.a.IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82_2 = null;
-	Game.a.IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82_3 = null;
-	Game.a.IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82_4 = null;
-	Game.a.POPANIM_BACKGROUNDS_SNOWY_CLIFFS_CASTLE = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_SNOWYCLIFFSCASTLE_480_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_SNOWYCLIFFSCASTLE_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_SNOWYCLIFFSCASTLE_768_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_SNOWYCLIFFSCASTLE_768_00 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_FLATTENEDPAM = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_1920X1200 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_11X19 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_12X11 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_13X14 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_14X14 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_15X13 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_16X10 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_22X13 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_23X8 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_25X10 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_449X521 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_497X955 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_676X834 = null;
-	Game.a.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_6X19 = null;
-	Game.a.POPANIM_BACKGROUNDS_WATER_FALL_CLIFF = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_WATERFALLCLIFF_480_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_WATERFALLCLIFF_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_BG_WATERFALLCLIFF_768_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BG_WATERFALLCLIFF_768_00 = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_ENERGIZE_PULSERING = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_LEFT_DEAD = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_LEFT_GOLD = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_LEFT_PURPLE = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_MULTI_GOLD = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_MULTI_PULSERING = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_RIGHT_DEAD = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_RIGHT_GOLD = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_RIGHT_PURPLE = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDL = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDM1 = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDM2 = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDR = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_UITOP = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUI_UITOP_DAMAGE = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_BOTTOM_DEAD = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_BOTTOM_GOLD = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_BOTTOM_PURPLE = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_ENERGIZE_PULSERING = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_LEFT_DEAD = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_LEFT_GOLD = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_LEFT_PURPLE = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_MULTI_GOLD = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_MULTI_PULSERING = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RIGHT_DEAD = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RIGHT_GOLD = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RIGHT_PURPLE = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDL = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDM1 = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDM2 = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDR = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_UIBOTTOM = null;
-	Game.a.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_UITOP = null;
-	Game.a.IMAGE_ANIMS_GEM_MEGA_MEGA_CUFF = null;
-	Game.a.IMAGE_ANIMS_GEM_MEGA_MEGA_CUFFDEAD = null;
-	Game.a.IMAGE_ANIMS_GEM_MEGA_MEGA_CUFFGLOW = null;
-	Game.a.IMAGE_ANIMS_GEM_MEGA_MEGA_DEAD = null;
-	Game.a.IMAGE_ANIMS_GEM_MEGA_MEGA_GOLD = null;
-	Game.a.IMAGE_ANIMS_GEM_MEGA_MEGA_PURPLE = null;
-	Game.a.IMAGE_ANIMS_GEM_MEGA_MULTI_PULSERING = null;
-	Game.a.IMAGE_ANIMS_GEM_MEGA_SHATTER_MEGA_0_SHARD = null;
-	Game.a.IMAGE_ANIMS_GEM_MEGA_SHATTER_MEGA_1_BASIC_BLUR = null;
-	Game.a.IMAGE_BOARD_BOTTOM_FRAME = null;
-	Game.a.IMAGE_BOARD_BOTTOM_FRAME_BACK = null;
-	Game.a.IMAGE_BOARD_BOTTOM_FRAME_GLOW = null;
-	Game.a.IMAGE_BOARD_BOTTOM_WIDGET_CLASSIC = null;
-	Game.a.IMAGE_BOARD_BOTTOM_WIDGET_LIGHTNING = null;
-	Game.a.IMAGE_BOARD_HIGHLIGHT_ARROW = null;
-	Game.a.IMAGE_BOARD_HIGHLIGHT_CIRCLE = null;
-	Game.a.IMAGE_BOARD_HIGHLIGHT_FULL = null;
-	Game.a.IMAGE_BOARD_HINT_BUTTON_CLASSIC = null;
-	Game.a.IMAGE_BOARD_HINT_BUTTON_LIGHTNING = null;
-	Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD = null;
-	Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC = null;
-	Game.a.IMAGE_BOARD_MENU_BUTTON_CLASSIC = null;
-	Game.a.IMAGE_BOARD_MENU_BUTTON_LIGHTNING = null;
-	Game.a.IMAGE_BOARD_MENUBTN = null;
-	Game.a.IMAGE_BOARD_RESET_BUTTON_LIGHTNING = null;
-	Game.a.IMAGE_BOARD_THIN_BOTTOM_FRAME = null;
-	Game.a.IMAGE_BOARD_THIN_BOTTOM_FRAME_GLOW = null;
-	Game.a.IMAGE_BOARD_TICK = null;
-	Game.a.IMAGE_BOARD_TICK_GLOW = null;
-	Game.a.IMAGE_BOARD_TIMER = null;
-	Game.a.IMAGE_BOARD_TIMER_GOLD = null;
-	Game.a.IMAGE_BOARD_TIMER_RED = null;
-	Game.a.IMAGE_BOARD_TOP_BACK = null;
-	Game.a.IMAGE_BOARD_TOP_FRAME = null;
-	Game.a.IMAGE_BOARD_TOP_FRAME_GLOW = null;
-	Game.a.IMAGE_BOARD_TOP_WIDGET = null;
-	Game.a.IMAGE_BARFILL = null;
-	Game.a.IMAGE_BARFILLRED = null;
-	Game.a.IMAGE_LIGHTNING_BOTTOM_RED_LIGHTNING = null;
-	Game.a.IMAGE_LIGHTNING_CENTER = null;
-	Game.a.IMAGE_LIGHTNING_MEGASHARD_RED_LIGHTNING = null;
-	Game.a.IMAGE_LIGHTNING_MULTI_PULSE_RING_LIGHTNING = null;
-	Game.a.IMAGE_LIGHTNING_TEX = null;
-	Game.a.IMAGE_LIGHTNING_TIMER_DEAD_LIGHTNING = null;
-	Game.a.IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING = null;
-	Game.a.IMAGE_LIGHTNING_TIMER_LIGHTNING = null;
-	Game.a.IMAGE_LIGHTNING_TIMER_RED_LIGHTNING = null;
-	Game.a.IMAGE_LIGHTNING_TOP_BACK_LIGHTNING = null;
-	Game.a.IMAGE_LIGHTNING_TOP_RED_LIGHTNING = null;
-	Game.a.ATLASIMAGE_ATLAS_BOARD_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_BOARD_480_01 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BOARD_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_BOARD_768_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_BOARD_768_01 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_BOARD_768_00 = null;
-	Game.a.IMAGE_DIALOG_HELP_GLOW = null;
-	Game.a.IMAGE_DIALOG_LISTBOX = null;
-	Game.a.IMAGE_DIALOG_BUTTON = null;
-	Game.a.IMAGE_DIALOG_BACKGROUND = null;
-	Game.a.IMAGE_DIALOG_BLACK_BOX = null;
-	Game.a.IMAGE_DIALOG_BLUE_GEM = null;
-	Game.a.IMAGE_DIALOG_BUTTON_DISABLED = null;
-	Game.a.IMAGE_DIALOG_CHECKBOX_BLANK = null;
-	Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED = null;
-	Game.a.IMAGE_DIALOG_EDITBOX = null;
-	Game.a.IMAGE_DIALOG_GOLD_COIN = null;
-	Game.a.IMAGE_DIALOG_HEADERLESS_BKG = null;
-	Game.a.IMAGE_DIALOG_LISTSELECT = null;
-	Game.a.IMAGE_DIALOG_OPTIONS_DECOR = null;
-	Game.a.IMAGE_DIALOG_PLAQUE = null;
-	Game.a.IMAGE_DIALOG_SILVER_COIN = null;
-	Game.a.IMAGE_DIALOG_SLIDERBAR = null;
-	Game.a.IMAGE_DIALOG_SLIDERBAR_VERTICAL = null;
-	Game.a.IMAGE_DIALOG_SLIDERHANDLE = null;
-	Game.a.IMAGE_DIALOG_SMALL_BUTTON = null;
-	Game.a.IMAGE_DIALOG_TAB = null;
-	Game.a.IMAGE_GAMEOVER_BAR__PINK = null;
-	Game.a.IMAGE_GAMEOVER_BAR_ORANGE = null;
-	Game.a.IMAGE_GAMEOVER_BAR_YELLOW = null;
-	Game.a.IMAGE_GAMEOVER_BOX_ORANGE = null;
-	Game.a.IMAGE_GAMEOVER_BOX_PINK = null;
-	Game.a.IMAGE_GAMEOVER_BOX_YELLOW = null;
-	Game.a.IMAGE_GAMEOVER_DARKER_BOX = null;
-	Game.a.IMAGE_GAMEOVER_DARKEST_BOX = null;
-	Game.a.IMAGE_GAMEOVER_DIALOG = null;
-	Game.a.IMAGE_GAMEOVER_HORIZONTAL_BAR = null;
-	Game.a.IMAGE_GAMEOVER_HORIZONTAL_BAR_OVERLAY = null;
-	Game.a.IMAGE_GAMEOVER_ICON_FLAME = null;
-	Game.a.IMAGE_GAMEOVER_ICON_FLAME_LRG = null;
-	Game.a.IMAGE_GAMEOVER_ICON_HYPERCUBE = null;
-	Game.a.IMAGE_GAMEOVER_ICON_HYPERCUBE_LRG = null;
-	Game.a.IMAGE_GAMEOVER_ICON_LIGHTNING = null;
-	Game.a.IMAGE_GAMEOVER_ICON_STAR = null;
-	Game.a.IMAGE_GAMEOVER_ICON_STAR_LRG = null;
-	Game.a.IMAGE_GAMEOVER_LIGHT_BOX = null;
-	Game.a.IMAGE_GAMEOVER_LINE_SINGLE = null;
-	Game.a.IMAGE_GAMEOVER_LINES = null;
-	Game.a.IMAGE_GAMEOVER_SECTION_GRAPH = null;
-	Game.a.IMAGE_GAMEOVER_SECTION_LABEL = null;
-	Game.a.IMAGE_GAMEOVER_SECTION_SMALL = null;
-	Game.a.IMAGE_GAMEOVER_STAMP = null;
-	Game.a.ATLASIMAGE_ATLAS_DIALOG_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_DIALOG_480_01 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_DIALOG_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_DIALOG_768_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_DIALOG_768_01 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_DIALOG_768_00 = null;
-	Game.a.FONT_HUMANST521BT40 = null;
-	Game.a.FONT_MULTIPLIER = null;
-	Game.a.FONT_PLAYBUTTONS = null;
-	Game.a.FONT_SPEED_TEXT = null;
-	Game.a.FONT_FLOATERS = null;
-	Game.a.FONT_SCORE = null;
-	Game.a.FONT_SCORE_LARGE = null;
-	Game.a.FONT_LEVEL = null;
-	Game.a.FONT_POPUP_TEXT = null;
-	Game.a.FONT_POPUP_COUNT = null;
-	Game.a.FONT_RANKUP_NAME = null;
-	Game.a.FONT_MENU_BTN = null;
-	Game.a.FONT_HUGE = null;
-	Game.a.FONT_DIALOG_HEADER = null;
-	Game.a.FONT_GAMEOVER_DIALOG = null;
-	Game.a.FONT_GAMEOVER_DIALOG_SMALL = null;
-	Game.a.FONT_GAMEOVER_DIALOG_MED = null;
-	Game.a.FONT_GAMEOVER_DIALOG_HUGE = null;
-	Game.a.FONT_DIALOG_TEXT = null;
-	Game.a.FONT_DISABLE_HINTS = null;
-	Game.a.FONT_DIALOG_SMALL_TEXT = null;
-	Game.a.FONT_DIALOG_BUTTONS = null;
-	Game.a.FONT_RECORDS_DIALOG_BUTTONS = null;
-	Game.a.FONT_SPEED_SCORE = null;
-	Game.a.FONT_TIMER_LARGE = null;
-	Game.a.FONT_TIMER_SMALL = null;
-	Game.a.FONT_RECORDS_NAME = null;
-	Game.a.FONT_RECORDS_SCORE = null;
-	Game.a.FONT_RECORDS_DATE = null;
-	Game.a.FONT_RECORDS_COLUMN_HEADER = null;
-	Game.a.FONT_ENDLEVEL_TEXT_BIG = null;
-	Game.a.FONT_ENDLEVEL_TEXT = null;
-	Game.a.FONT_FLAREGOTHICBOLD20_DISABLEHINTS = null;
-	Game.a.FONT_FLAREGOTHICBOLD42 = null;
-	Game.a.FONT_FLAREGOTHIC25 = null;
-	Game.a.FONT_FLAREGOTHIC16 = null;
-	Game.a.FONT_KOZUKAMINPROH120 = null;
-	Game.a.FONT_FLAREGOTHICBOLD80SCORE = null;
-	Game.a.FONT_FLAREGOTHICBOLDBUTTON66 = null;
-	Game.a.FONT_KOZUKAGOTHPROB = null;
-	Game.a.FONT_KOZGOPROHEAVY30 = null;
-	Game.a.FONT_FLAREGOTHIC17 = null;
-	Game.a.FONT_FLAREGOTHIC14 = null;
-	Game.a.FONT_FLAREGOTHICBOLD100 = null;
-	Game.a.FONT_FLAREBOLD120SIDEBAR = null;
-	Game.a.FONT_FLAREGOTHIC19ZEN = null;
-	Game.a.FONT_FLAREGOTHIC32 = null;
-	Game.a.FONT_FLAREGOTHIC55 = null;
-	Game.a.FONT_FLAREGOTHICBOLD20 = null;
-	Game.a.FONT_HUMANST19 = null;
-	Game.a.FONT_HUMANST28 = null;
-	Game.a.FONT_QUINCYCAPS25 = null;
-	Game.a.ATLASIMAGE_ATLAS_FONTS_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_FONTS_480_01 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_FONTS_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_FONTS_768_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_FONTS_768_00 = null;
-	Game.a.FONT_SPEED_SCORE_ORANGE = null;
-	Game.a.FONT_TOOLTIP = null;
-	Game.a.FONT_TOOLTIP_BOLD = null;
-	Game.a.FONT_TOOLTIP_BIG = null;
-	Game.a.FONT_FLAREGOTHICBOLD42_ORANGE = null;
-	Game.a.FONT_FLAREGOTHICBOLD42_BLACK = null;
-	Game.a.FONT_FLAREGOTHIC25_BLACK = null;
-	Game.a.ATLASIMAGE_ATLAS_FONTS_IGNORED_480_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_FONTS_IGNORED_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_FONTS_IGNORED_768_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_FONTS_IGNORED_768_00 = null;
-	Game.a.IMAGE_GEMS_RED = null;
-	Game.a.IMAGE_GEMS_WHITE = null;
-	Game.a.IMAGE_GEMS_GREEN = null;
-	Game.a.IMAGE_GEMS_YELLOW = null;
-	Game.a.IMAGE_GEMS_PURPLE = null;
-	Game.a.IMAGE_GEMS_ORANGE = null;
-	Game.a.IMAGE_GEMS_BLUE = null;
-	Game.a.IMAGE_GEMSSHADOW_RED = null;
-	Game.a.IMAGE_GEMSSHADOW_WHITE = null;
-	Game.a.IMAGE_GEMSSHADOW_GREEN = null;
-	Game.a.IMAGE_GEMSSHADOW_YELLOW = null;
-	Game.a.IMAGE_GEMSSHADOW_PURPLE = null;
-	Game.a.IMAGE_GEMSSHADOW_ORANGE = null;
-	Game.a.IMAGE_GEMSSHADOW_BLUE = null;
-	Game.a.IMAGE_LIGHTNING_GEMNUMS_RED = null;
-	Game.a.IMAGE_LIGHTNING_GEMNUMS_WHITE = null;
-	Game.a.IMAGE_LIGHTNING_GEMNUMS_GREEN = null;
-	Game.a.IMAGE_LIGHTNING_GEMNUMS_YELLOW = null;
-	Game.a.IMAGE_LIGHTNING_GEMNUMS_PURPLE = null;
-	Game.a.IMAGE_LIGHTNING_GEMNUMS_ORANGE = null;
-	Game.a.IMAGE_LIGHTNING_GEMNUMS_BLUE = null;
-	Game.a.IMAGE_LIGHTNING_GEMNUMS_CLEAR = null;
-	Game.a.IMAGE_SMOKE = null;
-	Game.a.IMAGE_DRIP = null;
-	Game.a.IMAGE_FX_STEAM = null;
-	Game.a.IMAGE_FLAMEGEMEXPLODE_FLAMEEXPLODETEST_LAYER_1 = null;
-	Game.a.IMAGE_GEMS_SHADOWED = null;
-	Game.a.IMAGE_HINTARROW = null;
-	Game.a.IMAGE_SELECTOR = null;
-	Game.a.IMAGE_SM_SHARDS = null;
-	Game.a.IMAGE_SM_SHARDS_OUTLINE = null;
-	Game.a.POPANIM_FLAMEGEMCREATION = null;
-	Game.a.ATLASIMAGE_ATLAS_GAMEPLAY_480_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_GAMEPLAY_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_GAMEPLAY_768_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_GAMEPLAY_768_00 = null;
-	Game.a.FONT_DEFAULT = null;
-	Game.a.FONT_FLAREGOTHIC28 = null;
-	Game.a.FONT_LOADER_TIP = null;
-	Game.a.IMAGE_BOARD_SD = null;
-	Game.a.IMAGE_BOARD_HD = null;
-	Game.a.IMAGE_BOARD_HDSD_BUTTON_FRAME = null;
-	Game.a.IMAGE_LOADER_WHITEDOT = null;
-	Game.a.IMAGE_LOADER_POPCAP = null;
-	Game.a.EFFECT_BOARD_3D = null;
-	Game.a.EFFECT_GEM_3D = null;
-	Game.a.EFFECT_TUBE_3D = null;
-	Game.a.EFFECT_TUBECAP_3D = null;
-	Game.a.ATLASIMAGE_ATLAS_INIT_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_INIT_480_01 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_INIT_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_INIT_768_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_INIT_768_01 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_INIT_768_00 = null;
-	Game.a.FONT_FLAREGOTHIC8 = null;
-	Game.a.FONT_FLAREGOTHICBOLD10 = null;
-	Game.a.FONT_HUMANST9 = null;
-	Game.a.IMAGE_HYPERSPACE_INITIAL = null;
-	Game.a.IMAGE_HYPERSPACE = null;
-	Game.a.IMAGE_WARP_LINES_01 = null;
-	Game.a.IMAGE_COMPLEMENT_GOOD = null;
-	Game.a.IMAGE_COMPLEMENT_EXCELLENT = null;
-	Game.a.IMAGE_COMPLEMENT_AWESOME = null;
-	Game.a.IMAGE_COMPLEMENT_SPECTACULAR = null;
-	Game.a.IMAGE_COMPLEMENT_EXTRAORDINARY = null;
-	Game.a.IMAGE_COMPLEMENT_UNBELIEVABLE = null;
-	Game.a.IMAGE_COMPLEMENT_BLAZINGSPEED = null;
-	Game.a.IMAGE_VERTICAL_STREAK = null;
-	Game.a.IMAGE_HYPERCUBE_COLORGLOW = null;
-	Game.a.IMAGE_HYPERCUBE_FRAME = null;
-	Game.a.IMAGE_TRANSPARENT_HOLE = null;
-	Game.a.IMAGE_GRITTYBLURRY = null;
-	Game.a.IMAGE_ANIMS_BOARDSHATTER_BOTTOM = null;
-	Game.a.IMAGE_ANIMS_BOARDSHATTER_GRID = null;
-	Game.a.IMAGE_ANIMS_BOARDSHATTER_TOP = null;
-	Game.a.IMAGE_DANGERBORDERLEFT = null;
-	Game.a.IMAGE_DANGERBORDERUP = null;
-	Game.a.IMAGE_GRIDPAINT_BLANK = null;
-	Game.a.IMAGE_GRIDPAINT_FILLED = null;
-	Game.a.IMAGE_MULTIPLIER_LARGE_BACK = null;
-	Game.a.IMAGE_MULTIPLIER_LARGE_FRONT = null;
-	Game.a.IMAGE_RECORDS_RANK_FILL = null;
-	Game.a.IMAGE_RECORDS_RANK_GLOW = null;
-	Game.a.IMAGE_RECORDS_RANK_PLATE = null;
-	Game.a.IMAGE_SOLID_BLACK = null;
-	Game.a.IMAGE_SPARKLE_FAT = null;
-	Game.a.IMAGE_SPARKLET_BIG = null;
-	Game.a.IMAGE_SPARKLET_FAT = null;
-	Game.a.IMAGE_TOOLTIP = null;
-	Game.a.IMAGE_TOOLTIP_ARROW = null;
-	Game.a.PIEFFECT_ANIMS_GEM_MEGA_SHATTER_MEGA = null;
-	Game.a.PIEFFECT_BACKGROUNDS_BLOWING_SNOW04 = null;
-	Game.a.PIEFFECT_BACKGROUNDS_LANTERNPLANT01 = null;
-	Game.a.PIEFFECT_BACKGROUNDS_WATER_FALL_CLIFF01 = null;
-	Game.a.PIEFFECT_BACKGROUNDS_WATER_FALL_CLIFF02 = null;
-	Game.a.PIEFFECT_BACKGROUNDS_WATERFALL10 = null;
-	Game.a.PIEFFECT_BOARD_FLAME_EMBERS = null;
-	Game.a.PIEFFECT_COUNTDOWNBAR = null;
-	Game.a.PIEFFECT_CRYSTALBALL = null;
-	Game.a.PIEFFECT_CRYSTALRAYS = null;
-	Game.a.PIEFFECT_DISCOBALL = null;
-	Game.a.PIEFFECT_FIRE_TRAIL = null;
-	Game.a.PIEFFECT_FIREGEM_HYPERSPACE = null;
-	Game.a.PIEFFECT_GEM_LANDING_FX = null;
-	Game.a.PIEFFECT_HINTFLASH = null;
-	Game.a.PIEFFECT_HYPERCUBE = null;
-	Game.a.PIEFFECT_LIGHTNING_POWERED_BOTTOM = null;
-	Game.a.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT = null;
-	Game.a.PIEFFECT_LIGHTNING_POWERED_MEGASHARD = null;
-	Game.a.PIEFFECT_LIGHTNING_STEAMPULSE = null;
-	Game.a.PIEFFECT_MAINMENU3 = null;
-	Game.a.PIEFFECT_MULTIPLIER = null;
-	Game.a.PIEFFECT_QUEST_DIG_COLLECT_GOLD = null;
-	Game.a.PIEFFECT_SPEEDBOARD_FLAME = null;
-	Game.a.PIEFFECT_SPEEDTEXT_FLAME = null;
-	Game.a.PIEFFECT_STARGEM = null;
-	Game.a.POPANIM_ANIMS_LIGHTNINGUI = null;
-	Game.a.POPANIM_ANIMS_LIGHTNINGUIBOTTOM = null;
-	Game.a.POPANIM_ANIMS_BOARDSHATTER = null;
-	Game.a.POPANIM_ANIMS_GEM_MEGA = null;
-	Game.a.POPANIM_FLAMEGEMEXPLODE = null;
-	Game.a.SOUND_BUTTON_MOUSEOVER = null;
-	Game.a.SOUND_BUTTON_MOUSELEAVE = null;
-	Game.a.SOUND_BACKTOMAIN = null;
-	Game.a.SOUND_BADMOVE = null;
-	Game.a.SOUND_BOMB_EXPLODE = null;
-	Game.a.SOUND_BUTTON_PRESS = null;
-	Game.a.SOUND_BUTTON_RELEASE = null;
-	Game.a.SOUND_CLICKFLYIN = null;
-	Game.a.SOUND_COMBO_1 = null;
-	Game.a.SOUND_COMBO_2 = null;
-	Game.a.SOUND_COMBO_3 = null;
-	Game.a.SOUND_COMBO_4 = null;
-	Game.a.SOUND_COMBO_5 = null;
-	Game.a.SOUND_COMBO_6 = null;
-	Game.a.SOUND_COMBO_7 = null;
-	Game.a.SOUND_COUNTDOWN_WARNING = null;
-	Game.a.SOUND_DOUBLESET = null;
-	Game.a.SOUND_ELECTRO_EXPLODE = null;
-	Game.a.SOUND_ELECTRO_PATH = null;
-	Game.a.SOUND_ELECTRO_PATH2 = null;
-	Game.a.SOUND_FLAMEBONUS = null;
-	Game.a.SOUND_FLAMESPEED1 = null;
-	Game.a.SOUND_GEM_COUNTDOWN_DESTROYED = null;
-	Game.a.SOUND_GEM_HIT = null;
-	Game.a.SOUND_GEM_SHATTERS = null;
-	Game.a.SOUND_HYPERCUBE_CREATE = null;
-	Game.a.SOUND_HYPERSPACE = null;
-	Game.a.SOUND_HYPERSPACE_GEM_LAND_1 = null;
-	Game.a.SOUND_HYPERSPACE_GEM_LAND_2 = null;
-	Game.a.SOUND_HYPERSPACE_GEM_LAND_3 = null;
-	Game.a.SOUND_HYPERSPACE_GEM_LAND_4 = null;
-	Game.a.SOUND_HYPERSPACE_GEM_LAND_5 = null;
-	Game.a.SOUND_HYPERSPACE_GEM_LAND_6 = null;
-	Game.a.SOUND_HYPERSPACE_GEM_LAND_7 = null;
-	Game.a.SOUND_HYPERSPACE_SHATTER_1 = null;
-	Game.a.SOUND_HYPERSPACE_SHATTER_2 = null;
-	Game.a.SOUND_LASERGEM_CREATED = null;
-	Game.a.SOUND_MENUSPIN = null;
-	Game.a.SOUND_NEXTLEVEL = null;
-	Game.a.SOUND_POWERGEM_CREATED = null;
-	Game.a.SOUND_PREBLAST = null;
-	Game.a.SOUND_QUEST_GET = null;
-	Game.a.SOUND_RANK_COUNTUP = null;
-	Game.a.SOUND_RANKUP = null;
-	Game.a.SOUND_SELECT = null;
-	Game.a.SOUND_SMALL_EXPLODE = null;
-	Game.a.SOUND_SPEEDBOARD_BACKGROUND_CHANGE = null;
-	Game.a.SOUND_SPEEDBOARD_FLAMELOOP = null;
-	Game.a.SOUND_SPEEDBOARD_LIGHTNING_ENERGIZE = null;
-	Game.a.SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_5 = null;
-	Game.a.SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_10 = null;
-	Game.a.SOUND_SPEEDBOARD_MULTIPLIER_UP2_1 = null;
-	Game.a.SOUND_SPEEDBOARD_MULTIPLIER_UP2_2 = null;
-	Game.a.SOUND_SPEEDBOARD_MULTIPLIER_UP2_3 = null;
-	Game.a.SOUND_SPEEDBOARD_MULTIPLIER_UP2_4 = null;
-	Game.a.SOUND_SPEEDBOARD_TIMEBONUS_5 = null;
-	Game.a.SOUND_SPEEDBOARD_TIMEBONUS_10 = null;
-	Game.a.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_5 = null;
-	Game.a.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_10 = null;
-	Game.a.SOUND_SPEEDMATCH1 = null;
-	Game.a.SOUND_SPEEDMATCH2 = null;
-	Game.a.SOUND_SPEEDMATCH3 = null;
-	Game.a.SOUND_SPEEDMATCH4 = null;
-	Game.a.SOUND_SPEEDMATCH5 = null;
-	Game.a.SOUND_SPEEDMATCH6 = null;
-	Game.a.SOUND_SPEEDMATCH7 = null;
-	Game.a.SOUND_SPEEDMATCH8 = null;
-	Game.a.SOUND_SPEEDMATCH9 = null;
-	Game.a.SOUND_START_ROTATE = null;
-	Game.a.SOUND_TICK = null;
-	Game.a.SOUND_TOOLTIP = null;
-	Game.a.SOUND_VOICE_AWESOME = null;
-	Game.a.SOUND_VOICE_BLAZINGSPEED = null;
-	Game.a.SOUND_VOICE_EXCELLENT = null;
-	Game.a.SOUND_VOICE_EXTRAORDINARY = null;
-	Game.a.SOUND_VOICE_GAMEOVER = null;
-	Game.a.SOUND_VOICE_GETREADY = null;
-	Game.a.SOUND_VOICE_GO = null;
-	Game.a.SOUND_VOICE_GOOD = null;
-	Game.a.SOUND_VOICE_LEVELCOMPLETE = null;
-	Game.a.SOUND_VOICE_NOMOREMOVES = null;
-	Game.a.SOUND_VOICE_SPECTACULAR = null;
-	Game.a.SOUND_VOICE_THIRTYSECONDS = null;
-	Game.a.SOUND_VOICE_TIMEUP = null;
-	Game.a.SOUND_VOICE_UNBELIEVABLE = null;
-	Game.a.SOUND_VOICE_WELCOMEBACK = null;
-	Game.a.SOUND_VOICE_WELCOMETOBEJEWELED = null;
-	Game.a.ATLASIMAGE_ATLAS_LOADINGTHREAD_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_LOADINGTHREAD_480_01 = null;
-	Game.a.ATLASIMAGE_ATLAS_LOADINGTHREAD_480_02 = null;
-	Game.a.ATLASIMAGE_ATLAS_LOADINGTHREAD_480_03 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_480_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_480_01 = null;
-	Game.a.ATLASIMAGE_ATLAS_LOADINGTHREAD_768_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_LOADINGTHREAD_768_01 = null;
-	Game.a.ATLASIMAGE_ATLAS_LOADINGTHREAD_768_02 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_768_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_LOADINGTHREAD_COMMON_00 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_COMMON_00 = null;
-	Game.a.IMAGE_CRYSTALBALL = null;
-	Game.a.IMAGE_CRYSTALBALL_SHADOW = null;
-	Game.a.IMAGE_CRYSTALBALL_GLOW = null;
-	Game.a.IMAGE_TITLE = null;
-	Game.a.IMAGE_PARTICLES_CRYSTALBALL_0_BASIC_BLUR = null;
-	Game.a.IMAGE_PARTICLES_CRYSTALRAYS_0_RAY = null;
-	Game.a.ATLASIMAGE_ATLAS_MAINMENU_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_MAINMENU_480_01 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_MAINMENU_480_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_MAINMENU_768_00 = null;
-	Game.a.ATLASIMAGE_ATLAS_MAINMENU_768_01 = null;
-	Game.a.ATLASIMAGE_RT_ATLAS_MAINMENU_768_00 = null;
-	Game.a.SOUND_MUSIC_CLASSIC = null;
-	Game.a.SOUND_MUSIC_MENU = null;
-	Game.a.SOUND_MUSIC_SPEED = null;
-	Game.a.SOUND_MUSIC_SPEED_END = null;
-	Game.a.IMAGE_TEX_BLUE_GEM = null;
-	Game.a.IMAGE_TEX_GREEN_GE = null;
-	Game.a.IMAGE_TEX_ORANGE_G = null;
-	Game.a.IMAGE_TEX_PURPLE_G = null;
-	Game.a.IMAGE_TEX_RED_GEM = null;
-	Game.a.IMAGE_TEX_TUBECAP = null;
-	Game.a.IMAGE_TEX_WARP_LIN = null;
-	Game.a.IMAGE_TEX_WHITE_GE = null;
-	Game.a.IMAGE_TEX_YELLOW_G = null
+Game.Resources = t();
+Game.Resources.prototype = {};
+Game.Resources.c = function() {
+	Game.Resources.tja = "IMAGE_GEMLIGHTING";
+	Game.Resources.gla = "IMAGE_SPARKLE";
+	Game.Resources.ska = "IMAGE_PARTICLES_BOARD_FLAME_EMBERS_0_BASIC_BLUR";
+	Game.Resources.tka = "IMAGE_PARTICLES_COUNTDOWNBAR_0_SMALL_BLUR_STAR";
+	Game.Resources.uka = "IMAGE_PARTICLES_COUNTDOWNBAR_1_BASIC_BLUR";
+	Game.Resources.xka = "IMAGE_PARTICLES_DISCOBALL_0_DISCO_GLOW";
+	Game.Resources.yka = "IMAGE_PARTICLES_DISCOBALL_1_DISCO_GLOW";
+	Game.Resources.zka = "IMAGE_PARTICLES_DISCOBALL_2_BLURRED_SHARP_STAR";
+	Game.Resources.Bka = "IMAGE_PARTICLES_FIRE_TRAIL_0_BASIC_BLUR";
+	Game.Resources.Aka = "IMAGE_PARTICLES_FIREGEM_HYPERSPACE_0_BASIC_BLUR";
+	Game.Resources.Cka = "IMAGE_PARTICLES_GEM_LANDING_FX_0_CERCLEM";
+	Game.Resources.Dka = "IMAGE_PARTICLES_GEM_LANDING_FX_1_BLURRED_SHARP_STAR";
+	Game.Resources.Eka = "IMAGE_PARTICLES_HINTFLASH_0_CERCLEM";
+	Game.Resources.Fka = "IMAGE_PARTICLES_HYPERCUBE_0_BASIC_BLUR";
+	Game.Resources.Gka = "IMAGE_PARTICLES_LIGHTNING_POWERED_BOTTOM_0_LIGHTNINGPARTICLE";
+	Game.Resources.Hka = "IMAGE_PARTICLES_LIGHTNING_POWERED_LEFTRIGHT_0_LIGHTNINGPARTICLE";
+	Game.Resources.Ika = "IMAGE_PARTICLES_LIGHTNING_POWERED_LEFTRIGHT_1_LIGHTNINGPARTICLE";
+	Game.Resources.Jka = "IMAGE_PARTICLES_LIGHTNING_POWERED_MEGASHARD_0_LIGHTNINGPARTICLE";
+	Game.Resources.Kka = "IMAGE_PARTICLES_LIGHTNING_POWERED_MEGASHARD_1_LIGHTNINGPARTICLE";
+	Game.Resources.Lka = "IMAGE_PARTICLES_LIGHTNING_STEAMPULSE_0_BASIC_BLUR";
+	Game.Resources.Mka = "IMAGE_PARTICLES_MAINMENU3_0_BLURRED_SPLOTCH";
+	Game.Resources.Nka = "IMAGE_PARTICLES_MULTIPLIER_0_RAY";
+	Game.Resources.Oka = "IMAGE_PARTICLES_QUEST_DIG_COLLECT_GOLD_0_SMALL_BLUR_STAR";
+	Game.Resources.Pka = "IMAGE_PARTICLES_QUEST_DIG_COLLECT_GOLD_1_BASIC_BLUR";
+	Game.Resources.Qka = "IMAGE_PARTICLES_SPEEDBOARD_FLAME_0_FLAME1";
+	Game.Resources.Rka = "IMAGE_PARTICLES_SPEEDTEXT_FLAME_0_TRUEFLAME5X";
+	Game.Resources.Ska = "IMAGE_PARTICLES_STARGEM_0_SMALL_BLUR_STAR";
+	Game.Resources.Tka = "IMAGE_PARTICLES_STARGEM_1_CORONAGLOW";
+	Game.Resources.Uka = "IMAGE_PARTICLES_STARGEM_2_STAR_GLOW";
+	Game.Resources.eka = "IMAGE_LIGHTNING";
+	Game.Resources.Fia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME1";
+	Game.Resources.Gia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME2";
+	Game.Resources.Hia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME3";
+	Game.Resources.Iia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME4";
+	Game.Resources.Jia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME5";
+	Game.Resources.Kia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME6";
+	Game.Resources.Lia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME7";
+	Game.Resources.Mia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME8";
+	Game.Resources.Nia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME9";
+	Game.Resources.Dia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME10";
+	Game.Resources.Eia = "IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME11";
+	Game.Resources.Oia = "IMAGE_FLAMEGEMCREATION_FLAMEGEM_BLUR";
+	Game.Resources.Pia = "IMAGE_FLAMEGEMCREATION_FLAMEGEM_FLASH_1";
+	Game.Resources.Qia = "IMAGE_FLAMEGEMCREATION_FLAMEGEM_FLASH_2";
+	Game.Resources.Ria = "IMAGE_FLAMEGEMCREATION_FLAMEGEM_LARGE_RING";
+	Game.Resources.Sia = "IMAGE_FLAMEGEMCREATION_FLAMEGEM_RING_OF_FLAME";
+	Game.Resources.Cia = "IMAGE_FIREPARTICLE";
+	Game.Resources.ela = "IMAGE_SPARKLET";
+	Game.Resources.Kja = "IMAGE_GEM_FRUIT_SPARK";
+	Game.Resources.Bia = "IMAGE_ELECTROTEX";
+	Game.Resources.Aia = "IMAGE_ELECTROTEX_CENTER";
+	Game.Resources.Rja = "IMAGE_HYPERFLARELINE";
+	Game.Resources.Sja = "IMAGE_HYPERFLARERING";
+	Game.Resources.uja = "IMAGE_GEMOUTLINES";
+	Game.Resources.k$ = "ATLASIMAGE_ATLAS_ADDITIVE_480_00";
+	Game.Resources.l$ = "ATLASIMAGE_ATLAS_ADDITIVE_480_01";
+	Game.Resources.iaa = "ATLASIMAGE_RT_ATLAS_ADDITIVE_480_00";
+	Game.Resources.m$ = "ATLASIMAGE_ATLAS_ADDITIVE_768_00";
+	Game.Resources.n$ = "ATLASIMAGE_ATLAS_ADDITIVE_768_01";
+	Game.Resources.jaa = "ATLASIMAGE_RT_ATLAS_ADDITIVE_768_00";
+	Game.Resources.ffa = "IMAGE_BACKGROUNDS_BLOWING_SNOW04_0_SNOWBLOW";
+	Game.Resources.gfa = "IMAGE_BACKGROUNDS_BLOWING_SNOW04_1_DOTS";
+	Game.Resources.pga = "IMAGE_BACKGROUNDS_LANTERNPLANT01_0_BASIC_BLUR";
+	Game.Resources.qga = "IMAGE_BACKGROUNDS_LANTERNPLANT01_1_SQUARE_STAR";
+	Game.Resources.dha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF01_0_WATERPART01";
+	Game.Resources.eha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF02_0_FLAME320004C7";
+	Game.Resources.o$ = "ATLASIMAGE_ATLAS_BACKGROUNDS_480_00";
+	Game.Resources.kaa = "ATLASIMAGE_RT_ATLAS_BACKGROUNDS_480_00";
+	Game.Resources.p$ = "ATLASIMAGE_ATLAS_BACKGROUNDS_768_00";
+	Game.Resources.laa = "ATLASIMAGE_RT_ATLAS_BACKGROUNDS_768_00";
+	Game.Resources.yfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_FLATTENEDPAM";
+	Game.Resources.hfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_1920X1200";
+	Game.Resources.wfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50";
+	Game.Resources.ofa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_2";
+	Game.Resources.pfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_3";
+	Game.Resources.qfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_4";
+	Game.Resources.rfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_5";
+	Game.Resources.sfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_6";
+	Game.Resources.tfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_7";
+	Game.Resources.ufa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_8";
+	Game.Resources.vfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_9";
+	Game.Resources.ifa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_10";
+	Game.Resources.jfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_11";
+	Game.Resources.kfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_12";
+	Game.Resources.lfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_13";
+	Game.Resources.mfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_14";
+	Game.Resources.nfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_15";
+	Game.Resources.xfa = "IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_965X935";
+	Game.Resources.Rma = "POPANIM_BACKGROUNDS_CANYON_WALL_CASTLE";
+	Game.Resources.q$ = "ATLASIMAGE_ATLAS_BG_CANYONWALLCASTLE_480_00";
+	Game.Resources.maa = "ATLASIMAGE_RT_ATLAS_BG_CANYONWALLCASTLE_480_00";
+	Game.Resources.r$ = "ATLASIMAGE_ATLAS_BG_CANYONWALLCASTLE_768_00";
+	Game.Resources.naa = "ATLASIMAGE_RT_ATLAS_BG_CANYONWALLCASTLE_768_00";
+	Game.Resources.zfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLATTENEDPAM";
+	Game.Resources.Efa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1920X1200";
+	Game.Resources.Afa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1127X272";
+	Game.Resources.Bfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1254X573";
+	Game.Resources.Cfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_16X63";
+	Game.Resources.Dfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1920X1186";
+	Game.Resources.Ffa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_214X81";
+	Game.Resources.Gfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_439X551";
+	Game.Resources.Vfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17";
+	Game.Resources.Nfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_2";
+	Game.Resources.Ofa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_3";
+	Game.Resources.Pfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_4";
+	Game.Resources.Qfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_5";
+	Game.Resources.Rfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_6";
+	Game.Resources.Sfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_7";
+	Game.Resources.Tfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_8";
+	Game.Resources.Ufa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_9";
+	Game.Resources.Hfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_10";
+	Game.Resources.Ifa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_11";
+	Game.Resources.Jfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_12";
+	Game.Resources.Kfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_13";
+	Game.Resources.Lfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_14";
+	Game.Resources.Mfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_15";
+	Game.Resources.Wfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_576X369";
+	Game.Resources.Xfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_619X198";
+	Game.Resources.Yfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_629X243";
+	Game.Resources.$fa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_724X147";
+	Game.Resources.Zfa = "IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_724X147_2";
+	Game.Resources.Sma = "POPANIM_BACKGROUNDS_FLOATING_ROCK_CITY";
+	Game.Resources.s$ = "ATLASIMAGE_ATLAS_BG_FLOATINGROCKCITY_480_00";
+	Game.Resources.oaa = "ATLASIMAGE_RT_ATLAS_BG_FLOATINGROCKCITY_480_00";
+	Game.Resources.t$ = "ATLASIMAGE_ATLAS_BG_FLOATINGROCKCITY_768_00";
+	Game.Resources.paa = "ATLASIMAGE_RT_ATLAS_BG_FLOATINGROCKCITY_768_00";
+	Game.Resources.aga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_FLATTENEDPAM";
+	Game.Resources.iga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_1920X1200";
+	Game.Resources.bga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_11X10";
+	Game.Resources.cga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_11X19";
+	Game.Resources.dga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_12X11";
+	Game.Resources.ega = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_13X14";
+	Game.Resources.fga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_14X14";
+	Game.Resources.gga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_15X13";
+	Game.Resources.hga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_16X10";
+	Game.Resources.jga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_22X13";
+	Game.Resources.kga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_23X8";
+	Game.Resources.lga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_25X10";
+	Game.Resources.mga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_62X884";
+	Game.Resources.nga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_6X19";
+	Game.Resources.oga = "IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_779X876";
+	Game.Resources.Tma = "POPANIM_BACKGROUNDS_HORSE_FOREST_TREE";
+	Game.Resources.u$ = "ATLASIMAGE_ATLAS_BG_HORSEFORESTTREE_480_00";
+	Game.Resources.qaa = "ATLASIMAGE_RT_ATLAS_BG_HORSEFORESTTREE_480_00";
+	Game.Resources.v$ = "ATLASIMAGE_ATLAS_BG_HORSEFORESTTREE_768_00";
+	Game.Resources.raa = "ATLASIMAGE_RT_ATLAS_BG_HORSEFORESTTREE_768_00";
+	Game.Resources.rga = "IMAGE_BACKGROUNDS_LANTERN_PLANTS_WORLD_FLATTENEDPAM";
+	Game.Resources.sga = "IMAGE_BACKGROUNDS_LANTERN_PLANTS_WORLD_LANTERN_PLANTS_WORLD_1920X1200";
+	Game.Resources.Uma = "POPANIM_BACKGROUNDS_LANTERN_PLANTS_WORLD";
+	Game.Resources.tga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_FLATTENEDPAM";
+	Game.Resources.Bga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_1920X1200";
+	Game.Resources.uga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_11X19";
+	Game.Resources.vga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_12X11";
+	Game.Resources.wga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_13X14";
+	Game.Resources.xga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_14X14";
+	Game.Resources.yga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_15X13";
+	Game.Resources.zga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_16X10";
+	Game.Resources.Aga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_179X67";
+	Game.Resources.Cga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_22X13";
+	Game.Resources.Dga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_23X8";
+	Game.Resources.Ega = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_25X10";
+	Game.Resources.Fga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_279X293";
+	Game.Resources.Gga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_303X68";
+	Game.Resources.Hga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_558X504";
+	Game.Resources.Iga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_617X180";
+	Game.Resources.Jga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_650X300";
+	Game.Resources.Kga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_663X239";
+	Game.Resources.Lga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_693X281";
+	Game.Resources.Mga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_694X323";
+	Game.Resources.Nga = "IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_6X19";
+	Game.Resources.bha = "IMAGE_BACKGROUNDS_WATERFALL10_0_WHITEPHOOP_RIGHT2";
+	Game.Resources.cha = "IMAGE_BACKGROUNDS_WATERFALL10_1_WATERPART";
+	Game.Resources.Vma = "POPANIM_BACKGROUNDS_LION_TOWER_CASCADE";
+	Game.Resources.w$ = "ATLASIMAGE_ATLAS_BG_LIONTOWERCASCADE_480_00";
+	Game.Resources.saa = "ATLASIMAGE_RT_ATLAS_BG_LIONTOWERCASCADE_480_00";
+	Game.Resources.x$ = "ATLASIMAGE_ATLAS_BG_LIONTOWERCASCADE_768_00";
+	Game.Resources.taa = "ATLASIMAGE_RT_ATLAS_BG_LIONTOWERCASCADE_768_00";
+	Game.Resources.Oga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_FLATTENEDPAM";
+	Game.Resources.Sga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_1920X1200";
+	Game.Resources.Pga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_133X135";
+	Game.Resources.Qga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_135X118";
+	Game.Resources.Rga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_16X63";
+	Game.Resources.Tga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_192X94";
+	Game.Resources.Uga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_578X432";
+	Game.Resources.Vga = "IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_840X355";
+	Game.Resources.Wma = "POPANIM_BACKGROUNDS_POINTY_ICE_PATH";
+	Game.Resources.y$ = "ATLASIMAGE_ATLAS_BG_POINTYICEPATH_480_00";
+	Game.Resources.uaa = "ATLASIMAGE_RT_ATLAS_BG_POINTYICEPATH_480_00";
+	Game.Resources.z$ = "ATLASIMAGE_ATLAS_BG_POINTYICEPATH_768_00";
+	Game.Resources.vaa = "ATLASIMAGE_RT_ATLAS_BG_POINTYICEPATH_768_00";
+	Game.Resources.Wga = "IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_FLATTENEDPAM";
+	Game.Resources.Xga = "IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_1920X1200";
+	Game.Resources.aha = "IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82";
+	Game.Resources.Yga = "IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82_2";
+	Game.Resources.Zga = "IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82_3";
+	Game.Resources.$ga = "IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82_4";
+	Game.Resources.Xma = "POPANIM_BACKGROUNDS_SNOWY_CLIFFS_CASTLE";
+	Game.Resources.A$ = "ATLASIMAGE_ATLAS_BG_SNOWYCLIFFSCASTLE_480_00";
+	Game.Resources.waa = "ATLASIMAGE_RT_ATLAS_BG_SNOWYCLIFFSCASTLE_480_00";
+	Game.Resources.B$ = "ATLASIMAGE_ATLAS_BG_SNOWYCLIFFSCASTLE_768_00";
+	Game.Resources.xaa = "ATLASIMAGE_RT_ATLAS_BG_SNOWYCLIFFSCASTLE_768_00";
+	Game.Resources.fha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_FLATTENEDPAM";
+	Game.Resources.mha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_1920X1200";
+	Game.Resources.gha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_11X19";
+	Game.Resources.hha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_12X11";
+	Game.Resources.iha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_13X14";
+	Game.Resources.jha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_14X14";
+	Game.Resources.kha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_15X13";
+	Game.Resources.lha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_16X10";
+	Game.Resources.nha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_22X13";
+	Game.Resources.oha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_23X8";
+	Game.Resources.pha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_25X10";
+	Game.Resources.qha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_449X521";
+	Game.Resources.rha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_497X955";
+	Game.Resources.sha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_676X834";
+	Game.Resources.tha = "IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_6X19";
+	Game.Resources.Yma = "POPANIM_BACKGROUNDS_WATER_FALL_CLIFF";
+	Game.Resources.C$ = "ATLASIMAGE_ATLAS_BG_WATERFALLCLIFF_480_00";
+	Game.Resources.yaa = "ATLASIMAGE_RT_ATLAS_BG_WATERFALLCLIFF_480_00";
+	Game.Resources.D$ = "ATLASIMAGE_ATLAS_BG_WATERFALLCLIFF_768_00";
+	Game.Resources.zaa = "ATLASIMAGE_RT_ATLAS_BG_WATERFALLCLIFF_768_00";
+	Game.Resources.Rea = "IMAGE_ANIMS_LIGHTNINGUI_ENERGIZE_PULSERING";
+	Game.Resources.Sea = "IMAGE_ANIMS_LIGHTNINGUI_LEFT_DEAD";
+	Game.Resources.Tea = "IMAGE_ANIMS_LIGHTNINGUI_LEFT_GOLD";
+	Game.Resources.Uea = "IMAGE_ANIMS_LIGHTNINGUI_LEFT_PURPLE";
+	Game.Resources.Vea = "IMAGE_ANIMS_LIGHTNINGUI_MULTI_GOLD";
+	Game.Resources.Wea = "IMAGE_ANIMS_LIGHTNINGUI_MULTI_PULSERING";
+	Game.Resources.Xea = "IMAGE_ANIMS_LIGHTNINGUI_RIGHT_DEAD";
+	Game.Resources.Yea = "IMAGE_ANIMS_LIGHTNINGUI_RIGHT_GOLD";
+	Game.Resources.Zea = "IMAGE_ANIMS_LIGHTNINGUI_RIGHT_PURPLE";
+	Game.Resources.$ea = "IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDL";
+	Game.Resources.afa = "IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDM1";
+	Game.Resources.bfa = "IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDM2";
+	Game.Resources.cfa = "IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDR";
+	Game.Resources.efa = "IMAGE_ANIMS_LIGHTNINGUI_UITOP";
+	Game.Resources.dfa = "IMAGE_ANIMS_LIGHTNINGUI_UITOP_DAMAGE";
+	Game.Resources.zea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_BOTTOM_DEAD";
+	Game.Resources.Aea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_BOTTOM_GOLD";
+	Game.Resources.Bea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_BOTTOM_PURPLE";
+	Game.Resources.Cea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_ENERGIZE_PULSERING";
+	Game.Resources.Dea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_LEFT_DEAD";
+	Game.Resources.Eea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_LEFT_GOLD";
+	Game.Resources.Fea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_LEFT_PURPLE";
+	Game.Resources.Gea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_MULTI_GOLD";
+	Game.Resources.Hea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_MULTI_PULSERING";
+	Game.Resources.Iea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RIGHT_DEAD";
+	Game.Resources.Jea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RIGHT_GOLD";
+	Game.Resources.Kea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RIGHT_PURPLE";
+	Game.Resources.Lea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDL";
+	Game.Resources.Mea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDM1";
+	Game.Resources.Nea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDM2";
+	Game.Resources.Oea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDR";
+	Game.Resources.Pea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_UIBOTTOM";
+	Game.Resources.Qea = "IMAGE_ANIMS_LIGHTNINGUIBOTTOM_UITOP";
+	Game.Resources.sea = "IMAGE_ANIMS_GEM_MEGA_MEGA_CUFF";
+	Game.Resources.qea = "IMAGE_ANIMS_GEM_MEGA_MEGA_CUFFDEAD";
+	Game.Resources.rea = "IMAGE_ANIMS_GEM_MEGA_MEGA_CUFFGLOW";
+	Game.Resources.tea = "IMAGE_ANIMS_GEM_MEGA_MEGA_DEAD";
+	Game.Resources.uea = "IMAGE_ANIMS_GEM_MEGA_MEGA_GOLD";
+	Game.Resources.vea = "IMAGE_ANIMS_GEM_MEGA_MEGA_PURPLE";
+	Game.Resources.wea = "IMAGE_ANIMS_GEM_MEGA_MULTI_PULSERING";
+	Game.Resources.xea = "IMAGE_ANIMS_GEM_MEGA_SHATTER_MEGA_0_SHARD";
+	Game.Resources.yea = "IMAGE_ANIMS_GEM_MEGA_SHATTER_MEGA_1_BASIC_BLUR";
+	Game.Resources.yha = "IMAGE_BOARD_BOTTOM_FRAME";
+	Game.Resources.wha = "IMAGE_BOARD_BOTTOM_FRAME_BACK";
+	Game.Resources.xha = "IMAGE_BOARD_BOTTOM_FRAME_GLOW";
+	Game.Resources.zha = "IMAGE_BOARD_BOTTOM_WIDGET_CLASSIC";
+	Game.Resources.Aha = "IMAGE_BOARD_BOTTOM_WIDGET_LIGHTNING";
+	Game.Resources.Dha = "IMAGE_BOARD_HIGHLIGHT_ARROW";
+	Game.Resources.Eha = "IMAGE_BOARD_HIGHLIGHT_CIRCLE";
+	Game.Resources.Fha = "IMAGE_BOARD_HIGHLIGHT_FULL";
+	Game.Resources.Gha = "IMAGE_BOARD_HINT_BUTTON_CLASSIC";
+	Game.Resources.Hha = "IMAGE_BOARD_HINT_BUTTON_LIGHTNING";
+	Game.Resources.Jha = "IMAGE_BOARD_MARKER_CHECKERBOARD";
+	Game.Resources.Iha = "IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC";
+	Game.Resources.Lha = "IMAGE_BOARD_MENU_BUTTON_CLASSIC";
+	Game.Resources.Mha = "IMAGE_BOARD_MENU_BUTTON_LIGHTNING";
+	Game.Resources.Kha = "IMAGE_BOARD_MENUBTN";
+	Game.Resources.Nha = "IMAGE_BOARD_RESET_BUTTON_LIGHTNING";
+	Game.Resources.Qha = "IMAGE_BOARD_THIN_BOTTOM_FRAME";
+	Game.Resources.Pha = "IMAGE_BOARD_THIN_BOTTOM_FRAME_GLOW";
+	Game.Resources.Sha = "IMAGE_BOARD_TICK";
+	Game.Resources.Rha = "IMAGE_BOARD_TICK_GLOW";
+	Game.Resources.Uha = "IMAGE_BOARD_TIMER";
+	Game.Resources.Tha = "IMAGE_BOARD_TIMER_GOLD";
+	Game.Resources.Vha = "IMAGE_BOARD_TIMER_RED";
+	Game.Resources.Wha = "IMAGE_BOARD_TOP_BACK";
+	Game.Resources.Yha = "IMAGE_BOARD_TOP_FRAME";
+	Game.Resources.Xha = "IMAGE_BOARD_TOP_FRAME_GLOW";
+	Game.Resources.Zha = "IMAGE_BOARD_TOP_WIDGET";
+	Game.Resources.vha = "IMAGE_BARFILL";
+	Game.Resources.uha = "IMAGE_BARFILLRED";
+	Game.Resources.Vja = "IMAGE_LIGHTNING_BOTTOM_RED_LIGHTNING";
+	Game.Resources.Wja = "IMAGE_LIGHTNING_CENTER";
+	Game.Resources.fka = "IMAGE_LIGHTNING_MEGASHARD_RED_LIGHTNING";
+	Game.Resources.gka = "IMAGE_LIGHTNING_MULTI_PULSE_RING_LIGHTNING";
+	Game.Resources.hka = "IMAGE_LIGHTNING_TEX";
+	Game.Resources.ika = "IMAGE_LIGHTNING_TIMER_DEAD_LIGHTNING";
+	Game.Resources.jka = "IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING";
+	Game.Resources.kka = "IMAGE_LIGHTNING_TIMER_LIGHTNING";
+	Game.Resources.lka = "IMAGE_LIGHTNING_TIMER_RED_LIGHTNING";
+	Game.Resources.mka = "IMAGE_LIGHTNING_TOP_BACK_LIGHTNING";
+	Game.Resources.nka = "IMAGE_LIGHTNING_TOP_RED_LIGHTNING";
+	Game.Resources.E$ = "ATLASIMAGE_ATLAS_BOARD_480_00";
+	Game.Resources.F$ = "ATLASIMAGE_ATLAS_BOARD_480_01";
+	Game.Resources.Aaa = "ATLASIMAGE_RT_ATLAS_BOARD_480_00";
+	Game.Resources.G$ = "ATLASIMAGE_ATLAS_BOARD_768_00";
+	Game.Resources.H$ = "ATLASIMAGE_ATLAS_BOARD_768_01";
+	Game.Resources.Baa = "ATLASIMAGE_RT_ATLAS_BOARD_768_00";
+	Game.Resources.oia = "IMAGE_DIALOG_HELP_GLOW";
+	Game.Resources.pia = "IMAGE_DIALOG_LISTBOX";
+	Game.Resources.iia = "IMAGE_DIALOG_BUTTON";
+	Game.Resources.eia = "IMAGE_DIALOG_BACKGROUND";
+	Game.Resources.fia = "IMAGE_DIALOG_BLACK_BOX";
+	Game.Resources.gia = "IMAGE_DIALOG_BLUE_GEM";
+	Game.Resources.hia = "IMAGE_DIALOG_BUTTON_DISABLED";
+	Game.Resources.jia = "IMAGE_DIALOG_CHECKBOX_BLANK";
+	Game.Resources.kia = "IMAGE_DIALOG_CHECKBOX_CHECKED";
+	Game.Resources.lia = "IMAGE_DIALOG_EDITBOX";
+	Game.Resources.mia = "IMAGE_DIALOG_GOLD_COIN";
+	Game.Resources.nia = "IMAGE_DIALOG_HEADERLESS_BKG";
+	Game.Resources.qia = "IMAGE_DIALOG_LISTSELECT";
+	Game.Resources.ria = "IMAGE_DIALOG_OPTIONS_DECOR";
+	Game.Resources.sia = "IMAGE_DIALOG_PLAQUE";
+	Game.Resources.tia = "IMAGE_DIALOG_SILVER_COIN";
+	Game.Resources.uia = "IMAGE_DIALOG_SLIDERBAR";
+	Game.Resources.via = "IMAGE_DIALOG_SLIDERBAR_VERTICAL";
+	Game.Resources.wia = "IMAGE_DIALOG_SLIDERHANDLE";
+	Game.Resources.xia = "IMAGE_DIALOG_SMALL_BUTTON";
+	Game.Resources.yia = "IMAGE_DIALOG_TAB";
+	Game.Resources.Xia = "IMAGE_GAMEOVER_BAR__PINK";
+	Game.Resources.Via = "IMAGE_GAMEOVER_BAR_ORANGE";
+	Game.Resources.Wia = "IMAGE_GAMEOVER_BAR_YELLOW";
+	Game.Resources.Yia = "IMAGE_GAMEOVER_BOX_ORANGE";
+	Game.Resources.Zia = "IMAGE_GAMEOVER_BOX_PINK";
+	Game.Resources.$ia = "IMAGE_GAMEOVER_BOX_YELLOW";
+	Game.Resources.aja = "IMAGE_GAMEOVER_DARKER_BOX";
+	Game.Resources.bja = "IMAGE_GAMEOVER_DARKEST_BOX";
+	Game.Resources.cja = "IMAGE_GAMEOVER_DIALOG";
+	Game.Resources.dja = "IMAGE_GAMEOVER_HORIZONTAL_BAR";
+	Game.Resources.eja = "IMAGE_GAMEOVER_HORIZONTAL_BAR_OVERLAY";
+	Game.Resources.fja = "IMAGE_GAMEOVER_ICON_FLAME";
+	Game.Resources.gja = "IMAGE_GAMEOVER_ICON_FLAME_LRG";
+	Game.Resources.hja = "IMAGE_GAMEOVER_ICON_HYPERCUBE";
+	Game.Resources.ija = "IMAGE_GAMEOVER_ICON_HYPERCUBE_LRG";
+	Game.Resources.jja = "IMAGE_GAMEOVER_ICON_LIGHTNING";
+	Game.Resources.kja = "IMAGE_GAMEOVER_ICON_STAR";
+	Game.Resources.lja = "IMAGE_GAMEOVER_ICON_STAR_LRG";
+	Game.Resources.mja = "IMAGE_GAMEOVER_LIGHT_BOX";
+	Game.Resources.oja = "IMAGE_GAMEOVER_LINE_SINGLE";
+	Game.Resources.nja = "IMAGE_GAMEOVER_LINES";
+	Game.Resources.pja = "IMAGE_GAMEOVER_SECTION_GRAPH";
+	Game.Resources.qja = "IMAGE_GAMEOVER_SECTION_LABEL";
+	Game.Resources.rja = "IMAGE_GAMEOVER_SECTION_SMALL";
+	Game.Resources.sja = "IMAGE_GAMEOVER_STAMP";
+	Game.Resources.I$ = "ATLASIMAGE_ATLAS_DIALOG_480_00";
+	Game.Resources.J$ = "ATLASIMAGE_ATLAS_DIALOG_480_01";
+	Game.Resources.Caa = "ATLASIMAGE_RT_ATLAS_DIALOG_480_00";
+	Game.Resources.K$ = "ATLASIMAGE_ATLAS_DIALOG_768_00";
+	Game.Resources.L$ = "ATLASIMAGE_ATLAS_DIALOG_768_01";
+	Game.Resources.Daa = "ATLASIMAGE_RT_ATLAS_DIALOG_768_00";
+	Game.Resources.mda = "FONT_HUMANST521BT40";
+	Game.Resources.uda = "FONT_MULTIPLIER";
+	Game.Resources.vda = "FONT_PLAYBUTTONS";
+	Game.Resources.Jda = "FONT_SPEED_TEXT";
+	Game.Resources.eda = "FONT_FLOATERS";
+	Game.Resources.Fda = "FONT_SCORE";
+	Game.Resources.Gda = "FONT_SCORE_LARGE";
+	Game.Resources.rda = "FONT_LEVEL";
+	Game.Resources.xda = "FONT_POPUP_TEXT";
+	Game.Resources.wda = "FONT_POPUP_COUNT";
+	Game.Resources.zda = "FONT_RANKUP_NAME";
+	Game.Resources.tda = "FONT_MENU_BTN";
+	Game.Resources.jda = "FONT_HUGE";
+	Game.Resources.Fca = "FONT_DIALOG_HEADER";
+	Game.Resources.gda = "FONT_GAMEOVER_DIALOG";
+	Game.Resources.ida = "FONT_GAMEOVER_DIALOG_SMALL";
+	Game.Resources.hda = "FONT_GAMEOVER_DIALOG_MED";
+	Game.Resources.fda = "FONT_GAMEOVER_DIALOG_HUGE";
+	Game.Resources.Hca = "FONT_DIALOG_TEXT";
+	Game.Resources.Ica = "FONT_DISABLE_HINTS";
+	Game.Resources.Gca = "FONT_DIALOG_SMALL_TEXT";
+	Game.Resources.Eca = "FONT_DIALOG_BUTTONS";
+	Game.Resources.Cda = "FONT_RECORDS_DIALOG_BUTTONS";
+	Game.Resources.Hda = "FONT_SPEED_SCORE";
+	Game.Resources.Kda = "FONT_TIMER_LARGE";
+	Game.Resources.Lda = "FONT_TIMER_SMALL";
+	Game.Resources.Dda = "FONT_RECORDS_NAME";
+	Game.Resources.Eda = "FONT_RECORDS_SCORE";
+	Game.Resources.Bda = "FONT_RECORDS_DATE";
+	Game.Resources.Ada = "FONT_RECORDS_COLUMN_HEADER";
+	Game.Resources.Jca = "FONT_ENDLEVEL_TEXT_BIG";
+	Game.Resources.Kca = "FONT_ENDLEVEL_TEXT";
+	Game.Resources.Yca = "FONT_FLAREGOTHICBOLD20_DISABLEHINTS";
+	Game.Resources.ada = "FONT_FLAREGOTHICBOLD42";
+	Game.Resources.Rca = "FONT_FLAREGOTHIC25";
+	Game.Resources.Nca = "FONT_FLAREGOTHIC16";
+	Game.Resources.qda = "FONT_KOZUKAMINPROH120";
+	Game.Resources.cda = "FONT_FLAREGOTHICBOLD80SCORE";
+	Game.Resources.dda = "FONT_FLAREGOTHICBOLDBUTTON66";
+	Game.Resources.pda = "FONT_KOZUKAGOTHPROB";
+	Game.Resources.oda = "FONT_KOZGOPROHEAVY30";
+	Game.Resources.Oca = "FONT_FLAREGOTHIC17";
+	Game.Resources.Mca = "FONT_FLAREGOTHIC14";
+	Game.Resources.Wca = "FONT_FLAREGOTHICBOLD100";
+	Game.Resources.Lca = "FONT_FLAREBOLD120SIDEBAR";
+	Game.Resources.Pca = "FONT_FLAREGOTHIC19ZEN";
+	Game.Resources.Tca = "FONT_FLAREGOTHIC32";
+	Game.Resources.Uca = "FONT_FLAREGOTHIC55";
+	Game.Resources.Zca = "FONT_FLAREGOTHICBOLD20";
+	Game.Resources.kda = "FONT_HUMANST19";
+	Game.Resources.lda = "FONT_HUMANST28";
+	Game.Resources.yda = "FONT_QUINCYCAPS25";
+	Game.Resources.M$ = "ATLASIMAGE_ATLAS_FONTS_480_00";
+	Game.Resources.N$ = "ATLASIMAGE_ATLAS_FONTS_480_01";
+	Game.Resources.Eaa = "ATLASIMAGE_RT_ATLAS_FONTS_480_00";
+	Game.Resources.O$ = "ATLASIMAGE_ATLAS_FONTS_768_00";
+	Game.Resources.Faa = "ATLASIMAGE_RT_ATLAS_FONTS_768_00";
+	Game.Resources.Ida = "FONT_SPEED_SCORE_ORANGE";
+	Game.Resources.Oda = "FONT_TOOLTIP";
+	Game.Resources.Nda = "FONT_TOOLTIP_BOLD";
+	Game.Resources.Mda = "FONT_TOOLTIP_BIG";
+	Game.Resources.bda = "FONT_FLAREGOTHICBOLD42_ORANGE";
+	Game.Resources.$ca = "FONT_FLAREGOTHICBOLD42_BLACK";
+	Game.Resources.Qca = "FONT_FLAREGOTHIC25_BLACK";
+	Game.Resources.P$ = "ATLASIMAGE_ATLAS_FONTS_IGNORED_480_00";
+	Game.Resources.Gaa = "ATLASIMAGE_RT_ATLAS_FONTS_IGNORED_480_00";
+	Game.Resources.Q$ = "ATLASIMAGE_ATLAS_FONTS_IGNORED_768_00";
+	Game.Resources.Haa = "ATLASIMAGE_RT_ATLAS_FONTS_IGNORED_768_00";
+	Game.Resources.Gja = "IMAGE_GEMS_RED";
+	Game.Resources.Ija = "IMAGE_GEMS_WHITE";
+	Game.Resources.Dja = "IMAGE_GEMS_GREEN";
+	Game.Resources.Jja = "IMAGE_GEMS_YELLOW";
+	Game.Resources.Fja = "IMAGE_GEMS_PURPLE";
+	Game.Resources.Eja = "IMAGE_GEMS_ORANGE";
+	Game.Resources.Cja = "IMAGE_GEMS_BLUE";
+	Game.Resources.zja = "IMAGE_GEMSSHADOW_RED";
+	Game.Resources.Aja = "IMAGE_GEMSSHADOW_WHITE";
+	Game.Resources.wja = "IMAGE_GEMSSHADOW_GREEN";
+	Game.Resources.Bja = "IMAGE_GEMSSHADOW_YELLOW";
+	Game.Resources.yja = "IMAGE_GEMSSHADOW_PURPLE";
+	Game.Resources.xja = "IMAGE_GEMSSHADOW_ORANGE";
+	Game.Resources.vja = "IMAGE_GEMSSHADOW_BLUE";
+	Game.Resources.bka = "IMAGE_LIGHTNING_GEMNUMS_RED";
+	Game.Resources.cka = "IMAGE_LIGHTNING_GEMNUMS_WHITE";
+	Game.Resources.Zja = "IMAGE_LIGHTNING_GEMNUMS_GREEN";
+	Game.Resources.dka = "IMAGE_LIGHTNING_GEMNUMS_YELLOW";
+	Game.Resources.aka = "IMAGE_LIGHTNING_GEMNUMS_PURPLE";
+	Game.Resources.$ja = "IMAGE_LIGHTNING_GEMNUMS_ORANGE";
+	Game.Resources.Xja = "IMAGE_LIGHTNING_GEMNUMS_BLUE";
+	Game.Resources.Yja = "IMAGE_LIGHTNING_GEMNUMS_CLEAR";
+	Game.Resources.Zka = "IMAGE_SMOKE";
+	Game.Resources.zia = "IMAGE_DRIP";
+	Game.Resources.Uia = "IMAGE_FX_STEAM";
+	Game.Resources.Tia = "IMAGE_FLAMEGEMEXPLODE_FLAMEEXPLODETEST_LAYER_1";
+	Game.Resources.Hja = "IMAGE_GEMS_SHADOWED";
+	Game.Resources.Oja = "IMAGE_HINTARROW";
+	Game.Resources.Yka = "IMAGE_SELECTOR";
+	Game.Resources.$ka = "IMAGE_SM_SHARDS";
+	Game.Resources.ala = "IMAGE_SM_SHARDS_OUTLINE";
+	Game.Resources.Zma = "POPANIM_FLAMEGEMCREATION";
+	Game.Resources.R$ = "ATLASIMAGE_ATLAS_GAMEPLAY_480_00";
+	Game.Resources.Iaa = "ATLASIMAGE_RT_ATLAS_GAMEPLAY_480_00";
+	Game.Resources.S$ = "ATLASIMAGE_ATLAS_GAMEPLAY_768_00";
+	Game.Resources.Jaa = "ATLASIMAGE_RT_ATLAS_GAMEPLAY_768_00";
+	Game.Resources.Dca = "FONT_DEFAULT";
+	Game.Resources.Sca = "FONT_FLAREGOTHIC28";
+	Game.Resources.sda = "FONT_LOADER_TIP";
+	Game.Resources.Ina = "RESFILE_PROPERTIES_BADGES";
+	Game.Resources.Jna = "RESFILE_PROPERTIES_DEFAULTQUEST";
+	Game.Resources.Kna = "RESFILE_PROPERTIES_MUSIC";
+	Game.Resources.Lna = "RESFILE_PROPERTIES_QUEST";
+	Game.Resources.Mna = "RESFILE_PROPERTIES_RANKS";
+	Game.Resources.Nna = "RESFILE_PROPERTIES_SECRET";
+	Game.Resources.Ona = "RESFILE_PROPERTIES_SPEED";
+	Game.Resources.Pna = "RESFILE_PROPERTIES_TIPS";
+	Game.Resources.Oha = "IMAGE_BOARD_SD";
+	Game.Resources.Cha = "IMAGE_BOARD_HD";
+	Game.Resources.Bha = "IMAGE_BOARD_HDSD_BUTTON_FRAME";
+	Game.Resources.pka = "IMAGE_LOADER_WHITEDOT";
+	Game.Resources.oka = "IMAGE_LOADER_POPCAP";
+	Game.Resources.Sba = "EFFECT_BOARD_3D";
+	Game.Resources.Tba = "EFFECT_GEM_3D";
+	Game.Resources.Vba = "EFFECT_TUBE_3D";
+	Game.Resources.Uba = "EFFECT_TUBECAP_3D";
+	Game.Resources.T$ = "ATLASIMAGE_ATLAS_INIT_480_00";
+	Game.Resources.U$ = "ATLASIMAGE_ATLAS_INIT_480_01";
+	Game.Resources.Kaa = "ATLASIMAGE_RT_ATLAS_INIT_480_00";
+	Game.Resources.V$ = "ATLASIMAGE_ATLAS_INIT_768_00";
+	Game.Resources.W$ = "ATLASIMAGE_ATLAS_INIT_768_01";
+	Game.Resources.Laa = "ATLASIMAGE_RT_ATLAS_INIT_768_00";
+	Game.Resources.Vca = "FONT_FLAREGOTHIC8";
+	Game.Resources.Xca = "FONT_FLAREGOTHICBOLD10";
+	Game.Resources.nda = "FONT_HUMANST9";
+	Game.Resources.tna = "RESFILE_3D_GEMBLUE";
+	Game.Resources.una = "RESFILE_3D_GEMGREEN";
+	Game.Resources.vna = "RESFILE_3D_GEMORANGE";
+	Game.Resources.wna = "RESFILE_3D_GEMPURPLE";
+	Game.Resources.xna = "RESFILE_3D_GEMRED";
+	Game.Resources.yna = "RESFILE_3D_GEMWHITE";
+	Game.Resources.zna = "RESFILE_3D_GEMYELLOW";
+	Game.Resources.z3 = "RESFILE_3D_HYPERSPACE_MAIN_0";
+	Game.Resources.Bna = "RESFILE_3D_WARPTUBE";
+	Game.Resources.Ana = "RESFILE_3D_WARPTUBE_CAP";
+	Game.Resources.Cna = "RESFILE_AFFIRMATIONS_GENERAL";
+	Game.Resources.Dna = "RESFILE_AFFIRMATIONS_POSITIVE_THINKING";
+	Game.Resources.Ena = "RESFILE_AFFIRMATIONS_PROSPERITY";
+	Game.Resources.Fna = "RESFILE_AFFIRMATIONS_QUIT_BAD_HABITS";
+	Game.Resources.Gna = "RESFILE_AFFIRMATIONS_SELF_CONFIDENCE";
+	Game.Resources.Hna = "RESFILE_AFFIRMATIONS_WEIGHT_LOSS";
+	Game.Resources.Uja = "IMAGE_HYPERSPACE_INITIAL";
+	Game.Resources.Tja = "IMAGE_HYPERSPACE";
+	Game.Resources.vla = "IMAGE_WARP_LINES_01";
+	Game.Resources.a2 = "IMAGE_COMPLEMENT_GOOD";
+	Game.Resources.Y1 = "IMAGE_COMPLEMENT_EXCELLENT";
+	Game.Resources.W1 = "IMAGE_COMPLEMENT_AWESOME";
+	Game.Resources.b2 = "IMAGE_COMPLEMENT_SPECTACULAR";
+	Game.Resources.Z1 = "IMAGE_COMPLEMENT_EXTRAORDINARY";
+	Game.Resources.c2 = "IMAGE_COMPLEMENT_UNBELIEVABLE";
+	Game.Resources.X1 = "IMAGE_COMPLEMENT_BLAZINGSPEED";
+	Game.Resources.ula = "IMAGE_VERTICAL_STREAK";
+	Game.Resources.Pja = "IMAGE_HYPERCUBE_COLORGLOW";
+	Game.Resources.Qja = "IMAGE_HYPERCUBE_FRAME";
+	Game.Resources.tla = "IMAGE_TRANSPARENT_HOLE";
+	Game.Resources.Nja = "IMAGE_GRITTYBLURRY";
+	Game.Resources.nea = "IMAGE_ANIMS_BOARDSHATTER_BOTTOM";
+	Game.Resources.oea = "IMAGE_ANIMS_BOARDSHATTER_GRID";
+	Game.Resources.pea = "IMAGE_ANIMS_BOARDSHATTER_TOP";
+	Game.Resources.cia = "IMAGE_DANGERBORDERLEFT";
+	Game.Resources.dia = "IMAGE_DANGERBORDERUP";
+	Game.Resources.Lja = "IMAGE_GRIDPAINT_BLANK";
+	Game.Resources.Mja = "IMAGE_GRIDPAINT_FILLED";
+	Game.Resources.qka = "IMAGE_MULTIPLIER_LARGE_BACK";
+	Game.Resources.rka = "IMAGE_MULTIPLIER_LARGE_FRONT";
+	Game.Resources.Vka = "IMAGE_RECORDS_RANK_FILL";
+	Game.Resources.Wka = "IMAGE_RECORDS_RANK_GLOW";
+	Game.Resources.Xka = "IMAGE_RECORDS_RANK_PLATE";
+	Game.Resources.bla = "IMAGE_SOLID_BLACK";
+	Game.Resources.fla = "IMAGE_SPARKLE_FAT";
+	Game.Resources.cla = "IMAGE_SPARKLET_BIG";
+	Game.Resources.dla = "IMAGE_SPARKLET_FAT";
+	Game.Resources.sla = "IMAGE_TOOLTIP";
+	Game.Resources.rla = "IMAGE_TOOLTIP_ARROW";
+	Game.Resources.lma = "PIEFFECT_ANIMS_GEM_MEGA_SHATTER_MEGA";
+	Game.Resources.mma = "PIEFFECT_BACKGROUNDS_BLOWING_SNOW04";
+	Game.Resources.nma = "PIEFFECT_BACKGROUNDS_LANTERNPLANT01";
+	Game.Resources.pma = "PIEFFECT_BACKGROUNDS_WATER_FALL_CLIFF01";
+	Game.Resources.qma = "PIEFFECT_BACKGROUNDS_WATER_FALL_CLIFF02";
+	Game.Resources.oma = "PIEFFECT_BACKGROUNDS_WATERFALL10";
+	Game.Resources.rma = "PIEFFECT_BOARD_FLAME_EMBERS";
+	Game.Resources.sma = "PIEFFECT_COUNTDOWNBAR";
+	Game.Resources.tma = "PIEFFECT_CRYSTALBALL";
+	Game.Resources.uma = "PIEFFECT_CRYSTALRAYS";
+	Game.Resources.vma = "PIEFFECT_DISCOBALL";
+	Game.Resources.xma = "PIEFFECT_FIRE_TRAIL";
+	Game.Resources.wma = "PIEFFECT_FIREGEM_HYPERSPACE";
+	Game.Resources.yma = "PIEFFECT_GEM_LANDING_FX";
+	Game.Resources.zma = "PIEFFECT_HINTFLASH";
+	Game.Resources.Ama = "PIEFFECT_HYPERCUBE";
+	Game.Resources.Bma = "PIEFFECT_LIGHTNING_POWERED_BOTTOM";
+	Game.Resources.Cma = "PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT";
+	Game.Resources.Dma = "PIEFFECT_LIGHTNING_POWERED_MEGASHARD";
+	Game.Resources.Ema = "PIEFFECT_LIGHTNING_STEAMPULSE";
+	Game.Resources.Fma = "PIEFFECT_MAINMENU3";
+	Game.Resources.Gma = "PIEFFECT_MULTIPLIER";
+	Game.Resources.Hma = "PIEFFECT_QUEST_DIG_COLLECT_GOLD";
+	Game.Resources.Ima = "PIEFFECT_SPEEDBOARD_FLAME";
+	Game.Resources.Jma = "PIEFFECT_SPEEDTEXT_FLAME";
+	Game.Resources.Kma = "PIEFFECT_STARGEM";
+	Game.Resources.Qma = "POPANIM_ANIMS_LIGHTNINGUI";
+	Game.Resources.Pma = "POPANIM_ANIMS_LIGHTNINGUIBOTTOM";
+	Game.Resources.Nma = "POPANIM_ANIMS_BOARDSHATTER";
+	Game.Resources.Oma = "POPANIM_ANIMS_GEM_MEGA";
+	Game.Resources.$ma = "POPANIM_FLAMEGEMEXPLODE";
+	Game.Resources.hoa = "SOUND_BUTTON_MOUSEOVER";
+	Game.Resources.goa = "SOUND_BUTTON_MOUSELEAVE";
+	Game.Resources.doa = "SOUND_BACKTOMAIN";
+	Game.Resources.eoa = "SOUND_BADMOVE";
+	Game.Resources.foa = "SOUND_BOMB_EXPLODE";
+	Game.Resources.ioa = "SOUND_BUTTON_PRESS";
+	Game.Resources.joa = "SOUND_BUTTON_RELEASE";
+	Game.Resources.koa = "SOUND_CLICKFLYIN";
+	Game.Resources.loa = "SOUND_COMBO_1";
+	Game.Resources.moa = "SOUND_COMBO_2";
+	Game.Resources.noa = "SOUND_COMBO_3";
+	Game.Resources.ooa = "SOUND_COMBO_4";
+	Game.Resources.poa = "SOUND_COMBO_5";
+	Game.Resources.qoa = "SOUND_COMBO_6";
+	Game.Resources.roa = "SOUND_COMBO_7";
+	Game.Resources.soa = "SOUND_COUNTDOWN_WARNING";
+	Game.Resources.toa = "SOUND_DOUBLESET";
+	Game.Resources.uoa = "SOUND_ELECTRO_EXPLODE";
+	Game.Resources.woa = "SOUND_ELECTRO_PATH";
+	Game.Resources.voa = "SOUND_ELECTRO_PATH2";
+	Game.Resources.xoa = "SOUND_FLAMEBONUS";
+	Game.Resources.yoa = "SOUND_FLAMESPEED1";
+	Game.Resources.zoa = "SOUND_GEM_COUNTDOWN_DESTROYED";
+	Game.Resources.Aoa = "SOUND_GEM_HIT";
+	Game.Resources.Boa = "SOUND_GEM_SHATTERS";
+	Game.Resources.Coa = "SOUND_HYPERCUBE_CREATE";
+	Game.Resources.Koa = "SOUND_HYPERSPACE";
+	Game.Resources.Doa = "SOUND_HYPERSPACE_GEM_LAND_1";
+	Game.Resources.Eoa = "SOUND_HYPERSPACE_GEM_LAND_2";
+	Game.Resources.Foa = "SOUND_HYPERSPACE_GEM_LAND_3";
+	Game.Resources.Goa = "SOUND_HYPERSPACE_GEM_LAND_4";
+	Game.Resources.Hoa = "SOUND_HYPERSPACE_GEM_LAND_5";
+	Game.Resources.Ioa = "SOUND_HYPERSPACE_GEM_LAND_6";
+	Game.Resources.Joa = "SOUND_HYPERSPACE_GEM_LAND_7";
+	Game.Resources.Loa = "SOUND_HYPERSPACE_SHATTER_1";
+	Game.Resources.Moa = "SOUND_HYPERSPACE_SHATTER_2";
+	Game.Resources.Noa = "SOUND_LASERGEM_CREATED";
+	Game.Resources.Ooa = "SOUND_MENUSPIN";
+	Game.Resources.Poa = "SOUND_NEXTLEVEL";
+	Game.Resources.Qoa = "SOUND_POWERGEM_CREATED";
+	Game.Resources.Roa = "SOUND_PREBLAST";
+	Game.Resources.Soa = "SOUND_QUEST_GET";
+	Game.Resources.Uoa = "SOUND_RANK_COUNTUP";
+	Game.Resources.Toa = "SOUND_RANKUP";
+	Game.Resources.Voa = "SOUND_SELECT";
+	Game.Resources.Woa = "SOUND_SMALL_EXPLODE";
+	Game.Resources.Xoa = "SOUND_SPEEDBOARD_BACKGROUND_CHANGE";
+	Game.Resources.Yoa = "SOUND_SPEEDBOARD_FLAMELOOP";
+	Game.Resources.Zoa = "SOUND_SPEEDBOARD_LIGHTNING_ENERGIZE";
+	Game.Resources.apa = "SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_5";
+	Game.Resources.$oa = "SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_10";
+	Game.Resources.bpa = "SOUND_SPEEDBOARD_MULTIPLIER_UP2_1";
+	Game.Resources.cpa = "SOUND_SPEEDBOARD_MULTIPLIER_UP2_2";
+	Game.Resources.dpa = "SOUND_SPEEDBOARD_MULTIPLIER_UP2_3";
+	Game.Resources.epa = "SOUND_SPEEDBOARD_MULTIPLIER_UP2_4";
+	Game.Resources.gpa = "SOUND_SPEEDBOARD_TIMEBONUS_5";
+	Game.Resources.fpa = "SOUND_SPEEDBOARD_TIMEBONUS_10";
+	Game.Resources.ipa = "SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_5";
+	Game.Resources.hpa = "SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_10";
+	Game.Resources.jpa = "SOUND_SPEEDMATCH1";
+	Game.Resources.kpa = "SOUND_SPEEDMATCH2";
+	Game.Resources.lpa = "SOUND_SPEEDMATCH3";
+	Game.Resources.mpa = "SOUND_SPEEDMATCH4";
+	Game.Resources.npa = "SOUND_SPEEDMATCH5";
+	Game.Resources.opa = "SOUND_SPEEDMATCH6";
+	Game.Resources.ppa = "SOUND_SPEEDMATCH7";
+	Game.Resources.qpa = "SOUND_SPEEDMATCH8";
+	Game.Resources.rpa = "SOUND_SPEEDMATCH9";
+	Game.Resources.spa = "SOUND_START_ROTATE";
+	Game.Resources.tpa = "SOUND_TICK";
+	Game.Resources.upa = "SOUND_TOOLTIP";
+	Game.Resources.X3 = "SOUND_VOICE_AWESOME";
+	Game.Resources.Y3 = "SOUND_VOICE_BLAZINGSPEED";
+	Game.Resources.Z3 = "SOUND_VOICE_EXCELLENT";
+	Game.Resources.a4 = "SOUND_VOICE_EXTRAORDINARY";
+	Game.Resources.vpa = "SOUND_VOICE_GAMEOVER";
+	Game.Resources.wpa = "SOUND_VOICE_GETREADY";
+	Game.Resources.xpa = "SOUND_VOICE_GO";
+	Game.Resources.b4 = "SOUND_VOICE_GOOD";
+	Game.Resources.ypa = "SOUND_VOICE_LEVELCOMPLETE";
+	Game.Resources.zpa = "SOUND_VOICE_NOMOREMOVES";
+	Game.Resources.c4 = "SOUND_VOICE_SPECTACULAR";
+	Game.Resources.Apa = "SOUND_VOICE_THIRTYSECONDS";
+	Game.Resources.Bpa = "SOUND_VOICE_TIMEUP";
+	Game.Resources.d4 = "SOUND_VOICE_UNBELIEVABLE";
+	Game.Resources.Cpa = "SOUND_VOICE_WELCOMEBACK";
+	Game.Resources.Dpa = "SOUND_VOICE_WELCOMETOBEJEWELED";
+	Game.Resources.X$ = "ATLASIMAGE_ATLAS_LOADINGTHREAD_480_00";
+	Game.Resources.Y$ = "ATLASIMAGE_ATLAS_LOADINGTHREAD_480_01";
+	Game.Resources.Z$ = "ATLASIMAGE_ATLAS_LOADINGTHREAD_480_02";
+	Game.Resources.$$ = "ATLASIMAGE_ATLAS_LOADINGTHREAD_480_03";
+	Game.Resources.Maa = "ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_480_00";
+	Game.Resources.Naa = "ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_480_01";
+	Game.Resources.aaa = "ATLASIMAGE_ATLAS_LOADINGTHREAD_768_00";
+	Game.Resources.baa = "ATLASIMAGE_ATLAS_LOADINGTHREAD_768_01";
+	Game.Resources.caa = "ATLASIMAGE_ATLAS_LOADINGTHREAD_768_02";
+	Game.Resources.Oaa = "ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_768_00";
+	Game.Resources.daa = "ATLASIMAGE_ATLAS_LOADINGTHREAD_COMMON_00";
+	Game.Resources.Paa = "ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_COMMON_00";
+	Game.Resources.aia = "IMAGE_CRYSTALBALL";
+	Game.Resources.bia = "IMAGE_CRYSTALBALL_SHADOW";
+	Game.Resources.$ha = "IMAGE_CRYSTALBALL_GLOW";
+	Game.Resources.qla = "IMAGE_TITLE";
+	Game.Resources.vka = "IMAGE_PARTICLES_CRYSTALBALL_0_BASIC_BLUR";
+	Game.Resources.wka = "IMAGE_PARTICLES_CRYSTALRAYS_0_RAY";
+	Game.Resources.eaa = "ATLASIMAGE_ATLAS_MAINMENU_480_00";
+	Game.Resources.faa = "ATLASIMAGE_ATLAS_MAINMENU_480_01";
+	Game.Resources.Qaa = "ATLASIMAGE_RT_ATLAS_MAINMENU_480_00";
+	Game.Resources.gaa = "ATLASIMAGE_ATLAS_MAINMENU_768_00";
+	Game.Resources.haa = "ATLASIMAGE_ATLAS_MAINMENU_768_01";
+	Game.Resources.Raa = "ATLASIMAGE_RT_ATLAS_MAINMENU_768_00";
+	Game.Resources.U3 = "SOUND_MUSIC_CLASSIC";
+	Game.Resources.QT = "SOUND_MUSIC_MENU";
+	Game.Resources.W3 = "SOUND_MUSIC_SPEED";
+	Game.Resources.V3 = "SOUND_MUSIC_SPEED_END";
+	Game.Resources.hla = "IMAGE_TEX_BLUE_GEM";
+	Game.Resources.ila = "IMAGE_TEX_GREEN_GE";
+	Game.Resources.jla = "IMAGE_TEX_ORANGE_G";
+	Game.Resources.kla = "IMAGE_TEX_PURPLE_G";
+	Game.Resources.lla = "IMAGE_TEX_RED_GEM";
+	Game.Resources.mla = "IMAGE_TEX_TUBECAP";
+	Game.Resources.nla = "IMAGE_TEX_WARP_LIN";
+	Game.Resources.ola = "IMAGE_TEX_WHITE_GE";
+	Game.Resources.pla = "IMAGE_TEX_YELLOW_G";
+	Game.Resources.IMAGE_GEMLIGHTING = null;
+	Game.Resources.IMAGE_SPARKLE = null;
+	Game.Resources.IMAGE_PARTICLES_BOARD_FLAME_EMBERS_0_BASIC_BLUR = null;
+	Game.Resources.IMAGE_PARTICLES_COUNTDOWNBAR_0_SMALL_BLUR_STAR = null;
+	Game.Resources.IMAGE_PARTICLES_COUNTDOWNBAR_1_BASIC_BLUR = null;
+	Game.Resources.IMAGE_PARTICLES_DISCOBALL_0_DISCO_GLOW = null;
+	Game.Resources.IMAGE_PARTICLES_DISCOBALL_1_DISCO_GLOW = null;
+	Game.Resources.IMAGE_PARTICLES_DISCOBALL_2_BLURRED_SHARP_STAR = null;
+	Game.Resources.IMAGE_PARTICLES_FIRE_TRAIL_0_BASIC_BLUR = null;
+	Game.Resources.IMAGE_PARTICLES_FIREGEM_HYPERSPACE_0_BASIC_BLUR = null;
+	Game.Resources.IMAGE_PARTICLES_GEM_LANDING_FX_0_CERCLEM = null;
+	Game.Resources.IMAGE_PARTICLES_GEM_LANDING_FX_1_BLURRED_SHARP_STAR = null;
+	Game.Resources.IMAGE_PARTICLES_HINTFLASH_0_CERCLEM = null;
+	Game.Resources.IMAGE_PARTICLES_HYPERCUBE_0_BASIC_BLUR = null;
+	Game.Resources.IMAGE_PARTICLES_LIGHTNING_POWERED_BOTTOM_0_LIGHTNINGPARTICLE = null;
+	Game.Resources.IMAGE_PARTICLES_LIGHTNING_POWERED_LEFTRIGHT_0_LIGHTNINGPARTICLE = null;
+	Game.Resources.IMAGE_PARTICLES_LIGHTNING_POWERED_LEFTRIGHT_1_LIGHTNINGPARTICLE = null;
+	Game.Resources.IMAGE_PARTICLES_LIGHTNING_POWERED_MEGASHARD_0_LIGHTNINGPARTICLE = null;
+	Game.Resources.IMAGE_PARTICLES_LIGHTNING_POWERED_MEGASHARD_1_LIGHTNINGPARTICLE = null;
+	Game.Resources.IMAGE_PARTICLES_LIGHTNING_STEAMPULSE_0_BASIC_BLUR = null;
+	Game.Resources.IMAGE_PARTICLES_MAINMENU3_0_BLURRED_SPLOTCH = null;
+	Game.Resources.IMAGE_PARTICLES_MULTIPLIER_0_RAY = null;
+	Game.Resources.IMAGE_PARTICLES_QUEST_DIG_COLLECT_GOLD_0_SMALL_BLUR_STAR = null;
+	Game.Resources.IMAGE_PARTICLES_QUEST_DIG_COLLECT_GOLD_1_BASIC_BLUR = null;
+	Game.Resources.IMAGE_PARTICLES_SPEEDBOARD_FLAME_0_FLAME1 = null;
+	Game.Resources.IMAGE_PARTICLES_SPEEDTEXT_FLAME_0_TRUEFLAME5X = null;
+	Game.Resources.IMAGE_PARTICLES_STARGEM_0_SMALL_BLUR_STAR = null;
+	Game.Resources.IMAGE_PARTICLES_STARGEM_1_CORONAGLOW = null;
+	Game.Resources.IMAGE_PARTICLES_STARGEM_2_STAR_GLOW = null;
+	Game.Resources.IMAGE_LIGHTNING = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME1 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME2 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME3 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME4 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME5 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME6 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME7 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME8 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME9 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME10 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_ANIMATED_FLAME_CELLS02SM_FLAME11 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_FLAMEGEM_BLUR = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_FLAMEGEM_FLASH_1 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_FLAMEGEM_FLASH_2 = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_FLAMEGEM_LARGE_RING = null;
+	Game.Resources.IMAGE_FLAMEGEMCREATION_FLAMEGEM_RING_OF_FLAME = null;
+	Game.Resources.IMAGE_FIREPARTICLE = null;
+	Game.Resources.IMAGE_SPARKLET = null;
+	Game.Resources.IMAGE_GEM_FRUIT_SPARK = null;
+	Game.Resources.IMAGE_ELECTROTEX = null;
+	Game.Resources.IMAGE_ELECTROTEX_CENTER = null;
+	Game.Resources.IMAGE_HYPERFLARELINE = null;
+	Game.Resources.IMAGE_HYPERFLARERING = null;
+	Game.Resources.IMAGE_GEMOUTLINES = null;
+	Game.Resources.ATLASIMAGE_ATLAS_ADDITIVE_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_ADDITIVE_480_01 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_ADDITIVE_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_ADDITIVE_768_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_ADDITIVE_768_01 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_ADDITIVE_768_00 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_BLOWING_SNOW04_0_SNOWBLOW = null;
+	Game.Resources.IMAGE_BACKGROUNDS_BLOWING_SNOW04_1_DOTS = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LANTERNPLANT01_0_BASIC_BLUR = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LANTERNPLANT01_1_SQUARE_STAR = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF01_0_WATERPART01 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF02_0_FLAME320004C7 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BACKGROUNDS_480_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BACKGROUNDS_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BACKGROUNDS_768_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BACKGROUNDS_768_00 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_FLATTENEDPAM = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_1920X1200 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_2 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_3 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_4 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_5 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_6 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_7 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_8 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_9 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_10 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_11 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_12 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_13 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_14 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_50X50_15 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_CANYON_WALL_CASTLE_CANYON_WALL_CASTLE_965X935 = null;
+	Game.Resources.POPANIM_BACKGROUNDS_CANYON_WALL_CASTLE = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_CANYONWALLCASTLE_480_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_CANYONWALLCASTLE_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_CANYONWALLCASTLE_768_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_CANYONWALLCASTLE_768_00 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLATTENEDPAM = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1920X1200 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1127X272 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1254X573 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_16X63 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_1920X1186 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_214X81 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_439X551 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_2 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_3 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_4 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_5 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_6 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_7 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_8 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_9 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_10 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_11 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_12 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_13 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_14 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_50X17_15 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_576X369 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_619X198 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_629X243 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_724X147 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_FLOATING_ROCK_CITY_FLOATING_ROCK_CITY_724X147_2 = null;
+	Game.Resources.POPANIM_BACKGROUNDS_FLOATING_ROCK_CITY = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_FLOATINGROCKCITY_480_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_FLOATINGROCKCITY_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_FLOATINGROCKCITY_768_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_FLOATINGROCKCITY_768_00 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_FLATTENEDPAM = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_1920X1200 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_11X10 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_11X19 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_12X11 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_13X14 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_14X14 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_15X13 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_16X10 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_22X13 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_23X8 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_25X10 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_62X884 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_6X19 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_HORSE_FOREST_TREE_779X876 = null;
+	Game.Resources.POPANIM_BACKGROUNDS_HORSE_FOREST_TREE = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_HORSEFORESTTREE_480_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_HORSEFORESTTREE_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_HORSEFORESTTREE_768_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_HORSEFORESTTREE_768_00 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LANTERN_PLANTS_WORLD_FLATTENEDPAM = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LANTERN_PLANTS_WORLD_LANTERN_PLANTS_WORLD_1920X1200 = null;
+	Game.Resources.POPANIM_BACKGROUNDS_LANTERN_PLANTS_WORLD = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_FLATTENEDPAM = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_1920X1200 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_11X19 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_12X11 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_13X14 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_14X14 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_15X13 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_16X10 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_179X67 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_22X13 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_23X8 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_25X10 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_279X293 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_303X68 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_558X504 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_617X180 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_650X300 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_663X239 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_693X281 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_694X323 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_LION_TOWER_CASCADE_LION_TOWER_CASCADE_6X19 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATERFALL10_0_WHITEPHOOP_RIGHT2 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATERFALL10_1_WATERPART = null;
+	Game.Resources.POPANIM_BACKGROUNDS_LION_TOWER_CASCADE = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_LIONTOWERCASCADE_480_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_LIONTOWERCASCADE_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_LIONTOWERCASCADE_768_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_LIONTOWERCASCADE_768_00 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_FLATTENEDPAM = null;
+	Game.Resources.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_1920X1200 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_133X135 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_135X118 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_16X63 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_192X94 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_578X432 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_POINTY_ICE_PATH_POINTY_ICE_PATH_840X355 = null;
+	Game.Resources.POPANIM_BACKGROUNDS_POINTY_ICE_PATH = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_POINTYICEPATH_480_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_POINTYICEPATH_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_POINTYICEPATH_768_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_POINTYICEPATH_768_00 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_FLATTENEDPAM = null;
+	Game.Resources.IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_1920X1200 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82_2 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82_3 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_SNOWY_CLIFFS_CASTLE_SNOWY_CLIFFS_CASTLE_86X82_4 = null;
+	Game.Resources.POPANIM_BACKGROUNDS_SNOWY_CLIFFS_CASTLE = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_SNOWYCLIFFSCASTLE_480_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_SNOWYCLIFFSCASTLE_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_SNOWYCLIFFSCASTLE_768_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_SNOWYCLIFFSCASTLE_768_00 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_FLATTENEDPAM = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_1920X1200 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_11X19 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_12X11 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_13X14 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_14X14 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_15X13 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_16X10 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_22X13 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_23X8 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_25X10 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_449X521 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_497X955 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_676X834 = null;
+	Game.Resources.IMAGE_BACKGROUNDS_WATER_FALL_CLIFF_WATER_FALL_CLIFF_6X19 = null;
+	Game.Resources.POPANIM_BACKGROUNDS_WATER_FALL_CLIFF = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_WATERFALLCLIFF_480_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_WATERFALLCLIFF_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BG_WATERFALLCLIFF_768_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BG_WATERFALLCLIFF_768_00 = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_ENERGIZE_PULSERING = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_LEFT_DEAD = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_LEFT_GOLD = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_LEFT_PURPLE = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_MULTI_GOLD = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_MULTI_PULSERING = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_RIGHT_DEAD = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_RIGHT_GOLD = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_RIGHT_PURPLE = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDL = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDM1 = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDM2 = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_RUNE_GOLDR = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_UITOP = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUI_UITOP_DAMAGE = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_BOTTOM_DEAD = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_BOTTOM_GOLD = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_BOTTOM_PURPLE = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_ENERGIZE_PULSERING = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_LEFT_DEAD = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_LEFT_GOLD = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_LEFT_PURPLE = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_MULTI_GOLD = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_MULTI_PULSERING = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RIGHT_DEAD = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RIGHT_GOLD = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RIGHT_PURPLE = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDL = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDM1 = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDM2 = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_RUNE_GOLDR = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_UIBOTTOM = null;
+	Game.Resources.IMAGE_ANIMS_LIGHTNINGUIBOTTOM_UITOP = null;
+	Game.Resources.IMAGE_ANIMS_GEM_MEGA_MEGA_CUFF = null;
+	Game.Resources.IMAGE_ANIMS_GEM_MEGA_MEGA_CUFFDEAD = null;
+	Game.Resources.IMAGE_ANIMS_GEM_MEGA_MEGA_CUFFGLOW = null;
+	Game.Resources.IMAGE_ANIMS_GEM_MEGA_MEGA_DEAD = null;
+	Game.Resources.IMAGE_ANIMS_GEM_MEGA_MEGA_GOLD = null;
+	Game.Resources.IMAGE_ANIMS_GEM_MEGA_MEGA_PURPLE = null;
+	Game.Resources.IMAGE_ANIMS_GEM_MEGA_MULTI_PULSERING = null;
+	Game.Resources.IMAGE_ANIMS_GEM_MEGA_SHATTER_MEGA_0_SHARD = null;
+	Game.Resources.IMAGE_ANIMS_GEM_MEGA_SHATTER_MEGA_1_BASIC_BLUR = null;
+	Game.Resources.IMAGE_BOARD_BOTTOM_FRAME = null;
+	Game.Resources.IMAGE_BOARD_BOTTOM_FRAME_BACK = null;
+	Game.Resources.IMAGE_BOARD_BOTTOM_FRAME_GLOW = null;
+	Game.Resources.IMAGE_BOARD_BOTTOM_WIDGET_CLASSIC = null;
+	Game.Resources.IMAGE_BOARD_BOTTOM_WIDGET_LIGHTNING = null;
+	Game.Resources.IMAGE_BOARD_HIGHLIGHT_ARROW = null;
+	Game.Resources.IMAGE_BOARD_HIGHLIGHT_CIRCLE = null;
+	Game.Resources.IMAGE_BOARD_HIGHLIGHT_FULL = null;
+	Game.Resources.IMAGE_BOARD_HINT_BUTTON_CLASSIC = null;
+	Game.Resources.IMAGE_BOARD_HINT_BUTTON_LIGHTNING = null;
+	Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD = null;
+	Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC = null;
+	Game.Resources.IMAGE_BOARD_MENU_BUTTON_CLASSIC = null;
+	Game.Resources.IMAGE_BOARD_MENU_BUTTON_LIGHTNING = null;
+	Game.Resources.IMAGE_BOARD_MENUBTN = null;
+	Game.Resources.IMAGE_BOARD_RESET_BUTTON_LIGHTNING = null;
+	Game.Resources.IMAGE_BOARD_THIN_BOTTOM_FRAME = null;
+	Game.Resources.IMAGE_BOARD_THIN_BOTTOM_FRAME_GLOW = null;
+	Game.Resources.IMAGE_BOARD_TICK = null;
+	Game.Resources.IMAGE_BOARD_TICK_GLOW = null;
+	Game.Resources.IMAGE_BOARD_TIMER = null;
+	Game.Resources.IMAGE_BOARD_TIMER_GOLD = null;
+	Game.Resources.IMAGE_BOARD_TIMER_RED = null;
+	Game.Resources.IMAGE_BOARD_TOP_BACK = null;
+	Game.Resources.IMAGE_BOARD_TOP_FRAME = null;
+	Game.Resources.IMAGE_BOARD_TOP_FRAME_GLOW = null;
+	Game.Resources.IMAGE_BOARD_TOP_WIDGET = null;
+	Game.Resources.IMAGE_BARFILL = null;
+	Game.Resources.IMAGE_BARFILLRED = null;
+	Game.Resources.IMAGE_LIGHTNING_BOTTOM_RED_LIGHTNING = null;
+	Game.Resources.IMAGE_LIGHTNING_CENTER = null;
+	Game.Resources.IMAGE_LIGHTNING_MEGASHARD_RED_LIGHTNING = null;
+	Game.Resources.IMAGE_LIGHTNING_MULTI_PULSE_RING_LIGHTNING = null;
+	Game.Resources.IMAGE_LIGHTNING_TEX = null;
+	Game.Resources.IMAGE_LIGHTNING_TIMER_DEAD_LIGHTNING = null;
+	Game.Resources.IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING = null;
+	Game.Resources.IMAGE_LIGHTNING_TIMER_LIGHTNING = null;
+	Game.Resources.IMAGE_LIGHTNING_TIMER_RED_LIGHTNING = null;
+	Game.Resources.IMAGE_LIGHTNING_TOP_BACK_LIGHTNING = null;
+	Game.Resources.IMAGE_LIGHTNING_TOP_RED_LIGHTNING = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BOARD_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BOARD_480_01 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BOARD_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BOARD_768_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_BOARD_768_01 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_BOARD_768_00 = null;
+	Game.Resources.IMAGE_DIALOG_HELP_GLOW = null;
+	Game.Resources.IMAGE_DIALOG_LISTBOX = null;
+	Game.Resources.IMAGE_DIALOG_BUTTON = null;
+	Game.Resources.IMAGE_DIALOG_BACKGROUND = null;
+	Game.Resources.IMAGE_DIALOG_BLACK_BOX = null;
+	Game.Resources.IMAGE_DIALOG_BLUE_GEM = null;
+	Game.Resources.IMAGE_DIALOG_BUTTON_DISABLED = null;
+	Game.Resources.IMAGE_DIALOG_CHECKBOX_BLANK = null;
+	Game.Resources.IMAGE_DIALOG_CHECKBOX_CHECKED = null;
+	Game.Resources.IMAGE_DIALOG_EDITBOX = null;
+	Game.Resources.IMAGE_DIALOG_GOLD_COIN = null;
+	Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG = null;
+	Game.Resources.IMAGE_DIALOG_LISTSELECT = null;
+	Game.Resources.IMAGE_DIALOG_OPTIONS_DECOR = null;
+	Game.Resources.IMAGE_DIALOG_PLAQUE = null;
+	Game.Resources.IMAGE_DIALOG_SILVER_COIN = null;
+	Game.Resources.IMAGE_DIALOG_SLIDERBAR = null;
+	Game.Resources.IMAGE_DIALOG_SLIDERBAR_VERTICAL = null;
+	Game.Resources.IMAGE_DIALOG_SLIDERHANDLE = null;
+	Game.Resources.IMAGE_DIALOG_SMALL_BUTTON = null;
+	Game.Resources.IMAGE_DIALOG_TAB = null;
+	Game.Resources.IMAGE_GAMEOVER_BAR__PINK = null;
+	Game.Resources.IMAGE_GAMEOVER_BAR_ORANGE = null;
+	Game.Resources.IMAGE_GAMEOVER_BAR_YELLOW = null;
+	Game.Resources.IMAGE_GAMEOVER_BOX_ORANGE = null;
+	Game.Resources.IMAGE_GAMEOVER_BOX_PINK = null;
+	Game.Resources.IMAGE_GAMEOVER_BOX_YELLOW = null;
+	Game.Resources.IMAGE_GAMEOVER_DARKER_BOX = null;
+	Game.Resources.IMAGE_GAMEOVER_DARKEST_BOX = null;
+	Game.Resources.IMAGE_GAMEOVER_DIALOG = null;
+	Game.Resources.IMAGE_GAMEOVER_HORIZONTAL_BAR = null;
+	Game.Resources.IMAGE_GAMEOVER_HORIZONTAL_BAR_OVERLAY = null;
+	Game.Resources.IMAGE_GAMEOVER_ICON_FLAME = null;
+	Game.Resources.IMAGE_GAMEOVER_ICON_FLAME_LRG = null;
+	Game.Resources.IMAGE_GAMEOVER_ICON_HYPERCUBE = null;
+	Game.Resources.IMAGE_GAMEOVER_ICON_HYPERCUBE_LRG = null;
+	Game.Resources.IMAGE_GAMEOVER_ICON_LIGHTNING = null;
+	Game.Resources.IMAGE_GAMEOVER_ICON_STAR = null;
+	Game.Resources.IMAGE_GAMEOVER_ICON_STAR_LRG = null;
+	Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX = null;
+	Game.Resources.IMAGE_GAMEOVER_LINE_SINGLE = null;
+	Game.Resources.IMAGE_GAMEOVER_LINES = null;
+	Game.Resources.IMAGE_GAMEOVER_SECTION_GRAPH = null;
+	Game.Resources.IMAGE_GAMEOVER_SECTION_LABEL = null;
+	Game.Resources.IMAGE_GAMEOVER_SECTION_SMALL = null;
+	Game.Resources.IMAGE_GAMEOVER_STAMP = null;
+	Game.Resources.ATLASIMAGE_ATLAS_DIALOG_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_DIALOG_480_01 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_DIALOG_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_DIALOG_768_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_DIALOG_768_01 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_DIALOG_768_00 = null;
+	Game.Resources.FONT_HUMANST521BT40 = null;
+	Game.Resources.FONT_MULTIPLIER = null;
+	Game.Resources.FONT_PLAYBUTTONS = null;
+	Game.Resources.FONT_SPEED_TEXT = null;
+	Game.Resources.FONT_FLOATERS = null;
+	Game.Resources.FONT_SCORE = null;
+	Game.Resources.FONT_SCORE_LARGE = null;
+	Game.Resources.FONT_LEVEL = null;
+	Game.Resources.FONT_POPUP_TEXT = null;
+	Game.Resources.FONT_POPUP_COUNT = null;
+	Game.Resources.FONT_RANKUP_NAME = null;
+	Game.Resources.FONT_MENU_BTN = null;
+	Game.Resources.FONT_HUGE = null;
+	Game.Resources.FONT_DIALOG_HEADER = null;
+	Game.Resources.FONT_GAMEOVER_DIALOG = null;
+	Game.Resources.FONT_GAMEOVER_DIALOG_SMALL = null;
+	Game.Resources.FONT_GAMEOVER_DIALOG_MED = null;
+	Game.Resources.FONT_GAMEOVER_DIALOG_HUGE = null;
+	Game.Resources.FONT_DIALOG_TEXT = null;
+	Game.Resources.FONT_DISABLE_HINTS = null;
+	Game.Resources.FONT_DIALOG_SMALL_TEXT = null;
+	Game.Resources.FONT_DIALOG_BUTTONS = null;
+	Game.Resources.FONT_RECORDS_DIALOG_BUTTONS = null;
+	Game.Resources.FONT_SPEED_SCORE = null;
+	Game.Resources.FONT_TIMER_LARGE = null;
+	Game.Resources.FONT_TIMER_SMALL = null;
+	Game.Resources.FONT_RECORDS_NAME = null;
+	Game.Resources.FONT_RECORDS_SCORE = null;
+	Game.Resources.FONT_RECORDS_DATE = null;
+	Game.Resources.FONT_RECORDS_COLUMN_HEADER = null;
+	Game.Resources.FONT_ENDLEVEL_TEXT_BIG = null;
+	Game.Resources.FONT_ENDLEVEL_TEXT = null;
+	Game.Resources.FONT_FLAREGOTHICBOLD20_DISABLEHINTS = null;
+	Game.Resources.FONT_FLAREGOTHICBOLD42 = null;
+	Game.Resources.FONT_FLAREGOTHIC25 = null;
+	Game.Resources.FONT_FLAREGOTHIC16 = null;
+	Game.Resources.FONT_KOZUKAMINPROH120 = null;
+	Game.Resources.FONT_FLAREGOTHICBOLD80SCORE = null;
+	Game.Resources.FONT_FLAREGOTHICBOLDBUTTON66 = null;
+	Game.Resources.FONT_KOZUKAGOTHPROB = null;
+	Game.Resources.FONT_KOZGOPROHEAVY30 = null;
+	Game.Resources.FONT_FLAREGOTHIC17 = null;
+	Game.Resources.FONT_FLAREGOTHIC14 = null;
+	Game.Resources.FONT_FLAREGOTHICBOLD100 = null;
+	Game.Resources.FONT_FLAREBOLD120SIDEBAR = null;
+	Game.Resources.FONT_FLAREGOTHIC19ZEN = null;
+	Game.Resources.FONT_FLAREGOTHIC32 = null;
+	Game.Resources.FONT_FLAREGOTHIC55 = null;
+	Game.Resources.FONT_FLAREGOTHICBOLD20 = null;
+	Game.Resources.FONT_HUMANST19 = null;
+	Game.Resources.FONT_HUMANST28 = null;
+	Game.Resources.FONT_QUINCYCAPS25 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_FONTS_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_FONTS_480_01 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_FONTS_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_FONTS_768_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_FONTS_768_00 = null;
+	Game.Resources.FONT_SPEED_SCORE_ORANGE = null;
+	Game.Resources.FONT_TOOLTIP = null;
+	Game.Resources.FONT_TOOLTIP_BOLD = null;
+	Game.Resources.FONT_TOOLTIP_BIG = null;
+	Game.Resources.FONT_FLAREGOTHICBOLD42_ORANGE = null;
+	Game.Resources.FONT_FLAREGOTHICBOLD42_BLACK = null;
+	Game.Resources.FONT_FLAREGOTHIC25_BLACK = null;
+	Game.Resources.ATLASIMAGE_ATLAS_FONTS_IGNORED_480_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_FONTS_IGNORED_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_FONTS_IGNORED_768_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_FONTS_IGNORED_768_00 = null;
+	Game.Resources.IMAGE_GEMS_RED = null;
+	Game.Resources.IMAGE_GEMS_WHITE = null;
+	Game.Resources.IMAGE_GEMS_GREEN = null;
+	Game.Resources.IMAGE_GEMS_YELLOW = null;
+	Game.Resources.IMAGE_GEMS_PURPLE = null;
+	Game.Resources.IMAGE_GEMS_ORANGE = null;
+	Game.Resources.IMAGE_GEMS_BLUE = null;
+	Game.Resources.IMAGE_GEMSSHADOW_RED = null;
+	Game.Resources.IMAGE_GEMSSHADOW_WHITE = null;
+	Game.Resources.IMAGE_GEMSSHADOW_GREEN = null;
+	Game.Resources.IMAGE_GEMSSHADOW_YELLOW = null;
+	Game.Resources.IMAGE_GEMSSHADOW_PURPLE = null;
+	Game.Resources.IMAGE_GEMSSHADOW_ORANGE = null;
+	Game.Resources.IMAGE_GEMSSHADOW_BLUE = null;
+	Game.Resources.IMAGE_LIGHTNING_GEMNUMS_RED = null;
+	Game.Resources.IMAGE_LIGHTNING_GEMNUMS_WHITE = null;
+	Game.Resources.IMAGE_LIGHTNING_GEMNUMS_GREEN = null;
+	Game.Resources.IMAGE_LIGHTNING_GEMNUMS_YELLOW = null;
+	Game.Resources.IMAGE_LIGHTNING_GEMNUMS_PURPLE = null;
+	Game.Resources.IMAGE_LIGHTNING_GEMNUMS_ORANGE = null;
+	Game.Resources.IMAGE_LIGHTNING_GEMNUMS_BLUE = null;
+	Game.Resources.IMAGE_LIGHTNING_GEMNUMS_CLEAR = null;
+	Game.Resources.IMAGE_SMOKE = null;
+	Game.Resources.IMAGE_DRIP = null;
+	Game.Resources.IMAGE_FX_STEAM = null;
+	Game.Resources.IMAGE_FLAMEGEMEXPLODE_FLAMEEXPLODETEST_LAYER_1 = null;
+	Game.Resources.IMAGE_GEMS_SHADOWED = null;
+	Game.Resources.IMAGE_HINTARROW = null;
+	Game.Resources.IMAGE_SELECTOR = null;
+	Game.Resources.IMAGE_SM_SHARDS = null;
+	Game.Resources.IMAGE_SM_SHARDS_OUTLINE = null;
+	Game.Resources.POPANIM_FLAMEGEMCREATION = null;
+	Game.Resources.ATLASIMAGE_ATLAS_GAMEPLAY_480_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_GAMEPLAY_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_GAMEPLAY_768_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_GAMEPLAY_768_00 = null;
+	Game.Resources.FONT_DEFAULT = null;
+	Game.Resources.FONT_FLAREGOTHIC28 = null;
+	Game.Resources.FONT_LOADER_TIP = null;
+	Game.Resources.IMAGE_BOARD_SD = null;
+	Game.Resources.IMAGE_BOARD_HD = null;
+	Game.Resources.IMAGE_BOARD_HDSD_BUTTON_FRAME = null;
+	Game.Resources.IMAGE_LOADER_WHITEDOT = null;
+	Game.Resources.IMAGE_LOADER_POPCAP = null;
+	Game.Resources.EFFECT_BOARD_3D = null;
+	Game.Resources.EFFECT_GEM_3D = null;
+	Game.Resources.EFFECT_TUBE_3D = null;
+	Game.Resources.EFFECT_TUBECAP_3D = null;
+	Game.Resources.ATLASIMAGE_ATLAS_INIT_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_INIT_480_01 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_INIT_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_INIT_768_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_INIT_768_01 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_INIT_768_00 = null;
+	Game.Resources.FONT_FLAREGOTHIC8 = null;
+	Game.Resources.FONT_FLAREGOTHICBOLD10 = null;
+	Game.Resources.FONT_HUMANST9 = null;
+	Game.Resources.IMAGE_HYPERSPACE_INITIAL = null;
+	Game.Resources.IMAGE_HYPERSPACE = null;
+	Game.Resources.IMAGE_WARP_LINES_01 = null;
+	Game.Resources.IMAGE_COMPLEMENT_GOOD = null;
+	Game.Resources.IMAGE_COMPLEMENT_EXCELLENT = null;
+	Game.Resources.IMAGE_COMPLEMENT_AWESOME = null;
+	Game.Resources.IMAGE_COMPLEMENT_SPECTACULAR = null;
+	Game.Resources.IMAGE_COMPLEMENT_EXTRAORDINARY = null;
+	Game.Resources.IMAGE_COMPLEMENT_UNBELIEVABLE = null;
+	Game.Resources.IMAGE_COMPLEMENT_BLAZINGSPEED = null;
+	Game.Resources.IMAGE_VERTICAL_STREAK = null;
+	Game.Resources.IMAGE_HYPERCUBE_COLORGLOW = null;
+	Game.Resources.IMAGE_HYPERCUBE_FRAME = null;
+	Game.Resources.IMAGE_TRANSPARENT_HOLE = null;
+	Game.Resources.IMAGE_GRITTYBLURRY = null;
+	Game.Resources.IMAGE_ANIMS_BOARDSHATTER_BOTTOM = null;
+	Game.Resources.IMAGE_ANIMS_BOARDSHATTER_GRID = null;
+	Game.Resources.IMAGE_ANIMS_BOARDSHATTER_TOP = null;
+	Game.Resources.IMAGE_DANGERBORDERLEFT = null;
+	Game.Resources.IMAGE_DANGERBORDERUP = null;
+	Game.Resources.IMAGE_GRIDPAINT_BLANK = null;
+	Game.Resources.IMAGE_GRIDPAINT_FILLED = null;
+	Game.Resources.IMAGE_MULTIPLIER_LARGE_BACK = null;
+	Game.Resources.IMAGE_MULTIPLIER_LARGE_FRONT = null;
+	Game.Resources.IMAGE_RECORDS_RANK_FILL = null;
+	Game.Resources.IMAGE_RECORDS_RANK_GLOW = null;
+	Game.Resources.IMAGE_RECORDS_RANK_PLATE = null;
+	Game.Resources.IMAGE_SOLID_BLACK = null;
+	Game.Resources.IMAGE_SPARKLE_FAT = null;
+	Game.Resources.IMAGE_SPARKLET_BIG = null;
+	Game.Resources.IMAGE_SPARKLET_FAT = null;
+	Game.Resources.IMAGE_TOOLTIP = null;
+	Game.Resources.IMAGE_TOOLTIP_ARROW = null;
+	Game.Resources.PIEFFECT_ANIMS_GEM_MEGA_SHATTER_MEGA = null;
+	Game.Resources.PIEFFECT_BACKGROUNDS_BLOWING_SNOW04 = null;
+	Game.Resources.PIEFFECT_BACKGROUNDS_LANTERNPLANT01 = null;
+	Game.Resources.PIEFFECT_BACKGROUNDS_WATER_FALL_CLIFF01 = null;
+	Game.Resources.PIEFFECT_BACKGROUNDS_WATER_FALL_CLIFF02 = null;
+	Game.Resources.PIEFFECT_BACKGROUNDS_WATERFALL10 = null;
+	Game.Resources.PIEFFECT_BOARD_FLAME_EMBERS = null;
+	Game.Resources.PIEFFECT_COUNTDOWNBAR = null;
+	Game.Resources.PIEFFECT_CRYSTALBALL = null;
+	Game.Resources.PIEFFECT_CRYSTALRAYS = null;
+	Game.Resources.PIEFFECT_DISCOBALL = null;
+	Game.Resources.PIEFFECT_FIRE_TRAIL = null;
+	Game.Resources.PIEFFECT_FIREGEM_HYPERSPACE = null;
+	Game.Resources.PIEFFECT_GEM_LANDING_FX = null;
+	Game.Resources.PIEFFECT_HINTFLASH = null;
+	Game.Resources.PIEFFECT_HYPERCUBE = null;
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_BOTTOM = null;
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT = null;
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD = null;
+	Game.Resources.PIEFFECT_LIGHTNING_STEAMPULSE = null;
+	Game.Resources.PIEFFECT_MAINMENU3 = null;
+	Game.Resources.PIEFFECT_MULTIPLIER = null;
+	Game.Resources.PIEFFECT_QUEST_DIG_COLLECT_GOLD = null;
+	Game.Resources.PIEFFECT_SPEEDBOARD_FLAME = null;
+	Game.Resources.PIEFFECT_SPEEDTEXT_FLAME = null;
+	Game.Resources.PIEFFECT_STARGEM = null;
+	Game.Resources.POPANIM_ANIMS_LIGHTNINGUI = null;
+	Game.Resources.POPANIM_ANIMS_LIGHTNINGUIBOTTOM = null;
+	Game.Resources.POPANIM_ANIMS_BOARDSHATTER = null;
+	Game.Resources.POPANIM_ANIMS_GEM_MEGA = null;
+	Game.Resources.POPANIM_FLAMEGEMEXPLODE = null;
+	Game.Resources.SOUND_BUTTON_MOUSEOVER = null;
+	Game.Resources.SOUND_BUTTON_MOUSELEAVE = null;
+	Game.Resources.SOUND_BACKTOMAIN = null;
+	Game.Resources.SOUND_BADMOVE = null;
+	Game.Resources.SOUND_BOMB_EXPLODE = null;
+	Game.Resources.SOUND_BUTTON_PRESS = null;
+	Game.Resources.SOUND_BUTTON_RELEASE = null;
+	Game.Resources.SOUND_CLICKFLYIN = null;
+	Game.Resources.SOUND_COMBO_1 = null;
+	Game.Resources.SOUND_COMBO_2 = null;
+	Game.Resources.SOUND_COMBO_3 = null;
+	Game.Resources.SOUND_COMBO_4 = null;
+	Game.Resources.SOUND_COMBO_5 = null;
+	Game.Resources.SOUND_COMBO_6 = null;
+	Game.Resources.SOUND_COMBO_7 = null;
+	Game.Resources.SOUND_COUNTDOWN_WARNING = null;
+	Game.Resources.SOUND_DOUBLESET = null;
+	Game.Resources.SOUND_ELECTRO_EXPLODE = null;
+	Game.Resources.SOUND_ELECTRO_PATH = null;
+	Game.Resources.SOUND_ELECTRO_PATH2 = null;
+	Game.Resources.SOUND_FLAMEBONUS = null;
+	Game.Resources.SOUND_FLAMESPEED1 = null;
+	Game.Resources.SOUND_GEM_COUNTDOWN_DESTROYED = null;
+	Game.Resources.SOUND_GEM_HIT = null;
+	Game.Resources.SOUND_GEM_SHATTERS = null;
+	Game.Resources.SOUND_HYPERCUBE_CREATE = null;
+	Game.Resources.SOUND_HYPERSPACE = null;
+	Game.Resources.SOUND_HYPERSPACE_GEM_LAND_1 = null;
+	Game.Resources.SOUND_HYPERSPACE_GEM_LAND_2 = null;
+	Game.Resources.SOUND_HYPERSPACE_GEM_LAND_3 = null;
+	Game.Resources.SOUND_HYPERSPACE_GEM_LAND_4 = null;
+	Game.Resources.SOUND_HYPERSPACE_GEM_LAND_5 = null;
+	Game.Resources.SOUND_HYPERSPACE_GEM_LAND_6 = null;
+	Game.Resources.SOUND_HYPERSPACE_GEM_LAND_7 = null;
+	Game.Resources.SOUND_HYPERSPACE_SHATTER_1 = null;
+	Game.Resources.SOUND_HYPERSPACE_SHATTER_2 = null;
+	Game.Resources.SOUND_LASERGEM_CREATED = null;
+	Game.Resources.SOUND_MENUSPIN = null;
+	Game.Resources.SOUND_NEXTLEVEL = null;
+	Game.Resources.SOUND_POWERGEM_CREATED = null;
+	Game.Resources.SOUND_PREBLAST = null;
+	Game.Resources.SOUND_QUEST_GET = null;
+	Game.Resources.SOUND_RANK_COUNTUP = null;
+	Game.Resources.SOUND_RANKUP = null;
+	Game.Resources.SOUND_SELECT = null;
+	Game.Resources.SOUND_SMALL_EXPLODE = null;
+	Game.Resources.SOUND_SPEEDBOARD_BACKGROUND_CHANGE = null;
+	Game.Resources.SOUND_SPEEDBOARD_FLAMELOOP = null;
+	Game.Resources.SOUND_SPEEDBOARD_LIGHTNING_ENERGIZE = null;
+	Game.Resources.SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_5 = null;
+	Game.Resources.SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_10 = null;
+	Game.Resources.SOUND_SPEEDBOARD_MULTIPLIER_UP2_1 = null;
+	Game.Resources.SOUND_SPEEDBOARD_MULTIPLIER_UP2_2 = null;
+	Game.Resources.SOUND_SPEEDBOARD_MULTIPLIER_UP2_3 = null;
+	Game.Resources.SOUND_SPEEDBOARD_MULTIPLIER_UP2_4 = null;
+	Game.Resources.SOUND_SPEEDBOARD_TIMEBONUS_5 = null;
+	Game.Resources.SOUND_SPEEDBOARD_TIMEBONUS_10 = null;
+	Game.Resources.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_5 = null;
+	Game.Resources.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_10 = null;
+	Game.Resources.SOUND_SPEEDMATCH1 = null;
+	Game.Resources.SOUND_SPEEDMATCH2 = null;
+	Game.Resources.SOUND_SPEEDMATCH3 = null;
+	Game.Resources.SOUND_SPEEDMATCH4 = null;
+	Game.Resources.SOUND_SPEEDMATCH5 = null;
+	Game.Resources.SOUND_SPEEDMATCH6 = null;
+	Game.Resources.SOUND_SPEEDMATCH7 = null;
+	Game.Resources.SOUND_SPEEDMATCH8 = null;
+	Game.Resources.SOUND_SPEEDMATCH9 = null;
+	Game.Resources.SOUND_START_ROTATE = null;
+	Game.Resources.SOUND_TICK = null;
+	Game.Resources.SOUND_TOOLTIP = null;
+	Game.Resources.SOUND_VOICE_AWESOME = null;
+	Game.Resources.SOUND_VOICE_BLAZINGSPEED = null;
+	Game.Resources.SOUND_VOICE_EXCELLENT = null;
+	Game.Resources.SOUND_VOICE_EXTRAORDINARY = null;
+	Game.Resources.SOUND_VOICE_GAMEOVER = null;
+	Game.Resources.SOUND_VOICE_GETREADY = null;
+	Game.Resources.SOUND_VOICE_GO = null;
+	Game.Resources.SOUND_VOICE_GOOD = null;
+	Game.Resources.SOUND_VOICE_LEVELCOMPLETE = null;
+	Game.Resources.SOUND_VOICE_NOMOREMOVES = null;
+	Game.Resources.SOUND_VOICE_SPECTACULAR = null;
+	Game.Resources.SOUND_VOICE_THIRTYSECONDS = null;
+	Game.Resources.SOUND_VOICE_TIMEUP = null;
+	Game.Resources.SOUND_VOICE_UNBELIEVABLE = null;
+	Game.Resources.SOUND_VOICE_WELCOMEBACK = null;
+	Game.Resources.SOUND_VOICE_WELCOMETOBEJEWELED = null;
+	Game.Resources.ATLASIMAGE_ATLAS_LOADINGTHREAD_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_LOADINGTHREAD_480_01 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_LOADINGTHREAD_480_02 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_LOADINGTHREAD_480_03 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_480_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_480_01 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_LOADINGTHREAD_768_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_LOADINGTHREAD_768_01 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_LOADINGTHREAD_768_02 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_768_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_LOADINGTHREAD_COMMON_00 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_LOADINGTHREAD_COMMON_00 = null;
+	Game.Resources.IMAGE_CRYSTALBALL = null;
+	Game.Resources.IMAGE_CRYSTALBALL_SHADOW = null;
+	Game.Resources.IMAGE_CRYSTALBALL_GLOW = null;
+	Game.Resources.IMAGE_TITLE = null;
+	Game.Resources.IMAGE_PARTICLES_CRYSTALBALL_0_BASIC_BLUR = null;
+	Game.Resources.IMAGE_PARTICLES_CRYSTALRAYS_0_RAY = null;
+	Game.Resources.ATLASIMAGE_ATLAS_MAINMENU_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_MAINMENU_480_01 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_MAINMENU_480_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_MAINMENU_768_00 = null;
+	Game.Resources.ATLASIMAGE_ATLAS_MAINMENU_768_01 = null;
+	Game.Resources.ATLASIMAGE_RT_ATLAS_MAINMENU_768_00 = null;
+	Game.Resources.SOUND_MUSIC_CLASSIC = null;
+	Game.Resources.SOUND_MUSIC_MENU = null;
+	Game.Resources.SOUND_MUSIC_SPEED = null;
+	Game.Resources.SOUND_MUSIC_SPEED_END = null;
+	Game.Resources.IMAGE_TEX_BLUE_GEM = null;
+	Game.Resources.IMAGE_TEX_GREEN_GE = null;
+	Game.Resources.IMAGE_TEX_ORANGE_G = null;
+	Game.Resources.IMAGE_TEX_PURPLE_G = null;
+	Game.Resources.IMAGE_TEX_RED_GEM = null;
+	Game.Resources.IMAGE_TEX_TUBECAP = null;
+	Game.Resources.IMAGE_TEX_WARP_LIN = null;
+	Game.Resources.IMAGE_TEX_WHITE_GE = null;
+	Game.Resources.IMAGE_TEX_YELLOW_G = null
 };
 T(function() {
-			Game.a.u("Game.Resources", null, GameFramework.resources.xla)
+			Game.Resources.u("Game.Resources", null, GameFramework.resources.xla)
 		});
 U(function() {
-			Game.a.c()
+			Game.Resources.c()
 		});
 Game.iw = function() {
 	this.qp = new GameFramework.CurvedVal;
@@ -31792,7 +31792,7 @@ Game.iw.prototype = {
 		this.qp.ea(b);
 		b = new GameFramework.CurvedVal;
 		b.vj("SpeedBoard_cs_11_21_11__05_51_47_583");
-		Game.BejApp.q.kA(Game.a.W3, b)
+		Game.BejApp.q.kA(Game.Resources.W3, b)
 	},
 	tU : function() {
 		this.PA(1)
@@ -31827,16 +31827,16 @@ Game.SpeedBoard = function(b) {
 	this.yo = Game.Board.Pi.Dw;
 	this.Wr = new Game.lq(this);
 	this.UN = 40;
-	Game.a.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.qn();
-	Game.a.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.za.th();
-	Game.a.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.za.scale(1, 1);
-	Game.a.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.tm = true;
-	Game.a.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.qn();
-	Game.a.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.za.th();
-	Game.a.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.za.scale(1, 1);
-	Game.a.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.tm = true;
-	Game.a.POPANIM_ANIMS_GEM_MEGA.Px = [];
-	Game.a.POPANIM_ANIMS_GEM_MEGA.Px.push("PIEFFECT_ANIMS_GEM_MEGA_");
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.qn();
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.za.th();
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.za.scale(1, 1);
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.tm = true;
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.qn();
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.za.th();
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.za.scale(1, 1);
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.tm = true;
+	Game.Resources.POPANIM_ANIMS_GEM_MEGA.Px = [];
+	Game.Resources.POPANIM_ANIMS_GEM_MEGA.Px.push("PIEFFECT_ANIMS_GEM_MEGA_");
 	this.nW = 0
 };
 Game.SpeedBoard.prototype = {
@@ -31922,9 +31922,9 @@ Game.SpeedBoard.prototype = {
 	},
 	yF : function(b) {
 		this.z7 = b;
-		Game.a.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.Play(b, false);
-		Game.a.POPANIM_ANIMS_LIGHTNINGUI.Play(b, false);
-		Game.a.POPANIM_ANIMS_GEM_MEGA.Play(b, false)
+		Game.Resources.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.Play(b, false);
+		Game.Resources.POPANIM_ANIMS_LIGHTNINGUI.Play(b, false);
+		Game.Resources.POPANIM_ANIMS_GEM_MEGA.Play(b, false)
 	},
 	xJ : function() {
 		if (this.xc.ki() != null) {
@@ -32049,7 +32049,7 @@ Game.SpeedBoard.prototype = {
 	},
 	GJ : function() {
 		new Game.Announcement(this, "TIME UP");
-		Game.SoundUtil.Play(Game.a.SOUND_VOICE_TIMEUP)
+		Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_TIMEUP)
 	},
 	EK : function(b) {
 		if (b.Y(Game.Piece.K.Yg)) {
@@ -32062,13 +32062,13 @@ Game.SpeedBoard.prototype = {
 			c.Ub(b);
 			b.L.Aa(0);
 			b.qe == 5
-					? Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_5)
-					: Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_10);
+					? Game.SoundUtil.Play(Game.Resources.SOUND_SPEEDBOARD_TIMEBONUS_5)
+					: Game.SoundUtil.Play(Game.Resources.SOUND_SPEEDBOARD_TIMEBONUS_10);
 			(Math.max(0, this.ri - 60) | 0) > 0
 					&& this.oj(b.Ad() | 0, b.Rd() | 0, b.qe * 50, Game.f.Yi[b.n
 									| 0], b.Lf, true, true, b.Pa, false, Game.Board.je.sn);
 			c = String.Mb("+{0:d} sec", b.qe);
-			c = new Game.Points(Game.BejApp.q, Game.a.FONT_DIALOG_HEADER, c, b.Ad() | 0,
+			c = new Game.Points(Game.BejApp.q, Game.Resources.FONT_DIALOG_HEADER, c, b.Ad() | 0,
 					b.Rd() | 0, 1, 0, Game.f.Yi[b.n | 0], -1);
 			c.jr = 1.5;
 			c.NO = 0.2;
@@ -32079,8 +32079,8 @@ Game.SpeedBoard.prototype = {
 	},
 	qv : function() {
 		var b = new GameFramework.ne(0, 0,
-				Game.a.IMAGE_LIGHTNING_TOP_BACK_LIGHTNING.s,
-				Game.a.IMAGE_LIGHTNING_TOP_BACK_LIGHTNING.z);
+				Game.Resources.IMAGE_LIGHTNING_TOP_BACK_LIGHTNING.s,
+				Game.Resources.IMAGE_LIGHTNING_TOP_BACK_LIGHTNING.z);
 		b.eT(this.Se() - b.s / 2, this.Cd() + -55 - b.z / 2);
 		b.s -= 120;
 		return b
@@ -32118,7 +32118,7 @@ Game.SpeedBoard.prototype = {
 		var b = this.NY;
 		this.fD = Math.max(0, this.fD - this.ry * b);
 		this.ry = Math.max(0, this.ry - this.eP * b);
-		Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_BACKGROUND_CHANGE)
+		Game.SoundUtil.Play(Game.Resources.SOUND_SPEEDBOARD_BACKGROUND_CHANGE)
 	},
 	nS : function() {
 		return Game.Board.prototype.nS.apply(this)
@@ -32160,9 +32160,9 @@ Game.SpeedBoard.prototype = {
 					this.yF("death", 15);
 					var d = new GameFramework.CurvedVal;
 					d.vj("SpeedBoard_cs_11_21_11__05_58_39_924");
-					Game.BejApp.q.kA(Game.a.V3, d, false);
-					Game.SoundUtil.Play(Game.a.SOUND_BOMB_EXPLODE);
-					Game.SoundUtil.Play(Game.a.SOUND_VOICE_TIMEUP);
+					Game.BejApp.q.kA(Game.Resources.V3, d, false);
+					Game.SoundUtil.Play(Game.Resources.SOUND_BOMB_EXPLODE);
+					Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_TIMEUP);
 					this.CB = true;
 					new Game.Announcement(this, "TIME UP")
 				}
@@ -32203,7 +32203,7 @@ Game.SpeedBoard.prototype = {
 	},
 	HQ : function() {
 		if (!this.uE()) {
-			Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_LIGHTNING_ENERGIZE);
+			Game.SoundUtil.Play(Game.Resources.SOUND_SPEEDBOARD_LIGHTNING_ENERGIZE);
 			this.yF("energize", 15);
 			this.Bj.hF("b;0,1,0.01,1,~###         ~####");
 			this.jI.ea("b;0,1,0.01,1,####  K~###       U####");
@@ -32212,16 +32212,16 @@ Game.SpeedBoard.prototype = {
 			this.Zq.qp.rE(this.Zq.qp.Ye);
 			this.Yq.qp.rE(this.Yq.qp.Ye);
 			this.Eh = false;
-			var b = Game.a.SOUND_SPEEDBOARD_MULTIPLIER_UP2_1;
+			var b = Game.Resources.SOUND_SPEEDBOARD_MULTIPLIER_UP2_1;
 			switch (Math.min(3, this.Nf - 1)) {
 				case 1 :
-					b = Game.a.SOUND_SPEEDBOARD_MULTIPLIER_UP2_2;
+					b = Game.Resources.SOUND_SPEEDBOARD_MULTIPLIER_UP2_2;
 					break;
 				case 2 :
-					b = Game.a.SOUND_SPEEDBOARD_MULTIPLIER_UP2_3;
+					b = Game.Resources.SOUND_SPEEDBOARD_MULTIPLIER_UP2_3;
 					break;
 				case 3 :
-					b = Game.a.SOUND_SPEEDBOARD_MULTIPLIER_UP2_4
+					b = Game.Resources.SOUND_SPEEDBOARD_MULTIPLIER_UP2_4
 			}
 			Game.SoundUtil.Play(b);
 			this.FC.ea("b+0,1,0.01,1,~###         ~####");
@@ -32272,7 +32272,7 @@ Game.SpeedBoard.prototype = {
 				this.Eh = true, this.No();
 			c = b * 4E3 | 0;
 			if (this.aa - this.eo >= 35 + (c * 0.1 | 0) && c > 0 && c <= 1E3)
-				Game.SoundUtil.Ug(Game.a.SOUND_COUNTDOWN_WARNING, 0, Math.min(1, 0.5
+				Game.SoundUtil.Ug(Game.Resources.SOUND_COUNTDOWN_WARNING, 0, Math.min(1, 0.5
 										- c * 5.0E-4)), this.eo = this.aa;
 			return b
 		}
@@ -32284,15 +32284,15 @@ Game.SpeedBoard.prototype = {
 			var c = this.Hh(), d = 35 + (c * 0.1 | 0);
 			if (this.rI) {
 				if (this.aa - this.eo >= d && c > 0 && c <= 1E3)
-					Game.SoundUtil.Ug(Game.a.SOUND_COUNTDOWN_WARNING, 0, Math.min(1,
+					Game.SoundUtil.Ug(Game.Resources.SOUND_COUNTDOWN_WARNING, 0, Math.min(1,
 									0.5 - c * 5.0E-4)), this.eo = this.aa
 			} else if (this.aa - this.eo >= d && c > 0 && this.xn() && !this.jH)
-				Game.SoundUtil.Ug(Game.a.SOUND_COUNTDOWN_WARNING, 0, Math
+				Game.SoundUtil.Ug(Game.Resources.SOUND_COUNTDOWN_WARNING, 0, Math
 								.min(1, 0.5 - c / (this.zf() > 60 ? 1500 : 1E3)
 												/ 2)), this.eo = this.aa;
 			if (c == 1800 && this.Ar == 0) {
 				if (this.mr)
-					this.mr = false, Game.SoundUtil.Play(Game.a.SOUND_VOICE_THIRTYSECONDS)
+					this.mr = false, Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_THIRTYSECONDS)
 			} else
 				this.mr = true
 		}
@@ -32344,16 +32344,16 @@ Game.SpeedBoard.prototype = {
 		if (c > 0
 				&& (d = this.Of.Dd() % (b.length | 0) | 0, b = b[d], b.uc == 0))
 			b.cl(Game.Piece.K.Yg), b.qe = c, b.qe == 5
-					? Game.SoundUtil.Ug(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_5,
+					? Game.SoundUtil.Ug(Game.Resources.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_5,
 							this.aS(b), 1)
-					: Game.SoundUtil.Ug(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_10,
+					: Game.SoundUtil.Ug(Game.Resources.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_10,
 							this.aS(b), 1);
 		return true
 	},
 	V4 : function(b) {
 		b <= 5
-				? Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_5)
-				: Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_10);
+				? Game.SoundUtil.Play(Game.Resources.SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_5)
+				: Game.SoundUtil.Play(Game.Resources.SOUND_SPEEDBOARD_LIGHTNING_TUBE_FILL_10);
 		b = this.Bj.V();
 		this.Bj.ea("b;0,1,0.02,1,#.^$         ~~###");
 		this.Bj.zd = b;
@@ -32362,7 +32362,7 @@ Game.SpeedBoard.prototype = {
 						.Mb("pulse{0:d}", Math.min(5, (this.ri * 5 / 60 | 0)
 												+ 1)), 12);
 		if (this.Bj.V() == 0)
-			b = new Game.ParticleEffect(Game.a.PIEFFECT_LIGHTNING_STEAMPULSE), b.w = 245, b.v = 255, b.Ak = true, this.ob
+			b = new Game.ParticleEffect(Game.Resources.PIEFFECT_LIGHTNING_STEAMPULSE), b.w = 245, b.v = 255, b.Ak = true, this.ob
 					.Gc(b)
 	},
 	rw : function(b) {
@@ -32387,7 +32387,7 @@ Game.SpeedBoard.prototype = {
 				var d = this.Hh();
 				d % 60 == 0 && d > 0 && d <= 480 && d != this.uH
 						&& c != (this.wp | 0)
-						&& Game.SoundUtil.Play(Game.a.SOUND_TICK)
+						&& Game.SoundUtil.Play(Game.Resources.SOUND_TICK)
 			}
 		}
 		this.CB && this.Xr++;
@@ -32402,19 +32402,19 @@ Game.SpeedBoard.prototype = {
 		if (this.Me % 240 == 0 && b != this.Me)
 			this.wy = Math.max(5, this.wy - this.Of.Dd() % 5 | 0) | 0;
 		if (this.rI && this.Z > this.Vx)
-			Game.SoundUtil.Play(Game.a.SOUND_SPEEDBOARD_BACKGROUND_CHANGE), this.Qm++, this.JH = this.Vx, this.Vx += this.jD
+			Game.SoundUtil.Play(Game.Resources.SOUND_SPEEDBOARD_BACKGROUND_CHANGE), this.Qm++, this.JH = this.Vx, this.Vx += this.jD
 					? (this.DC + this.XF * Math.pow(this.Qm, this.yO) | 0)
 							* (this.Qm + 1)
 					: this.DC + this.XF * Math.pow(this.Qm, this.yO) | 0, this.Me = 0;
-		Game.a.POPANIM_ANIMS_GEM_MEGA.ca();
-		Game.a.POPANIM_ANIMS_GEM_MEGA.n = GameFramework.gfx.k.Jb(this.kh());
-		Game.a.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.ca();
-		Game.a.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.n = GameFramework.gfx.k.Jb(this
+		Game.Resources.POPANIM_ANIMS_GEM_MEGA.ca();
+		Game.Resources.POPANIM_ANIMS_GEM_MEGA.n = GameFramework.gfx.k.Jb(this.kh());
+		Game.Resources.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.ca();
+		Game.Resources.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.n = GameFramework.gfx.k.Jb(this
 				.kh());
-		Game.a.POPANIM_ANIMS_LIGHTNINGUI.ca();
-		Game.a.POPANIM_ANIMS_LIGHTNINGUI.n = GameFramework.gfx.k.Jb(this.kh());
+		Game.Resources.POPANIM_ANIMS_LIGHTNINGUI.ca();
+		Game.Resources.POPANIM_ANIMS_LIGHTNINGUI.n = GameFramework.gfx.k.Jb(this.kh());
 		b = Math.pow(this.Bj.V(), 0.7);
-		c = Game.a.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.fn(0);
+		c = Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.fn(0);
 		for (d = 0; d < 2; d++) {
 			var f = c.xk.Uh[d];
 			f.F[GameFramework.resources.$.p.Uk | 0].dc[0].oa = 0.75 + b * 1.5;
@@ -32423,16 +32423,16 @@ Game.SpeedBoard.prototype = {
 			f.F[GameFramework.resources.$.p.Wg | 0].dc[0].oa = 0.75 + b * 0.5;
 			f.F[GameFramework.resources.$.p.Xg | 0].dc[0].oa = 0.75 + b * 0.5
 		}
-		c = Game.a.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.fn(0);
+		c = Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.fn(0);
 		for (d = 0; d < 2; d++)
 			c.xk.Uh[d].F[GameFramework.resources.$.p.Xo | 0].dc[0].oa = this.Bj.V() > 0
 					? 0.1 + b * 0.9
 					: 0;
-		Game.a.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.ca();
-		Game.a.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.n = GameFramework.gfx.k
+		Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.ca();
+		Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.n = GameFramework.gfx.k
 				.Jb(this.kh());
-		Game.a.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.ca();
-		Game.a.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.n = GameFramework.gfx.k
+		Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.ca();
+		Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.n = GameFramework.gfx.k
 				.Jb(this.kh());
 		this.Wr.ca();
 		this.EH = this.ri > 0 ? Math.max(0, this.EH - 0.01) : Math.min(1,
@@ -32468,7 +32468,7 @@ Game.SpeedBoard.prototype = {
 				&& (b.Q(GameFramework.gfx.k.Ma(240, 255, 200, this.gC.V() * 255
 								| 0)), b.fc(g, c.v, h, c.z), b.pb());
 		for (j = 0; j < this.Cn.length; j++) {
-			var k = this.Cn[j], l = Game.a.IMAGE_BARFILLRED.dv(k.he * 1E3 * b.m
+			var k = this.Cn[j], l = Game.Resources.IMAGE_BARFILLRED.dv(k.he * 1E3 * b.m
 							| 0, k.uf * 100 * b.m | 0, h * b.m | 0, c.z * b.m
 							| 0);
 			if (!f)
@@ -32513,7 +32513,7 @@ Game.SpeedBoard.prototype = {
 		Game.Board.prototype.Tk.apply(this, [b])
 	},
 	nJ : function(b) {
-		b.kb(Game.a.FONT_SCORE_LARGE);
+		b.kb(Game.Resources.FONT_SCORE_LARGE);
 		b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.kh() | 0));
 		b.zb(GameFramework.Utils.ei(this.pm), 242, 210, 0, 0);
 		b.pb()
@@ -32521,7 +32521,7 @@ Game.SpeedBoard.prototype = {
 	OQ : function(b) {
 		var c = b.gc(-160, 0);
 		try {
-			Game.a.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.ja(b)
+			Game.Resources.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.ja(b)
 		} finally {
 			c.t()
 		}
@@ -32541,45 +32541,45 @@ Game.SpeedBoard.prototype = {
 			this.Bj.V() > 0 && (d = Math.pow(this.Bj.V(), 0.5) * 1 + 0);
 			var f = b.gc(56, -22 + d * 280);
 			try {
-				Game.a.POPANIM_ANIMS_GEM_MEGA.ja(b);
+				Game.Resources.POPANIM_ANIMS_GEM_MEGA.ja(b);
 				var g = b.gc(170, 300);
 				try {
-					Game.a.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.ja(b)
+					Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.ja(b)
 				} finally {
 					g.t()
 				}
 				if (this.xn()) {
 					var h = b.Q(this.vv());
 					try {
-						b.Ba(Game.a.IMAGE_LIGHTNING_MEGASHARD_RED_LIGHTNING,
+						b.Ba(Game.Resources.IMAGE_LIGHTNING_MEGASHARD_RED_LIGHTNING,
 								45, 34)
 					} finally {
 						h.t()
 					}
 				}
-				b.kb(Game.a.FONT_SCORE);
+				b.kb(Game.Resources.FONT_SCORE);
 				b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.kh()
 								* this.rG.V() | 0));
-				Game.a.FONT_SCORE.Ia("GLOW", 2667577344);
+				Game.Resources.FONT_SCORE.Ia("GLOW", 2667577344);
 				var j = this.Bj.V() * 60 + 0.5 | 0;
 				b.zb(String.Mb("+{0:d}:{1:00}", j / 60 | 0, j % 60), 186, 442,
 						0, 0);
-				Game.a.FONT_SCORE.ib("GLOW")
+				Game.Resources.FONT_SCORE.ib("GLOW")
 			} finally {
 				f.t()
 			}
 			b.pb();
 			var k = this.Ef - 523 - 160, l = this.Cd() - 130;
-			b.Ba(Game.a.IMAGE_LIGHTNING_TOP_BACK_LIGHTNING.vd(), k, l);
+			b.Ba(Game.Resources.IMAGE_LIGHTNING_TOP_BACK_LIGHTNING.vd(), k, l);
 			this.kJ(b);
 			var m = b.gc(-160, 0);
 			try {
-				Game.a.POPANIM_ANIMS_LIGHTNINGUI.ja(b)
+				Game.Resources.POPANIM_ANIMS_LIGHTNINGUI.ja(b)
 			} finally {
 				m.t()
 			}
 			if (this.$n != null && this.$n.D() > 0) {
-				b.kb(Game.a.FONT_SPEED_TEXT);
+				b.kb(Game.Resources.FONT_SPEED_TEXT);
 				var o = b.Q(GameFramework.gfx.k.Jb(this.$n.V() * this.Yc()));
 				try {
 					b.U.Ia("GLOW", GameFramework.gfx.k.Uu);
@@ -32596,7 +32596,7 @@ Game.SpeedBoard.prototype = {
 			}
 			var r = b.Q(GameFramework.gfx.k.Jb(this.kh()));
 			try {
-				b.Ba(Game.a.IMAGE_LIGHTNING_TIMER_LIGHTNING.Ee(), this.zz()
+				b.Ba(Game.Resources.IMAGE_LIGHTNING_TIMER_LIGHTNING.Ee(), this.zz()
 								+ -2, 76)
 			} finally {
 				r.t()
@@ -32604,7 +32604,7 @@ Game.SpeedBoard.prototype = {
 			if (this.jI != null) {
 				var v = b.Q(GameFramework.gfx.k.Jb(this.jI.V()));
 				try {
-					b.Ba(Game.a.IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING.Ee(), this
+					b.Ba(Game.Resources.IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING.Ee(), this
 									.zz()
 									+ -2, 76)
 				} finally {
@@ -32614,20 +32614,20 @@ Game.SpeedBoard.prototype = {
 			this.VQ(b);
 			var u = b.gc(240, 240);
 			try {
-				Game.a.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.ja(b)
+				Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.ja(b)
 			} finally {
 				u.t()
 			}
 			if (this.xn()) {
 				var y = b.Q(this.vv());
 				try {
-					Game.a.IMAGE_LIGHTNING_TOP_RED_LIGHTNING.qg(true), Game.a.IMAGE_LIGHTNING_BOTTOM_RED_LIGHTNING
+					Game.Resources.IMAGE_LIGHTNING_TOP_RED_LIGHTNING.qg(true), Game.Resources.IMAGE_LIGHTNING_BOTTOM_RED_LIGHTNING
 							.qg(true), b
-							.Ba(Game.a.IMAGE_LIGHTNING_TOP_RED_LIGHTNING.vd(),
+							.Ba(Game.Resources.IMAGE_LIGHTNING_TOP_RED_LIGHTNING.vd(),
 									k, l), b.Ba(
-							Game.a.IMAGE_LIGHTNING_BOTTOM_RED_LIGHTNING.vd(),
+							Game.Resources.IMAGE_LIGHTNING_BOTTOM_RED_LIGHTNING.vd(),
 							k, l), b.Ba(
-							Game.a.IMAGE_LIGHTNING_TIMER_RED_LIGHTNING.Ee(),
+							Game.Resources.IMAGE_LIGHTNING_TIMER_RED_LIGHTNING.Ee(),
 							this.zz() + -2, 76)
 				} finally {
 					y.t()
@@ -32724,35 +32724,35 @@ Game.TimeBonusEffectTop.prototype = {
 						| 0, h;
 				switch (this.Kj | 0) {
 					case Game.f.Ha.WE | 0 :
-						h = Game.a.IMAGE_LIGHTNING_GEMNUMS_RED;
+						h = Game.Resources.IMAGE_LIGHTNING_GEMNUMS_RED;
 						break;
 					case Game.f.Ha.cm | 0 :
-						h = Game.a.IMAGE_LIGHTNING_GEMNUMS_WHITE;
+						h = Game.Resources.IMAGE_LIGHTNING_GEMNUMS_WHITE;
 						break;
 					case Game.f.Ha.FJ | 0 :
-						h = Game.a.IMAGE_LIGHTNING_GEMNUMS_GREEN;
+						h = Game.Resources.IMAGE_LIGHTNING_GEMNUMS_GREEN;
 						break;
 					case Game.f.Ha.bB | 0 :
-						h = Game.a.IMAGE_LIGHTNING_GEMNUMS_YELLOW;
+						h = Game.Resources.IMAGE_LIGHTNING_GEMNUMS_YELLOW;
 						break;
 					case Game.f.Ha.CK | 0 :
-						h = Game.a.IMAGE_LIGHTNING_GEMNUMS_PURPLE;
+						h = Game.Resources.IMAGE_LIGHTNING_GEMNUMS_PURPLE;
 						break;
 					case Game.f.Ha.zK | 0 :
-						h = Game.a.IMAGE_LIGHTNING_GEMNUMS_ORANGE;
+						h = Game.Resources.IMAGE_LIGHTNING_GEMNUMS_ORANGE;
 						break;
 					case Game.f.Ha.wD | 0 :
-						h = Game.a.IMAGE_LIGHTNING_GEMNUMS_BLUE;
+						h = Game.Resources.IMAGE_LIGHTNING_GEMNUMS_BLUE;
 						break;
 					default :
-						h = Game.a.IMAGE_LIGHTNING_GEMNUMS_CLEAR
+						h = Game.Resources.IMAGE_LIGHTNING_GEMNUMS_CLEAR
 				}
 				b.Bd(h, f, g, (this.Tm / 5 | 0) - 1);
 				if (d != null && this.Nb.e.Hh() <= 500
 						&& (this.Nb.e.Me / 18 | 0) % 2 == 0) {
 					var j = b.Q(GameFramework.gfx.k.Ma(255, 200, 200, 255));
 					try {
-						b.Bd(Game.a.IMAGE_LIGHTNING_GEMNUMS_WHITE, f, g,
+						b.Bd(Game.Resources.IMAGE_LIGHTNING_GEMNUMS_WHITE, f, g,
 								(this.Tm / 5 | 0) - 1)
 					} finally {
 						j.t()
@@ -32819,8 +32819,8 @@ Game.TimeBonusEffect.prototype = {
 			g.Ag = 0;
 			g.Ic = -0.012;
 			g.nf = 0;
-			Game.a.IMAGE_SPARKLET.Mf = GameFramework.resources.De.ik;
-			g.Oa = Game.a.IMAGE_SPARKLET;
+			Game.Resources.IMAGE_SPARKLET.Mf = GameFramework.resources.De.ik;
+			g.Oa = Game.Resources.IMAGE_SPARKLET;
 			g.w = (Game.Board.bb / 2 | 0) + Math.cos(h) * j;
 			g.v = (Game.Board.ab / 2 | 0) + Math.sin(h) * j;
 			g.Nc = Math.cos(h) * k;
@@ -33070,10 +33070,10 @@ Game.TimeBonusEffect.prototype = {
 						255)
 						* this.L / 255));
 				try {
-					Game.a.IMAGE_GEMOUTLINES.qg(true);
+					Game.Resources.IMAGE_GEMOUTLINES.qg(true);
 					var l = b.nc(0.5, 0.5, j.Ad(), j.Rd());
 					try {
-						b.Bd(Game.a.IMAGE_GEMOUTLINES.Ee(), j.Ad(), j.Rd() - 2,
+						b.Bd(Game.Resources.IMAGE_GEMOUTLINES.Ee(), j.Ad(), j.Rd() - 2,
 								this.Kj | 0)
 					} finally {
 						l.t()
@@ -33132,7 +33132,7 @@ Game.TimeBonusEffect.prototype = {
 									| 0;
 						aa.L = aa.L * c | 0;
 						fa.L = fa.L * c | 0;
-						this.NQ(b, Game.a.IMAGE_ELECTROTEX, g
+						this.NQ(b, Game.Resources.IMAGE_ELECTROTEX, g
 										+ (Game.Board.bb / 2 | 0) + v, h
 										+ (Game.Board.ab / 2 | 0) + u, g
 										+ (Game.Board.bb / 2 | 0) + da, h
@@ -33149,7 +33149,7 @@ Game.TimeBonusEffect.prototype = {
 							ka.L = ka.L * 0.5 | 0, ja.L = ja.L * 0.5 | 0;
 						ka.L = ka.L * c | 0;
 						ja.L = ja.L * c | 0;
-						this.NQ(b, Game.a.IMAGE_ELECTROTEX_CENTER, g
+						this.NQ(b, Game.Resources.IMAGE_ELECTROTEX_CENTER, g
 										+ (Game.Board.bb / 2 | 0) + v, h
 										+ (Game.Board.ab / 2 | 0) + u, g
 										+ Game.Board.bb / 2 + da, h + Game.Board.ab / 2
@@ -33238,7 +33238,7 @@ Game.SpeedCollectEffect.prototype = {
 		this.Hi.Kk(520, 150);
 		this.Hi.Kk(this.qy.x, this.qy.y);
 		this.Hi.XI(false);
-		this.kj = new Game.ParticleEffect(Game.a.PIEFFECT_QUEST_DIG_COLLECT_GOLD);
+		this.kj = new Game.ParticleEffect(Game.Resources.PIEFFECT_QUEST_DIG_COLLECT_GOLD);
 		this.kj.jt(true);
 		this.kj.lr = false;
 		this.kj.hj++;
@@ -33267,7 +33267,7 @@ Game.SpeedCollectEffect.prototype = {
 		if (this.pG) {
 			if (this.w = this.Lg.x + this.Ii.V() * (this.Nb.e.Se() - this.Lg.x), this.v = this.Lg.y
 					+ this.Ii.V() * (this.Nb.e.W0() - this.Lg.y), !this.Ii.$a())
-				Game.SoundUtil.Play(Game.a.SOUND_QUEST_GET), this.Ii
+				Game.SoundUtil.Play(Game.Resources.SOUND_QUEST_GET), this.Ii
 						.ea("b-0,1,0.01,2,####  `D2UB       A~###"), this.Ii
 						.hL(0, this.Ii.Oc * this.hI), this.pG = false, this.Hi.Kk(
 						this.w, this.v), this.Hi.Kk(800, 150), this.Hi.Kk(600,
@@ -33392,13 +33392,13 @@ Game.LightningBarFillEffect.prototype = {
 				}
 				f++
 			}
-			Game.a.IMAGE_LIGHTNING_TEX.qg(true);
-			b.bn(Game.a.IMAGE_LIGHTNING_TEX, d);
+			Game.Resources.IMAGE_LIGHTNING_TEX.qg(true);
+			b.bn(Game.Resources.IMAGE_LIGHTNING_TEX, d);
 			c = GameFramework.gfx.k.Ma(c, c, c, 255);
 			for (f = 0; f < d.length; f++)
 				d[f].color = c;
-			Game.a.IMAGE_LIGHTNING_CENTER.qg(true);
-			b.bn(Game.a.IMAGE_LIGHTNING_CENTER, d)
+			Game.Resources.IMAGE_LIGHTNING_CENTER.qg(true);
+			b.bn(Game.Resources.IMAGE_LIGHTNING_CENTER, d)
 		} else {
 			d = GameFramework.gfx.k.ta(255, 200, 100);
 			for (f = 0; f < Game.LightningBarFillEffect.Xk - 1; f++) {
@@ -33471,20 +33471,20 @@ Game.SpeedEndLevelDialog.prototype = {
 		Game.Xc.prototype.ja.apply(this, [b]);
 		var c = b.gc(-160, 0);
 		try {
-			b.Ba(Game.a.IMAGE_GAMEOVER_SECTION_GRAPH.vd(), 0, 0), b.Ba(
-					Game.a.IMAGE_GAMEOVER_LINES.vd(), 0, 0), b.Ba(
-					Game.a.IMAGE_GAMEOVER_ICON_FLAME.vd(), 0, 0), b.Ba(
-					Game.a.IMAGE_GAMEOVER_ICON_STAR.vd(), 0, 0), b.Ba(
-					Game.a.IMAGE_GAMEOVER_ICON_HYPERCUBE.vd(), 0, 0), b.Ba(
-					Game.a.IMAGE_GAMEOVER_ICON_LIGHTNING.vd(), 0, 0), b.Ba(
-					Game.a.IMAGE_GAMEOVER_BOX_YELLOW.vd(), 0, 0), b.Ba(
-					Game.a.IMAGE_GAMEOVER_BOX_PINK.vd(), 0, 0), b.Ba(
-					Game.a.IMAGE_GAMEOVER_BOX_ORANGE.vd(), 0, 0)
+			b.Ba(Game.Resources.IMAGE_GAMEOVER_SECTION_GRAPH.vd(), 0, 0), b.Ba(
+					Game.Resources.IMAGE_GAMEOVER_LINES.vd(), 0, 0), b.Ba(
+					Game.Resources.IMAGE_GAMEOVER_ICON_FLAME.vd(), 0, 0), b.Ba(
+					Game.Resources.IMAGE_GAMEOVER_ICON_STAR.vd(), 0, 0), b.Ba(
+					Game.Resources.IMAGE_GAMEOVER_ICON_HYPERCUBE.vd(), 0, 0), b.Ba(
+					Game.Resources.IMAGE_GAMEOVER_ICON_LIGHTNING.vd(), 0, 0), b.Ba(
+					Game.Resources.IMAGE_GAMEOVER_BOX_YELLOW.vd(), 0, 0), b.Ba(
+					Game.Resources.IMAGE_GAMEOVER_BOX_PINK.vd(), 0, 0), b.Ba(
+					Game.Resources.IMAGE_GAMEOVER_BOX_ORANGE.vd(), 0, 0)
 		} finally {
 			c.t()
 		}
-		b.kb(Game.a.FONT_GAMEOVER_DIALOG_SMALL);
-		Game.a.FONT_GAMEOVER_DIALOG_SMALL.Ia("OUTLINE", 255868960);
+		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG_SMALL);
+		Game.Resources.FONT_GAMEOVER_DIALOG_SMALL.Ia("OUTLINE", 255868960);
 		b.Cc(String.Mb("FLAME x{0}", this.od[Game.f.T.kv | 0]), 276, 723);
 		b.Cc(String.Mb("STAR x{0}", this.od[Game.f.T.Kv | 0]), 467, 723);
 		b.Cc(String.Mb("HYPER x{0}", this.od[Game.f.T.Cz | 0]), 645, 723);
@@ -33493,7 +33493,7 @@ Game.SpeedEndLevelDialog.prototype = {
 		b.Cc("SPEED", 1005, 723);
 		b.Cc("SPECIAL", 1130, 723);
 		b.Cc("MATCHES", 1275, 723);
-		Game.a.FONT_GAMEOVER_DIALOG_SMALL.ib("OUTLINE");
+		Game.Resources.FONT_GAMEOVER_DIALOG_SMALL.ib("OUTLINE");
 		for (var d = 0, c = Array.O(3, 3, Game.Board.je.GE, Game.Board.je.sn,
 				Game.Board.je.cF), f = 0, g = 0; g < (this.Qd.length | 0); g++) {
 			for (var h = 0, j = 0; j < c.length; j++)
@@ -33504,7 +33504,7 @@ Game.SpeedEndLevelDialog.prototype = {
 		d = d <= 5E3 ? 1E3 : d <= 1E4 ? 2E3 : ((d + 24999) / 25E3 | 0) * 5E3;
 		f = 360;
 		g = 880 / (this.Qd.length | 0) | 0;
-		b.kb(Game.a.FONT_GAMEOVER_DIALOG_MED);
+		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG_MED);
 		h = b.Q(4291866768);
 		try {
 			for (j = 0; j < 5; j++)
@@ -33517,9 +33517,9 @@ Game.SpeedEndLevelDialog.prototype = {
 			for (j = c.length - 1; j >= 0; j--) {
 				for (var k = 0, l = 0; l <= j; l++)
 					k += this.Qd[h][c[l] | 0];
-				l = Array.O(3, 3, Game.a.IMAGE_GAMEOVER_BAR__PINK,
-						Game.a.IMAGE_GAMEOVER_BAR_ORANGE,
-						Game.a.IMAGE_GAMEOVER_BAR_YELLOW);
+				l = Array.O(3, 3, Game.Resources.IMAGE_GAMEOVER_BAR__PINK,
+						Game.Resources.IMAGE_GAMEOVER_BAR_ORANGE,
+						Game.Resources.IMAGE_GAMEOVER_BAR_YELLOW);
 				k = 225 * k / (d * 5) * this.uB.V() | 0;
 				k > 0
 						&& (k = Math.max(k, 10) | 0, b.dk(l[j], f + 10, 1005
@@ -33615,9 +33615,9 @@ Game.TooltipManager.prototype = {
 		b.Z6 = 0;
 		b.s = g;
 		b.n = o;
-		b.P7 = k != null ? k : Game.a.FONT_TOOLTIP_BOLD;
-		b.QG = l != null ? l : Game.a.FONT_TOOLTIP;
-		b.z = Game.a.IMAGE_TOOLTIP.z - 20;
+		b.P7 = k != null ? k : Game.Resources.FONT_TOOLTIP_BOLD;
+		b.QG = l != null ? l : Game.Resources.FONT_TOOLTIP;
+		b.z = Game.Resources.IMAGE_TOOLTIP.z - 20;
 		(new GameFramework.gfx.Ul).kb(b.QG);
 		if (b.z < 75)
 			b.z = 75;
@@ -33814,7 +33814,7 @@ Game.TutorialStep.prototype = {
 		c = b.Q(GameFramework.gfx.k.Jb(this.hB.D()));
 		try {
 			if (this.hm != Game.TutorialStep.Wc.jk) {
-				var d = 0, f = 50 + (Math.sin(this.aa / 10) / 2 + 0.5) * 50, g = 0, h = 0, j = Game.a.IMAGE_BOARD_HIGHLIGHT_ARROW;
+				var d = 0, f = 50 + (Math.sin(this.aa / 10) / 2 + 0.5) * 50, g = 0, h = 0, j = Game.Resources.IMAGE_BOARD_HIGHLIGHT_ARROW;
 				this.Il == Game.TutorialStep.Qg.zU
 						&& (g -= (this.VH.iu.e.Me - 120) * 0.25);
 				switch (this.hm) {
@@ -34043,9 +34043,9 @@ Game.TutorialMgr.M_ = function(b, c) {
 		b.fc(c.w, d.v, c.s, c.v);
 		b.fc(c.w, c.v + c.z, c.s, d.z - (c.v + c.z));
 		b.fc(c.w + c.s, d.v, d.s - (c.w - d.w + c.s), d.z);
-		var j = Game.a.IMAGE_BOARD_HIGHLIGHT_CIRCLE.dv(1, 1,
-				Game.a.IMAGE_BOARD_HIGHLIGHT_CIRCLE.Hg - 2,
-				Game.a.IMAGE_BOARD_HIGHLIGHT_CIRCLE.Gg - 2), k = b.nc(c.s
+		var j = Game.Resources.IMAGE_BOARD_HIGHLIGHT_CIRCLE.dv(1, 1,
+				Game.Resources.IMAGE_BOARD_HIGHLIGHT_CIRCLE.Hg - 2,
+				Game.Resources.IMAGE_BOARD_HIGHLIGHT_CIRCLE.Gg - 2), k = b.nc(c.s
 						/ (j.jd / b.m), c.z / (j.ge / b.m), g, h);
 		try {
 			b.Ba(j, g, h)
@@ -34071,7 +34071,7 @@ Game.TutorialMgr.az = function(b, c, d) {
 		b.fc(c.w, d.v, c.s, c.v);
 		b.fc(c.w, c.v + c.z, c.s, d.z - (c.v + c.z));
 		b.fc(c.w + c.s, d.v, d.s - (c.w - d.w + c.s), d.z);
-		b.dk(Game.a.IMAGE_BOARD_HIGHLIGHT_FULL, c.w, c.v, c.s, c.z, 0)
+		b.dk(Game.Resources.IMAGE_BOARD_HIGHLIGHT_FULL, c.w, c.v, c.s, c.z, 0)
 	} finally {
 		f.t()
 	}
@@ -34203,42 +34203,42 @@ Game.BejUtil = t();
 Game.BejUtil.c1 = function(b) {
 	switch (b) {
 		case Game.f.Ha.wD :
-			return Game.a.IMAGE_GEMS_BLUE;
+			return Game.Resources.IMAGE_GEMS_BLUE;
 		case Game.f.Ha.FJ :
-			return Game.a.IMAGE_GEMS_GREEN;
+			return Game.Resources.IMAGE_GEMS_GREEN;
 		case Game.f.Ha.zK :
-			return Game.a.IMAGE_GEMS_ORANGE;
+			return Game.Resources.IMAGE_GEMS_ORANGE;
 		case Game.f.Ha.CK :
-			return Game.a.IMAGE_GEMS_PURPLE;
+			return Game.Resources.IMAGE_GEMS_PURPLE;
 		case Game.f.Ha.WE :
-			return Game.a.IMAGE_GEMS_RED;
+			return Game.Resources.IMAGE_GEMS_RED;
 		case Game.f.Ha.cm :
-			return Game.a.IMAGE_GEMS_WHITE;
+			return Game.Resources.IMAGE_GEMS_WHITE;
 		case Game.f.Ha.bB :
-			return Game.a.IMAGE_GEMS_YELLOW
+			return Game.Resources.IMAGE_GEMS_YELLOW
 	}
 	S(false);
-	return Game.a.IMAGE_GEMS_WHITE
+	return Game.Resources.IMAGE_GEMS_WHITE
 };
 Game.BejUtil.PR = function(b) {
 	switch (b) {
 		case Game.f.Ha.wD :
-			return Game.a.IMAGE_GEMSSHADOW_BLUE;
+			return Game.Resources.IMAGE_GEMSSHADOW_BLUE;
 		case Game.f.Ha.FJ :
-			return Game.a.IMAGE_GEMSSHADOW_GREEN;
+			return Game.Resources.IMAGE_GEMSSHADOW_GREEN;
 		case Game.f.Ha.zK :
-			return Game.a.IMAGE_GEMSSHADOW_ORANGE;
+			return Game.Resources.IMAGE_GEMSSHADOW_ORANGE;
 		case Game.f.Ha.CK :
-			return Game.a.IMAGE_GEMSSHADOW_PURPLE;
+			return Game.Resources.IMAGE_GEMSSHADOW_PURPLE;
 		case Game.f.Ha.WE :
-			return Game.a.IMAGE_GEMSSHADOW_RED;
+			return Game.Resources.IMAGE_GEMSSHADOW_RED;
 		case Game.f.Ha.cm :
-			return Game.a.IMAGE_GEMSSHADOW_WHITE;
+			return Game.Resources.IMAGE_GEMSSHADOW_WHITE;
 		case Game.f.Ha.bB :
-			return Game.a.IMAGE_GEMSSHADOW_YELLOW
+			return Game.Resources.IMAGE_GEMSSHADOW_YELLOW
 	}
 	S(false);
-	return Game.a.IMAGE_GEMSSHADOW_WHITE
+	return Game.Resources.IMAGE_GEMSSHADOW_WHITE
 };
 Game.BejUtil.prototype = {};
 Game.BejUtil.c = t();
