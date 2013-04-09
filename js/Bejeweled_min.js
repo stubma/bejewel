@@ -14504,15 +14504,15 @@ T(function() {
 U(function() {
 			Game.Bej3Button.c()
 		});
-Game.Wu = function(b) {
-	E(Game.Wu, this, [b]);
+Game.Bej3DialogButton = function(b) {
+	E(Game.Bej3DialogButton, this, [b]);
 	this.L = 1;
 	this.kb(Game.Resources.FONT_DIALOG_BUTTONS);
 	this.wb = Game.Resources.IMAGE_DIALOG_BUTTON;
 	this.Rj = 1;
 	this.On = 2
 };
-Game.Wu.prototype = {
+Game.Bej3DialogButton.prototype = {
 	t9 : null,
 	gP : null,
 	Ok : function(b) {
@@ -14543,12 +14543,12 @@ Game.Wu.prototype = {
 		Game.BejApp.q.OX = -10
 	}
 };
-Game.Wu.c = t();
+Game.Bej3DialogButton.c = t();
 T(function() {
-			Game.Wu.u("Game.Bej3DialogButton", GameFramework.widgets.td)
+			Game.Bej3DialogButton.u("Game.Bej3DialogButton", GameFramework.widgets.td)
 		});
 U(function() {
-			Game.Wu.c()
+			Game.Bej3DialogButton.c()
 		});
 Game.Qc = function(b, c, d, f, g, h, j, k) {
 	this.m = new GameFramework.CurvedVal;
@@ -14635,7 +14635,7 @@ Game.Qc.prototype = {
 	},
 	ME : function(b, c, d) {
 		d = d == null ? Game.Resources.IMAGE_DIALOG_BUTTON : d;
-		b = new Game.Wu(b);
+		b = new Game.Bej3DialogButton(b);
 		b.Lb(0, 0, c, d.z);
 		b.kb(Game.Resources.FONT_DIALOG_BUTTONS);
 		this.Bc(b);
