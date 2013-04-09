@@ -13832,46 +13832,46 @@ T(function() {
 U(function() {
 			GameFramework.resources.JSRenderEffectBlock.c()
 		});
-GameFramework.resources.Mz = t();
-GameFramework.resources.Mz.prototype = {
+GameFramework.resources.JSRenderEffectPass = t();
+GameFramework.resources.JSRenderEffectPass.prototype = {
 	RW : null
 };
-GameFramework.resources.Mz.c = t();
+GameFramework.resources.JSRenderEffectPass.c = t();
 T(function() {
-			GameFramework.resources.Mz.u("GameFramework.resources.JSRenderEffectPass",
+			GameFramework.resources.JSRenderEffectPass.u("GameFramework.resources.JSRenderEffectPass",
 					null)
 		});
 U(function() {
-			GameFramework.resources.Mz.c()
+			GameFramework.resources.JSRenderEffectPass.c()
 		});
-GameFramework.resources.Nz = function() {
+GameFramework.resources.JSRenderEffectTechnique = function() {
 	this.vO = []
 };
-GameFramework.resources.Nz.prototype = {
+GameFramework.resources.JSRenderEffectTechnique.prototype = {
 	vO : null
 };
-GameFramework.resources.Nz.c = t();
+GameFramework.resources.JSRenderEffectTechnique.c = t();
 T(function() {
-			GameFramework.resources.Nz.u(
+			GameFramework.resources.JSRenderEffectTechnique.u(
 					"GameFramework.resources.JSRenderEffectTechnique", null)
 		});
 U(function() {
-			GameFramework.resources.Nz.c()
+			GameFramework.resources.JSRenderEffectTechnique.c()
 		});
-GameFramework.resources.Gv = function(b) {
-	E(GameFramework.resources.Gv, this, [b])
+GameFramework.resources.JSRenderEffectRunHandle = function(b) {
+	E(GameFramework.resources.JSRenderEffectRunHandle, this, [b])
 };
-GameFramework.resources.Gv.prototype = {
+GameFramework.resources.JSRenderEffectRunHandle.prototype = {
 	IY : null
 };
-GameFramework.resources.Gv.c = t();
+GameFramework.resources.JSRenderEffectRunHandle.c = t();
 T(function() {
-			GameFramework.resources.Gv.u(
+			GameFramework.resources.JSRenderEffectRunHandle.u(
 					"GameFramework.resources.JSRenderEffectRunHandle",
 					GameFramework.resources.RenderEffectRunHandle)
 		});
 U(function() {
-			GameFramework.resources.Gv.c()
+			GameFramework.resources.JSRenderEffectRunHandle.c()
 		});
 GameFramework.resources.JSRenderEffect = function() {
 	this.ro = {};
@@ -13924,7 +13924,7 @@ GameFramework.resources.JSRenderEffect.prototype = {
 		this.FY = b.H();
 		for (b = 0; b < this.aP.be; b++) {
 			this.yd.Fo(this.aP.de + b * 24);
-			var c = new GameFramework.resources.Nz, d = this.yd.H();
+			var c = new GameFramework.resources.JSRenderEffectTechnique, d = this.yd.H();
 			this.yd.H();
 			var f = this.yd.H(), g = this.yd.H();
 			this.yd.H();
@@ -13938,7 +13938,7 @@ GameFramework.resources.JSRenderEffect.prototype = {
 						.H(), o = 0; o < j; o++)
 					this.yd.Fo(this.uY.de + (k + o) * 20), this.yd.H(), this.yd
 							.H(), this.yd.H(), this.yd.H(), this.yd.H();
-				j = new GameFramework.resources.Mz;
+				j = new GameFramework.resources.JSRenderEffectPass;
 				l = this.BT(l);
 				o = this.BT(m);
 				l != null
@@ -14013,7 +14013,7 @@ GameFramework.resources.JSRenderEffect.prototype = {
 	},
 	xD : function(b, c) {
 		c === UNDEF && (c = null);
-		var d = new GameFramework.resources.Gv(this);
+		var d = new GameFramework.resources.JSRenderEffectRunHandle(this);
 		d.IY = this.bP[c];
 		return d
 	},
