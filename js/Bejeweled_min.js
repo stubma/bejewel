@@ -15413,23 +15413,23 @@ T(function() {
 U(function() {
 			Game.QueuedMove.c()
 		});
-Game.Xs = function() {
-	this.Z = Array.Sd(Game.Xs.M2, 2, null)
+Game.Lightning = function() {
+	this.Z = Array.Sd(Game.Lightning.M2, 2, null)
 };
-Game.Xs.prototype = {
+Game.Lightning.prototype = {
 	Z : null,
 	Zh : 0,
 	WX : 0,
 	XX : 0
 };
-Game.Xs.c = function() {
-	Game.Xs.M2 = 8
+Game.Lightning.c = function() {
+	Game.Lightning.M2 = 8
 };
 T(function() {
-			Game.Xs.u("Game.Lightning", null)
+			Game.Lightning.u("Game.Lightning", null)
 		});
 U(function() {
-			Game.Xs.c()
+			Game.Lightning.c()
 		});
 Game.ez = t();
 Game.ez.prototype = {
@@ -15746,7 +15746,7 @@ Game.LightningStorm.prototype = {
 	lN : 0,
 	FB : 0,
 	DP : function(b, c, d, f) {
-		var g = new Game.Xs;
+		var g = new Game.Lightning;
 		g.Zh = 0;
 		var h = f - c, j = d - b, k = Math.atan2(h, j), h = Math.sqrt(j * j + h
 				* h);
