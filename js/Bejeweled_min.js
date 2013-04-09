@@ -1354,12 +1354,12 @@ ss.PL.parse = function(b) {
 			}
 	return null
 };
-ss.ZI = function() {
-	E(ss.ZI, this);
+ss.CancelEventArgs = function() {
+	E(ss.CancelEventArgs, this);
 	this.oqa = false
 };
-ss.ZI.prototype = {};
-ss.ZI.u("CancelEventArgs", ss.EventArgs);
+ss.CancelEventArgs.prototype = {};
+ss.CancelEventArgs.u("CancelEventArgs", ss.EventArgs);
 ss.DS = t();
 ss.DS.prototype = {};
 Ba(ss.DS, "INotifyPropertyChanged");
