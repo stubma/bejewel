@@ -395,7 +395,7 @@ window.ss = {
 	ss.Zi.b6();
 	ss.W5()
 })();
-Object.qi = "Object";
+Object.name = "Object";
 Object.Vq = null;
 Object.Lqa = function(b) {
 	var c = 0, d;
@@ -413,11 +413,11 @@ Object.Zqa = function(b, c) {
 Function.prototype.tt = function() {
 	return this.apply(null, arguments)
 };
-Boolean.qi = "Boolean";
+Boolean.name = "Boolean";
 Boolean.parse = function(b) {
 	return b.toLowerCase() == "true"
 };
-Number.qi = "Number";
+Number.name = "Number";
 Number.parse = function(b) {
 	return !b || !b.length ? 0 : b.indexOf(".") >= 0 || b.indexOf("e") >= 0
 			|| na(b, "f") || na(b, "F") ? parseFloat(b) : parseInt(b, 10)
@@ -525,7 +525,7 @@ Number.prototype.JF = function(b, c) {
 Math.truncate = function(b) {
 	return b >= 0 ? Math.floor(b) : Math.ceil(b)
 };
-String.qi = "String";
+String.name = "String";
 String.a0 = "";
 String.k6 = function(b, c, d) {
 	d && (b && (b = b.toUpperCase()), c && (c = c.toUpperCase()));
@@ -599,7 +599,7 @@ if (!String.prototype.trim)
 	}, String.prototype.c$ = function() {
 		return this.replace(/^\s*/, "")
 	};
-Array.qi = "Array";
+Array.name = "Array";
 Array.GF = [ss.XJ];
 Array.O = function(b, c) {
 	for (var d = Array(b), f = 2; f < arguments.length; f++)
@@ -714,7 +714,7 @@ if (!Array.prototype.some)
 Array.qra = function(b) {
 	return Array.prototype.slice.call(b)
 };
-RegExp.qi = "RegExp";
+RegExp.name = "RegExp";
 RegExp.parse = function(b) {
 	if (startsWith(b, "/")) {
 		var c = b.lastIndexOf("/");
@@ -723,7 +723,7 @@ RegExp.parse = function(b) {
 	}
 	return null
 };
-Date.qi = "Date";
+Date.name = "Date";
 Date.empty = null;
 Date.Mqa = function() {
 	return new Date
@@ -887,7 +887,7 @@ Date.prototype.JF = function(b, c) {
 Date.ira = function(b) {
 	return new Date(Date.parse(b))
 };
-Error.qi = "Error";
+Error.name = "Error";
 Error.xqa = function(b, c, d) {
 	b = Error(b);
 	if (c)
@@ -908,7 +908,7 @@ Error.xqa = function(b, c, d) {
 	return b
 };
 ss.tg = window.tg ? window.tg : t();
-ss.tg.qi = "Debug";
+ss.tg.name = "Debug";
 if (!ss.tg.writeln)
 	ss.tg.writeln = function(b) {
 		window.console ? window.console.ZL
@@ -952,7 +952,7 @@ ss.tg.LF = function(b, c, d, f, g) {
 					break
 				}
 				g.add(c);
-				var h = Type.aM(c).qi, j = f + "  ";
+				var h = Type.aM(c).name, j = f + "  ";
 				if (xa(Array, c)) {
 					b.Wq(f + d + ": {" + h + "}");
 					for (var d = c.length, k = 0; k < d; k++)
@@ -971,7 +971,7 @@ ss.tg.LF = function(b, c, d, f, g) {
 };
 ss.tg.sra = function(b, c) {
 	if ((!c || !c.length) && b !== null)
-		c = Type.aM(b).qi;
+		c = Type.aM(b).name;
 	var d = new ss.StringBuilder;
 	ss.tg.LF(d, b, c, "", []);
 	ss.tg.f$(d.toString())
@@ -987,8 +987,8 @@ ss.tg.f$ = function(b) {
 	}
 };
 window.Type = Function;
-Type.qi = "Type";
-__Namespace = w("qi");
+Type.name = "Type";
+__Namespace = w("name");
 __Namespace.prototype = {
 	V5 : true
 };
@@ -1011,7 +1011,7 @@ Type.ci = function(b) {
 };
 Type.prototype.u = function(b, c, d) {
 	this.prototype.constructor = this;
-	this.qi = b;
+	this.name = b;
 	this.XU = true;
 	this.Vq = c || Object;
 	if (c)
@@ -1023,7 +1023,7 @@ Type.prototype.u = function(b, c, d) {
 	}
 };
 function Ba(b, c) {
-	b.qi = c;
+	b.name = c;
 	b.$U = true
 }
 Type.prototype.xP = function() {
@@ -1097,7 +1097,7 @@ Type.aM = function(b) {
 		c = b.constructor
 	} catch (d) {
 	}
-	if (!c || !c.qi)
+	if (!c || !c.name)
 		c = Object;
 	return c
 };
@@ -1380,7 +1380,7 @@ ss.pQ.prototype = {
 var Da = ss.pQ, Ea;
 for (Ea in Da.prototype)
 	Da[Ea] = Da.prototype[Ea];
-Da.qi = "CollectionChangedAction";
+Da.name = "CollectionChangedAction";
 Da.YU = true;
 Da.toString = ss.Enum.toString;
 ss.CollectionChangedEventArgs = function(b, c, d) {
