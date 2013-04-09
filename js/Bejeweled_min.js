@@ -22564,13 +22564,13 @@ T(function() {
 U(function() {
 			Game.lq.c()
 		});
-Game.Xu = function() {
-	E(Game.Xu, this);
+Game.Bej3EditWidget = function() {
+	E(Game.Bej3EditWidget, this);
 	this.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 	GameFramework.BaseApp.M.kc()
 			|| (this.pe[GameFramework.widgets.ig.CD] = 4285554768, this.pe[GameFramework.widgets.ig.TI] = 4278190080, this.pe[GameFramework.widgets.ig.SP] = 4294967295)
 };
-Game.Xu.prototype = {
+Game.Bej3EditWidget.prototype = {
 	L : 1,
 	ja : function(b) {
 		this.L != 0
@@ -22582,12 +22582,12 @@ Game.Xu.prototype = {
 						&& b.pb())
 	}
 };
-Game.Xu.c = t();
+Game.Bej3EditWidget.c = t();
 T(function() {
-			Game.Xu.u("Game.Bej3EditWidget", GameFramework.widgets.ig)
+			Game.Bej3EditWidget.u("Game.Bej3EditWidget", GameFramework.widgets.ig)
 		});
 U(function() {
-			Game.Xu.c()
+			Game.Bej3EditWidget.c()
 		});
 Game.Ns = t();
 Game.Ns.HU = function(b) {
@@ -22706,7 +22706,7 @@ Game.Xc.prototype = {
 	D4 : function() {
 		if (this.VC != "") {
 			if (this.Vd == null)
-				this.Vd = new Game.Xu, this.Vd.V9(0), this.Vd.gU(
+				this.Vd = new Game.Bej3EditWidget, this.Vd.V9(0), this.Vd.gU(
 						Game.BejApp.q.Ka.Km, false), this.Vd.Ra(GameFramework.widgets.wa.aR,
 						ss.Delegate.create(this, this.M6)), Game.BejApp.q.Nh.oi(this.Vd), this
 						.Bc(this.Vd), this.Vd.sI = this;
