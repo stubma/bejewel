@@ -15630,7 +15630,7 @@ T(function() {
 U(function() {
 			Game.Mv.c()
 		});
-Game.jb = function(b, c, d) {
+Game.LightningStorm = function(b, c, d) {
 	this.Pu = [];
 	this.Fp = [];
 	this.Rp = [];
@@ -15654,7 +15654,7 @@ Game.jb = function(b, c, d) {
 			? (this.zH.ea("b+0,1.5,0.013333,1,#4I(         ~~P##"), this.rC.me(
 					"b+0,1,0,1,####    e~###     <####", this.zH), this.tC
 					.ea("b+0,2,0.006667,1,####   ^X### bX### S~###   /####"), this.sC
-					.me("b+0,1,0,1,#### o~###     Y}###  V####", this.tC), this.Qe = Game.jb.Yb.mq)
+					.me("b+0,1,0,1,#### o~###     Y}###  V####", this.tC), this.Qe = Game.LightningStorm.Yb.mq)
 			: this.Qe = d;
 	this.jx = c.xa;
 	this.nB = (c.Ad() | 0) - this.e.Ef;
@@ -15662,19 +15662,19 @@ Game.jb = function(b, c, d) {
 	this.L8 = c.Ja;
 	this.M8 = c.La;
 	c.aC = true;
-	if (this.Qe != Game.jb.Yb.sc)
+	if (this.Qe != Game.LightningStorm.Yb.sc)
 		c.Th = 0.9;
 	this.n = Game.f.Ha.Ve;
 	this.ex = this.$e = 0;
 	this.zN = 1;
-	this.Du = this.Qe == Game.jb.Yb.SHORT ? 3 : 7;
-	if (this.Qe != Game.jb.Yb.sc) {
-		for (b = this.Qe == Game.jb.Yb.mq ? -1 : 0; b <= (this.Qe == Game.jb.Yb.mq
+	this.Du = this.Qe == Game.LightningStorm.Yb.SHORT ? 3 : 7;
+	if (this.Qe != Game.LightningStorm.Yb.sc) {
+		for (b = this.Qe == Game.LightningStorm.Yb.mq ? -1 : 0; b <= (this.Qe == Game.LightningStorm.Yb.mq
 				? 1
 				: 0); b++)
 			d = this.e.lE((c.v | 0) + (Game.r.ab / 2 | 0) + b * Game.r.ab), d >= 0
 					&& d < this.e.wc
-					&& this.Qe != Game.jb.Yb.BF
+					&& this.Qe != Game.LightningStorm.Yb.BF
 					&& this.Pu.push(new Game.Mv(this.e, Math.max(0, this.nB
 											- this.Du * Game.r.bb
 											- (Game.r.bb / 2 | 0))
@@ -15684,10 +15684,10 @@ Game.jb = function(b, c, d) {
 											+ (Game.r.bb / 2 | 0))
 									| 0, (c.v | 0) + (Game.r.ab / 2 | 0) + b
 									* Game.r.ab, Game.f.RF[(this.dO | 0) + 1],
-							10, this.Qe == Game.jb.Yb.mq)), d = this.e
+							10, this.Qe == Game.LightningStorm.Yb.mq)), d = this.e
 					.bE((c.w | 0) + (Game.r.bb / 2 | 0) + b * Game.r.bb), d >= 0
 					&& d < this.e.$b
-					&& this.Qe != Game.jb.Yb.oE
+					&& this.Qe != Game.LightningStorm.Yb.oE
 					&& this.Pu.push(new Game.Mv(this.e, (c.w | 0)
 									+ (Game.r.bb / 2 | 0) + b * Game.r.bb, Math
 									.max(0, this.oB - this.Du * Game.r.ab
@@ -15697,13 +15697,13 @@ Game.jb = function(b, c, d) {
 									this.oB + this.Du * Game.r.ab
 											+ (Game.r.ab / 2 | 0))
 									| 0, Game.f.RF[(this.dO | 0) + 1], 10,
-							this.Qe == Game.jb.Yb.mq));
+							this.Qe == Game.LightningStorm.Yb.mq));
 		this.tX
 				.ea("b;0,1,0.00885,1,####oCh;uZV###X^8.tQ<###Uqh*Kzk###QG###R~###hI###u~### $#### 2y### *####")
 	} else if (c != null && c.n == Game.f.Ha.sc)
 		c.ol = true
 };
-Game.jb.prototype = {
+Game.LightningStorm.prototype = {
 	e : null,
 	nB : 0,
 	oB : 0,
@@ -15742,8 +15742,8 @@ Game.jb.prototype = {
 				* h);
 		g.WX = Math.cos(k - 1.570795) * h * 0.4;
 		g.XX = Math.sin(k - 1.570795) * h * 0.4;
-		for (k = 0; k < Game.jb.hk; k++) {
-			var j = k / (Game.jb.hk - 1), h = b * (1 - j) + d * j, j = c
+		for (k = 0; k < Game.LightningStorm.hk; k++) {
+			var j = k / (Game.LightningStorm.hk - 1), h = b * (1 - j) + d * j, j = c
 					* (1 - j) + f * j, l = new GameFramework.geom.ic(0, 0);
 			g.Z[g.Z.g * k + 0] = l;
 			var m = new GameFramework.geom.ic(0, 0);
@@ -15800,9 +15800,9 @@ Game.jb.prototype = {
 					C(this.Fp, g), g--;
 				else if (d = Math.max(0, 1 - (1 - b.Zh) * 3), this.aa % 2 == 0)
 					for (var f = b.Z[b.Z.g * 0 + 0].x, k = b.Z[b.Z.g * 0 + 0].y, l = b.Z[b.Z.g
-							* (Game.jb.hk - 1) + 0].x, m = b.Z[b.Z.g
-							* (Game.jb.hk - 1) + 0].y, o = 0; o < Game.jb.hk; o++) {
-						var q = o / (Game.jb.hk - 1), r = 1
+							* (Game.LightningStorm.hk - 1) + 0].x, m = b.Z[b.Z.g
+							* (Game.LightningStorm.hk - 1) + 0].y, o = 0; o < Game.LightningStorm.hk; o++) {
+						var q = o / (Game.LightningStorm.hk - 1), r = 1
 								- Math.abs(1 - q * 2), v = f * (1 - q) + l * q
 								+ r * (GameFramework.h.P() * 40 + d * b.WX), q = k
 								* (1 - q)
@@ -15811,7 +15811,7 @@ Game.jb.prototype = {
 								+ r
 								* (GameFramework.h.P() * 40 + d * b.XX), r = b.Z[b.Z.g
 								* o + 0], u = b.Z[b.Z.g * o + 1];
-						if (o == 0 || o == Game.jb.hk - 1)
+						if (o == 0 || o == Game.LightningStorm.hk - 1)
 							r.x = v | 0, r.y = q | 0, u.x = v | 0, u.y = q | 0;
 						else {
 							var y = GameFramework.BaseApp.M.kc() ? 32 : 26;
@@ -15836,18 +15836,18 @@ Game.jb.prototype = {
 			var d = this.Fp[c], f = Math.min((1 - d.Zh) * 8, 1) * this.e.Yc(), g = GameFramework.gfx.k
 					.Jb(f);
 			if (GameFramework.BaseApp.M.kc()) {
-				for (var h = Array.Sd((Game.jb.hk - 1) * 2 - 2, 3, null), j = 0, k = 0; k < Game.jb.hk
+				for (var h = Array.Sd((Game.LightningStorm.hk - 1) * 2 - 2, 3, null), j = 0, k = 0; k < Game.LightningStorm.hk
 						- 1; k++) {
 					var l = d.Z[d.Z.g * k + 0], m = d.Z[d.Z.g * k + 1], o = d.Z[d.Z.g
 							* (k + 1) + 0], q = d.Z[d.Z.g * (k + 1) + 1], r = k
-							/ (Game.jb.hk - 1), v = (k + 1) / (Game.jb.hk - 1), u = GameFramework.gfx.k
+							/ (Game.LightningStorm.hk - 1), v = (k + 1) / (Game.LightningStorm.hk - 1), u = GameFramework.gfx.k
 							.st(Game.f.RF[(this.n | 0) + 1], f);
 					k == 0
 							? (h[h.g * j + 0] = new GameFramework.gfx.jc(l.x,
 									l.y, 0.5, r, u), h[h.g * j + 1] = new GameFramework.gfx.jc(
 									q.x, q.y, 1, v, u), h[h.g * j + 2] = new GameFramework.gfx.jc(
 									o.x, o.y, 0, v, u))
-							: k == Game.jb.hk - 2
+							: k == Game.LightningStorm.hk - 2
 									? (h[h.g * j + 0] = new GameFramework.gfx.jc(
 											l.x, l.y, 0, r, u), h[h.g * j + 1] = new GameFramework.gfx.jc(
 											m.x, m.y, 1, r, u), h[h.g * j + 2] = new GameFramework.gfx.jc(
@@ -15872,7 +15872,7 @@ Game.jb.prototype = {
 			} else {
 				h = GameFramework.gfx.k.Zg(Game.f.RF[(this.n | 0) + 1], f * 255
 								| 0);
-				for (f = 0; f < Game.jb.hk - 1; f++) {
+				for (f = 0; f < Game.LightningStorm.hk - 1; f++) {
 					var j = d.Z[d.Z.g * f + 0], k = d.Z[d.Z.g * f + 1], l = d.Z[d.Z.g
 							* (f + 1) + 0], m = d.Z[d.Z.g * (f + 1) + 1], o = j.x
 							* 0.3 + k.x * 0.7, q = j.y * 0.3 + k.y * 0.7, r = k.x
@@ -15921,41 +15921,41 @@ Game.jb.prototype = {
 		this.aa++;
 		this.zH.$a();
 		this.tC.$a();
-		this.Qe == Game.jb.Yb.mq && this.tC.aJ(1.6)
+		this.Qe == Game.LightningStorm.Yb.mq && this.tC.aJ(1.6)
 				&& Game.fb.Play(Game.a.SOUND_BOMB_EXPLODE);
 		for (var b = 0; b < (this.Pu.length | 0); b++)
 			this.Pu[b].ca();
 		this.lN = Math.max(0, this.lN - 0.0167);
-		this.Qe == Game.jb.Yb.sc && this.GL()
+		this.Qe == Game.LightningStorm.Yb.sc && this.GL()
 	},
 	ja : function(b) {
 		for (var c = 0; c < this.Pu.length; c++)
 			this.Pu[c].ja(b);
-		this.Qe == Game.jb.Yb.sc && this.lJ(b)
+		this.Qe == Game.LightningStorm.Yb.sc && this.lJ(b)
 	}
 };
-Game.jb.c = function() {
-	Game.jb.hk = 8
+Game.LightningStorm.c = function() {
+	Game.LightningStorm.hk = 8
 };
 T(function() {
-			Game.jb.u("Game.LightningStorm", null)
+			Game.LightningStorm.u("Game.LightningStorm", null)
 		});
 U(function() {
-			Game.jb.c()
+			Game.LightningStorm.c()
 		});
-Game.jb.Yb = {};
-Game.jb.Yb.c = function() {
-	Game.jb.Yb.oE = 0;
-	Game.jb.Yb.BF = 1;
-	Game.jb.Yb.MI = 2;
-	Game.jb.Yb.SHORT = 3;
-	Game.jb.Yb.UT = 4;
-	Game.jb.Yb.VK = 5;
-	Game.jb.Yb.mq = 6;
-	Game.jb.Yb.sc = 7
+Game.LightningStorm.Yb = {};
+Game.LightningStorm.Yb.c = function() {
+	Game.LightningStorm.Yb.oE = 0;
+	Game.LightningStorm.Yb.BF = 1;
+	Game.LightningStorm.Yb.MI = 2;
+	Game.LightningStorm.Yb.SHORT = 3;
+	Game.LightningStorm.Yb.UT = 4;
+	Game.LightningStorm.Yb.VK = 5;
+	Game.LightningStorm.Yb.mq = 6;
+	Game.LightningStorm.Yb.sc = 7
 };
 T(function() {
-			Game.jb.Yb.c()
+			Game.LightningStorm.Yb.c()
 		});
 Game.SD = function(b, c, d, f) {
 	this.g$ = b;
@@ -17464,7 +17464,7 @@ Game.r.prototype = {
 		c == Game.f.Ha.Ve && this.fg(Game.f.T.z1, 1, b.Pa);
 		this.fg(Game.f.T.RJ, 1, b.Pa);
 		b.ol = true;
-		var d = new Game.jb(this, b, Game.jb.Yb.sc);
+		var d = new Game.LightningStorm(this, b, Game.LightningStorm.Yb.sc);
 		d.n = c;
 		this.qc.push(d)
 	},
@@ -17688,14 +17688,14 @@ Game.r.prototype = {
 			f.ca();
 			b = false;
 			switch (f.Qe) {
-				case Game.jb.Yb.oE :
-				case Game.jb.Yb.BF :
-				case Game.jb.Yb.MI :
-				case Game.jb.Yb.SHORT :
-				case Game.jb.Yb.UT :
-				case Game.jb.Yb.VK :
-				case Game.jb.Yb.mq :
-					for (var g = f.Qe == Game.jb.Yb.mq ? 1 : 0, h = true, j = 1; j < f.Rp.length;) {
+				case Game.LightningStorm.Yb.oE :
+				case Game.LightningStorm.Yb.BF :
+				case Game.LightningStorm.Yb.MI :
+				case Game.LightningStorm.Yb.SHORT :
+				case Game.LightningStorm.Yb.UT :
+				case Game.LightningStorm.Yb.VK :
+				case Game.LightningStorm.Yb.mq :
+					for (var g = f.Qe == Game.LightningStorm.Yb.mq ? 1 : 0, h = true, j = 1; j < f.Rp.length;) {
 						var k = this.lh(f.Rp[j]);
 						if (k != null && k.fr)
 							if (k.Th += 0.02505, k.Th >= 1) {
@@ -17728,10 +17728,10 @@ Game.r.prototype = {
 								-1, 1, 1, -1, 1, 1);
 						l = 0;
 						k = 4;
-						f.Qe == Game.jb.Yb.oE && (k = 2);
-						f.Qe == Game.jb.Yb.BF && (l = 2);
-						f.Qe == Game.jb.Yb.UT && (k = 8);
-						if (f.Qe == Game.jb.Yb.VK) {
+						f.Qe == Game.LightningStorm.Yb.oE && (k = 2);
+						f.Qe == Game.LightningStorm.Yb.BF && (l = 2);
+						f.Qe == Game.LightningStorm.Yb.UT && (k = 8);
+						if (f.Qe == Game.LightningStorm.Yb.VK) {
 							for (var k = Math.min(f.ex, 7) | 0, m = 0, o = -k; o <= k; o++)
 								j[j.g * m + 0] = o, j[j.g * m++ + 1] = -k, j[j.g
 										* m + 0] = o, j[j.g * m++ + 1] = k;
@@ -17742,7 +17742,7 @@ Game.r.prototype = {
 						}
 						for (; l < k; l++)
 							for (m = -g; m <= g; m++) {
-								var q = f.Qe == Game.jb.Yb.VK ? 1 : f.ex, o = f.nB
+								var q = f.Qe == Game.LightningStorm.Yb.VK ? 1 : f.ex, o = f.nB
 										+ (q * j[j.g * l + 0] + j[j.g * l + 1]
 												* m) * Game.r.bb, r = f.oB
 										+ (q * j[j.g * l + 1] + j[j.g * l + 0]
@@ -18019,7 +18019,7 @@ Game.r.prototype = {
 						if (m.Y(Game.J.K.Ue)
 								&& (o = this.kz(m), o != -1
 										&& (q = this.qc[o], q.aa == 0
-												&& (q.Qe == Game.jb.Yb.oE || q.Qe == Game.jb.Yb.BF))))
+												&& (q.Qe == Game.LightningStorm.Yb.oE || q.Qe == Game.LightningStorm.Yb.BF))))
 							C(this.qc, o), m.ol = false;
 						if (((m.Y(Game.J.K.Be) || m.Y(Game.J.K.Zm))
 								&& !m.Y(Game.J.K.Ue) || !this.YA(m, g))
@@ -18330,8 +18330,8 @@ Game.r.prototype = {
 		}
 		if (b.Y(Game.J.K.Ue) && this.kz(b) == -1)
 			return b.ol = true, b.Y(Game.J.K.Be) && this.fg(Game.f.T.WT, 1, b.Pa), this
-					.fg(Game.f.T.yE, 1, b.Pa), this.qc.push(new Game.jb(this,
-					b, Game.jb.Yb.MI)), true;
+					.fg(Game.f.T.yE, 1, b.Pa), this.qc.push(new Game.LightningStorm(this,
+					b, Game.LightningStorm.Yb.MI)), true;
 		return b.Y(Game.J.K.xg) ? (b.ol = true, b.If = 1, b.ed = false, b.Ij = c != null
 				? c.xa
 				: -1, b.Hj |= c != null ? c.uc : 0, true) : false
@@ -18443,12 +18443,12 @@ Game.r.prototype = {
 														&& (this.fg(
 																Game.f.T.yE, 1,
 																ea), this.qc
-																.push(new Game.jb(
+																.push(new Game.LightningStorm(
 																		this,
 																		M,
 																		this.QW
-																				? Game.jb.Yb.MI
-																				: Game.jb.Yb.SHORT)));
+																				? Game.LightningStorm.Yb.MI
+																				: Game.LightningStorm.Yb.SHORT)));
 											else if (M.Gn == this.aa
 													&& M.n != Game.f.Ha.Ve) {
 												if (M.uc == 0
@@ -20587,7 +20587,7 @@ Game.r.prototype = {
 		var d = 0;
 		if (c)
 			for (var f = 0; f < this.qc.length; f++)
-				this.qc[f].Qe == Game.jb.Yb.sc
+				this.qc[f].Qe == Game.LightningStorm.Yb.sc
 						&& (d |= 1 << (this.qc[f].n | 0) + 1 | 0);
 		else {
 			d = this.e;
@@ -32697,7 +32697,7 @@ Game.xw.prototype = {
 			this.v = b.dd() + (Game.r.ab / 2 | 0);
 			this.Tm = b.qe;
 			for (var c = 0; c < (this.Nb.e.qc.length | 0); c++)
-				if (this.Nb.e.qc[c].Qe == Game.jb.Yb.sc
+				if (this.Nb.e.qc[c].Qe == Game.LightningStorm.Yb.sc
 						&& this.Nb.e.qc[c].n == b.n)
 					this.Ak = true
 		}
@@ -32789,7 +32789,7 @@ Game.ka.prototype = {
 			this.v = b.dd() + (Game.r.ab / 2 | 0);
 			this.Tm = b.qe;
 			for (var c = 0; c < (this.Nb.e.qc.length | 0); c++)
-				if (this.Nb.e.qc[c].Qe == Game.jb.Yb.sc
+				if (this.Nb.e.qc[c].Qe == Game.LightningStorm.Yb.sc
 						&& this.Nb.e.qc[c].n == b.n)
 					this.Ak = true
 		}
