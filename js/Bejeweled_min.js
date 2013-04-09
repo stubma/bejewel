@@ -13320,21 +13320,21 @@ GameFramework.gfx.Bv.prototype = {
 					* this.m | 0;
 			Tc(Pa, g, h, 1, 0, 0, 1, 0, 0, b - g, c - h, 1, 1, false, this.n)
 		} else {
-			var j = document.getElementById("GameCanvas").getContext("2d");
-			j.fillStyle = g;
-			jc = j.globalAlpha = 1;
+			var context = document.getElementById("GameCanvas").getContext("2d");
+			context.fillStyle = g;
+			jc = context.globalAlpha = 1;
 			if (this.sa.Sb == 0 && this.sa.ub == 0) {
 				var k = this.m * this.sa.Ua, l = this.m * this.sa.Va, g = this.sa.Ca
 						* this.m + b * k | 0, h = this.sa.Da * this.m + c * l
 						| 0, b = this.sa.Ca * this.m + (b + d) * k | 0, c = this.sa.Da
 						* this.m + (c + f) * l | 0;
-				j.setTransform(1, 0, 0, 1, 0, 0);
-				j.fillRect(g, h, b - g, c - h);
+				context.setTransform(1, 0, 0, 1, 0, 0);
+				context.fillRect(g, h, b - g, c - h);
 				hc = false
 			} else
 				g = new GameFramework.geom.xb, g.th(), g.Ca = b, g.Da = c, g.Ua = d, g.Va = f, g
-						.concat(this.sa), j.setTransform(g.Ua, g.Sb, g.ub,
-						g.Va, g.Ca, g.Da), j.fillRect(0, 0, 1, 1), hc = true
+						.concat(this.sa), context.setTransform(g.Ua, g.Sb, g.ub,
+						g.Va, g.Ca, g.Da), context.fillRect(0, 0, 1, 1), hc = true
 		}
 	},
 	dt : function(b) {
