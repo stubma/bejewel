@@ -14720,14 +14720,14 @@ T(function() {
 U(function() {
 			Game.ScalingIconButton.c()
 		});
-Game.$z = t();
-Game.$z.prototype = {};
-Game.$z.c = t();
+Game.MusicInterface = t();
+Game.MusicInterface.prototype = {};
+Game.MusicInterface.c = t();
 T(function() {
-			Game.$z.u("Game.MusicInterface", null)
+			Game.MusicInterface.u("Game.MusicInterface", null)
 		});
 U(function() {
-			Game.$z.c()
+			Game.MusicInterface.c()
 		});
 Game.CA = function() {
 	this.c9 = Array.O(Game.f.Ha.Zc | 0, null)
@@ -14809,7 +14809,7 @@ Game.BejApp = function() {
 	this.aj = this.Ig = 768;
 	this.m = this.Ig / this.dC;
 	this.Ka = new Game.Profile;
-	this.C8 = new Game.$z;
+	this.C8 = new Game.MusicInterface;
 	this.V8 = new Game.CA;
 	this.uk = new Game.uq;
 	Game.BejApp.q = this
