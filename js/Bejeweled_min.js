@@ -461,7 +461,7 @@ Number.RL = function(b, c, d, f) {
 	return g ? l + g : l
 };
 Number.prototype.JF = function(b, c) {
-	var d = c ? ss.Ko.yQ.aZ : ss.Ko.fK.aZ, f = "", g = -1;
+	var d = c ? ss.CultureInfo.yQ.aZ : ss.CultureInfo.fK.aZ, f = "", g = -1;
 	b.length > 1 && (g = parseInt(b.substr(1)));
 	var h = b.charAt(0);
 	switch (h) {
@@ -742,7 +742,7 @@ Date.prototype.Mb = function(b) {
 };
 Date.prototype.JF = function(b, c) {
 	var l;
-	var d = c ? ss.Ko.yQ.kV : ss.Ko.fK.kV, f = false;
+	var d = c ? ss.CultureInfo.yQ.kV : ss.CultureInfo.fK.kV, f = false;
 	if (b.length == 1)
 		switch (b) {
 			case "f" :
@@ -1217,13 +1217,13 @@ ss.Delegate.vqa = function(b) {
 	if (ss.Delegate[b])
 		ss.Delegate[b] = Delegate.V2
 };
-ss.Ko = function(b, c, d) {
+ss.CultureInfo = function(b, c, d) {
 	this.name = b;
 	this.aZ = c;
 	this.kV = d
 };
-ss.Ko.u("CultureInfo");
-ss.Ko.fK = new ss.Ko("en-US", {
+ss.CultureInfo.u("CultureInfo");
+ss.CultureInfo.fK = new ss.CultureInfo("en-US", {
 			era : "NaN",
 			gra : "-",
 			lra : "+",
@@ -1269,7 +1269,7 @@ ss.Ko.fK = new ss.Ko("en-US", {
 					.split(","),
 			X9 : "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec,".split(",")
 		});
-ss.Ko.yQ = ss.Ko.fK;
+ss.CultureInfo.yQ = ss.CultureInfo.fK;
 ss.Md = t();
 ss.Md.prototype = {
 	oe : null,
