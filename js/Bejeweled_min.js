@@ -14996,7 +14996,7 @@ Game.BejApp.prototype = {
 		this.hx = this.z;
 		this.nx = new GameFramework.widgets.Ta;
 		this.fe.Bc(this.nx);
-		this.te = new Game.Nk;
+		this.te = new Game.DialogMgr;
 		this.fe.Bc(this.te);
 		this.nI = new Game.TopWidget;
 		this.ag = this.nI.ag;
@@ -19569,7 +19569,7 @@ Game.Board.prototype = {
 			this.t5();
 			if (this.pf > 0 && this.wi.length == 0)
 				this.wi.length = 0, ++this.pf == 240
-						&& Game.Nk.te.se.length == 0 && this.HJ();
+						&& Game.DialogMgr.te.se.length == 0 && this.HJ();
 			this.ob.L = this.Yc();
 			this.Jg.L = this.Yc();
 			if (this.yl) {
@@ -19685,7 +19685,7 @@ Game.Board.prototype = {
 					.Zd(Game.f.mb.JK) != null)
 					&& this.CF()) {
 				this.En = Math.min(1, this.En + 0.035);
-				if (Game.Nk.te.se.length == 0 && this.aD == 0)
+				if (Game.DialogMgr.te.se.length == 0 && this.aD == 0)
 					this.Bo = Math.min(1, this.Bo + 0.035);
 				if (this.En >= 0.75)
 					return
@@ -19703,7 +19703,7 @@ Game.Board.prototype = {
 					for (c = 0; c < b.length; c++)
 						d = b[c], d != null && d.ca();
 					if (this.L.D() == 1 && this.m.D() == 1
-							&& Game.Nk.te.se.length == 0 && this.pf == 0
+							&& Game.DialogMgr.te.se.length == 0 && this.pf == 0
 							&& this.Wt && !this.iK()) {
 						if (this.ay > 0 && --this.ay == 110)
 							b = new Game.Announcement(this, "GET READY"), b.Tw = false, b.L.Ye *= 3, b.m.Ye *= 3, b.cx = false, Game.SoundUtil
@@ -21646,15 +21646,15 @@ T(function() {
 U(function() {
 			Game.DeferredSound.c()
 		});
-Game.Nk = function() {
+Game.DialogMgr = function() {
 	this.se = [];
 	this.BB = {};
 	this.Ht = GameFramework.CurvedVal.qs(0);
-	E(Game.Nk, this);
-	S(Game.Nk.te == null);
-	Game.Nk.te = this
+	E(Game.DialogMgr, this);
+	S(Game.DialogMgr.te == null);
+	Game.DialogMgr.te = this
 };
-Game.Nk.prototype = {
+Game.DialogMgr.prototype = {
 	se : null,
 	BB : null,
 	Ht : null,
@@ -21747,14 +21747,14 @@ Game.Nk.prototype = {
 		return this.BB[b | 0]
 	}
 };
-Game.Nk.c = function() {
-	Game.Nk.te = null
+Game.DialogMgr.c = function() {
+	Game.DialogMgr.te = null
 };
 T(function() {
-			Game.Nk.u("Game.DialogMgr", GameFramework.widgets.Ta)
+			Game.DialogMgr.u("Game.DialogMgr", GameFramework.widgets.Ta)
 		});
 U(function() {
-			Game.Nk.c()
+			Game.DialogMgr.c()
 		});
 Game.R = function(b) {
 	this.nr = false;
