@@ -14743,7 +14743,7 @@ U(function() {
 			Game.CA.c()
 		});
 Game.TopWidget = function() {
-	this.ag = new Game.Vk;
+	this.ag = new Game.Messager;
 	E(Game.TopWidget, this)
 };
 Game.TopWidget.prototype = {
@@ -28691,13 +28691,13 @@ T(function() {
 U(function() {
 			Game.MessagerMsg.c()
 		});
-Game.Vk = function() {
+Game.Messager = function() {
 	this.Ip = [];
 	this.U = null;
 	this.MM = 1;
-	this.iX = Game.Vk.hv.v6
+	this.iX = Game.Messager.hv.v6
 };
-Game.Vk.prototype = {
+Game.Messager.prototype = {
 	sJ : 0.5,
 	iX : null,
 	MM : 0,
@@ -28738,7 +28738,7 @@ Game.Vk.prototype = {
 			for (var f = (this.Ip.length | 0) - 1; f >= 0; --f) {
 				var g = this.Ip[f];
 				d -= Math.max(20, b.U.Sl() | 0) | 0;
-				this.iX == Game.Vk.hv.w6 && (c = 0 - (b.U.hc(g.wF) | 0));
+				this.iX == Game.Messager.hv.w6 && (c = 0 - (b.U.hc(g.wF) | 0));
 				var h, j;
 				g.Lv < this.sJ
 						? (h = GameFramework.gfx.k.Ma(0, 0, 0, g.Lv / this.sJ
@@ -28761,20 +28761,20 @@ Game.Vk.prototype = {
 		}
 	}
 };
-Game.Vk.c = t();
+Game.Messager.c = t();
 T(function() {
-			Game.Vk.u("Game.Messager", null)
+			Game.Messager.u("Game.Messager", null)
 		});
 U(function() {
-			Game.Vk.c()
+			Game.Messager.c()
 		});
-Game.Vk.hv = {};
-Game.Vk.hv.c = function() {
-	Game.Vk.hv.v6 = 0;
-	Game.Vk.hv.w6 = 1
+Game.Messager.hv = {};
+Game.Messager.hv.c = function() {
+	Game.Messager.hv.v6 = 0;
+	Game.Messager.hv.w6 = 1
 };
 T(function() {
-			Game.Vk.hv.c()
+			Game.Messager.hv.c()
 		});
 Game.Yz = function() {
 	this.xC = [];
