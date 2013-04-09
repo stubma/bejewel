@@ -7214,18 +7214,18 @@ GameFramework.resources.PIEmitterInstanceDef.ke.c = function() {
 T(function() {
 			GameFramework.resources.PIEmitterInstanceDef.ke.c()
 		});
-GameFramework.resources.at = function() {
+GameFramework.resources.PIEmitterInstance = function() {
 	this.$h = new GameFramework.resources.PIParticleGroup;
 	this.Na = new GameFramework.geom.Matrix;
 	this.de = new GameFramework.geom.TPoint;
-	E(GameFramework.resources.at, this);
+	E(GameFramework.resources.PIEmitterInstance, this);
 	this.Co = false;
 	this.Ou = true;
 	this.$h.Ac = true;
 	this.EX = 1;
 	this.ec = true
 };
-GameFramework.resources.at.prototype = {
+GameFramework.resources.PIEmitterInstance.prototype = {
 	Wa : null,
 	Co : null,
 	Ou : null,
@@ -7243,16 +7243,16 @@ GameFramework.resources.at.prototype = {
 		GameFramework.resources.PIEmitterBase.prototype.t.apply(this)
 	}
 };
-GameFramework.resources.at.c = t();
+GameFramework.resources.PIEmitterInstance.c = t();
 T(function() {
-			GameFramework.resources.at.u("GameFramework.resources.PIEmitterInstance",
+			GameFramework.resources.PIEmitterInstance.u("GameFramework.resources.PIEmitterInstance",
 					GameFramework.resources.PIEmitterBase)
 		});
 U(function() {
-			GameFramework.resources.at.c()
+			GameFramework.resources.PIEmitterInstance.c()
 		});
-GameFramework.resources.dA = t();
-GameFramework.resources.dA.prototype = {
+GameFramework.resources.PIDeflector = t();
+GameFramework.resources.PIDeflector.prototype = {
 	sb : null,
 	kG : 0,
 	bH : 0,
@@ -7264,12 +7264,12 @@ GameFramework.resources.dA.prototype = {
 	Z : null,
 	ac : null
 };
-GameFramework.resources.dA.c = t();
+GameFramework.resources.PIDeflector.c = t();
 T(function() {
-			GameFramework.resources.dA.u("GameFramework.resources.PIDeflector", null)
+			GameFramework.resources.PIDeflector.u("GameFramework.resources.PIDeflector", null)
 		});
 U(function() {
-			GameFramework.resources.dA.c()
+			GameFramework.resources.PIDeflector.c()
 		});
 GameFramework.resources.cA = t();
 GameFramework.resources.cA.prototype = {
@@ -7587,7 +7587,7 @@ GameFramework.resources.va.prototype = {
 			f.mf.length = d.Uh.length;
 			for (var g = 0; g < d.Uh.length; g++) {
 				var h = b.xh[c].mf[g], j = d.Uh[g], k;
-				f.mf[g] = k = new GameFramework.resources.at;
+				f.mf[g] = k = new GameFramework.resources.PIEmitterInstance;
 				var l = this.ga.Hf[j.um];
 				k.Wa = j;
 				k.sy = h.sy;
@@ -8207,7 +8207,7 @@ GameFramework.resources.va.prototype = {
 				var o;
 				j.Uh[m] = o = new GameFramework.resources.PIEmitterInstanceDef;
 				var q;
-				l.mf[m] = q = new GameFramework.resources.at;
+				l.mf[m] = q = new GameFramework.resources.PIEmitterInstance;
 				q.Wa = o;
 				this.Qi("CEmitter");
 				this.C.fa();
@@ -8308,7 +8308,7 @@ GameFramework.resources.va.prototype = {
 			j.Rh = [];
 			k = this.C.Ga();
 			for (l = 0; l < k; l++) {
-				m = new GameFramework.resources.dA;
+				m = new GameFramework.resources.PIDeflector;
 				this.Qi("CDeflector");
 				m.sb = this.ni();
 				m.kG = this.C.fa();
