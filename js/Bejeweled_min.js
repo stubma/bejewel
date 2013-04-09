@@ -3591,10 +3591,10 @@ T(function() {
 U(function() {
 			GameFramework.Utils.c()
 		});
-GameFramework.Ew = function() {
+GameFramework.XMLParser = function() {
 	this.Qb = null
 };
-GameFramework.Ew.prototype = {
+GameFramework.XMLParser.prototype = {
 	OB : null,
 	$c : null,
 	er : null,
@@ -3611,12 +3611,12 @@ GameFramework.Ew.prototype = {
 				: this.er[b]
 	}
 };
-GameFramework.Ew.c = t();
+GameFramework.XMLParser.c = t();
 T(function() {
-			GameFramework.Ew.u("GameFramework.XMLParser", null)
+			GameFramework.XMLParser.u("GameFramework.XMLParser", null)
 		});
 U(function() {
-			GameFramework.Ew.c()
+			GameFramework.XMLParser.c()
 		});
 GameFramework.hp = t();
 GameFramework.hp.prototype = {
@@ -10943,7 +10943,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		this.FT(b.xa, d)
 	},
 	g3 : function(b) {
-		var c = new GameFramework.Ew;
+		var c = new GameFramework.XMLParser;
 		c.SE(b);
 		b = c.$c;
 		for (c = 0; c < b.tQ(); c++) {
@@ -13084,7 +13084,7 @@ GameFramework.JSBaseApp.prototype = {
 			if (f = d.oe(), f.nodeType === 1) {
 				g = b;
 				h = f.nodeName;
-				j = new GameFramework.Ew;
+				j = new GameFramework.XMLParser;
 				j.Qb = g;
 				var k;
 				j.sb = h;
