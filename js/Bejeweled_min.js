@@ -32045,7 +32045,7 @@ Game.nw.prototype = {
 		if (b.Y(Game.J.K.Yg)) {
 			this.ri += b.qe;
 			this.$r += b.qe;
-			var c = new Game.ow(this, new GameFramework.geom.ic(b.Ad() | 0, b.Rd()
+			var c = new Game.SpeedCollectEffect(this, new GameFramework.geom.ic(b.Ad() | 0, b.Rd()
 									| 0), new GameFramework.geom.ic(240, 430),
 					b.qe, 1);
 			this.Wr.Gc(c);
@@ -33169,7 +33169,7 @@ T(function() {
 U(function() {
 			Game.TimeBonusEffect.c()
 		});
-Game.ow = function(b, c, d, f, g) {
+Game.SpeedCollectEffect = function(b, c, d, f, g) {
 	this.Hi = new GameFramework.W.Vu;
 	this.Ii = new GameFramework.B;
 	this.jp = new GameFramework.B;
@@ -33177,7 +33177,7 @@ Game.ow = function(b, c, d, f, g) {
 	this.Lg = new GameFramework.geom.ic;
 	this.qy = new GameFramework.geom.ic;
 	this.co = new GameFramework.geom.ic;
-	E(Game.ow, this, [Game.R.da.Py]);
+	E(Game.SpeedCollectEffect, this, [Game.R.da.Py]);
 	this.MY = f;
 	this.e = b;
 	this.w = c.x;
@@ -33191,7 +33191,7 @@ Game.ow = function(b, c, d, f, g) {
 	this.hI = g;
 	this.pg = this.kj = null
 };
-Game.ow.prototype = {
+Game.SpeedCollectEffect.prototype = {
 	Hi : null,
 	Ii : null,
 	jp : null,
@@ -33285,12 +33285,12 @@ Game.ow.prototype = {
 	},
 	ja : t()
 };
-Game.ow.c = t();
+Game.SpeedCollectEffect.c = t();
 T(function() {
-			Game.ow.u("Game.SpeedCollectEffect", Game.R)
+			Game.SpeedCollectEffect.u("Game.SpeedCollectEffect", Game.R)
 		});
 U(function() {
-			Game.ow.c()
+			Game.SpeedCollectEffect.c()
 		});
 Game.Tg = function() {
 	this.Z = Array.Sd(Game.Tg.Xk, 2, null);
