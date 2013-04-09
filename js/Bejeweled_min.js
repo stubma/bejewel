@@ -1334,9 +1334,9 @@ if (!window.XMLHttpRequest)
 			}
 		return null
 	};
-ss.PL = t();
-ss.PL.u("XmlDocumentParser");
-ss.PL.parse = function(b) {
+ss.XmlDocumentParser = t();
+ss.XmlDocumentParser.u("XmlDocumentParser");
+ss.XmlDocumentParser.parse = function(b) {
 	if (window.DOMParser)
 		try {
 			return (new window.DOMParser).parseFromString(b, "text/xml")
@@ -13094,7 +13094,7 @@ GameFramework.JSBaseApp.prototype = {
 	},
 	SE : function(b, c) {
 		var d;
-		d = Type.j6(c) ? ss.PL.parse(c) : c;
+		d = Type.j6(c) ? ss.XmlDocumentParser.parse(c) : c;
 		this.lT(b, d.documentElement)
 	},
 	LS : function(b) {
