@@ -15002,7 +15002,7 @@ Game.BejApp.prototype = {
 		this.ag = this.nI.ag;
 		this.fe.Bc(this.nI);
 		if (this.ZN == null)
-			this.Bi = new Game.mc, this.Bi.s = 1600, this.Bi.z = 1200, this.nx
+			this.Bi = new Game.MainMenu, this.Bi.s = 1600, this.Bi.z = 1200, this.nx
 					.Bc(this.Bi), this.Bi.ca(), this.Nh.oi(this.Bi), this.hP = new Game.TooltipManager, this.fe
 					.Bc(this.hP);
 		var b = this.vb.J4("properties/resources.xml");
@@ -28036,8 +28036,8 @@ T(function() {
 U(function() {
 			Game.WA.c()
 		});
-Game.mc = function() {
-	this.WC = Game.mc.Pl.U5;
+Game.MainMenu = function() {
+	this.WC = Game.MainMenu.Pl.U5;
 	this.Qx = [];
 	this.xd = new GameFramework.gfx.Hq;
 	this.Fn = new GameFramework.gfx.Hq;
@@ -28057,7 +28057,7 @@ Game.mc = function() {
 	this.ru = GameFramework.CurvedVal.qs(0);
 	this.Vt = GameFramework.CurvedVal.qs(0);
 	this.Z_ = new GameFramework.CurvedVal("b;0,1,0.01,5,####  ,####K~###      ^~###m####");
-	E(Game.mc, this);
+	E(Game.MainMenu, this);
 	Game.BejApp.q.Ka.A2();
 	this.xH = true;
 	this.lB.Aa(0);
@@ -28072,7 +28072,7 @@ Game.mc = function() {
 	this.Mp.Aa(0);
 	this.gQ()
 };
-Game.mc.prototype = {
+Game.MainMenu.prototype = {
 	WC : null,
 	xH : true,
 	Qx : null,
@@ -28178,14 +28178,14 @@ Game.mc.prototype = {
 			return false;
 		this.xH = false;
 		this.Kg.Aa(0);
-		this.ad = new Game.CrystalBall("CLASSIC", Game.mc.gg.bJ | 0);
-		this.We[Game.mc.gg.bJ | 0] = this.ad;
+		this.ad = new Game.CrystalBall("CLASSIC", Game.MainMenu.gg.bJ | 0);
+		this.We[Game.MainMenu.gg.bJ | 0] = this.ad;
 		this.Bc(this.ad);
-		this.Pe = new Game.CrystalBall("SPEED", Game.mc.gg.tL | 0);
-		this.We[Game.mc.gg.tL | 0] = this.Pe;
+		this.Pe = new Game.CrystalBall("SPEED", Game.MainMenu.gg.tL | 0);
+		this.We[Game.MainMenu.gg.tL | 0] = this.Pe;
 		this.Bc(this.Pe);
-		this.Tj = new Game.CrystalBall("RECORDS", Game.mc.gg.SK | 0);
-		this.We[Game.mc.gg.SK | 0] = this.Tj;
+		this.Tj = new Game.CrystalBall("RECORDS", Game.MainMenu.gg.SK | 0);
+		this.We[Game.MainMenu.gg.SK | 0] = this.Tj;
 		this.Bc(this.Tj);
 		for (var b = 0; b < this.We.length; ++b)
 			this.We[b].Ra(GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.Mi)), this.We[b]
@@ -28465,18 +28465,18 @@ Game.mc.prototype = {
 					b.U.ib("OUTLINE");
 					b.U.ib("GLOW");
 					if (Game.BejApp.q.kc() && this.Gx.V() > 0) {
-						for (var c = Array.Sd((Game.mc.Ov - 1) * 2, 3, null), d = 0, f = (Math
+						for (var c = Array.Sd((Game.MainMenu.Ov - 1) * 2, 3, null), d = 0, f = (Math
 								.sin(this.aa * 0.03)
 								* 0.125 + 0.75)
-								* this.Gx.V(), f = GameFramework.gfx.k.Jb(f), g = 0, h = null, j = null, k = 0; k < Game.mc.Ov; k++) {
-							var l = 1 / (Game.mc.Ov - 1) * this.Mn;
-							if (k == 0 || k == Game.mc.Ov - 2)
-								l = 1 / (Game.mc.Ov - 1);
+								* this.Gx.V(), f = GameFramework.gfx.k.Jb(f), g = 0, h = null, j = null, k = 0; k < Game.MainMenu.Ov; k++) {
+							var l = 1 / (Game.MainMenu.Ov - 1) * this.Mn;
+							if (k == 0 || k == Game.MainMenu.Ov - 2)
+								l = 1 / (Game.MainMenu.Ov - 1);
 							l *= 1.022;
 							var m = -1.5707965 + d * 6.283186;
 							d += l;
 							var o;
-							o = k == 0 ? 0 : k == Game.mc.Ov - 1 ? 1 : 0.5;
+							o = k == 0 ? 0 : k == Game.MainMenu.Ov - 1 ? 1 : 0.5;
 							l = new GameFramework.gfx.jc(
 									this.s / 2 + Math.cos(m) * 180,
 									300
@@ -28568,21 +28568,21 @@ Game.mc.prototype = {
 	},
 	Mi : function(b) {
 		if (this.ue && this.ec) {
-			for (var c = 0; c < (Game.mc.gg.Zc | 0);) {
+			for (var c = 0; c < (Game.MainMenu.gg.Zc | 0);) {
 				if (this.We[c] == b.target)
 					break;
 				++c
 			}
-			if (!(c >= (Game.mc.gg.Zc | 0)) && !this.ad.m.wg()
+			if (!(c >= (Game.MainMenu.gg.Zc | 0)) && !this.ad.m.wg()
 					&& !(this.Pe.m.wg() || Game.BejApp.q.Zd(Game.f.mb.vT) != null))
 				switch (c) {
-					case Game.mc.gg.bJ | 0 :
-						this.WC = Game.mc.Pl.iQ;
+					case Game.MainMenu.gg.bJ | 0 :
+						this.WC = Game.MainMenu.Pl.iQ;
 						Game.BejApp.q.Ka.Cf(Game.f.Xa.RE | 0);
 						Game.BejApp.q.y_();
 						this.CQ(this.ad);
 						break;
-					case Game.mc.gg.tL | 0 :
+					case Game.MainMenu.gg.tL | 0 :
 						Game.BejApp.q.Ka != null && !Game.BejApp.q.Ka.Ez(Game.f.Xa.RE | 0)
 								? Game.BejApp.q
 										.gq(
@@ -28594,7 +28594,7 @@ Game.mc.prototype = {
 												ss.Delegate.create(this, this.O6))
 								: this.IQ();
 						break;
-					case Game.mc.gg.SK | 0 :
+					case Game.MainMenu.gg.SK | 0 :
 						b = new Game.$l, Game.BejApp.q.mi(Game.a.SOUND_MENUSPIN), Game.BejApp.q.te
 								.Ho(b)
 				}
@@ -28606,7 +28606,7 @@ Game.mc.prototype = {
 	},
 	IQ : function() {
 		var b = this.Pe;
-		this.WC = Game.mc.Pl.nU;
+		this.WC = Game.MainMenu.Pl.nU;
 		Game.BejApp.q.z_();
 		this.CQ(b)
 	},
@@ -28630,9 +28630,9 @@ Game.mc.prototype = {
 		}
 	},
 	jS : function() {
-		if (this.WC == Game.mc.Pl.iQ)
+		if (this.WC == Game.MainMenu.Pl.iQ)
 			return this.ad;
-		else if (this.WC == Game.mc.Pl.nU)
+		else if (this.WC == Game.MainMenu.Pl.nU)
 			return this.Pe;
 		return null
 	},
@@ -28649,34 +28649,34 @@ Game.mc.prototype = {
 				this.Pe.pl = false
 	}
 };
-Game.mc.c = function() {
-	Game.mc.Ov = 50
+Game.MainMenu.c = function() {
+	Game.MainMenu.Ov = 50
 };
 T(function() {
-			Game.mc.u("Game.MainMenu", GameFramework.widgets.Ta)
+			Game.MainMenu.u("Game.MainMenu", GameFramework.widgets.Ta)
 		});
 U(function() {
-			Game.mc.c()
+			Game.MainMenu.c()
 		});
-Game.mc.gg = {};
-Game.mc.gg.c = function() {
-	Game.mc.gg.bJ = 0;
-	Game.mc.gg.tL = 1;
-	Game.mc.gg.SK = 2;
-	Game.mc.gg.Zc = 3
+Game.MainMenu.gg = {};
+Game.MainMenu.gg.c = function() {
+	Game.MainMenu.gg.bJ = 0;
+	Game.MainMenu.gg.tL = 1;
+	Game.MainMenu.gg.SK = 2;
+	Game.MainMenu.gg.Zc = 3
 };
 T(function() {
-			Game.mc.gg.c()
+			Game.MainMenu.gg.c()
 		});
-Game.mc.Pl = {};
-Game.mc.Pl.c = function() {
-	Game.mc.Pl.U5 = -1;
-	Game.mc.Pl.iQ = 0;
-	Game.mc.Pl.nU = 1;
-	Game.mc.Pl.Zc = 2
+Game.MainMenu.Pl = {};
+Game.MainMenu.Pl.c = function() {
+	Game.MainMenu.Pl.U5 = -1;
+	Game.MainMenu.Pl.iQ = 0;
+	Game.MainMenu.Pl.nU = 1;
+	Game.MainMenu.Pl.Zc = 2
 };
 T(function() {
-			Game.mc.Pl.c()
+			Game.MainMenu.Pl.c()
 		});
 Game.Xz = t();
 Game.Xz.prototype = {
