@@ -2046,8 +2046,8 @@ GameFramework.BaseApp = function() {
 	this.xX = [];
 	E(GameFramework.BaseApp, this);
 	GameFramework.BaseApp.M = this;
-	this.ZH = new GameFramework.b.SoundManager;
-	this.vb = new GameFramework.b.Rb;
+	this.ZH = new GameFramework.resources.SoundManager;
+	this.vb = new GameFramework.resources.Rb;
 	this.w9 = "./"
 };
 GameFramework.BaseApp.prototype = {
@@ -2147,7 +2147,7 @@ GameFramework.BaseApp.prototype = {
 	X4 : t(),
 	nQ : t(),
 	yz : function(b) {
-		return new GameFramework.b.ot(b)
+		return new GameFramework.resources.ot(b)
 	},
 	mi : function(b) {
 		b = this.yz(b);
@@ -4849,8 +4849,8 @@ GameFramework.gfx.Ul.prototype = {
 				b = j;
 				for (g = 0; g < b.length; g++)
 					k = b[g], GameFramework.BaseApp.M.kc()
-							? k.Mf = GameFramework.b.De.ik
-							: (k.Mf = GameFramework.b.De.ms, k.YC = true), k.$o();
+							? k.Mf = GameFramework.resources.De.ik
+							: (k.Mf = GameFramework.resources.De.ms, k.YC = true), k.$o();
 				this.xM[h] = j
 			}
 			h = j[2].jd / this.m;
@@ -4906,8 +4906,8 @@ GameFramework.gfx.Ul.prototype = {
 			b = k;
 			for (h = 0; h < b.length; h++)
 				l = b[h], GameFramework.BaseApp.M.kc()
-						? l.Mf = GameFramework.b.De.ik
-						: (l.Mf = GameFramework.b.De.ms, l.YC = true), l.$o();
+						? l.Mf = GameFramework.resources.De.ik
+						: (l.Mf = GameFramework.resources.De.ms, l.YC = true), l.$o();
 			this.BN[j] = k
 		}
 		j = k[0].jd / this.m;
@@ -5660,9 +5660,9 @@ T(function() {
 U(function() {
 			GameFramework.W.ww.c()
 		});
-GameFramework.b = Type.ci("GameFramework.resources");
-GameFramework.b.Ly = t();
-GameFramework.b.Ly.prototype = {
+GameFramework.resources = Type.ci("GameFramework.resources");
+GameFramework.resources.Ly = t();
+GameFramework.resources.Ly.prototype = {
 	Fb : 0,
 	xa : null,
 	vc : null,
@@ -5694,15 +5694,15 @@ GameFramework.b.Ly.prototype = {
 	DO : 0,
 	Nn : null
 };
-GameFramework.b.Ly.c = t();
+GameFramework.resources.Ly.c = t();
 T(function() {
-			GameFramework.b.Ly.u("GameFramework.resources.BaseRes", null)
+			GameFramework.resources.Ly.u("GameFramework.resources.BaseRes", null)
 		});
 U(function() {
-			GameFramework.b.Ly.c()
+			GameFramework.resources.Ly.c()
 		});
-GameFramework.b.mz = t();
-GameFramework.b.mz.prototype = {
+GameFramework.resources.mz = t();
+GameFramework.resources.mz.prototype = {
 	m7 : 0,
 	cY : 0,
 	dY : 0,
@@ -5716,46 +5716,46 @@ GameFramework.b.mz.prototype = {
 	GX : 0,
 	bu : null
 };
-GameFramework.b.mz.c = t();
+GameFramework.resources.mz.c = t();
 T(function() {
-			GameFramework.b.mz.u("GameFramework.resources.FontCharData", null)
+			GameFramework.resources.mz.u("GameFramework.resources.FontCharData", null)
 		});
 U(function() {
-			GameFramework.b.mz.c()
+			GameFramework.resources.mz.c()
 		});
-GameFramework.b.nz = t();
-GameFramework.b.nz.prototype = {
+GameFramework.resources.nz = t();
+GameFramework.resources.nz.prototype = {
 	$V : null,
 	hN : null,
 	By : 0,
 	Cy : 0,
 	n : 0
 };
-GameFramework.b.nz.c = t();
+GameFramework.resources.nz.c = t();
 T(function() {
-			GameFramework.b.nz.u("GameFramework.resources.FontDrawCmd", null)
+			GameFramework.resources.nz.u("GameFramework.resources.FontDrawCmd", null)
 		});
 U(function() {
-			GameFramework.b.nz.c()
+			GameFramework.resources.nz.c()
 		});
-GameFramework.b.oz = t();
-GameFramework.b.oz.prototype = {
+GameFramework.resources.oz = t();
+GameFramework.resources.oz.prototype = {
 	gN : 0,
 	OW : 0
 };
-GameFramework.b.oz.c = t();
+GameFramework.resources.oz.c = t();
 T(function() {
-			GameFramework.b.oz.u("GameFramework.resources.FontDrawData", null)
+			GameFramework.resources.oz.u("GameFramework.resources.FontDrawData", null)
 		});
 U(function() {
-			GameFramework.b.oz.c()
+			GameFramework.resources.oz.c()
 		});
-GameFramework.b.pz = function() {
+GameFramework.resources.pz = function() {
 	this.KO = [];
 	this.aN = [];
 	this.Hn = {}
 };
-GameFramework.b.pz.prototype = {
+GameFramework.resources.pz.prototype = {
 	qX : null,
 	KO : null,
 	aN : null,
@@ -5797,18 +5797,18 @@ GameFramework.b.pz.prototype = {
 		this.cj = this.Tf.pop() | 0
 	}
 };
-GameFramework.b.pz.c = t();
+GameFramework.resources.pz.c = t();
 T(function() {
-			GameFramework.b.pz.u("GameFramework.resources.FontLayer", null)
+			GameFramework.resources.pz.u("GameFramework.resources.FontLayer", null)
 		});
 U(function() {
-			GameFramework.b.pz.c()
+			GameFramework.resources.pz.c()
 		});
-GameFramework.b.Mo = function() {
+GameFramework.resources.Mo = function() {
 	this.Ll = [];
-	this.FH = GameFramework.b.De.fi
+	this.FH = GameFramework.resources.De.fi
 };
-GameFramework.b.Mo.prototype = {
+GameFramework.resources.Mo.prototype = {
 	Mh : 0,
 	hl : 0,
 	z : 0,
@@ -5827,7 +5827,7 @@ GameFramework.b.Mo.prototype = {
 	FH : null,
 	dU : w("FH"),
 	gi : function() {
-		var b = new GameFramework.b.Mo;
+		var b = new GameFramework.resources.Mo;
 		b.Mh = this.Mh;
 		b.hl = this.hl;
 		b.gj = this.gj;
@@ -5867,7 +5867,7 @@ GameFramework.b.Mo.prototype = {
 			b.Ga(), b.Ga();
 		f = b.H();
 		for (g = 0; g < f; g++) {
-			var h = new GameFramework.b.pz;
+			var h = new GameFramework.resources.pz;
 			d = b.H();
 			h.qX = b.lk(d);
 			var j, k = b.H();
@@ -5882,7 +5882,7 @@ GameFramework.b.Mo.prototype = {
 				h.Xn[k] = b.H();
 			j = b.H();
 			for (k = 0; k < j; k++) {
-				d = new GameFramework.b.mz;
+				d = new GameFramework.resources.mz;
 				var l = b.Ga() | 0;
 				d.m7 = l;
 				d.cY = b.H();
@@ -6122,9 +6122,9 @@ GameFramework.b.Mo.prototype = {
 					var v = r.oe(), u = k, y = v.Hn[m];
 					if (y != null) {
 						var z = (v.UV + y.GX << 16) + j, A;
-						A = GameFramework.b.Mo.zW.length == 0
-								? new GameFramework.b.nz
-								: GameFramework.b.Mo.zW.pop();
+						A = GameFramework.resources.Mo.zW.length == 0
+								? new GameFramework.resources.nz
+								: GameFramework.resources.Mo.zW.pop();
 						A.hN = v;
 						A.$V = y;
 						A.By = u + v.Ir + y.sf;
@@ -6165,7 +6165,7 @@ GameFramework.b.Mo.prototype = {
 					q = q.Cy * k - f;
 					j.Ca += o * j.Ua + q * j.Sb;
 					j.Da += o * j.ub + q * j.Va;
-					this.FH != GameFramework.b.De.fi
+					this.FH != GameFramework.resources.De.fi
 							? (r = m.bu.Mf, m.bu.Mf = this.FH, m.bu.Og(b, j, 0,
 									0, 0), m.bu.Mf = r)
 							: m.bu.Og(b, j, 0, 0, 0);
@@ -6225,16 +6225,16 @@ GameFramework.b.Mo.prototype = {
 		}
 	}
 };
-GameFramework.b.Mo.c = function() {
-	GameFramework.b.Mo.zW = []
+GameFramework.resources.Mo.c = function() {
+	GameFramework.resources.Mo.zW = []
 };
 T(function() {
-			GameFramework.b.Mo.u("GameFramework.resources.FontResource", null)
+			GameFramework.resources.Mo.u("GameFramework.resources.FontResource", null)
 		});
 U(function() {
-			GameFramework.b.Mo.c()
+			GameFramework.resources.Mo.c()
 		});
-GameFramework.b.Rs = function(b) {
+GameFramework.resources.Rs = function(b) {
 	this.jj = null;
 	this.Mf = 0;
 	this.jj = b;
@@ -6242,7 +6242,7 @@ GameFramework.b.Rs = function(b) {
 	this.Mf = this.jj.Mf;
 	this.PO = this.jj.PO
 };
-GameFramework.b.Rs.prototype = {
+GameFramework.resources.Rs.prototype = {
 	jj : null,
 	he : 0,
 	uf : 0,
@@ -6259,30 +6259,30 @@ GameFramework.b.Rs.prototype = {
 	$o : t(),
 	Og : t()
 };
-GameFramework.b.Rs.c = t();
+GameFramework.resources.Rs.c = t();
 T(function() {
-			GameFramework.b.Rs.u("GameFramework.resources.ImageInst", null,
+			GameFramework.resources.Rs.u("GameFramework.resources.ImageInst", null,
 					GameFramework.gfx.WJ)
 		});
 U(function() {
-			GameFramework.b.Rs.c()
+			GameFramework.resources.Rs.c()
 		});
-GameFramework.b.De = {};
-GameFramework.b.De.c = function() {
-	GameFramework.b.De.ik = 0;
-	GameFramework.b.De.ms = 1;
-	GameFramework.b.De.LI = 2;
-	GameFramework.b.De.fi = 3
+GameFramework.resources.De = {};
+GameFramework.resources.De.c = function() {
+	GameFramework.resources.De.ik = 0;
+	GameFramework.resources.De.ms = 1;
+	GameFramework.resources.De.LI = 2;
+	GameFramework.resources.De.fi = 3
 };
 T(function() {
-			GameFramework.b.De.c()
+			GameFramework.resources.De.c()
 		});
-GameFramework.b.gn = function() {
-	this.Mf = GameFramework.b.De.LI;
-	GameFramework.b.gn.cX++;
-	this.xa = GameFramework.b.gn.cX
+GameFramework.resources.gn = function() {
+	this.Mf = GameFramework.resources.De.LI;
+	GameFramework.resources.gn.cX++;
+	this.xa = GameFramework.resources.gn.cX
 };
-GameFramework.b.gn.prototype = {
+GameFramework.resources.gn.prototype = {
 	qo : 1,
 	ui : 1,
 	Em : 1,
@@ -6317,7 +6317,7 @@ GameFramework.b.gn.prototype = {
 		return this.DM
 	},
 	bk : function(b) {
-		var c = b % this.ui, b = b / this.ui | 0, d = new GameFramework.b.Rs(this);
+		var c = b % this.ui, b = b / this.ui | 0, d = new GameFramework.resources.Rs(this);
 		d.jj = this;
 		d.he = c * this.Hg;
 		d.uf = b * this.Gg;
@@ -6326,7 +6326,7 @@ GameFramework.b.gn.prototype = {
 		return d
 	},
 	dv : function(b, c, d, f) {
-		var g = new GameFramework.b.Rs(this);
+		var g = new GameFramework.resources.Rs(this);
 		g.jj = this;
 		g.he = b;
 		g.uf = c;
@@ -6335,18 +6335,18 @@ GameFramework.b.gn.prototype = {
 		return g
 	}
 };
-GameFramework.b.gn.c = function() {
-	GameFramework.b.gn.cX = 0
+GameFramework.resources.gn.c = function() {
+	GameFramework.resources.gn.cX = 0
 };
 T(function() {
-			GameFramework.b.gn.u("GameFramework.resources.ImageResource", null,
+			GameFramework.resources.gn.u("GameFramework.resources.ImageResource", null,
 					GameFramework.gfx.WJ, GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.gn.c()
+			GameFramework.resources.gn.c()
 		});
-GameFramework.b.Nv = t();
-GameFramework.b.Nv.prototype = {
+GameFramework.resources.Nv = t();
+GameFramework.resources.Nv.prototype = {
 	G8 : null,
 	tY : null,
 	hy : 0,
@@ -6361,37 +6361,37 @@ GameFramework.b.Nv.prototype = {
 		this.Oa = b.xa != null ? GameFramework.BaseApp.M.vb.Gs(b.xa) : b.rd
 	}
 };
-GameFramework.b.Nv.c = t();
+GameFramework.resources.Nv.c = t();
 T(function() {
-			GameFramework.b.Nv.u("GameFramework.resources.MeshPiece", null)
+			GameFramework.resources.Nv.u("GameFramework.resources.MeshPiece", null)
 		});
 U(function() {
-			GameFramework.b.Nv.c()
+			GameFramework.resources.Nv.c()
 		});
-GameFramework.b.gk = function(b) {
-	E(GameFramework.b.gk, this, [b])
+GameFramework.resources.gk = function(b) {
+	E(GameFramework.resources.gk, this, [b])
 };
-GameFramework.b.gk.prototype = {
+GameFramework.resources.gk.prototype = {
 	tY : null
 };
-GameFramework.b.gk.c = function() {
-	GameFramework.b.gk.gna = "mesh_predraw";
-	GameFramework.b.gk.dna = "mesh_postdraw";
-	GameFramework.b.gk.iT = "mesh_predrawset";
-	GameFramework.b.gk.hT = "mesh_postdrawset"
+GameFramework.resources.gk.c = function() {
+	GameFramework.resources.gk.gna = "mesh_predraw";
+	GameFramework.resources.gk.dna = "mesh_postdraw";
+	GameFramework.resources.gk.iT = "mesh_predrawset";
+	GameFramework.resources.gk.hT = "mesh_postdrawset"
 };
 T(function() {
-			GameFramework.b.gk.u("GameFramework.resources.MeshEvent",
+			GameFramework.resources.gk.u("GameFramework.resources.MeshEvent",
 					GameFramework.gb.Mc)
 		});
 U(function() {
-			GameFramework.b.gk.c()
+			GameFramework.resources.gk.c()
 		});
-GameFramework.b.Gq = function() {
+GameFramework.resources.Gq = function() {
 	this.ee = [];
-	E(GameFramework.b.Gq, this)
+	E(GameFramework.resources.Gq, this)
 };
-GameFramework.b.Gq.prototype = {
+GameFramework.resources.Gq.prototype = {
 	ee : null,
 	BE : function(b, c) {
 		if (b.H() != 1035923200)
@@ -6403,7 +6403,7 @@ GameFramework.b.Gq.prototype = {
 			var h = b.bl(), j = b.Ga(), k;
 			for (k = 0; k < j; k++)
 				if (!(d > 1 && b.eb() == 0)) {
-					var l = new GameFramework.b.Nv;
+					var l = new GameFramework.resources.Nv;
 					this.ee.push(l);
 					var m = b.bl(), o = null;
 					l.G8 = h;
@@ -6448,44 +6448,44 @@ GameFramework.b.Gq.prototype = {
 		return true
 	}
 };
-GameFramework.b.Gq.c = t();
+GameFramework.resources.Gq.c = t();
 T(function() {
-			GameFramework.b.Gq.u("GameFramework.resources.MeshResource",
+			GameFramework.resources.Gq.u("GameFramework.resources.MeshResource",
 					GameFramework.gb.Qk)
 		});
 U(function() {
-			GameFramework.b.Gq.c()
+			GameFramework.resources.Gq.c()
 		});
-GameFramework.b.Wv = t();
-GameFramework.b.Wv.prototype = {
+GameFramework.resources.Wv = t();
+GameFramework.resources.Wv.prototype = {
 	Eb : 0,
 	oa : 0,
 	t : t()
 };
-GameFramework.b.Wv.c = t();
+GameFramework.resources.Wv.c = t();
 T(function() {
-			GameFramework.b.Wv.u("GameFramework.resources.PIValuePoint", null,
+			GameFramework.resources.Wv.u("GameFramework.resources.PIValuePoint", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.Wv.c()
+			GameFramework.resources.Wv.c()
 		});
-GameFramework.b.fA = t();
-GameFramework.b.fA.prototype = {
+GameFramework.resources.fA = t();
+GameFramework.resources.fA.prototype = {
 	bs : 0,
 	S6 : null,
 	t : t()
 };
-GameFramework.b.fA.c = t();
+GameFramework.resources.fA.c = t();
 T(function() {
-			GameFramework.b.fA.u("GameFramework.resources.PIGeomDataEx", null,
+			GameFramework.resources.fA.u("GameFramework.resources.PIGeomDataEx", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.fA.c()
+			GameFramework.resources.fA.c()
 		});
-GameFramework.b.le = t();
-GameFramework.b.le.prototype = {
+GameFramework.resources.le = t();
+GameFramework.resources.le.prototype = {
 	Kr : null,
 	dc : null,
 	km : null,
@@ -6497,11 +6497,11 @@ GameFramework.b.le.prototype = {
 	r3 : function() {
 		var b = this.dc[0].Eb, c = this.dc[this.dc.length - 1].Eb;
 		this.Kr = [];
-		this.Kr.length = GameFramework.b.le.Yv;
+		this.Kr.length = GameFramework.resources.le.Yv;
 		for (var d = true, f = 0, g = 0, h = b, j = (c - b)
-				/ GameFramework.b.le.Yv / 2, k = 0;;) {
+				/ GameFramework.resources.le.Yv / 2, k = 0;;) {
 			for (var l = this.km.iz(h), m = (l.x - b) / (c - b)
-					* (GameFramework.b.le.Yv - 1) + 0.5 | 0, o = false; l.x >= this.dc[k
+					* (GameFramework.resources.le.Yv - 1) + 0.5 | 0, o = false; l.x >= this.dc[k
 					+ 1].Eb;)
 				if (k++, k >= (this.dc.length | 0) - 1) {
 					o = true;
@@ -6523,7 +6523,7 @@ GameFramework.b.le.prototype = {
 			h += j
 		}
 		for (f = 0; f < (this.dc.length | 0); f++)
-			this.Kr[(this.dc[f].Eb - b) / (c - b) * (GameFramework.b.le.Yv - 1)
+			this.Kr[(this.dc[f].Eb - b) / (c - b) * (GameFramework.resources.le.Yv - 1)
 					+ 0.5 | 0] = this.dc[f].oa
 	},
 	G : function(b, c) {
@@ -6538,10 +6538,10 @@ GameFramework.b.le.prototype = {
 			var f = this.dc[0].Eb, g = this.dc[this.dc.length - 1].Eb;
 			if (g <= 1.001) {
 				this.Kr == null && this.r3();
-				var h = (b - f) / (g - f) * (GameFramework.b.le.Yv - 1) + 0.5;
+				var h = (b - f) / (g - f) * (GameFramework.resources.le.Yv - 1) + 0.5;
 				if (h <= 0)
 					return this.Bm = this.dc[0].oa;
-				if (h >= GameFramework.b.le.Yv - 1)
+				if (h >= GameFramework.resources.le.Yv - 1)
 					return this.Bm = this.dc[this.dc.length - 1].oa;
 				var j = h | 0;
 				h -= j;
@@ -6608,32 +6608,32 @@ GameFramework.b.le.prototype = {
 		return -1
 	}
 };
-GameFramework.b.le.c = function() {
-	GameFramework.b.le.Yv = 256
+GameFramework.resources.le.c = function() {
+	GameFramework.resources.le.Yv = 256
 };
 T(function() {
-			GameFramework.b.le.u("GameFramework.resources.PIValue", null,
+			GameFramework.resources.le.u("GameFramework.resources.PIValue", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.le.c()
+			GameFramework.resources.le.c()
 		});
-GameFramework.b.Xv = t();
-GameFramework.b.Xv.prototype = {
+GameFramework.resources.Xv = t();
+GameFramework.resources.Xv.prototype = {
 	Eb : 0,
 	oa : null,
 	t : t()
 };
-GameFramework.b.Xv.c = t();
+GameFramework.resources.Xv.c = t();
 T(function() {
-			GameFramework.b.Xv.u("GameFramework.resources.PIValuePoint2D", null,
+			GameFramework.resources.Xv.u("GameFramework.resources.PIValuePoint2D", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.Xv.c()
+			GameFramework.resources.Xv.c()
 		});
-GameFramework.b.$k = t();
-GameFramework.b.$k.prototype = {
+GameFramework.resources.$k = t();
+GameFramework.resources.$k.prototype = {
 	mj : null,
 	km : null,
 	Fx : -1,
@@ -6673,32 +6673,32 @@ GameFramework.b.$k.prototype = {
 		return this.rH = new GameFramework.geom.ba(0, 0)
 	}
 };
-GameFramework.b.$k.c = t();
+GameFramework.resources.$k.c = t();
 T(function() {
-			GameFramework.b.$k.u("GameFramework.resources.PIValue2D", null,
+			GameFramework.resources.$k.u("GameFramework.resources.PIValue2D", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.$k.c()
+			GameFramework.resources.$k.c()
 		});
-GameFramework.b.Tv = t();
-GameFramework.b.Tv.prototype = {
+GameFramework.resources.Tv = t();
+GameFramework.resources.Tv.prototype = {
 	oa : 0,
 	Eb : 0,
 	t : t()
 };
-GameFramework.b.Tv.c = t();
+GameFramework.resources.Tv.c = t();
 T(function() {
-			GameFramework.b.Tv.u("GameFramework.resources.PIInterpolatorPoint",
+			GameFramework.resources.Tv.u("GameFramework.resources.PIInterpolatorPoint",
 					null, GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.Tv.c()
+			GameFramework.resources.Tv.c()
 		});
-GameFramework.b.Sv = function() {
+GameFramework.resources.Sv = function() {
 	this.Zf = []
 };
-GameFramework.b.Sv.prototype = {
+GameFramework.resources.Sv.prototype = {
 	Zf : null,
 	t : t(),
 	G : function(b) {
@@ -6719,16 +6719,16 @@ GameFramework.b.Sv.prototype = {
 		return this.Zf.length == 0 ? 0 : this.Zf[b % this.Zf.length].oa
 	}
 };
-GameFramework.b.Sv.c = t();
+GameFramework.resources.Sv.c = t();
 T(function() {
-			GameFramework.b.Sv.u("GameFramework.resources.PIInterpolator", null,
+			GameFramework.resources.Sv.u("GameFramework.resources.PIInterpolator", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.Sv.c()
+			GameFramework.resources.Sv.c()
 		});
-GameFramework.b.jA = t();
-GameFramework.b.jA.prototype = {
+GameFramework.resources.jA = t();
+GameFramework.resources.jA.prototype = {
 	Ki : null,
 	Oa : null,
 	Ww : 0,
@@ -6739,18 +6739,18 @@ GameFramework.b.jA.prototype = {
 	UC : 0,
 	t : t()
 };
-GameFramework.b.jA.c = t();
+GameFramework.resources.jA.c = t();
 T(function() {
-			GameFramework.b.jA.u("GameFramework.resources.PITextureChunk", null,
+			GameFramework.resources.jA.u("GameFramework.resources.PITextureChunk", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.jA.c()
+			GameFramework.resources.jA.c()
 		});
-GameFramework.b.iA = function() {
+GameFramework.resources.iA = function() {
 	this.Xj = []
 };
-GameFramework.b.iA.prototype = {
+GameFramework.resources.iA.prototype = {
 	Xj : null,
 	sb : null,
 	cu : null,
@@ -6763,16 +6763,16 @@ GameFramework.b.iA.prototype = {
 		this.zi = b.xa != null ? GameFramework.BaseApp.M.vb.Gs(b.xa) : b.rd
 	}
 };
-GameFramework.b.iA.c = t();
+GameFramework.resources.iA.c = t();
 T(function() {
-			GameFramework.b.iA.u("GameFramework.resources.PITexture", null,
+			GameFramework.resources.iA.u("GameFramework.resources.PITexture", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.iA.c()
+			GameFramework.resources.iA.c()
 		});
-GameFramework.b.hA = t();
-GameFramework.b.hA.prototype = {
+GameFramework.resources.hA = t();
+GameFramework.resources.hA.prototype = {
 	jy : 0,
 	ky : 0,
 	Gk : 0,
@@ -6782,47 +6782,47 @@ GameFramework.b.hA.prototype = {
 	n : 0,
 	t : t()
 };
-GameFramework.b.hA.c = t();
+GameFramework.resources.hA.c = t();
 T(function() {
-			GameFramework.b.hA.u("GameFramework.resources.PILifeValueSample",
+			GameFramework.resources.hA.u("GameFramework.resources.PILifeValueSample",
 					null, GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.hA.c()
+			GameFramework.resources.hA.c()
 		});
-GameFramework.b.yb = t();
-GameFramework.b.yb.prototype = {
+GameFramework.resources.yb = t();
+GameFramework.resources.yb.prototype = {
 	qf : null,
 	t : t()
 };
-GameFramework.b.yb.c = function() {
-	GameFramework.b.yb.jn = 32;
-	GameFramework.b.yb.Uo = 26
+GameFramework.resources.yb.c = function() {
+	GameFramework.resources.yb.jn = 32;
+	GameFramework.resources.yb.Uo = 26
 };
 T(function() {
-			GameFramework.b.yb.u("GameFramework.resources.PILifeValueTable", null,
+			GameFramework.resources.yb.u("GameFramework.resources.PILifeValueTable", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.yb.c()
+			GameFramework.resources.yb.c()
 		});
-GameFramework.b.yb.Nd = {};
-GameFramework.b.yb.Nd.c = function() {
-	GameFramework.b.yb.Nd.Wg = 0;
-	GameFramework.b.yb.Nd.Xg = 1;
-	GameFramework.b.yb.Nd.xj = 2;
-	GameFramework.b.yb.Nd.Ed = 3;
-	GameFramework.b.yb.Nd.md = 4;
-	GameFramework.b.yb.Nd.ud = 5;
-	GameFramework.b.yb.Nd.QI = 6;
-	GameFramework.b.yb.Nd.ALPHA = 7;
-	GameFramework.b.yb.Nd.Jh = 8
+GameFramework.resources.yb.Nd = {};
+GameFramework.resources.yb.Nd.c = function() {
+	GameFramework.resources.yb.Nd.Wg = 0;
+	GameFramework.resources.yb.Nd.Xg = 1;
+	GameFramework.resources.yb.Nd.xj = 2;
+	GameFramework.resources.yb.Nd.Ed = 3;
+	GameFramework.resources.yb.Nd.md = 4;
+	GameFramework.resources.yb.Nd.ud = 5;
+	GameFramework.resources.yb.Nd.QI = 6;
+	GameFramework.resources.yb.Nd.ALPHA = 7;
+	GameFramework.resources.yb.Nd.Jh = 8
 };
 T(function() {
-			GameFramework.b.yb.Nd.c()
+			GameFramework.resources.yb.Nd.c()
 		});
-GameFramework.b.ua = t();
-GameFramework.b.ua.prototype = {
+GameFramework.resources.ua = t();
+GameFramework.resources.ua.prototype = {
 	fj : null,
 	Qb : null,
 	sb : null,
@@ -6864,53 +6864,53 @@ GameFramework.b.ua.prototype = {
 	L : null,
 	t : t()
 };
-GameFramework.b.ua.c = function() {
-	GameFramework.b.ua.cra = {}
+GameFramework.resources.ua.c = function() {
+	GameFramework.resources.ua.cra = {}
 };
 T(function() {
-			GameFramework.b.ua.u("GameFramework.resources.PIParticleDef", null,
+			GameFramework.resources.ua.u("GameFramework.resources.PIParticleDef", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.ua.c()
+			GameFramework.resources.ua.c()
 		});
-GameFramework.b.ua.p = {};
-GameFramework.b.ua.p.c = function() {
-	GameFramework.b.ua.p.Uk = 0;
-	GameFramework.b.ua.p.Xo = 1;
-	GameFramework.b.ua.p.Wg = 2;
-	GameFramework.b.ua.p.xj = 3;
-	GameFramework.b.ua.p.Ed = 4;
-	GameFramework.b.ua.p.md = 5;
-	GameFramework.b.ua.p.ud = 6;
-	GameFramework.b.ua.p.Ae = 7;
-	GameFramework.b.ua.p.u2 = 8;
-	GameFramework.b.ua.p.cT = 9;
-	GameFramework.b.ua.p.T3 = 10;
-	GameFramework.b.ua.p.H5 = 11;
-	GameFramework.b.ua.p.K5 = 12;
-	GameFramework.b.ua.p.h4 = 13;
-	GameFramework.b.ua.p.D2 = 14;
-	GameFramework.b.ua.p.CZ = 15;
-	GameFramework.b.ua.p.S3 = 16;
-	GameFramework.b.ua.p.KL = 17;
-	GameFramework.b.ua.p.LL = 18;
-	GameFramework.b.ua.p.XK = 19;
-	GameFramework.b.ua.p.VS = 20;
-	GameFramework.b.ua.p.NI = 21;
-	GameFramework.b.ua.p.ZA = 22;
-	GameFramework.b.ua.p.xs = 23;
-	GameFramework.b.ua.p.ys = 24;
-	GameFramework.b.ua.p.Xg = 25;
-	GameFramework.b.ua.p.PT = 26;
-	GameFramework.b.ua.p.OT = 27;
-	GameFramework.b.ua.p.Jh = 28
+GameFramework.resources.ua.p = {};
+GameFramework.resources.ua.p.c = function() {
+	GameFramework.resources.ua.p.Uk = 0;
+	GameFramework.resources.ua.p.Xo = 1;
+	GameFramework.resources.ua.p.Wg = 2;
+	GameFramework.resources.ua.p.xj = 3;
+	GameFramework.resources.ua.p.Ed = 4;
+	GameFramework.resources.ua.p.md = 5;
+	GameFramework.resources.ua.p.ud = 6;
+	GameFramework.resources.ua.p.Ae = 7;
+	GameFramework.resources.ua.p.u2 = 8;
+	GameFramework.resources.ua.p.cT = 9;
+	GameFramework.resources.ua.p.T3 = 10;
+	GameFramework.resources.ua.p.H5 = 11;
+	GameFramework.resources.ua.p.K5 = 12;
+	GameFramework.resources.ua.p.h4 = 13;
+	GameFramework.resources.ua.p.D2 = 14;
+	GameFramework.resources.ua.p.CZ = 15;
+	GameFramework.resources.ua.p.S3 = 16;
+	GameFramework.resources.ua.p.KL = 17;
+	GameFramework.resources.ua.p.LL = 18;
+	GameFramework.resources.ua.p.XK = 19;
+	GameFramework.resources.ua.p.VS = 20;
+	GameFramework.resources.ua.p.NI = 21;
+	GameFramework.resources.ua.p.ZA = 22;
+	GameFramework.resources.ua.p.xs = 23;
+	GameFramework.resources.ua.p.ys = 24;
+	GameFramework.resources.ua.p.Xg = 25;
+	GameFramework.resources.ua.p.PT = 26;
+	GameFramework.resources.ua.p.OT = 27;
+	GameFramework.resources.ua.p.Jh = 28
 };
 T(function() {
-			GameFramework.b.ua.p.c()
+			GameFramework.resources.ua.p.c()
 		});
-GameFramework.b.ma = t();
-GameFramework.b.ma.prototype = {
+GameFramework.resources.ma = t();
+GameFramework.resources.ma.prototype = {
 	sb : null,
 	F : null,
 	tf : null,
@@ -6922,65 +6922,65 @@ GameFramework.b.ma.prototype = {
 	nl : 0,
 	t : t()
 };
-GameFramework.b.ma.c = t();
+GameFramework.resources.ma.c = t();
 T(function() {
-			GameFramework.b.ma.u("GameFramework.resources.PIEmitter", null,
+			GameFramework.resources.ma.u("GameFramework.resources.PIEmitter", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.ma.c()
+			GameFramework.resources.ma.c()
 		});
-GameFramework.b.ma.p = {};
-GameFramework.b.ma.p.c = function() {
-	GameFramework.b.ma.p.r0 = 0;
-	GameFramework.b.ma.p.Pda = 1;
-	GameFramework.b.ma.p.A0 = 2;
-	GameFramework.b.ma.p.qR = 3;
-	GameFramework.b.ma.p.nR = 4;
-	GameFramework.b.ma.p.lR = 5;
-	GameFramework.b.ma.p.zJ = 6;
-	GameFramework.b.ma.p.Rda = 7;
-	GameFramework.b.ma.p.Uk = 8;
-	GameFramework.b.ma.p.Xo = 9;
-	GameFramework.b.ma.p.Wg = 10;
-	GameFramework.b.ma.p.Xg = 11;
-	GameFramework.b.ma.p.xj = 12;
-	GameFramework.b.ma.p.Ed = 13;
-	GameFramework.b.ma.p.md = 14;
-	GameFramework.b.ma.p.ud = 15;
-	GameFramework.b.ma.p.Ae = 16;
-	GameFramework.b.ma.p.Uq = 17;
-	GameFramework.b.ma.p.ZA = 18;
-	GameFramework.b.ma.p.eqa = 19;
-	GameFramework.b.ma.p.ep = 20;
-	GameFramework.b.ma.p.xs = 21;
-	GameFramework.b.ma.p.ys = 22;
-	GameFramework.b.ma.p.s0 = 23;
-	GameFramework.b.ma.p.Qda = 24;
-	GameFramework.b.ma.p.w0 = 25;
-	GameFramework.b.ma.p.y0 = 26;
-	GameFramework.b.ma.p.B0 = 27;
-	GameFramework.b.ma.p.C0 = 28;
-	GameFramework.b.ma.p.z0 = 29;
-	GameFramework.b.ma.p.t0 = 30;
-	GameFramework.b.ma.p.q0 = 31;
-	GameFramework.b.ma.p.E0 = 32;
-	GameFramework.b.ma.p.u0 = 33;
-	GameFramework.b.ma.p.v0 = 34;
-	GameFramework.b.ma.p.x0 = 35;
-	GameFramework.b.ma.p.pR = 36;
-	GameFramework.b.ma.p.rR = 37;
-	GameFramework.b.ma.p.oR = 38;
-	GameFramework.b.ma.p.mR = 39;
-	GameFramework.b.ma.p.AJ = 40;
-	GameFramework.b.ma.p.D0 = 41;
-	GameFramework.b.ma.p.Jh = 42
+GameFramework.resources.ma.p = {};
+GameFramework.resources.ma.p.c = function() {
+	GameFramework.resources.ma.p.r0 = 0;
+	GameFramework.resources.ma.p.Pda = 1;
+	GameFramework.resources.ma.p.A0 = 2;
+	GameFramework.resources.ma.p.qR = 3;
+	GameFramework.resources.ma.p.nR = 4;
+	GameFramework.resources.ma.p.lR = 5;
+	GameFramework.resources.ma.p.zJ = 6;
+	GameFramework.resources.ma.p.Rda = 7;
+	GameFramework.resources.ma.p.Uk = 8;
+	GameFramework.resources.ma.p.Xo = 9;
+	GameFramework.resources.ma.p.Wg = 10;
+	GameFramework.resources.ma.p.Xg = 11;
+	GameFramework.resources.ma.p.xj = 12;
+	GameFramework.resources.ma.p.Ed = 13;
+	GameFramework.resources.ma.p.md = 14;
+	GameFramework.resources.ma.p.ud = 15;
+	GameFramework.resources.ma.p.Ae = 16;
+	GameFramework.resources.ma.p.Uq = 17;
+	GameFramework.resources.ma.p.ZA = 18;
+	GameFramework.resources.ma.p.eqa = 19;
+	GameFramework.resources.ma.p.ep = 20;
+	GameFramework.resources.ma.p.xs = 21;
+	GameFramework.resources.ma.p.ys = 22;
+	GameFramework.resources.ma.p.s0 = 23;
+	GameFramework.resources.ma.p.Qda = 24;
+	GameFramework.resources.ma.p.w0 = 25;
+	GameFramework.resources.ma.p.y0 = 26;
+	GameFramework.resources.ma.p.B0 = 27;
+	GameFramework.resources.ma.p.C0 = 28;
+	GameFramework.resources.ma.p.z0 = 29;
+	GameFramework.resources.ma.p.t0 = 30;
+	GameFramework.resources.ma.p.q0 = 31;
+	GameFramework.resources.ma.p.E0 = 32;
+	GameFramework.resources.ma.p.u0 = 33;
+	GameFramework.resources.ma.p.v0 = 34;
+	GameFramework.resources.ma.p.x0 = 35;
+	GameFramework.resources.ma.p.pR = 36;
+	GameFramework.resources.ma.p.rR = 37;
+	GameFramework.resources.ma.p.oR = 38;
+	GameFramework.resources.ma.p.mR = 39;
+	GameFramework.resources.ma.p.AJ = 40;
+	GameFramework.resources.ma.p.D0 = 41;
+	GameFramework.resources.ma.p.Jh = 42
 };
 T(function() {
-			GameFramework.b.ma.p.c()
+			GameFramework.resources.ma.p.c()
 		});
-GameFramework.b.Ea = function() {
-	this.lb = Array.O(GameFramework.b.Ea.Sa.Jh | 0, null);
+GameFramework.resources.Ea = function() {
+	this.lb = Array.O(GameFramework.resources.Ea.Sa.Jh | 0, null);
 	this.Na = new GameFramework.geom.xb;
 	this.gd = this.Ei = null;
 	this.u9 = 1;
@@ -6990,7 +6990,7 @@ GameFramework.b.Ea = function() {
 	this.Yh = null;
 	this.ul = false
 };
-GameFramework.b.Ea.prototype = {
+GameFramework.resources.Ea.prototype = {
 	gd : null,
 	Jc : null,
 	Im : null,
@@ -7030,34 +7030,34 @@ GameFramework.b.Ea.prototype = {
 	Oa : null,
 	t : t()
 };
-GameFramework.b.Ea.c = t();
+GameFramework.resources.Ea.c = t();
 T(function() {
-			GameFramework.b.Ea.u("GameFramework.resources.PIParticleInstance",
+			GameFramework.resources.Ea.u("GameFramework.resources.PIParticleInstance",
 					null, GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.Ea.c()
+			GameFramework.resources.Ea.c()
 		});
-GameFramework.b.Ea.Sa = {};
-GameFramework.b.Ea.Sa.c = function() {
-	GameFramework.b.Ea.Sa.ud = 0;
-	GameFramework.b.Ea.Sa.xj = 1;
-	GameFramework.b.Ea.Sa.Ed = 2;
-	GameFramework.b.Ea.Sa.md = 3;
-	GameFramework.b.Ea.Sa.Wg = 4;
-	GameFramework.b.Ea.Sa.Xg = 5;
-	GameFramework.b.Ea.Sa.Ae = 6;
-	GameFramework.b.Ea.Sa.Uk = 7;
-	GameFramework.b.Ea.Sa.Uq = 8;
-	GameFramework.b.Ea.Sa.Jh = 9
+GameFramework.resources.Ea.Sa = {};
+GameFramework.resources.Ea.Sa.c = function() {
+	GameFramework.resources.Ea.Sa.ud = 0;
+	GameFramework.resources.Ea.Sa.xj = 1;
+	GameFramework.resources.Ea.Sa.Ed = 2;
+	GameFramework.resources.Ea.Sa.md = 3;
+	GameFramework.resources.Ea.Sa.Wg = 4;
+	GameFramework.resources.Ea.Sa.Xg = 5;
+	GameFramework.resources.Ea.Sa.Ae = 6;
+	GameFramework.resources.Ea.Sa.Uk = 7;
+	GameFramework.resources.Ea.Sa.Uq = 8;
+	GameFramework.resources.Ea.Sa.Jh = 9
 };
 T(function() {
-			GameFramework.b.Ea.Sa.c()
+			GameFramework.resources.Ea.Sa.c()
 		});
-GameFramework.b.nn = function() {
+GameFramework.resources.nn = function() {
 	this.Vg()
 };
-GameFramework.b.nn.prototype = {
+GameFramework.resources.nn.prototype = {
 	ku : 0,
 	xG : 0,
 	uO : 0,
@@ -7071,22 +7071,22 @@ GameFramework.b.nn.prototype = {
 	},
 	t : t()
 };
-GameFramework.b.nn.c = t();
+GameFramework.resources.nn.c = t();
 T(function() {
-			GameFramework.b.nn.u(
+			GameFramework.resources.nn.u(
 					"GameFramework.resources.PIParticleDefInstance", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.nn.c()
+			GameFramework.resources.nn.c()
 		});
-GameFramework.b.Vv = function() {
+GameFramework.resources.Vv = function() {
 	this.bf = this.Ac = false;
 	this.cg = this.pd = null;
 	this.be = 0;
 	this.RB = this.SB = this.YG = this.ux = this.ZG = this.wN = this.XG = this.$G = this.QB = false
 };
-GameFramework.b.Vv.prototype = {
+GameFramework.resources.Vv.prototype = {
 	pd : null,
 	cg : null,
 	be : 0,
@@ -7103,55 +7103,55 @@ GameFramework.b.Vv.prototype = {
 	RB : null,
 	t : t()
 };
-GameFramework.b.Vv.c = t();
+GameFramework.resources.Vv.c = t();
 T(function() {
-			GameFramework.b.Vv.u("GameFramework.resources.PIParticleGroup", null,
+			GameFramework.resources.Vv.u("GameFramework.resources.PIParticleGroup", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.Vv.c()
+			GameFramework.resources.Vv.c()
 		});
-GameFramework.b.$s = function() {
-	this.Wb = new GameFramework.b.Vv
+GameFramework.resources.$s = function() {
+	this.Wb = new GameFramework.resources.Vv
 };
-GameFramework.b.$s.prototype = {
+GameFramework.resources.$s.prototype = {
 	Bh : null,
 	Wb : null,
 	t : function() {
 		this.Wb.t()
 	}
 };
-GameFramework.b.$s.c = t();
+GameFramework.resources.$s.c = t();
 T(function() {
-			GameFramework.b.$s.u("GameFramework.resources.PIEmitterBase", null,
+			GameFramework.resources.$s.u("GameFramework.resources.PIEmitterBase", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.$s.c()
+			GameFramework.resources.$s.c()
 		});
-GameFramework.b.bt = function() {
-	this.kg = new GameFramework.b.$s;
-	E(GameFramework.b.bt, this);
+GameFramework.resources.bt = function() {
+	this.kg = new GameFramework.resources.$s;
+	E(GameFramework.resources.bt, this);
 	this.kg.Wb.bf = true
 };
-GameFramework.b.bt.prototype = {
+GameFramework.resources.bt.prototype = {
 	kg : null,
 	t : function() {
 		this.kg.t();
-		GameFramework.b.Ea.prototype.t.apply(this)
+		GameFramework.resources.Ea.prototype.t.apply(this)
 	}
 };
-GameFramework.b.bt.c = t();
+GameFramework.resources.bt.c = t();
 T(function() {
-			GameFramework.b.bt.u(
+			GameFramework.resources.bt.u(
 					"GameFramework.resources.PIFreeEmitterInstance",
-					GameFramework.b.Ea)
+					GameFramework.resources.Ea)
 		});
 U(function() {
-			GameFramework.b.bt.c()
+			GameFramework.resources.bt.c()
 		});
-GameFramework.b.$ = t();
-GameFramework.b.$.prototype = {
+GameFramework.resources.$ = t();
+GameFramework.resources.$.prototype = {
 	sb : null,
 	SG : 0,
 	um : 0,
@@ -7169,63 +7169,63 @@ GameFramework.b.$.prototype = {
 	Ln : 0,
 	t : t()
 };
-GameFramework.b.$.c = t();
+GameFramework.resources.$.c = t();
 T(function() {
-			GameFramework.b.$.u("GameFramework.resources.PIEmitterInstanceDef",
+			GameFramework.resources.$.u("GameFramework.resources.PIEmitterInstanceDef",
 					null, GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.$.c()
+			GameFramework.resources.$.c()
 		});
-GameFramework.b.$.p = {};
-GameFramework.b.$.p.c = function() {
-	GameFramework.b.$.p.Uk = 0;
-	GameFramework.b.$.p.Xo = 1;
-	GameFramework.b.$.p.Wg = 2;
-	GameFramework.b.$.p.xj = 3;
-	GameFramework.b.$.p.Ed = 4;
-	GameFramework.b.$.p.md = 5;
-	GameFramework.b.$.p.ud = 6;
-	GameFramework.b.$.p.Ae = 7;
-	GameFramework.b.$.p.Uq = 8;
-	GameFramework.b.$.p.ZA = 9;
-	GameFramework.b.$.p.ep = 10;
-	GameFramework.b.$.p.xs = 11;
-	GameFramework.b.$.p.ys = 12;
-	GameFramework.b.$.p.Go = 13;
-	GameFramework.b.$.p.Ru = 14;
-	GameFramework.b.$.p.Fw = 15;
-	GameFramework.b.$.p.EF = 16;
-	GameFramework.b.$.p.Xg = 17;
-	GameFramework.b.$.p.a5 = 18;
-	GameFramework.b.$.p.Jh = 19
+GameFramework.resources.$.p = {};
+GameFramework.resources.$.p.c = function() {
+	GameFramework.resources.$.p.Uk = 0;
+	GameFramework.resources.$.p.Xo = 1;
+	GameFramework.resources.$.p.Wg = 2;
+	GameFramework.resources.$.p.xj = 3;
+	GameFramework.resources.$.p.Ed = 4;
+	GameFramework.resources.$.p.md = 5;
+	GameFramework.resources.$.p.ud = 6;
+	GameFramework.resources.$.p.Ae = 7;
+	GameFramework.resources.$.p.Uq = 8;
+	GameFramework.resources.$.p.ZA = 9;
+	GameFramework.resources.$.p.ep = 10;
+	GameFramework.resources.$.p.xs = 11;
+	GameFramework.resources.$.p.ys = 12;
+	GameFramework.resources.$.p.Go = 13;
+	GameFramework.resources.$.p.Ru = 14;
+	GameFramework.resources.$.p.Fw = 15;
+	GameFramework.resources.$.p.EF = 16;
+	GameFramework.resources.$.p.Xg = 17;
+	GameFramework.resources.$.p.a5 = 18;
+	GameFramework.resources.$.p.Jh = 19
 };
 T(function() {
-			GameFramework.b.$.p.c()
+			GameFramework.resources.$.p.c()
 		});
-GameFramework.b.$.ke = {};
-GameFramework.b.$.ke.c = function() {
-	GameFramework.b.$.ke.a3 = 0;
-	GameFramework.b.$.ke.Qz = 1;
-	GameFramework.b.$.ke.tJ = 2;
-	GameFramework.b.$.ke.Fy = 3;
-	GameFramework.b.$.ke.Zu = 4
+GameFramework.resources.$.ke = {};
+GameFramework.resources.$.ke.c = function() {
+	GameFramework.resources.$.ke.a3 = 0;
+	GameFramework.resources.$.ke.Qz = 1;
+	GameFramework.resources.$.ke.tJ = 2;
+	GameFramework.resources.$.ke.Fy = 3;
+	GameFramework.resources.$.ke.Zu = 4
 };
 T(function() {
-			GameFramework.b.$.ke.c()
+			GameFramework.resources.$.ke.c()
 		});
-GameFramework.b.at = function() {
-	this.$h = new GameFramework.b.Vv;
+GameFramework.resources.at = function() {
+	this.$h = new GameFramework.resources.Vv;
 	this.Na = new GameFramework.geom.xb;
 	this.de = new GameFramework.geom.ba;
-	E(GameFramework.b.at, this);
+	E(GameFramework.resources.at, this);
 	this.Co = false;
 	this.Ou = true;
 	this.$h.Ac = true;
 	this.EX = 1;
 	this.ec = true
 };
-GameFramework.b.at.prototype = {
+GameFramework.resources.at.prototype = {
 	Wa : null,
 	Co : null,
 	Ou : null,
@@ -7240,19 +7240,19 @@ GameFramework.b.at.prototype = {
 	tn : w("ec"),
 	t : function() {
 		this.$h.t();
-		GameFramework.b.$s.prototype.t.apply(this)
+		GameFramework.resources.$s.prototype.t.apply(this)
 	}
 };
-GameFramework.b.at.c = t();
+GameFramework.resources.at.c = t();
 T(function() {
-			GameFramework.b.at.u("GameFramework.resources.PIEmitterInstance",
-					GameFramework.b.$s)
+			GameFramework.resources.at.u("GameFramework.resources.PIEmitterInstance",
+					GameFramework.resources.$s)
 		});
 U(function() {
-			GameFramework.b.at.c()
+			GameFramework.resources.at.c()
 		});
-GameFramework.b.dA = t();
-GameFramework.b.dA.prototype = {
+GameFramework.resources.dA = t();
+GameFramework.resources.dA.prototype = {
 	sb : null,
 	kG : 0,
 	bH : 0,
@@ -7264,32 +7264,32 @@ GameFramework.b.dA.prototype = {
 	Z : null,
 	ac : null
 };
-GameFramework.b.dA.c = t();
+GameFramework.resources.dA.c = t();
 T(function() {
-			GameFramework.b.dA.u("GameFramework.resources.PIDeflector", null)
+			GameFramework.resources.dA.u("GameFramework.resources.PIDeflector", null)
 		});
 U(function() {
-			GameFramework.b.dA.c()
+			GameFramework.resources.dA.c()
 		});
-GameFramework.b.cA = t();
-GameFramework.b.cA.prototype = {
+GameFramework.resources.cA = t();
+GameFramework.resources.cA.prototype = {
 	sb : null,
 	qa : null,
 	yj : null,
 	Hb : null,
 	Z : null
 };
-GameFramework.b.cA.c = t();
+GameFramework.resources.cA.c = t();
 T(function() {
-			GameFramework.b.cA.u("GameFramework.resources.PIBlocker", null)
+			GameFramework.resources.cA.u("GameFramework.resources.PIBlocker", null)
 		});
 U(function() {
-			GameFramework.b.cA.c()
+			GameFramework.resources.cA.c()
 		});
-GameFramework.b.eA = function() {
+GameFramework.resources.eA = function() {
 	this.ac = Array.O(5, null)
 };
-GameFramework.b.eA.prototype = {
+GameFramework.resources.eA.prototype = {
 	sb : null,
 	ec : null,
 	qa : null,
@@ -7301,17 +7301,17 @@ GameFramework.b.eA.prototype = {
 	z : null,
 	ac : null
 };
-GameFramework.b.eA.c = t();
+GameFramework.resources.eA.c = t();
 T(function() {
-			GameFramework.b.eA.u("GameFramework.resources.PIForce", null)
+			GameFramework.resources.eA.u("GameFramework.resources.PIForce", null)
 		});
 U(function() {
-			GameFramework.b.eA.c()
+			GameFramework.resources.eA.c()
 		});
-GameFramework.b.gA = function() {
+GameFramework.resources.gA = function() {
 	this.qO = new GameFramework.geom.ba
 };
-GameFramework.b.gA.prototype = {
+GameFramework.resources.gA.prototype = {
 	sb : null,
 	Uh : null,
 	Rh : null,
@@ -7322,21 +7322,21 @@ GameFramework.b.gA.prototype = {
 	Hb : null,
 	t : t()
 };
-GameFramework.b.gA.c = t();
+GameFramework.resources.gA.c = t();
 T(function() {
-			GameFramework.b.gA.u("GameFramework.resources.PILayerDef", null,
+			GameFramework.resources.gA.u("GameFramework.resources.PILayerDef", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.gA.c()
+			GameFramework.resources.gA.c()
 		});
-GameFramework.b.Uv = function() {
+GameFramework.resources.Uv = function() {
 	this.bx = new GameFramework.geom.ba;
 	this.ec = true;
 	this.n = 4294967295;
 	this.Dn = null
 };
-GameFramework.b.Uv.prototype = {
+GameFramework.resources.Uv.prototype = {
 	xk : null,
 	mf : null,
 	bx : null,
@@ -7357,18 +7357,18 @@ GameFramework.b.Uv.prototype = {
 		return null
 	}
 };
-GameFramework.b.Uv.c = t();
+GameFramework.resources.Uv.c = t();
 T(function() {
-			GameFramework.b.Uv.u("GameFramework.resources.PILayer", null,
+			GameFramework.resources.Uv.u("GameFramework.resources.PILayer", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.Uv.c()
+			GameFramework.resources.Uv.c()
 		});
-GameFramework.b.Rv = function() {
+GameFramework.resources.Rv = function() {
 	this.hj = this.jW = 1
 };
-GameFramework.b.Rv.prototype = {
+GameFramework.resources.Rv.prototype = {
 	hj : 0,
 	jW : 0,
 	Hf : null,
@@ -7377,15 +7377,15 @@ GameFramework.b.Rv.prototype = {
 	KG : null,
 	t : t()
 };
-GameFramework.b.Rv.c = t();
+GameFramework.resources.Rv.c = t();
 T(function() {
-			GameFramework.b.Rv.u("GameFramework.resources.PIEffectDef", null,
+			GameFramework.resources.Rv.u("GameFramework.resources.PIEffectDef", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.Rv.c()
+			GameFramework.resources.Rv.c()
 		});
-GameFramework.b.va = function() {
+GameFramework.resources.va = function() {
 	this.Eu = [];
 	this.za = new GameFramework.geom.xb;
 	this.dj = new GameFramework.geom.xb;
@@ -7401,15 +7401,15 @@ GameFramework.b.va = function() {
 	this.tm = false;
 	this.Le = GameFramework.BaseApp.M.Le;
 	this.Le < 10 && (this.Le *= 2);
-	this.ga = new GameFramework.b.Rv
+	this.ga = new GameFramework.resources.Rv
 };
-GameFramework.b.va.jqa = function(b, c) {
+GameFramework.resources.va.jqa = function(b, c) {
 	return c == 1 ? b : (b *= c, b - (b | 0))
 };
-GameFramework.b.va.Rc = function(b) {
+GameFramework.resources.va.Rc = function(b) {
 	return b * 3.14159 / 180
 };
-GameFramework.b.va.mK = function(b, c, d, f) {
+GameFramework.resources.va.mK = function(b, c, d, f) {
 	var g = (f.y - d.y) * (c.x - b.x) - (f.x - d.x) * (c.y - b.y);
 	return g != 0
 			? (f = ((f.x - d.x) * (b.y - d.y) - (f.y - d.y) * (b.x - d.x)) / g, f >= 0
@@ -7419,7 +7419,7 @@ GameFramework.b.va.mK = function(b, c, d, f) {
 							* f, b.y + (c.y - b.y) * f) : null) : null)
 			: null
 };
-GameFramework.b.va.i2 = function(b, c, d, f, g, h, j, k, l) {
+GameFramework.resources.va.i2 = function(b, c, d, f, g, h, j, k, l) {
 	var m = null;
 	if (l.bd == l.Dl && k.Rh.length > 0) {
 		var o = l.Na.Wd(new GameFramework.geom.ba(0, 0)), q = l.qa;
@@ -7441,25 +7441,25 @@ GameFramework.b.va.i2 = function(b, c, d, f, g, h, j, k, l) {
 					B = new GameFramework.geom.ba(A.x, A.y);
 					B.x = B.x * v.Hu * l.Ur;
 					B.y = B.y * v.Hu * l.Ur;
-					if (GameFramework.b.va.mK(o, m, y.add(B), z.add(B)) != null
+					if (GameFramework.resources.va.mK(o, m, y.add(B), z.add(B)) != null
 							&& !(b.Ec() > v.bH)) {
 						y = l.bd / 2147483647;
 						m = v.kG;
 						m *= h.Ac
-								? (h.bf ? f.F[GameFramework.b.ma.p.Ae | 0]
-										.G(b.A) : d.Wa.F[GameFramework.b.$.p.Ae
+								? (h.bf ? f.F[GameFramework.resources.ma.p.Ae | 0]
+										.G(b.A) : d.Wa.F[GameFramework.resources.$.p.Ae
 										| 0].G(b.A))
-										* f.F[GameFramework.b.ma.p.AJ | 0].G(y,
+										* f.F[GameFramework.resources.ma.p.AJ | 0].G(y,
 												1)
-										* (f.F[GameFramework.b.ma.p.zJ | 0]
-												.G(b.A) + l.lb[GameFramework.b.Ea.Sa.Ae
+										* (f.F[GameFramework.resources.ma.p.zJ | 0]
+												.G(b.A) + l.lb[GameFramework.resources.Ea.Sa.Ae
 												| 0])
-								: (h.bf ? f.F[GameFramework.b.ma.p.Ae | 0]
-										.G(b.A) : d.Wa.F[GameFramework.b.$.p.Ae
+								: (h.bf ? f.F[GameFramework.resources.ma.p.Ae | 0]
+										.G(b.A) : d.Wa.F[GameFramework.resources.$.p.Ae
 										| 0].G(b.A))
-										* g.F[GameFramework.b.ua.p.NI | 0].G(y)
-										* (g.F[GameFramework.b.ua.p.Ae | 0]
-												.G(b.A) + l.lb[GameFramework.b.Ea.Sa.Ae
+										* g.F[GameFramework.resources.ua.p.NI | 0].G(y)
+										* (g.F[GameFramework.resources.ua.p.Ae | 0]
+												.G(b.A) + l.lb[GameFramework.resources.Ea.Sa.Ae
 												| 0]);
 						y = new GameFramework.geom.ba(j.x, j.y);
 						z = y.x * A.x + y.y * A.y;
@@ -7490,8 +7490,8 @@ GameFramework.b.va.i2 = function(b, c, d, f, g, h, j, k, l) {
 								/ (d.ac[h].y - d.ac[g].y) + d.ac[g].x)
 					f = !f;
 			f
-					&& (f = GameFramework.b.va.Rc(-d.DB.G(b.A))
-							+ GameFramework.b.va.Rc(-d.Hb.G(b.A)), g = 0.085
+					&& (f = GameFramework.resources.va.Rc(-d.DB.G(b.A))
+							+ GameFramework.resources.va.Rc(-d.Hb.G(b.A)), g = 0.085
 							* b.Vf / 100, g *= 1 + (b.Vf - 100) * 0.0040, d = d.cD
 							.G(b.A)
 							* g, l.Db.x += Math.cos(f) * d * 100, l.Db.y += Math
@@ -7499,7 +7499,7 @@ GameFramework.b.va.i2 = function(b, c, d, f, g, h, j, k, l) {
 							* d * 100)
 		}
 };
-GameFramework.b.va.prototype = {
+GameFramework.resources.va.prototype = {
 	W6 : false,
 	UW : true,
 	C : null,
@@ -7581,24 +7581,24 @@ GameFramework.b.va.prototype = {
 		this.xh.length = this.ga.Kf.length;
 		for (var c = 0; c < (this.xh.length | 0); c++) {
 			var d = this.ga.Kf[c], f;
-			this.xh[c] = f = new GameFramework.b.Uv;
+			this.xh[c] = f = new GameFramework.resources.Uv;
 			f.xk = d;
 			f.mf = [];
 			f.mf.length = d.Uh.length;
 			for (var g = 0; g < d.Uh.length; g++) {
 				var h = b.xh[c].mf[g], j = d.Uh[g], k;
-				f.mf[g] = k = new GameFramework.b.at;
+				f.mf[g] = k = new GameFramework.resources.at;
 				var l = this.ga.Hf[j.um];
 				k.Wa = j;
 				k.sy = h.sy;
 				k.Bh = [];
 				k.Bh.length = l.tf.length;
 				for (j = 0; j < k.Bh.length; j++)
-					k.Bh[j] = new GameFramework.b.nn;
+					k.Bh[j] = new GameFramework.resources.nn;
 				k.Kl = [];
 				k.Kl.length = h.Kl.length;
 				for (h = 0; h < k.Kl.length; h++)
-					k.Kl[h] = new GameFramework.b.nn
+					k.Kl[h] = new GameFramework.resources.nn
 			}
 		}
 		this.AQ();
@@ -7623,7 +7623,7 @@ GameFramework.b.va.prototype = {
 				& 16711935 | (b & 65280) * f + (c & 65280) * d >>> 8 & 65280
 	},
 	gi : function() {
-		var b = new GameFramework.b.va;
+		var b = new GameFramework.resources.va;
 		b.e2(this);
 		return b
 	},
@@ -7709,7 +7709,7 @@ GameFramework.b.va.prototype = {
 				g[j] = l.add(m)
 			}
 			this.Ai || (this.C.H(), m = this.C.H(), h |= (m & 1) == 0);
-			m = new GameFramework.b.Xv;
+			m = new GameFramework.resources.Xv;
 			m.oa = l;
 			m.Eb = k;
 			b.mj.push(m)
@@ -7721,7 +7721,7 @@ GameFramework.b.va.prototype = {
 		b.mj = [];
 		for (var d = 0; d < c; d++) {
 			this.Qi("CPointKey");
-			var f = new GameFramework.b.Xv;
+			var f = new GameFramework.resources.Xv;
 			f.Eb = this.C.H();
 			f.oa = new GameFramework.geom.ba;
 			f.oa.x = this.C.fa();
@@ -7762,7 +7762,7 @@ GameFramework.b.va.prototype = {
 							.fa(), m > 0 && (j[l++] = q.add(r)), r = new GameFramework.geom.ba, r.x = this.C
 							.fa(), r.y = this.C.fa(), j[l++] = q.add(r);
 				this.Ai || (this.C.H(), r = this.C.H(), f |= (r & 1) == 0);
-				r = new GameFramework.b.Wv;
+				r = new GameFramework.resources.Wv;
 				r.oa = q.y;
 				r.Eb = o;
 				b.dc[m] = r;
@@ -7784,8 +7784,8 @@ GameFramework.b.va.prototype = {
 		b.tf = [];
 		b.tf.length = c;
 		for (var d = 0; d < c; d++) {
-			GameFramework.b.va.z6++;
-			var f = new GameFramework.b.ua;
+			GameFramework.resources.va.z6++;
+			var f = new GameFramework.resources.ua;
 			this.Qi("CEmParticleType");
 			this.C.H();
 			this.C.H();
@@ -7826,25 +7826,25 @@ GameFramework.b.va.prototype = {
 			f.EO = this.C.oc();
 			this.C.H();
 			f.lj = this.C.H();
-			f.n = new GameFramework.b.Sv;
+			f.n = new GameFramework.resources.Sv;
 			for (var g = this.C.Ga(), h = 0; h < g; h++) {
 				this.Qi("CColorPoint");
 				var j = this.C.eb(), k = this.C.eb(), l = this.C.eb(), j = 4278190080
 						| (j | 0) << 16 | (k | 0) << 8 | (l | 0) << 0, k = this.C
-						.fa(), l = new GameFramework.b.Tv;
+						.fa(), l = new GameFramework.resources.Tv;
 				l.oa = j;
 				l.Eb = k;
 				f.n.Zf.push(l)
 			}
-			f.L = new GameFramework.b.Sv;
+			f.L = new GameFramework.resources.Sv;
 			g = this.C.Ga();
 			for (h = 0; h < g; h++)
-				this.Qi("CAlphaPoint"), j = this.C.eb(), k = this.C.fa(), l = new GameFramework.b.Tv, l.oa = j, l.Eb = k, f.L.Zf
+				this.Qi("CAlphaPoint"), j = this.C.eb(), k = this.C.fa(), l = new GameFramework.resources.Tv, l.oa = j, l.Eb = k, f.L.Zf
 						.push(l);
 			f.F = [];
-			f.F.length = GameFramework.b.ua.p.Jh | 0;
-			for (g = 0; g < (GameFramework.b.ua.p.Jh | 0); g++)
-				f.F[g] = new GameFramework.b.le;
+			f.F.length = GameFramework.resources.ua.p.Jh | 0;
+			for (g = 0; g < (GameFramework.resources.ua.p.Jh | 0); g++)
+				f.F[g] = new GameFramework.resources.le;
 			for (g = 0; g < 23; g++)
 				this.Bf(f.F[g]);
 			f.ou = new GameFramework.geom.ba;
@@ -7860,91 +7860,91 @@ GameFramework.b.va.prototype = {
 			this.C.H();
 			this.C.H();
 			f.$N = this.C.oc();
-			this.Bf(f.F[GameFramework.b.ua.p.Xg | 0]);
-			this.Bf(f.F[GameFramework.b.ua.p.PT | 0]);
-			this.Bf(f.F[GameFramework.b.ua.p.OT | 0]);
+			this.Bf(f.F[GameFramework.resources.ua.p.Xg | 0]);
+			this.Bf(f.F[GameFramework.resources.ua.p.PT | 0]);
+			this.Bf(f.F[GameFramework.resources.ua.p.OT | 0]);
 			f.IV = this.C.H();
 			f.GV = this.C.H();
 			f.rx = this.C.oc();
 			f.Ku = this.C.oc();
 			f.TY = this.C.oc();
-			this.Bf(f.F[GameFramework.b.ua.p.xs | 0]);
-			this.Bf(f.F[GameFramework.b.ua.p.ys | 0]);
+			this.Bf(f.F[GameFramework.resources.ua.p.xs | 0]);
+			this.Bf(f.F[GameFramework.resources.ua.p.ys | 0]);
 			this.C.H();
-			this.Bf(new GameFramework.b.le);
+			this.Bf(new GameFramework.resources.le);
 			f.kP = this.C.oc();
 			f.Lu = this.C.oc();
 			f.lP = this.C.oc();
 			f.nO = this.C.H();
 			f.sx = this.C.oc();
-			g = new GameFramework.b.yb;
-			g.qf = Array.O(GameFramework.b.yb.jn + 1, null);
-			for (h = 0; h < (GameFramework.b.yb.Nd.Jh | 0); h++) {
+			g = new GameFramework.resources.yb;
+			g.qf = Array.O(GameFramework.resources.yb.jn + 1, null);
+			for (h = 0; h < (GameFramework.resources.yb.Nd.Jh | 0); h++) {
 				l = k = null;
 				j = [];
 				switch (h) {
-					case GameFramework.b.yb.Nd.Wg | 0 :
-						k = f.F[GameFramework.b.ua.p.S3 | 0];
+					case GameFramework.resources.yb.Nd.Wg | 0 :
+						k = f.F[GameFramework.resources.ua.p.S3 | 0];
 						break;
-					case GameFramework.b.yb.Nd.Xg | 0 :
-						k = f.F[GameFramework.b.ua.p.OT | 0];
+					case GameFramework.resources.yb.Nd.Xg | 0 :
+						k = f.F[GameFramework.resources.ua.p.OT | 0];
 						break;
-					case GameFramework.b.yb.Nd.xj | 0 :
-						k = f.F[GameFramework.b.ua.p.KL | 0];
+					case GameFramework.resources.yb.Nd.xj | 0 :
+						k = f.F[GameFramework.resources.ua.p.KL | 0];
 						break;
-					case GameFramework.b.yb.Nd.Ed | 0 :
-						k = f.F[GameFramework.b.ua.p.LL | 0];
+					case GameFramework.resources.yb.Nd.Ed | 0 :
+						k = f.F[GameFramework.resources.ua.p.LL | 0];
 						break;
-					case GameFramework.b.yb.Nd.md | 0 :
-						k = f.F[GameFramework.b.ua.p.XK | 0];
+					case GameFramework.resources.yb.Nd.md | 0 :
+						k = f.F[GameFramework.resources.ua.p.XK | 0];
 						break;
-					case GameFramework.b.yb.Nd.ud | 0 :
-						k = f.F[GameFramework.b.ua.p.VS | 0];
+					case GameFramework.resources.yb.Nd.ud | 0 :
+						k = f.F[GameFramework.resources.ua.p.VS | 0];
 						break;
-					case GameFramework.b.yb.Nd.QI | 0 :
+					case GameFramework.resources.yb.Nd.QI | 0 :
 						l = f.n;
 						break;
-					case GameFramework.b.yb.Nd.ALPHA | 0 :
+					case GameFramework.resources.yb.Nd.ALPHA | 0 :
 						l = f.L
 				}
-				for (var m = 0; m < GameFramework.b.yb.jn + 1; m++) {
-					var o = m / GameFramework.b.yb.jn;
-					h == (GameFramework.b.yb.Nd.QI | 0)
+				for (var m = 0; m < GameFramework.resources.yb.jn + 1; m++) {
+					var o = m / GameFramework.resources.yb.jn;
+					h == (GameFramework.resources.yb.Nd.QI | 0)
 							? o *= f.iY + 1
-							: h == (GameFramework.b.yb.Nd.ALPHA | 0)
+							: h == (GameFramework.resources.yb.Nd.ALPHA | 0)
 									&& (o *= f.hY + 1);
 					o > 1.0001 && (o -= o | 0);
 					var q = 0, r = 0;
 					k != null ? r = k.G(o) : q = l.G(o);
 					switch (h) {
-						case GameFramework.b.yb.Nd.Wg | 0 :
-							g.qf[m] = new GameFramework.b.hA;
+						case GameFramework.resources.yb.Nd.Wg | 0 :
+							g.qf[m] = new GameFramework.resources.hA;
 							g.qf[m].jy = r;
 							break;
-						case GameFramework.b.yb.Nd.Xg | 0 :
+						case GameFramework.resources.yb.Nd.Xg | 0 :
 							g.qf[m].ky = r;
 							break;
-						case GameFramework.b.yb.Nd.xj | 0 :
+						case GameFramework.resources.yb.Nd.xj | 0 :
 							g.qf[m].Gk = r;
 							break;
-						case GameFramework.b.yb.Nd.Ed | 0 :
+						case GameFramework.resources.yb.Nd.Ed | 0 :
 							g.qf[m].Nu = r - 1;
 							break;
-						case GameFramework.b.yb.Nd.md | 0 :
+						case GameFramework.resources.yb.Nd.md | 0 :
 							g.qf[m].Au = r - 1;
 							break;
-						case GameFramework.b.yb.Nd.ud | 0 :
+						case GameFramework.resources.yb.Nd.ud | 0 :
 							g.qf[m].mC = r;
 							break;
-						case GameFramework.b.yb.Nd.QI | 0 :
+						case GameFramework.resources.yb.Nd.QI | 0 :
 							g.qf[m].n = q & 16777215;
 							break;
-						case GameFramework.b.yb.Nd.ALPHA | 0 :
+						case GameFramework.resources.yb.Nd.ALPHA | 0 :
 							g.qf[m].n |= q << 24
 					}
 				}
 				if (j.length == 1)
-					k = new GameFramework.b.Wv, k.Eb = 1, k.oa = j[0].oa, j
+					k = new GameFramework.resources.Wv, k.Eb = 1, k.oa = j[0].oa, j
 							.push(k)
 			}
 			f.fj = g;
@@ -7954,7 +7954,7 @@ GameFramework.b.va.prototype = {
 		this.C.H();
 		b.F = Array.O(42, null);
 		for (c = 0; c < 42; c++)
-			b.F[c] = new GameFramework.b.le, this.Bf(b.F[c]);
+			b.F[c] = new GameFramework.resources.le, this.Bf(b.F[c]);
 		b.Ac = b.F[0].dc.length != 0;
 		this.C.H();
 		this.C.H()
@@ -7991,7 +7991,7 @@ GameFramework.b.va.prototype = {
 		if (d.Jc != null && d.Jc.il)
 			d.mo.x = b.Zl(), d.mo.y = b.Zl(), d.AH = b.fa();
 		d.Vc = b.fa();
-		for (var f = b.Ga(), g = 0; g < (GameFramework.b.Ea.Sa.Jh | 0); g++)
+		for (var f = b.Ga(), g = 0; g < (GameFramework.resources.Ea.Sa.Jh | 0); g++)
 			d.lb[g] = (f & 1 << g) != 0 ? b.fa() : 0;
 		d.Bu = b.fa();
 		d.Cu = b.fa();
@@ -8015,7 +8015,7 @@ GameFramework.b.va.prototype = {
 		d === UNDEF && (d = null);
 		var f = null, g = b.Wa;
 		switch (g.Gj) {
-			case GameFramework.b.$.ke.Qz :
+			case GameFramework.resources.$.ke.Qz :
 				if (g.Z.length >= 2) {
 					for (var h = f = 0, j, k, l, m = 0, o = 0; o < (g.Z.length | 0)
 							- 1; o++)
@@ -8045,9 +8045,9 @@ GameFramework.b.va.prototype = {
 									* Math.PI / 2)
 				}
 				break;
-			case GameFramework.b.$.ke.tJ :
-				l = b.Wa.F[GameFramework.b.$.p.Fw | 0].G(this.A);
-				f = b.Wa.F[GameFramework.b.$.p.EF | 0].G(this.A);
+			case GameFramework.resources.$.ke.tJ :
+				l = b.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A);
+				f = b.Wa.F[GameFramework.resources.$.p.EF | 0].G(this.A);
 				g.Ud != 0 ? (c = c.Dm % g.Ud * Math.PI * 2 / g.Ud, c > Math.PI
 						&& (c -= Math.PI * 2)) : c = this.P() * Math.PI;
 				l > f
@@ -8108,8 +8108,8 @@ GameFramework.b.va.prototype = {
 						&& (d.bs += c + (g.IG ? g.JG ? this.MJ() : -1 : 1)
 								* Math.PI / 2);
 				break;
-			case GameFramework.b.$.ke.Zu :
-				l = b.Wa.F[GameFramework.b.$.p.Fw | 0].G(this.A);
+			case GameFramework.resources.$.ke.Zu :
+				l = b.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A);
 				c = g.Ud != 0 ? c.Dm % g.Ud * Math.PI * 2 / g.Ud : this.P()
 						* Math.PI;
 				f = new GameFramework.geom.ba(Math.cos(c) * l, Math.sin(c) * l);
@@ -8117,9 +8117,9 @@ GameFramework.b.va.prototype = {
 						&& (d.bs += c + (g.IG ? g.JG ? this.MJ() : -1 : 1)
 								* Math.PI / 2);
 				break;
-			case GameFramework.b.$.ke.Fy :
-				d = b.Wa.F[GameFramework.b.$.p.Fw | 0].G(this.A);
-				l = b.Wa.F[GameFramework.b.$.p.EF | 0].G(this.A);
+			case GameFramework.resources.$.ke.Fy :
+				d = b.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A);
+				l = b.Wa.F[GameFramework.resources.$.p.EF | 0].G(this.A);
 				if (g.Ud != 0) {
 					h = c.Dm % g.Ud;
 					c = (c.Dm / g.Ud | 0) % g.pr;
@@ -8132,7 +8132,7 @@ GameFramework.b.va.prototype = {
 					f = new GameFramework.geom.ba(this.P() * d / 2, this.P() * l
 									/ 2);
 				break;
-			case GameFramework.b.$.ke.a3 :
+			case GameFramework.resources.$.ke.a3 :
 				f = new GameFramework.geom.ba
 		}
 		f = f.add(this.ov(b, false));
@@ -8142,7 +8142,7 @@ GameFramework.b.va.prototype = {
 		return f
 	},
 	y2 : function(b, c) {
-		this.ga = new GameFramework.b.Rv;
+		this.ga = new GameFramework.resources.Rv;
 		this.bq();
 		this.NG = this.nj = 0;
 		this.C = b;
@@ -8150,12 +8150,12 @@ GameFramework.b.va.prototype = {
 		this.ni();
 		if (this.Ai)
 			this.nj = this.C.H();
-		this.nj < GameFramework.b.va.b3 && this.BJ("PPF version too old");
+		this.nj < GameFramework.resources.va.b3 && this.BJ("PPF version too old");
 		this.Hr = this.ni();
 		this.ga.gh = [];
 		for (var d = this.C.Ga(), f = 0; f < d; f++) {
 			this.Qi("CMultiTexture");
-			var g = new GameFramework.b.iA;
+			var g = new GameFramework.resources.iA;
 			g.sb = this.ni();
 			var h = this.C.Ga();
 			g.zk = h;
@@ -8165,7 +8165,7 @@ GameFramework.b.va.prototype = {
 				var j = this.ni(), k = this.e1(g.sb, j, c), j = k.Kb;
 				k.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(g, g.xq));
 				for (k = 0; k < h; k++) {
-					var l = new GameFramework.b.jA;
+					var l = new GameFramework.resources.jA;
 					l.Ki = g;
 					l.Ww = k;
 					l.UC = Math.max(j.Ox, j.Nx);
@@ -8180,7 +8180,7 @@ GameFramework.b.va.prototype = {
 		this.ga.Hf = [];
 		this.ga.Hf.length = k;
 		for (d = 0; d < k; d++)
-			this.ga.Hf[d] = new GameFramework.b.ma, this.Qi("CEmitterType"), this.Ai
+			this.ga.Hf[d] = new GameFramework.resources.ma, this.Qi("CEmitterType"), this.Ai
 					|| (this.ga.KG[this.Eu.length | 0] = d), this
 					.C3(this.ga.Hf[d]);
 		f = [];
@@ -8193,8 +8193,8 @@ GameFramework.b.va.prototype = {
 		this.xh = [];
 		this.xh.length = g;
 		for (h = 0; h < g; h++) {
-			this.ga.Kf[h] = j = new GameFramework.b.gA;
-			this.xh[h] = l = new GameFramework.b.Uv;
+			this.ga.Kf[h] = j = new GameFramework.resources.gA;
+			this.xh[h] = l = new GameFramework.resources.Uv;
 			l.xk = j;
 			this.Qi("CLayer");
 			j.sb = this.ni();
@@ -8205,9 +8205,9 @@ GameFramework.b.va.prototype = {
 			j.Uh.length = k;
 			for (var m = 0; m < k; m++) {
 				var o;
-				j.Uh[m] = o = new GameFramework.b.$;
+				j.Uh[m] = o = new GameFramework.resources.$;
 				var q;
-				l.mf[m] = q = new GameFramework.b.at;
+				l.mf[m] = q = new GameFramework.resources.at;
 				q.Wa = o;
 				this.Qi("CEmitter");
 				this.C.fa();
@@ -8230,8 +8230,8 @@ GameFramework.b.va.prototype = {
 				o.Gj = this.C.H();
 				this.C.fa();
 				this.C.fa();
-				if (this.C.oc() && o.Gj == GameFramework.b.$.ke.tJ)
-					o.Gj = GameFramework.b.$.ke.Zu;
+				if (this.C.oc() && o.Gj == GameFramework.resources.$.ke.tJ)
+					o.Gj = GameFramework.resources.$.ke.Zu;
 				o.IG = this.C.oc();
 				o.JG = this.C.oc();
 				var r;
@@ -8256,8 +8256,8 @@ GameFramework.b.va.prototype = {
 				q.Bh = [];
 				q.Bh.length = r.tf.length;
 				for (var v = 0; v < (r.tf.length | 0); v++)
-					q.Bh[v] = new GameFramework.b.nn, d[r.tf[v].lj] = true;
-				o.oo = new GameFramework.b.$k;
+					q.Bh[v] = new GameFramework.resources.nn, d[r.tf[v].lj] = true;
+				o.oo = new GameFramework.resources.$k;
 				this.wA(o.oo);
 				r = this.C.Ga();
 				o.Z = [];
@@ -8265,21 +8265,21 @@ GameFramework.b.va.prototype = {
 					this.Qi("CEPoint");
 					this.C.fa();
 					this.C.fa();
-					var u = new GameFramework.b.$k;
+					var u = new GameFramework.resources.$k;
 					this.QK(u);
 					o.Z.push(u)
 				}
 				o.F = [];
-				o.F.length = GameFramework.b.$.p.Jh | 0;
-				for (r = 0; r < (GameFramework.b.$.p.Jh | 0); r++)
-					o.F[r] = new GameFramework.b.le;
+				o.F.length = GameFramework.resources.$.p.Jh | 0;
+				for (r = 0; r < (GameFramework.resources.$.p.Jh | 0); r++)
+					o.F[r] = new GameFramework.resources.le;
 				for (r = 0; r < 17; r++)
 					this.Bf(o.F[r]);
 				o.pr = this.C.H();
 				this.C.H();
-				this.Bf(o.F[GameFramework.b.$.p.Xg | 0]);
+				this.Bf(o.F[GameFramework.resources.$.p.Xg | 0]);
 				this.C.H();
-				this.Bf(o.F[GameFramework.b.$.p.a5 | 0]);
+				this.Bf(o.F[GameFramework.resources.$.p.a5 | 0]);
 				r = this.C.Ga();
 				for (v = 0; v < r; v++)
 					this.ni();
@@ -8300,7 +8300,7 @@ GameFramework.b.va.prototype = {
 				q.Kl = [];
 				q.Kl.length = r;
 				for (o = 0; o < q.Kl.length; o++)
-					q.Kl[o] = new GameFramework.b.nn;
+					q.Kl[o] = new GameFramework.resources.nn;
 				this.C.H();
 				this.C.fa();
 				this.C.fa()
@@ -8308,31 +8308,31 @@ GameFramework.b.va.prototype = {
 			j.Rh = [];
 			k = this.C.Ga();
 			for (l = 0; l < k; l++) {
-				m = new GameFramework.b.dA;
+				m = new GameFramework.resources.dA;
 				this.Qi("CDeflector");
 				m.sb = this.ni();
 				m.kG = this.C.fa();
 				m.bH = this.C.fa();
 				m.Hu = this.C.fa();
 				m.ec = this.C.oc();
-				m.qa = new GameFramework.b.$k;
+				m.qa = new GameFramework.resources.$k;
 				this.wA(m.qa);
 				q = this.C.Ga();
 				m.Z = [];
 				m.ac = [];
 				for (o = 0; o < q; o++)
-					this.Qi("CEPoint"), this.C.fa(), this.C.fa(), r = new GameFramework.b.$k, this
+					this.Qi("CEPoint"), this.C.fa(), this.C.fa(), r = new GameFramework.resources.$k, this
 							.QK(r), m.Z.push(r), m.ac
 							.push(new GameFramework.geom.ba);
-				m.yj = new GameFramework.b.le;
+				m.yj = new GameFramework.resources.le;
 				this.Bf(m.yj);
-				m.Hb = new GameFramework.b.le;
+				m.Hb = new GameFramework.resources.le;
 				this.Bf(m.Hb);
 				j.Rh.push(m)
 			}
 			k = this.C.Ga();
 			for (l = 0; l < k; l++) {
-				m = new GameFramework.b.cA;
+				m = new GameFramework.resources.cA;
 				this.Qi("CBlocker");
 				m.sb = this.ni();
 				this.C.H();
@@ -8340,23 +8340,23 @@ GameFramework.b.va.prototype = {
 				this.C.H();
 				this.C.H();
 				this.C.H();
-				m.qa = new GameFramework.b.$k;
+				m.qa = new GameFramework.resources.$k;
 				this.wA(m.qa);
 				q = this.C.Ga();
 				m.Z = [];
 				for (o = 0; o < q; o++)
-					this.Qi("CEPoint"), this.C.fa(), this.C.fa(), r = new GameFramework.b.$k, this
+					this.Qi("CEPoint"), this.C.fa(), this.C.fa(), r = new GameFramework.resources.$k, this
 							.QK(r), m.Z.push(r);
-				m.yj = new GameFramework.b.le;
+				m.yj = new GameFramework.resources.le;
 				this.Bf(m.yj);
-				m.Hb = new GameFramework.b.le;
+				m.Hb = new GameFramework.resources.le;
 				this.Bf(m.Hb);
 				j.j7.push(m)
 			}
-			j.de = new GameFramework.b.$k;
+			j.de = new GameFramework.resources.$k;
 			this.wA(j.de);
 			j.qO = j.de.G(0);
-			j.Hb = new GameFramework.b.le;
+			j.Hb = new GameFramework.resources.le;
 			this.Bf(j.Hb);
 			this.ni();
 			for (k = 0; k < 32; k++)
@@ -8369,11 +8369,11 @@ GameFramework.b.va.prototype = {
 			j.xi = [];
 			k = this.C.Ga();
 			for (l = 0; l < k; l++)
-				this.Qi("CForce"), m = new GameFramework.b.eA, m.sb = this.ni(), m.ec = this.C
-						.oc(), m.qa = new GameFramework.b.$k, this.wA(m.qa), m.yj = new GameFramework.b.le, this
-						.Bf(m.yj), this.Bf(new GameFramework.b.le), m.cD = new GameFramework.b.le, this
-						.Bf(m.cD), m.s = new GameFramework.b.le, this.Bf(m.s), m.z = new GameFramework.b.le, this
-						.Bf(m.z), m.Hb = new GameFramework.b.le, this.Bf(m.Hb), m.DB = new GameFramework.b.le, this
+				this.Qi("CForce"), m = new GameFramework.resources.eA, m.sb = this.ni(), m.ec = this.C
+						.oc(), m.qa = new GameFramework.resources.$k, this.wA(m.qa), m.yj = new GameFramework.resources.le, this
+						.Bf(m.yj), this.Bf(new GameFramework.resources.le), m.cD = new GameFramework.resources.le, this
+						.Bf(m.cD), m.s = new GameFramework.resources.le, this.Bf(m.s), m.z = new GameFramework.resources.le, this
+						.Bf(m.z), m.Hb = new GameFramework.resources.le, this.Bf(m.Hb), m.DB = new GameFramework.resources.le, this
 						.Bf(m.DB), j.xi.push(m);
 			for (j = 0; j < 28; j++)
 				this.C.eb()
@@ -8519,7 +8519,7 @@ GameFramework.b.va.prototype = {
 					for (m = 0; m < k.ej.length; m++)
 						this.oK(b, j.Kl[m]);
 					for (var m = b.H(), o = 0; o < m; o++) {
-						var q = new GameFramework.b.bt, r = b.Ga();
+						var q = new GameFramework.resources.bt, r = b.Ga();
 						q.Uf = this.ga.Hf[k.ej[r]];
 						q.Yh = null;
 						q.Jc = null;
@@ -8528,7 +8528,7 @@ GameFramework.b.va.prototype = {
 						r = q.Uf;
 						q.kg.Bh = [];
 						for (var v = 0; v < r.tf.length; v++) {
-							var u = new GameFramework.b.nn;
+							var u = new GameFramework.resources.nn;
 							q.kg.Bh.push(u);
 							this.oK(b, u)
 						}
@@ -8537,7 +8537,7 @@ GameFramework.b.va.prototype = {
 						j.$h.be++;
 						r = b.H();
 						for (v = 0; v < r; v++) {
-							u = new GameFramework.b.Ea;
+							u = new GameFramework.resources.Ea;
 							u.Uf = q.Uf;
 							u.Yh = q;
 							var y = b.Ga();
@@ -8555,7 +8555,7 @@ GameFramework.b.va.prototype = {
 					}
 					k = b.H();
 					for (m = 0; m < k; m++)
-						o = new GameFramework.b.Ea, o.Uf = l, o.Yh = null, q = b
+						o = new GameFramework.resources.Ea, o.Uf = l, o.Yh = null, q = b
 								.Ga(), o.Jc = o.Uf.tf[q], o.Im = j.Bh[q], o.Dm = m, this
 								.nK(b, f, o), this
 								.qj(f, j, o.Uf, o.Jc, j.Wb, o), m > 0
@@ -8629,15 +8629,15 @@ GameFramework.b.va.prototype = {
 	qj : function(b, c, d, f, g, h) {
 		var j = c.Wa, k = new GameFramework.geom.xb, l, m, o = new GameFramework.geom.xb, q;
 		if (f != null) {
-			m = f.fj.qf[h.bd / (2147483647 / GameFramework.b.yb.jn | 0) | 0];
+			m = f.fj.qf[h.bd / (2147483647 / GameFramework.resources.yb.jn | 0) | 0];
 			q = f.Xj[h.zp];
 			h.ai = q;
 			if (f.fh)
-				h.Bu = c.Wa.F[GameFramework.b.$.p.Wg | 0].G(this.A)
-						* (f.F[GameFramework.b.ua.p.Wg | 0].G(this.A) + h.lb[GameFramework.b.Ea.Sa.Wg
-								| 0]), h.Cu = c.Wa.F[GameFramework.b.$.p.Xg | 0]
+				h.Bu = c.Wa.F[GameFramework.resources.$.p.Wg | 0].G(this.A)
+						* (f.F[GameFramework.resources.ua.p.Wg | 0].G(this.A) + h.lb[GameFramework.resources.Ea.Sa.Wg
+								| 0]), h.Cu = c.Wa.F[GameFramework.resources.$.p.Xg | 0]
 						.G(this.A)
-						* (f.F[GameFramework.b.ua.p.Xg | 0].G(this.A) + h.lb[GameFramework.b.Ea.Sa.Xg
+						* (f.F[GameFramework.resources.ua.p.Xg | 0].G(this.A) + h.lb[GameFramework.resources.Ea.Sa.Xg
 								| 0]);
 			l = Math.max(m.jy * h.Bu, 1.5);
 			m = Math.max(m.ky * h.Cu, 1.5);
@@ -8654,8 +8654,8 @@ GameFramework.b.va.prototype = {
 			if (f.fh && (!f.fm || f.il))
 				r += j.Ln;
 			if (f != null && f.fh)
-				h.bi = c.Wa.F[GameFramework.b.$.p.Uq | 0].G(this.A)
-						* d.F[GameFramework.b.ma.p.Uq | 0].G(this.A, 1);
+				h.bi = c.Wa.F[GameFramework.resources.$.p.Uq | 0].G(this.A)
+						* d.F[GameFramework.resources.ma.p.Uq | 0].G(this.A, 1);
 			d = h.qa;
 			if (f.il)
 				j = new GameFramework.geom.xb, j.rotate(h.AH), j = k.Wd(j.Wd(d)), d.x = d.x
@@ -8715,32 +8715,32 @@ GameFramework.b.va.prototype = {
 		if (f != null)
 			g.$i = (((this.n >>> 24 & 255) * (b.n >>> 24 & 255) * 256 / 255 | 0)
 					/ 255 | 0)
-					* d.Wa.F[GameFramework.b.$.p.ZA | 0].G(this.A)
-					* c.F[GameFramework.b.ma.p.ZA | 0].G(this.A, 1)
-					* f.F[GameFramework.b.ua.p.ZA | 0].G(this.A) | 0, g.vi = f.F[GameFramework.b.ua.p.Ed
-					| 0].G(this.A), g.Cj = f.F[GameFramework.b.ua.p.md | 0]
-					.G(this.A), g.nl = f.F[GameFramework.b.ua.p.ud | 0]
+					* d.Wa.F[GameFramework.resources.$.p.ZA | 0].G(this.A)
+					* c.F[GameFramework.resources.ma.p.ZA | 0].G(this.A, 1)
+					* f.F[GameFramework.resources.ua.p.ZA | 0].G(this.A) | 0, g.vi = f.F[GameFramework.resources.ua.p.Ed
+					| 0].G(this.A), g.Cj = f.F[GameFramework.resources.ua.p.md | 0]
+					.G(this.A), g.nl = f.F[GameFramework.resources.ua.p.ud | 0]
 					.G(this.A);
 		if (g.ie % 25 == 0 && !h.Ac)
 			g.xG = g.ie == 0 ? this.P() * 0.5
-					* f.F[GameFramework.b.ua.p.cT | 0].G(this.A) / 2 : this.P()
-					* 0.75 * f.F[GameFramework.b.ua.p.cT | 0].G(this.A) / 2;
+					* f.F[GameFramework.resources.ua.p.cT | 0].G(this.A) / 2 : this.P()
+					* 0.75 * f.F[GameFramework.resources.ua.p.cT | 0].G(this.A) / 2;
 		g.ie++;
 		h.Ac
-				? b = c.F[GameFramework.b.ma.p.Xo | 0].G(this.A)
-						* d.Wa.F[GameFramework.b.$.p.Xo | 0].G(this.A)
+				? b = c.F[GameFramework.resources.ma.p.Xo | 0].G(this.A)
+						* d.Wa.F[GameFramework.resources.$.p.Xo | 0].G(this.A)
 				: (b = (h.bf
-						? c.F[GameFramework.b.ma.p.Xo | 0].G(this.A)
-						: d.Wa.F[GameFramework.b.$.p.Xo | 0].G(this.A))
-						* (f.F[GameFramework.b.ua.p.Xo | 0].G(this.A) + g.xG)
-						* c.F[GameFramework.b.ma.p.u0 | 0].G(m, 1), b = Math
+						? c.F[GameFramework.resources.ma.p.Xo | 0].G(this.A)
+						: d.Wa.F[GameFramework.resources.$.p.Xo | 0].G(this.A))
+						* (f.F[GameFramework.resources.ua.p.Xo | 0].G(this.A) + g.xG)
+						* c.F[GameFramework.resources.ma.p.u0 | 0].G(m, 1), b = Math
 						.max(0, b), h.bf && m >= 1 && (b = 0));
 		b *= d.EX;
 		if (h.Ac)
 			b *= 30;
 		else if (!h.bf)
 			switch (k.Gj) {
-				case GameFramework.b.$.ke.Qz :
+				case GameFramework.resources.$.ke.Qz :
 					if (k.Ud != 0)
 						b *= k.Ud;
 					else {
@@ -8751,31 +8751,31 @@ GameFramework.b.va.prototype = {
 						b *= o / 35
 					}
 					break;
-				case GameFramework.b.$.ke.tJ :
-					o = d.Wa.F[GameFramework.b.$.p.Fw | 0].G(this.A);
-					q = d.Wa.F[GameFramework.b.$.p.EF | 0].G(this.A);
+				case GameFramework.resources.$.ke.tJ :
+					o = d.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A);
+					q = d.Wa.F[GameFramework.resources.$.p.EF | 0].G(this.A);
 					b *= k.Ud != 0 ? k.Ud : 6.28318
 							* Math.sqrt((o * o + q * q) / 2) / 35;
 					break;
-				case GameFramework.b.$.ke.Zu :
-					o = d.Wa.F[GameFramework.b.$.p.Fw | 0].G(this.A);
+				case GameFramework.resources.$.ke.Zu :
+					o = d.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A);
 					b *= k.Ud != 0 ? k.Ud : 6.28318 * Math.sqrt(o * o) / 35;
 					break;
-				case GameFramework.b.$.ke.Fy :
+				case GameFramework.resources.$.ke.Fy :
 					k.Ud != 0
 							? b *= k.Ud * k.pr
-							: (o = d.Wa.F[GameFramework.b.$.p.Fw | 0].G(this.A), q = d.Wa.F[GameFramework.b.$.p.EF
+							: (o = d.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A), q = d.Wa.F[GameFramework.resources.$.p.EF
 									| 0].G(this.A), b *= 1 + o * q / 900 / 4)
 			}
-		g.ku += b / l * GameFramework.b.va.S7 * this.ga.jW;
+		g.ku += b / l * GameFramework.resources.va.S7 * this.ga.jW;
 		if (!k.Ac && !d.Co || !d.Ou)
 			g.ku = 0;
 		b = true;
 		if (!h.Ac && f.fh) {
-			k = k.Gj == GameFramework.b.$.ke.Qz
-					|| k.Gj == GameFramework.b.$.ke.Zu
+			k = k.Gj == GameFramework.resources.$.ke.Qz
+					|| k.Gj == GameFramework.resources.$.ke.Zu
 					? k.Ud
-					: k.Gj == GameFramework.b.$.ke.Fy ? k.Ud * k.pr : 1;
+					: k.Gj == GameFramework.resources.$.ke.Fy ? k.Ud * k.pr : 1;
 			k == 0 && (b = false, k = 1);
 			o = 0;
 			for (q = h.pd; q != null;)
@@ -8785,31 +8785,31 @@ GameFramework.b.va.prototype = {
 		for (; g.ku >= 1;) {
 			g.ku -= 1;
 			if (h.Ac) {
-				k = new GameFramework.b.bt;
+				k = new GameFramework.resources.bt;
 				k.kg.Bh = [];
 				for (o = 0; o < c.tf.length; o++)
-					k.kg.Bh.push(new GameFramework.b.nn)
+					k.kg.Bh.push(new GameFramework.resources.nn)
 			} else
-				k = new GameFramework.b.Ea;
+				k = new GameFramework.resources.Ea;
 			k.Jc = f;
 			k.Im = g;
 			k.Uf = c;
 			k.Yh = j;
 			k.Dm = g.uO++;
-			o = h.Ac ? d.Wa.F[GameFramework.b.$.p.xs | 0].G(this.A)
-					+ d.Wa.F[GameFramework.b.$.p.ys | 0].G(this.A) * this.P()
+			o = h.Ac ? d.Wa.F[GameFramework.resources.$.p.xs | 0].G(this.A)
+					+ d.Wa.F[GameFramework.resources.$.p.ys | 0].G(this.A) * this.P()
 					/ 2 : f.TY ? h.bf
-					? c.F[GameFramework.b.ma.p.xs | 0].G(this.A)
-							+ c.F[GameFramework.b.ma.p.ys | 0].G(this.A)
+					? c.F[GameFramework.resources.ma.p.xs | 0].G(this.A)
+							+ c.F[GameFramework.resources.ma.p.ys | 0].G(this.A)
 							* this.P() / 2
-					: d.Wa.F[GameFramework.b.$.p.xs | 0].G(this.A)
-							+ d.Wa.F[GameFramework.b.$.p.ys | 0].G(this.A)
-							* this.P() / 2 : f.F[GameFramework.b.ua.p.xs | 0]
+					: d.Wa.F[GameFramework.resources.$.p.xs | 0].G(this.A)
+							+ d.Wa.F[GameFramework.resources.$.p.ys | 0].G(this.A)
+							* this.P() / 2 : f.F[GameFramework.resources.ua.p.xs | 0]
 					.G(this.A)
-					+ f.F[GameFramework.b.ua.p.ys | 0].G(this.A) * this.P() / 2;
-			o = GameFramework.b.va.Rc(-o);
-			q = j != null ? j.Vc : GameFramework.b.va
-					.Rc(-d.Wa.F[GameFramework.b.$.p.Ru | 0].G(this.A));
+					+ f.F[GameFramework.resources.ua.p.ys | 0].G(this.A) * this.P() / 2;
+			o = GameFramework.resources.va.Rc(-o);
+			q = j != null ? j.Vc : GameFramework.resources.va
+					.Rc(-d.Wa.F[GameFramework.resources.$.p.Ru | 0].G(this.A));
 			o += q;
 			k.AH = q;
 			k.gm = f != null && f.$F ? GameFramework.h.Sk() & 32767 : 0;
@@ -8817,77 +8817,77 @@ GameFramework.b.va.prototype = {
 					&& (q = this.ga.gh[f.lj], k.zp = k.gm % q.zk, f.Fe == -1))
 				k.zp = k.gm % q.zk;
 			k.bi = h.bf
-					? c.F[GameFramework.b.ma.p.Uq | 0].G(this.A)
-					: d.Wa.F[GameFramework.b.$.p.Uq | 0].G(this.A);
+					? c.F[GameFramework.resources.ma.p.Uq | 0].G(this.A)
+					: d.Wa.F[GameFramework.resources.$.p.Uq | 0].G(this.A);
 			h.Ac
-					? (k.lb[GameFramework.b.Ea.Sa.Uk | 0] = this.Ti()
-							* c.F[GameFramework.b.ma.p.s0 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.Wg
+					? (k.lb[GameFramework.resources.Ea.Sa.Uk | 0] = this.Ti()
+							* c.F[GameFramework.resources.ma.p.s0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Wg
 							| 0] = this.P()
-							* c.F[GameFramework.b.ma.p.w0 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.Xg
+							* c.F[GameFramework.resources.ma.p.w0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Xg
 							| 0] = f == null || f.$N
-							? k.lb[GameFramework.b.Ea.Sa.Wg | 0]
+							? k.lb[GameFramework.resources.Ea.Sa.Wg | 0]
 							: this.P()
-									* c.F[GameFramework.b.ma.p.y0 | 0]
-											.G(this.A), k.lb[GameFramework.b.Ea.Sa.xj
+									* c.F[GameFramework.resources.ma.p.y0 | 0]
+											.G(this.A), k.lb[GameFramework.resources.Ea.Sa.xj
 							| 0] = this.Ti()
-							* c.F[GameFramework.b.ma.p.B0 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.Ed
+							* c.F[GameFramework.resources.ma.p.B0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Ed
 							| 0] = this.Ti()
-							* c.F[GameFramework.b.ma.p.C0 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.md
+							* c.F[GameFramework.resources.ma.p.C0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.md
 							| 0] = this.Ti()
-							* c.F[GameFramework.b.ma.p.z0 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.ud
+							* c.F[GameFramework.resources.ma.p.z0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.ud
 							| 0] = this.Ti()
-							* c.F[GameFramework.b.ma.p.t0 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.Ae
+							* c.F[GameFramework.resources.ma.p.t0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Ae
 							| 0] = this.Ti()
-							* c.F[GameFramework.b.ma.p.q0 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.Uq
+							* c.F[GameFramework.resources.ma.p.q0 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Uq
 							| 0] = this.Ti()
-							* c.F[GameFramework.b.ma.p.E0 | 0].G(this.A))
-					: (k.lb[GameFramework.b.Ea.Sa.Uk | 0] = this.Ti()
-							* f.F[GameFramework.b.ua.p.u2 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.Wg
+							* c.F[GameFramework.resources.ma.p.E0 | 0].G(this.A))
+					: (k.lb[GameFramework.resources.Ea.Sa.Uk | 0] = this.Ti()
+							* f.F[GameFramework.resources.ua.p.u2 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Wg
 							| 0] = this.Ti()
-							* f.F[GameFramework.b.ua.p.T3 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.Xg
+							* f.F[GameFramework.resources.ua.p.T3 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Xg
 							| 0] = f == null || f.$N
-							? k.lb[GameFramework.b.Ea.Sa.Wg | 0]
+							? k.lb[GameFramework.resources.Ea.Sa.Wg | 0]
 							: this.Ti()
-									* f.F[GameFramework.b.ua.p.PT | 0]
-											.G(this.A), k.lb[GameFramework.b.Ea.Sa.xj
+									* f.F[GameFramework.resources.ua.p.PT | 0]
+											.G(this.A), k.lb[GameFramework.resources.Ea.Sa.xj
 							| 0] = this.Ti()
-							* f.F[GameFramework.b.ua.p.H5 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.Ed
+							* f.F[GameFramework.resources.ua.p.H5 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Ed
 							| 0] = this.Ti()
-							* f.F[GameFramework.b.ua.p.K5 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.md
+							* f.F[GameFramework.resources.ua.p.K5 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.md
 							| 0] = this.Ti()
-							* f.F[GameFramework.b.ua.p.h4 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.ud
+							* f.F[GameFramework.resources.ua.p.h4 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.ud
 							| 0] = this.Ti()
-							* f.F[GameFramework.b.ua.p.D2 | 0].G(this.A), k.lb[GameFramework.b.Ea.Sa.Ae
+							* f.F[GameFramework.resources.ua.p.D2 | 0].G(this.A), k.lb[GameFramework.resources.Ea.Sa.Ae
 							| 0] = this.Ti()
-							* f.F[GameFramework.b.ua.p.CZ | 0].G(this.A), k.Bu = (h.bf
-							? c.F[GameFramework.b.ma.p.Wg | 0].G(this.A)
-							: d.Wa.F[GameFramework.b.$.p.Wg | 0].G(this.A))
-							* (f.F[GameFramework.b.ua.p.Wg | 0].G(this.A) + k.lb[GameFramework.b.Ea.Sa.Wg
+							* f.F[GameFramework.resources.ua.p.CZ | 0].G(this.A), k.Bu = (h.bf
+							? c.F[GameFramework.resources.ma.p.Wg | 0].G(this.A)
+							: d.Wa.F[GameFramework.resources.$.p.Wg | 0].G(this.A))
+							* (f.F[GameFramework.resources.ua.p.Wg | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.Wg
 									| 0]), k.Cu = (h.bf
-							? c.F[GameFramework.b.ma.p.Xg | 0].G(this.A)
-							: d.Wa.F[GameFramework.b.$.p.Xg | 0].G(this.A))
-							* (f.F[GameFramework.b.ua.p.Xg | 0].G(this.A) + k.lb[GameFramework.b.Ea.Sa.Xg
+							? c.F[GameFramework.resources.ma.p.Xg | 0].G(this.A)
+							: d.Wa.F[GameFramework.resources.$.p.Xg | 0].G(this.A))
+							* (f.F[GameFramework.resources.ua.p.Xg | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.Xg
 									| 0]), h.bf
-							&& (k.Bu *= (1 + j.lb[GameFramework.b.Ea.Sa.Wg | 0])
-									* c.F[GameFramework.b.ma.p.v0 | 0].G(m, 1), k.Cu *= (1 + j.lb[GameFramework.b.Ea.Sa.Xg
+							&& (k.Bu *= (1 + j.lb[GameFramework.resources.Ea.Sa.Wg | 0])
+									* c.F[GameFramework.resources.ma.p.v0 | 0].G(m, 1), k.Cu *= (1 + j.lb[GameFramework.resources.Ea.Sa.Xg
 									| 0])
-									* c.F[GameFramework.b.ma.p.x0 | 0].G(m, 1), k.bi *= (1 + j.lb[GameFramework.b.Ea.Sa.Uq
+									* c.F[GameFramework.resources.ma.p.x0 | 0].G(m, 1), k.bi *= (1 + j.lb[GameFramework.resources.Ea.Sa.Uq
 									| 0])
-									* c.F[GameFramework.b.ma.p.D0 | 0].G(m, 1)));
-			GameFramework.b.va.Qu.bs = o;
-			GameFramework.b.va.Qu.S6 = false;
+									* c.F[GameFramework.resources.ma.p.D0 | 0].G(m, 1)));
+			GameFramework.resources.va.Qu.bs = o;
+			GameFramework.resources.va.Qu.S6 = false;
 			k.tx = this.Ec();
 			k.ie = 0;
 			k.Ur = this.P();
 			k.Vc = 0;
 			k.Cr = h.Ac
-					? (c.F[GameFramework.b.ma.p.r0 | 0].G(this.A) + k.lb[GameFramework.b.Ea.Sa.Uk
+					? (c.F[GameFramework.resources.ma.p.r0 | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.Uk
 							| 0])
-							* 5 * d.Wa.F[GameFramework.b.$.p.Uk | 0].G(this.A)
+							* 5 * d.Wa.F[GameFramework.resources.$.p.Uk | 0].G(this.A)
 					: (h.bf
-							? c.F[GameFramework.b.ma.p.Uk | 0].G(this.A)
-							: d.Wa.F[GameFramework.b.$.p.Uk | 0].G(this.A))
-							* (f.F[GameFramework.b.ua.p.Uk | 0].G(this.A) + k.lb[GameFramework.b.Ea.Sa.Uk
+							? c.F[GameFramework.resources.ma.p.Uk | 0].G(this.A)
+							: d.Wa.F[GameFramework.resources.$.p.Uk | 0].G(this.A))
+							* (f.F[GameFramework.resources.ua.p.Uk | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.Uk
 									| 0]);
 			if (k.Cr <= 1.0E-8)
 				k.Dr = 1;
@@ -8907,32 +8907,32 @@ GameFramework.b.va.prototype = {
 				o = new GameFramework.geom.ba
 			} else
 				k.Gf = this.ov(d, true), k.Zn = k.Gf, b
-						&& (o = this.JJ(d, k, GameFramework.b.va.Qu).rg(k.Gf));
+						&& (o = this.JJ(d, k, GameFramework.resources.va.Qu).rg(k.Gf));
 			q = h.Ac
-					? d.Wa.F[GameFramework.b.$.p.xj | 0].G(this.A)
-							* (c.F[GameFramework.b.ma.p.A0 | 0].G(this.A) + k.lb[GameFramework.b.Ea.Sa.xj
+					? d.Wa.F[GameFramework.resources.$.p.xj | 0].G(this.A)
+							* (c.F[GameFramework.resources.ma.p.A0 | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.xj
 									| 0]) * 160
 					: (h.bf
-							? c.F[GameFramework.b.ma.p.xj | 0].G(this.A)
-							: d.Wa.F[GameFramework.b.$.p.xj | 0].G(this.A))
-							* (f.F[GameFramework.b.ua.p.xj | 0].G(this.A) + k.lb[GameFramework.b.Ea.Sa.xj
+							? c.F[GameFramework.resources.ma.p.xj | 0].G(this.A)
+							: d.Wa.F[GameFramework.resources.$.p.xj | 0].G(this.A))
+							* (f.F[GameFramework.resources.ua.p.xj | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.xj
 									| 0]);
 			k.qa = new GameFramework.geom.ba(0, 0);
-			k.Db = new GameFramework.geom.ba(Math.cos(GameFramework.b.va.Qu.bs)
-							* q, Math.sin(GameFramework.b.va.Qu.bs) * q);
+			k.Db = new GameFramework.geom.ba(Math.cos(GameFramework.resources.va.Qu.bs)
+							* q, Math.sin(GameFramework.resources.va.Qu.bs) * q);
 			if (!h.Ac)
 				f.br
 						? (k.Db.x == 0 && k.Db.y == 0
-								? (GameFramework.b.va.Qu.bs = 0, k.Vc = 0, f.fh
+								? (GameFramework.resources.va.Qu.bs = 0, k.Vc = 0, f.fh
 										&& f.fm
 										&& !f.il
-										&& (k.Vc += GameFramework.b.va
-												.Rc(d.Wa.F[GameFramework.b.$.p.Ru
+										&& (k.Vc += GameFramework.resources.va
+												.Rc(d.Wa.F[GameFramework.resources.$.p.Ru
 														| 0].G(this.A))))
-								: k.Vc = -GameFramework.b.va.Qu.bs, k.Vc += GameFramework.b.va
+								: k.Vc = -GameFramework.resources.va.Qu.bs, k.Vc += GameFramework.resources.va
 								.Rc(f.ar))
-						: k.Vc = f.HV ? GameFramework.b.va.Rc(-(f.GV + this.P()
-								* f.IV / 2)) : GameFramework.b.va.Rc(f.JV);
+						: k.Vc = f.HV ? GameFramework.resources.va.Rc(-(f.GV + this.P()
+								* f.IV / 2)) : GameFramework.resources.va.Rc(f.JV);
 			k.Jn = 4294967295;
 			k.kl = 0;
 			f != null
@@ -8950,7 +8950,7 @@ GameFramework.b.va.prototype = {
 			k.qa = new GameFramework.geom.ba;
 			k.mo = o;
 			q = new GameFramework.geom.xb;
-			q.rotate(-GameFramework.b.va.Rc(d.Wa.F[GameFramework.b.$.p.Ru | 0]
+			q.rotate(-GameFramework.resources.va.Rc(d.Wa.F[GameFramework.resources.$.p.Ru | 0]
 					.G(this.A)));
 			o = q.Wd(o);
 			k.Gf.x += o.x;
@@ -8991,8 +8991,8 @@ GameFramework.b.va.prototype = {
 			g.ie += 1 / f;
 			var q;
 			if (m != null && m.fh) {
-				q = c.Wa.F[GameFramework.b.$.p.Go | 0].gE(this.A);
-				var r = c.Wa.F[GameFramework.b.$.p.Go | 0].YR(this.A);
+				q = c.Wa.F[GameFramework.resources.$.p.Go | 0].gE(this.A);
+				var r = c.Wa.F[GameFramework.resources.$.p.Go | 0].YR(this.A);
 				q = q >= this.A && r == 1 ? Math.min(1, (this.A + j.SG)
 								/ Math.max(1, q)) : 0.02
 			} else
@@ -9029,44 +9029,44 @@ GameFramework.b.va.prototype = {
 							? Math
 									.max(
 											0,
-											c.Wa.F[GameFramework.b.$.p.ud | 0]
+											c.Wa.F[GameFramework.resources.$.p.ud | 0]
 													.G(this.A)
-													* l.F[GameFramework.b.ma.p.mR
+													* l.F[GameFramework.resources.ma.p.mR
 															| 0].G(q, 1)
-													* (l.F[GameFramework.b.ma.p.lR
-															| 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.ud
+													* (l.F[GameFramework.resources.ma.p.lR
+															| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.ud
 															| 0]))
 									* 30
 							: Math
 									.max(
 											0,
 											(d.bf
-													? l.F[GameFramework.b.ma.p.ud
+													? l.F[GameFramework.resources.ma.p.ud
 															| 0].G(this.A)
-													: c.Wa.F[GameFramework.b.$.p.ud
+													: c.Wa.F[GameFramework.resources.$.p.ud
 															| 0].G(this.A))
-													* m.F[GameFramework.b.ua.p.ud
+													* m.F[GameFramework.resources.ua.p.ud
 															| 0].G(q)
-													* (m.F[GameFramework.b.ua.p.ud
-															| 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.ud
+													* (m.F[GameFramework.resources.ua.p.ud
+															| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.ud
 															| 0]));
 					g.Db.x += r * u;
 					g.Db.y += v * u
 				}
 				r = d.Ac
-						? c.Wa.F[GameFramework.b.$.p.Ed | 0].G(this.A)
-								* (l.F[GameFramework.b.ma.p.rR | 0].G(q, 1) - 1)
-								* (l.F[GameFramework.b.ma.p.qR | 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.Ed
+						? c.Wa.F[GameFramework.resources.$.p.Ed | 0].G(this.A)
+								* (l.F[GameFramework.resources.ma.p.rR | 0].G(q, 1) - 1)
+								* (l.F[GameFramework.resources.ma.p.qR | 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ed
 										| 0]) / 2 * 100
-						: c.Wa.F[GameFramework.b.$.p.Ed | 0].G(this.A)
-								* (m.F[GameFramework.b.ua.p.LL | 0].G(q) - 1)
-								* (m.F[GameFramework.b.ua.p.Ed | 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.Ed
+						: c.Wa.F[GameFramework.resources.$.p.Ed | 0].G(this.A)
+								* (m.F[GameFramework.resources.ua.p.LL | 0].G(q) - 1)
+								* (m.F[GameFramework.resources.ua.p.Ed | 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ed
 										| 0]) * 100;
 				r *= 1 + (this.Vf - 100) * 5.0E-4;
 				g.Db.y += r / f;
 				r = d.Ac
-						? l.F[GameFramework.b.ma.p.pR | 0].G(q, 1)
-						: m.F[GameFramework.b.ua.p.KL | 0].G(q);
+						? l.F[GameFramework.resources.ma.p.pR | 0].G(q, 1)
+						: m.F[GameFramework.resources.ua.p.KL | 0].G(q);
 				r = new GameFramework.geom.ba(g.Db.x * r / f, g.Db.y * r / f);
 				v = null;
 				if (!o && h.Rh.length > 0) {
@@ -9091,30 +9091,30 @@ GameFramework.b.va.prototype = {
 								F = new GameFramework.geom.ba(D.x, D.y);
 								F.x = F.x * z.Hu * g.Ur;
 								F.y = F.y * z.Hu * g.Ur;
-								if (GameFramework.b.va.mK(o, v, B.add(F), G
+								if (GameFramework.resources.va.mK(o, v, B.add(F), G
 												.add(F)) != null
 										&& !(this.Ec() > z.bH)) {
 									v = z.kG;
 									v *= d.Ac
 											? (d.bf
-													? l.F[GameFramework.b.ma.p.Ae
+													? l.F[GameFramework.resources.ma.p.Ae
 															| 0].G(this.A)
-													: c.Wa.F[GameFramework.b.$.p.Ae
+													: c.Wa.F[GameFramework.resources.$.p.Ae
 															| 0].G(this.A))
-													* l.F[GameFramework.b.ma.p.AJ
+													* l.F[GameFramework.resources.ma.p.AJ
 															| 0].G(q, 1)
-													* (l.F[GameFramework.b.ma.p.zJ
-															| 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.Ae
+													* (l.F[GameFramework.resources.ma.p.zJ
+															| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ae
 															| 0])
 											: (d.bf
-													? l.F[GameFramework.b.ma.p.Ae
+													? l.F[GameFramework.resources.ma.p.Ae
 															| 0].G(this.A)
-													: c.Wa.F[GameFramework.b.$.p.Ae
+													: c.Wa.F[GameFramework.resources.$.p.Ae
 															| 0].G(this.A))
-													* m.F[GameFramework.b.ua.p.NI
+													* m.F[GameFramework.resources.ua.p.NI
 															| 0].G(q)
-													* (m.F[GameFramework.b.ua.p.Ae
-															| 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.Ae
+													* (m.F[GameFramework.resources.ua.p.Ae
+															| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ae
 															| 0]);
 									B = new GameFramework.geom.ba(r.x, r.y);
 									G = B.x * D.x + B.y * D.y;
@@ -9147,8 +9147,8 @@ GameFramework.b.va.prototype = {
 											+ u.ac[z].x)
 								y = !y;
 						y
-								&& (y = GameFramework.b.va.Rc(-u.DB.G(this.A))
-										+ GameFramework.b.va
+								&& (y = GameFramework.resources.va.Rc(-u.DB.G(this.A))
+										+ GameFramework.resources.va
 												.Rc(-u.Hb.G(this.A)), z = 0.085
 										* this.Vf / 100, z *= 1
 										+ (this.Vf - 100) * 0.0040, u = u.cD
@@ -9158,23 +9158,23 @@ GameFramework.b.va.prototype = {
 										* u * 100)
 					}
 				if (!d.Ac && m.br && m.fm)
-					g.Vc = Math.atan2(r.y, r.x) + GameFramework.b.va.Rc(m.ar)
+					g.Vc = Math.atan2(r.y, r.x) + GameFramework.resources.va.Rc(m.ar)
 			} else if (m.fh) {
 				r = false;
-				j.Gj == GameFramework.b.$.ke.Qz
-						|| j.Gj == GameFramework.b.$.ke.Zu
+				j.Gj == GameFramework.resources.$.ke.Qz
+						|| j.Gj == GameFramework.resources.$.ke.Zu
 						? r = j.Ud != 0
-						: j.Gj == GameFramework.b.$.ke.Fy
+						: j.Gj == GameFramework.resources.$.ke.Fy
 								&& (r = j.Ud * j.pr != 0);
 				if (r)
 					r = this.JJ(c, g), g.Gf = this.ov(c, true), g.Zn = g.Gf, g.mo = r
 							.rg(g.Gf), v = new GameFramework.geom.xb, v
-							.rotate(GameFramework.b.va
-									.Rc(c.Wa.F[GameFramework.b.$.p.Ru | 0]
+							.rotate(GameFramework.resources.va
+									.Rc(c.Wa.F[GameFramework.resources.$.p.Ru | 0]
 											.G(this.A))), r = v.Wd(r), g.Gf.x += r.x, g.Gf.y += r.y;
 				if (m.fm && !m.il)
 					r = j.oo.oS(this.A), g.Vc = r.x != 0 || r.y != 0 ? Math
-							.atan2(r.y, r.x) : 0, g.Vc += GameFramework.b.va
+							.atan2(r.y, r.x) : 0, g.Vc += GameFramework.resources.va
 							.Rc(m.ar)
 			}
 			if (m != null
@@ -9192,22 +9192,22 @@ GameFramework.b.va.prototype = {
 					g.jf = g.jf & 16777215 | y & 4278190080
 			}
 			d.Ac
-					? g.Vc += GameFramework.b.va
-							.Rc(-(c.Wa.F[GameFramework.b.$.p.md | 0].G(this.A)
-									* (l.F[GameFramework.b.ma.p.oR | 0].G(q, 1) - 1) * (l.F[GameFramework.b.ma.p.nR
-									| 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.md
+					? g.Vc += GameFramework.resources.va
+							.Rc(-(c.Wa.F[GameFramework.resources.$.p.md | 0].G(this.A)
+									* (l.F[GameFramework.resources.ma.p.oR | 0].G(q, 1) - 1) * (l.F[GameFramework.resources.ma.p.nR
+									| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.md
 									| 0])))
 							/ f * 160
 					: m.fm
-							|| (g.Vc += GameFramework.b.va
+							|| (g.Vc += GameFramework.resources.va
 									.Rc(-((d.bf
-											? l.F[GameFramework.b.ma.p.md | 0]
+											? l.F[GameFramework.resources.ma.p.md | 0]
 													.G(this.A)
-											: c.Wa.F[GameFramework.b.$.p.md | 0]
+											: c.Wa.F[GameFramework.resources.$.p.md | 0]
 													.G(this.A))
-											* (m.F[GameFramework.b.ua.p.XK | 0]
-													.G(q) - 1) * (m.F[GameFramework.b.ua.p.md
-											| 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.md
+											* (m.F[GameFramework.resources.ua.p.XK | 0]
+													.G(q) - 1) * (m.F[GameFramework.resources.ua.p.md
+											| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.md
 											| 0])))
 									/ f);
 			g = k
@@ -9219,8 +9219,8 @@ GameFramework.b.va.prototype = {
 			g.ie += 1 / f;
 			var q;
 			if (m != null && m.fh) {
-				q = c.Wa.F[GameFramework.b.$.p.Go | 0].gE(this.A);
-				var r = c.Wa.F[GameFramework.b.$.p.Go | 0].YR(this.A);
+				q = c.Wa.F[GameFramework.resources.$.p.Go | 0].gE(this.A);
+				var r = c.Wa.F[GameFramework.resources.$.p.Go | 0].YR(this.A);
 				q = q >= this.A && r == 1 ? Math.min(1, (this.A + j.SG)
 								/ Math.max(1, q)) : 0.02
 			} else
@@ -9241,46 +9241,46 @@ GameFramework.b.va.prototype = {
 								? Math
 										.max(
 												0,
-												c.Wa.F[GameFramework.b.$.p.ud
+												c.Wa.F[GameFramework.resources.$.p.ud
 														| 0].G(this.A)
-														* l.F[GameFramework.b.ma.p.mR
+														* l.F[GameFramework.resources.ma.p.mR
 																| 0].G(q, 1)
-														* (l.F[GameFramework.b.ma.p.lR
-																| 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.ud
+														* (l.F[GameFramework.resources.ma.p.lR
+																| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.ud
 																| 0]))
 										* 30
 								: Math
 										.max(
 												0,
 												(d.bf
-														? l.F[GameFramework.b.ma.p.ud
+														? l.F[GameFramework.resources.ma.p.ud
 																| 0].G(this.A)
-														: c.Wa.F[GameFramework.b.$.p.ud
+														: c.Wa.F[GameFramework.resources.$.p.ud
 																| 0].G(this.A))
-														* m.F[GameFramework.b.ua.p.VS
+														* m.F[GameFramework.resources.ua.p.VS
 																| 0].G(q)
-														* (m.F[GameFramework.b.ua.p.ud
-																| 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.ud
+														* (m.F[GameFramework.resources.ua.p.ud
+																| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.ud
 																| 0]));
 						g.Db.x += r * u;
 						g.Db.y += v * u
 					}
 					r = d.Ac
-							? c.Wa.F[GameFramework.b.$.p.Ed | 0].G(this.A)
-									* (l.F[GameFramework.b.ma.p.rR | 0].G(q, 1) - 1)
-									* (l.F[GameFramework.b.ma.p.qR | 0]
-											.G(this.A) + g.lb[GameFramework.b.Ea.Sa.Ed
+							? c.Wa.F[GameFramework.resources.$.p.Ed | 0].G(this.A)
+									* (l.F[GameFramework.resources.ma.p.rR | 0].G(q, 1) - 1)
+									* (l.F[GameFramework.resources.ma.p.qR | 0]
+											.G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ed
 											| 0]) / 2 * 100
-							: c.Wa.F[GameFramework.b.$.p.Ed | 0].G(this.A)
-									* (m.F[GameFramework.b.ua.p.LL | 0].G(q) - 1)
-									* (m.F[GameFramework.b.ua.p.Ed | 0]
-											.G(this.A) + g.lb[GameFramework.b.Ea.Sa.Ed
+							: c.Wa.F[GameFramework.resources.$.p.Ed | 0].G(this.A)
+									* (m.F[GameFramework.resources.ua.p.LL | 0].G(q) - 1)
+									* (m.F[GameFramework.resources.ua.p.Ed | 0]
+											.G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ed
 											| 0]) * 100;
 					r *= 1 + (this.Vf - 100) * 5.0E-4;
 					g.Db.y += r / f;
 					r = d.Ac
-							? l.F[GameFramework.b.ma.p.pR | 0].G(q, 1)
-							: m.F[GameFramework.b.ua.p.KL | 0].G(q);
+							? l.F[GameFramework.resources.ma.p.pR | 0].G(q, 1)
+							: m.F[GameFramework.resources.ua.p.KL | 0].G(q);
 					r = new GameFramework.geom.ba(g.Db.x * r / f, g.Db.y * r / f);
 					v = null;
 					if (!o && h.Rh.length > 0) {
@@ -9306,30 +9306,30 @@ GameFramework.b.va.prototype = {
 									F = new GameFramework.geom.ba(D.x, D.y);
 									F.x = F.x * z.Hu * g.Ur;
 									F.y = F.y * z.Hu * g.Ur;
-									if (GameFramework.b.va.mK(o, v, B.add(F), G
+									if (GameFramework.resources.va.mK(o, v, B.add(F), G
 													.add(F)) != null
 											&& !(this.Ec() > z.bH)) {
 										v = z.kG;
 										v *= d.Ac
 												? (d.bf
-														? l.F[GameFramework.b.ma.p.Ae
+														? l.F[GameFramework.resources.ma.p.Ae
 																| 0].G(this.A)
-														: c.Wa.F[GameFramework.b.$.p.Ae
+														: c.Wa.F[GameFramework.resources.$.p.Ae
 																| 0].G(this.A))
-														* l.F[GameFramework.b.ma.p.AJ
+														* l.F[GameFramework.resources.ma.p.AJ
 																| 0].G(q, 1)
-														* (l.F[GameFramework.b.ma.p.zJ
-																| 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.Ae
+														* (l.F[GameFramework.resources.ma.p.zJ
+																| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ae
 																| 0])
 												: (d.bf
-														? l.F[GameFramework.b.ma.p.Ae
+														? l.F[GameFramework.resources.ma.p.Ae
 																| 0].G(this.A)
-														: c.Wa.F[GameFramework.b.$.p.Ae
+														: c.Wa.F[GameFramework.resources.$.p.Ae
 																| 0].G(this.A))
-														* m.F[GameFramework.b.ua.p.NI
+														* m.F[GameFramework.resources.ua.p.NI
 																| 0].G(q)
-														* (m.F[GameFramework.b.ua.p.Ae
-																| 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.Ae
+														* (m.F[GameFramework.resources.ua.p.Ae
+																| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ae
 																| 0]);
 										B = new GameFramework.geom.ba(r.x, r.y);
 										G = B.x * D.x + B.y * D.y;
@@ -9364,9 +9364,9 @@ GameFramework.b.va.prototype = {
 												+ u.ac[z].x)
 									y = !y;
 							y
-									&& (y = GameFramework.b.va.Rc(-u.DB
+									&& (y = GameFramework.resources.va.Rc(-u.DB
 											.G(this.A))
-											+ GameFramework.b.va.Rc(-u.Hb
+											+ GameFramework.resources.va.Rc(-u.Hb
 													.G(this.A)), z = 0.085
 											* this.Vf / 100, z *= 1
 											+ (this.Vf - 100) * 0.0040, u = u.cD
@@ -9377,23 +9377,23 @@ GameFramework.b.va.prototype = {
 						}
 					if (!d.Ac && m.br && m.fm)
 						g.Vc = Math.atan2(r.y, r.x)
-								+ GameFramework.b.va.Rc(m.ar)
+								+ GameFramework.resources.va.Rc(m.ar)
 				} else if (m.fh) {
 					r = false;
-					j.Gj == GameFramework.b.$.ke.Qz
-							|| j.Gj == GameFramework.b.$.ke.Zu
+					j.Gj == GameFramework.resources.$.ke.Qz
+							|| j.Gj == GameFramework.resources.$.ke.Zu
 							? r = j.Ud != 0
-							: j.Gj == GameFramework.b.$.ke.Fy
+							: j.Gj == GameFramework.resources.$.ke.Fy
 									&& (r = j.Ud * j.pr != 0);
 					if (r)
 						r = this.JJ(c, g), g.Gf = this.ov(c, true), g.Zn = g.Gf, g.mo = r
 								.rg(g.Gf), v = new GameFramework.geom.xb, v
-								.rotate(GameFramework.b.va
-										.Rc(c.Wa.F[GameFramework.b.$.p.Ru | 0]
+								.rotate(GameFramework.resources.va
+										.Rc(c.Wa.F[GameFramework.resources.$.p.Ru | 0]
 												.G(this.A))), r = v.Wd(r), g.Gf.x += r.x, g.Gf.y += r.y;
 					if (m.fm && !m.il)
 						r = j.oo.oS(this.A), g.Vc = r.x != 0 || r.y != 0 ? Math
-								.atan2(r.y, r.x) : 0, g.Vc += GameFramework.b.va
+								.atan2(r.y, r.x) : 0, g.Vc += GameFramework.resources.va
 								.Rc(m.ar)
 				}
 				if (m != null
@@ -9411,24 +9411,24 @@ GameFramework.b.va.prototype = {
 						g.jf = g.jf & 16777215 | y & 4278190080
 				}
 				d.Ac
-						? g.Vc += GameFramework.b.va
-								.Rc(-(c.Wa.F[GameFramework.b.$.p.md | 0]
+						? g.Vc += GameFramework.resources.va
+								.Rc(-(c.Wa.F[GameFramework.resources.$.p.md | 0]
 										.G(this.A)
-										* (l.F[GameFramework.b.ma.p.oR | 0].G(
-												q, 1) - 1) * (l.F[GameFramework.b.ma.p.nR
-										| 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.md
+										* (l.F[GameFramework.resources.ma.p.oR | 0].G(
+												q, 1) - 1) * (l.F[GameFramework.resources.ma.p.nR
+										| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.md
 										| 0])))
 								/ f * 160
 						: m.fm
-								|| (g.Vc += GameFramework.b.va
+								|| (g.Vc += GameFramework.resources.va
 										.Rc(-((d.bf
-												? l.F[GameFramework.b.ma.p.md
+												? l.F[GameFramework.resources.ma.p.md
 														| 0].G(this.A)
-												: c.Wa.F[GameFramework.b.$.p.md
+												: c.Wa.F[GameFramework.resources.$.p.md
 														| 0].G(this.A))
-												* (m.F[GameFramework.b.ua.p.XK
-														| 0].G(q) - 1) * (m.F[GameFramework.b.ua.p.md
-												| 0].G(this.A) + g.lb[GameFramework.b.Ea.Sa.md
+												* (m.F[GameFramework.resources.ua.p.XK
+														| 0].G(q) - 1) * (m.F[GameFramework.resources.ua.p.md
+												| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.md
 												| 0])))
 										/ f)
 			}
@@ -9436,11 +9436,11 @@ GameFramework.b.va.prototype = {
 		}
 	},
 	IL : function(b, c, d) {
-		if (GameFramework.b.va.sh == -1) {
-			GameFramework.b.va.An = Array.O(1024, null);
+		if (GameFramework.resources.va.sh == -1) {
+			GameFramework.resources.va.An = Array.O(1024, null);
 			for (var f = 0; f < 1024; f++)
-				GameFramework.b.va.An[f] = this.P() * this.P();
-			GameFramework.b.va.sh = 0
+				GameFramework.resources.va.An[f] = this.P() * this.P();
+			GameFramework.resources.va.sh = 0
 		}
 		if (d.ux)
 			this.y5(b, c, d);
@@ -9448,7 +9448,7 @@ GameFramework.b.va.prototype = {
 			this.x5(b, c, d);
 		else {
 			var f = 1E3 / this.Le / this.Fe, g = (1 + (this.Vf - 100) * 5.0E-4)
-					/ f, h = -GameFramework.b.va.Rc(1 / f), j = d.pd, k = b.xk, l = null, m = null, o = null, q = k.xi.length > 0
+					/ f, h = -GameFramework.resources.va.Rc(1 / f), j = d.pd, k = b.xk, l = null, m = null, o = null, q = k.xi.length > 0
 					&& k.Rh.length > 0, r = d.SB, v = false, u = 0, y = 0, z = 0, A = 0, B = 0, G = 0;
 			if (!c.Co)
 				for (r = d.pd; r != null;) {
@@ -9460,14 +9460,14 @@ GameFramework.b.va.prototype = {
 				for (r = false; j != null;) {
 					m = j.gd;
 					if (l != j.Jc)
-						o = j.Uf, l = j.Jc, u = c.Wa.F[GameFramework.b.$.p.Ed
+						o = j.Uf, l = j.Jc, u = c.Wa.F[GameFramework.resources.$.p.Ed
 								| 0].G(this.A)
-								* 100, y = l.F[GameFramework.b.ua.p.Ed | 0]
-								.G(this.A), z = c.Wa.F[GameFramework.b.$.p.md
+								* 100, y = l.F[GameFramework.resources.ua.p.Ed | 0]
+								.G(this.A), z = c.Wa.F[GameFramework.resources.$.p.md
 								| 0].G(this.A)
-								* h, A = l.F[GameFramework.b.ua.p.md | 0]
-								.G(this.A), B = c.Wa.F[GameFramework.b.$.p.ud
-								| 0].G(this.A), G = l.F[GameFramework.b.ua.p.ud
+								* h, A = l.F[GameFramework.resources.ua.p.md | 0]
+								.G(this.A), B = c.Wa.F[GameFramework.resources.$.p.ud
+								| 0].G(this.A), G = l.F[GameFramework.resources.ua.p.ud
 								| 0].G(this.A), v = l != null
 								&& (l.rx || l.Ku || l.sx || l.Lu), r = this.ga.gh[l.lj], r = l.Fe != -1
 								&& r.zk > 1;
@@ -9476,26 +9476,26 @@ GameFramework.b.va.prototype = {
 						this.Ds(this, j, d);
 					else {
 						D = l.fj.qf[j.bd
-								/ (2147483647 / GameFramework.b.yb.jn | 0) | 0];
+								/ (2147483647 / GameFramework.resources.yb.jn | 0) | 0];
 						if (r)
 							j.zp = ((j.ie * this.Vf / (l.Fe + 1) | 0) + j.gm)
 									% this.ga.gh[l.lj].zk;
 						if (this.vr) {
-							var F = GameFramework.b.va.An[GameFramework.b.va.sh], P = GameFramework.b.va.An[GameFramework.b.va.sh
+							var F = GameFramework.resources.va.An[GameFramework.resources.va.sh], P = GameFramework.resources.va.An[GameFramework.resources.va.sh
 									+ 1];
-							GameFramework.b.va.sh = (GameFramework.b.va.sh + 2)
+							GameFramework.resources.va.sh = (GameFramework.resources.va.sh + 2)
 									% 1024;
 							var Z = B * D.mC
-									* (G + j.lb[GameFramework.b.Ea.Sa.ud | 0]);
+									* (G + j.lb[GameFramework.resources.Ea.Sa.ud | 0]);
 							Z > 0 && (j.Db.x += F * Z, j.Db.y += P * Z)
 						}
-						F = u * D.Nu * (y + j.lb[GameFramework.b.Ea.Sa.Ed | 0]);
+						F = u * D.Nu * (y + j.lb[GameFramework.resources.Ea.Sa.Ed | 0]);
 						F *= g;
 						j.Db.y += F;
 						F = new GameFramework.geom.ba(j.Db.x / f * D.Gk, j.Db.y
 										/ f * D.Gk);
 						q
-								? GameFramework.b.va.i2(this, b, c, o, l, d, F,
+								? GameFramework.resources.va.i2(this, b, c, o, l, d, F,
 										k, j)
 								: (j.qa.x += F.x, j.qa.y += F.y);
 						if (v
@@ -9513,10 +9513,10 @@ GameFramework.b.va.prototype = {
 						if (l.br) {
 							if (l.fm)
 								j.Vc = Math.atan2(F.y, F.x)
-										+ GameFramework.b.va.Rc(l.ar)
+										+ GameFramework.resources.va.Rc(l.ar)
 						} else
 							j.Vc += z * D.Au
-									* (A + j.lb[GameFramework.b.Ea.Sa.md | 0])
+									* (A + j.lb[GameFramework.resources.Ea.Sa.md | 0])
 					}
 					j = m
 				}
@@ -9531,19 +9531,19 @@ GameFramework.b.va.prototype = {
 						this.Ds(this, j, d);
 					else {
 						c = l.fj.qf[j.bd
-								/ (2147483647 / GameFramework.b.yb.jn | 0) | 0];
+								/ (2147483647 / GameFramework.resources.yb.jn | 0) | 0];
 						if (r)
 							j.ie += 1 / f, j.zp = ((j.ie * this.Vf / (l.Fe + 1) | 0) + j.gm)
 									% this.ga.gh[l.lj].zk;
 						if (this.vr)
-							g = GameFramework.b.va.An[GameFramework.b.va.sh], h = GameFramework.b.va.An[GameFramework.b.va.sh
-									+ 1], GameFramework.b.va.sh = (GameFramework.b.va.sh + 2)
+							g = GameFramework.resources.va.An[GameFramework.resources.va.sh], h = GameFramework.resources.va.An[GameFramework.resources.va.sh
+									+ 1], GameFramework.resources.va.sh = (GameFramework.resources.va.sh + 2)
 									% 1024, k = o.nl
 									* c.mC
-									* (m.nl + j.lb[GameFramework.b.Ea.Sa.ud | 0]), k > 0
+									* (m.nl + j.lb[GameFramework.resources.Ea.Sa.ud | 0]), k > 0
 									&& (j.Db.x += g * k, j.Db.y += h * k);
 						g = o.vi * c.Nu
-								* (m.vi + j.lb[GameFramework.b.Ea.Sa.Ed | 0]);
+								* (m.vi + j.lb[GameFramework.resources.Ea.Sa.Ed | 0]);
 						j.Db.y += g;
 						h = j.Db.x / f * c.Gk;
 						k = j.Db.y / f * c.Gk;
@@ -9553,10 +9553,10 @@ GameFramework.b.va.prototype = {
 						if (l.br) {
 							if (l.fm)
 								j.Vc = Math.atan2(k, h)
-										+ GameFramework.b.va.Rc(l.ar)
+										+ GameFramework.resources.va.Rc(l.ar)
 						} else
 							j.Vc += z * c.Au
-									* (A + j.lb[GameFramework.b.Ea.Sa.md | 0])
+									* (A + j.lb[GameFramework.resources.Ea.Sa.md | 0])
 					}
 					j = b
 				}
@@ -9567,30 +9567,30 @@ GameFramework.b.va.prototype = {
 					z = j.gd, l = j.Jc, m = j.Im, o = j.Uf, j.bd += j.Dl, (j.bd & 2147483648) != 0
 							? this.Ds(this, j, d)
 							: (l = l.fj.qf[j.bd
-									/ (2147483647 / GameFramework.b.yb.jn | 0)
-									| 0], A = GameFramework.b.va.An[GameFramework.b.va.sh], r = GameFramework.b.va.An[GameFramework.b.va.sh
-									+ 1], GameFramework.b.va.sh = (GameFramework.b.va.sh + 2)
+									/ (2147483647 / GameFramework.resources.yb.jn | 0)
+									| 0], A = GameFramework.resources.va.An[GameFramework.resources.va.sh], r = GameFramework.resources.va.An[GameFramework.resources.va.sh
+									+ 1], GameFramework.resources.va.sh = (GameFramework.resources.va.sh + 2)
 									% 1024, b = o.nl
 									* l.mC
-									* (m.nl + j.lb[GameFramework.b.Ea.Sa.ud | 0]), b > 0
+									* (m.nl + j.lb[GameFramework.resources.Ea.Sa.ud | 0]), b > 0
 									&& (j.Db.x += A * b, j.Db.y += r * b), j.Db.y += o.vi
 									* l.Nu
-									* (m.vi + j.lb[GameFramework.b.Ea.Sa.Ed | 0]), j.qa.x += j.Db.x
+									* (m.vi + j.lb[GameFramework.resources.Ea.Sa.Ed | 0]), j.qa.x += j.Db.x
 									/ f * l.Gk, j.qa.y += j.Db.y / f * l.Gk, j.Vc += o.Cj
 									* l.Au
-									* (m.Cj + j.lb[GameFramework.b.Ea.Sa.md | 0])), j = z;
+									* (m.Cj + j.lb[GameFramework.resources.Ea.Sa.md | 0])), j = z;
 			else
 				for (; j != null;)
 					z = j.gd, l = j.Jc, m = j.Im, o = j.Uf, j.bd += j.Dl, (j.bd & 2147483648) != 0
 							? this.Ds(this, j, d)
 							: (l = l.fj.qf[j.bd
-									/ (2147483647 / GameFramework.b.yb.jn | 0)
+									/ (2147483647 / GameFramework.resources.yb.jn | 0)
 									| 0], j.Db.y += o.vi
 									* l.Nu
-									* (m.vi + j.lb[GameFramework.b.Ea.Sa.Ed | 0]), j.qa.x += j.Db.x
+									* (m.vi + j.lb[GameFramework.resources.Ea.Sa.Ed | 0]), j.qa.x += j.Db.x
 									/ f * l.Gk, j.qa.y += j.Db.y / f * l.Gk, j.Vc += o.Cj
 									* l.Au
-									* (m.Cj + j.lb[GameFramework.b.Ea.Sa.md | 0])), j = z
+									* (m.Cj + j.lb[GameFramework.resources.Ea.Sa.md | 0])), j = z
 		}
 	},
 	ca : function() {
@@ -9610,18 +9610,18 @@ GameFramework.b.va.prototype = {
 					for (b = 0; b < (this.ga.Kf.length | 0); b++) {
 						var f = this.ga.Kf[b], g = this.xh[b];
 						g.bx = f.de.G(this.A).rg(f.qO);
-						g.Ln = -GameFramework.b.va.Rc(f.Hb.G(this.A));
+						g.Ln = -GameFramework.resources.va.Rc(f.Hb.G(this.A));
 						if (g.ec) {
 							for (var h = 0; h < (f.Rh.length | 0); h++) {
 								var j = f.Rh[h], k = new GameFramework.geom.xb, l = j.Hb
 										.G(this.A);
-								l != 0 && k.rotate(GameFramework.b.va.Rc(l));
+								l != 0 && k.rotate(GameFramework.resources.va.Rc(l));
 								l = j.qa.G(this.A);
 								k.translate(l.x, l.y);
 								l = f.de.G(this.A);
 								k.translate(l.x, l.y);
 								l = f.Hb.G(this.A);
-								l != 0 && k.rotate(GameFramework.b.va.Rc(l));
+								l != 0 && k.rotate(GameFramework.resources.va.Rc(l));
 								k.concat(this.za);
 								for (l = 0; l < (j.Z.length | 0); l++)
 									j.ac[l] = k.Wd(j.Z[l].G(this.A))
@@ -9631,13 +9631,13 @@ GameFramework.b.va.prototype = {
 								k = new GameFramework.geom.xb;
 								k.scale(j.s.G(this.A) / 2, j.z.G(this.A) / 2);
 								l = j.Hb.G(this.A);
-								l != 0 && k.rotate(GameFramework.b.va.Rc(l));
+								l != 0 && k.rotate(GameFramework.resources.va.Rc(l));
 								l = j.qa.G(this.A);
 								k.translate(l.x, l.y);
 								l = f.de.G(this.A);
 								k.translate(l.x, l.y);
 								l = f.Hb.G(this.A);
-								l != 0 && k.rotate(GameFramework.b.va.Rc(l));
+								l != 0 && k.rotate(GameFramework.resources.va.Rc(l));
 								k.concat(this.za);
 								for (var l = Array.O(5, 5,
 										new GameFramework.geom.ba(-1, -1),
@@ -9651,13 +9651,13 @@ GameFramework.b.va.prototype = {
 								j = f.Uh[h];
 								k = g.mf[h];
 								k.gD = k.sy;
-								j.Ln = GameFramework.b.va
-										.Rc(j.F[GameFramework.b.$.p.Ru | 0]
+								j.Ln = GameFramework.resources.va
+										.Rc(j.F[GameFramework.resources.$.p.Ru | 0]
 												.G(this.A));
 								for (var m = l = 0, o = 1; k.ec && o > 0;) {
 									m = l = 0;
 									o--;
-									var q = j.F[GameFramework.b.$.p.Go | 0]
+									var q = j.F[GameFramework.resources.$.p.Go | 0]
 											.oq(this.A) > 0.99;
 									q
 											? k.Co
@@ -9665,10 +9665,10 @@ GameFramework.b.va.prototype = {
 															| 0)
 											: o = 0;
 									k.Co = q;
-									var r = j.F[GameFramework.b.$.p.Go | 0]
-											.i1(this.Dp + 1), v = j.F[GameFramework.b.$.p.Go
+									var r = j.F[GameFramework.resources.$.p.Go | 0]
+											.i1(this.Dp + 1), v = j.F[GameFramework.resources.$.p.Go
 											| 0].oq(this.Dp + 1);
-									k.Ou = this.A >= j.F[GameFramework.b.$.p.Go
+									k.Ou = this.A >= j.F[GameFramework.resources.$.p.Go
 											| 0].gE(0)
 											&& (this.A < r || v > 0.99)
 											&& (this.tm || this.A < this.Dp);
@@ -9677,15 +9677,15 @@ GameFramework.b.va.prototype = {
 										for (q = 0; q < (j.ej.length | 0); q++) {
 											var r = this.ga.Hf[j.ej[q]], v = (1 + (this.Vf - 100)
 													* 5.0E-4)
-													/ d, u = -GameFramework.b.va
+													/ d, u = -GameFramework.resources.va
 													.Rc(1 / d);
-											r.vi = r.F[GameFramework.b.ma.p.Ed
+											r.vi = r.F[GameFramework.resources.ma.p.Ed
 													| 0].G(this.A)
 													* 100 * v;
-											r.Cj = r.F[GameFramework.b.ma.p.md
+											r.Cj = r.F[GameFramework.resources.ma.p.md
 													| 0].G(this.A)
 													* u;
-											r.nl = r.F[GameFramework.b.ma.p.ud
+											r.nl = r.F[GameFramework.resources.ma.p.ud
 													| 0].G(this.A);
 											this.HL(g, r, k, null, k.Kl[q], k.$h,
 													null)
@@ -9706,14 +9706,14 @@ GameFramework.b.va.prototype = {
 										q = this.ga.Hf[j.um];
 										r = k;
 										v = (1 + (this.Vf - 100) * 5.0E-4) / d;
-										u = -GameFramework.b.va.Rc(1 / d);
-										q.vi = r.Wa.F[GameFramework.b.$.p.Ed
+										u = -GameFramework.resources.va.Rc(1 / d);
+										q.vi = r.Wa.F[GameFramework.resources.$.p.Ed
 												| 0].G(this.A)
 												* 100 * v;
-										q.Cj = r.Wa.F[GameFramework.b.$.p.md
+										q.Cj = r.Wa.F[GameFramework.resources.$.p.md
 												| 0].G(this.A)
 												* u;
-										q.nl = r.Wa.F[GameFramework.b.$.p.ud
+										q.nl = r.Wa.F[GameFramework.resources.$.p.ud
 												| 0].G(this.A);
 										for (r = 0; (r | 0) < (q.tf.length | 0); r++)
 											this.HL(g, q, k, q.tf[r], k.Bh[r],
@@ -9742,12 +9742,12 @@ GameFramework.b.va.prototype = {
 								&& g;
 					if (!q) {
 						if (m != v.Uf)
-							m = v.Uf, o = d.Wa.F[GameFramework.b.$.p.ep | 0]
+							m = v.Uf, o = d.Wa.F[GameFramework.resources.$.p.ep | 0]
 									.G(this.A)
-									* m.F[GameFramework.b.ma.p.ep | 0].G(
+									* m.F[GameFramework.resources.ma.p.ep | 0].G(
 											this.A, 1);
 						var y = k.fj.qf[v.bd
-								/ (2147483647 / GameFramework.b.yb.jn | 0) | 0].n;
+								/ (2147483647 / GameFramework.resources.yb.jn | 0) | 0].n;
 						k.rx && (y = y & 4278190080 | v.jf & 16777215);
 						k.sx && (y = y & 16777215 | v.jf & 4278190080);
 						o != 0 && (y = this.zq(y, d.sy, o));
@@ -9790,14 +9790,14 @@ GameFramework.b.va.prototype = {
 				if (!g) {
 					g = f.pd;
 					if (g != null)
-						l = g.Im, m = g.Uf, o = d.Wa.F[GameFramework.b.$.p.ep
+						l = g.Im, m = g.Uf, o = d.Wa.F[GameFramework.resources.$.p.ep
 								| 0].G(this.A)
-								* m.F[GameFramework.b.ma.p.ep | 0].G(this.A, 1);
+								* m.F[GameFramework.resources.ma.p.ep | 0].G(this.A, 1);
 					for (; g != null;) {
 						q = g.gd;
 						k = g.Jc;
 						r = k.fj.qf[g.bd
-								/ (2147483647 / GameFramework.b.yb.jn | 0) | 0].n
+								/ (2147483647 / GameFramework.resources.yb.jn | 0) | 0].n
 								& g.Jn | g.kl;
 						o != 0 && (r = this.zq(r, d.gD, o));
 						j
@@ -9845,9 +9845,9 @@ GameFramework.b.va.prototype = {
 					g = 1E3 / this.Le / this.Fe;
 					q = f.pd;
 					if (q != null)
-						l = q.Im, m = q.Uf, o = d.Wa.F[GameFramework.b.$.p.ep
+						l = q.Im, m = q.Uf, o = d.Wa.F[GameFramework.resources.$.p.ep
 								| 0].G(this.A)
-								* m.F[GameFramework.b.ma.p.ep | 0].G(this.A, 1);
+								* m.F[GameFramework.resources.ma.p.ep | 0].G(this.A, 1);
 					if (this.vr)
 						for (; q != null;) {
 							r = q.gd;
@@ -9855,20 +9855,20 @@ GameFramework.b.va.prototype = {
 							q.bd += q.Dl;
 							if ((q.bd & 2147483648) != 0)
 								this.Ds(this, q, f);
-							else if (u = q.bd >> GameFramework.b.yb.Uo, v = k.fj.qf[u], u = k.fj.qf[u
-									+ 1], z = (q.bd & (1 << GameFramework.b.yb.Uo)
+							else if (u = q.bd >> GameFramework.resources.yb.Uo, v = k.fj.qf[u], u = k.fj.qf[u
+									+ 1], z = (q.bd & (1 << GameFramework.resources.yb.Uo)
 									- 1)
-									/ (1 << GameFramework.b.yb.Uo), A = GameFramework.b.va.An[GameFramework.b.va.sh], y = GameFramework.b.va.An[GameFramework.b.va.sh
-									+ 1], GameFramework.b.va.sh = (GameFramework.b.va.sh + 2)
+									/ (1 << GameFramework.resources.yb.Uo), A = GameFramework.resources.va.An[GameFramework.resources.va.sh], y = GameFramework.resources.va.An[GameFramework.resources.va.sh
+									+ 1], GameFramework.resources.va.sh = (GameFramework.resources.va.sh + 2)
 									% 1024, G = m.nl
 									* v.mC
-									* (l.nl + q.lb[GameFramework.b.Ea.Sa.ud | 0]), G > 0
+									* (l.nl + q.lb[GameFramework.resources.Ea.Sa.ud | 0]), G > 0
 									&& (q.Db.x += A * G, q.Db.y += y * G), q.Db.y += m.vi
 									* v.Nu
-									* (l.vi + q.lb[GameFramework.b.Ea.Sa.Ed | 0]), q.qa.x += q.Db.x
+									* (l.vi + q.lb[GameFramework.resources.Ea.Sa.Ed | 0]), q.qa.x += q.Db.x
 									/ g * v.Gk, q.qa.y += q.Db.y / g * v.Gk, q.Vc += m.Cj
 									* v.Au
-									* (l.Cj + q.lb[GameFramework.b.Ea.Sa.md | 0]), v = this
+									* (l.Cj + q.lb[GameFramework.resources.Ea.Sa.md | 0]), v = this
 									.zq(v.n, u.n, z)
 									& q.Jn | q.kl, o != 0
 									&& (v = this.zq(v, d.gD, o)), j
@@ -9917,17 +9917,17 @@ GameFramework.b.va.prototype = {
 							q.bd += q.Dl;
 							if ((q.bd & 2147483648) != 0)
 								this.Ds(this, q, f);
-							else if (u = q.bd >> GameFramework.b.yb.Uo, v = k.fj.qf[u], A = k.fj.qf[u
-									+ 1], y = (q.bd & (1 << GameFramework.b.yb.Uo)
+							else if (u = q.bd >> GameFramework.resources.yb.Uo, v = k.fj.qf[u], A = k.fj.qf[u
+									+ 1], y = (q.bd & (1 << GameFramework.resources.yb.Uo)
 									- 1)
-									/ (1 << GameFramework.b.yb.Uo), u = v.jy
+									/ (1 << GameFramework.resources.yb.Uo), u = v.jy
 									* (1 - y) + A.jy * y, z = v.ky * (1 - y)
 									+ A.ky * y, q.Db.y += m.vi
 									* v.Nu
-									* (l.vi + q.lb[GameFramework.b.Ea.Sa.Ed | 0]), q.qa.x += q.Db.x
+									* (l.vi + q.lb[GameFramework.resources.Ea.Sa.Ed | 0]), q.qa.x += q.Db.x
 									/ g * v.Gk, q.qa.y += q.Db.y / g * v.Gk, q.Vc += m.Cj
 									* v.Au
-									* (l.Cj + q.lb[GameFramework.b.Ea.Sa.md | 0]), v = this
+									* (l.Cj + q.lb[GameFramework.resources.Ea.Sa.md | 0]), v = this
 									.zq(v.n, A.n, y)
 									& q.Jn | q.kl, o != 0
 									&& (v = this.zq(v, d.gD, o)), j
@@ -9973,17 +9973,17 @@ GameFramework.b.va.prototype = {
 			} else if (!g) {
 				g = f.pd;
 				if (g != null)
-					m = g.Uf, o = d.Wa.F[GameFramework.b.$.p.ep | 0].G(this.A)
-							* m.F[GameFramework.b.ma.p.ep | 0].G(this.A, 1);
+					m = g.Uf, o = d.Wa.F[GameFramework.resources.$.p.ep | 0].G(this.A)
+							* m.F[GameFramework.resources.ma.p.ep | 0].G(this.A, 1);
 				for (; g != null;) {
 					q = g.gd;
 					k = g.Jc;
 					l = g.Im;
-					v = g.bd >> GameFramework.b.yb.Uo;
+					v = g.bd >> GameFramework.resources.yb.Uo;
 					if (!(v + 1 >= k.fj.qf.length)
-							&& (r = k.fj.qf[v], z = k.fj.qf[v + 1], A = (g.bd & (1 << GameFramework.b.yb.Uo)
+							&& (r = k.fj.qf[v], z = k.fj.qf[v + 1], A = (g.bd & (1 << GameFramework.resources.yb.Uo)
 									- 1)
-									/ (1 << GameFramework.b.yb.Uo), v = r.jy
+									/ (1 << GameFramework.resources.yb.Uo), v = r.jy
 									* (1 - A) + z.jy * A, u = r.ky * (1 - A)
 									+ z.ky * A, r = this.zq(r.n, z.n, A) & g.Jn
 									| g.kl, o != 0 && (r = this.zq(r, d.gD, o)), j
@@ -10037,14 +10037,14 @@ GameFramework.b.va.prototype = {
 							for (var k = 0; k < (g.ej.length | 0); k++) {
 								var l = 1E3 / this.Le / this.Fe, m = this.ga.Hf[g.ej[k]], o = (1 + (this.Vf - 100)
 										* 5.0E-4)
-										/ l, l = -GameFramework.b.va.Rc(1 / l);
-								m.vi = m.F[GameFramework.b.ma.p.Ed | 0]
+										/ l, l = -GameFramework.resources.va.Rc(1 / l);
+								m.vi = m.F[GameFramework.resources.ma.p.Ed | 0]
 										.G(this.A)
 										* 100 * o;
-								m.Cj = m.F[GameFramework.b.ma.p.md | 0]
+								m.Cj = m.F[GameFramework.resources.ma.p.md | 0]
 										.G(this.A)
 										* l;
-								m.nl = m.F[GameFramework.b.ma.p.ud | 0]
+								m.nl = m.F[GameFramework.resources.ma.p.ud | 0]
 										.G(this.A);
 								for (m = h.$h.pd; m != null;)
 									this.RQ(b, c, h, m.kg.Wb, j == 0), m = m.gd
@@ -10053,11 +10053,11 @@ GameFramework.b.va.prototype = {
 							k = this.ga.Hf[g.um], m = h, l = 1E3 / this.Le
 									/ this.Fe, o = (1 + (this.Vf - 100)
 									* 5.0E-4)
-									/ l, l = -GameFramework.b.va.Rc(1 / l), k.vi = m.Wa.F[GameFramework.b.$.p.Ed
+									/ l, l = -GameFramework.resources.va.Rc(1 / l), k.vi = m.Wa.F[GameFramework.resources.$.p.Ed
 									| 0].G(this.A)
-									* 100 * o, k.Cj = m.Wa.F[GameFramework.b.$.p.md
+									* 100 * o, k.Cj = m.Wa.F[GameFramework.resources.$.p.md
 									| 0].G(this.A)
-									* l, k.nl = m.Wa.F[GameFramework.b.$.p.ud
+									* l, k.nl = m.Wa.F[GameFramework.resources.$.p.ud
 									| 0].G(this.A), this.RQ(b, c, h, h.Wb,
 									j == 0)
 		}
@@ -10081,7 +10081,7 @@ GameFramework.b.va.prototype = {
 				for (var f = 0; f < d.mf.length; f++) {
 					var g = c.Uh[f], h = d.mf[f];
 					if (h.ec) {
-						if (g.F[GameFramework.b.$.p.Go | 0].gE(this.A) >= this.A)
+						if (g.F[GameFramework.resources.$.p.Go | 0].gE(this.A) >= this.A)
 							return true;
 						if (h.Ou)
 							return true;
@@ -10100,45 +10100,45 @@ GameFramework.b.va.prototype = {
 		return this.jo != null && this.jo.hasOwnProperty(b) ? this.jo[b] : c
 	}
 };
-GameFramework.b.va.c = function() {
-	GameFramework.b.va.b3 = 0;
-	GameFramework.b.va.fna = 1;
-	GameFramework.b.va.ena = 1;
-	GameFramework.b.va.S7 = 1;
-	GameFramework.b.va.z6 = 0;
-	GameFramework.b.va.Qu = new GameFramework.b.fA;
-	GameFramework.b.va.An = null;
-	GameFramework.b.va.sh = -1
+GameFramework.resources.va.c = function() {
+	GameFramework.resources.va.b3 = 0;
+	GameFramework.resources.va.fna = 1;
+	GameFramework.resources.va.ena = 1;
+	GameFramework.resources.va.S7 = 1;
+	GameFramework.resources.va.z6 = 0;
+	GameFramework.resources.va.Qu = new GameFramework.resources.fA;
+	GameFramework.resources.va.An = null;
+	GameFramework.resources.va.sh = -1
 };
 T(function() {
-			GameFramework.b.va.u("GameFramework.resources.PIEffect", null,
+			GameFramework.resources.va.u("GameFramework.resources.PIEffect", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.b.va.c()
+			GameFramework.resources.va.c()
 		});
-GameFramework.b.cw = t();
-GameFramework.b.cw.prototype = {
+GameFramework.resources.cw = t();
+GameFramework.resources.cw.prototype = {
 	Na : null,
 	n : 0
 };
-GameFramework.b.cw.c = t();
+GameFramework.resources.cw.c = t();
 T(function() {
-			GameFramework.b.cw.u(
+			GameFramework.resources.cw.u(
 					"GameFramework.resources.PopAnimCalcObjectPosData", null)
 		});
 U(function() {
-			GameFramework.b.cw.c()
+			GameFramework.resources.cw.c()
 		});
-GameFramework.b.Sc = function() {
+GameFramework.resources.Sc = function() {
 	this.Na = new GameFramework.geom.xb;
 	this.Mx = Array.O(3, 0, 0, 1, 2);
 	this.Ah = null;
 	this.D9 = new GameFramework.geom.ba(0, 0);
-	E(GameFramework.b.Sc, this);
+	E(GameFramework.resources.Sc, this);
 	this.yk = false
 };
-GameFramework.b.Sc.prototype = {
+GameFramework.resources.Sc.prototype = {
 	kp : 0,
 	cu : null,
 	Gm : null,
@@ -10164,7 +10164,7 @@ GameFramework.b.Sc.prototype = {
 	Ah : null,
 	D9 : null,
 	gi : function() {
-		var b = new GameFramework.b.Sc;
+		var b = new GameFramework.resources.Sc;
 		b.w = this.w;
 		b.v = this.v;
 		b.s = this.s;
@@ -10175,7 +10175,7 @@ GameFramework.b.Sc.prototype = {
 		b.Dg = this.Dg;
 		b.Qn = this.Qn;
 		b.ue = this.ue;
-		b.Kc = new GameFramework.b.Fa.Kq;
+		b.Kc = new GameFramework.resources.Fa.Kq;
 		return b
 	},
 	t : function() {
@@ -10202,7 +10202,7 @@ GameFramework.b.Sc.prototype = {
 			for (d = 0; d < (c.sB.length | 0); d++)
 				if (f = c.sB[d], f.fW.toLowerCase() == "addparticleeffect") {
 					h = f.LX;
-					f = new GameFramework.b.Fa.qA;
+					f = new GameFramework.resources.Fa.qA;
 					f.By = 0;
 					f.Cy = 0;
 					f.qM = false;
@@ -10280,13 +10280,13 @@ GameFramework.b.Sc.prototype = {
 		b.$c = [];
 		if (c.Fm != null)
 			for (var d = 0; d < (c.Fm.length | 0); d++) {
-				var f = c.Fm[d], g = new GameFramework.b.Fa.pA;
+				var f = c.Fm[d], g = new GameFramework.resources.Fa.pA;
 				g.cj = 4294967295;
 				g.sb = f.sb;
 				g.dX = false;
 				f = f.CY;
 				if (f != null) {
-					var h = new GameFramework.b.Fa.Kq;
+					var h = new GameFramework.resources.Fa.Kq;
 					h.Qb = b;
 					this.eK(h, f);
 					g.Ji = h
@@ -10312,7 +10312,7 @@ GameFramework.b.Sc.prototype = {
 		c == null && (c = this.Dg.Rr[0]);
 		if (c != this.Kc.ga) {
 			if (this.Kc.ga != null)
-				this.Kc = new GameFramework.b.Fa.Kq;
+				this.Kc = new GameFramework.resources.Fa.Kq;
 			this.eK(this.Kc, c);
 			this.vy = true
 		}
@@ -10406,8 +10406,8 @@ GameFramework.b.Sc.prototype = {
 		c.Ym = Math.min(c.Jk + c.Ym, f - 1) - c.Jk | 0;
 		c.Wf = [];
 		for (var g = 0; g < f; g++) {
-			var h = new GameFramework.b.Fa.dw, j, k = b.eb();
-			if ((k & GameFramework.b.Sc.o0) != 0) {
+			var h = new GameFramework.resources.Fa.dw, j, k = b.eb();
+			if ((k & GameFramework.resources.Sc.o0) != 0) {
 				j = b.eb();
 				j == 255 && (j = b.Ga());
 				for (var l = 0; l < j; l++) {
@@ -10416,12 +10416,12 @@ GameFramework.b.Sc.prototype = {
 					d[m] = null
 				}
 			}
-			if ((k & GameFramework.b.Sc.k0) != 0) {
+			if ((k & GameFramework.resources.Sc.k0) != 0) {
 				l = b.eb();
 				l == 255 && (l = b.Ga());
 				for (m = 0; m < l; m++) {
-					j = new GameFramework.b.Fa.Iq;
-					j.Ya = new GameFramework.b.Fa.Jq;
+					j = new GameFramework.resources.Fa.Iq;
+					j.Ya = new GameFramework.resources.Fa.Jq;
 					var o = b.Ga() | 0;
 					j.n = 4294967295;
 					j.ut = 0;
@@ -10446,7 +10446,7 @@ GameFramework.b.Sc.prototype = {
 					for (; c.Fm.length < j.Ya.Ne + 1;)
 						c.Fm.push(null);
 					c.Fm[j.Ya.Ne] == null
-							&& (c.Fm[j.Ya.Ne] = new GameFramework.b.Fa.oA);
+							&& (c.Fm[j.Ya.Ne] = new GameFramework.resources.Fa.oA);
 					c.Fm[j.Ya.Ne].sb = j.Ya.sb;
 					if (j.Ya.wk)
 						c.Fm[j.Ya.Ne].CY = this.Dg.Rr[j.Ya.QC];
@@ -10455,7 +10455,7 @@ GameFramework.b.Sc.prototype = {
 					d[j.Ya.Ne] = j
 				}
 			}
-			if ((k & GameFramework.b.Sc.n0) != 0) {
+			if ((k & GameFramework.resources.Sc.n0) != 0) {
 				l = b.eb();
 				l == 255 && (l = b.Ga());
 				for (m = 0; m < l; m++) {
@@ -10465,49 +10465,49 @@ GameFramework.b.Sc.prototype = {
 					j = j.gi();
 					d[q] = j;
 					j.Na = new GameFramework.geom.xb;
-					(o & GameFramework.b.Sc.I2) != 0
+					(o & GameFramework.resources.Sc.I2) != 0
 							? (j.Na.Ua = b.H() / 65536, j.Na.ub = b.H() / 65536, j.Na.Sb = b
 									.H()
 									/ 65536, j.Na.Va = b.H() / 65536)
-							: (o & GameFramework.b.Sc.J2) != 0
+							: (o & GameFramework.resources.Sc.J2) != 0
 									&& (q = b.Ga() / 1E3, j.Na.th(), j.Na
 											.rotate(q));
 					q = new GameFramework.geom.xb;
-					if ((o & GameFramework.b.Sc.H2) != 0) {
+					if ((o & GameFramework.resources.Sc.H2) != 0) {
 						var r = b.H();
 						q.Ca = r / 20;
 						q.Da = b.H() / 20
 					} else
 						q.Ca = b.Ga() / 20, q.Da = b.Ga() / 20;
 					j.Na.concat(q);
-					q = (o & GameFramework.b.Sc.YS) != 0;
+					q = (o & GameFramework.resources.Sc.YS) != 0;
 					if (q != j.Ya.UB
-							&& (j.Ya.UB = q, (o & GameFramework.b.Sc.YS) != 0))
+							&& (j.Ya.UB = q, (o & GameFramework.resources.Sc.YS) != 0))
 						j.Ya.he = b.Ga() / 20 | 0, j.Ya.uf = b.Ga() / 20 | 0, j.Ya.jd = b
 								.Ga()
 								/ 20 | 0, j.Ya.ge = b.Ga() / 20 | 0;
-					if ((o & GameFramework.b.Sc.G2) != 0) {
+					if ((o & GameFramework.resources.Sc.G2) != 0) {
 						var q = b.eb(), r = b.eb(), v = b.eb(), u = b.eb();
 						j.n = u << 24 | q << 16 | r << 8 | v
 					}
-					if ((o & GameFramework.b.Sc.F2) != 0)
+					if ((o & GameFramework.resources.Sc.F2) != 0)
 						j.ut = b.Ga()
 				}
 			}
-			if ((k & GameFramework.b.Sc.m0) != 0) {
+			if ((k & GameFramework.resources.Sc.m0) != 0) {
 				j = b.bl();
 				j = GameFramework.h.W4(j);
 				if (c.kH == null)
 					c.kH = {};
 				c.kH[j] = g
 			}
-			if ((k & GameFramework.b.Sc.p0) != 0)
+			if ((k & GameFramework.resources.Sc.p0) != 0)
 				h.Yt = true;
-			if ((k & GameFramework.b.Sc.l0) != 0) {
+			if ((k & GameFramework.resources.Sc.l0) != 0) {
 				k = b.eb();
 				h.sB = [];
 				for (j = 0; j < k; j++)
-					l = new GameFramework.b.Fa.lA, l.fW = b.bl(), l.LX = b.bl(), h.sB
+					l = new GameFramework.resources.Fa.lA, l.fW = b.bl(), l.LX = b.bl(), h.sB
 							.push(l)
 			}
 			h.of = [];
@@ -10523,11 +10523,11 @@ GameFramework.b.Sc.prototype = {
 			}
 			c.Wf.push(h)
 		}
-		f == 0 && c.Wf.push(new GameFramework.b.Fa.dw)
+		f == 0 && c.Wf.push(new GameFramework.resources.Fa.dw)
 	},
 	aL : function(b, c) {
-		this.Dg = new GameFramework.b.Fa.mA;
-		this.Kc = new GameFramework.b.Fa.Kq;
+		this.Dg = new GameFramework.resources.Fa.mA;
+		this.Kc = new GameFramework.resources.Fa.Kq;
 		this.Gm = [];
 		b.H();
 		this.nj = b.H();
@@ -10538,7 +10538,7 @@ GameFramework.b.Sc.prototype = {
 		this.z = (b.Ga() | 0) / 20;
 		this.cu = [];
 		for (var d = b.Ga(), f = 0; f < d; f++) {
-			var g = new GameFramework.b.Fa.nA, h = b.bl();
+			var g = new GameFramework.resources.Fa.nA, h = b.bl();
 			g.f8 = h;
 			g.ui = 1;
 			g.qo = 1;
@@ -10569,11 +10569,11 @@ GameFramework.b.Sc.prototype = {
 		this.Dg.Rr = [];
 		d = b.Ga();
 		for (f = 0; f < d; f++)
-			this.Dg.Rr[f] = new GameFramework.b.Fa.ew;
+			this.Dg.Rr[f] = new GameFramework.resources.Fa.ew;
 		for (f = 0; f < d; f++)
 			this.SS(b, this.Dg.Rr[f]);
 		if (b.oc())
-			this.Dg.Ix = new GameFramework.b.Fa.ew, this.SS(b, this.Dg.Ix);
+			this.Dg.Ix = new GameFramework.resources.Fa.ew, this.SS(b, this.Dg.Ix);
 		this.ue = true
 	},
 	LU : function(b, c) {
@@ -10673,7 +10673,7 @@ GameFramework.b.Sc.prototype = {
 	JL : function(b, c, d, f) {
 		b.zG = c != null ? c : this.Na;
 		b.kW = d;
-		for (var d = b.ga.Wf[b.A | 0], g = new GameFramework.b.cw, h, j = f
+		for (var d = b.ga.Wf[b.A | 0], g = new GameFramework.resources.cw, h, j = f
 				|| b.ir > 0 || d.Yt, k = 0; k < (d.of.length | 0); k++) {
 			var l = d.of[k];
 			if (l != null && l.Ya.wk)
@@ -10698,7 +10698,7 @@ GameFramework.b.Sc.prototype = {
 						if (b.Np = true, b.A = b.ga.Jk + b.ga.Ym, b.ga.Ym != 0) {
 							this.gl = false;
 							this
-									.ld(new GameFramework.b.Fa.on(GameFramework.b.Fa.on.i4));
+									.ld(new GameFramework.resources.Fa.on(GameFramework.resources.Fa.on.i4));
 							return
 						} else
 							b.rr++
@@ -10752,7 +10752,7 @@ GameFramework.b.Sc.prototype = {
 	},
 	XQ : function(b, c, d, f, g, h) {
 		this.QQ(b, c, d, f, false);
-		for (var j = c.ga.Wf[c.A | 0], k, l, m, o = new GameFramework.b.cw, h = h
+		for (var j = c.ga.Wf[c.A | 0], k, l, m, o = new GameFramework.resources.cw, h = h
 				|| c.ir > 0 || j.Yt, q = 0; q < (j.of.length | 0); q++) {
 			var r = j.of[q];
 			if (r != null) {
@@ -10807,58 +10807,58 @@ GameFramework.b.Sc.prototype = {
 					|| (this.LU(this.Kc, null), this.jQ(this.Kc))
 	}
 };
-GameFramework.b.Sc.c = function() {
-	GameFramework.b.Sc.ana = 3136297300;
-	GameFramework.b.Sc.cna = 5;
-	GameFramework.b.Sc.bna = 1;
-	GameFramework.b.Sc.PI = 3.14159;
-	GameFramework.b.Sc.o0 = 1;
-	GameFramework.b.Sc.k0 = 2;
-	GameFramework.b.Sc.n0 = 4;
-	GameFramework.b.Sc.m0 = 8;
-	GameFramework.b.Sc.p0 = 16;
-	GameFramework.b.Sc.l0 = 32;
-	GameFramework.b.Sc.YS = 32768;
-	GameFramework.b.Sc.J2 = 16384;
-	GameFramework.b.Sc.G2 = 8192;
-	GameFramework.b.Sc.I2 = 4096;
-	GameFramework.b.Sc.H2 = 2048;
-	GameFramework.b.Sc.F2 = 1024
+GameFramework.resources.Sc.c = function() {
+	GameFramework.resources.Sc.ana = 3136297300;
+	GameFramework.resources.Sc.cna = 5;
+	GameFramework.resources.Sc.bna = 1;
+	GameFramework.resources.Sc.PI = 3.14159;
+	GameFramework.resources.Sc.o0 = 1;
+	GameFramework.resources.Sc.k0 = 2;
+	GameFramework.resources.Sc.n0 = 4;
+	GameFramework.resources.Sc.m0 = 8;
+	GameFramework.resources.Sc.p0 = 16;
+	GameFramework.resources.Sc.l0 = 32;
+	GameFramework.resources.Sc.YS = 32768;
+	GameFramework.resources.Sc.J2 = 16384;
+	GameFramework.resources.Sc.G2 = 8192;
+	GameFramework.resources.Sc.I2 = 4096;
+	GameFramework.resources.Sc.H2 = 2048;
+	GameFramework.resources.Sc.F2 = 1024
 };
 T(function() {
-			GameFramework.b.Sc.u("GameFramework.resources.PopAnimResource",
+			GameFramework.resources.Sc.u("GameFramework.resources.PopAnimResource",
 					GameFramework.widgets.Ta)
 		});
 U(function() {
-			GameFramework.b.Sc.c()
+			GameFramework.resources.Sc.c()
 		});
-GameFramework.b.zA = function(b, c) {
+GameFramework.resources.zA = function(b, c) {
 	this.fY = b;
 	this.MX = c
 };
-GameFramework.b.zA.prototype = {
+GameFramework.resources.zA.prototype = {
 	fY : null,
 	MX : 0,
 	t : function() {
 		this.fY.UD(this.MX)
 	}
 };
-GameFramework.b.zA.c = t();
+GameFramework.resources.zA.c = t();
 T(function() {
-			GameFramework.b.zA.u("GameFramework.resources.RenderEffectPass", null,
+			GameFramework.resources.zA.u("GameFramework.resources.RenderEffectPass", null,
 					System.Wl)
 		});
 U(function() {
-			GameFramework.b.zA.c()
+			GameFramework.resources.zA.c()
 		});
-GameFramework.b.AA = w("NH");
-GameFramework.b.AA.prototype = {
+GameFramework.resources.AA = w("NH");
+GameFramework.resources.AA.prototype = {
 	NH : null,
 	t : function() {
 		this.NH.fz(this)
 	},
 	$p : function(b) {
-		var c = new GameFramework.b.zA(this, b);
+		var c = new GameFramework.resources.zA(this, b);
 		this.NH.$p(this, b);
 		return c
 	},
@@ -10866,17 +10866,17 @@ GameFramework.b.AA.prototype = {
 		this.NH.UD(this, b)
 	}
 };
-GameFramework.b.AA.c = t();
+GameFramework.resources.AA.c = t();
 T(function() {
-			GameFramework.b.AA.u(
+			GameFramework.resources.AA.u(
 					"GameFramework.resources.RenderEffectRunHandle", null,
 					System.Wl)
 		});
 U(function() {
-			GameFramework.b.AA.c()
+			GameFramework.resources.AA.c()
 		});
-GameFramework.b.yA = t();
-GameFramework.b.yA.prototype = {
+GameFramework.resources.yA = t();
+GameFramework.resources.yA.prototype = {
 	pL : t(),
 	Qq : t(),
 	kt : t(),
@@ -10885,14 +10885,14 @@ GameFramework.b.yA.prototype = {
 	$p : t(),
 	UD : t()
 };
-GameFramework.b.yA.c = t();
+GameFramework.resources.yA.c = t();
 T(function() {
-			GameFramework.b.yA.u("GameFramework.resources.RenderEffect", null)
+			GameFramework.resources.yA.u("GameFramework.resources.RenderEffect", null)
 		});
 U(function() {
-			GameFramework.b.yA.c()
+			GameFramework.resources.yA.c()
 		});
-GameFramework.b.Rb = function() {
+GameFramework.resources.Rb = function() {
 	this.Nm = {};
 	this.dy = {};
 	this.xO = {};
@@ -10905,7 +10905,7 @@ GameFramework.b.Rb = function() {
 	this.gY = {};
 	this.W8 = {}
 };
-GameFramework.b.Rb.prototype = {
+GameFramework.resources.Rb.prototype = {
 	Nm : null,
 	dy : null,
 	xO : null,
@@ -10923,22 +10923,22 @@ GameFramework.b.Rb.prototype = {
 		this.YO = b
 	},
 	c3 : function(b) {
-		var c = new GameFramework.b.Mo;
+		var c = new GameFramework.resources.Mo;
 		c.aL(b.rd, b);
 		this.ET(b.xa, c)
 	},
 	e3 : function(b) {
-		var c = b.rd, d = new GameFramework.b.Sc;
+		var c = b.rd, d = new GameFramework.resources.Sc;
 		d.aL(c, b);
 		this.F3(b.xa, d)
 	},
 	d3 : function(b) {
-		var c = new GameFramework.b.va;
+		var c = new GameFramework.resources.va;
 		c.y2(b.rd, b);
 		this.E3(b.xa, c)
 	},
 	kT : function(b) {
-		var c = b.rd, d = new GameFramework.b.Gq;
+		var c = b.rd, d = new GameFramework.resources.Gq;
 		d.BE(c, b);
 		this.FT(b.xa, d)
 	},
@@ -10960,20 +10960,20 @@ GameFramework.b.Rb.prototype = {
 						else if (GameFramework.BaseApp.M.aj != d)
 							continue;
 					for (d = 0; d < g.tQ(); d++) {
-						var h = g.VR(d), j = h.Gb(), k = new GameFramework.b.Ly;
+						var h = g.VR(d), j = h.Gb(), k = new GameFramework.resources.Ly;
 						k.T7 = f;
 						if (j == "Font")
-							k.Fb = GameFramework.b.Rb.KK;
+							k.Fb = GameFramework.resources.Rb.KK;
 						if (j == "Image")
-							k.Fb = GameFramework.b.Rb.sA;
+							k.Fb = GameFramework.resources.Rb.sA;
 						if (j == "Sound")
-							k.Fb = GameFramework.b.Rb.tA;
+							k.Fb = GameFramework.resources.Rb.tA;
 						if (j == "PopAnim")
-							k.Fb = GameFramework.b.Rb.NK;
+							k.Fb = GameFramework.resources.Rb.NK;
 						if (j == "PIEffect")
-							k.Fb = GameFramework.b.Rb.MK;
+							k.Fb = GameFramework.resources.Rb.MK;
 						if (j == "RenderEffect")
-							k.Fb = GameFramework.b.Rb.OK;
+							k.Fb = GameFramework.resources.Rb.OK;
 						k.xa = h.Pb("id").Gb();
 						if (h.Pb("parent").Gb().length > 0)
 							k.Qb = h.Pb("parent").Gb();
@@ -11034,7 +11034,7 @@ GameFramework.b.Rb.prototype = {
 							k.Jj.push(h)
 						}
 						if (j == "File" && na(k.vc, ".p3d"))
-							k.Fb = GameFramework.b.Rb.LK;
+							k.Fb = GameFramework.resources.Rb.LK;
 						this.Nm[k.xa] = k;
 						this.xO[k.vc] = k;
 						this.dy[f][k.xa] = k
@@ -11067,7 +11067,7 @@ GameFramework.b.Rb.prototype = {
 		}
 	},
 	dl : function(b) {
-		var c = new GameFramework.b.mk;
+		var c = new GameFramework.resources.mk;
 		c.sN = b;
 		c.Uj = 0;
 		b = this.dy[b];
@@ -11078,8 +11078,8 @@ GameFramework.b.Rb.prototype = {
 					&& !GameFramework.BaseApp.M.zS(d.Qb)
 					&& this.sw(d.Qb).Ra(GameFramework.gb.Sg.fk,
 							ss.Delegate.create(c, c.ps));
-			if (!(d.Fb == GameFramework.b.Rb.zT || d.hX)) {
-				var f = d.vc, g = new GameFramework.b.mk;
+			if (!(d.Fb == GameFramework.resources.Rb.zT || d.hX)) {
+				var f = d.vc, g = new GameFramework.resources.mk;
 				if (d.Jj != null) {
 					if (d.Jj.length > 1)
 						g.Rx = f + d.Jj[1];
@@ -11100,18 +11100,18 @@ GameFramework.b.Rb.prototype = {
 		return c
 	},
 	J4 : function(b) {
-		var c = new GameFramework.b.mk;
+		var c = new GameFramework.resources.mk;
 		c.vc = b;
-		c.Pf = GameFramework.b.Rb.A3;
+		c.Pf = GameFramework.resources.Rb.A3;
 		c.Uj = 1;
 		GameFramework.BaseApp.M.Su(c);
 		return c
 	},
 	H4 : function(b) {
-		var b = this.Nm[b], c = new GameFramework.b.mk;
+		var b = this.Nm[b], c = new GameFramework.resources.mk;
 		c.vc = b.vc;
 		b.Jj != null && (c.vc += b.Jj[0]);
-		c.Pf = GameFramework.b.Rb.yT;
+		c.Pf = GameFramework.resources.Rb.yT;
 		c.Uj = 1;
 		GameFramework.BaseApp.M.Su(c);
 		return c
@@ -11120,7 +11120,7 @@ GameFramework.b.Rb.prototype = {
 		var c = GameFramework.BaseApp.M.q1(b);
 		if (c != null)
 			return c;
-		var c = new GameFramework.b.mk, d = this.Nm[b];
+		var c = new GameFramework.resources.mk, d = this.Nm[b];
 		d.Qb != null
 				&& this.bh[d.Qb] == null
 				&& !GameFramework.BaseApp.M.zS(d.Qb)
@@ -11132,15 +11132,15 @@ GameFramework.b.Rb.prototype = {
 		if (c.Kb.Jj != null && (c.vc = c.Kb.vc + c.Kb.Jj[0], c.Kb.Jj.length > 1))
 			c.Rx = c.Kb.vc + c.Kb.Jj[1];
 		c.vc = GameFramework.h.qF(c.vc);
-		c.Pf = GameFramework.b.Rb.sA;
+		c.Pf = GameFramework.resources.Rb.sA;
 		c.Uj = 1;
 		GameFramework.BaseApp.M.Su(c);
 		return c
 	},
 	vU : function(b) {
-		var c = new GameFramework.b.mk;
+		var c = new GameFramework.resources.mk;
 		c.vc = b;
-		c.Pf = GameFramework.b.Rb.sA;
+		c.Pf = GameFramework.resources.Rb.sA;
 		c.Uj = 1;
 		GameFramework.BaseApp.M.Su(c);
 		return c
@@ -11198,29 +11198,29 @@ GameFramework.b.Rb.prototype = {
 		return this.tO[b]
 	}
 };
-GameFramework.b.Rb.c = function() {
-	GameFramework.b.Rb.zT = 0;
-	GameFramework.b.Rb.sA = 1;
-	GameFramework.b.Rb.tA = 2;
-	GameFramework.b.Rb.KK = 3;
-	GameFramework.b.Rb.NK = 4;
-	GameFramework.b.Rb.MK = 5;
-	GameFramework.b.Rb.LK = 6;
-	GameFramework.b.Rb.OK = 7;
-	GameFramework.b.Rb.A3 = 8;
-	GameFramework.b.Rb.yT = 9
+GameFramework.resources.Rb.c = function() {
+	GameFramework.resources.Rb.zT = 0;
+	GameFramework.resources.Rb.sA = 1;
+	GameFramework.resources.Rb.tA = 2;
+	GameFramework.resources.Rb.KK = 3;
+	GameFramework.resources.Rb.NK = 4;
+	GameFramework.resources.Rb.MK = 5;
+	GameFramework.resources.Rb.LK = 6;
+	GameFramework.resources.Rb.OK = 7;
+	GameFramework.resources.Rb.A3 = 8;
+	GameFramework.resources.Rb.yT = 9
 };
 T(function() {
-			GameFramework.b.Rb.u("GameFramework.resources.ResourceManager", null)
+			GameFramework.resources.Rb.u("GameFramework.resources.ResourceManager", null)
 		});
 U(function() {
-			GameFramework.b.Rb.c()
+			GameFramework.resources.Rb.c()
 		});
-GameFramework.b.mk = function() {
+GameFramework.resources.mk = function() {
 	this.MG = null;
-	E(GameFramework.b.mk, this)
+	E(GameFramework.resources.mk, this)
 };
-GameFramework.b.mk.prototype = {
+GameFramework.resources.mk.prototype = {
 	sN : null,
 	xa : null,
 	vc : null,
@@ -11236,20 +11236,20 @@ GameFramework.b.mk.prototype = {
 		this.Or++
 	},
 	ps : function(b) {
-		this.MG = Type.di(b.target, GameFramework.b.mk);
+		this.MG = Type.di(b.target, GameFramework.resources.mk);
 		this.ld(b)
 	}
 };
-GameFramework.b.mk.c = t();
+GameFramework.resources.mk.c = t();
 T(function() {
-			GameFramework.b.mk.u("GameFramework.resources.ResourceStreamer",
+			GameFramework.resources.mk.u("GameFramework.resources.ResourceStreamer",
 					GameFramework.gb.Qk)
 		});
 U(function() {
-			GameFramework.b.mk.c()
+			GameFramework.resources.mk.c()
 		});
-GameFramework.b.ot = w("i9");
-GameFramework.b.ot.prototype = {
+GameFramework.resources.ot = w("i9");
+GameFramework.resources.ot.prototype = {
 	i9 : null,
 	fU : t(),
 	Rq : t(),
@@ -11262,111 +11262,111 @@ GameFramework.b.ot.prototype = {
 	t : t(),
 	ct : t()
 };
-GameFramework.b.ot.c = t();
+GameFramework.resources.ot.c = t();
 T(function() {
-			GameFramework.b.ot.u("GameFramework.resources.SoundInstance", null,
+			GameFramework.resources.ot.u("GameFramework.resources.SoundInstance", null,
 					System.Wl)
 		});
 U(function() {
-			GameFramework.b.ot.c()
+			GameFramework.resources.ot.c()
 		});
-GameFramework.b.SoundManager = function() {
+GameFramework.resources.SoundManager = function() {
 	this.WG = Array.O(7, 7, 1, 1, 1, 1, 1, 1, 1);
-	E(GameFramework.b.SoundManager, this)
+	E(GameFramework.resources.SoundManager, this)
 };
-GameFramework.b.SoundManager.prototype = {
+GameFramework.resources.SoundManager.prototype = {
 	WG : null,
 	Rq : function(b, c) {
 		c === UNDEF && (c = 0);
 		this.WG[c] = b
 	}
 };
-GameFramework.b.SoundManager.c = function() {
-	GameFramework.b.SoundManager.Mla = 8
+GameFramework.resources.SoundManager.c = function() {
+	GameFramework.resources.SoundManager.Mla = 8
 };
 T(function() {
-			GameFramework.b.SoundManager
+			GameFramework.resources.SoundManager
 					.u("GameFramework.resources.SoundManager",
 							GameFramework.gb.Qk)
 		});
 U(function() {
-			GameFramework.b.SoundManager.c()
+			GameFramework.resources.SoundManager.c()
 		});
-GameFramework.b.MA = t();
-GameFramework.b.MA.prototype = {
+GameFramework.resources.MA = t();
+GameFramework.resources.MA.prototype = {
 	uC : 0
 };
-GameFramework.b.MA.c = t();
+GameFramework.resources.MA.c = t();
 T(function() {
-			GameFramework.b.MA.u("GameFramework.resources.SoundResource", null)
+			GameFramework.resources.MA.u("GameFramework.resources.SoundResource", null)
 		});
 U(function() {
-			GameFramework.b.MA.c()
+			GameFramework.resources.MA.c()
 		});
-GameFramework.b.Fa = Type.ci("GameFramework.resources.popanim");
-GameFramework.b.Fa.lA = t();
-GameFramework.b.Fa.lA.prototype = {
+GameFramework.resources.Fa = Type.ci("GameFramework.resources.popanim");
+GameFramework.resources.Fa.lA = t();
+GameFramework.resources.Fa.lA.prototype = {
 	fW : null,
 	LX : null
 };
-GameFramework.b.Fa.lA.c = t();
+GameFramework.resources.Fa.lA.c = t();
 T(function() {
-			GameFramework.b.Fa.lA.u(
+			GameFramework.resources.Fa.lA.u(
 					"GameFramework.resources.popanim.PopAnimCommand", null)
 		});
 U(function() {
-			GameFramework.b.Fa.lA.c()
+			GameFramework.resources.Fa.lA.c()
 		});
-GameFramework.b.Fa.mA = function() {
+GameFramework.resources.Fa.mA = function() {
 	this.Gm = []
 };
-GameFramework.b.Fa.mA.prototype = {
+GameFramework.resources.Fa.mA.prototype = {
 	Ix : null,
 	Rr : null,
 	Gm : null
 };
-GameFramework.b.Fa.mA.c = t();
+GameFramework.resources.Fa.mA.c = t();
 T(function() {
-			GameFramework.b.Fa.mA.u(
+			GameFramework.resources.Fa.mA.u(
 					"GameFramework.resources.popanim.PopAnimDef", null)
 		});
 U(function() {
-			GameFramework.b.Fa.mA.c()
+			GameFramework.resources.Fa.mA.c()
 		});
-GameFramework.b.Fa.on = function(b) {
-	E(GameFramework.b.Fa.on, this, [b])
+GameFramework.resources.Fa.on = function(b) {
+	E(GameFramework.resources.Fa.on, this, [b])
 };
-GameFramework.b.Fa.on.prototype = {};
-GameFramework.b.Fa.on.c = function() {
-	GameFramework.b.Fa.on.i4 = "popanim.stopped"
+GameFramework.resources.Fa.on.prototype = {};
+GameFramework.resources.Fa.on.c = function() {
+	GameFramework.resources.Fa.on.i4 = "popanim.stopped"
 };
 T(function() {
-			GameFramework.b.Fa.on.u(
+			GameFramework.resources.Fa.on.u(
 					"GameFramework.resources.popanim.PopAnimEvent",
 					GameFramework.gb.Mc)
 		});
 U(function() {
-			GameFramework.b.Fa.on.c()
+			GameFramework.resources.Fa.on.c()
 		});
-GameFramework.b.Fa.dw = t();
-GameFramework.b.Fa.dw.prototype = {
+GameFramework.resources.Fa.dw = t();
+GameFramework.resources.Fa.dw.prototype = {
 	of : null,
 	Yt : false,
 	sB : null
 };
-GameFramework.b.Fa.dw.c = t();
+GameFramework.resources.Fa.dw.c = t();
 T(function() {
-			GameFramework.b.Fa.dw.u(
+			GameFramework.resources.Fa.dw.u(
 					"GameFramework.resources.popanim.PopAnimFrame", null)
 		});
 U(function() {
-			GameFramework.b.Fa.dw.c()
+			GameFramework.resources.Fa.dw.c()
 		});
-GameFramework.b.Fa.nA = function() {
+GameFramework.resources.Fa.nA = function() {
 	this.bh = [];
 	this.dH = []
 };
-GameFramework.b.Fa.nA.prototype = {
+GameFramework.resources.Fa.nA.prototype = {
 	bh : null,
 	dH : null,
 	Nx : 0,
@@ -11381,29 +11381,29 @@ GameFramework.b.Fa.nA.prototype = {
 		this.bh[this.dH.indexOf(b.xa)] = b.rd
 	}
 };
-GameFramework.b.Fa.nA.c = t();
+GameFramework.resources.Fa.nA.c = t();
 T(function() {
-			GameFramework.b.Fa.nA.u(
+			GameFramework.resources.Fa.nA.u(
 					"GameFramework.resources.popanim.PopAnimImage", null)
 		});
 U(function() {
-			GameFramework.b.Fa.nA.c()
+			GameFramework.resources.Fa.nA.c()
 		});
-GameFramework.b.Fa.oA = t();
-GameFramework.b.Fa.oA.prototype = {
+GameFramework.resources.Fa.oA = t();
+GameFramework.resources.Fa.oA.prototype = {
 	sb : null,
 	CY : null
 };
-GameFramework.b.Fa.oA.c = t();
+GameFramework.resources.Fa.oA.c = t();
 T(function() {
-			GameFramework.b.Fa.oA.u(
+			GameFramework.resources.Fa.oA.u(
 					"GameFramework.resources.popanim.PopAnimObjectDef", null)
 		});
 U(function() {
-			GameFramework.b.Fa.oA.c()
+			GameFramework.resources.Fa.oA.c()
 		});
-GameFramework.b.Fa.pA = t();
-GameFramework.b.Fa.pA.prototype = {
+GameFramework.resources.Fa.pA = t();
+GameFramework.resources.Fa.pA.prototype = {
 	sb : null,
 	Ji : null,
 	i7 : null,
@@ -11413,24 +11413,24 @@ GameFramework.b.Fa.pA.prototype = {
 	cj : 4294967295,
 	UX : null
 };
-GameFramework.b.Fa.pA.c = t();
+GameFramework.resources.Fa.pA.c = t();
 T(function() {
-			GameFramework.b.Fa.pA.u(
+			GameFramework.resources.Fa.pA.u(
 					"GameFramework.resources.popanim.PopAnimObjectInst", null)
 		});
 U(function() {
-			GameFramework.b.Fa.pA.c()
+			GameFramework.resources.Fa.pA.c()
 		});
-GameFramework.b.Fa.Iq = function() {
-	GameFramework.b.Fa.Iq.GN++
+GameFramework.resources.Fa.Iq = function() {
+	GameFramework.resources.Fa.Iq.GN++
 };
-GameFramework.b.Fa.Iq.prototype = {
+GameFramework.resources.Fa.Iq.prototype = {
 	Na : null,
 	Ya : null,
 	n : 0,
 	ut : 0,
 	gi : function() {
-		var b = new GameFramework.b.Fa.Iq;
+		var b = new GameFramework.resources.Fa.Iq;
 		b.Na = this.Na;
 		b.Ya = this.Ya;
 		b.n = this.n;
@@ -11438,20 +11438,20 @@ GameFramework.b.Fa.Iq.prototype = {
 		return b
 	}
 };
-GameFramework.b.Fa.Iq.c = function() {
-	GameFramework.b.Fa.Iq.GN = 0
+GameFramework.resources.Fa.Iq.c = function() {
+	GameFramework.resources.Fa.Iq.GN = 0
 };
 T(function() {
-			GameFramework.b.Fa.Iq.u(
+			GameFramework.resources.Fa.Iq.u(
 					"GameFramework.resources.popanim.PopAnimObjectPos", null)
 		});
 U(function() {
-			GameFramework.b.Fa.Iq.c()
+			GameFramework.resources.Fa.Iq.c()
 		});
-GameFramework.b.Fa.Jq = function() {
-	GameFramework.b.Fa.Jq.GN++
+GameFramework.resources.Fa.Jq = function() {
+	GameFramework.resources.Fa.Jq.GN++
 };
-GameFramework.b.Fa.Jq.prototype = {
+GameFramework.resources.Fa.Jq.prototype = {
 	sb : null,
 	Ne : 0,
 	wk : null,
@@ -11465,7 +11465,7 @@ GameFramework.b.Fa.Jq.prototype = {
 	jd : 0,
 	ge : 0,
 	gi : function() {
-		var b = new GameFramework.b.Fa.Jq;
+		var b = new GameFramework.resources.Fa.Jq;
 		b.sb = this.sb;
 		b.Ne = this.Ne;
 		b.wk = this.wk;
@@ -11481,18 +11481,18 @@ GameFramework.b.Fa.Jq.prototype = {
 		return b
 	}
 };
-GameFramework.b.Fa.Jq.c = function() {
-	GameFramework.b.Fa.Jq.GN = 0
+GameFramework.resources.Fa.Jq.c = function() {
+	GameFramework.resources.Fa.Jq.GN = 0
 };
 T(function() {
-			GameFramework.b.Fa.Jq.u(
+			GameFramework.resources.Fa.Jq.u(
 					"GameFramework.resources.popanim.PopAnimObjectPosData", null)
 		});
 U(function() {
-			GameFramework.b.Fa.Jq.c()
+			GameFramework.resources.Fa.Jq.c()
 		});
-GameFramework.b.Fa.qA = t();
-GameFramework.b.Fa.qA.prototype = {
+GameFramework.resources.Fa.qA = t();
+GameFramework.resources.Fa.qA.prototype = {
 	Ke : null,
 	sb : null,
 	Ep : 0,
@@ -11502,16 +11502,16 @@ GameFramework.b.Fa.qA.prototype = {
 	By : 0,
 	Cy : 0
 };
-GameFramework.b.Fa.qA.c = t();
+GameFramework.resources.Fa.qA.c = t();
 T(function() {
-			GameFramework.b.Fa.qA.u(
+			GameFramework.resources.Fa.qA.u(
 					"GameFramework.resources.popanim.PopAnimParticleEffect", null)
 		});
 U(function() {
-			GameFramework.b.Fa.qA.c()
+			GameFramework.resources.Fa.qA.c()
 		});
-GameFramework.b.Fa.ew = t();
-GameFramework.b.Fa.ew.prototype = {
+GameFramework.resources.Fa.ew = t();
+GameFramework.resources.Fa.ew.prototype = {
 	sb : null,
 	Wf : null,
 	Jk : 0,
@@ -11523,16 +11523,16 @@ GameFramework.b.Fa.ew.prototype = {
 		return b == "" ? 0 : this.kH[b] | 0
 	}
 };
-GameFramework.b.Fa.ew.c = t();
+GameFramework.resources.Fa.ew.c = t();
 T(function() {
-			GameFramework.b.Fa.ew.u(
+			GameFramework.resources.Fa.ew.u(
 					"GameFramework.resources.popanim.PopAnimSpriteDef", null)
 		});
 U(function() {
-			GameFramework.b.Fa.ew.c()
+			GameFramework.resources.Fa.ew.c()
 		});
-GameFramework.b.Fa.Kq = t();
-GameFramework.b.Fa.Kq.prototype = {
+GameFramework.resources.Fa.Kq = t();
+GameFramework.resources.Fa.Kq.prototype = {
 	Qb : null,
 	ir : 0,
 	A : 0,
@@ -11568,14 +11568,14 @@ GameFramework.b.Fa.Kq.prototype = {
 		this.Qb = this.ve = this.ga = this.$c = null
 	}
 };
-GameFramework.b.Fa.Kq.c = t();
+GameFramework.resources.Fa.Kq.c = t();
 T(function() {
-			GameFramework.b.Fa.Kq.u(
+			GameFramework.resources.Fa.Kq.u(
 					"GameFramework.resources.popanim.PopAnimSpriteInst", null,
 					System.Wl)
 		});
 U(function() {
-			GameFramework.b.Fa.Kq.c()
+			GameFramework.resources.Fa.Kq.c()
 		});
 GameFramework.widgets = Type.ci("GameFramework.widgets");
 GameFramework.widgets.td = function(b) {
@@ -12192,7 +12192,7 @@ GameFramework.widgets.rb.prototype = {
 				&& (c += this.Xf.Sl() - this.Xf.DR(), d = true);
 		this.EG.length > 0
 				&& this.fo != null
-				&& (d && (c += this.Qr), d = new GameFramework.b.oz, GameFramework.gfx.Ul
+				&& (d && (c += this.Qr), d = new GameFramework.resources.oz, GameFramework.gfx.Ul
 						.$0(this.EG, this.fo, b - this.Fd.yh - this.Fd.Vj
 										- this.Df.yh - this.Df.Vj - 4, this.gj,
 								d), c += d.OW + d.gN, d = true);
@@ -12918,7 +12918,7 @@ GameFramework.JSBaseApp.prototype = {
 	kc : ha("useGL"),
 	Ub : function() {
 		GameFramework.BaseApp.prototype.Ub.apply(this);
-		this.vb = this.fu = new GameFramework.b.Hv
+		this.vb = this.fu = new GameFramework.resources.Hv
 	},
 	nQ : function() {
 		qb = 0
@@ -12967,28 +12967,28 @@ GameFramework.JSBaseApp.prototype = {
 			if (this.wW && GameFramework.h.sq() - this.nX >= 100)
 				break;
 			var g = this.Ck[f];
-			g.Pf == GameFramework.b.Rb.tA
+			g.Pf == GameFramework.resources.Rb.tA
 					? c = true
-					: g.Pf != GameFramework.b.Rb.zT && (d = true);
+					: g.Pf != GameFramework.resources.Rb.zT && (d = true);
 			if (g.rd == null && g.vc != null)
-				if (g.Pf === GameFramework.b.Rb.sA)
+				if (g.Pf === GameFramework.resources.Rb.sA)
 					g.Kb != null && g.Kb.Qb != null ? this.vb.Gs(g.Kb.Qb) != null
 							&& g.Or != g.Uj && g.Or++ : g.rd = g.Kb != null
 							&& g.Kb.gX ? Oa(g, g.vc ? this.Op + g.vc : null, g.Rx
 									? this.Op + g.Rx
 									: null) : Na(g, g.vc ? this.Op + g.vc : null,
 							g.Rx ? this.Op + g.Rx : null);
-				else if (g.Pf === GameFramework.b.Rb.tA) {
+				else if (g.Pf === GameFramework.resources.Rb.tA) {
 					var h = g.vc;
 					h.indexOf(".") === -1 && (h += g.Kb.Jj[0]);
 					g.rd = Wc(g, h);
 					this.vb.JT(g)
-				} else if (g.Pf === GameFramework.b.Rb.KK
-						|| g.Pf === GameFramework.b.Rb.NK
-						|| g.Pf === GameFramework.b.Rb.MK
-						|| g.Pf === GameFramework.b.Rb.LK
-						|| g.Pf === GameFramework.b.Rb.OK
-						|| g.Pf === GameFramework.b.Rb.yT)
+				} else if (g.Pf === GameFramework.resources.Rb.KK
+						|| g.Pf === GameFramework.resources.Rb.NK
+						|| g.Pf === GameFramework.resources.Rb.MK
+						|| g.Pf === GameFramework.resources.Rb.LK
+						|| g.Pf === GameFramework.resources.Rb.OK
+						|| g.Pf === GameFramework.resources.Rb.yT)
 					if (ua(g.vc, "!ref:"))
 						h = this.vb.b1(g.vc.substr(5)), h != null && g.Or != g.Uj
 								&& (this.vb.ET(g.xa, h.gi()), g.Or++);
@@ -13033,21 +13033,21 @@ GameFramework.JSBaseApp.prototype = {
 	nk : function(b, c) {
 		this.RN = GameFramework.h.sq();
 		c.rd = b;
-		if (c.Pf == GameFramework.b.Rb.tA)
+		if (c.Pf == GameFramework.resources.Rb.tA)
 			this.YW = true;
-		if (c.Pf == GameFramework.b.Rb.KK) {
+		if (c.Pf == GameFramework.resources.Rb.KK) {
 			var d = new GameFramework.ck;
 			d.nd.Ya = c.rd;
 			c.rd = d;
 			this.fu.c3(c)
 		}
-		if (c.Pf == GameFramework.b.Rb.NK)
+		if (c.Pf == GameFramework.resources.Rb.NK)
 			d = new GameFramework.ck, d.nd.Ya = c.rd, c.rd = d, this.fu.e3(c);
-		if (c.Pf == GameFramework.b.Rb.MK)
+		if (c.Pf == GameFramework.resources.Rb.MK)
 			d = new GameFramework.ck, d.nd.Ya = c.rd, c.rd = d, this.fu.d3(c);
-		if (c.Pf == GameFramework.b.Rb.LK)
+		if (c.Pf == GameFramework.resources.Rb.LK)
 			d = new GameFramework.ck, d.nd.Ya = c.rd, c.rd = d, this.fu.kT(c);
-		if (c.Pf == GameFramework.b.Rb.OK)
+		if (c.Pf == GameFramework.resources.Rb.OK)
 			d = new GameFramework.ck, d.nd.Ya = c.rd, c.rd = d, this.fu.f3(c);
 		c.Or++
 	},
@@ -13232,7 +13232,7 @@ GameFramework.JSBaseApp.prototype = {
 		ca(new System.wJ("Invalid JSON data format"))
 	},
 	yz : function(b) {
-		return new GameFramework.b.Iv(b)
+		return new GameFramework.resources.Iv(b)
 	}
 };
 GameFramework.JSBaseApp.c = function() {
@@ -13578,7 +13578,7 @@ GameFramework.gfx.Cv.prototype = {
 		O.xU != null && gl.uniform1i(O.xU, 0);
 		O.yU != null && gl.uniform1i(O.yU, 1);
 		for (c = 0; c < b.ee.length; c++)
-			d = b.ee[c], this.lw(0, d.Oa), f = new GameFramework.b.Fa.on(GameFramework.b.gk.iT), b
+			d = b.ee[c], this.lw(0, d.Oa), f = new GameFramework.resources.Fa.on(GameFramework.resources.gk.iT), b
 					.ld(f), d.js != null
 					&& (gl.bindBuffer(gl.ARRAY_BUFFER, d.YY), gl
 							.vertexAttribPointer(O.Ey, 3, gl.FLOAT, false, 0, 0)), d.rp != null
@@ -13591,7 +13591,7 @@ GameFramework.gfx.Cv.prototype = {
 					&& (gl.bindBuffer(gl.ARRAY_BUFFER, d.KY), gl
 							.vertexAttribPointer(O.AP, 2, gl.FLOAT, false, 0, 0)), gl
 					.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, d.bX), gl.drawElements(
-					gl.TRIANGLES, d.yx, gl.UNSIGNED_SHORT, 0), f = new GameFramework.b.Fa.on(GameFramework.b.gk.hT), b
+					gl.TRIANGLES, d.yx, gl.UNSIGNED_SHORT, 0), f = new GameFramework.resources.Fa.on(GameFramework.resources.gk.hT), b
 					.ld(f)
 	}
 };
@@ -13603,11 +13603,11 @@ T(function() {
 U(function() {
 			GameFramework.gfx.Cv.c()
 		});
-GameFramework.b = Type.ci("GameFramework.resources");
-GameFramework.b.Us = function(b) {
-	E(GameFramework.b.Us, this, [b])
+GameFramework.resources = Type.ci("GameFramework.resources");
+GameFramework.resources.Us = function(b) {
+	E(GameFramework.resources.Us, this, [b])
 };
-GameFramework.b.Us.prototype = {
+GameFramework.resources.Us.prototype = {
 	Og : function(b, c, d, f) {
 		if (!(this.jd == 0 || this.ge == 0)) {
 			var g = (b.n >>> 24) / 255, h = new GameFramework.geom.xb;
@@ -13616,8 +13616,8 @@ GameFramework.b.Us.prototype = {
 			h.concat(c);
 			h.Ca *= b.m;
 			h.Da *= b.m;
-			if (this.Mf == GameFramework.b.De.ms
-					|| this.Mf == GameFramework.b.De.LI && h.Ua == 1
+			if (this.Mf == GameFramework.resources.De.ms
+					|| this.Mf == GameFramework.resources.De.LI && h.Ua == 1
 					&& h.Sb == 0 && h.ub == 0 && h.Va == 1) {
 				c = h.Ca | 0;
 				d = h.Da | 0;
@@ -13639,18 +13639,18 @@ GameFramework.b.Us.prototype = {
 		}
 	}
 };
-GameFramework.b.Us.c = t();
+GameFramework.resources.Us.c = t();
 T(function() {
-			GameFramework.b.Us.u("GameFramework.resources.JSImageInst",
-					GameFramework.b.Rs)
+			GameFramework.resources.Us.u("GameFramework.resources.JSImageInst",
+					GameFramework.resources.Rs)
 		});
 U(function() {
-			GameFramework.b.Us.c()
+			GameFramework.resources.Us.c()
 		});
-GameFramework.b.Vs = function() {
-	E(GameFramework.b.Vs, this)
+GameFramework.resources.Vs = function() {
+	E(GameFramework.resources.Vs, this)
 };
-GameFramework.b.Vs.prototype = {
+GameFramework.resources.Vs.prototype = {
 	ym : null,
 	In : null,
 	Bn : null,
@@ -13669,8 +13669,8 @@ GameFramework.b.Vs.prototype = {
 		l.concat(c);
 		l.Ca *= b.m;
 		l.Da *= b.m;
-		if (this.Mf == GameFramework.b.De.ms
-				|| this.Mf == GameFramework.b.De.LI && l.Ua == 1 && l.Sb == 0
+		if (this.Mf == GameFramework.resources.De.ms
+				|| this.Mf == GameFramework.resources.De.LI && l.Ua == 1 && l.Sb == 0
 				&& l.ub == 0 && l.Va == 1) {
 			c = Math.round(l.Ca);
 			d = Math.round(l.Da);
@@ -13688,12 +13688,12 @@ GameFramework.b.Vs.prototype = {
 				j, k)
 	},
 	t : function() {
-		GameFramework.b.gn.prototype.t.apply(this);
+		GameFramework.resources.gn.prototype.t.apply(this);
 		this.vh != null && this.sO && gl.deleteTexture(this.vh);
 		this.ym = this.vh = null
 	},
 	bk : function(b) {
-		var c = b % this.ui, b = b / this.ui | 0, d = new GameFramework.b.Us(this);
+		var c = b % this.ui, b = b / this.ui | 0, d = new GameFramework.resources.Us(this);
 		d.he = c * this.Hg;
 		d.uf = b * this.Gg;
 		d.jd = this.Hg;
@@ -13701,7 +13701,7 @@ GameFramework.b.Vs.prototype = {
 		return d
 	},
 	dv : function(b, c, d, f) {
-		var g = new GameFramework.b.Us(this);
+		var g = new GameFramework.resources.Us(this);
 		g.he = b;
 		g.uf = c;
 		g.jd = d;
@@ -13709,18 +13709,18 @@ GameFramework.b.Vs.prototype = {
 		return g
 	}
 };
-GameFramework.b.Vs.c = t();
+GameFramework.resources.Vs.c = t();
 T(function() {
-			GameFramework.b.Vs.u("GameFramework.resources.JSImageResource",
-					GameFramework.b.gn)
+			GameFramework.resources.Vs.u("GameFramework.resources.JSImageResource",
+					GameFramework.resources.gn)
 		});
 U(function() {
-			GameFramework.b.Vs.c()
+			GameFramework.resources.Vs.c()
 		});
-GameFramework.b.Jz = function() {
-	E(GameFramework.b.Jz, this)
+GameFramework.resources.Jz = function() {
+	E(GameFramework.resources.Jz, this)
 };
-GameFramework.b.Jz.prototype = {
+GameFramework.resources.Jz.prototype = {
 	js : null,
 	Gr : null,
 	rp : null,
@@ -13728,20 +13728,20 @@ GameFramework.b.Jz.prototype = {
 	Gu : null,
 	CN : null
 };
-GameFramework.b.Jz.c = t();
+GameFramework.resources.Jz.c = t();
 T(function() {
-			GameFramework.b.Jz.u("GameFramework.resources.JSMeshPiece",
-					GameFramework.b.Nv)
+			GameFramework.resources.Jz.u("GameFramework.resources.JSMeshPiece",
+					GameFramework.resources.Nv)
 		});
 U(function() {
-			GameFramework.b.Jz.c()
+			GameFramework.resources.Jz.c()
 		});
-GameFramework.b.Dv = function() {
-	E(GameFramework.b.Dv, this)
+GameFramework.resources.Dv = function() {
+	E(GameFramework.resources.Dv, this)
 };
-GameFramework.b.Dv.prototype = {
+GameFramework.resources.Dv.prototype = {
 	BE : function(b, c) {
-		if (!GameFramework.b.Gq.prototype.BE.apply(this, [b, c]))
+		if (!GameFramework.resources.Gq.prototype.BE.apply(this, [b, c]))
 			return false;
 		if (gl != null)
 			for (var d = 0; d < this.ee.length; d++) {
@@ -13796,79 +13796,79 @@ GameFramework.b.Dv.prototype = {
 		return true
 	}
 };
-GameFramework.b.Dv.c = t();
+GameFramework.resources.Dv.c = t();
 T(function() {
-			GameFramework.b.Dv.u("GameFramework.resources.JSMeshResource",
-					GameFramework.b.Gq)
+			GameFramework.resources.Dv.u("GameFramework.resources.JSMeshResource",
+					GameFramework.resources.Gq)
 		});
 U(function() {
-			GameFramework.b.Dv.c()
+			GameFramework.resources.Dv.c()
 		});
-GameFramework.b.Xl = function(b, c, d) {
+GameFramework.resources.Xl = function(b, c, d) {
 	this.be = b;
 	this.de = c;
 	this.Dk = d
 };
-GameFramework.b.Xl.prototype = {
+GameFramework.resources.Xl.prototype = {
 	be : 0,
 	de : 0,
 	Dk : 0
 };
-GameFramework.b.Xl.c = t();
+GameFramework.resources.Xl.c = t();
 T(function() {
-			GameFramework.b.Xl.u("GameFramework.resources.JSRenderEffectBlock",
+			GameFramework.resources.Xl.u("GameFramework.resources.JSRenderEffectBlock",
 					null)
 		});
 U(function() {
-			GameFramework.b.Xl.c()
+			GameFramework.resources.Xl.c()
 		});
-GameFramework.b.Mz = t();
-GameFramework.b.Mz.prototype = {
+GameFramework.resources.Mz = t();
+GameFramework.resources.Mz.prototype = {
 	RW : null
 };
-GameFramework.b.Mz.c = t();
+GameFramework.resources.Mz.c = t();
 T(function() {
-			GameFramework.b.Mz.u("GameFramework.resources.JSRenderEffectPass",
+			GameFramework.resources.Mz.u("GameFramework.resources.JSRenderEffectPass",
 					null)
 		});
 U(function() {
-			GameFramework.b.Mz.c()
+			GameFramework.resources.Mz.c()
 		});
-GameFramework.b.Nz = function() {
+GameFramework.resources.Nz = function() {
 	this.vO = []
 };
-GameFramework.b.Nz.prototype = {
+GameFramework.resources.Nz.prototype = {
 	vO : null
 };
-GameFramework.b.Nz.c = t();
+GameFramework.resources.Nz.c = t();
 T(function() {
-			GameFramework.b.Nz.u(
+			GameFramework.resources.Nz.u(
 					"GameFramework.resources.JSRenderEffectTechnique", null)
 		});
 U(function() {
-			GameFramework.b.Nz.c()
+			GameFramework.resources.Nz.c()
 		});
-GameFramework.b.Gv = function(b) {
-	E(GameFramework.b.Gv, this, [b])
+GameFramework.resources.Gv = function(b) {
+	E(GameFramework.resources.Gv, this, [b])
 };
-GameFramework.b.Gv.prototype = {
+GameFramework.resources.Gv.prototype = {
 	IY : null
 };
-GameFramework.b.Gv.c = t();
+GameFramework.resources.Gv.c = t();
 T(function() {
-			GameFramework.b.Gv.u(
+			GameFramework.resources.Gv.u(
 					"GameFramework.resources.JSRenderEffectRunHandle",
-					GameFramework.b.AA)
+					GameFramework.resources.AA)
 		});
 U(function() {
-			GameFramework.b.Gv.c()
+			GameFramework.resources.Gv.c()
 		});
-GameFramework.b.Fv = function() {
+GameFramework.resources.Fv = function() {
 	this.ro = {};
 	this.bP = {};
-	E(GameFramework.b.Fv, this)
+	E(GameFramework.resources.Fv, this)
 };
-GameFramework.b.Fv.prototype = {
+GameFramework.resources.Fv.prototype = {
 	yd : null,
 	aP : null,
 	b7 : null,
@@ -13904,17 +13904,17 @@ GameFramework.b.Fv.prototype = {
 		this.yd = b;
 		b.H();
 		b.H();
-		this.aP = new GameFramework.b.Xl(b.H(), b.H(), b.H());
-		this.b7 = new GameFramework.b.Xl(b.H(), b.H(), b.H());
-		this.GY = new GameFramework.b.Xl(b.H(), b.H(), b.H());
-		this.A9 = new GameFramework.b.Xl(b.H(), b.H(), b.H());
-		this.NX = new GameFramework.b.Xl(b.H(), b.H(), b.H());
-		this.uY = new GameFramework.b.Xl(b.H(), b.H(), b.H());
-		this.vY = new GameFramework.b.Xl(b.H(), b.H(), b.H());
+		this.aP = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
+		this.b7 = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
+		this.GY = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
+		this.A9 = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
+		this.NX = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
+		this.uY = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
+		this.vY = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
 		this.FY = b.H();
 		for (b = 0; b < this.aP.be; b++) {
 			this.yd.Fo(this.aP.de + b * 24);
-			var c = new GameFramework.b.Nz, d = this.yd.H();
+			var c = new GameFramework.resources.Nz, d = this.yd.H();
 			this.yd.H();
 			var f = this.yd.H(), g = this.yd.H();
 			this.yd.H();
@@ -13928,7 +13928,7 @@ GameFramework.b.Fv.prototype = {
 						.H(), o = 0; o < j; o++)
 					this.yd.Fo(this.uY.de + (k + o) * 20), this.yd.H(), this.yd
 							.H(), this.yd.H(), this.yd.H(), this.yd.H();
-				j = new GameFramework.b.Mz;
+				j = new GameFramework.resources.Mz;
 				l = this.BT(l);
 				o = this.BT(m);
 				l != null
@@ -14003,7 +14003,7 @@ GameFramework.b.Fv.prototype = {
 	},
 	xD : function(b, c) {
 		c === UNDEF && (c = null);
-		var d = new GameFramework.b.Gv(this);
+		var d = new GameFramework.resources.Gv(this);
 		d.IY = this.bP[c];
 		return d
 	},
@@ -14022,38 +14022,38 @@ GameFramework.b.Fv.prototype = {
 		qc = nc
 	}
 };
-GameFramework.b.Fv.c = t();
+GameFramework.resources.Fv.c = t();
 T(function() {
-			GameFramework.b.Fv.u("GameFramework.resources.JSRenderEffect",
-					GameFramework.b.yA)
+			GameFramework.resources.Fv.u("GameFramework.resources.JSRenderEffect",
+					GameFramework.resources.yA)
 		});
 U(function() {
-			GameFramework.b.Fv.c()
+			GameFramework.resources.Fv.c()
 		});
-GameFramework.b.Hv = function() {
-	E(GameFramework.b.Hv, this)
+GameFramework.resources.Hv = function() {
+	E(GameFramework.resources.Hv, this)
 };
-GameFramework.b.Hv.prototype = {
+GameFramework.resources.Hv.prototype = {
 	dp : function(b, c) {
-		GameFramework.b.Rb.prototype.dp.apply(this, [b, c]);
+		GameFramework.resources.Rb.prototype.dp.apply(this, [b, c]);
 		Game.a[b] = c
 	},
 	f3 : function(b) {
-		var c = new GameFramework.b.Fv;
+		var c = new GameFramework.resources.Fv;
 		c.B3(b.rd);
 		this.G3(b.xa, c)
 	},
 	kT : function(b) {
-		var c = b.rd, d = new GameFramework.b.Dv;
+		var c = b.rd, d = new GameFramework.resources.Dv;
 		d.BE(c, b);
 		this.FT(b.xa, d)
 	},
 	JT : function(b) {
-		if (b.Pf == GameFramework.b.Rb.sA)
+		if (b.Pf == GameFramework.resources.Rb.sA)
 			if (b.xa != null && this.bh[b.xa] != null)
 				b.rd = this.bh[b.xa];
 			else {
-				var c = new GameFramework.b.Vs;
+				var c = new GameFramework.resources.Vs;
 				c.w7 = 1;
 				c.ym = b.rd;
 				if (b.Kb != null)
@@ -14062,7 +14062,7 @@ GameFramework.b.Hv.prototype = {
 				if (b.Kb != null && b.Kb.nu != null) {
 					var d = this.bh[b.Kb.nu], f = this.bh[b.Kb.Qb], g = this.Nm[b.Kb.nu];
 					if (d == null) {
-						d = new GameFramework.b.Vs;
+						d = new GameFramework.resources.Vs;
 						d.Sm = g.s;
 						d.Rm = g.z;
 						d.sO = true;
@@ -14113,8 +14113,8 @@ GameFramework.b.Hv.prototype = {
 				b.rd = c;
 				b.xa != null && (this.dp(b.xa, c), this.bh[b.xa] = c)
 			}
-		else if (b.Pf == GameFramework.b.Rb.tA) {
-			c = new GameFramework.b.Jv;
+		else if (b.Pf == GameFramework.resources.Rb.tA) {
+			c = new GameFramework.resources.Jv;
 			c.WW = b.rd;
 			if (b.Kb != null)
 				c.uC = b.Kb.uC;
@@ -14123,19 +14123,19 @@ GameFramework.b.Hv.prototype = {
 		}
 	}
 };
-GameFramework.b.Hv.c = t();
+GameFramework.resources.Hv.c = t();
 T(function() {
-			GameFramework.b.Hv.u("GameFramework.resources.JSResourceManager",
-					GameFramework.b.Rb)
+			GameFramework.resources.Hv.u("GameFramework.resources.JSResourceManager",
+					GameFramework.resources.Rb)
 		});
 U(function() {
-			GameFramework.b.Hv.c()
+			GameFramework.resources.Hv.c()
 		});
-GameFramework.b.Iv = function(b) {
-	E(GameFramework.b.Iv, this, [b]);
+GameFramework.resources.Iv = function(b) {
+	E(GameFramework.resources.Iv, this, [b]);
 	this.JN = b
 };
-GameFramework.b.Iv.prototype = {
+GameFramework.resources.Iv.prototype = {
 	JN : null,
 	Mu : 1,
 	KX : 0,
@@ -14167,7 +14167,7 @@ GameFramework.b.Iv.prototype = {
 	},
 	Sq : function(b) {
 		b === UNDEF && (b = true);
-		GameFramework.b.ot.prototype.Sq.apply(this, [b]);
+		GameFramework.resources.ot.prototype.Sq.apply(this, [b]);
 		(b = this.yu) && b.stop()
 	},
 	t : function() {
@@ -14178,27 +14178,27 @@ GameFramework.b.Iv.prototype = {
 		this.yu = null
 	}
 };
-GameFramework.b.Iv.c = t();
+GameFramework.resources.Iv.c = t();
 T(function() {
-			GameFramework.b.Iv.u("GameFramework.resources.JSSoundInstance",
-					GameFramework.b.ot)
+			GameFramework.resources.Iv.u("GameFramework.resources.JSSoundInstance",
+					GameFramework.resources.ot)
 		});
 U(function() {
-			GameFramework.b.Iv.c()
+			GameFramework.resources.Iv.c()
 		});
-GameFramework.b.Jv = function() {
-	E(GameFramework.b.Jv, this)
+GameFramework.resources.Jv = function() {
+	E(GameFramework.resources.Jv, this)
 };
-GameFramework.b.Jv.prototype = {
+GameFramework.resources.Jv.prototype = {
 	WW : null
 };
-GameFramework.b.Jv.c = t();
+GameFramework.resources.Jv.c = t();
 T(function() {
-			GameFramework.b.Jv.u("GameFramework.resources.JSSoundResource",
-					GameFramework.b.MA)
+			GameFramework.resources.Jv.u("GameFramework.resources.JSSoundResource",
+					GameFramework.resources.MA)
 		});
 U(function() {
-			GameFramework.b.Jv.c()
+			GameFramework.resources.Jv.c()
 		});
 Game = Type.ci("Game");
 Game.$j = function(b, c) {
@@ -14272,7 +14272,7 @@ Game.Jy = w("Tn");
 Game.Jy.prototype = {
 	Tn : 0,
 	JZ : function(b) {
-		Game.Tb.iC[this.Tn] = Type.di(b.target.rd, GameFramework.b.gn);
+		Game.Tb.iC[this.Tn] = Type.di(b.target.rd, GameFramework.resources.gn);
 		Game.Tb.Ax[this.Tn] = true;
 		GameFramework.BaseApp.M.nQ()
 	}
@@ -15031,7 +15031,7 @@ Game.BejApp.prototype = {
 	Rz : function(b) {
 		if (!this.tk) {
 			for (var c = "Loading failed", b = Type.di(b.target,
-					GameFramework.b.mk); b.MG != null;)
+					GameFramework.resources.mk); b.MG != null;)
 				b = b.MG;
 			b != null
 					&& (b.vc != null
@@ -15104,9 +15104,9 @@ Game.BejApp.prototype = {
 					.Ia("GLOW", GameFramework.gfx.k.Ma(255, 255, 255, 128)), Game.a.FONT_DIALOG_HEADER
 					.Ia("MAIN", GameFramework.gfx.k.Ma(255, 255, 255, 230)), Game.a.FONT_DIALOG_HEADER
 					.Ia("OUTLINE", GameFramework.gfx.k.Ma(255, 255, 255, 255)), Game.a.FONT_DIALOG_HEADER
-					.Ia("GLOW", GameFramework.gfx.k.Ma(255, 255, 255, 128)), Game.a.IMAGE_BOARD_TIMER.Mf = GameFramework.b.De.ik, Game.a.IMAGE_BOARD_TIMER_RED.Mf = GameFramework.b.De.ik, Game.a.IMAGE_BOARD_TIMER_GOLD.Mf = GameFramework.b.De.ik, Game.a.IMAGE_LIGHTNING_TIMER_LIGHTNING.Mf = GameFramework.b.De.ik, Game.a.IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING.Mf = GameFramework.b.De.ik, Game.a.IMAGE_LIGHTNING_TIMER_RED_LIGHTNING.Mf = GameFramework.b.De.ik, Game.a.FONT_TIMER_LARGE
-					.dU(GameFramework.b.De.ik), Game.a.FONT_TIMER_SMALL
-					.dU(GameFramework.b.De.ik), this.Sn.push(this.vb.Po(this.vb
+					.Ia("GLOW", GameFramework.gfx.k.Ma(255, 255, 255, 128)), Game.a.IMAGE_BOARD_TIMER.Mf = GameFramework.resources.De.ik, Game.a.IMAGE_BOARD_TIMER_RED.Mf = GameFramework.resources.De.ik, Game.a.IMAGE_BOARD_TIMER_GOLD.Mf = GameFramework.resources.De.ik, Game.a.IMAGE_LIGHTNING_TIMER_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.a.IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.a.IMAGE_LIGHTNING_TIMER_RED_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.a.FONT_TIMER_LARGE
+					.dU(GameFramework.resources.De.ik), Game.a.FONT_TIMER_SMALL
+					.dU(GameFramework.resources.De.ik), this.Sn.push(this.vb.Po(this.vb
 					.al("3d/gemRed.p3d"))), this.Sn.push(this.vb.Po(this.vb
 					.al("3d/gemWhite.p3d"))), this.Sn.push(this.vb.Po(this.vb
 					.al("3d/gemGreen.p3d"))), this.Sn.push(this.vb.Po(this.vb
@@ -15114,9 +15114,9 @@ Game.BejApp.prototype = {
 					.al("3d/gemPurple.p3d"))), this.Sn.push(this.vb.Po(this.vb
 					.al("3d/gemOrange.p3d"))), this.Sn.push(this.vb.Po(this.vb
 					.al("3d/gemBlue.p3d"))), this.AI = this.vb.Po(this.vb
-					.al("3d/warptube.p3d")), this.AI.Ra(GameFramework.b.gk.iT,
+					.al("3d/warptube.p3d")), this.AI.Ra(GameFramework.resources.gk.iT,
 					ss.Delegate.create(Game.N, Game.N.T1)), this.AI.Ra(
-					GameFramework.b.gk.hT, ss.Delegate.create(Game.N, Game.N.S1)), this.XY = this.vb
+					GameFramework.resources.gk.hT, ss.Delegate.create(Game.N, Game.N.S1)), this.XY = this.vb
 					.Po(this.vb.al("3d/warptube_cap.p3d"))
 	},
 	gq : function(b, c, d, f, g) {
@@ -31764,7 +31764,7 @@ Game.a.c = function() {
 	Game.a.IMAGE_TEX_YELLOW_G = null
 };
 T(function() {
-			Game.a.u("Game.Resources", null, GameFramework.b.xla)
+			Game.a.u("Game.Resources", null, GameFramework.resources.xla)
 		});
 U(function() {
 			Game.a.c()
@@ -32407,15 +32407,15 @@ Game.nw.prototype = {
 		c = Game.a.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.fn(0);
 		for (d = 0; d < 2; d++) {
 			var f = c.xk.Uh[d];
-			f.F[GameFramework.b.$.p.Uk | 0].dc[0].oa = 0.75 + b * 1.5;
-			f.F[GameFramework.b.$.p.Xo | 0].dc[0].oa = this.Bj.V() > 0 ? 0.33
+			f.F[GameFramework.resources.$.p.Uk | 0].dc[0].oa = 0.75 + b * 1.5;
+			f.F[GameFramework.resources.$.p.Xo | 0].dc[0].oa = this.Bj.V() > 0 ? 0.33
 					+ b * 1 : 0;
-			f.F[GameFramework.b.$.p.Wg | 0].dc[0].oa = 0.75 + b * 0.5;
-			f.F[GameFramework.b.$.p.Xg | 0].dc[0].oa = 0.75 + b * 0.5
+			f.F[GameFramework.resources.$.p.Wg | 0].dc[0].oa = 0.75 + b * 0.5;
+			f.F[GameFramework.resources.$.p.Xg | 0].dc[0].oa = 0.75 + b * 0.5
 		}
 		c = Game.a.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.fn(0);
 		for (d = 0; d < 2; d++)
-			c.xk.Uh[d].F[GameFramework.b.$.p.Xo | 0].dc[0].oa = this.Bj.V() > 0
+			c.xk.Uh[d].F[GameFramework.resources.$.p.Xo | 0].dc[0].oa = this.Bj.V() > 0
 					? 0.1 + b * 0.9
 					: 0;
 		Game.a.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.ca();
@@ -32809,7 +32809,7 @@ Game.TimeBonusEffect.prototype = {
 			g.Ag = 0;
 			g.Ic = -0.012;
 			g.nf = 0;
-			Game.a.IMAGE_SPARKLET.Mf = GameFramework.b.De.ik;
+			Game.a.IMAGE_SPARKLET.Mf = GameFramework.resources.De.ik;
 			g.Oa = Game.a.IMAGE_SPARKLET;
 			g.w = (Game.r.bb / 2 | 0) + Math.cos(h) * j;
 			g.v = (Game.r.ab / 2 | 0) + Math.sin(h) * j;
