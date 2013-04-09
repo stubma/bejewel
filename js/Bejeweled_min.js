@@ -14550,11 +14550,11 @@ T(function() {
 U(function() {
 			Game.Bej3DialogButton.c()
 		});
-Game.Qc = function(b, c, d, f, g, h, j, k) {
+Game.Bej3Dialog = function(b, c, d, f, g, h, j, k) {
 	this.m = new GameFramework.CurvedVal;
 	this.L = new GameFramework.CurvedVal;
 	this.B8 = [];
-	E(Game.Qc, this, [b, c, f, g, h, j, k]);
+	E(Game.Bej3Dialog, this, [b, c, f, g, h, j, k]);
 	this.PM = d;
 	this.Pt = -1;
 	this.YV = this.zl = false;
@@ -14572,7 +14572,7 @@ Game.Qc = function(b, c, d, f, g, h, j, k) {
 	this.m.ea("b+0,2,0.033333,1,####        HY### XPV}f");
 	this.L.ea("b+0,1,0.033333,1,#%t=.####=#2h3       J~P##  1~P##")
 };
-Game.Qc.prototype = {
+Game.Bej3Dialog.prototype = {
 	Pt : 0,
 	m : null,
 	L : null,
@@ -14659,19 +14659,19 @@ Game.Qc.prototype = {
 	MP : t(),
 	Mi : t()
 };
-Game.Qc.c = t();
+Game.Bej3Dialog.c = t();
 T(function() {
-			Game.Qc.u("Game.Bej3Dialog", GameFramework.widgets.rb)
+			Game.Bej3Dialog.u("Game.Bej3Dialog", GameFramework.widgets.rb)
 		});
 U(function() {
-			Game.Qc.c()
+			Game.Bej3Dialog.c()
 		});
-Game.Qc.gg = {};
-Game.Qc.gg.c = function() {
-	Game.Qc.gg.U1 = 1002
+Game.Bej3Dialog.gg = {};
+Game.Bej3Dialog.gg.c = function() {
+	Game.Bej3Dialog.gg.U1 = 1002
 };
 T(function() {
-			Game.Qc.gg.c()
+			Game.Bej3Dialog.gg.c()
 		});
 Game.Eq = function(b) {
 	E(Game.Eq, this, [b]);
@@ -15132,7 +15132,7 @@ Game.BejApp.prototype = {
 	gq : function(b, c, d, f, g) {
 		if (g === UNDEF)
 			g = Game.f.mb.DU;
-		b = new Game.Qc(Game.Resources.IMAGE_DIALOG_BACKGROUND,
+		b = new Game.Bej3Dialog(Game.Resources.IMAGE_DIALOG_BACKGROUND,
 				Game.Resources.IMAGE_DIALOG_BUTTON, g, true, b, c, d, f);
 		b.dL(Game.Resources.FONT_DIALOG_BUTTONS);
 		b.gL(Game.Resources.FONT_DIALOG_HEADER);
@@ -21681,7 +21681,7 @@ Game.DialogMgr.prototype = {
 		S(d == b.Tf.length, "Color stack error - pops don't match pushes");
 		var f;
 		for (f = this.cf.length - 1; f >= 0; --f) {
-			var g = Type.di(this.cf[f], Game.Qc);
+			var g = Type.di(this.cf[f], Game.Bej3Dialog);
 			if (g == null || !g.zl)
 				break
 		}
@@ -21718,7 +21718,7 @@ Game.DialogMgr.prototype = {
 		this.Ht.D() != 0
 				&& this.Ht.Js() != 0
 				&& (this.se.length == 0 || Type.vf(this.se[this.se.length - 1],
-						Game.Qc)
+						Game.Bej3Dialog)
 						&& (!this.se[this.se.length - 1].gs
 								|| this.se.length == 1
 								&& this.se[this.se.length - 1].zl || this.se.length == 2
@@ -21735,7 +21735,7 @@ Game.DialogMgr.prototype = {
 		}
 		b.gs
 				&& (this.se.length == 0 || Type.vf(this.se[this.se.length - 1],
-						Game.Qc)
+						Game.Bej3Dialog)
 						&& (!this.se[this.se.length - 1].gs || this.se[this.se.length
 								- 1].zl))
 				&& this.Ht.To("DialogMgr_cs_11_28_11__18_12_06_572");
@@ -22701,7 +22701,7 @@ Game.Xc.prototype = {
 		return true
 	},
 	Af : function(b, c) {
-		Game.Qc.prototype.Af.apply(this, [b, c])
+		Game.Bej3Dialog.prototype.Af.apply(this, [b, c])
 	},
 	D4 : function() {
 		if (this.VC != "") {
@@ -22725,7 +22725,7 @@ Game.Xc.prototype = {
 	},
 	Te : function() {
 		this.xR();
-		Game.Qc.prototype.Te.apply(this)
+		Game.Bej3Dialog.prototype.Te.apply(this)
 	},
 	u4 : function() {
 		var b = Game.BejApp.q.gq("INVALID NAME", "Please enter a valid name.", "OK",
@@ -22741,7 +22741,7 @@ Game.Xc.prototype = {
 						|| b.target == this.We[Game.Xc.ug.QF | 0] || b.target == this.We[Game.Xc.ug.$L
 						| 0])
 				? this.u4()
-				: (Game.Qc.prototype.Mi.apply(this, [b]), b.target == this.We[Game.Xc.ug.PF
+				: (Game.Bej3Dialog.prototype.Mi.apply(this, [b]), b.target == this.We[Game.Xc.ug.PF
 						| 0]
 						? (b = Game.BejApp.q.e, b != null && (this.Te(), b.Iy()))
 						: b.target == this.We[Game.Xc.ug.QF | 0]
@@ -22788,7 +22788,7 @@ Game.Xc.prototype = {
 	},
 	ca : function() {
 		if (Game.BejApp.q.Zd(Game.f.mb.EU) == null
-				&& (Game.Qc.prototype.ca.apply(this), this.Jd.D() > 0
+				&& (Game.Bej3Dialog.prototype.ca.apply(this), this.Jd.D() > 0
 						&& this.Vd != null && this.JU(), this.uB.$a(), Game.BejApp.q.uh != Game.f.xf.jk
 						&& !this.m.wg() && this.m.V() == 1 && this.aa >= 300)) {
 			var b = this.We[Game.Xc.ug.QF | 0], c = new GameFramework.widgets.wa(GameFramework.widgets.wa.Ld);
@@ -23021,7 +23021,7 @@ Game.Xc.c = function() {
 	Game.Xc.HE = 5
 };
 T(function() {
-			Game.Xc.u("Game.EndLevelDialog", Game.Qc, GameFramework.widgets.$ba)
+			Game.Xc.u("Game.EndLevelDialog", Game.Bej3Dialog, GameFramework.widgets.$ba)
 		});
 U(function() {
 			Game.Xc.c()
@@ -26717,7 +26717,7 @@ Game.vq.prototype = {
 	kN : 0,
 	wo : null,
 	Lb : function(b, c, d, f) {
-		Game.Qc.prototype.Lb.apply(this, [b, c, d, f]);
+		Game.Bej3Dialog.prototype.Lb.apply(this, [b, c, d, f]);
 		this.tb != null && this.gr == Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG
 				&& (this.tb.v += 20)
 	},
@@ -26726,10 +26726,10 @@ Game.vq.prototype = {
 	},
 	t : function() {
 		this.UK(true);
-		Game.Qc.prototype.t.apply(this)
+		Game.Bej3Dialog.prototype.t.apply(this)
 	},
 	ca : function() {
-		Game.Qc.prototype.ca.apply(this);
+		Game.Bej3Dialog.prototype.ca.apply(this);
 		this.Pj.ti && this.Lp.Js() != 1 ? this.Lp
 				.vj("HintDialog_cs_11_14_11__18_37_44_846") : !this.Pj.ti
 				&& this.Lp.Js() != 0
@@ -26745,7 +26745,7 @@ Game.vq.prototype = {
 		this.gr == Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG
 				&& (this.Xf.Ia("MAIN", 4294894263), this.Xf.Ia("GLOW",
 						4278190080), this.Xf.Ia("OUTLINE", 4278190080));
-		Game.Qc.prototype.ja.apply(this, [b]);
+		Game.Bej3Dialog.prototype.ja.apply(this, [b]);
 		this.gr == Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG
 				&& (this.Xf.ib("MAIN"), this.Xf.ib("GLOW"), this.Xf
 						.ib("OUTLINE"));
@@ -26765,14 +26765,14 @@ Game.vq.prototype = {
 		}
 	},
 	Qo : function(b) {
-		var c = Game.Qc.prototype.Qo.apply(this, [b]);
+		var c = Game.Bej3Dialog.prototype.Qo.apply(this, [b]);
 		this.uI && (c += 50, this.Pj.nh(b / 2 - 125, c - 190));
 		return c
 	}
 };
 Game.vq.c = t();
 T(function() {
-			Game.vq.u("Game.HintDialog", Game.Qc)
+			Game.vq.u("Game.HintDialog", Game.Bej3Dialog)
 		});
 U(function() {
 			Game.vq.c()
@@ -29016,7 +29016,7 @@ Game.OptionsDialog.prototype = {
 			this.Fi = Game.OptionsDialog.cn.O3 | 0, this.gt(), this.Te()
 	},
 	Te : function() {
-		Game.Qc.prototype.Te.apply(this);
+		Game.Bej3Dialog.prototype.Te.apply(this);
 		Game.BejApp.q.e != null && Game.BejApp.q.Nh.oi(Game.BejApp.q.e)
 	},
 	AV : function(b) {
@@ -29105,7 +29105,7 @@ Game.OptionsDialog.prototype = {
 						this.tb.z))
 	},
 	ja : function(b) {
-		Game.Qc.prototype.ja.apply(this, [b]);
+		Game.Bej3Dialog.prototype.ja.apply(this, [b]);
 		this.A5();
 		var c = b.gc(this.Un.yh, this.Un.Um);
 		try {
@@ -29136,12 +29136,12 @@ Game.OptionsDialog.prototype = {
 		}
 	},
 	Af : function(b, c) {
-		Game.Qc.prototype.Af.apply(this, [b, c])
+		Game.Bej3Dialog.prototype.Af.apply(this, [b, c])
 	}
 };
 Game.OptionsDialog.c = t();
 T(function() {
-			Game.OptionsDialog.u("Game.OptionsDialog", Game.Qc)
+			Game.OptionsDialog.u("Game.OptionsDialog", Game.Bej3Dialog)
 		});
 U(function() {
 			Game.OptionsDialog.c()
@@ -30143,7 +30143,7 @@ Game.uA.prototype = {
 	Tp : null,
 	KC : null,
 	ja : function(b) {
-		Game.Qc.prototype.ja.apply(this, [b]);
+		Game.Bej3Dialog.prototype.ja.apply(this, [b]);
 		var c = b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * this.e.Rf() | 0));
 		try {
 			var d = this.Tp.jE(), f = this.s / 2 | 0, g = 150;
@@ -30196,7 +30196,7 @@ Game.uA.prototype = {
 		}
 	},
 	ca : function() {
-		Game.Qc.prototype.ca.apply(this);
+		Game.Bej3Dialog.prototype.ca.apply(this);
 		if (Game.BejApp.q.uh != Game.f.xf.jk && !this.m.wg() && this.m.V() == 1
 				&& this.aa >= 300) {
 			var b = new GameFramework.widgets.wa(GameFramework.widgets.wa.Ld);
@@ -30206,7 +30206,7 @@ Game.uA.prototype = {
 		}
 	},
 	Mi : function(b) {
-		Game.Qc.prototype.Mi.apply(this, [b]);
+		Game.Bej3Dialog.prototype.Mi.apply(this, [b]);
 		this.Te()
 	},
 	A_ : function() {
@@ -30215,7 +30215,7 @@ Game.uA.prototype = {
 };
 Game.uA.c = t();
 T(function() {
-			Game.uA.u("Game.RankUpDialog", Game.Qc)
+			Game.uA.u("Game.RankUpDialog", Game.Bej3Dialog)
 		});
 U(function() {
 			Game.uA.c()
@@ -30242,14 +30242,14 @@ Game.RecordsDialog.prototype = {
 	UO : null,
 	FM : null,
 	ca : function() {
-		Game.Qc.prototype.ca.apply(this);
+		Game.Bej3Dialog.prototype.ca.apply(this);
 		var b = this.LB ? 930 : 1050;
 		this.Gl.nh(700 - this.Gl.s / 2, b / 2 | 0);
 		this.Lb((Game.BejApp.q.s / 2 | 0) - 700, (Game.BejApp.q.z / 2 | 0) - (b / 2 | 0),
 				1400, b)
 	},
 	ja : function(b) {
-		Game.Qc.prototype.ja.apply(this, [b]);
+		Game.Bej3Dialog.prototype.ja.apply(this, [b]);
 		var c = this.s / 2 - 2, d = b.nc(0.65, 0.65, c, 142);
 		try {
 			b.Ba(Game.Resources.IMAGE_GAMEOVER_STAMP.Ee(), c, 142)
@@ -30381,7 +30381,7 @@ Game.RecordsDialog.prototype = {
 		}
 	},
 	Mi : function(b) {
-		Game.Qc.prototype.Mi.apply(this, [b]);
+		Game.Bej3Dialog.prototype.Mi.apply(this, [b]);
 		this.Te()
 	}
 };
@@ -30392,7 +30392,7 @@ Game.RecordsDialog.c = function() {
 			4294902015, 4294940928, 4278229503)
 };
 T(function() {
-			Game.RecordsDialog.u("Game.RecordsDialog", Game.Qc)
+			Game.RecordsDialog.u("Game.RecordsDialog", Game.Bej3Dialog)
 		});
 U(function() {
 			Game.RecordsDialog.c()
