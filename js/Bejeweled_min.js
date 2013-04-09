@@ -32252,7 +32252,7 @@ Game.SpeedBoard.prototype = {
 		return this.ri != 0 ? false : Game.Board.prototype.xn.apply(this)
 	},
 	uL : function(b) {
-		var c = new Game.xw(b);
+		var c = new Game.TimeBonusEffectTop(b);
 		c.w = Game.Board.bb / 2 | 0;
 		c.v = Game.Board.ab / 2 | 0;
 		c.eg = 0.08;
@@ -32682,17 +32682,17 @@ T(function() {
 U(function() {
 			Game.ElectroBolt.c()
 		});
-Game.xw = function(b) {
+Game.TimeBonusEffectTop = function(b) {
 	this.Aj = new GameFramework.CurvedVal;
 	this.Lm = new GameFramework.CurvedVal;
-	E(Game.xw, this, [Game.Effect.da.yL]);
+	E(Game.TimeBonusEffectTop, this, [Game.Effect.da.yL]);
 	this.qd = b.xa;
 	this.Kj = b.n;
 	this.Tm = b.qe;
 	this.Ic = 0;
 	this.Lm.Aa(1)
 };
-Game.xw.prototype = {
+Game.TimeBonusEffectTop.prototype = {
 	Kj : null,
 	Tm : 0,
 	Aj : null,
@@ -32765,12 +32765,12 @@ Game.xw.prototype = {
 		d != null && d.m.V() != 1 && b.Ab()
 	}
 };
-Game.xw.c = t();
+Game.TimeBonusEffectTop.c = t();
 T(function() {
-			Game.xw.u("Game.TimeBonusEffectTop", Game.Effect)
+			Game.TimeBonusEffectTop.u("Game.TimeBonusEffectTop", Game.Effect)
 		});
 U(function() {
-			Game.xw.c()
+			Game.TimeBonusEffectTop.c()
 		});
 Game.TimeBonusEffect = function(b) {
 	this.Aj = new GameFramework.CurvedVal;
