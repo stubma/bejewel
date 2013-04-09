@@ -14761,7 +14761,7 @@ Game.TopWidget.prototype = {
 				&& (b = "", b += GameFramework.BaseApp.M.kc()
 						? "(HTML5 WebGL)"
 						: "(HTML5 Canvas)", this.ag.Ip.length == 0
-						&& this.ag.ls(String.Mb("Version {0} " + b, Game.wn
+						&& this.ag.ls(String.Mb("Version {0} " + b, Game.Version
 										.sz())))
 	},
 	ca : function() {
@@ -14778,7 +14778,7 @@ Game.TopWidget.prototype = {
 						&& b.Cc(String.Mb("Autoplay: {0} -- {1}",
 										Game.f.sV[Game.BejApp.q.uh | 0], Game.Util
 												.U4()), 8, 22);
-				var d = String.Mb("v{0}", Game.wn.sz()), d = "DEBUG " + d;
+				var d = String.Mb("v{0}", Game.Version.getVersion()), d = "DEBUG " + d;
 				b.zb(d, Game.BejApp.q.s - 4, 22, 0, 1);
 				c == 0 && (b.pb(), b.Ab())
 			}
@@ -15031,7 +15031,7 @@ Game.BejApp.prototype = {
 		var g = [new GameFramework.W.cb("PlayerId", this.zo),
 				new GameFramework.W.cb("ProductName", "Bejeweled"),
 				new GameFramework.W.cb("PlatformName", "HTML5"),
-				new GameFramework.W.cb("ClientVersion", Game.wn.sz()),
+				new GameFramework.W.cb("ClientVersion", Game.Version.getVersion()),
 				new GameFramework.W.cb("SessionId", this.sY)];
 		if (c != null)
 			for (var h = 0; h < c.length; h++)
@@ -34562,17 +34562,17 @@ Game.Util.kq.c = function() {
 T(function() {
 			Game.Util.kq.c()
 		});
-Game.wn = t();
-Game.wn.sz = function() {
-	return Game.wn.nj
+Game.Version = t();
+Game.Version.getVersion = function() {
+	return Game.Version.ver
 };
-Game.wn.prototype = {};
-Game.wn.c = function() {
-	Game.wn.nj = "0.9.12.9490"
+Game.Version.prototype = {};
+Game.Version.c = function() {
+	Game.Version.ver = "0.9.12.9490"
 };
 T(function() {
-			Game.wn.u("Game.Version", null)
+			Game.Version.u("Game.Version", null)
 		});
 U(function() {
-			Game.wn.c()
+			Game.Version.c()
 		});
