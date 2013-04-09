@@ -27981,15 +27981,15 @@ T(function() {
 U(function() {
 			Game.FrameButton.c()
 		});
-Game.WA = function(b, c) {
+Game.TextButton = function(b, c) {
 	this.LO = new GameFramework.CurvedVal;
-	E(Game.WA, this, [c]);
+	E(Game.TextButton, this, [c]);
 	this.U = Game.Resources.FONT_MENU_BTN;
 	this.LO.Aa(1);
 	this.Re = b;
 	this.dZ()
 };
-Game.WA.prototype = {
+Game.TextButton.prototype = {
 	Re : null,
 	RV : 30,
 	SV : 20,
@@ -28029,12 +28029,12 @@ Game.WA.prototype = {
 		return Game.Bej3Button.prototype.Cw.apply(this, [b, c])
 	}
 };
-Game.WA.c = t();
+Game.TextButton.c = t();
 T(function() {
-			Game.WA.u("Game.TextButton", Game.Bej3Button)
+			Game.TextButton.u("Game.TextButton", Game.Bej3Button)
 		});
 U(function() {
-			Game.WA.c()
+			Game.TextButton.c()
 		});
 Game.MainMenu = function() {
 	this.WC = Game.MainMenu.Pl.U5;
