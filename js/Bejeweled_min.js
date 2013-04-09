@@ -2190,7 +2190,7 @@ GameFramework.BaseApp.prototype = {
 		return b
 	},
 	fJ : function() {
-		return this.tr = new GameFramework.connected.xv
+		return this.tr = new GameFramework.connected.HTTPService
 	},
 	vQ : function() {
 		var b = new GameFramework.connected.ConnectedRequest;
@@ -3723,8 +3723,8 @@ T(function() {
 U(function() {
 			GameFramework.connected.Facebook.c()
 		});
-GameFramework.connected.xv = t();
-GameFramework.connected.xv.fqa = function(b) {
+GameFramework.connected.HTTPService = t();
+GameFramework.connected.HTTPService.fqa = function(b) {
 	for (var c = "", d = 0; d < b.length; d++)
 		switch (b.charCodeAt(d)) {
 			case 32 :
@@ -3748,7 +3748,7 @@ GameFramework.connected.xv.fqa = function(b) {
 		}
 	return c.toString()
 };
-GameFramework.connected.xv.prototype = {
+GameFramework.connected.HTTPService.prototype = {
 	n3 : function(b, c) {
 		var d = GameFramework.BaseApp.M.vQ();
 		d.OC = GameFramework.connected.ConnectedRequest.xT;
@@ -3764,13 +3764,13 @@ GameFramework.connected.xv.prototype = {
 	},
 	ca : t()
 };
-GameFramework.connected.xv.c = t();
+GameFramework.connected.HTTPService.c = t();
 T(function() {
-			GameFramework.connected.xv.u("GameFramework.connected.HTTPService",
+			GameFramework.connected.HTTPService.u("GameFramework.connected.HTTPService",
 					null)
 		});
 U(function() {
-			GameFramework.connected.xv.c()
+			GameFramework.connected.HTTPService.c()
 		});
 GameFramework.connected.LA = function() {
 	this.Q7 = []
