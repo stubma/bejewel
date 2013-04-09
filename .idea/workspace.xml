@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bejeweled_min.js" afterPath="$PROJECT_DIR$/js/Bejeweled_min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bejewel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,7 +63,7 @@
       <file leaf-file-name="Bejeweled_min.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34570" column="20" selection-start="1114097" selection-end="1114097" vertical-scroll-proportion="1.3571428">
+            <state line="2244" column="81" selection-start="53686" selection-end="53686" vertical-scroll-proportion="10.673913">
               <folding />
             </state>
           </provider>
@@ -500,7 +501,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34570" column="20" selection-start="1114097" selection-end="1114097" vertical-scroll-proportion="1.3571428">
+        <state line="2244" column="81" selection-start="53686" selection-end="53686" vertical-scroll-proportion="10.673913">
           <folding />
         </state>
       </provider>

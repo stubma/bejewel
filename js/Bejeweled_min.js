@@ -663,7 +663,7 @@ if (!Array.prototype.forEach)
 			f in this && b.call(c, this[f], f, this)
 	};
 Array.prototype.Pd = function() {
-	return new ss.tD(this)
+	return new ss.ArrayEnumerator(this)
 };
 Array.prototype.index = function(b, c) {
 	for (var d = this.length, f = {}, g = 0; g < d; g++)
@@ -1276,7 +1276,7 @@ ss.Md.prototype = {
 	ye : null
 };
 ss.Md.Pd = function(b) {
-	return b ? b.Pd ? b.Pd() : new ss.tD(b) : null
+	return b ? b.Pd ? b.Pd() : new ss.ArrayEnumerator(b) : null
 };
 Ba(ss.Md, "IEnumerator");
 ss.XJ = t();
@@ -1284,11 +1284,11 @@ ss.XJ.prototype = {
 	Pd : null
 };
 Ba(ss.XJ, "IEnumerable");
-ss.tD = function(b) {
+ss.ArrayEnumerator = function(b) {
 	this.bV = b;
 	this.HF = -1
 };
-ss.tD.prototype = {
+ss.ArrayEnumerator.prototype = {
 	oe : function() {
 		return this.bV[this.HF]
 	},
@@ -1297,7 +1297,7 @@ ss.tD.prototype = {
 		return this.HF < this.bV.length
 	}
 };
-ss.tD.u("ArrayEnumerator", null, ss.Md);
+ss.ArrayEnumerator.u("ArrayEnumerator", null, ss.Md);
 ss.Wl = t();
 ss.Wl.prototype = {};
 Ba(ss.Wl, "IDisposable");
@@ -2009,30 +2009,30 @@ T(function() {
 U(function() {
 			GameFramework.JSONHelperData.c()
 		});
-GameFramework.Ev = function(b, c) {
-	E(GameFramework.Ev, this, [b.H6() + " at line " + c.hC]);
+GameFramework.JSONFormatException = function(b, c) {
+	E(GameFramework.JSONFormatException, this, [b.H6() + " at line " + c.hC]);
 	this.h8 = b;
 	this.hC = c.hC
 };
-GameFramework.Ev.prototype = {
+GameFramework.JSONFormatException.prototype = {
 	h8 : null,
 	hC : 0
 };
-GameFramework.Ev.c = t();
+GameFramework.JSONFormatException.c = t();
 T(function() {
-			GameFramework.Ev.u("GameFramework.JSONFormatException", System.wJ)
+			GameFramework.JSONFormatException.u("GameFramework.JSONFormatException", System.wJ)
 		});
 U(function() {
-			GameFramework.Ev.c()
+			GameFramework.JSONFormatException.c()
 		});
-GameFramework.NA = t();
-GameFramework.NA.prototype = {};
-GameFramework.NA.c = t();
+GameFramework.Sprite = t();
+GameFramework.Sprite.prototype = {};
+GameFramework.Sprite.c = t();
 T(function() {
-			GameFramework.NA.u("GameFramework.Sprite", null)
+			GameFramework.Sprite.u("GameFramework.Sprite", null)
 		});
 U(function() {
-			GameFramework.NA.c()
+			GameFramework.Sprite.c()
 		});
 GameFramework.BaseApp = function() {
 	this.u7 = {};
@@ -2242,7 +2242,7 @@ GameFramework.BaseApp.c = function() {
 	GameFramework.BaseApp.M = null
 };
 T(function() {
-			GameFramework.BaseApp.u("GameFramework.BaseApp", GameFramework.NA)
+			GameFramework.BaseApp.u("GameFramework.BaseApp", GameFramework.Sprite)
 		});
 U(function() {
 			GameFramework.BaseApp.c()
@@ -13162,7 +13162,7 @@ GameFramework.JSBaseApp.prototype = {
 				}
 			}
 		} catch (r) {
-			ca(new GameFramework.Ev(r, d))
+			ca(new GameFramework.JSONFormatException(r, d))
 		}
 	},
 	ND : function(b, c) {
