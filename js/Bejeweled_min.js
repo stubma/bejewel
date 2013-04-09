@@ -15986,21 +15986,21 @@ T(function() {
 U(function() {
 			Game.DistortionQuad.c()
 		});
-Game.Vz = function() {
+Game.MatchSet = function() {
 	this.ee = []
 };
-Game.Vz.prototype = {
+Game.MatchSet.prototype = {
 	ee : null,
 	Lf : 0,
 	Pa : 0,
 	FW : 0
 };
-Game.Vz.c = t();
+Game.MatchSet.c = t();
 T(function() {
-			Game.Vz.u("Game.MatchSet", null)
+			Game.MatchSet.u("Game.MatchSet", null)
 		});
 U(function() {
-			Game.Vz.c()
+			Game.MatchSet.c()
 		});
 Game.oF = t();
 Game.oF.prototype = {
@@ -18374,7 +18374,7 @@ Game.Board.prototype = {
 						}
 					if (!tc || ka == 7) {
 						if (W >= 3) {
-							var yb = 0, zb = this.yl = false, ya = new Game.Vz, vc = false, Ab = false, ea = -1, Bb = -1;
+							var yb = 0, zb = this.yl = false, ya = new Game.MatchSet, vc = false, Ab = false, ea = -1, Bb = -1;
 							ya.Lf = this.vB++;
 							ya.Pa = -1;
 							ya.FW = 0;
