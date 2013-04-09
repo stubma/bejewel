@@ -13814,23 +13814,23 @@ T(function() {
 U(function() {
 			GameFramework.resources.JSMeshResource.c()
 		});
-GameFramework.resources.Xl = function(b, c, d) {
+GameFramework.resources.JSRenderEffectBlock = function(b, c, d) {
 	this.be = b;
 	this.de = c;
 	this.Dk = d
 };
-GameFramework.resources.Xl.prototype = {
+GameFramework.resources.JSRenderEffectBlock.prototype = {
 	be : 0,
 	de : 0,
 	Dk : 0
 };
-GameFramework.resources.Xl.c = t();
+GameFramework.resources.JSRenderEffectBlock.c = t();
 T(function() {
-			GameFramework.resources.Xl.u("GameFramework.resources.JSRenderEffectBlock",
+			GameFramework.resources.JSRenderEffectBlock.u("GameFramework.resources.JSRenderEffectBlock",
 					null)
 		});
 U(function() {
-			GameFramework.resources.Xl.c()
+			GameFramework.resources.JSRenderEffectBlock.c()
 		});
 GameFramework.resources.Mz = t();
 GameFramework.resources.Mz.prototype = {
@@ -13914,13 +13914,13 @@ GameFramework.resources.JSRenderEffect.prototype = {
 		this.yd = b;
 		b.H();
 		b.H();
-		this.aP = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
-		this.b7 = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
-		this.GY = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
-		this.A9 = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
-		this.NX = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
-		this.uY = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
-		this.vY = new GameFramework.resources.Xl(b.H(), b.H(), b.H());
+		this.aP = new GameFramework.resources.JSRenderEffectBlock(b.H(), b.H(), b.H());
+		this.b7 = new GameFramework.resources.JSRenderEffectBlock(b.H(), b.H(), b.H());
+		this.GY = new GameFramework.resources.JSRenderEffectBlock(b.H(), b.H(), b.H());
+		this.A9 = new GameFramework.resources.JSRenderEffectBlock(b.H(), b.H(), b.H());
+		this.NX = new GameFramework.resources.JSRenderEffectBlock(b.H(), b.H(), b.H());
+		this.uY = new GameFramework.resources.JSRenderEffectBlock(b.H(), b.H(), b.H());
+		this.vY = new GameFramework.resources.JSRenderEffectBlock(b.H(), b.H(), b.H());
 		this.FY = b.H();
 		for (b = 0; b < this.aP.be; b++) {
 			this.yd.Fo(this.aP.de + b * 24);
