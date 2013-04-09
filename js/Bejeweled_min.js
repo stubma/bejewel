@@ -32247,7 +32247,7 @@ Game.nw.prototype = {
 		c.v = Game.r.ab / 2 | 0;
 		c.eg = 0.08;
 		this.ob.Gc(c);
-		b = new Game.ka(b);
+		b = new Game.TimeBonusEffect(b);
 		b.w = Game.r.bb / 2 | 0;
 		b.v = Game.r.ab / 2 | 0;
 		b.eg = 0.08;
@@ -32762,10 +32762,10 @@ T(function() {
 U(function() {
 			Game.xw.c()
 		});
-Game.ka = function(b) {
+Game.TimeBonusEffect = function(b) {
 	this.Aj = new GameFramework.B;
 	this.Lm = new GameFramework.B;
-	E(Game.ka, this, [Game.R.da.Yg]);
+	E(Game.TimeBonusEffect, this, [Game.R.da.Yg]);
 	this.sm = [];
 	this.qd = b.xa;
 	this.Kj = b.n;
@@ -32773,7 +32773,7 @@ Game.ka = function(b) {
 	this.Ic = 0;
 	this.Lm.Aa(1)
 };
-Game.ka.prototype = {
+Game.TimeBonusEffect.prototype = {
 	sm : null,
 	Kj : null,
 	Tm : 0,
@@ -32969,8 +32969,8 @@ Game.ka.prototype = {
 		if (Game.BejApp.q.kc()) {
 			var m = Math.atan2(h - f, g - d), o = Math.cos(m), m = -Math.sin(m), q = d
 					+ o * -j, r = g + o * j;
-			Game.ka.na == null
-					? Game.ka.na = Array.Sd(6, 3, null, new GameFramework.gfx.jc(q
+			Game.TimeBonusEffect.na == null
+					? Game.TimeBonusEffect.na = Array.Sd(6, 3, null, new GameFramework.gfx.jc(q
 											+ m * j, f + o * j, 0, 0, k),
 							new GameFramework.gfx.jc(q + m * -j, f + o * -j, 0,
 									1, k), new GameFramework.gfx.jc(d + m * j, f
@@ -32998,53 +32998,53 @@ Game.ka.prototype = {
 											+ o * j, 1, 0, l),
 							new GameFramework.gfx.jc(r + m * -j, h + o * -j, 1,
 									1, l))
-					: (Game.ka.na[Game.ka.na.g * 0 + 0].x = q + m * j, Game.ka.na[Game.ka.na.g
-							* 0 + 0].y = f + o * j, Game.ka.na[Game.ka.na.g * 0
-							+ 0].color = k, Game.ka.na[Game.ka.na.g * 0 + 1].x = q
-							+ m * -j, Game.ka.na[Game.ka.na.g * 0 + 1].y = f
-							+ o * -j, Game.ka.na[Game.ka.na.g * 0 + 1].color = k, Game.ka.na[Game.ka.na.g
-							* 0 + 2].x = d + m * j, Game.ka.na[Game.ka.na.g * 0
-							+ 2].y = f + o * j, Game.ka.na[Game.ka.na.g * 0 + 2].color = k, Game.ka.na[Game.ka.na.g
-							* 1 + 0].x = q + m * -j, Game.ka.na[Game.ka.na.g
-							* 1 + 0].y = f + o * -j, Game.ka.na[Game.ka.na.g
-							* 1 + 0].color = k, Game.ka.na[Game.ka.na.g * 1 + 1].x = d
-							+ m * j, Game.ka.na[Game.ka.na.g * 1 + 1].y = f + o
-							* j, Game.ka.na[Game.ka.na.g * 1 + 1].color = k, Game.ka.na[Game.ka.na.g
-							* 1 + 2].x = d + m * -j, Game.ka.na[Game.ka.na.g
-							* 1 + 2].y = f + o * -j, Game.ka.na[Game.ka.na.g
-							* 1 + 2].color = k, Game.ka.na[Game.ka.na.g * 2 + 0].x = d
-							+ m * j, Game.ka.na[Game.ka.na.g * 2 + 0].y = f + o
-							* j, Game.ka.na[Game.ka.na.g * 2 + 0].color = k, Game.ka.na[Game.ka.na.g
-							* 2 + 1].x = d + m * -j, Game.ka.na[Game.ka.na.g
-							* 2 + 1].y = f + o * -j, Game.ka.na[Game.ka.na.g
-							* 2 + 1].color = k, Game.ka.na[Game.ka.na.g * 2 + 2].x = g
-							+ m * j, Game.ka.na[Game.ka.na.g * 2 + 2].y = h + o
-							* j, Game.ka.na[Game.ka.na.g * 2 + 2].color = l, Game.ka.na[Game.ka.na.g
-							* 3 + 0].x = d + m * -j, Game.ka.na[Game.ka.na.g
-							* 3 + 0].y = f + o * -j, Game.ka.na[Game.ka.na.g
-							* 3 + 0].color = k, Game.ka.na[Game.ka.na.g * 3 + 1].x = g
-							+ m * j, Game.ka.na[Game.ka.na.g * 3 + 1].y = h + o
-							* j, Game.ka.na[Game.ka.na.g * 3 + 1].color = l, Game.ka.na[Game.ka.na.g
-							* 3 + 2].x = g + m * -j, Game.ka.na[Game.ka.na.g
-							* 3 + 2].y = h + o * -j, Game.ka.na[Game.ka.na.g
-							* 3 + 2].color = l, Game.ka.na[Game.ka.na.g * 4 + 0].x = g
-							+ m * j, Game.ka.na[Game.ka.na.g * 4 + 0].y = h + o
-							* j, Game.ka.na[Game.ka.na.g * 4 + 0].color = l, Game.ka.na[Game.ka.na.g
-							* 4 + 1].x = g + m * -j, Game.ka.na[Game.ka.na.g
-							* 4 + 1].y = h + o * -j, Game.ka.na[Game.ka.na.g
-							* 4 + 1].color = l, Game.ka.na[Game.ka.na.g * 4 + 2].x = r
-							+ m * j, Game.ka.na[Game.ka.na.g * 4 + 2].y = h + o
-							* j, Game.ka.na[Game.ka.na.g * 4 + 2].color = l, Game.ka.na[Game.ka.na.g
-							* 5 + 0].x = g + m * -j, Game.ka.na[Game.ka.na.g
-							* 5 + 0].y = h + o * -j, Game.ka.na[Game.ka.na.g
-							* 5 + 0].color = l, Game.ka.na[Game.ka.na.g * 5 + 1].x = r
-							+ m * j, Game.ka.na[Game.ka.na.g * 5 + 1].y = h + o
-							* j, Game.ka.na[Game.ka.na.g * 5 + 1].color = l, Game.ka.na[Game.ka.na.g
-							* 5 + 2].x = r + m * -j, Game.ka.na[Game.ka.na.g
-							* 5 + 2].y = h + o * -j, Game.ka.na[Game.ka.na.g
+					: (Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 0 + 0].x = q + m * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 0 + 0].y = f + o * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 0
+							+ 0].color = k, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 0 + 1].x = q
+							+ m * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 0 + 1].y = f
+							+ o * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 0 + 1].color = k, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 0 + 2].x = d + m * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 0
+							+ 2].y = f + o * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 0 + 2].color = k, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 1 + 0].x = q + m * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 1 + 0].y = f + o * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 1 + 0].color = k, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 1 + 1].x = d
+							+ m * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 1 + 1].y = f + o
+							* j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 1 + 1].color = k, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 1 + 2].x = d + m * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 1 + 2].y = f + o * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 1 + 2].color = k, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 2 + 0].x = d
+							+ m * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 2 + 0].y = f + o
+							* j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 2 + 0].color = k, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 2 + 1].x = d + m * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 2 + 1].y = f + o * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 2 + 1].color = k, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 2 + 2].x = g
+							+ m * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 2 + 2].y = h + o
+							* j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 2 + 2].color = l, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 3 + 0].x = d + m * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 3 + 0].y = f + o * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 3 + 0].color = k, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 3 + 1].x = g
+							+ m * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 3 + 1].y = h + o
+							* j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 3 + 1].color = l, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 3 + 2].x = g + m * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 3 + 2].y = h + o * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 3 + 2].color = l, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 4 + 0].x = g
+							+ m * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 4 + 0].y = h + o
+							* j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 4 + 0].color = l, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 4 + 1].x = g + m * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 4 + 1].y = h + o * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 4 + 1].color = l, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 4 + 2].x = r
+							+ m * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 4 + 2].y = h + o
+							* j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 4 + 2].color = l, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 5 + 0].x = g + m * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 5 + 0].y = h + o * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 5 + 0].color = l, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 5 + 1].x = r
+							+ m * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 5 + 1].y = h + o
+							* j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 5 + 1].color = l, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 5 + 2].x = r + m * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
+							* 5 + 2].y = h + o * -j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
 							* 5 + 2].color = l);
 			c.qg(true);
-			b.bn(c, Game.ka.na)
+			b.bn(c, Game.TimeBonusEffect.na)
 		}
 	},
 	ja : function(b) {
@@ -33160,14 +33160,14 @@ Game.ka.prototype = {
 		}
 	}
 };
-Game.ka.c = function() {
-	Game.ka.na = null
+Game.TimeBonusEffect.c = function() {
+	Game.TimeBonusEffect.na = null
 };
 T(function() {
-			Game.ka.u("Game.TimeBonusEffect", Game.R)
+			Game.TimeBonusEffect.u("Game.TimeBonusEffect", Game.R)
 		});
 U(function() {
-			Game.ka.c()
+			Game.TimeBonusEffect.c()
 		});
 Game.ow = function(b, c, d, f, g) {
 	this.Hi = new GameFramework.W.Vu;
