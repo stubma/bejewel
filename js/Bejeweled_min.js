@@ -16545,7 +16545,7 @@ Game.Board.prototype = {
 		this.mr = true;
 		this.cI = false;
 		this.SN = 0;
-		this.EC = new Game.bw;
+		this.EC = new Game.PointsManager;
 		this.Bc(this.EC);
 		this.Jg = new Game.lq(this);
 		this.ob = new Game.lq(this);
@@ -29715,18 +29715,18 @@ Game.Points.Td.c = function() {
 T(function() {
 			Game.Points.Td.c()
 		});
-Game.bw = function() {
+Game.PointsManager = function() {
 	this.Sp = [];
 	this.sD = Array.O(6, 6, new GameFramework.gfx.k(255, 0, 0, 255),
 			new GameFramework.gfx.k(255, 255, 0, 255), new GameFramework.gfx.k(0,
 					255, 0, 255), new GameFramework.gfx.k(0, 255, 255, 255),
 			new GameFramework.gfx.k(0, 0, 255, 255), new GameFramework.gfx.k(255,
 					0, 255, 255));
-	E(Game.bw, this);
+	E(Game.PointsManager, this);
 	this.yk = false;
 	this.N8 = 1
 };
-Game.bw.prototype = {
+Game.PointsManager.prototype = {
 	Sp : null,
 	N8 : 0,
 	sD : null,
@@ -29825,12 +29825,12 @@ Game.bw.prototype = {
 			c[d].ja(b)
 	}
 };
-Game.bw.c = t();
+Game.PointsManager.c = t();
 T(function() {
-			Game.bw.u("Game.PointsManager", GameFramework.widgets.Ta)
+			Game.PointsManager.u("Game.PointsManager", GameFramework.widgets.Ta)
 		});
 U(function() {
-			Game.bw.c()
+			Game.PointsManager.c()
 		});
 Game.Wi = function() {
 	this.xe = Array.O(Game.f.T.Zc | 0, 0);
