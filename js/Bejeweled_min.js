@@ -34170,19 +34170,19 @@ T(function() {
 U(function() {
 			Game.TutorialMgr.c()
 		});
-Game.Ry = t();
-Game.Ry.prototype = {
+Game.CheckMatrixInfo = t();
+Game.CheckMatrixInfo.prototype = {
 	VX : null,
 	Eg : 0,
 	dW : 0,
 	Uc : null
 };
-Game.Ry.c = t();
+Game.CheckMatrixInfo.c = t();
 T(function() {
-			Game.Ry.u("Game.CheckMatrixInfo", null)
+			Game.CheckMatrixInfo.u("Game.CheckMatrixInfo", null)
 		});
 U(function() {
-			Game.Ry.c()
+			Game.CheckMatrixInfo.c()
 		});
 Game.JD = function(b) {
 	this.R7 = b;
@@ -34524,7 +34524,7 @@ Game.pa.x4 = function(b, c, d) {
 		}
 };
 Game.pa.tba = function(b) {
-	var c = new Game.Ry;
+	var c = new Game.CheckMatrixInfo;
 	c.Eg = b.Eg;
 	c.dW = b.Tf.length;
 	c.Uc = b;
