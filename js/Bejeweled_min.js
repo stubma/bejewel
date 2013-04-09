@@ -16099,7 +16099,7 @@ U(function() {
 		});
 Game.Board = function() {
 	this.Cn = [];
-	this.Of = new Game.tc;
+	this.Of = new Game.MTRand;
 	this.yo = Game.Board.Pi.OA;
 	this.f7 = [];
 	this.At = Array.O(2, null);
@@ -28865,82 +28865,82 @@ T(function() {
 U(function() {
 			Game.Metrics.c()
 		});
-Game.tc = function() {
-	this.Gh = Array.O(Game.tc.Xq, null);
-	this.PE = Array.O(2, null, 0, Game.tc.C2);
+Game.MTRand = function() {
+	this.Gh = Array.O(Game.MTRand.Xq, null);
+	this.PE = Array.O(2, null, 0, Game.MTRand.C2);
 	this.gF(4357)
 };
-Game.tc.Mpa = function(b) {
-	b ? Game.tc.Iw > 0 && Game.tc.Iw-- : Game.tc.Iw++
+Game.MTRand.Mpa = function(b) {
+	b ? Game.MTRand.Iw > 0 && Game.MTRand.Iw-- : Game.MTRand.Iw++
 };
-Game.tc.prototype = {
+Game.MTRand.prototype = {
 	Gh : null,
 	Eo : 0,
 	PE : null,
 	gF : function(b) {
 		b == 0 && (b = 4357);
 		this.Gh[0] = b & 4294967295;
-		for (this.Eo = 1; this.Eo < Game.tc.Xq; this.Eo++)
+		for (this.Eo = 1; this.Eo < Game.MTRand.Xq; this.Eo++)
 			b = this.Gh[this.Eo - 1] ^ this.Gh[this.Eo - 1] >>> 30, this.Gh[this.Eo] = ((1812433253
 					* ((b & 4294901760) >>> 16) << 16)
 					+ 1812433253 * (b & 65535) + this.Eo & 4294967295) >>> 0
 	},
 	yK : function() {
 		var b;
-		if (this.Eo >= Game.tc.Xq) {
+		if (this.Eo >= Game.MTRand.Xq) {
 			var c;
-			for (c = 0; c < Game.tc.Xq - Game.tc.IE; c++)
-				b = this.Gh[c] & Game.tc.DL | this.Gh[c + 1] & Game.tc.lK, this.Gh[c] = this.Gh[c
-						+ Game.tc.IE]
+			for (c = 0; c < Game.MTRand.Xq - Game.MTRand.IE; c++)
+				b = this.Gh[c] & Game.MTRand.DL | this.Gh[c + 1] & Game.MTRand.lK, this.Gh[c] = this.Gh[c
+						+ Game.MTRand.IE]
 						^ b >>> 1 ^ this.PE[b & 1];
-			for (; c < Game.tc.Xq - 1; c++)
-				b = this.Gh[c] & Game.tc.DL | this.Gh[c + 1] & Game.tc.lK, this.Gh[c] = this.Gh[c
-						+ (Game.tc.IE - Game.tc.Xq)]
+			for (; c < Game.MTRand.Xq - 1; c++)
+				b = this.Gh[c] & Game.MTRand.DL | this.Gh[c + 1] & Game.MTRand.lK, this.Gh[c] = this.Gh[c
+						+ (Game.MTRand.IE - Game.MTRand.Xq)]
 						^ b >>> 1 ^ this.PE[b & 1];
-			b = this.Gh[Game.tc.Xq - 1] & Game.tc.DL | this.Gh[0] & Game.tc.lK;
-			this.Gh[Game.tc.Xq - 1] = this.Gh[Game.tc.IE - 1] ^ b >>> 1
+			b = this.Gh[Game.MTRand.Xq - 1] & Game.MTRand.DL | this.Gh[0] & Game.MTRand.lK;
+			this.Gh[Game.MTRand.Xq - 1] = this.Gh[Game.MTRand.IE - 1] ^ b >>> 1
 					^ this.PE[b & 1];
 			this.Eo = 0
 		}
 		b = this.Gh[this.Eo++];
 		b ^= b >>> 11;
-		b ^= b << 7 & Game.tc.P4;
-		b ^= b << 15 & Game.tc.Q4;
+		b ^= b << 7 & Game.MTRand.P4;
+		b ^= b << 15 & Game.MTRand.Q4;
 		b ^= b >>> 18;
 		b &= 2147483647;
 		return b
 	},
 	Dd : function() {
-		S(Game.tc.Iw == 0);
+		S(Game.MTRand.Iw == 0);
 		return this.yK()
 	},
 	OE : function() {
-		S(Game.tc.Iw == 0);
+		S(Game.MTRand.Iw == 0);
 		return this.yK() | 0
 	},
 	Q2 : function(b) {
 		return this.yK() % b
 	},
 	R2 : function(b) {
-		S(Game.tc.Iw == 0);
+		S(Game.MTRand.Iw == 0);
 		return this.Q2(b)
 	}
 };
-Game.tc.c = function() {
-	Game.tc.Xq = 624;
-	Game.tc.IE = 397;
-	Game.tc.C2 = 2567483615;
-	Game.tc.DL = 2147483648;
-	Game.tc.lK = 2147483647;
-	Game.tc.P4 = 2636928640;
-	Game.tc.Q4 = 4022730752;
-	Game.tc.Iw = 0
+Game.MTRand.c = function() {
+	Game.MTRand.Xq = 624;
+	Game.MTRand.IE = 397;
+	Game.MTRand.C2 = 2567483615;
+	Game.MTRand.DL = 2147483648;
+	Game.MTRand.lK = 2147483647;
+	Game.MTRand.P4 = 2636928640;
+	Game.MTRand.Q4 = 4022730752;
+	Game.MTRand.Iw = 0
 };
 T(function() {
-			Game.tc.u("Game.MTRand", null)
+			Game.MTRand.u("Game.MTRand", null)
 		});
 U(function() {
-			Game.tc.c()
+			Game.MTRand.c()
 		});
 Game.ph = function(b) {
 	E(Game.ph, this, [Game.a.IMAGE_DIALOG_HEADERLESS_BKG,
@@ -34545,7 +34545,7 @@ Game.Util.$Z = function() {
 Game.Util.prototype = {};
 Game.Util.c = function() {
 	Game.Util.mp = [];
-	Game.Util.TF = new Game.tc
+	Game.Util.TF = new Game.MTRand
 };
 T(function() {
 			Game.Util.u("Game.Util", null)
