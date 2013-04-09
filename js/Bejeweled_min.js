@@ -14673,21 +14673,21 @@ Game.Bej3Dialog.gg.c = function() {
 T(function() {
 			Game.Bej3Dialog.gg.c()
 		});
-Game.Eq = function(b) {
-	E(Game.Eq, this, [b]);
+Game.LoadingError = function(b) {
+	E(Game.LoadingError, this, [b]);
 	this.uW = b
 };
-Game.Eq.prototype = {
+Game.LoadingError.prototype = {
 	uW : null,
 	Z0 : ha("uW")
 };
-Game.Eq.prototype.GetDetails = Game.Eq.prototype.Z0;
-Game.Eq.c = t();
+Game.LoadingError.prototype.GetDetails = Game.LoadingError.prototype.Z0;
+Game.LoadingError.c = t();
 T(function() {
-			Game.Eq.u("Game.LoadingError", System.wJ)
+			Game.LoadingError.u("Game.LoadingError", System.wJ)
 		});
 U(function() {
-			Game.Eq.c()
+			Game.LoadingError.c()
 		});
 Game.FA = function() {
 	E(Game.FA, this)
@@ -15050,7 +15050,7 @@ Game.BejApp.prototype = {
 									&& (c = "Failed to load group '" + b.sN
 											+ "'"));
 			this.tk = true;
-			ca(new Game.Eq(c))
+			ca(new Game.LoadingError(c))
 		}
 	},
 	I4 : function() {
