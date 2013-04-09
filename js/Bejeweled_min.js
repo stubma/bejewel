@@ -1154,22 +1154,22 @@ ss.Enum.toString = function(b) {
 		return f.join("")
 	}
 };
-ss.ra = t();
-ss.ra.u("Delegate");
-ss.ra.V2 = t();
-ss.ra.TL = function(b, c, d) {
+ss.Delegate = t();
+ss.Delegate.u("Delegate");
+ss.Delegate.V2 = t();
+ss.Delegate.TL = function(b, c, d) {
 	for (var f = 0; f < b.length; f += 2)
 		if (b[f] === c && b[f + 1] === d)
 			return true;
 	return false
 };
-ss.ra.UL = function(b) {
+ss.Delegate.UL = function(b) {
 	function c() {
 		if (b.length == 2)
 			return b[1].apply(b[0], arguments);
 		else {
 			for (var c = b.zg(), f = 0; f < c.length; f += 2)
-				ss.ra.TL(b, c[f], c[f + 1]) && c[f + 1].apply(c[f], arguments);
+				ss.Delegate.TL(b, c[f], c[f + 1]) && c[f + 1].apply(c[f], arguments);
 			return null
 		}
 	}
@@ -1177,16 +1177,16 @@ ss.ra.UL = function(b) {
 	c.zn = b;
 	return c
 };
-ss.ra.create = function(b, c) {
-	return !b ? c.tt = c : ss.ra.UL([b, c])
+ss.Delegate.create = function(b, c) {
+	return !b ? c.tt = c : ss.Delegate.UL([b, c])
 };
-ss.ra.jV = function(b, c) {
-	return !b ? !c.zn ? ss.ra.create(null, c) : c : !c ? !b.zn ? ss.ra
-			.create(null, b) : b : ss.ra.UL((b.zn ? b.zn : [null, b]).concat(c.zn
+ss.Delegate.jV = function(b, c) {
+	return !b ? !c.zn ? ss.Delegate.create(null, c) : c : !c ? !b.zn ? ss.Delegate
+			.create(null, b) : b : ss.Delegate.UL((b.zn ? b.zn : [null, b]).concat(c.zn
 			? c.zn
 			: [null, c]))
 };
-ss.ra.remove = function(b, c) {
+ss.Delegate.remove = function(b, c) {
 	if (!b || b === c)
 		return null;
 	if (!c)
@@ -1198,24 +1198,24 @@ ss.ra.remove = function(b, c) {
 			if (d.length == 2)
 				return null;
 			d.splice(h, 2);
-			return ss.ra.UL(d)
+			return ss.Delegate.UL(d)
 		}
 	return b
 };
-ss.ra.yqa = function(b, c) {
+ss.Delegate.yqa = function(b, c) {
 	var d = "__" + (new Date).valueOf();
-	ss.ra[d] = function() {
-		c || ss.ra.t6(d);
+	ss.Delegate[d] = function() {
+		c || ss.Delegate.t6(d);
 		b.apply(null, arguments)
 	};
 	return d
 };
-ss.ra.t6 = function(b) {
-	ss.ra[b] && delete ss.ra[b]
+ss.Delegate.t6 = function(b) {
+	ss.Delegate[b] && delete ss.Delegate[b]
 };
-ss.ra.vqa = function(b) {
-	if (ss.ra[b])
-		ss.ra[b] = Delegate.V2
+ss.Delegate.vqa = function(b) {
+	if (ss.Delegate[b])
+		ss.Delegate[b] = Delegate.V2
 };
 ss.Ko = function(b, c, d) {
 	this.name = b;
@@ -4635,8 +4635,8 @@ GameFramework.gfx.Ul = function() {
 	this.Nr = new GameFramework.geom.xb;
 	this.xM = {};
 	this.BN = {};
-	this.cG = new GameFramework.W.gv(ss.ra.create(this, this.Ab));
-	this.mM = new GameFramework.W.gv(ss.ra.create(this, this.pb));
+	this.cG = new GameFramework.W.gv(ss.Delegate.create(this, this.Ab));
+	this.mM = new GameFramework.W.gv(ss.Delegate.create(this, this.pb));
 	this.lC = [];
 	this.sa = new GameFramework.geom.xb;
 	this.Eg = 0;
@@ -5914,10 +5914,10 @@ GameFramework.b.Mo.prototype = {
 			j = k != null ? GameFramework.BaseApp.M.vb.sw(k) : GameFramework.BaseApp.M.vb
 					.vU(j);
 			GameFramework.BaseApp.M.vb.gw(j);
-			j.Ra(GameFramework.gb.Mc.hh, ss.ra.create(h, h.xq));
+			j.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(h, h.xq));
 			c != null
-					&& (c.Uj++, j.Ra(GameFramework.gb.Mc.hh, ss.ra.create(c,
-									c.Sy)), j.Ra(GameFramework.gb.Sg.fk, ss.ra
+					&& (c.Uj++, j.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(c,
+									c.Sy)), j.Ra(GameFramework.gb.Sg.fk, ss.Delegate
 									.create(c, c.ps)));
 			h.WM = b.H();
 			h.Ir = b.H();
@@ -6420,11 +6420,11 @@ GameFramework.b.Gq.prototype = {
 									&& (m = GameFramework.BaseApp.M.vb.al("images/"
 											+ GameFramework.BaseApp.M.aj
 											+ "/NonResize/" + o)), o = GameFramework.BaseApp.M.vb
-									.sw(m), o.Ra(GameFramework.gb.Mc.hh, ss.ra
+									.sw(m), o.Ra(GameFramework.gb.Mc.hh, ss.Delegate
 											.create(l, l.xq)), o.Ra(
-									GameFramework.gb.Mc.hh, ss.ra.create(c,
+									GameFramework.gb.Mc.hh, ss.Delegate.create(c,
 											c.Sy)), o.Ra(
-									GameFramework.gb.Sg.fk, ss.ra.create(c,
+									GameFramework.gb.Sg.fk, ss.Delegate.create(c,
 											c.ps)), c.Uj++, GameFramework.BaseApp.M.vb
 									.gw(o));
 					b.Ga();
@@ -7631,8 +7631,8 @@ GameFramework.b.va.prototype = {
 		b = c.indexOf(String.fromCharCode(124));
 		return b != -1
 				? (c = GameFramework.BaseApp.M.vb.sw(c.substr(b + 1)), c.Ra(
-						GameFramework.gb.Mc.hh, ss.ra.create(d, d.Sy)), c.Ra(
-						GameFramework.gb.Sg.fk, ss.ra.create(d, d.ps)), d.Uj++, GameFramework.BaseApp.M.vb
+						GameFramework.gb.Mc.hh, ss.Delegate.create(d, d.Sy)), c.Ra(
+						GameFramework.gb.Sg.fk, ss.Delegate.create(d, d.ps)), d.Uj++, GameFramework.BaseApp.M.vb
 						.gw(c), c)
 				: null
 	},
@@ -8163,7 +8163,7 @@ GameFramework.b.va.prototype = {
 				this.C.Ga();
 				g.O8 = this.C.oc();
 				var j = this.ni(), k = this.e1(g.sb, j, c), j = k.Kb;
-				k.Ra(GameFramework.gb.Mc.hh, ss.ra.create(g, g.xq));
+				k.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(g, g.xq));
 				for (k = 0; k < h; k++) {
 					var l = new GameFramework.b.jA;
 					l.Ki = g;
@@ -10558,10 +10558,10 @@ GameFramework.b.Sc.prototype = {
 			var j = h.indexOf(String.fromCharCode(124));
 			j != -1
 					? (h = h.substr(j + 1), g.dH.push(h), h = GameFramework.BaseApp.M.vb
-							.sw(h), h.Ra(GameFramework.gb.Mc.hh, ss.ra.create(
+							.sw(h), h.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(
 									g, g.xq)), h.Ra(GameFramework.gb.Mc.hh,
-							ss.ra.create(c, c.Sy)), h.Ra(
-							GameFramework.gb.Sg.fk, ss.ra.create(c, c.ps)), c.Uj++, GameFramework.BaseApp.M.vb
+							ss.Delegate.create(c, c.Sy)), h.Ra(
+							GameFramework.gb.Sg.fk, ss.Delegate.create(c, c.ps)), c.Uj++, GameFramework.BaseApp.M.vb
 							.gw(h))
 					: g.dH.push(h);
 			this.cu.push(g)
@@ -11077,7 +11077,7 @@ GameFramework.b.Rb.prototype = {
 					&& this.bh[d.Qb] == null
 					&& !GameFramework.BaseApp.M.zS(d.Qb)
 					&& this.sw(d.Qb).Ra(GameFramework.gb.Sg.fk,
-							ss.ra.create(c, c.ps));
+							ss.Delegate.create(c, c.ps));
 			if (!(d.Fb == GameFramework.b.Rb.zT || d.hX)) {
 				var f = d.vc, g = new GameFramework.b.mk;
 				if (d.Jj != null) {
@@ -11090,8 +11090,8 @@ GameFramework.b.Rb.prototype = {
 				g.vc = f;
 				g.Kb = d;
 				g.Uj = 1;
-				g.Ra(GameFramework.gb.Mc.hh, ss.ra.create(c, c.Sy));
-				g.Ra(GameFramework.gb.Sg.fk, ss.ra.create(c, c.ps));
+				g.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(c, c.Sy));
+				g.Ra(GameFramework.gb.Sg.fk, ss.Delegate.create(c, c.ps));
 				GameFramework.BaseApp.M.Su(g);
 				c.Uj++
 			}
@@ -11125,7 +11125,7 @@ GameFramework.b.Rb.prototype = {
 				&& this.bh[d.Qb] == null
 				&& !GameFramework.BaseApp.M.zS(d.Qb)
 				&& this.sw(d.Qb).Ra(GameFramework.gb.Sg.fk,
-						ss.ra.create(c, c.ps));
+						ss.Delegate.create(c, c.ps));
 		c.xa = b;
 		c.Kb = d;
 		c.vc = c.Kb.vc;
@@ -12109,14 +12109,14 @@ GameFramework.widgets.rb = function(b, c, d, f, g, h, j) {
 	this.It = h;
 	this.Bt = j;
 	this.Bt == GameFramework.widgets.rb.Io || this.Bt == GameFramework.widgets.rb.EZ
-			? (this.tb = this.eq(c), this.tb.Ra(GameFramework.widgets.wa.Ld, ss.ra
+			? (this.tb = this.eq(c), this.tb.Ra(GameFramework.widgets.wa.Ld, ss.Delegate
 							.create(this, this.wS)), this.Fg = this.eq(c), this.Fg
-					.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.G1)), this.Bt == GameFramework.widgets.rb.Io
+					.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.G1)), this.Bt == GameFramework.widgets.rb.Io
 					? (this.tb.Id = "YES", this.Fg.Id = "NO")
 					: (this.tb.Id = "OK", this.Fg.Id = "CANCEL"))
 			: this.Bt == GameFramework.widgets.rb.Zp
 					? (this.tb = this.eq(c), this.tb.Id = this.It, this.tb.Ra(
-							GameFramework.widgets.wa.Ld, ss.ra.create(this, this.wS)), this
+							GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.wS)), this
 							.Bc(this.tb), this.Fg = null)
 					: (this.Fg = this.tb = null, this.F8 = 0);
 	this.EG = g;
@@ -13009,8 +13009,8 @@ GameFramework.JSBaseApp.prototype = {
 								.toString()] = g, g.rd = h;
 				else
 					h = g.vc.indexOf(".json") !== -1 ? $.get(this.Op + g.vc, null,
-							ss.ra.create(this, this.KT), "text") : $.get(
-							this.Op + g.vc, null, ss.ra.create(this, this.KT)), h.nY = g, this.tN[h
+							ss.Delegate.create(this, this.KT), "text") : $.get(
+							this.Op + g.vc, null, ss.Delegate.create(this, this.KT)), h.nY = g, this.tN[h
 							.toString()] = g, g.rd = h;
 			if (g.OM && !GameFramework.BaseApp.M.vb.YO)
 				g.OM(), g.OM = null;
@@ -14299,7 +14299,7 @@ Game.Tb.pU = function(b) {
 	if (!Game.Tb.Ax[b]) {
 		var c = new Game.Jy(b), b = Game.Tb.lm[b] != null ? GameFramework.BaseApp.M.vb
 				.dl(Game.Tb.lm[b]) : GameFramework.BaseApp.M.vb.vU(Game.Tb.eN[b]);
-		b.Ra(GameFramework.gb.Mc.hh, ss.ra.create(c, c.JZ));
+		b.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(c, c.JZ));
 		return b
 	}
 	return null
@@ -14616,8 +14616,8 @@ Game.Qc.prototype = {
 		this.rQ(c, b);
 		c.U = Game.a.FONT_DIALOG_BUTTONS;
 		c.LN = -4;
-		c.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Mi));
-		c.Ra(GameFramework.widgets.wa.Fq, ss.ra.create(this, this.MP));
+		c.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.Mi));
+		c.Ra(GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.MP));
 		return c
 	},
 	O2 : function(b, c) {
@@ -14630,8 +14630,8 @@ Game.Qc.prototype = {
 		b.kb(Game.a.FONT_DIALOG_BUTTONS);
 		this.Bc(b);
 		Game.BejApp.q.Hy(b);
-		b.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Mi));
-		b.Ra(GameFramework.widgets.wa.Fq, ss.ra.create(this, this.MP));
+		b.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.Mi));
+		b.Ra(GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.MP));
 		return b
 	},
 	Aq : function(b) {
@@ -14743,7 +14743,7 @@ Game.zw.prototype = {
 		this.xl = true;
 		this.ag.Ub(Game.a.FONT_FLAREGOTHIC16);
 		GameFramework.BaseApp.M
-				.Ra(GameFramework.widgets.wa.kK, ss.ra.create(this, this.E1))
+				.Ra(GameFramework.widgets.wa.kK, ss.Delegate.create(this, this.E1))
 	},
 	E1 : function(b) {
 		this.xl
@@ -14902,8 +14902,8 @@ Game.BejApp.prototype = {
 		}
 	},
 	Hy : function(b) {
-		b.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.j3));
-		b.Ra(GameFramework.widgets.wa.Fq, ss.ra.create(this, this.k3))
+		b.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.j3));
+		b.Ra(GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.k3))
 	},
 	LP : function(b) {
 		b = b.target;
@@ -14996,8 +14996,8 @@ Game.BejApp.prototype = {
 					.Bc(this.Bi), this.Bi.ca(), this.Nh.oi(this.Bi), this.hP = new Game.yw, this.fe
 					.Bc(this.hP);
 		var b = this.vb.J4("http://127.0.0.1/~maruojie/properties/resources.xml");
-		b.Ra(GameFramework.gb.Mc.hh, ss.ra.create(this, this.M3));
-		b.Ra(GameFramework.gb.Sg.fk, ss.ra.create(this, this.Rz))
+		b.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(this, this.M3));
+		b.Ra(GameFramework.gb.Sg.fk, ss.Delegate.create(this, this.Rz))
 	},
 	M3 : function(b) {
 		this.vb.g3(b.target.rd);
@@ -15045,14 +15045,14 @@ Game.BejApp.prototype = {
 	},
 	I4 : function() {
 		this.FN = this.vb.dl("Init");
-		this.FN.Ra(GameFramework.gb.Mc.hh, ss.ra.create(this, this.dK));
-		this.FN.Ra(GameFramework.gb.Sg.fk, ss.ra.create(this, this.Rz))
+		this.FN.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(this, this.dK));
+		this.FN.Ra(GameFramework.gb.Sg.fk, ss.Delegate.create(this, this.Rz))
 	},
 	dl : function(b) {
 		b = this.vb.dl(b);
 		this.Ut++;
-		b.Ra(GameFramework.gb.Mc.hh, ss.ra.create(this, this.pK));
-		b.Ra(GameFramework.gb.Sg.fk, ss.ra.create(this, this.Rz))
+		b.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(this, this.pK));
+		b.Ra(GameFramework.gb.Sg.fk, ss.Delegate.create(this, this.Rz))
 	},
 	$K : function() {
 		this.uk.gt()
@@ -15066,8 +15066,8 @@ Game.BejApp.prototype = {
 		this.Bi.dK();
 		var b = Game.Tb.pU(0);
 		this.Ut++;
-		b.Ra(GameFramework.gb.Mc.hh, ss.ra.create(this, this.pK));
-		b.Ra(GameFramework.gb.Sg.fk, ss.ra.create(this, this.Rz));
+		b.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(this, this.pK));
+		b.Ra(GameFramework.gb.Sg.fk, ss.Delegate.create(this, this.Rz));
 		this.dl("Gameplay");
 		this.dl("Fonts");
 		this.dl("LoadingThread");
@@ -15077,8 +15077,8 @@ Game.BejApp.prototype = {
 		this.dl("MainMenu");
 		b = this.vb.H4(Game.a.z3);
 		this.Ut++;
-		b.Ra(GameFramework.gb.Mc.hh, ss.ra.create(this, this.R1));
-		b.Ra(GameFramework.gb.Sg.fk, ss.ra.create(this, this.Rz))
+		b.Ra(GameFramework.gb.Mc.hh, ss.Delegate.create(this, this.R1));
+		b.Ra(GameFramework.gb.Sg.fk, ss.Delegate.create(this, this.Rz))
 	},
 	R1 : function(b) {
 		var c = b.target.rd, d = new GameFramework.ck;
@@ -15115,8 +15115,8 @@ Game.BejApp.prototype = {
 					.al("3d/gemOrange.p3d"))), this.Sn.push(this.vb.Po(this.vb
 					.al("3d/gemBlue.p3d"))), this.AI = this.vb.Po(this.vb
 					.al("3d/warptube.p3d")), this.AI.Ra(GameFramework.b.gk.iT,
-					ss.ra.create(Game.N, Game.N.T1)), this.AI.Ra(
-					GameFramework.b.gk.hT, ss.ra.create(Game.N, Game.N.S1)), this.XY = this.vb
+					ss.Delegate.create(Game.N, Game.N.T1)), this.AI.Ra(
+					GameFramework.b.gk.hT, ss.Delegate.create(Game.N, Game.N.S1)), this.XY = this.vb
 					.Po(this.vb.al("3d/warptube_cap.p3d"))
 	},
 	gq : function(b, c, d, f, g) {
@@ -16405,8 +16405,8 @@ Game.r.prototype = {
 		if (this.yo == Game.r.Pi.OA || this.yo == Game.r.Pi.Dw) {
 			if (this.Ib == null) {
 				this.Ib = new Game.Lk(Game.r.el.FZ | 0);
-				this.Ib.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.O1));
-				this.Ib.Ra(GameFramework.widgets.wa.Fq, ss.ra.create(this, this.OI));
+				this.Ib.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.O1));
+				this.Ib.Ra(GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.OI));
 				if (this.yo == Game.r.Pi.OA)
 					this.Ib.wb = Game.a.IMAGE_BOARD_HINT_BUTTON_CLASSIC;
 				else if (this.yo == Game.r.Pi.Dw)
@@ -16426,8 +16426,8 @@ Game.r.prototype = {
 					this.fd.wb = Game.a.IMAGE_BOARD_MENU_BUTTON_CLASSIC;
 				else if (this.yo == Game.r.Pi.Dw)
 					this.fd.wb = Game.a.IMAGE_BOARD_MENU_BUTTON_LIGHTNING;
-				this.fd.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Wz));
-				this.fd.Ra(GameFramework.widgets.wa.Fq, ss.ra.create(this, this.OI));
+				this.fd.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.Wz));
+				this.fd.Ra(GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.OI));
 				this.fd.rm = this.fd.wb;
 				this.fd.Sj = this.fd.wb;
 				this.fd.Rj = 1;
@@ -16442,9 +16442,9 @@ Game.r.prototype = {
 			case Game.r.Pi.Dw :
 				if (this.hd == null)
 					this.hd = new Game.Lk(Game.r.el.HZ | 0), this.hd.wb = Game.a.IMAGE_BOARD_RESET_BUTTON_LIGHTNING, this.hd
-							.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this,
+							.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this,
 											this.L3)), this.hd.Ra(
-							GameFramework.widgets.wa.Fq, ss.ra.create(this, this.OI)), this.hd.rm = this.hd.wb, this.hd.Sj = this.hd.wb, this.hd.Rj = 1, this.hd.On = 1, this.hd.Uw = 50, this.hd
+							GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.OI)), this.hd.rm = this.hd.wb, this.hd.Sj = this.hd.wb, this.hd.Rj = 1, this.hd.On = 1, this.hd.Uw = 50, this.hd
 							.Lb(this.is + this.hd.wb.sf + 0, this.hd.wb.Oe,
 									this.hd.wb.s, this.hd.wb.z), this
 							.Bc(this.hd)
@@ -18772,7 +18772,7 @@ Game.r.prototype = {
 		Game.BejApp.q.te.Ho(b);
 		b.w = this.Se() - b.s / 2;
 		b.v = 200;
-		b.Ra(GameFramework.widgets.ih.CLOSED, ss.ra.create(this, this.L6))
+		b.Ra(GameFramework.widgets.ih.CLOSED, ss.Delegate.create(this, this.L6))
 	},
 	L6 : function(b) {
 		if (b.rB == (Game.ph.cn.JP | 0))
@@ -18791,7 +18791,7 @@ Game.r.prototype = {
 					"Abandon the current game and start over?", "",
 					GameFramework.widgets.rb.Io, Game.f.mb.JK);
 			b.Lb(this.Se() - 425, 350, 850, b.Qo(850));
-			b.Ra(GameFramework.widgets.ih.CLOSED, ss.ra.create(this, this.R6))
+			b.Ra(GameFramework.widgets.ih.CLOSED, ss.Delegate.create(this, this.R6))
 		}
 	},
 	R6 : function(b) {
@@ -19118,7 +19118,7 @@ Game.r.prototype = {
 						c = new Game.vq(c, d, true);
 						c.wo = b.wo;
 						Game.BejApp.q.te.Ho(c);
-						c.Ra(GameFramework.widgets.ih.CLOSED, ss.ra.create(this,
+						c.Ra(GameFramework.widgets.ih.CLOSED, ss.Delegate.create(this,
 										this.D1));
 						c.Pt = 1;
 						b = this.lh(b.lu);
@@ -22624,20 +22624,20 @@ Game.Xc = function(b) {
 	c.Lb(this.s / 2 - (b / 2 | 0) + 325, this.z - this.Fd.bj - c.z + 0, b, c.z);
 	c.Id = "MAIN MENU";
 	this.We[c.xa] = c;
-	c.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Mi));
+	c.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.Mi));
 	this.Bc(c);
 	c = this.ME(Game.Xc.ug.qV | 0, b, Game.a.IMAGE_DIALOG_SMALL_BUTTON);
 	c.Lb(this.s / 2 - (b / 2 | 0) - 325, this.z - this.Fd.bj - c.z + 0, b, c.z);
 	c.Id = "RECORDS";
 	this.We[c.xa] = c;
-	c.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Mi));
+	c.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.Mi));
 	this.Bc(c);
 	b += 80;
 	c = this.O2(Game.Xc.ug.QF | 0, b);
 	c.Lb(this.s / 2 - (b / 2 | 0) - 0, this.z - this.Fd.bj - c.z + 10, b, c.z);
 	c.Id = "PLAY AGAIN";
 	this.We[c.xa] = c;
-	c.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Mi));
+	c.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.Mi));
 	this.Bc(c);
 	this.Pt = 100;
 	this.dM = false;
@@ -22698,14 +22698,14 @@ Game.Xc.prototype = {
 			if (this.Vd == null)
 				this.Vd = new Game.Xu, this.Vd.V9(0), this.Vd.gU(
 						Game.BejApp.q.Ka.Km, false), this.Vd.Ra(GameFramework.widgets.wa.aR,
-						ss.ra.create(this, this.M6)), Game.BejApp.q.Nh.oi(this.Vd), this
+						ss.Delegate.create(this, this.M6)), Game.BejApp.q.Nh.oi(this.Vd), this
 						.Bc(this.Vd), this.Vd.sI = this;
 			if (this.Yf == null)
 				this.Yf = this.ME(Game.Xc.ug.$L | 0, 280,
 						Game.a.IMAGE_DIALOG_SMALL_BUTTON), this.Yf.Lb(this.s
 								/ 2 - 140 + 325, this.z - this.Fd.bj
 								- this.Yf.z + 0, 280, this.Yf.z), this.Yf.Id = "OK", this.We[this.Yf.xa] = this.Yf, this.Yf
-						.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.Mi)), this
+						.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.Mi)), this
 						.Bc(this.Yf);
 			this.Vd.Jx = 480;
 			this.Yf.nh(this.s / 2 - this.Yf.s / 2, 590);
@@ -22743,7 +22743,7 @@ Game.Xc.prototype = {
 												.ea("b;0,1,0.01,0.25,~t4G         ~O###"), b = new Game.$l(true), Game.BejApp.q.te
 												.Ho(b), b.Ra(
 												GameFramework.widgets.ih.CLOSED,
-												ss.ra.create(this, this.P6)))
+												ss.Delegate.create(this, this.P6)))
 										: b.target == this.We[Game.Xc.ug.$L | 0]
 												&& this.eQ())
 	},
@@ -26690,7 +26690,7 @@ Game.vq = function(b, c, d, f, g) {
 				Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED), this.Pj.Lb(0, 0,
 				Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED.s,
 				Game.a.IMAGE_DIALOG_CHECKBOX_CHECKED.z), this.Pj.ti = false, this.Pj.L = 1, this.Pj
-				.Ra(GameFramework.widgets.wa.NP, ss.ra.create(this, this.K6)), this
+				.Ra(GameFramework.widgets.wa.NP, ss.Delegate.create(this, this.K6)), this
 				.Bc(this.Pj);
 	if (this.tb != null)
 		this.tb.Id = "OK";
@@ -27408,7 +27408,7 @@ Game.N.prototype = {
 		if (this.Bb < Game.N.ya.Bq && this.Bb >= Game.N.ya.ak)
 			this.kf.e.Ir = this.np.x * 800, this.kf.e.lo = this.np.y * -600;
 		this.Bb < Game.N.ya.Bq && this.kf.e.m.Aa(3328.328 / b);
-		this.px.sort(ss.ra.create(this, this.L0))
+		this.px.sort(ss.Delegate.create(this, this.L0))
 	},
 	L0 : function(b, c) {
 		if (b.Jt < c.Jt)
@@ -28109,7 +28109,7 @@ Game.mc.prototype = {
 		Game.BejApp.q.aj == 768
 				? (b.io = 0, b.Sj = b.wb, b.Rj = 1, b.rm = b.wb, b.On = 1)
 				: (b.io = 2, b.pl = true);
-		b.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.R3));
+		b.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.R3));
 		this.Bc(b);
 		this.RC = b;
 		b = new Game.mv;
@@ -28121,7 +28121,7 @@ Game.mc.prototype = {
 		Game.BejApp.q.aj == 480
 				? (b.io = 0, b.Sj = b.wb, b.Rj = 1, b.rm = b.wb, b.On = 1)
 				: (b.io = 2, b.pl = true);
-		b.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.y1));
+		b.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.y1));
 		this.Bc(b);
 		this.PB = b
 	},
@@ -28139,8 +28139,8 @@ Game.mc.prototype = {
 								"SWITCH RESOLUTION",
 								"Are you sure you want to switch to Standard Definition?\n\nThis will reload the game.",
 								null, GameFramework.widgets.rb.Io), b.tb.Ra(
-						GameFramework.widgets.wa.Ld, ss.ra.create(this, this.NT)), b.Fg
-						.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(Game.BejApp.q,
+						GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.NT)), b.Fg
+						.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(Game.BejApp.q,
 										Game.BejApp.q.LP)))
 				: this.NT(b)
 	},
@@ -28154,8 +28154,8 @@ Game.mc.prototype = {
 								"SWITCH RESOLUTION",
 								"Are you sure you want to switch to High Definition?\n\nThis will reload the game.",
 								null, GameFramework.widgets.rb.Io), b.tb.Ra(
-						GameFramework.widgets.wa.Ld, ss.ra.create(this, this.sS)), b.Fg
-						.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(Game.BejApp.q,
+						GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.sS)), b.Fg
+						.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(Game.BejApp.q,
 										Game.BejApp.q.LP)))
 				: this.sS(b)
 	},
@@ -28178,8 +28178,8 @@ Game.mc.prototype = {
 		this.We[Game.mc.gg.SK | 0] = this.Tj;
 		this.Bc(this.Tj);
 		for (var b = 0; b < this.We.length; ++b)
-			this.We[b].Ra(GameFramework.widgets.wa.Fq, ss.ra.create(this, this.Mi)), this.We[b]
-					.Ra(GameFramework.widgets.wa.WS, ss.ra.create(this, this.RZ));
+			this.We[b].Ra(GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.Mi)), this.We[b]
+					.Ra(GameFramework.widgets.wa.WS, ss.Delegate.create(this, this.RZ));
 		this.z9 = null;
 		this.or = true;
 		this.ad.ec = false;
@@ -28205,7 +28205,7 @@ Game.mc.prototype = {
 		b.Rj = 1;
 		b.rm = b.wb;
 		b.On = 1;
-		b.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.F1));
+		b.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.F1));
 		this.Bc(b);
 		this.fd = b
 	},
@@ -28581,7 +28581,7 @@ Game.mc.prototype = {
 												"", GameFramework.widgets.rb.Io,
 												Game.f.mb.Z2).Ra(
 												GameFramework.widgets.ih.CLOSED,
-												ss.ra.create(this, this.O6))
+												ss.Delegate.create(this, this.O6))
 								: this.IQ();
 						break;
 					case Game.mc.gg.SK | 0 :
@@ -28808,7 +28808,7 @@ Game.Yz.prototype = {
 	nL : function(b) {
 		GameFramework.BaseApp.M.tr == null && GameFramework.BaseApp.M.fJ();
 		GameFramework.BaseApp.M.tr.sz(b).Ra(GameFramework.gb.Mc.hh,
-				ss.ra.create(this, this.v1));
+				ss.Delegate.create(this, this.v1));
 		this.mY = true
 	},
 	v1 : function(b) {
@@ -28943,30 +28943,30 @@ Game.ph = function(b) {
 	this.Lb(350, this.Wn ? 250 : 180, 900, b);
 	Game.BejApp.q.Nh.oi(this);
 	this.tb.Id = "OK";
-	this.tb.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.J1));
+	this.tb.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.J1));
 	this.hd = this.eq(Game.a.IMAGE_DIALOG_BUTTON);
 	this.hd.Id = "  RESET";
 	this.hd.m = 0.7;
-	this.hd.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.H1));
+	this.hd.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.H1));
 	this.Bx = true;
 	this.zm = this.eq(Game.a.IMAGE_DIALOG_BUTTON);
 	this.zm.Id = "HELP";
 	if (!this.Wn)
 		this.zm.Id = " " + this.zm.Id;
-	this.zm.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.TJ));
+	this.zm.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.TJ));
 	if (this.Wn)
 		this.Ow = this.eq(Game.a.IMAGE_DIALOG_BUTTON), this.Ow.Id = "MAIN MENU", this.Ow
-				.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.TJ)), this.ey = this
+				.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.TJ)), this.ey = this
 				.eq(Game.a.IMAGE_DIALOG_BUTTON), this.ey.Id = "RESUME PLAY", this.ey
-				.Ra(GameFramework.widgets.wa.Ld, ss.ra.create(this, this.TJ));
+				.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.TJ));
 	this.Er = new Game.nt(Game.a.IMAGE_DIALOG_SLIDERBAR,
 			Game.a.IMAGE_DIALOG_SLIDERHANDLE);
-	this.Er.Ra(GameFramework.widgets.wa.DA, ss.ra.create(this, this.vS));
+	this.Er.Ra(GameFramework.widgets.wa.DA, ss.Delegate.create(this, this.vS));
 	this.Bc(this.Er);
 	this.wm = new Game.nt(Game.a.IMAGE_DIALOG_SLIDERBAR,
 			Game.a.IMAGE_DIALOG_SLIDERHANDLE);
-	this.wm.Ra(GameFramework.widgets.wa.DA, ss.ra.create(this, this.vS));
-	this.wm.Ra(GameFramework.widgets.wa.XS, ss.ra.create(this, this.I1));
+	this.wm.Ra(GameFramework.widgets.wa.DA, ss.Delegate.create(this, this.vS));
+	this.wm.Ra(GameFramework.widgets.wa.XS, ss.Delegate.create(this, this.I1));
 	this.Bc(this.wm);
 	if (this.tI)
 		this.lp = new Game.aq(Game.a.IMAGE_DIALOG_CHECKBOX_BLANK,
@@ -29001,7 +29001,7 @@ Game.ph.prototype = {
 					"Abandon the current game and go to main menu?", "",
 					GameFramework.widgets.rb.Io, Game.f.mb.FE), b.Lb(this.w + this.s
 							/ 2 - 425, 350, 850, b.Qo(850)), b.Ra(
-					GameFramework.widgets.ih.CLOSED, ss.ra.create(this, this.AV));
+					GameFramework.widgets.ih.CLOSED, ss.Delegate.create(this, this.AV));
 		else if (b.target == this.ey)
 			this.Fi = Game.ph.cn.O3 | 0, this.gt(), this.Te()
 	},
@@ -29033,7 +29033,7 @@ Game.ph.prototype = {
 						"This will reset all hints\nand tutorials.\nContinue?",
 						"", GameFramework.widgets.rb.Io, Game.f.mb.FE);
 		b.Lb(this.w + this.s / 2 - 425, 350, 850, b.Qo(850));
-		b.Ra(GameFramework.widgets.ih.CLOSED, ss.ra.create(this, this.Q6))
+		b.Ra(GameFramework.widgets.ih.CLOSED, ss.Delegate.create(this, this.Q6))
 	},
 	gt : function() {
 		this.vZ();
@@ -33852,7 +33852,7 @@ Game.ha.prototype = {
 		else if (this.Fb == Game.ha.hg.Wo || this.Fb == Game.ha.hg.sK)
 			this.Hd = new Game.vq(this.Fk, this.Re, true, false), this.Hd.gs = false, this.Hd.XH = 0;
 		Game.BejApp.q.te.Ho(this.Hd);
-		this.Hd.Ra(GameFramework.widgets.ih.CLOSED, ss.ra.create(this, this.N6));
+		this.Hd.Ra(GameFramework.widgets.ih.CLOSED, ss.Delegate.create(this, this.N6));
 		this.Hd.Pt = 1;
 		if (this.Fj != 0 || this.CG != 0) {
 			if (this.DG != null)
@@ -34518,7 +34518,7 @@ Game.pa.tba = function(b) {
 	c.Eg = b.Eg;
 	c.dW = b.Tf.length;
 	c.Uc = b;
-	c.VX = new GameFramework.W.Yy(ss.ra.create(this, Game.pa.$Z));
+	c.VX = new GameFramework.W.Yy(ss.Delegate.create(this, Game.pa.$Z));
 	Game.pa.mp.push(c);
 	return c.VX
 };
