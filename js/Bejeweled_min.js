@@ -15395,8 +15395,8 @@ T(function() {
 U(function() {
 			Game.MoveData.c()
 		});
-Game.rA = t();
-Game.rA.prototype = {
+Game.QueuedMove = t();
+Game.QueuedMove.prototype = {
 	aa : 0,
 	UH : 0,
 	eI : 0,
@@ -15406,12 +15406,12 @@ Game.rA.prototype = {
 	Gt : null,
 	fx : null
 };
-Game.rA.c = t();
+Game.QueuedMove.c = t();
 T(function() {
-			Game.rA.u("Game.QueuedMove", null)
+			Game.QueuedMove.u("Game.QueuedMove", null)
 		});
 U(function() {
-			Game.rA.c()
+			Game.QueuedMove.c()
 		});
 Game.Xs = function() {
 	this.Z = Array.Sd(Game.Xs.M2, 2, null)
@@ -17543,7 +17543,7 @@ Game.Board.prototype = {
 		j === UNDEF && (j = false);
 		if (!this.IS(b, c, d))
 			return false;
-		var k = new Game.rA;
+		var k = new Game.QueuedMove;
 		k.aa = this.aa;
 		k.UH = b.xa;
 		k.eI = c;
