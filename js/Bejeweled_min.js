@@ -2962,10 +2962,10 @@ T(function() {
 U(function() {
 			GameFramework.NoRename.c()
 		});
-GameFramework.RA = function() {
+GameFramework.TArray = function() {
 	this.pp = []
 };
-GameFramework.RA.prototype = {
+GameFramework.TArray.prototype = {
 	pp : null,
 	UF : function() {
 		return this.pp.length
@@ -2995,12 +2995,12 @@ GameFramework.RA.prototype = {
 		return this.pp.Si()
 	}
 };
-GameFramework.RA.c = t();
+GameFramework.TArray.c = t();
 T(function() {
-			GameFramework.RA.u("GameFramework.TArray", null)
+			GameFramework.TArray.u("GameFramework.TArray", null)
 		});
 U(function() {
-			GameFramework.RA.c()
+			GameFramework.TArray.c()
 		});
 GameFramework.SA = function() {
 	this.wh = {}
@@ -13200,7 +13200,7 @@ GameFramework.JSBaseApp.prototype = {
 			}
 			return '"' + b + '"'
 		}
-		if (Type.vf(b, GameFramework.RA)) {
+		if (Type.vf(b, GameFramework.TArray)) {
 			c = "";
 			c += "[";
 			for (d = 0; d < b.length; d++)
