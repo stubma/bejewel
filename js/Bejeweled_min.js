@@ -14729,18 +14729,18 @@ T(function() {
 U(function() {
 			Game.MusicInterface.c()
 		});
-Game.CA = function() {
+Game.ResourceCache = function() {
 	this.c9 = Array.O(Game.f.Ha.Zc | 0, null)
 };
-Game.CA.prototype = {
+Game.ResourceCache.prototype = {
 	c9 : null
 };
-Game.CA.c = t();
+Game.ResourceCache.c = t();
 T(function() {
-			Game.CA.u("Game.ResourceCache", null)
+			Game.ResourceCache.u("Game.ResourceCache", null)
 		});
 U(function() {
-			Game.CA.c()
+			Game.ResourceCache.c()
 		});
 Game.TopWidget = function() {
 	this.ag = new Game.Messager;
@@ -14810,7 +14810,7 @@ Game.BejApp = function() {
 	this.m = this.Ig / this.dC;
 	this.Ka = new Game.Profile;
 	this.C8 = new Game.MusicInterface;
-	this.V8 = new Game.CA;
+	this.V8 = new Game.ResourceCache;
 	this.uk = new Game.uq;
 	Game.BejApp.q = this
 };
