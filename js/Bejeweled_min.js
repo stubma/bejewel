@@ -21629,22 +21629,22 @@ T(function() {
 U(function() {
 			Game.CurvedValTable.c()
 		});
-Game.QD = function(b, c, d) {
+Game.DeferredSound = function(b, c, d) {
 	this.xa = b;
 	this.FX = c;
 	this.Mu = d
 };
-Game.QD.prototype = {
+Game.DeferredSound.prototype = {
 	xa : null,
 	FX : 0,
 	Mu : 0
 };
-Game.QD.c = t();
+Game.DeferredSound.c = t();
 T(function() {
-			Game.QD.u("Game.DeferredSound", null)
+			Game.DeferredSound.u("Game.DeferredSound", null)
 		});
 U(function() {
-			Game.QD.c()
+			Game.DeferredSound.c()
 		});
 Game.Nk = function() {
 	this.se = [];
