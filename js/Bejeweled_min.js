@@ -14486,10 +14486,10 @@ T(function() {
 U(function() {
 			Game.Background.c()
 		});
-Game.Lk = function(b) {
-	E(Game.Lk, this, [b])
+Game.Bej3Button = function(b) {
+	E(Game.Bej3Button, this, [b])
 };
-Game.Lk.prototype = {
+Game.Bej3Button.prototype = {
 	m : 1,
 	ja : function(b) {
 		this.m != 1 && b.nc(this.m, this.m, this.s / 2, this.z / 2);
@@ -14497,12 +14497,12 @@ Game.Lk.prototype = {
 		this.m != 1 && b.Ab()
 	}
 };
-Game.Lk.c = t();
+Game.Bej3Button.c = t();
 T(function() {
-			Game.Lk.u("Game.Bej3Button", GameFramework.widgets.td)
+			Game.Bej3Button.u("Game.Bej3Button", GameFramework.widgets.td)
 		});
 U(function() {
-			Game.Lk.c()
+			Game.Bej3Button.c()
 		});
 Game.Wu = function(b) {
 	E(Game.Wu, this, [b]);
@@ -14621,7 +14621,7 @@ Game.Qc.prototype = {
 		}
 	},
 	eq : function(b) {
-		var c = new Game.Lk(0);
+		var c = new Game.Bej3Button(0);
 		Game.BejApp.q.Hy(c);
 		this.rQ(c, b);
 		c.U = Game.a.FONT_DIALOG_BUTTONS;
@@ -16414,7 +16414,7 @@ Game.Board.prototype = {
 	g2 : function() {
 		if (this.yo == Game.Board.Pi.OA || this.yo == Game.Board.Pi.Dw) {
 			if (this.Ib == null) {
-				this.Ib = new Game.Lk(Game.Board.el.FZ | 0);
+				this.Ib = new Game.Bej3Button(Game.Board.el.FZ | 0);
 				this.Ib.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.O1));
 				this.Ib.Ra(GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.OI));
 				if (this.yo == Game.Board.Pi.OA)
@@ -16431,7 +16431,7 @@ Game.Board.prototype = {
 				this.Bc(this.Ib)
 			}
 			if (this.fd == null) {
-				this.fd = new Game.Lk(Game.Board.el.GZ | 0);
+				this.fd = new Game.Bej3Button(Game.Board.el.GZ | 0);
 				if (this.yo == Game.Board.Pi.OA)
 					this.fd.wb = Game.a.IMAGE_BOARD_MENU_BUTTON_CLASSIC;
 				else if (this.yo == Game.Board.Pi.Dw)
@@ -16451,7 +16451,7 @@ Game.Board.prototype = {
 		switch (this.yo) {
 			case Game.Board.Pi.Dw :
 				if (this.hd == null)
-					this.hd = new Game.Lk(Game.Board.el.HZ | 0), this.hd.wb = Game.a.IMAGE_BOARD_RESET_BUTTON_LIGHTNING, this.hd
+					this.hd = new Game.Bej3Button(Game.Board.el.HZ | 0), this.hd.wb = Game.a.IMAGE_BOARD_RESET_BUTTON_LIGHTNING, this.hd
 							.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this,
 											this.L3)), this.hd.Ra(
 							GameFramework.widgets.wa.Fq, ss.Delegate.create(this, this.OI)), this.hd.rm = this.hd.wb, this.hd.Sj = this.hd.wb, this.hd.Rj = 1, this.hd.On = 1, this.hd.Uw = 50, this.hd
@@ -28004,7 +28004,7 @@ Game.WA.prototype = {
 		this.z = this.U.Sl() + this.SV
 	},
 	ja : function(b) {
-		Game.Lk.prototype.ja.apply(this, [b]);
+		Game.Bej3Button.prototype.ja.apply(this, [b]);
 		if (this.QV != 0) {
 			var c = b.Q(this.QV);
 			try {
@@ -28026,12 +28026,12 @@ Game.WA.prototype = {
 		c != 1 && b.Ab()
 	},
 	Cw : function(b, c) {
-		return Game.Lk.prototype.Cw.apply(this, [b, c])
+		return Game.Bej3Button.prototype.Cw.apply(this, [b, c])
 	}
 };
 Game.WA.c = t();
 T(function() {
-			Game.WA.u("Game.TextButton", Game.Lk)
+			Game.WA.u("Game.TextButton", Game.Bej3Button)
 		});
 U(function() {
 			Game.WA.c()
