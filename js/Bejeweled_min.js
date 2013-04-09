@@ -32032,7 +32032,7 @@ Game.nw.prototype = {
 	HJ : function() {
 		Game.BejApp.q.uk.qq("Lightning").rF(Game.BejApp.q.Ka.Km, this.Z)
 				&& Game.BejApp.q.$K(false);
-		var b = new Game.pw(this);
+		var b = new Game.SpeedEndLevelDialog(this);
 		Game.BejApp.q.te.Ho(b);
 		b.eU("Lightning");
 		Game.BejApp.q.Ka.OL()
@@ -33433,12 +33433,12 @@ T(function() {
 U(function() {
 			Game.LightningBarFillEffect.c()
 		});
-Game.pw = function(b) {
-	E(Game.pw, this, [b]);
+Game.SpeedEndLevelDialog = function(b) {
+	E(Game.SpeedEndLevelDialog, this, [b]);
 	this.BY = b;
 	this.$r = this.BY.$r
 };
-Game.pw.prototype = {
+Game.SpeedEndLevelDialog.prototype = {
 	BY : null,
 	$r : 0,
 	ca : function() {
@@ -33521,12 +33521,12 @@ Game.pw.prototype = {
 		}
 	}
 };
-Game.pw.c = t();
+Game.SpeedEndLevelDialog.c = t();
 T(function() {
-			Game.pw.u("Game.SpeedEndLevelDialog", Game.Xc)
+			Game.SpeedEndLevelDialog.u("Game.SpeedEndLevelDialog", Game.Xc)
 		});
 U(function() {
-			Game.pw.c()
+			Game.SpeedEndLevelDialog.c()
 		});
 Game.qw = function(b) {
 	this.Dk = b;
