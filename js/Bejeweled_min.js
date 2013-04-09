@@ -443,7 +443,7 @@ Number.prototype.DV = function(b) {
 Number.RL = function(b, c, d, f) {
 	var g = null, d = b.indexOf(d);
 	d > 0 && (g = b.substr(d), b = b.substr(0, d));
-	(d = ua(b, "-")) && (b = b.substr(1));
+	(d = startsWith(b, "-")) && (b = b.substr(1));
 	var h = 0, j = c[h];
 	if (b.length < j)
 		return g ? b + g : b;
@@ -588,7 +588,7 @@ String.prototype.vP = function(b, c) {
 	return this.split(b).join(c || "")
 };
 String.prototype.replaceAll = String.prototype.vP;
-function ua(b, c) {
+function startsWith(b, c) {
 	return !c.length ? true : c.length > b.length ? false : b.substr(0, c.length) == c
 }
 if (!String.prototype.trim)
@@ -716,7 +716,7 @@ Array.qra = function(b) {
 };
 RegExp.qi = "RegExp";
 RegExp.parse = function(b) {
-	if (ua(b, "/")) {
+	if (startsWith(b, "/")) {
 		var c = b.lastIndexOf("/");
 		if (c > 1)
 			return RegExp(b.substring(1, c), b.substr(c + 1))
@@ -2185,7 +2185,7 @@ GameFramework.BaseApp.prototype = {
 	hS : function() {
 		for (var b = 0, c = ss.Md.Pd(this.Ck); c.ye();) {
 			var d = c.oe();
-			d.Or == 0 && d.xa != null && d.vc != null && !ua(d.vc, "!") && b++
+			d.Or == 0 && d.xa != null && d.vc != null && !startsWith(d.vc, "!") && b++
 		}
 		return b
 	},
@@ -3484,7 +3484,7 @@ GameFramework.Utils.Tpa = function(b, c) {
 					Number) ? h = "" + j : Type.vf(j, String) && (h = j);
 			j = d.substr(f + 2, g - f - 2);
 			j == ":00" && h.length == 1 && (h = "0" + h);
-			ua(j, ":0.")
+			startsWith(j, ":0.")
 					&& na(j, "#")
 					&& (j = h.length - h.indexOf(String.fromCharCode(46))
 							- (j.length - 2), j > 0
@@ -12989,7 +12989,7 @@ GameFramework.JSBaseApp.prototype = {
 						|| stream.Pf === GameFramework.resources.ResourceManager.LK
 						|| stream.Pf === GameFramework.resources.ResourceManager.OK
 						|| stream.Pf === GameFramework.resources.ResourceManager.yT)
-					if (ua(stream.vc, "!ref:"))
+					if (startsWith(stream.vc, "!ref:"))
 						h = this.vb.b1(stream.vc.substr(5)), h != null && stream.Or != stream.Uj
 								&& (this.vb.ET(stream.xa, h.gi()), stream.Or++);
 					else if (h = null, h = stream.vc.indexOf("@"), h != -1) {
