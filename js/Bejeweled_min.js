@@ -7271,25 +7271,25 @@ T(function() {
 U(function() {
 			GameFramework.resources.PIDeflector.c()
 		});
-GameFramework.resources.cA = t();
-GameFramework.resources.cA.prototype = {
+GameFramework.resources.PIBlocker = t();
+GameFramework.resources.PIBlocker.prototype = {
 	sb : null,
 	qa : null,
 	yj : null,
 	Hb : null,
 	Z : null
 };
-GameFramework.resources.cA.c = t();
+GameFramework.resources.PIBlocker.c = t();
 T(function() {
-			GameFramework.resources.cA.u("GameFramework.resources.PIBlocker", null)
+			GameFramework.resources.PIBlocker.u("GameFramework.resources.PIBlocker", null)
 		});
 U(function() {
-			GameFramework.resources.cA.c()
+			GameFramework.resources.PIBlocker.c()
 		});
-GameFramework.resources.eA = function() {
+GameFramework.resources.PIForce = function() {
 	this.ac = Array.O(5, null)
 };
-GameFramework.resources.eA.prototype = {
+GameFramework.resources.PIForce.prototype = {
 	sb : null,
 	ec : null,
 	qa : null,
@@ -7301,17 +7301,17 @@ GameFramework.resources.eA.prototype = {
 	z : null,
 	ac : null
 };
-GameFramework.resources.eA.c = t();
+GameFramework.resources.PIForce.c = t();
 T(function() {
-			GameFramework.resources.eA.u("GameFramework.resources.PIForce", null)
+			GameFramework.resources.PIForce.u("GameFramework.resources.PIForce", null)
 		});
 U(function() {
-			GameFramework.resources.eA.c()
+			GameFramework.resources.PIForce.c()
 		});
-GameFramework.resources.gA = function() {
+GameFramework.resources.PILayerDef = function() {
 	this.qO = new GameFramework.geom.TPoint
 };
-GameFramework.resources.gA.prototype = {
+GameFramework.resources.PILayerDef.prototype = {
 	sb : null,
 	Uh : null,
 	Rh : null,
@@ -7322,21 +7322,21 @@ GameFramework.resources.gA.prototype = {
 	Hb : null,
 	t : t()
 };
-GameFramework.resources.gA.c = t();
+GameFramework.resources.PILayerDef.c = t();
 T(function() {
-			GameFramework.resources.gA.u("GameFramework.resources.PILayerDef", null,
+			GameFramework.resources.PILayerDef.u("GameFramework.resources.PILayerDef", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.gA.c()
+			GameFramework.resources.PILayerDef.c()
 		});
-GameFramework.resources.Uv = function() {
+GameFramework.resources.PILayer = function() {
 	this.bx = new GameFramework.geom.TPoint;
 	this.ec = true;
 	this.n = 4294967295;
 	this.Dn = null
 };
-GameFramework.resources.Uv.prototype = {
+GameFramework.resources.PILayer.prototype = {
 	xk : null,
 	mf : null,
 	bx : null,
@@ -7357,18 +7357,18 @@ GameFramework.resources.Uv.prototype = {
 		return null
 	}
 };
-GameFramework.resources.Uv.c = t();
+GameFramework.resources.PILayer.c = t();
 T(function() {
-			GameFramework.resources.Uv.u("GameFramework.resources.PILayer", null,
+			GameFramework.resources.PILayer.u("GameFramework.resources.PILayer", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.Uv.c()
+			GameFramework.resources.PILayer.c()
 		});
-GameFramework.resources.Rv = function() {
+GameFramework.resources.PIEffectDef = function() {
 	this.hj = this.jW = 1
 };
-GameFramework.resources.Rv.prototype = {
+GameFramework.resources.PIEffectDef.prototype = {
 	hj : 0,
 	jW : 0,
 	Hf : null,
@@ -7377,15 +7377,15 @@ GameFramework.resources.Rv.prototype = {
 	KG : null,
 	t : t()
 };
-GameFramework.resources.Rv.c = t();
+GameFramework.resources.PIEffectDef.c = t();
 T(function() {
-			GameFramework.resources.Rv.u("GameFramework.resources.PIEffectDef", null,
+			GameFramework.resources.PIEffectDef.u("GameFramework.resources.PIEffectDef", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.Rv.c()
+			GameFramework.resources.PIEffectDef.c()
 		});
-GameFramework.resources.va = function() {
+GameFramework.resources.PIEffect = function() {
 	this.Eu = [];
 	this.za = new GameFramework.geom.Matrix;
 	this.dj = new GameFramework.geom.Matrix;
@@ -7401,15 +7401,15 @@ GameFramework.resources.va = function() {
 	this.tm = false;
 	this.Le = GameFramework.BaseApp.M.Le;
 	this.Le < 10 && (this.Le *= 2);
-	this.ga = new GameFramework.resources.Rv
+	this.ga = new GameFramework.resources.PIEffectDef
 };
-GameFramework.resources.va.jqa = function(b, c) {
+GameFramework.resources.PIEffect.jqa = function(b, c) {
 	return c == 1 ? b : (b *= c, b - (b | 0))
 };
-GameFramework.resources.va.Rc = function(b) {
+GameFramework.resources.PIEffect.Rc = function(b) {
 	return b * 3.14159 / 180
 };
-GameFramework.resources.va.mK = function(b, c, d, f) {
+GameFramework.resources.PIEffect.mK = function(b, c, d, f) {
 	var g = (f.y - d.y) * (c.x - b.x) - (f.x - d.x) * (c.y - b.y);
 	return g != 0
 			? (f = ((f.x - d.x) * (b.y - d.y) - (f.y - d.y) * (b.x - d.x)) / g, f >= 0
@@ -7419,7 +7419,7 @@ GameFramework.resources.va.mK = function(b, c, d, f) {
 							* f, b.y + (c.y - b.y) * f) : null) : null)
 			: null
 };
-GameFramework.resources.va.i2 = function(b, c, d, f, g, h, j, k, l) {
+GameFramework.resources.PIEffect.i2 = function(b, c, d, f, g, h, j, k, l) {
 	var m = null;
 	if (l.bd == l.Dl && k.Rh.length > 0) {
 		var o = l.Na.Wd(new GameFramework.geom.TPoint(0, 0)), q = l.qa;
@@ -7441,7 +7441,7 @@ GameFramework.resources.va.i2 = function(b, c, d, f, g, h, j, k, l) {
 					B = new GameFramework.geom.TPoint(A.x, A.y);
 					B.x = B.x * v.Hu * l.Ur;
 					B.y = B.y * v.Hu * l.Ur;
-					if (GameFramework.resources.va.mK(o, m, y.add(B), z.add(B)) != null
+					if (GameFramework.resources.PIEffect.mK(o, m, y.add(B), z.add(B)) != null
 							&& !(b.Ec() > v.bH)) {
 						y = l.bd / 2147483647;
 						m = v.kG;
@@ -7490,8 +7490,8 @@ GameFramework.resources.va.i2 = function(b, c, d, f, g, h, j, k, l) {
 								/ (d.ac[h].y - d.ac[g].y) + d.ac[g].x)
 					f = !f;
 			f
-					&& (f = GameFramework.resources.va.Rc(-d.DB.G(b.A))
-							+ GameFramework.resources.va.Rc(-d.Hb.G(b.A)), g = 0.085
+					&& (f = GameFramework.resources.PIEffect.Rc(-d.DB.G(b.A))
+							+ GameFramework.resources.PIEffect.Rc(-d.Hb.G(b.A)), g = 0.085
 							* b.Vf / 100, g *= 1 + (b.Vf - 100) * 0.0040, d = d.cD
 							.G(b.A)
 							* g, l.Db.x += Math.cos(f) * d * 100, l.Db.y += Math
@@ -7499,7 +7499,7 @@ GameFramework.resources.va.i2 = function(b, c, d, f, g, h, j, k, l) {
 							* d * 100)
 		}
 };
-GameFramework.resources.va.prototype = {
+GameFramework.resources.PIEffect.prototype = {
 	W6 : false,
 	UW : true,
 	C : null,
@@ -7581,7 +7581,7 @@ GameFramework.resources.va.prototype = {
 		this.xh.length = this.ga.Kf.length;
 		for (var c = 0; c < (this.xh.length | 0); c++) {
 			var d = this.ga.Kf[c], f;
-			this.xh[c] = f = new GameFramework.resources.Uv;
+			this.xh[c] = f = new GameFramework.resources.PILayer;
 			f.xk = d;
 			f.mf = [];
 			f.mf.length = d.Uh.length;
@@ -7623,7 +7623,7 @@ GameFramework.resources.va.prototype = {
 				& 16711935 | (b & 65280) * f + (c & 65280) * d >>> 8 & 65280
 	},
 	gi : function() {
-		var b = new GameFramework.resources.va;
+		var b = new GameFramework.resources.PIEffect;
 		b.e2(this);
 		return b
 	},
@@ -7784,7 +7784,7 @@ GameFramework.resources.va.prototype = {
 		b.tf = [];
 		b.tf.length = c;
 		for (var d = 0; d < c; d++) {
-			GameFramework.resources.va.z6++;
+			GameFramework.resources.PIEffect.z6++;
 			var f = new GameFramework.resources.PIParticleDef;
 			this.Qi("CEmParticleType");
 			this.C.H();
@@ -8142,7 +8142,7 @@ GameFramework.resources.va.prototype = {
 		return f
 	},
 	y2 : function(b, c) {
-		this.ga = new GameFramework.resources.Rv;
+		this.ga = new GameFramework.resources.PIEffectDef;
 		this.bq();
 		this.NG = this.nj = 0;
 		this.C = b;
@@ -8150,7 +8150,7 @@ GameFramework.resources.va.prototype = {
 		this.ni();
 		if (this.Ai)
 			this.nj = this.C.H();
-		this.nj < GameFramework.resources.va.b3 && this.BJ("PPF version too old");
+		this.nj < GameFramework.resources.PIEffect.b3 && this.BJ("PPF version too old");
 		this.Hr = this.ni();
 		this.ga.gh = [];
 		for (var d = this.C.Ga(), f = 0; f < d; f++) {
@@ -8193,8 +8193,8 @@ GameFramework.resources.va.prototype = {
 		this.xh = [];
 		this.xh.length = g;
 		for (h = 0; h < g; h++) {
-			this.ga.Kf[h] = j = new GameFramework.resources.gA;
-			this.xh[h] = l = new GameFramework.resources.Uv;
+			this.ga.Kf[h] = j = new GameFramework.resources.PILayerDef;
+			this.xh[h] = l = new GameFramework.resources.PILayer;
 			l.xk = j;
 			this.Qi("CLayer");
 			j.sb = this.ni();
@@ -8332,7 +8332,7 @@ GameFramework.resources.va.prototype = {
 			}
 			k = this.C.Ga();
 			for (l = 0; l < k; l++) {
-				m = new GameFramework.resources.cA;
+				m = new GameFramework.resources.PIBlocker;
 				this.Qi("CBlocker");
 				m.sb = this.ni();
 				this.C.H();
@@ -8369,7 +8369,7 @@ GameFramework.resources.va.prototype = {
 			j.xi = [];
 			k = this.C.Ga();
 			for (l = 0; l < k; l++)
-				this.Qi("CForce"), m = new GameFramework.resources.eA, m.sb = this.ni(), m.ec = this.C
+				this.Qi("CForce"), m = new GameFramework.resources.PIForce, m.sb = this.ni(), m.ec = this.C
 						.oc(), m.qa = new GameFramework.resources.PIValue2D, this.wA(m.qa), m.yj = new GameFramework.resources.PIValue, this
 						.Bf(m.yj), this.Bf(new GameFramework.resources.PIValue), m.cD = new GameFramework.resources.PIValue, this
 						.Bf(m.cD), m.s = new GameFramework.resources.PIValue, this.Bf(m.s), m.z = new GameFramework.resources.PIValue, this
@@ -8767,7 +8767,7 @@ GameFramework.resources.va.prototype = {
 							: (o = d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Fw | 0].G(this.A), q = d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.EF
 									| 0].G(this.A), b *= 1 + o * q / 900 / 4)
 			}
-		g.ku += b / l * GameFramework.resources.va.S7 * this.ga.jW;
+		g.ku += b / l * GameFramework.resources.PIEffect.S7 * this.ga.jW;
 		if (!k.Ac && !d.Co || !d.Ou)
 			g.ku = 0;
 		b = true;
@@ -8807,8 +8807,8 @@ GameFramework.resources.va.prototype = {
 							* this.P() / 2 : f.F[GameFramework.resources.PIParticleDef.p.xs | 0]
 					.G(this.A)
 					+ f.F[GameFramework.resources.PIParticleDef.p.ys | 0].G(this.A) * this.P() / 2;
-			o = GameFramework.resources.va.Rc(-o);
-			q = j != null ? j.Vc : GameFramework.resources.va
+			o = GameFramework.resources.PIEffect.Rc(-o);
+			q = j != null ? j.Vc : GameFramework.resources.PIEffect
 					.Rc(-d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru | 0].G(this.A));
 			o += q;
 			k.AH = q;
@@ -8874,8 +8874,8 @@ GameFramework.resources.va.prototype = {
 									* c.F[GameFramework.resources.PIEmitter.p.x0 | 0].G(m, 1), k.bi *= (1 + j.lb[GameFramework.resources.PIParticleInstance.Sa.Uq
 									| 0])
 									* c.F[GameFramework.resources.PIEmitter.p.D0 | 0].G(m, 1)));
-			GameFramework.resources.va.Qu.bs = o;
-			GameFramework.resources.va.Qu.S6 = false;
+			GameFramework.resources.PIEffect.Qu.bs = o;
+			GameFramework.resources.PIEffect.Qu.S6 = false;
 			k.tx = this.Ec();
 			k.ie = 0;
 			k.Ur = this.P();
@@ -8907,7 +8907,7 @@ GameFramework.resources.va.prototype = {
 				o = new GameFramework.geom.TPoint
 			} else
 				k.Gf = this.ov(d, true), k.Zn = k.Gf, b
-						&& (o = this.JJ(d, k, GameFramework.resources.va.Qu).rg(k.Gf));
+						&& (o = this.JJ(d, k, GameFramework.resources.PIEffect.Qu).rg(k.Gf));
 			q = h.Ac
 					? d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.xj | 0].G(this.A)
 							* (c.F[GameFramework.resources.PIEmitter.p.A0 | 0].G(this.A) + k.lb[GameFramework.resources.PIParticleInstance.Sa.xj
@@ -8918,21 +8918,21 @@ GameFramework.resources.va.prototype = {
 							* (f.F[GameFramework.resources.PIParticleDef.p.xj | 0].G(this.A) + k.lb[GameFramework.resources.PIParticleInstance.Sa.xj
 									| 0]);
 			k.qa = new GameFramework.geom.TPoint(0, 0);
-			k.Db = new GameFramework.geom.TPoint(Math.cos(GameFramework.resources.va.Qu.bs)
-							* q, Math.sin(GameFramework.resources.va.Qu.bs) * q);
+			k.Db = new GameFramework.geom.TPoint(Math.cos(GameFramework.resources.PIEffect.Qu.bs)
+							* q, Math.sin(GameFramework.resources.PIEffect.Qu.bs) * q);
 			if (!h.Ac)
 				f.br
 						? (k.Db.x == 0 && k.Db.y == 0
-								? (GameFramework.resources.va.Qu.bs = 0, k.Vc = 0, f.fh
+								? (GameFramework.resources.PIEffect.Qu.bs = 0, k.Vc = 0, f.fh
 										&& f.fm
 										&& !f.il
-										&& (k.Vc += GameFramework.resources.va
+										&& (k.Vc += GameFramework.resources.PIEffect
 												.Rc(d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru
 														| 0].G(this.A))))
-								: k.Vc = -GameFramework.resources.va.Qu.bs, k.Vc += GameFramework.resources.va
+								: k.Vc = -GameFramework.resources.PIEffect.Qu.bs, k.Vc += GameFramework.resources.PIEffect
 								.Rc(f.ar))
-						: k.Vc = f.HV ? GameFramework.resources.va.Rc(-(f.GV + this.P()
-								* f.IV / 2)) : GameFramework.resources.va.Rc(f.JV);
+						: k.Vc = f.HV ? GameFramework.resources.PIEffect.Rc(-(f.GV + this.P()
+								* f.IV / 2)) : GameFramework.resources.PIEffect.Rc(f.JV);
 			k.Jn = 4294967295;
 			k.kl = 0;
 			f != null
@@ -8950,7 +8950,7 @@ GameFramework.resources.va.prototype = {
 			k.qa = new GameFramework.geom.TPoint;
 			k.mo = o;
 			q = new GameFramework.geom.Matrix;
-			q.rotate(-GameFramework.resources.va.Rc(d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru | 0]
+			q.rotate(-GameFramework.resources.PIEffect.Rc(d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru | 0]
 					.G(this.A)));
 			o = q.Wd(o);
 			k.Gf.x += o.x;
@@ -9091,7 +9091,7 @@ GameFramework.resources.va.prototype = {
 								F = new GameFramework.geom.TPoint(D.x, D.y);
 								F.x = F.x * z.Hu * g.Ur;
 								F.y = F.y * z.Hu * g.Ur;
-								if (GameFramework.resources.va.mK(o, v, B.add(F), G
+								if (GameFramework.resources.PIEffect.mK(o, v, B.add(F), G
 												.add(F)) != null
 										&& !(this.Ec() > z.bH)) {
 									v = z.kG;
@@ -9147,8 +9147,8 @@ GameFramework.resources.va.prototype = {
 											+ u.ac[z].x)
 								y = !y;
 						y
-								&& (y = GameFramework.resources.va.Rc(-u.DB.G(this.A))
-										+ GameFramework.resources.va
+								&& (y = GameFramework.resources.PIEffect.Rc(-u.DB.G(this.A))
+										+ GameFramework.resources.PIEffect
 												.Rc(-u.Hb.G(this.A)), z = 0.085
 										* this.Vf / 100, z *= 1
 										+ (this.Vf - 100) * 0.0040, u = u.cD
@@ -9158,7 +9158,7 @@ GameFramework.resources.va.prototype = {
 										* u * 100)
 					}
 				if (!d.Ac && m.br && m.fm)
-					g.Vc = Math.atan2(r.y, r.x) + GameFramework.resources.va.Rc(m.ar)
+					g.Vc = Math.atan2(r.y, r.x) + GameFramework.resources.PIEffect.Rc(m.ar)
 			} else if (m.fh) {
 				r = false;
 				j.Gj == GameFramework.resources.PIEmitterInstanceDef.ke.Qz
@@ -9169,12 +9169,12 @@ GameFramework.resources.va.prototype = {
 				if (r)
 					r = this.JJ(c, g), g.Gf = this.ov(c, true), g.Zn = g.Gf, g.mo = r
 							.rg(g.Gf), v = new GameFramework.geom.Matrix, v
-							.rotate(GameFramework.resources.va
+							.rotate(GameFramework.resources.PIEffect
 									.Rc(c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru | 0]
 											.G(this.A))), r = v.Wd(r), g.Gf.x += r.x, g.Gf.y += r.y;
 				if (m.fm && !m.il)
 					r = j.oo.oS(this.A), g.Vc = r.x != 0 || r.y != 0 ? Math
-							.atan2(r.y, r.x) : 0, g.Vc += GameFramework.resources.va
+							.atan2(r.y, r.x) : 0, g.Vc += GameFramework.resources.PIEffect
 							.Rc(m.ar)
 			}
 			if (m != null
@@ -9192,14 +9192,14 @@ GameFramework.resources.va.prototype = {
 					g.jf = g.jf & 16777215 | y & 4278190080
 			}
 			d.Ac
-					? g.Vc += GameFramework.resources.va
+					? g.Vc += GameFramework.resources.PIEffect
 							.Rc(-(c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.md | 0].G(this.A)
 									* (l.F[GameFramework.resources.PIEmitter.p.oR | 0].G(q, 1) - 1) * (l.F[GameFramework.resources.PIEmitter.p.nR
 									| 0].G(this.A) + g.lb[GameFramework.resources.PIParticleInstance.Sa.md
 									| 0])))
 							/ f * 160
 					: m.fm
-							|| (g.Vc += GameFramework.resources.va
+							|| (g.Vc += GameFramework.resources.PIEffect
 									.Rc(-((d.bf
 											? l.F[GameFramework.resources.PIEmitter.p.md | 0]
 													.G(this.A)
@@ -9306,7 +9306,7 @@ GameFramework.resources.va.prototype = {
 									F = new GameFramework.geom.TPoint(D.x, D.y);
 									F.x = F.x * z.Hu * g.Ur;
 									F.y = F.y * z.Hu * g.Ur;
-									if (GameFramework.resources.va.mK(o, v, B.add(F), G
+									if (GameFramework.resources.PIEffect.mK(o, v, B.add(F), G
 													.add(F)) != null
 											&& !(this.Ec() > z.bH)) {
 										v = z.kG;
@@ -9364,9 +9364,9 @@ GameFramework.resources.va.prototype = {
 												+ u.ac[z].x)
 									y = !y;
 							y
-									&& (y = GameFramework.resources.va.Rc(-u.DB
+									&& (y = GameFramework.resources.PIEffect.Rc(-u.DB
 											.G(this.A))
-											+ GameFramework.resources.va.Rc(-u.Hb
+											+ GameFramework.resources.PIEffect.Rc(-u.Hb
 													.G(this.A)), z = 0.085
 											* this.Vf / 100, z *= 1
 											+ (this.Vf - 100) * 0.0040, u = u.cD
@@ -9377,7 +9377,7 @@ GameFramework.resources.va.prototype = {
 						}
 					if (!d.Ac && m.br && m.fm)
 						g.Vc = Math.atan2(r.y, r.x)
-								+ GameFramework.resources.va.Rc(m.ar)
+								+ GameFramework.resources.PIEffect.Rc(m.ar)
 				} else if (m.fh) {
 					r = false;
 					j.Gj == GameFramework.resources.PIEmitterInstanceDef.ke.Qz
@@ -9388,12 +9388,12 @@ GameFramework.resources.va.prototype = {
 					if (r)
 						r = this.JJ(c, g), g.Gf = this.ov(c, true), g.Zn = g.Gf, g.mo = r
 								.rg(g.Gf), v = new GameFramework.geom.Matrix, v
-								.rotate(GameFramework.resources.va
+								.rotate(GameFramework.resources.PIEffect
 										.Rc(c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru | 0]
 												.G(this.A))), r = v.Wd(r), g.Gf.x += r.x, g.Gf.y += r.y;
 					if (m.fm && !m.il)
 						r = j.oo.oS(this.A), g.Vc = r.x != 0 || r.y != 0 ? Math
-								.atan2(r.y, r.x) : 0, g.Vc += GameFramework.resources.va
+								.atan2(r.y, r.x) : 0, g.Vc += GameFramework.resources.PIEffect
 								.Rc(m.ar)
 				}
 				if (m != null
@@ -9411,7 +9411,7 @@ GameFramework.resources.va.prototype = {
 						g.jf = g.jf & 16777215 | y & 4278190080
 				}
 				d.Ac
-						? g.Vc += GameFramework.resources.va
+						? g.Vc += GameFramework.resources.PIEffect
 								.Rc(-(c.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.md | 0]
 										.G(this.A)
 										* (l.F[GameFramework.resources.PIEmitter.p.oR | 0].G(
@@ -9420,7 +9420,7 @@ GameFramework.resources.va.prototype = {
 										| 0])))
 								/ f * 160
 						: m.fm
-								|| (g.Vc += GameFramework.resources.va
+								|| (g.Vc += GameFramework.resources.PIEffect
 										.Rc(-((d.bf
 												? l.F[GameFramework.resources.PIEmitter.p.md
 														| 0].G(this.A)
@@ -9436,11 +9436,11 @@ GameFramework.resources.va.prototype = {
 		}
 	},
 	IL : function(b, c, d) {
-		if (GameFramework.resources.va.sh == -1) {
-			GameFramework.resources.va.An = Array.O(1024, null);
+		if (GameFramework.resources.PIEffect.sh == -1) {
+			GameFramework.resources.PIEffect.An = Array.O(1024, null);
 			for (var f = 0; f < 1024; f++)
-				GameFramework.resources.va.An[f] = this.P() * this.P();
-			GameFramework.resources.va.sh = 0
+				GameFramework.resources.PIEffect.An[f] = this.P() * this.P();
+			GameFramework.resources.PIEffect.sh = 0
 		}
 		if (d.ux)
 			this.y5(b, c, d);
@@ -9448,7 +9448,7 @@ GameFramework.resources.va.prototype = {
 			this.x5(b, c, d);
 		else {
 			var f = 1E3 / this.Le / this.Fe, g = (1 + (this.Vf - 100) * 5.0E-4)
-					/ f, h = -GameFramework.resources.va.Rc(1 / f), j = d.pd, k = b.xk, l = null, m = null, o = null, q = k.xi.length > 0
+					/ f, h = -GameFramework.resources.PIEffect.Rc(1 / f), j = d.pd, k = b.xk, l = null, m = null, o = null, q = k.xi.length > 0
 					&& k.Rh.length > 0, r = d.SB, v = false, u = 0, y = 0, z = 0, A = 0, B = 0, G = 0;
 			if (!c.Co)
 				for (r = d.pd; r != null;) {
@@ -9481,9 +9481,9 @@ GameFramework.resources.va.prototype = {
 							j.zp = ((j.ie * this.Vf / (l.Fe + 1) | 0) + j.gm)
 									% this.ga.gh[l.lj].zk;
 						if (this.vr) {
-							var F = GameFramework.resources.va.An[GameFramework.resources.va.sh], P = GameFramework.resources.va.An[GameFramework.resources.va.sh
+							var F = GameFramework.resources.PIEffect.An[GameFramework.resources.PIEffect.sh], P = GameFramework.resources.PIEffect.An[GameFramework.resources.PIEffect.sh
 									+ 1];
-							GameFramework.resources.va.sh = (GameFramework.resources.va.sh + 2)
+							GameFramework.resources.PIEffect.sh = (GameFramework.resources.PIEffect.sh + 2)
 									% 1024;
 							var Z = B * D.mC
 									* (G + j.lb[GameFramework.resources.PIParticleInstance.Sa.ud | 0]);
@@ -9495,7 +9495,7 @@ GameFramework.resources.va.prototype = {
 						F = new GameFramework.geom.TPoint(j.Db.x / f * D.Gk, j.Db.y
 										/ f * D.Gk);
 						q
-								? GameFramework.resources.va.i2(this, b, c, o, l, d, F,
+								? GameFramework.resources.PIEffect.i2(this, b, c, o, l, d, F,
 										k, j)
 								: (j.qa.x += F.x, j.qa.y += F.y);
 						if (v
@@ -9513,7 +9513,7 @@ GameFramework.resources.va.prototype = {
 						if (l.br) {
 							if (l.fm)
 								j.Vc = Math.atan2(F.y, F.x)
-										+ GameFramework.resources.va.Rc(l.ar)
+										+ GameFramework.resources.PIEffect.Rc(l.ar)
 						} else
 							j.Vc += z * D.Au
 									* (A + j.lb[GameFramework.resources.PIParticleInstance.Sa.md | 0])
@@ -9536,8 +9536,8 @@ GameFramework.resources.va.prototype = {
 							j.ie += 1 / f, j.zp = ((j.ie * this.Vf / (l.Fe + 1) | 0) + j.gm)
 									% this.ga.gh[l.lj].zk;
 						if (this.vr)
-							g = GameFramework.resources.va.An[GameFramework.resources.va.sh], h = GameFramework.resources.va.An[GameFramework.resources.va.sh
-									+ 1], GameFramework.resources.va.sh = (GameFramework.resources.va.sh + 2)
+							g = GameFramework.resources.PIEffect.An[GameFramework.resources.PIEffect.sh], h = GameFramework.resources.PIEffect.An[GameFramework.resources.PIEffect.sh
+									+ 1], GameFramework.resources.PIEffect.sh = (GameFramework.resources.PIEffect.sh + 2)
 									% 1024, k = o.nl
 									* c.mC
 									* (m.nl + j.lb[GameFramework.resources.PIParticleInstance.Sa.ud | 0]), k > 0
@@ -9553,7 +9553,7 @@ GameFramework.resources.va.prototype = {
 						if (l.br) {
 							if (l.fm)
 								j.Vc = Math.atan2(k, h)
-										+ GameFramework.resources.va.Rc(l.ar)
+										+ GameFramework.resources.PIEffect.Rc(l.ar)
 						} else
 							j.Vc += z * c.Au
 									* (A + j.lb[GameFramework.resources.PIParticleInstance.Sa.md | 0])
@@ -9568,8 +9568,8 @@ GameFramework.resources.va.prototype = {
 							? this.Ds(this, j, d)
 							: (l = l.fj.qf[j.bd
 									/ (2147483647 / GameFramework.resources.PILifeValueTable.jn | 0)
-									| 0], A = GameFramework.resources.va.An[GameFramework.resources.va.sh], r = GameFramework.resources.va.An[GameFramework.resources.va.sh
-									+ 1], GameFramework.resources.va.sh = (GameFramework.resources.va.sh + 2)
+									| 0], A = GameFramework.resources.PIEffect.An[GameFramework.resources.PIEffect.sh], r = GameFramework.resources.PIEffect.An[GameFramework.resources.PIEffect.sh
+									+ 1], GameFramework.resources.PIEffect.sh = (GameFramework.resources.PIEffect.sh + 2)
 									% 1024, b = o.nl
 									* l.mC
 									* (m.nl + j.lb[GameFramework.resources.PIParticleInstance.Sa.ud | 0]), b > 0
@@ -9610,18 +9610,18 @@ GameFramework.resources.va.prototype = {
 					for (b = 0; b < (this.ga.Kf.length | 0); b++) {
 						var f = this.ga.Kf[b], g = this.xh[b];
 						g.bx = f.de.G(this.A).rg(f.qO);
-						g.Ln = -GameFramework.resources.va.Rc(f.Hb.G(this.A));
+						g.Ln = -GameFramework.resources.PIEffect.Rc(f.Hb.G(this.A));
 						if (g.ec) {
 							for (var h = 0; h < (f.Rh.length | 0); h++) {
 								var j = f.Rh[h], k = new GameFramework.geom.Matrix, l = j.Hb
 										.G(this.A);
-								l != 0 && k.rotate(GameFramework.resources.va.Rc(l));
+								l != 0 && k.rotate(GameFramework.resources.PIEffect.Rc(l));
 								l = j.qa.G(this.A);
 								k.translate(l.x, l.y);
 								l = f.de.G(this.A);
 								k.translate(l.x, l.y);
 								l = f.Hb.G(this.A);
-								l != 0 && k.rotate(GameFramework.resources.va.Rc(l));
+								l != 0 && k.rotate(GameFramework.resources.PIEffect.Rc(l));
 								k.concat(this.za);
 								for (l = 0; l < (j.Z.length | 0); l++)
 									j.ac[l] = k.Wd(j.Z[l].G(this.A))
@@ -9631,13 +9631,13 @@ GameFramework.resources.va.prototype = {
 								k = new GameFramework.geom.Matrix;
 								k.scale(j.s.G(this.A) / 2, j.z.G(this.A) / 2);
 								l = j.Hb.G(this.A);
-								l != 0 && k.rotate(GameFramework.resources.va.Rc(l));
+								l != 0 && k.rotate(GameFramework.resources.PIEffect.Rc(l));
 								l = j.qa.G(this.A);
 								k.translate(l.x, l.y);
 								l = f.de.G(this.A);
 								k.translate(l.x, l.y);
 								l = f.Hb.G(this.A);
-								l != 0 && k.rotate(GameFramework.resources.va.Rc(l));
+								l != 0 && k.rotate(GameFramework.resources.PIEffect.Rc(l));
 								k.concat(this.za);
 								for (var l = Array.O(5, 5,
 										new GameFramework.geom.TPoint(-1, -1),
@@ -9651,7 +9651,7 @@ GameFramework.resources.va.prototype = {
 								j = f.Uh[h];
 								k = g.mf[h];
 								k.gD = k.sy;
-								j.Ln = GameFramework.resources.va
+								j.Ln = GameFramework.resources.PIEffect
 										.Rc(j.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru | 0]
 												.G(this.A));
 								for (var m = l = 0, o = 1; k.ec && o > 0;) {
@@ -9677,7 +9677,7 @@ GameFramework.resources.va.prototype = {
 										for (q = 0; q < (j.ej.length | 0); q++) {
 											var r = this.ga.Hf[j.ej[q]], v = (1 + (this.Vf - 100)
 													* 5.0E-4)
-													/ d, u = -GameFramework.resources.va
+													/ d, u = -GameFramework.resources.PIEffect
 													.Rc(1 / d);
 											r.vi = r.F[GameFramework.resources.PIEmitter.p.Ed
 													| 0].G(this.A)
@@ -9706,7 +9706,7 @@ GameFramework.resources.va.prototype = {
 										q = this.ga.Hf[j.um];
 										r = k;
 										v = (1 + (this.Vf - 100) * 5.0E-4) / d;
-										u = -GameFramework.resources.va.Rc(1 / d);
+										u = -GameFramework.resources.PIEffect.Rc(1 / d);
 										q.vi = r.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ed
 												| 0].G(this.A)
 												* 100 * v;
@@ -9858,8 +9858,8 @@ GameFramework.resources.va.prototype = {
 							else if (u = q.bd >> GameFramework.resources.PILifeValueTable.Uo, v = k.fj.qf[u], u = k.fj.qf[u
 									+ 1], z = (q.bd & (1 << GameFramework.resources.PILifeValueTable.Uo)
 									- 1)
-									/ (1 << GameFramework.resources.PILifeValueTable.Uo), A = GameFramework.resources.va.An[GameFramework.resources.va.sh], y = GameFramework.resources.va.An[GameFramework.resources.va.sh
-									+ 1], GameFramework.resources.va.sh = (GameFramework.resources.va.sh + 2)
+									/ (1 << GameFramework.resources.PILifeValueTable.Uo), A = GameFramework.resources.PIEffect.An[GameFramework.resources.PIEffect.sh], y = GameFramework.resources.PIEffect.An[GameFramework.resources.PIEffect.sh
+									+ 1], GameFramework.resources.PIEffect.sh = (GameFramework.resources.PIEffect.sh + 2)
 									% 1024, G = m.nl
 									* v.mC
 									* (l.nl + q.lb[GameFramework.resources.PIParticleInstance.Sa.ud | 0]), G > 0
@@ -10037,7 +10037,7 @@ GameFramework.resources.va.prototype = {
 							for (var k = 0; k < (g.ej.length | 0); k++) {
 								var l = 1E3 / this.Le / this.Fe, m = this.ga.Hf[g.ej[k]], o = (1 + (this.Vf - 100)
 										* 5.0E-4)
-										/ l, l = -GameFramework.resources.va.Rc(1 / l);
+										/ l, l = -GameFramework.resources.PIEffect.Rc(1 / l);
 								m.vi = m.F[GameFramework.resources.PIEmitter.p.Ed | 0]
 										.G(this.A)
 										* 100 * o;
@@ -10053,7 +10053,7 @@ GameFramework.resources.va.prototype = {
 							k = this.ga.Hf[g.um], m = h, l = 1E3 / this.Le
 									/ this.Fe, o = (1 + (this.Vf - 100)
 									* 5.0E-4)
-									/ l, l = -GameFramework.resources.va.Rc(1 / l), k.vi = m.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ed
+									/ l, l = -GameFramework.resources.PIEffect.Rc(1 / l), k.vi = m.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ed
 									| 0].G(this.A)
 									* 100 * o, k.Cj = m.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.md
 									| 0].G(this.A)
@@ -10100,45 +10100,45 @@ GameFramework.resources.va.prototype = {
 		return this.jo != null && this.jo.hasOwnProperty(b) ? this.jo[b] : c
 	}
 };
-GameFramework.resources.va.c = function() {
-	GameFramework.resources.va.b3 = 0;
-	GameFramework.resources.va.fna = 1;
-	GameFramework.resources.va.ena = 1;
-	GameFramework.resources.va.S7 = 1;
-	GameFramework.resources.va.z6 = 0;
-	GameFramework.resources.va.Qu = new GameFramework.resources.PIGeomDataEx;
-	GameFramework.resources.va.An = null;
-	GameFramework.resources.va.sh = -1
+GameFramework.resources.PIEffect.c = function() {
+	GameFramework.resources.PIEffect.b3 = 0;
+	GameFramework.resources.PIEffect.fna = 1;
+	GameFramework.resources.PIEffect.ena = 1;
+	GameFramework.resources.PIEffect.S7 = 1;
+	GameFramework.resources.PIEffect.z6 = 0;
+	GameFramework.resources.PIEffect.Qu = new GameFramework.resources.PIGeomDataEx;
+	GameFramework.resources.PIEffect.An = null;
+	GameFramework.resources.PIEffect.sh = -1
 };
 T(function() {
-			GameFramework.resources.va.u("GameFramework.resources.PIEffect", null,
+			GameFramework.resources.PIEffect.u("GameFramework.resources.PIEffect", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.va.c()
+			GameFramework.resources.PIEffect.c()
 		});
-GameFramework.resources.cw = t();
-GameFramework.resources.cw.prototype = {
+GameFramework.resources.PopAnimCalcObjectPosData = t();
+GameFramework.resources.PopAnimCalcObjectPosData.prototype = {
 	Na : null,
 	n : 0
 };
-GameFramework.resources.cw.c = t();
+GameFramework.resources.PopAnimCalcObjectPosData.c = t();
 T(function() {
-			GameFramework.resources.cw.u(
+			GameFramework.resources.PopAnimCalcObjectPosData.u(
 					"GameFramework.resources.PopAnimCalcObjectPosData", null)
 		});
 U(function() {
-			GameFramework.resources.cw.c()
+			GameFramework.resources.PopAnimCalcObjectPosData.c()
 		});
-GameFramework.resources.Sc = function() {
+GameFramework.resources.PopAnimResource = function() {
 	this.Na = new GameFramework.geom.Matrix;
 	this.Mx = Array.O(3, 0, 0, 1, 2);
 	this.Ah = null;
 	this.D9 = new GameFramework.geom.TPoint(0, 0);
-	E(GameFramework.resources.Sc, this);
+	E(GameFramework.resources.PopAnimResource, this);
 	this.yk = false
 };
-GameFramework.resources.Sc.prototype = {
+GameFramework.resources.PopAnimResource.prototype = {
 	kp : 0,
 	cu : null,
 	Gm : null,
@@ -10164,7 +10164,7 @@ GameFramework.resources.Sc.prototype = {
 	Ah : null,
 	D9 : null,
 	gi : function() {
-		var b = new GameFramework.resources.Sc;
+		var b = new GameFramework.resources.PopAnimResource;
 		b.w = this.w;
 		b.v = this.v;
 		b.s = this.s;
@@ -10407,7 +10407,7 @@ GameFramework.resources.Sc.prototype = {
 		c.Wf = [];
 		for (var g = 0; g < f; g++) {
 			var h = new GameFramework.resources.Fa.dw, j, k = b.eb();
-			if ((k & GameFramework.resources.Sc.o0) != 0) {
+			if ((k & GameFramework.resources.PopAnimResource.o0) != 0) {
 				j = b.eb();
 				j == 255 && (j = b.Ga());
 				for (var l = 0; l < j; l++) {
@@ -10416,7 +10416,7 @@ GameFramework.resources.Sc.prototype = {
 					d[m] = null
 				}
 			}
-			if ((k & GameFramework.resources.Sc.k0) != 0) {
+			if ((k & GameFramework.resources.PopAnimResource.k0) != 0) {
 				l = b.eb();
 				l == 255 && (l = b.Ga());
 				for (m = 0; m < l; m++) {
@@ -10455,7 +10455,7 @@ GameFramework.resources.Sc.prototype = {
 					d[j.Ya.Ne] = j
 				}
 			}
-			if ((k & GameFramework.resources.Sc.n0) != 0) {
+			if ((k & GameFramework.resources.PopAnimResource.n0) != 0) {
 				l = b.eb();
 				l == 255 && (l = b.Ga());
 				for (m = 0; m < l; m++) {
@@ -10465,45 +10465,45 @@ GameFramework.resources.Sc.prototype = {
 					j = j.gi();
 					d[q] = j;
 					j.Na = new GameFramework.geom.Matrix;
-					(o & GameFramework.resources.Sc.I2) != 0
+					(o & GameFramework.resources.PopAnimResource.I2) != 0
 							? (j.Na.Ua = b.H() / 65536, j.Na.ub = b.H() / 65536, j.Na.Sb = b
 									.H()
 									/ 65536, j.Na.Va = b.H() / 65536)
-							: (o & GameFramework.resources.Sc.J2) != 0
+							: (o & GameFramework.resources.PopAnimResource.J2) != 0
 									&& (q = b.Ga() / 1E3, j.Na.th(), j.Na
 											.rotate(q));
 					q = new GameFramework.geom.Matrix;
-					if ((o & GameFramework.resources.Sc.H2) != 0) {
+					if ((o & GameFramework.resources.PopAnimResource.H2) != 0) {
 						var r = b.H();
 						q.Ca = r / 20;
 						q.Da = b.H() / 20
 					} else
 						q.Ca = b.Ga() / 20, q.Da = b.Ga() / 20;
 					j.Na.concat(q);
-					q = (o & GameFramework.resources.Sc.YS) != 0;
+					q = (o & GameFramework.resources.PopAnimResource.YS) != 0;
 					if (q != j.Ya.UB
-							&& (j.Ya.UB = q, (o & GameFramework.resources.Sc.YS) != 0))
+							&& (j.Ya.UB = q, (o & GameFramework.resources.PopAnimResource.YS) != 0))
 						j.Ya.he = b.Ga() / 20 | 0, j.Ya.uf = b.Ga() / 20 | 0, j.Ya.jd = b
 								.Ga()
 								/ 20 | 0, j.Ya.ge = b.Ga() / 20 | 0;
-					if ((o & GameFramework.resources.Sc.G2) != 0) {
+					if ((o & GameFramework.resources.PopAnimResource.G2) != 0) {
 						var q = b.eb(), r = b.eb(), v = b.eb(), u = b.eb();
 						j.n = u << 24 | q << 16 | r << 8 | v
 					}
-					if ((o & GameFramework.resources.Sc.F2) != 0)
+					if ((o & GameFramework.resources.PopAnimResource.F2) != 0)
 						j.ut = b.Ga()
 				}
 			}
-			if ((k & GameFramework.resources.Sc.m0) != 0) {
+			if ((k & GameFramework.resources.PopAnimResource.m0) != 0) {
 				j = b.bl();
 				j = GameFramework.Utils.W4(j);
 				if (c.kH == null)
 					c.kH = {};
 				c.kH[j] = g
 			}
-			if ((k & GameFramework.resources.Sc.p0) != 0)
+			if ((k & GameFramework.resources.PopAnimResource.p0) != 0)
 				h.Yt = true;
-			if ((k & GameFramework.resources.Sc.l0) != 0) {
+			if ((k & GameFramework.resources.PopAnimResource.l0) != 0) {
 				k = b.eb();
 				h.sB = [];
 				for (j = 0; j < k; j++)
@@ -10673,7 +10673,7 @@ GameFramework.resources.Sc.prototype = {
 	JL : function(b, c, d, f) {
 		b.zG = c != null ? c : this.Na;
 		b.kW = d;
-		for (var d = b.ga.Wf[b.A | 0], g = new GameFramework.resources.cw, h, j = f
+		for (var d = b.ga.Wf[b.A | 0], g = new GameFramework.resources.PopAnimCalcObjectPosData, h, j = f
 				|| b.ir > 0 || d.Yt, k = 0; k < (d.of.length | 0); k++) {
 			var l = d.of[k];
 			if (l != null && l.Ya.wk)
@@ -10752,7 +10752,7 @@ GameFramework.resources.Sc.prototype = {
 	},
 	XQ : function(b, c, d, f, g, h) {
 		this.QQ(b, c, d, f, false);
-		for (var j = c.ga.Wf[c.A | 0], k, l, m, o = new GameFramework.resources.cw, h = h
+		for (var j = c.ga.Wf[c.A | 0], k, l, m, o = new GameFramework.resources.PopAnimCalcObjectPosData, h = h
 				|| c.ir > 0 || j.Yt, q = 0; q < (j.of.length | 0); q++) {
 			var r = j.of[q];
 			if (r != null) {
@@ -10807,58 +10807,58 @@ GameFramework.resources.Sc.prototype = {
 					|| (this.LU(this.Kc, null), this.jQ(this.Kc))
 	}
 };
-GameFramework.resources.Sc.c = function() {
-	GameFramework.resources.Sc.ana = 3136297300;
-	GameFramework.resources.Sc.cna = 5;
-	GameFramework.resources.Sc.bna = 1;
-	GameFramework.resources.Sc.PI = 3.14159;
-	GameFramework.resources.Sc.o0 = 1;
-	GameFramework.resources.Sc.k0 = 2;
-	GameFramework.resources.Sc.n0 = 4;
-	GameFramework.resources.Sc.m0 = 8;
-	GameFramework.resources.Sc.p0 = 16;
-	GameFramework.resources.Sc.l0 = 32;
-	GameFramework.resources.Sc.YS = 32768;
-	GameFramework.resources.Sc.J2 = 16384;
-	GameFramework.resources.Sc.G2 = 8192;
-	GameFramework.resources.Sc.I2 = 4096;
-	GameFramework.resources.Sc.H2 = 2048;
-	GameFramework.resources.Sc.F2 = 1024
+GameFramework.resources.PopAnimResource.c = function() {
+	GameFramework.resources.PopAnimResource.ana = 3136297300;
+	GameFramework.resources.PopAnimResource.cna = 5;
+	GameFramework.resources.PopAnimResource.bna = 1;
+	GameFramework.resources.PopAnimResource.PI = 3.14159;
+	GameFramework.resources.PopAnimResource.o0 = 1;
+	GameFramework.resources.PopAnimResource.k0 = 2;
+	GameFramework.resources.PopAnimResource.n0 = 4;
+	GameFramework.resources.PopAnimResource.m0 = 8;
+	GameFramework.resources.PopAnimResource.p0 = 16;
+	GameFramework.resources.PopAnimResource.l0 = 32;
+	GameFramework.resources.PopAnimResource.YS = 32768;
+	GameFramework.resources.PopAnimResource.J2 = 16384;
+	GameFramework.resources.PopAnimResource.G2 = 8192;
+	GameFramework.resources.PopAnimResource.I2 = 4096;
+	GameFramework.resources.PopAnimResource.H2 = 2048;
+	GameFramework.resources.PopAnimResource.F2 = 1024
 };
 T(function() {
-			GameFramework.resources.Sc.u("GameFramework.resources.PopAnimResource",
+			GameFramework.resources.PopAnimResource.u("GameFramework.resources.PopAnimResource",
 					GameFramework.widgets.Ta)
 		});
 U(function() {
-			GameFramework.resources.Sc.c()
+			GameFramework.resources.PopAnimResource.c()
 		});
-GameFramework.resources.zA = function(b, c) {
+GameFramework.resources.RenderEffectPass = function(b, c) {
 	this.fY = b;
 	this.MX = c
 };
-GameFramework.resources.zA.prototype = {
+GameFramework.resources.RenderEffectPass.prototype = {
 	fY : null,
 	MX : 0,
 	t : function() {
 		this.fY.UD(this.MX)
 	}
 };
-GameFramework.resources.zA.c = t();
+GameFramework.resources.RenderEffectPass.c = t();
 T(function() {
-			GameFramework.resources.zA.u("GameFramework.resources.RenderEffectPass", null,
+			GameFramework.resources.RenderEffectPass.u("GameFramework.resources.RenderEffectPass", null,
 					System.Wl)
 		});
 U(function() {
-			GameFramework.resources.zA.c()
+			GameFramework.resources.RenderEffectPass.c()
 		});
-GameFramework.resources.AA = w("NH");
-GameFramework.resources.AA.prototype = {
+GameFramework.resources.RenderEffectRunHandle = w("NH");
+GameFramework.resources.RenderEffectRunHandle.prototype = {
 	NH : null,
 	t : function() {
 		this.NH.fz(this)
 	},
 	$p : function(b) {
-		var c = new GameFramework.resources.zA(this, b);
+		var c = new GameFramework.resources.RenderEffectPass(this, b);
 		this.NH.$p(this, b);
 		return c
 	},
@@ -10866,17 +10866,17 @@ GameFramework.resources.AA.prototype = {
 		this.NH.UD(this, b)
 	}
 };
-GameFramework.resources.AA.c = t();
+GameFramework.resources.RenderEffectRunHandle.c = t();
 T(function() {
-			GameFramework.resources.AA.u(
+			GameFramework.resources.RenderEffectRunHandle.u(
 					"GameFramework.resources.RenderEffectRunHandle", null,
 					System.Wl)
 		});
 U(function() {
-			GameFramework.resources.AA.c()
+			GameFramework.resources.RenderEffectRunHandle.c()
 		});
-GameFramework.resources.yA = t();
-GameFramework.resources.yA.prototype = {
+GameFramework.resources.RenderEffect = t();
+GameFramework.resources.RenderEffect.prototype = {
 	pL : t(),
 	Qq : t(),
 	kt : t(),
@@ -10885,12 +10885,12 @@ GameFramework.resources.yA.prototype = {
 	$p : t(),
 	UD : t()
 };
-GameFramework.resources.yA.c = t();
+GameFramework.resources.RenderEffect.c = t();
 T(function() {
-			GameFramework.resources.yA.u("GameFramework.resources.RenderEffect", null)
+			GameFramework.resources.RenderEffect.u("GameFramework.resources.RenderEffect", null)
 		});
 U(function() {
-			GameFramework.resources.yA.c()
+			GameFramework.resources.RenderEffect.c()
 		});
 GameFramework.resources.ResourceManager = function() {
 	this.Nm = {};
@@ -10928,12 +10928,12 @@ GameFramework.resources.ResourceManager.prototype = {
 		this.ET(b.xa, c)
 	},
 	e3 : function(b) {
-		var c = b.rd, d = new GameFramework.resources.Sc;
+		var c = b.rd, d = new GameFramework.resources.PopAnimResource;
 		d.aL(c, b);
 		this.F3(b.xa, d)
 	},
 	d3 : function(b) {
-		var c = new GameFramework.resources.va;
+		var c = new GameFramework.resources.PIEffect;
 		c.y2(b.rd, b);
 		this.E3(b.xa, c)
 	},
@@ -13868,7 +13868,7 @@ GameFramework.resources.Gv.c = t();
 T(function() {
 			GameFramework.resources.Gv.u(
 					"GameFramework.resources.JSRenderEffectRunHandle",
-					GameFramework.resources.AA)
+					GameFramework.resources.RenderEffectRunHandle)
 		});
 U(function() {
 			GameFramework.resources.Gv.c()
@@ -14035,7 +14035,7 @@ GameFramework.resources.JSRenderEffect.prototype = {
 GameFramework.resources.JSRenderEffect.c = t();
 T(function() {
 			GameFramework.resources.JSRenderEffect.u("GameFramework.resources.JSRenderEffect",
-					GameFramework.resources.yA)
+					GameFramework.resources.RenderEffect)
 		});
 U(function() {
 			GameFramework.resources.JSRenderEffect.c()
@@ -16002,59 +16002,59 @@ T(function() {
 U(function() {
 			Game.MatchSet.c()
 		});
-Game.oF = t();
-Game.oF.prototype = {
+Game.StateInfo = t();
+Game.StateInfo.prototype = {
 	aa : 0,
 	Z : 0,
 	lO : 0,
 	au : 0
 };
-Game.oF.c = t();
+Game.StateInfo.c = t();
 T(function() {
-			Game.oF.u("Game.StateInfo", null)
+			Game.StateInfo.u("Game.StateInfo", null)
 		});
 U(function() {
-			Game.oF.c()
+			Game.StateInfo.c()
 		});
-Game.mF = t();
-Game.mF.prototype = {};
-Game.mF.c = t();
+Game.Span = t();
+Game.Span.prototype = {};
+Game.Span.c = t();
 T(function() {
-			Game.mF.u("Game.Span", null)
+			Game.Span.u("Game.Span", null)
 		});
 U(function() {
-			Game.mF.c()
+			Game.Span.c()
 		});
-Game.nF = function() {
+Game.SpanRow = function() {
 	this.j9 = []
 };
-Game.nF.prototype = {
+Game.SpanRow.prototype = {
 	j9 : null
 };
-Game.nF.c = t();
+Game.SpanRow.c = t();
 T(function() {
-			Game.nF.u("Game.SpanRow", null)
+			Game.SpanRow.u("Game.SpanRow", null)
 		});
 U(function() {
-			Game.nF.c()
+			Game.SpanRow.c()
 		});
-Game.Wy = t();
-Game.Wy.prototype = {
+Game.DeferredTutorial = t();
+Game.DeferredTutorial.prototype = {
 	wo : null,
 	lu : 0
 };
-Game.Wy.c = t();
+Game.DeferredTutorial.c = t();
 T(function() {
-			Game.Wy.u("Game.DeferredTutorial", null)
+			Game.DeferredTutorial.u("Game.DeferredTutorial", null)
 		});
 U(function() {
-			Game.Wy.c()
+			Game.DeferredTutorial.c()
 		});
-Game.Vi = function(b) {
+Game.PieceIter = function(b) {
 	this.Tn = -1;
 	this.e = b
 };
-Game.Vi.prototype = {
+Game.PieceIter.prototype = {
 	e : null,
 	Tn : 0,
 	L1 : function() {
@@ -16076,26 +16076,26 @@ Game.Vi.prototype = {
 		return this.Tn < 0 ? null : this.e.e[this.e.e.g * this.iS() + this.IR()]
 	}
 };
-Game.Vi.c = t();
+Game.PieceIter.c = t();
 T(function() {
-			Game.Vi.u("Game.PieceIter", null)
+			Game.PieceIter.u("Game.PieceIter", null)
 		});
 U(function() {
-			Game.Vi.c()
+			Game.PieceIter.c()
 		});
-Game.Ky = t();
-Game.Ky.prototype = {
+Game.BarInstance = t();
+Game.BarInstance.prototype = {
 	he : 0,
 	uf : 0,
 	L : 0,
 	Ic : 0
 };
-Game.Ky.c = t();
+Game.BarInstance.c = t();
 T(function() {
-			Game.Ky.u("Game.BarInstance", null)
+			Game.BarInstance.u("Game.BarInstance", null)
 		});
 U(function() {
-			Game.Ky.c()
+			Game.BarInstance.c()
 		});
 Game.Board = function() {
 	this.Cn = [];
@@ -16939,7 +16939,7 @@ Game.Board.prototype = {
 		var b = false, c = [];
 		do {
 			c.length = 0;
-			for (b = new Game.Vi(this); b.Dd();) {
+			for (b = new Game.PieceIter(this); b.Dd();) {
 				var d = b.Tl();
 				if (d != null)
 					c.push(d), d.qk = d.Ja = 7 - d.Ja, d.Ej = d.La = 7 - d.La
@@ -16991,7 +16991,7 @@ Game.Board.prototype = {
 			if (this.Bs(c, 3, true, true, true, null, false) && c[1] >= this.wc - 4)
 				break
 		}
-		for (c = new Game.Vi(this); c.Dd();)
+		for (c = new Game.PieceIter(this); c.Dd();)
 			if (b = c.Tl(), b != null)
 				b.w = this.Ri(b.Ja), b.v = this.vg(b.La)
 	},
@@ -17007,7 +17007,7 @@ Game.Board.prototype = {
 			case Game.lc.Zb.AS :
 				this.so.Aa(1);
 				this.GB = false;
-				for (b = new Game.Vi(this); b.Dd();) {
+				for (b = new Game.PieceIter(this); b.Dd();) {
 					var c = b.Tl();
 					c.Y(Game.Piece.K.Be) && this.A4(c)
 				}
@@ -17032,7 +17032,7 @@ Game.Board.prototype = {
 			case Game.lc.Zb.un :
 				this.we.ea("b+0,-202,0.009091,1,~},XB~P## ;olsb        F#O%V");
 				this.m.Aa(1);
-				for (b = new Game.Vi(this); b.Dd();)
+				for (b = new Game.PieceIter(this); b.Dd();)
 					c = b.Tl(), c.Y(Game.Piece.K.Be) && c.c_();
 				break;
 			case Game.lc.Zb.Cs :
@@ -17280,7 +17280,7 @@ Game.Board.prototype = {
 		}
 	},
 	Ro : function() {
-		for (var b = new Game.Vi(this); b.Dd();) {
+		for (var b = new Game.PieceIter(this); b.Dd();) {
 			var c = b.Tl();
 			if (c != null && c.ij)
 				return c
@@ -17403,7 +17403,7 @@ Game.Board.prototype = {
 		b.t()
 	},
 	kQ : function() {
-		for (var b = new Game.Vi(this); b.Dd();) {
+		for (var b = new Game.PieceIter(this); b.Dd();) {
 			var c = b.Tl();
 			c != null && (this.e[this.e.g * b.iS() + b.IR()] = null, c.t())
 		}
@@ -19080,7 +19080,7 @@ Game.Board.prototype = {
 		Game.BejApp.q.Ka.Cf(b | 0, c)
 	},
 	PD : function(b, c) {
-		var d = new Game.Wy;
+		var d = new Game.DeferredTutorial;
 		d.wo = b;
 		d.lu = c.xa;
 		this.wi.push(d);
@@ -19786,7 +19786,7 @@ Game.Board.prototype = {
 			this.fd.ec = this.we.D() == 0 && this.m.D() >= 0.8;
 			this.L.D();
 			if (this.aa % 20 == 0 && this.aa != c || this.Cn.length < 3)
-				b = new Game.Ky, b.he = GameFramework.Utils.Ec(), b.uf = GameFramework.Utils
+				b = new Game.BarInstance, b.he = GameFramework.Utils.Ec(), b.uf = GameFramework.Utils
 						.Ec(), b.L = 0, b.Ic = 0.018 + GameFramework.Utils.Ec()
 						* 0.0030, this.Cn.push(b);
 			for (b = 0; b < this.Cn.length; b++)
@@ -32130,7 +32130,7 @@ Game.SpeedBoard.prototype = {
 	No : function() {
 		if (!(this.Wr.R0() > 0)) {
 			this.ri == 0 && (this.Qd.length | 0) <= this.Nf && this.pD();
-			for (var b = new Game.Vi(this); b.Dd();) {
+			for (var b = new Game.PieceIter(this); b.Dd();) {
 				var c = b.Tl();
 				if (c != null && c.Y(Game.Piece.K.Yg))
 					this.ri == 0 ? this.oj(c.Ad() | 0, c.Rd() | 0, c.qe * 50,
@@ -32167,7 +32167,7 @@ Game.SpeedBoard.prototype = {
 					new Game.Announcement(this, "TIME UP")
 				}
 				this.ng > 0 && this.cR();
-				for (var d = false, f = new Game.Vi(this); f.Dd();) {
+				for (var d = false, f = new Game.PieceIter(this); f.Dd();) {
 					var g = f.Tl();
 					if (g != null
 							&& (d |= g.Y(Game.Piece.K.Mk), g.Y(Game.Piece.K.Be)
@@ -32183,7 +32183,7 @@ Game.SpeedBoard.prototype = {
 					}
 				}
 				if (b == 0)
-					for (c = new Game.Vi(this); c.Dd();)
+					for (c = new Game.PieceIter(this); c.Dd();)
 						if (d = c.Tl(), d != null && d.Y(Game.Piece.K.Mk) && !d.fI) {
 							if (d.Y(Game.Piece.K.Mk))
 								d.ol = true;
@@ -32306,7 +32306,7 @@ Game.SpeedBoard.prototype = {
 		if (this.jD) {
 			for (var c = GameFramework.Utils.Sk() % (b.length | 0), d = 0; d < 7; d++) {
 				b[c].n = this.Of.Dd() % (Game.DM.Ha.Zc | 0);
-				for (var f = 0, g = new Game.Vi(this); g.Dd();) {
+				for (var f = 0, g = new Game.PieceIter(this); g.Dd();) {
 					var h = g.Tl();
 					h != null && h.dd() > 0 && h.n == b[c].n && f++
 				}
@@ -32319,7 +32319,7 @@ Game.SpeedBoard.prototype = {
 			for (d = 0; d < 7; d++) {
 				b[c].n = this.Of.Dd() % (Game.DM.Ha.Zc | 0);
 				f = 0;
-				for (g = new Game.Vi(this); g.Dd();)
+				for (g = new Game.PieceIter(this); g.Dd();)
 					h = g.Tl(), h != null && h.v > 0 && h.n == b[c].n && f++;
 				if (f > 3)
 					break
