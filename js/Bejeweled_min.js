@@ -15967,24 +15967,24 @@ Game.LightningStorm.Yb.c = function() {
 T(function() {
 			Game.LightningStorm.Yb.c()
 		});
-Game.SD = function(b, c, d, f) {
+Game.DistortionQuad = function(b, c, d, f) {
 	this.g$ = b;
 	this.i$ = c;
 	this.h$ = d;
 	this.j$ = f
 };
-Game.SD.prototype = {
+Game.DistortionQuad.prototype = {
 	g$ : 0,
 	i$ : 0,
 	h$ : 0,
 	j$ : 0
 };
-Game.SD.c = t();
+Game.DistortionQuad.c = t();
 T(function() {
-			Game.SD.u("Game.DistortionQuad", null)
+			Game.DistortionQuad.u("Game.DistortionQuad", null)
 		});
 U(function() {
-			Game.SD.c()
+			Game.DistortionQuad.c()
 		});
 Game.Vz = function() {
 	this.ee = []
