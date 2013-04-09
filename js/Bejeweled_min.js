@@ -13657,10 +13657,10 @@ T(function() {
 U(function() {
 			GameFramework.resources.JSImageInst.c()
 		});
-GameFramework.resources.Vs = function() {
-	E(GameFramework.resources.Vs, this)
+GameFramework.resources.JSImageResource = function() {
+	E(GameFramework.resources.JSImageResource, this)
 };
-GameFramework.resources.Vs.prototype = {
+GameFramework.resources.JSImageResource.prototype = {
 	ym : null,
 	In : null,
 	Bn : null,
@@ -13719,13 +13719,13 @@ GameFramework.resources.Vs.prototype = {
 		return g
 	}
 };
-GameFramework.resources.Vs.c = t();
+GameFramework.resources.JSImageResource.c = t();
 T(function() {
-			GameFramework.resources.Vs.u("GameFramework.resources.JSImageResource",
+			GameFramework.resources.JSImageResource.u("GameFramework.resources.JSImageResource",
 					GameFramework.resources.gn)
 		});
 U(function() {
-			GameFramework.resources.Vs.c()
+			GameFramework.resources.JSImageResource.c()
 		});
 GameFramework.resources.Jz = function() {
 	E(GameFramework.resources.Jz, this)
@@ -14063,7 +14063,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 			if (b.xa != null && this.bh[b.xa] != null)
 				b.rd = this.bh[b.xa];
 			else {
-				var c = new GameFramework.resources.Vs;
+				var c = new GameFramework.resources.JSImageResource;
 				c.w7 = 1;
 				c.ym = b.rd;
 				if (b.Kb != null)
@@ -14072,7 +14072,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 				if (b.Kb != null && b.Kb.nu != null) {
 					var d = this.bh[b.Kb.nu], f = this.bh[b.Kb.Qb], g = this.Nm[b.Kb.nu];
 					if (d == null) {
-						d = new GameFramework.resources.Vs;
+						d = new GameFramework.resources.JSImageResource;
 						d.Sm = g.s;
 						d.Rm = g.z;
 						d.sO = true;
