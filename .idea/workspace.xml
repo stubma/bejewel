@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bejeweled_min.js" afterPath="$PROJECT_DIR$/js/Bejeweled_min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bejewel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -393,13 +392,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/Bejeweled_min.js</url>
-          <line>1560</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
