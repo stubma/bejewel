@@ -2233,7 +2233,7 @@ GameFramework.BaseApp.prototype = {
 						"Param", c))))
 	},
 	uQ : function() {
-		return new GameFramework.fv
+		return new GameFramework.DataBufferData
 	},
 	FL : t()
 };
@@ -2753,8 +2753,8 @@ T(function() {
 U(function() {
 			GameFramework.DataBuffer.c()
 		});
-GameFramework.fv = t();
-GameFramework.fv.prototype = {
+GameFramework.DataBufferData = t();
+GameFramework.DataBufferData.prototype = {
 	fC : 0,
 	oo : 0,
 	uV : function() {
@@ -2822,12 +2822,12 @@ GameFramework.fv.prototype = {
 	},
 	SU : t()
 };
-GameFramework.fv.c = t();
+GameFramework.DataBufferData.c = t();
 T(function() {
-			GameFramework.fv.u("GameFramework.DataBufferData", null)
+			GameFramework.DataBufferData.u("GameFramework.DataBufferData", null)
 		});
 U(function() {
-			GameFramework.fv.c()
+			GameFramework.DataBufferData.c()
 		});
 GameFramework.sj = function(b, c, d, f) {
 	b === UNDEF && (b = 0);
@@ -13301,7 +13301,7 @@ GameFramework.JSDataBufferData.prototype = {
 GameFramework.JSDataBufferData.c = t();
 T(function() {
 			GameFramework.JSDataBufferData.u("GameFramework.JSDataBufferData",
-					GameFramework.fv)
+					GameFramework.DataBufferData)
 		});
 U(function() {
 			GameFramework.JSDataBufferData.c()
