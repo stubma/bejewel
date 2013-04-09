@@ -2193,7 +2193,7 @@ GameFramework.BaseApp.prototype = {
 		return this.tr = new GameFramework.connected.xv
 	},
 	vQ : function() {
-		var b = new GameFramework.connected.ef;
+		var b = new GameFramework.connected.ConnectedRequest;
 		this.tB.push(b);
 		return b
 	},
@@ -3653,14 +3653,14 @@ U(function() {
 			GameFramework.ads.AdAPIEvent.c()
 		});
 GameFramework.connected = Type.ci("GameFramework.connected");
-GameFramework.connected.ef = function() {
-	E(GameFramework.connected.ef, this);
-	GameFramework.connected.ef.jY++;
-	this.kY = GameFramework.connected.ef.jY
+GameFramework.connected.ConnectedRequest = function() {
+	E(GameFramework.connected.ConnectedRequest, this);
+	GameFramework.connected.ConnectedRequest.jY++;
+	this.kY = GameFramework.connected.ConnectedRequest.jY
 };
-GameFramework.connected.ef.Hla = t();
-GameFramework.connected.ef.prototype = {
-	OC : GameFramework.connected.ef.y3,
+GameFramework.connected.ConnectedRequest.Hla = t();
+GameFramework.connected.ConnectedRequest.prototype = {
+	OC : GameFramework.connected.ConnectedRequest.y3,
 	kY : 0,
 	x8 : 0,
 	OH : null,
@@ -3670,24 +3670,24 @@ GameFramework.connected.ef.prototype = {
 	Fi : null,
 	fX : null
 };
-GameFramework.connected.ef.c = function() {
-	GameFramework.connected.ef.y3 = 0;
-	GameFramework.connected.ef.wT = 1;
-	GameFramework.connected.ef.x3 = 2;
-	GameFramework.connected.ef.xT = 3;
-	GameFramework.connected.ef.rna = 4;
-	GameFramework.connected.ef.qna = 5;
-	GameFramework.connected.ef.pna = 6;
-	GameFramework.connected.ef.ona = 7;
-	GameFramework.connected.ef.jY = 0
+GameFramework.connected.ConnectedRequest.c = function() {
+	GameFramework.connected.ConnectedRequest.y3 = 0;
+	GameFramework.connected.ConnectedRequest.wT = 1;
+	GameFramework.connected.ConnectedRequest.x3 = 2;
+	GameFramework.connected.ConnectedRequest.xT = 3;
+	GameFramework.connected.ConnectedRequest.rna = 4;
+	GameFramework.connected.ConnectedRequest.qna = 5;
+	GameFramework.connected.ConnectedRequest.pna = 6;
+	GameFramework.connected.ConnectedRequest.ona = 7;
+	GameFramework.connected.ConnectedRequest.jY = 0
 };
 T(function() {
-			GameFramework.connected.ef.u(
+			GameFramework.connected.ConnectedRequest.u(
 					"GameFramework.connected.ConnectedRequest",
 					GameFramework.events.EventDispatcher)
 		});
 U(function() {
-			GameFramework.connected.ef.c()
+			GameFramework.connected.ConnectedRequest.c()
 		});
 GameFramework.connected.us = function() {
 	this.U8 = {};
@@ -3751,14 +3751,14 @@ GameFramework.connected.xv.fqa = function(b) {
 GameFramework.connected.xv.prototype = {
 	n3 : function(b, c) {
 		var d = GameFramework.BaseApp.M.vQ();
-		d.OC = GameFramework.connected.ef.xT;
+		d.OC = GameFramework.connected.ConnectedRequest.xT;
 		d.OH = b;
 		d.lY = c;
 		return d
 	},
 	sz : function(b) {
 		var c = GameFramework.BaseApp.M.vQ();
-		c.OC = GameFramework.connected.ef.wT;
+		c.OC = GameFramework.connected.ConnectedRequest.wT;
 		c.OH = b;
 		return c
 	},
@@ -12945,13 +12945,13 @@ GameFramework.JSBaseApp.prototype = {
 			var c = this.tB[b];
 			if (c.x8 == 0) {
 				if (c.rN == null)
-					if (c.OC == GameFramework.connected.ef.x3)
+					if (c.OC == GameFramework.connected.ConnectedRequest.x3)
 						c.Fi = true;
-					else if (c.OC == GameFramework.connected.ef.wT)
+					else if (c.OC == GameFramework.connected.ConnectedRequest.wT)
 						c.rN = $.get(c.OH, null, function(b) {
 									c.Fi = b
 								}, "text");
-					else if (c.OC == GameFramework.connected.ef.xT)
+					else if (c.OC == GameFramework.connected.ConnectedRequest.xT)
 						c.rN = $.post(c.OH, c.lY, function(b) {
 									c.Fi = b
 								}, "text");
