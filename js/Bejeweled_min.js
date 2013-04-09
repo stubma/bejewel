@@ -28,13 +28,13 @@ function x(b) {
 }
 window.ss = {
 	version : "0.6.1.0",
-	Yqa : function(b) {
+	isUndef : function(b) {
 		return b === UNDEF
 	},
-	Wqa : function(b) {
+	isNull : function(b) {
 		return b === null
 	},
-	dm : function(b) {
+	isNullUndef : function(b) {
 		return b === null || b === UNDEF
 	}
 };
@@ -433,11 +433,11 @@ Number.prototype.Mb = function(b) {
 		return b = this.toString(), b.length == 1 ? "0" + b : b;
 	return b == "000" ? (b = this.toString(), b.length == 1
 			? "00" + b
-			: b.length == 2 ? "0" + b : b) : ss.dm(b) || b.length == 0
+			: b.length == 2 ? "0" + b : b) : ss.isNullUndef(b) || b.length == 0
 			|| b == "i" ? this.toString() : this.JF(b, false)
 };
 Number.prototype.DV = function(b) {
-	return ss.dm(b) || b.length == 0 || b == "i" ? this.toLocaleString() : this
+	return ss.isNullUndef(b) || b.length == 0 || b == "i" ? this.toLocaleString() : this
 			.JF(b, true)
 };
 Number.RL = function(b, c, d, f) {
@@ -550,7 +550,7 @@ String.dV = function(b, c, d) {
 		String.dB = /(\{[^\}^\{]+\})/g;
 	return b.replace(String.dB, function(b, g) {
 				var h = c[parseInt(g.substr(1)) + 1];
-				if (ss.dm(h))
+				if (ss.isNullUndef(h))
 					return "";
 				if (h.Mb) {
 					var j = null, k = g.indexOf(":");
@@ -736,7 +736,7 @@ Date.Qqa = function(b) {
 	return b === null || b.valueOf() === 0
 };
 Date.prototype.Mb = function(b) {
-	return ss.dm(b) || b.length == 0 || b == "i" ? this.toString() : b == "id"
+	return ss.isNullUndef(b) || b.length == 0 || b == "i" ? this.toString() : b == "id"
 			? this.toDateString()
 			: b == "it" ? this.toTimeString() : this.JF(b, false)
 };
@@ -786,7 +786,7 @@ Date.prototype.JF = function(b, c) {
 	b.charAt(0) == "%" && (b = b.substr(1));
 	if (!Date.dB)
 		Date.dB = /dddd|ddd|dd|d|MMMM|MMM|MM|M|yyyy|yy|y|hh|h|HH|H|mm|m|ss|s|tt|t|fff|ff|f|zzz|zz|z/g;
-	var g = Date.dB, h = new ss.pF, date = this;
+	var g = Date.dB, h = new ss.StringBuilder, date = this;
 	f
 			&& (date = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date
 							.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(),
@@ -895,14 +895,14 @@ Error.xqa = function(b, c, d) {
 			b[f] = c[f];
 	if (d)
 		b.Oqa = d;
-	if (!ss.dm(b.stack) && !ss.dm(b.fileName) && !ss.Xqa(b.lineNumber)) {
+	if (!ss.isNullUndef(b.stack) && !ss.isNullUndef(b.fileName) && !ss.Xqa(b.lineNumber)) {
 		c = b.stack.split("\n");
 		d = c[0];
-		for (f = b.fileName + ":" + b.lineNumber; !ss.dm(d)
+		for (f = b.fileName + ":" + b.lineNumber; !ss.isNullUndef(d)
 				&& d.indexOf(f) === -1;)
 			c.shift(), d = c[0];
 		d = c[1];
-		if (!isNullOrUndefined(d) && (d = d.match(/@(.*):(\d+)$/), !ss.dm(d)))
+		if (!isNullOrUndefined(d) && (d = d.match(/@(.*):(\d+)$/), !ss.isNullUndef(d)))
 			c.shift(), b.stack = c.join("\n"), b.fileName = d[1], b.lineNumber = parseInt(d[2])
 	}
 	return b
@@ -972,7 +972,7 @@ ss.tg.LF = function(b, c, d, f, g) {
 ss.tg.sra = function(b, c) {
 	if ((!c || !c.length) && b !== null)
 		c = Type.aM(b).qi;
-	var d = new ss.pF;
+	var d = new ss.StringBuilder;
 	ss.tg.LF(d, b, c, "", []);
 	ss.tg.f$(d.toString())
 };
@@ -1044,7 +1044,7 @@ function E(b, c, d) {
 	d ? b.Vq.apply(c, d) : b.Vq.apply(c)
 }
 function xa(b, c) {
-	return ss.dm(c) ? false : b == Object || c instanceof b ? true : Ca(b, Type.aM(c))
+	return ss.isNullUndef(c) ? false : b == Object || c instanceof b ? true : Ca(b, Type.aM(c))
 }
 function Ca(b, c) {
 	if (b == Object || b == c)
@@ -1301,12 +1301,12 @@ ss.tD.u("ArrayEnumerator", null, ss.Md);
 ss.Wl = t();
 ss.Wl.prototype = {};
 Ba(ss.Wl, "IDisposable");
-ss.pF = function(b) {
-	this.WL = ss.dm(b) ? [] : [b]
+ss.StringBuilder = function(b) {
+	this.WL = ss.isNullUndef(b) ? [] : [b]
 };
-ss.pF.prototype = {
+ss.StringBuilder.prototype = {
 	append : function(b) {
-		ss.dm(b) || this.WL.add(b);
+		ss.isNullUndef(b) || this.WL.add(b);
 		return this
 	},
 	Wq : function(b) {
@@ -1321,7 +1321,7 @@ ss.pF.prototype = {
 		return this.WL.join(b || "")
 	}
 };
-ss.pF.u("StringBuilder");
+ss.StringBuilder.u("StringBuilder");
 ss.jv = t();
 ss.jv.u("EventArgs");
 ss.jv.a0 = new ss.jv;
