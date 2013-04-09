@@ -33528,18 +33528,18 @@ T(function() {
 U(function() {
 			Game.SpeedEndLevelDialog.c()
 		});
-Game.qw = function(b) {
+Game.SpreadCurve = function(b) {
 	this.Dk = b;
 	this.kD = Array.O(this.Dk, null);
 	for (var c = 0; c < this.Dk; ++c)
 		this.kD[c] = c / b
 };
-Game.qw.xba = function(b) {
-	var c = new Game.qw(256);
+Game.SpreadCurve.xba = function(b) {
+	var c = new Game.SpreadCurve(256);
 	c.p4(b);
 	return c
 };
-Game.qw.prototype = {
+Game.SpreadCurve.prototype = {
 	kD : null,
 	Dk : 0,
 	p4 : function(b) {
@@ -33565,12 +33565,12 @@ Game.qw.prototype = {
 				| 0]
 	}
 };
-Game.qw.c = t();
+Game.SpreadCurve.c = t();
 T(function() {
-			Game.qw.u("Game.SpreadCurve", null)
+			Game.SpreadCurve.u("Game.SpreadCurve", null)
 		});
 U(function() {
-			Game.qw.c()
+			Game.SpreadCurve.c()
 		});
 Game.yw = function() {
 	this.oW = new GameFramework.geom.ba(0, 0);
