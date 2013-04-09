@@ -3541,7 +3541,7 @@ GameFramework.Utils.TS = function(b, c) {
 					new GameFramework.W.cb("Param", c)))
 };
 GameFramework.Utils.RS = function(b, c, d) {
-	var f = 1 - d, g = new GameFramework.geom.xb;
+	var f = 1 - d, g = new GameFramework.geom.Matrix;
 	g.Ua = b.Ua * f + c.Ua * d;
 	g.Sb = b.Sb * f + c.Sb * d;
 	g.ub = b.ub * f + c.ub * d;
@@ -3863,15 +3863,15 @@ U(function() {
 			GameFramework.events.IOErrorEvent.c()
 		});
 GameFramework.geom = Type.ci("GameFramework.geom");
-GameFramework.geom.pj = function(b, c, d) {
+GameFramework.geom.Axes3 = function(b, c, d) {
 	b === UNDEF && (b = null);
 	c === UNDEF && (c = null);
 	d === UNDEF && (d = null);
-	this.ze = b != null ? b : new GameFramework.geom.qb(1, 0, 0);
-	this.df = c != null ? c : new GameFramework.geom.qb(0, 1, 0);
-	this.Xd = d != null ? d : new GameFramework.geom.qb(0, 0, 1)
+	this.ze = b != null ? b : new GameFramework.geom.Vector3(1, 0, 0);
+	this.df = c != null ? c : new GameFramework.geom.Vector3(0, 1, 0);
+	this.Xd = d != null ? d : new GameFramework.geom.Vector3(0, 0, 1)
 };
-GameFramework.geom.pj.prototype = {
+GameFramework.geom.Axes3.prototype = {
 	ze : null,
 	df : null,
 	Xd : null,
@@ -3881,28 +3881,28 @@ GameFramework.geom.pj.prototype = {
 		this.Xd = b.Xd
 	},
 	gi : function() {
-		return new GameFramework.geom.pj(this.ze, this.df, this.Xd)
+		return new GameFramework.geom.Axes3(this.ze, this.df, this.Xd)
 	},
 	zs : function(b) {
-		return new GameFramework.geom.pj(this.ze.zs(b), this.df.zs(b), this.Xd
+		return new GameFramework.geom.Axes3(this.ze.zs(b), this.df.zs(b), this.Xd
 						.zs(b))
 	},
 	li : function(b) {
-		return new GameFramework.geom.pj(this.ze.li(b), this.df.li(b), this.Xd
+		return new GameFramework.geom.Axes3(this.ze.li(b), this.df.li(b), this.Xd
 						.li(b))
 	},
 	X2 : function() {
-		var b = new GameFramework.geom.pj(this.ze, this.df, this.Xd);
+		var b = new GameFramework.geom.Axes3(this.ze, this.df, this.Xd);
 		b.ze = b.df.rs(b.Xd).kk();
 		b.df = b.Xd.rs(b.ze).kk();
 		b.Xd = b.ze.rs(b.df).kk();
 		return b
 	},
 	MT : function(b, c) {
-		this.Ni(this.li(GameFramework.geom.uj.xZ(c, b).U0()))
+		this.Ni(this.li(GameFramework.geom.Quat3.xZ(c, b).U0()))
 	},
 	et : function(b) {
-		var c = Math.sin(b), b = Math.cos(b), d = new GameFramework.geom.pj;
+		var c = Math.sin(b), b = Math.cos(b), d = new GameFramework.geom.Axes3;
 		d.df.y = b;
 		d.Xd.y = -c;
 		d.df.ia = c;
@@ -3910,7 +3910,7 @@ GameFramework.geom.pj.prototype = {
 		this.Ni(this.li(d))
 	},
 	ft : function(b) {
-		var c = Math.sin(b), b = Math.cos(b), d = new GameFramework.geom.pj;
+		var c = Math.sin(b), b = Math.cos(b), d = new GameFramework.geom.Axes3;
 		d.ze.x = b;
 		d.ze.ia = -c;
 		d.Xd.x = c;
@@ -3918,7 +3918,7 @@ GameFramework.geom.pj.prototype = {
 		this.Ni(this.li(d))
 	},
 	bp : function(b) {
-		var c = Math.sin(b), b = Math.cos(b), d = new GameFramework.geom.pj;
+		var c = Math.sin(b), b = Math.cos(b), d = new GameFramework.geom.Axes3;
 		d.ze.x = b;
 		d.ze.y = c;
 		d.df.x = -c;
@@ -3928,7 +3928,7 @@ GameFramework.geom.pj.prototype = {
 	CE : function(b, c) {
 		var d = b.kk();
 		if (!(Math.abs(c.Ol(d)) > 0.99999)) {
-			var f = new GameFramework.geom.pj;
+			var f = new GameFramework.geom.Axes3;
 			f.Xd = d;
 			f.ze = c.rs(f.Xd).kk();
 			f.df = f.Xd.rs(f.ze).kk();
@@ -3936,22 +3936,22 @@ GameFramework.geom.pj.prototype = {
 		}
 	}
 };
-GameFramework.geom.pj.c = t();
+GameFramework.geom.Axes3.c = t();
 T(function() {
-			GameFramework.geom.pj.u("GameFramework.geom.Axes3", null)
+			GameFramework.geom.Axes3.u("GameFramework.geom.Axes3", null)
 		});
 U(function() {
-			GameFramework.geom.pj.c()
+			GameFramework.geom.Axes3.c()
 		});
-GameFramework.geom.sg = function(b, c, d) {
+GameFramework.geom.Coords3 = function(b, c, d) {
 	b === UNDEF && (b = null);
 	c === UNDEF && (c = null);
 	d === UNDEF && (d = null);
-	this.Mg = b != null ? b : new GameFramework.geom.qb(0, 0, 0);
-	this.Kd = c != null ? c : new GameFramework.geom.pj;
-	this.yc = d != null ? d : new GameFramework.geom.qb(1, 1, 1)
+	this.Mg = b != null ? b : new GameFramework.geom.Vector3(0, 0, 0);
+	this.Kd = c != null ? c : new GameFramework.geom.Axes3;
+	this.yc = d != null ? d : new GameFramework.geom.Vector3(1, 1, 1)
 };
-GameFramework.geom.sg.prototype = {
+GameFramework.geom.Coords3.prototype = {
 	Mg : null,
 	Kd : null,
 	yc : null,
@@ -3962,15 +3962,15 @@ GameFramework.geom.sg.prototype = {
 		return this
 	},
 	zs : function(b) {
-		return new GameFramework.geom.sg(this.Mg.dR(b), this.Kd.zs(b.Kd), this.yc
+		return new GameFramework.geom.Coords3(this.Mg.dR(b), this.Kd.zs(b.Kd), this.yc
 						.BQ(b.yc))
 	},
 	li : function(b) {
-		return new GameFramework.geom.sg(this.Mg.v2(b), this.Kd.li(b.Kd), this.yc
+		return new GameFramework.geom.Coords3(this.Mg.v2(b), this.Kd.li(b.Kd), this.yc
 						.mn(b.yc))
 	},
 	Aw : function(b, c, d) {
-		this.Mg = this.Mg.Yd(new GameFramework.geom.qb(b, c, d))
+		this.Mg = this.Mg.Yd(new GameFramework.geom.Vector3(b, c, d))
 	},
 	MT : function(b, c) {
 		this.Kd.MT(b, c)
@@ -3985,7 +3985,7 @@ GameFramework.geom.sg.prototype = {
 		this.Kd.bp(b)
 	},
 	yg : function(b, c, d) {
-		this.yc = this.yc.mn(new GameFramework.geom.qb(b, c, d))
+		this.yc = this.yc.mn(new GameFramework.geom.Vector3(b, c, d))
 	},
 	CE : function(b, c) {
 		var d = this.Mg.vL(b);
@@ -4039,18 +4039,18 @@ GameFramework.geom.sg.prototype = {
 					* 3 + 3] = 1
 	}
 };
-GameFramework.geom.sg.c = t();
+GameFramework.geom.Coords3.c = t();
 T(function() {
-			GameFramework.geom.sg.u("GameFramework.geom.Coords3", null)
+			GameFramework.geom.Coords3.u("GameFramework.geom.Coords3", null)
 		});
 U(function() {
-			GameFramework.geom.sg.c()
+			GameFramework.geom.Coords3.c()
 		});
-GameFramework.geom.xb = function() {
+GameFramework.geom.Matrix = function() {
 	this.th()
 };
-GameFramework.geom.xb.O = function(b, c, d, f, g, h) {
-	var j = new GameFramework.geom.xb;
+GameFramework.geom.Matrix.O = function(b, c, d, f, g, h) {
+	var j = new GameFramework.geom.Matrix;
 	j.Ua = b;
 	j.Sb = c;
 	j.ub = d;
@@ -4059,7 +4059,7 @@ GameFramework.geom.xb.O = function(b, c, d, f, g, h) {
 	j.Da = h;
 	return j
 };
-GameFramework.geom.xb.prototype = {
+GameFramework.geom.Matrix.prototype = {
 	Ua : 0,
 	Sb : 0,
 	ub : 0,
@@ -4067,7 +4067,7 @@ GameFramework.geom.xb.prototype = {
 	Ca : 0,
 	Da : 0,
 	zg : function() {
-		return GameFramework.geom.xb.O(this.Ua, this.Sb, this.ub, this.Va,
+		return GameFramework.geom.Matrix.O(this.Ua, this.Sb, this.ub, this.Va,
 				this.Ca, this.Da)
 	},
 	th : function() {
@@ -4108,21 +4108,21 @@ GameFramework.geom.xb.prototype = {
 		this.Da = h * b.Sb + j * b.Va + b.Da
 	},
 	Wd : function(b) {
-		return new GameFramework.geom.ba(this.Ca + this.Ua * b.x + this.ub * b.y,
+		return new GameFramework.geom.TPoint(this.Ca + this.Ua * b.x + this.ub * b.y,
 				this.Da + this.Sb * b.x + this.Va * b.y)
 	}
 };
-GameFramework.geom.xb.c = t();
+GameFramework.geom.Matrix.c = t();
 T(function() {
-			GameFramework.geom.xb.u("GameFramework.geom.Matrix", null)
+			GameFramework.geom.Matrix.u("GameFramework.geom.Matrix", null)
 		});
 U(function() {
-			GameFramework.geom.xb.c()
+			GameFramework.geom.Matrix.c()
 		});
-GameFramework.geom.Ce = function() {
+GameFramework.geom.Matrix3D = function() {
 	this.X = Array.Sd(4, 4, 16, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
 };
-GameFramework.geom.Ce.prototype = {
+GameFramework.geom.Matrix3D.prototype = {
 	X : null,
 	$J : function() {
 		this.X[this.X.g * 0 + 0] = 1;
@@ -4151,35 +4151,35 @@ GameFramework.geom.Ce.prototype = {
 		var c, d;
 		for (c = 0; c < 4; c++)
 			for (d = 0; d < 4; d++)
-				GameFramework.geom.Ce.OF[GameFramework.geom.Ce.OF.g * c + d] = this.X[this.X.g
+				GameFramework.geom.Matrix3D.OF[GameFramework.geom.Matrix3D.OF.g * c + d] = this.X[this.X.g
 						* c + d];
 		for (c = 0; c < 4; c++)
 			for (d = 0; d < 4; d++) {
 				for (var f = 0, g = 0; g < 4; g++)
 					f += b.X[b.X.g * c + g]
-							* GameFramework.geom.Ce.OF[GameFramework.geom.Ce.OF.g * g
+							* GameFramework.geom.Matrix3D.OF[GameFramework.geom.Matrix3D.OF.g * g
 									+ d];
 				this.X[this.X.g * c + d] = f
 			}
 	}
 };
-GameFramework.geom.Ce.c = function() {
-	GameFramework.geom.Ce.OF = Array.Sd(4, 4, null)
+GameFramework.geom.Matrix3D.c = function() {
+	GameFramework.geom.Matrix3D.OF = Array.Sd(4, 4, null)
 };
 T(function() {
-			GameFramework.geom.Ce.u("GameFramework.geom.Matrix3D", null)
+			GameFramework.geom.Matrix3D.u("GameFramework.geom.Matrix3D", null)
 		});
 U(function() {
-			GameFramework.geom.Ce.c()
+			GameFramework.geom.Matrix3D.c()
 		});
-GameFramework.geom.uj = function(b, c) {
+GameFramework.geom.Quat3 = function(b, c) {
 	b === UNDEF && (b = null);
 	c === UNDEF && (c = 1);
-	this.Ob = b != null ? b : new GameFramework.geom.qb(0, 0, 0);
+	this.Ob = b != null ? b : new GameFramework.geom.Vector3(0, 0, 0);
 	this.yc = c
 };
-GameFramework.geom.uj.wba = function(b) {
-	var c = b.X2(), d = 0, b = new GameFramework.geom.qb, d = Array.O(3, 3, 1, 2,
+GameFramework.geom.Quat3.wba = function(b) {
+	var c = b.X2(), d = 0, b = new GameFramework.geom.Vector3, d = Array.O(3, 3, 1, 2,
 			0), c = Array.Sd(3, 3, 9, c.ze.x, c.df.x, c.Xd.x, 0, 0, 0, 0, 0, 0), f, g, h, j, k = Array
 			.O(4, null);
 	f = c[c.g * 0 + 0] + c[c.g * 1 + 1] + c[c.g * 2 + 2];
@@ -4188,7 +4188,7 @@ GameFramework.geom.uj.wba = function(b) {
 				+ 2] - c[c.g * 2 + 1])
 				* j, b.y = (c[c.g * 2 + 0] - c[c.g * 0 + 2]) * j, b.ia = (c[c.g
 				* 0 + 1] - c[c.g * 1 + 0])
-				* j, new GameFramework.geom.uj(b, d);
+				* j, new GameFramework.geom.Quat3(b, d);
 	f = 0;
 	c[c.g * 1 + 1] > c[c.g * 0 + 0] && (f = 1);
 	c[c.g * 2 + 2] > c[c.g * f + f] && (f = 2);
@@ -4203,17 +4203,17 @@ GameFramework.geom.uj.wba = function(b) {
 	b.x = k[0];
 	b.y = k[1];
 	b.ia = k[2];
-	return new GameFramework.geom.uj(b, d)
+	return new GameFramework.geom.Quat3(b, d)
 };
-GameFramework.geom.uj.xZ = function(b, c) {
-	var d = new GameFramework.geom.uj;
+GameFramework.geom.Quat3.xZ = function(b, c) {
+	var d = new GameFramework.geom.Quat3;
 	c *= 0.5;
 	d.Ob = b.kk();
 	d.Ob = d.Ob.yg(Math.sin(c));
 	d.yc = Math.cos(c);
 	return d
 };
-GameFramework.geom.uj.Opa = function(b, c, d, f) {
+GameFramework.geom.Quat3.Opa = function(b, c, d, f) {
 	if (b.JI(c, 1.0E-5))
 		return b;
 	var d = Math.min(Math.max(d, 0), 1), g = 1 - d, h = b.Ol(c);
@@ -4225,13 +4225,13 @@ GameFramework.geom.uj.Opa = function(b, c, d, f) {
 					&& Math.abs(f) < 1E8))
 		return h = 1 / Math.sin(f), g = Math.sin(g * f) * h, f = Math
 				.sin(d * f)
-				* h, d = b.yc * g + c.yc * f, b = b.Ob.yg(g).Yd(c.Ob.yg(f)), (new GameFramework.geom.uj(
+				* h, d = b.yc * g + c.yc * f, b = b.Ob.yg(g).Yd(c.Ob.yg(f)), (new GameFramework.geom.Quat3(
 				b, d)).kk();
 	f = b.yc * g + c.yc * d;
 	b = b.Ob.yg(g).Yd(c.Ob.yg(d));
-	return (new GameFramework.geom.uj(b, f)).kk()
+	return (new GameFramework.geom.Quat3(b, f)).kk()
 };
-GameFramework.geom.uj.prototype = {
+GameFramework.geom.Quat3.prototype = {
 	Ob : null,
 	yc : 0,
 	U0 : function() {
@@ -4243,13 +4243,13 @@ GameFramework.geom.uj.prototype = {
 		g *= c;
 		c *= h;
 		d *= h;
-		return new GameFramework.geom.pj(new GameFramework.geom.qb(1 - (k + l),
-						f + d, m - c), new GameFramework.geom.qb(f - d, 1
-								- (j + l), g + b), new GameFramework.geom.qb(
+		return new GameFramework.geom.Axes3(new GameFramework.geom.Vector3(1 - (k + l),
+						f + d, m - c), new GameFramework.geom.Vector3(f - d, 1
+								- (j + l), g + b), new GameFramework.geom.Vector3(
 						m + c, g - b, 1 - (j + k)))
 	},
 	ht : function(b) {
-		return new GameFramework.geom.uj(this.Ob.ht(b), this.yc / b)
+		return new GameFramework.geom.Quat3(this.Ob.ht(b), this.yc / b)
 	},
 	Ol : function(b) {
 		return this.Ob.Ol(b.Ob) + this.yc * b.yc
@@ -4266,71 +4266,71 @@ GameFramework.geom.uj.prototype = {
 		return Math.abs(this.yc - b.yc) <= c && this.Ob.JI(b.Ob, c)
 	}
 };
-GameFramework.geom.uj.c = t();
+GameFramework.geom.Quat3.c = t();
 T(function() {
-			GameFramework.geom.uj.u("GameFramework.geom.Quat3", null)
+			GameFramework.geom.Quat3.u("GameFramework.geom.Quat3", null)
 		});
 U(function() {
-			GameFramework.geom.uj.c()
+			GameFramework.geom.Quat3.c()
 		});
-GameFramework.geom.ic = function(b, c) {
+GameFramework.geom.TIntPoint = function(b, c) {
 	b === UNDEF && (b = 0);
 	c === UNDEF && (c = 0);
 	this.x = b;
 	this.y = c
 };
-GameFramework.geom.ic.nV = function(b, c) {
+GameFramework.geom.TIntPoint.nV = function(b, c) {
 	var d = b.x - c.x, f = b.y - c.y;
 	return Math.sqrt(d * d + f * f)
 };
-GameFramework.geom.ic.prototype = {
+GameFramework.geom.TIntPoint.prototype = {
 	x : 0,
 	y : 0,
 	zV : function() {
 		return Math.sqrt(this.x * this.x + this.y * this.y)
 	}
 };
-GameFramework.geom.ic.c = t();
+GameFramework.geom.TIntPoint.c = t();
 T(function() {
-			GameFramework.geom.ic.u("GameFramework.geom.TIntPoint", null)
+			GameFramework.geom.TIntPoint.u("GameFramework.geom.TIntPoint", null)
 		});
 U(function() {
-			GameFramework.geom.ic.c()
+			GameFramework.geom.TIntPoint.c()
 		});
-GameFramework.geom.ba = function(b, c) {
+GameFramework.geom.TPoint = function(b, c) {
 	b === UNDEF && (b = 0);
 	c === UNDEF && (c = 0);
 	this.x = b;
 	this.y = c
 };
-GameFramework.geom.ba.nV = function(b, c) {
+GameFramework.geom.TPoint.nV = function(b, c) {
 	var d = b.x - c.x, f = b.y - c.y;
 	return Math.sqrt(d * d + f * f)
 };
-GameFramework.geom.ba.BV = function(b, c, d) {
-	return new GameFramework.geom.ba(c.x + (b.x - c.x) * d, c.y + (b.y - c.y) * d)
+GameFramework.geom.TPoint.BV = function(b, c, d) {
+	return new GameFramework.geom.TPoint(c.x + (b.x - c.x) * d, c.y + (b.y - c.y) * d)
 };
-GameFramework.geom.ba.prototype = {
+GameFramework.geom.TPoint.prototype = {
 	x : 0,
 	y : 0,
 	zV : function() {
 		return Math.sqrt(this.x * this.x + this.y * this.y)
 	},
 	zg : function() {
-		return new GameFramework.geom.ba(this.x, this.y)
+		return new GameFramework.geom.TPoint(this.x, this.y)
 	},
 	bZ : function(b, c) {
 		this.x += b;
 		this.y += c
 	},
 	add : function(b) {
-		return new GameFramework.geom.ba(this.x + b.x, this.y + b.y)
+		return new GameFramework.geom.TPoint(this.x + b.x, this.y + b.y)
 	},
 	rg : function(b) {
-		return new GameFramework.geom.ba(this.x - b.x, this.y - b.y)
+		return new GameFramework.geom.TPoint(this.x - b.x, this.y - b.y)
 	},
 	scale : function(b) {
-		return new GameFramework.geom.ba(this.x * b, this.y * b)
+		return new GameFramework.geom.TPoint(this.x * b, this.y * b)
 	},
 	normalize : function(b) {
 		b /= this.zV();
@@ -4338,14 +4338,14 @@ GameFramework.geom.ba.prototype = {
 		this.y *= b
 	}
 };
-GameFramework.geom.ba.c = t();
+GameFramework.geom.TPoint.c = t();
 T(function() {
-			GameFramework.geom.ba.u("GameFramework.geom.TPoint", null)
+			GameFramework.geom.TPoint.u("GameFramework.geom.TPoint", null)
 		});
 U(function() {
-			GameFramework.geom.ba.c()
+			GameFramework.geom.TPoint.c()
 		});
-GameFramework.geom.qb = function(b, c, d) {
+GameFramework.geom.Vector3 = function(b, c, d) {
 	b === UNDEF && (b = 0);
 	c === UNDEF && (c = 0);
 	d === UNDEF && (d = 0);
@@ -4353,7 +4353,7 @@ GameFramework.geom.qb = function(b, c, d) {
 	this.y = c;
 	this.ia = d
 };
-GameFramework.geom.qb.prototype = {
+GameFramework.geom.Vector3.prototype = {
 	x : null,
 	y : 0,
 	ia : 0,
@@ -4361,30 +4361,30 @@ GameFramework.geom.qb.prototype = {
 		return this.x * b.x + this.y * b.y + this.ia * b.ia
 	},
 	rs : function(b) {
-		return new GameFramework.geom.qb(this.y * b.ia - this.ia * b.y, this.ia
+		return new GameFramework.geom.Vector3(this.y * b.ia - this.ia * b.y, this.ia
 						* b.x - this.x * b.ia, this.x * b.y - this.y * b.x)
 	},
 	Yd : function(b) {
-		return new GameFramework.geom.qb(this.x + b.x, this.y + b.y, this.ia
+		return new GameFramework.geom.Vector3(this.x + b.x, this.y + b.y, this.ia
 						+ b.ia)
 	},
 	vL : function(b) {
-		return new GameFramework.geom.qb(this.x - b.x, this.y - b.y, this.ia
+		return new GameFramework.geom.Vector3(this.x - b.x, this.y - b.y, this.ia
 						- b.ia)
 	},
 	yg : function(b) {
-		return new GameFramework.geom.qb(b * this.x, b * this.y, b * this.ia)
+		return new GameFramework.geom.Vector3(b * this.x, b * this.y, b * this.ia)
 	},
 	mn : function(b) {
-		return new GameFramework.geom.qb(this.x * b.x, this.y * b.y, this.ia
+		return new GameFramework.geom.Vector3(this.x * b.x, this.y * b.y, this.ia
 						* b.ia)
 	},
 	ht : function(b) {
 		b = 1 / b;
-		return new GameFramework.geom.qb(this.x * b, this.y * b, this.ia * b)
+		return new GameFramework.geom.Vector3(this.x * b, this.y * b, this.ia * b)
 	},
 	BQ : function(b) {
-		return new GameFramework.geom.qb(this.x / b.x, this.y / b.y, this.ia
+		return new GameFramework.geom.Vector3(this.x / b.x, this.y / b.y, this.ia
 						/ b.ia)
 	},
 	JE : function() {
@@ -4405,14 +4405,14 @@ GameFramework.geom.qb.prototype = {
 				&& Math.abs(this.ia) <= b
 	},
 	zs : function(b) {
-		return new GameFramework.geom.qb(this.Ol(b.ze), this.Ol(b.df), this
+		return new GameFramework.geom.Vector3(this.Ol(b.ze), this.Ol(b.df), this
 						.Ol(b.Xd))
 	},
 	dR : function(b) {
 		return this.vL(b.Mg).zs(b.Kd).BQ(b.yc)
 	},
 	li : function(b) {
-		return new GameFramework.geom.qb(this.x * b.ze.x + this.y * b.df.x
+		return new GameFramework.geom.Vector3(this.x * b.ze.x + this.y * b.df.x
 						+ this.ia * b.Xd.x, this.x * b.ze.y + this.y * b.df.y
 						+ this.ia * b.Xd.y, this.x * b.ze.ia + this.y * b.df.ia
 						+ this.ia * b.Xd.ia)
@@ -4421,16 +4421,16 @@ GameFramework.geom.qb.prototype = {
 		return this.mn(b.yc).li(b.Kd).Yd(b.Mg)
 	}
 };
-GameFramework.geom.qb.c = t();
+GameFramework.geom.Vector3.c = t();
 T(function() {
-			GameFramework.geom.qb.u("GameFramework.geom.Vector3", null)
+			GameFramework.geom.Vector3.u("GameFramework.geom.Vector3", null)
 		});
 U(function() {
-			GameFramework.geom.qb.c()
+			GameFramework.geom.Vector3.c()
 		});
 GameFramework.gfx = Type.ci("GameFramework.gfx");
 GameFramework.gfx.Qy = function() {
-	this.Ff = new GameFramework.geom.sg;
+	this.Ff = new GameFramework.geom.Coords3;
 	this.ZY = 1;
 	this.rP = 1E4
 };
@@ -4441,9 +4441,9 @@ GameFramework.gfx.Qy.prototype = {
 	pk : w("Ff"),
 	Az : function(b) {
 		if (b != null) {
-			var c = new GameFramework.geom.sg;
+			var c = new GameFramework.geom.Coords3;
 			c.Ni(this.Ff);
-			c.yc = new GameFramework.geom.qb(c.yc.x, c.yc.y, -c.yc.ia);
+			c.yc = new GameFramework.geom.Vector3(c.yc.x, c.yc.y, -c.yc.ia);
 			c.g1(b)
 		}
 	},
@@ -4631,14 +4631,14 @@ GameFramework.gfx.Graphics = function() {
 	this.Tf = [];
 	this.Yx = [];
 	this.Ct = [];
-	this.Ml = new GameFramework.geom.xb;
-	this.Nr = new GameFramework.geom.xb;
+	this.Ml = new GameFramework.geom.Matrix;
+	this.Nr = new GameFramework.geom.Matrix;
 	this.xM = {};
 	this.BN = {};
 	this.cG = new GameFramework.W.gv(ss.Delegate.create(this, this.Ab));
 	this.mM = new GameFramework.W.gv(ss.Delegate.create(this, this.pb));
 	this.lC = [];
-	this.sa = new GameFramework.geom.xb;
+	this.sa = new GameFramework.geom.Matrix;
 	this.Eg = 0;
 	this.m = GameFramework.BaseApp.M.aj / GameFramework.BaseApp.M.z
 };
@@ -4781,14 +4781,14 @@ GameFramework.gfx.Graphics.prototype = {
 	},
 	gc : function(b, c) {
 		var d = this.lC[this.Eg++] = this.sa;
-		this.sa = new GameFramework.geom.xb;
+		this.sa = new GameFramework.geom.Matrix;
 		this.sa.translate(b, c);
 		this.sa.concat(d);
 		return this.cG
 	},
 	nc : function(b, c, d, f) {
 		var g = this.lC[this.Eg++] = this.sa;
-		this.sa = new GameFramework.geom.xb;
+		this.sa = new GameFramework.geom.Matrix;
 		this.sa.translate(-d, -f);
 		this.sa.scale(b, c);
 		this.sa.translate(d, f);
@@ -4940,7 +4940,7 @@ GameFramework.gfx.Graphics.prototype = {
 		this.Ba(k[8], c + f - j, d + g - b)
 	},
 	fc : function(b, c, d, f) {
-		var g = new GameFramework.geom.xb;
+		var g = new GameFramework.geom.Matrix;
 		g.Ca = b;
 		g.Da = c;
 		g.Ua = d;
@@ -5085,7 +5085,7 @@ GameFramework.gfx.Hq = function(b, c, d, f) {
 	d === UNDEF && (d = 1);
 	f === UNDEF && (f = 1E4);
 	E(GameFramework.gfx.Hq, this);
-	b == 0 ? (this.Fl = new GameFramework.geom.qb(0, 0, 0), this.KH = 0) : this
+	b == 0 ? (this.Fl = new GameFramework.geom.Vector3(0, 0, 0), this.KH = 0) : this
 			.Ub(b, c, d, f)
 };
 GameFramework.gfx.Hq.prototype = {
@@ -5109,7 +5109,7 @@ GameFramework.gfx.Hq.prototype = {
 					* 3 + 2] = this.KH, b.X[b.X.g * 3 + 3] = 0
 	},
 	hR : function(b) {
-		var c = new GameFramework.geom.qb, d = -b.ia;
+		var c = new GameFramework.geom.Vector3, d = -b.ia;
 		c.x = b.x * this.Fl.x / d;
 		c.y = b.y * this.Fl.y / d;
 		c.ia = (d * this.Fl.ia + this.KH) / this.rP;
@@ -5231,7 +5231,7 @@ GameFramework.W.My.prototype = {
 	},
 	iz : function(b) {
 		if (this.be < 2)
-			return new GameFramework.geom.ba(0, 0);
+			return new GameFramework.geom.TPoint(0, 0);
 		if (b <= this.Yj[0])
 			return this.Lc[0];
 		else if (b >= this.Yj[this.be - 1])
@@ -5240,7 +5240,7 @@ GameFramework.W.My.prototype = {
 			if (b < this.Yj[c + 1])
 				break;
 		var d = this.Yj[c], b = (b - d) / (this.Yj[c + 1] - d);
-		return new GameFramework.geom.ba(
+		return new GameFramework.geom.TPoint(
 				this.Lc[c].x
 						+ (this.Gd[2 * c].x * 3 - this.Lc[c].x * 3 + (this.Gd[2
 								* c + 1].x
@@ -5266,17 +5266,17 @@ GameFramework.W.My.prototype = {
 	},
 	J5 : function(b, c) {
 		if (this.be < 2)
-			return new GameFramework.geom.ba(0, 0);
+			return new GameFramework.geom.TPoint(0, 0);
 		if (b <= this.Yj[0])
-			return !c ? new GameFramework.geom.ba(0, 0) : this.Lc[0];
+			return !c ? new GameFramework.geom.TPoint(0, 0) : this.Lc[0];
 		else if (b >= this.Yj[this.be - 1])
-			return !c ? new GameFramework.geom.ba(0, 0) : this.Lc[this.be - 1];
+			return !c ? new GameFramework.geom.TPoint(0, 0) : this.Lc[this.be - 1];
 		var d;
 		for (d = 0; d < this.be - 1; ++d)
 			if (b < this.Yj[d + 1])
 				break;
 		var f = this.Yj[d], f = (b - f) / (this.Yj[d + 1] - f);
-		return new GameFramework.geom.ba(
+		return new GameFramework.geom.TPoint(
 				this.Gd[2 * d].x
 						* 3
 						- this.Lc[d].x
@@ -6552,7 +6552,7 @@ GameFramework.resources.le.prototype = {
 				return this.Bm = this.dc[0].oa;
 			if (b >= g)
 				return this.Bm = this.dc[this.dc.length - 1].oa;
-			for (var h = f, k = g, l = new GameFramework.geom.ba, m = 0, d = (b - d)
+			for (var h = f, k = g, l = new GameFramework.geom.TPoint, m = 0, d = (b - d)
 					/ (g - f) > 0.05, f = Array.O(4, 4, 0.1, 0.1, 0.1, 0.5), g = Array
 					.O(3, 3, 1, 0.75, 1.25), o = 0; o < 1E3; o++) {
 				var q = j;
@@ -6652,17 +6652,17 @@ GameFramework.resources.$k.prototype = {
 		for (var c = 1; c < (this.mj.length | 0); c++) {
 			var d = this.mj[c - 1], f = this.mj[c];
 			if (b >= d.Eb && b <= f.Eb || c == (this.mj.length | 0) - 1)
-				return this.co = GameFramework.geom.ba.BV(f.oa, d.oa, Math.min(1,
+				return this.co = GameFramework.geom.TPoint.BV(f.oa, d.oa, Math.min(1,
 								(b - d.Eb) / (f.Eb - d.Eb)))
 		}
-		return this.co = new GameFramework.geom.ba(0, 0)
+		return this.co = new GameFramework.geom.TPoint(0, 0)
 	},
 	oS : function(b) {
 		if (this.pX == b)
 			return this.rH;
 		this.pX = b;
 		if (this.mj.length <= 1)
-			return new GameFramework.geom.ba(0, 0);
+			return new GameFramework.geom.TPoint(0, 0);
 		if (this.km != null)
 			return this.rH = this.km.J5(b, false);
 		for (var c = 1; c < (this.mj.length | 0); c++) {
@@ -6670,7 +6670,7 @@ GameFramework.resources.$k.prototype = {
 			if (b >= d.Eb && b <= f.Eb || c == (this.mj.length | 0) - 1)
 				return this.rH = f.oa.rg(d.oa)
 		}
-		return this.rH = new GameFramework.geom.ba(0, 0)
+		return this.rH = new GameFramework.geom.TPoint(0, 0)
 	}
 };
 GameFramework.resources.$k.c = t();
@@ -6981,7 +6981,7 @@ T(function() {
 		});
 GameFramework.resources.Ea = function() {
 	this.lb = Array.O(GameFramework.resources.Ea.Sa.Jh | 0, null);
-	this.Na = new GameFramework.geom.xb;
+	this.Na = new GameFramework.geom.Matrix;
 	this.gd = this.Ei = null;
 	this.u9 = 1;
 	this.zp = 0;
@@ -7216,8 +7216,8 @@ T(function() {
 		});
 GameFramework.resources.at = function() {
 	this.$h = new GameFramework.resources.Vv;
-	this.Na = new GameFramework.geom.xb;
-	this.de = new GameFramework.geom.ba;
+	this.Na = new GameFramework.geom.Matrix;
+	this.de = new GameFramework.geom.TPoint;
 	E(GameFramework.resources.at, this);
 	this.Co = false;
 	this.Ou = true;
@@ -7309,7 +7309,7 @@ U(function() {
 			GameFramework.resources.eA.c()
 		});
 GameFramework.resources.gA = function() {
-	this.qO = new GameFramework.geom.ba
+	this.qO = new GameFramework.geom.TPoint
 };
 GameFramework.resources.gA.prototype = {
 	sb : null,
@@ -7331,7 +7331,7 @@ U(function() {
 			GameFramework.resources.gA.c()
 		});
 GameFramework.resources.Uv = function() {
-	this.bx = new GameFramework.geom.ba;
+	this.bx = new GameFramework.geom.TPoint;
 	this.ec = true;
 	this.n = 4294967295;
 	this.Dn = null
@@ -7387,8 +7387,8 @@ U(function() {
 		});
 GameFramework.resources.va = function() {
 	this.Eu = [];
-	this.za = new GameFramework.geom.xb;
-	this.dj = new GameFramework.geom.xb;
+	this.za = new GameFramework.geom.Matrix;
+	this.dj = new GameFramework.geom.Matrix;
 	this.ue = false;
 	this.HW = 0;
 	this.e7 = true;
@@ -7422,23 +7422,23 @@ GameFramework.resources.va.mK = function(b, c, d, f) {
 GameFramework.resources.va.i2 = function(b, c, d, f, g, h, j, k, l) {
 	var m = null;
 	if (l.bd == l.Dl && k.Rh.length > 0) {
-		var o = l.Na.Wd(new GameFramework.geom.ba(0, 0)), q = l.qa;
+		var o = l.Na.Wd(new GameFramework.geom.TPoint(0, 0)), q = l.qa;
 		l.qa.x += j.x;
 		l.qa.y += j.y;
 		b.qj(c, d, f, g, h, l);
-		for (var m = l.Na.Wd(new GameFramework.geom.ba(0, 0)), r = 0; r < (k.Rh.length | 0); r++) {
+		for (var m = l.Na.Wd(new GameFramework.geom.TPoint(0, 0)), r = 0; r < (k.Rh.length | 0); r++) {
 			var v = k.Rh[r];
 			if (!(v.yj.oq(b.A) < 0.99))
 				for (var u = 1; u < (v.ac.length | 0); u++) {
-					var y = v.ac[u - 1].rg(new GameFramework.geom.ba(b.za.Ca,
-							b.za.Da)), z = v.ac[u].rg(new GameFramework.geom.ba(
-							b.za.Ca, b.za.Da)), A = (new GameFramework.geom.ba(z.x
+					var y = v.ac[u - 1].rg(new GameFramework.geom.TPoint(b.za.Ca,
+							b.za.Da)), z = v.ac[u].rg(new GameFramework.geom.TPoint(
+							b.za.Ca, b.za.Da)), A = (new GameFramework.geom.TPoint(z.x
 									- y.x, z.y - y.y)).zg();
 					A.normalize(1);
 					var B = A.x;
 					A.x = -A.y;
 					A.y = B;
-					B = new GameFramework.geom.ba(A.x, A.y);
+					B = new GameFramework.geom.TPoint(A.x, A.y);
 					B.x = B.x * v.Hu * l.Ur;
 					B.y = B.y * v.Hu * l.Ur;
 					if (GameFramework.resources.va.mK(o, m, y.add(B), z.add(B)) != null
@@ -7461,9 +7461,9 @@ GameFramework.resources.va.i2 = function(b, c, d, f, g, h, j, k, l) {
 										* (g.F[GameFramework.resources.ua.p.Ae | 0]
 												.G(b.A) + l.lb[GameFramework.resources.Ea.Sa.Ae
 												| 0]);
-						y = new GameFramework.geom.ba(j.x, j.y);
+						y = new GameFramework.geom.TPoint(j.x, j.y);
 						z = y.x * A.x + y.y * A.y;
-						A = new GameFramework.geom.ba(y.x - A.x * 2 * z, y.y - A.y
+						A = new GameFramework.geom.TPoint(y.x - A.x * 2 * z, y.y - A.y
 										* 2 * z);
 						y = Math.min(1, Math.abs(A.y / A.x));
 						A.y *= 1 - y + y * Math.pow(m, 0.5);
@@ -7472,13 +7472,13 @@ GameFramework.resources.va.i2 = function(b, c, d, f, g, h, j, k, l) {
 						if (m > 0.0010)
 							l.qa = q;
 						b.qj(c, d, f, g, h, l);
-						m = l.Na.Wd(new GameFramework.geom.ba(0, 0))
+						m = l.Na.Wd(new GameFramework.geom.TPoint(0, 0))
 					}
 				}
 		}
 	} else
 		l.qa.x += j.x, l.qa.y += j.y, k.xi.length > 0
-				&& (b.qj(c, d, f, g, h, l), m = l.Na.Wd(new GameFramework.geom.ba(
+				&& (b.qj(c, d, f, g, h, l), m = l.Na.Wd(new GameFramework.geom.TPoint(
 						0, 0)));
 	for (c = 0; c < (k.xi.length | 0); c++)
 		if (d = k.xi[c], !(d.yj.oq(b.A) < 0.99)) {
@@ -7654,7 +7654,7 @@ GameFramework.resources.va.prototype = {
 		return this.P() * this.P()
 	},
 	RK : function(b) {
-		var c = new GameFramework.geom.xb;
+		var c = new GameFramework.geom.Matrix;
 		c.Ua = b.fa();
 		c.Sb = b.fa();
 		b.fa();
@@ -7694,16 +7694,16 @@ GameFramework.resources.va.prototype = {
 			this.Qi("CKey");
 			var k = this.C.H();
 			d[j] = k;
-			var l = new GameFramework.geom.ba;
+			var l = new GameFramework.geom.TPoint;
 			l.x = this.C.fa();
 			l.y = this.C.fa();
 			f[j] = l;
 			if (!this.Ai || h) {
-				var m = new GameFramework.geom.ba;
+				var m = new GameFramework.geom.TPoint;
 				m.x = this.C.fa();
 				m.y = this.C.fa();
 				j > 0 && (g[j] = l.add(m));
-				m = new GameFramework.geom.ba;
+				m = new GameFramework.geom.TPoint;
 				m.x = this.C.fa();
 				m.y = this.C.fa();
 				g[j] = l.add(m)
@@ -7723,7 +7723,7 @@ GameFramework.resources.va.prototype = {
 			this.Qi("CPointKey");
 			var f = new GameFramework.resources.Xv;
 			f.Eb = this.C.H();
-			f.oa = new GameFramework.geom.ba;
+			f.oa = new GameFramework.geom.TPoint;
 			f.oa.x = this.C.fa();
 			f.oa.y = this.C.fa();
 			b.mj.push(f)
@@ -7753,13 +7753,13 @@ GameFramework.resources.va.prototype = {
 				r = m != 0 || (c & 96) == 0 ? this.C.fa() : (c & 96) == 32
 						? 0
 						: (c & 96) == 64 ? 1 : 2;
-				q = new GameFramework.geom.ba;
+				q = new GameFramework.geom.TPoint;
 				q.x = o;
 				q.y = r;
 				h[k] = q;
 				if (!this.Ai || f)
-					r = new GameFramework.geom.ba, r.x = this.C.fa(), r.y = this.C
-							.fa(), m > 0 && (j[l++] = q.add(r)), r = new GameFramework.geom.ba, r.x = this.C
+					r = new GameFramework.geom.TPoint, r.x = this.C.fa(), r.y = this.C
+							.fa(), m > 0 && (j[l++] = q.add(r)), r = new GameFramework.geom.TPoint, r.x = this.C
 							.fa(), r.y = this.C.fa(), j[l++] = q.add(r);
 				this.Ai || (this.C.H(), r = this.C.H(), f |= (r & 1) == 0);
 				r = new GameFramework.resources.Wv;
@@ -7847,7 +7847,7 @@ GameFramework.resources.va.prototype = {
 				f.F[g] = new GameFramework.resources.le;
 			for (g = 0; g < 23; g++)
 				this.Bf(f.F[g]);
-			f.ou = new GameFramework.geom.ba;
+			f.ou = new GameFramework.geom.TPoint;
 			f.ou.x = this.C.fa();
 			f.ou.y = this.C.fa();
 			this.Ai
@@ -7978,16 +7978,16 @@ GameFramework.resources.va.prototype = {
 		d.rX = 0;
 		if (d.Jc != null && d.Jc.fh)
 			d.bd = 1, d.Dl = 0, d.WN = 0;
-		d.qa = new GameFramework.geom.ba;
+		d.qa = new GameFramework.geom.TPoint;
 		d.qa.x = b.Zl();
 		d.qa.y = b.Zl();
-		d.Db = new GameFramework.geom.ba;
+		d.Db = new GameFramework.geom.TPoint;
 		d.Db.x = b.Zl();
 		d.Db.y = b.Zl();
-		d.Gf = new GameFramework.geom.ba;
+		d.Gf = new GameFramework.geom.TPoint;
 		d.Gf.x = b.Zl();
 		d.Gf.y = b.Zl();
-		d.mo = new GameFramework.geom.ba;
+		d.mo = new GameFramework.geom.TPoint;
 		if (d.Jc != null && d.Jc.il)
 			d.mo.x = b.Zl(), d.mo.y = b.Zl(), d.AH = b.fa();
 		d.Vc = b.fa();
@@ -8038,7 +8038,7 @@ GameFramework.resources.va.prototype = {
 					j = g.Z[f].G(this.A);
 					k = g.Z[f + 1].G(this.A);
 					l = k.rg(j);
-					f = GameFramework.geom.ba.BV(k, j, h);
+					f = GameFramework.geom.TPoint.BV(k, j, h);
 					g = g.IG ? g.JG ? this.MJ() : -1 : 1;
 					d != null
 							&& (d.bs += Math.atan2(l.y, l.x) + Math.PI / 2 + g
@@ -8103,7 +8103,7 @@ GameFramework.resources.va.prototype = {
 																						/ (Math.PI / 2),
 																				h)
 																* Math.PI / 2);
-				f = new GameFramework.geom.ba(Math.cos(c) * l, Math.sin(c) * f);
+				f = new GameFramework.geom.TPoint(Math.cos(c) * l, Math.sin(c) * f);
 				d != null
 						&& (d.bs += c + (g.IG ? g.JG ? this.MJ() : -1 : 1)
 								* Math.PI / 2);
@@ -8112,7 +8112,7 @@ GameFramework.resources.va.prototype = {
 				l = b.Wa.F[GameFramework.resources.$.p.Fw | 0].G(this.A);
 				c = g.Ud != 0 ? c.Dm % g.Ud * Math.PI * 2 / g.Ud : this.P()
 						* Math.PI;
-				f = new GameFramework.geom.ba(Math.cos(c) * l, Math.sin(c) * l);
+				f = new GameFramework.geom.TPoint(Math.cos(c) * l, Math.sin(c) * l);
 				d != null
 						&& (d.bs += c + (g.IG ? g.JG ? this.MJ() : -1 : 1)
 								* Math.PI / 2);
@@ -8123,17 +8123,17 @@ GameFramework.resources.va.prototype = {
 				if (g.Ud != 0) {
 					h = c.Dm % g.Ud;
 					c = (c.Dm / g.Ud | 0) % g.pr;
-					f = new GameFramework.geom.ba;
+					f = new GameFramework.geom.TPoint;
 					if (g.Ud > 1)
 						f.x = (h / (g.Ud - 1) - 0.5) * d;
 					if (g.pr > 1)
 						f.y = (c / (g.pr - 1) - 0.5) * l
 				} else
-					f = new GameFramework.geom.ba(this.P() * d / 2, this.P() * l
+					f = new GameFramework.geom.TPoint(this.P() * d / 2, this.P() * l
 									/ 2);
 				break;
 			case GameFramework.resources.$.ke.a3 :
-				f = new GameFramework.geom.ba
+				f = new GameFramework.geom.TPoint
 		}
 		f = f.add(this.ov(b, false));
 		f.bZ(b.de.x, b.de.y);
@@ -8323,7 +8323,7 @@ GameFramework.resources.va.prototype = {
 				for (o = 0; o < q; o++)
 					this.Qi("CEPoint"), this.C.fa(), this.C.fa(), r = new GameFramework.resources.$k, this
 							.QK(r), m.Z.push(r), m.ac
-							.push(new GameFramework.geom.ba);
+							.push(new GameFramework.geom.TPoint);
 				m.yj = new GameFramework.resources.le;
 				this.Bf(m.yj);
 				m.Hb = new GameFramework.resources.le;
@@ -8627,7 +8627,7 @@ GameFramework.resources.va.prototype = {
 		return d
 	},
 	qj : function(b, c, d, f, g, h) {
-		var j = c.Wa, k = new GameFramework.geom.xb, l, m, o = new GameFramework.geom.xb, q;
+		var j = c.Wa, k = new GameFramework.geom.Matrix, l, m, o = new GameFramework.geom.Matrix, q;
 		if (f != null) {
 			m = f.fj.qf[h.bd / (2147483647 / GameFramework.resources.yb.jn | 0) | 0];
 			q = f.Xj[h.zp];
@@ -8658,7 +8658,7 @@ GameFramework.resources.va.prototype = {
 						* d.F[GameFramework.resources.ma.p.Uq | 0].G(this.A, 1);
 			d = h.qa;
 			if (f.il)
-				j = new GameFramework.geom.xb, j.rotate(h.AH), j = k.Wd(j.Wd(d)), d.x = d.x
+				j = new GameFramework.geom.Matrix, j.rotate(h.AH), j = k.Wd(j.Wd(d)), d.x = d.x
 						* (1 - f.im) + j.x * f.im, d.y = d.y * (1 - f.im) + j.y
 						* f.im;
 			h.bi != 1
@@ -8674,7 +8674,7 @@ GameFramework.resources.va.prototype = {
 				f = k.Wd(h.mo), c = this.ov(c, !g.bf), f.x += c.x, f.y += c.y, q = f;
 			else if (f.il && !g.Ac)
 				h.Yh != null
-						? k = new GameFramework.geom.ba(h.Yh.Zn.x + h.Yh.mo.x
+						? k = new GameFramework.geom.TPoint(h.Yh.Zn.x + h.Yh.mo.x
 										+ h.Yh.qa.x, h.Yh.Zn.y + h.Yh.mo.y
 										+ h.Yh.qa.y)
 						: (k = k.Wd(h.mo), c = this.ov(c, !g.bf), k.x += c.x, k.y += c.y), q.x = q.x
@@ -8746,7 +8746,7 @@ GameFramework.resources.va.prototype = {
 					else {
 						for (var o = 0, q = 0; q < (k.Z.length | 0) - 1; q++) {
 							var r = k.Z[q].G(this.A), v = k.Z[q + 1].G(this.A);
-							o += GameFramework.geom.ba.nV(v, r)
+							o += GameFramework.geom.TPoint.nV(v, r)
 						}
 						b *= o / 35
 					}
@@ -8901,10 +8901,10 @@ GameFramework.resources.va.prototype = {
 			o = null;
 			if (h.bf) {
 				if (j.Zn == null)
-					j.Zn = new GameFramework.geom.ba;
+					j.Zn = new GameFramework.geom.TPoint;
 				k.Gf = j.Zn.add(j.qa);
 				k.Zn = k.Gf;
-				o = new GameFramework.geom.ba
+				o = new GameFramework.geom.TPoint
 			} else
 				k.Gf = this.ov(d, true), k.Zn = k.Gf, b
 						&& (o = this.JJ(d, k, GameFramework.resources.va.Qu).rg(k.Gf));
@@ -8917,8 +8917,8 @@ GameFramework.resources.va.prototype = {
 							: d.Wa.F[GameFramework.resources.$.p.xj | 0].G(this.A))
 							* (f.F[GameFramework.resources.ua.p.xj | 0].G(this.A) + k.lb[GameFramework.resources.Ea.Sa.xj
 									| 0]);
-			k.qa = new GameFramework.geom.ba(0, 0);
-			k.Db = new GameFramework.geom.ba(Math.cos(GameFramework.resources.va.Qu.bs)
+			k.qa = new GameFramework.geom.TPoint(0, 0);
+			k.Db = new GameFramework.geom.TPoint(Math.cos(GameFramework.resources.va.Qu.bs)
 							* q, Math.sin(GameFramework.resources.va.Qu.bs) * q);
 			if (!h.Ac)
 				f.br
@@ -8947,9 +8947,9 @@ GameFramework.resources.va.prototype = {
 											.eE((k.Dm / f.nO | 0)
 													% (f.n.Zf.length | 0))
 											& 16777215));
-			k.qa = new GameFramework.geom.ba;
+			k.qa = new GameFramework.geom.TPoint;
 			k.mo = o;
-			q = new GameFramework.geom.xb;
+			q = new GameFramework.geom.Matrix;
 			q.rotate(-GameFramework.resources.va.Rc(d.Wa.F[GameFramework.resources.$.p.Ru | 0]
 					.G(this.A)));
 			o = q.Wd(o);
@@ -9067,28 +9067,28 @@ GameFramework.resources.va.prototype = {
 				r = d.Ac
 						? l.F[GameFramework.resources.ma.p.pR | 0].G(q, 1)
 						: m.F[GameFramework.resources.ua.p.KL | 0].G(q);
-				r = new GameFramework.geom.ba(g.Db.x * r / f, g.Db.y * r / f);
+				r = new GameFramework.geom.TPoint(g.Db.x * r / f, g.Db.y * r / f);
 				v = null;
 				if (!o && h.Rh.length > 0) {
-					o = g.Na.Wd(new GameFramework.geom.ba(0, 0));
+					o = g.Na.Wd(new GameFramework.geom.TPoint(0, 0));
 					u = g.qa;
 					g.qa.x += r.x;
 					g.qa.y += r.y;
 					this.qj(b, c, l, m, d, g);
-					for (var v = g.Na.Wd(new GameFramework.geom.ba(0, 0)), y = 0; y < (h.Rh.length | 0); y++) {
+					for (var v = g.Na.Wd(new GameFramework.geom.TPoint(0, 0)), y = 0; y < (h.Rh.length | 0); y++) {
 						var z = h.Rh[y];
 						if (!(z.yj.oq(this.A) < 0.99))
 							for (var A = 1; A < (z.ac.length | 0); A++) {
-								var B = z.ac[A - 1].rg(new GameFramework.geom.ba(
+								var B = z.ac[A - 1].rg(new GameFramework.geom.TPoint(
 										this.za.Ca, this.za.Da)), G = z.ac[A]
-										.rg(new GameFramework.geom.ba(this.za.Ca,
-												this.za.Da)), D = (new GameFramework.geom.ba(
+										.rg(new GameFramework.geom.TPoint(this.za.Ca,
+												this.za.Da)), D = (new GameFramework.geom.TPoint(
 										G.x - B.x, G.y - B.y)).zg();
 								D.normalize(1);
 								var F = D.x;
 								D.x = -D.y;
 								D.y = F;
-								F = new GameFramework.geom.ba(D.x, D.y);
+								F = new GameFramework.geom.TPoint(D.x, D.y);
 								F.x = F.x * z.Hu * g.Ur;
 								F.y = F.y * z.Hu * g.Ur;
 								if (GameFramework.resources.va.mK(o, v, B.add(F), G
@@ -9116,9 +9116,9 @@ GameFramework.resources.va.prototype = {
 													* (m.F[GameFramework.resources.ua.p.Ae
 															| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ae
 															| 0]);
-									B = new GameFramework.geom.ba(r.x, r.y);
+									B = new GameFramework.geom.TPoint(r.x, r.y);
 									G = B.x * D.x + B.y * D.y;
-									D = new GameFramework.geom.ba(B.x - D.x * 2
+									D = new GameFramework.geom.TPoint(B.x - D.x * 2
 													* G, B.y - D.y * 2 * G);
 									B = Math.min(1, Math.abs(D.y / D.x));
 									D.y *= 1 - B + B * Math.pow(v, 0.5);
@@ -9127,14 +9127,14 @@ GameFramework.resources.va.prototype = {
 									if (v > 0.0010)
 										g.qa = u;
 									this.qj(b, c, l, m, d, g);
-									v = g.Na.Wd(new GameFramework.geom.ba(0, 0))
+									v = g.Na.Wd(new GameFramework.geom.TPoint(0, 0))
 								}
 							}
 					}
 				} else
 					g.qa.x += r.x, g.qa.y += r.y, h.xi.length > 0
 							&& (this.qj(b, c, l, m, d, g), v = g.Na
-									.Wd(new GameFramework.geom.ba(0, 0)));
+									.Wd(new GameFramework.geom.TPoint(0, 0)));
 				for (o = 0; o < (h.xi.length | 0); o++)
 					if (u = h.xi[o], !(u.yj.oq(this.A) < 0.99)) {
 						y = false;
@@ -9168,7 +9168,7 @@ GameFramework.resources.va.prototype = {
 								&& (r = j.Ud * j.pr != 0);
 				if (r)
 					r = this.JJ(c, g), g.Gf = this.ov(c, true), g.Zn = g.Gf, g.mo = r
-							.rg(g.Gf), v = new GameFramework.geom.xb, v
+							.rg(g.Gf), v = new GameFramework.geom.Matrix, v
 							.rotate(GameFramework.resources.va
 									.Rc(c.Wa.F[GameFramework.resources.$.p.Ru | 0]
 											.G(this.A))), r = v.Wd(r), g.Gf.x += r.x, g.Gf.y += r.y;
@@ -9180,7 +9180,7 @@ GameFramework.resources.va.prototype = {
 			if (m != null
 					&& (r = !g.ul && m.rx || m.Ku, v = !g.ul && m.sx || m.Lu, r
 							|| v)) {
-				u = g.Na.Wd(new GameFramework.geom.ba(0, 0));
+				u = g.Na.Wd(new GameFramework.geom.TPoint(0, 0));
 				o = u.x + b.Pw.x | 0;
 				u = u.y + b.Pw.y | 0;
 				y = 0;
@@ -9281,29 +9281,29 @@ GameFramework.resources.va.prototype = {
 					r = d.Ac
 							? l.F[GameFramework.resources.ma.p.pR | 0].G(q, 1)
 							: m.F[GameFramework.resources.ua.p.KL | 0].G(q);
-					r = new GameFramework.geom.ba(g.Db.x * r / f, g.Db.y * r / f);
+					r = new GameFramework.geom.TPoint(g.Db.x * r / f, g.Db.y * r / f);
 					v = null;
 					if (!o && h.Rh.length > 0) {
-						o = g.Na.Wd(new GameFramework.geom.ba(0, 0));
+						o = g.Na.Wd(new GameFramework.geom.TPoint(0, 0));
 						u = g.qa;
 						g.qa.x += r.x;
 						g.qa.y += r.y;
 						this.qj(b, c, l, m, d, g);
-						for (var v = g.Na.Wd(new GameFramework.geom.ba(0, 0)), y = 0; y < (h.Rh.length | 0); y++) {
+						for (var v = g.Na.Wd(new GameFramework.geom.TPoint(0, 0)), y = 0; y < (h.Rh.length | 0); y++) {
 							var z = h.Rh[y];
 							if (!(z.yj.oq(this.A) < 0.99))
 								for (var A = 1; A < (z.ac.length | 0); A++) {
 									var B = z.ac[A - 1]
-											.rg(new GameFramework.geom.ba(
+											.rg(new GameFramework.geom.TPoint(
 													this.za.Ca, this.za.Da)), G = z.ac[A]
-											.rg(new GameFramework.geom.ba(
-													this.za.Ca, this.za.Da)), D = (new GameFramework.geom.ba(
+											.rg(new GameFramework.geom.TPoint(
+													this.za.Ca, this.za.Da)), D = (new GameFramework.geom.TPoint(
 											G.x - B.x, G.y - B.y)).zg();
 									D.normalize(1);
 									var F = D.x;
 									D.x = -D.y;
 									D.y = F;
-									F = new GameFramework.geom.ba(D.x, D.y);
+									F = new GameFramework.geom.TPoint(D.x, D.y);
 									F.x = F.x * z.Hu * g.Ur;
 									F.y = F.y * z.Hu * g.Ur;
 									if (GameFramework.resources.va.mK(o, v, B.add(F), G
@@ -9331,9 +9331,9 @@ GameFramework.resources.va.prototype = {
 														* (m.F[GameFramework.resources.ua.p.Ae
 																| 0].G(this.A) + g.lb[GameFramework.resources.Ea.Sa.Ae
 																| 0]);
-										B = new GameFramework.geom.ba(r.x, r.y);
+										B = new GameFramework.geom.TPoint(r.x, r.y);
 										G = B.x * D.x + B.y * D.y;
-										D = new GameFramework.geom.ba(B.x - D.x
+										D = new GameFramework.geom.TPoint(B.x - D.x
 														* 2 * G, B.y - D.y * 2
 														* G);
 										B = Math.min(1, Math.abs(D.y / D.x));
@@ -9344,14 +9344,14 @@ GameFramework.resources.va.prototype = {
 											g.qa = u;
 										this.qj(b, c, l, m, d, g);
 										v = g.Na
-												.Wd(new GameFramework.geom.ba(0, 0))
+												.Wd(new GameFramework.geom.TPoint(0, 0))
 									}
 								}
 						}
 					} else
 						g.qa.x += r.x, g.qa.y += r.y, h.xi.length > 0
 								&& (this.qj(b, c, l, m, d, g), v = g.Na
-										.Wd(new GameFramework.geom.ba(0, 0)));
+										.Wd(new GameFramework.geom.TPoint(0, 0)));
 					for (o = 0; o < (h.xi.length | 0); o++)
 						if (u = h.xi[o], !(u.yj.oq(this.A) < 0.99)) {
 							y = false;
@@ -9387,7 +9387,7 @@ GameFramework.resources.va.prototype = {
 									&& (r = j.Ud * j.pr != 0);
 					if (r)
 						r = this.JJ(c, g), g.Gf = this.ov(c, true), g.Zn = g.Gf, g.mo = r
-								.rg(g.Gf), v = new GameFramework.geom.xb, v
+								.rg(g.Gf), v = new GameFramework.geom.Matrix, v
 								.rotate(GameFramework.resources.va
 										.Rc(c.Wa.F[GameFramework.resources.$.p.Ru | 0]
 												.G(this.A))), r = v.Wd(r), g.Gf.x += r.x, g.Gf.y += r.y;
@@ -9399,7 +9399,7 @@ GameFramework.resources.va.prototype = {
 				if (m != null
 						&& (r = !g.ul && m.rx || m.Ku, v = !g.ul && m.sx
 								|| m.Lu, r || v)) {
-					u = g.Na.Wd(new GameFramework.geom.ba(0, 0));
+					u = g.Na.Wd(new GameFramework.geom.TPoint(0, 0));
 					o = u.x + b.Pw.x | 0;
 					u = u.y + b.Pw.y | 0;
 					y = 0;
@@ -9492,7 +9492,7 @@ GameFramework.resources.va.prototype = {
 						F = u * D.Nu * (y + j.lb[GameFramework.resources.Ea.Sa.Ed | 0]);
 						F *= g;
 						j.Db.y += F;
-						F = new GameFramework.geom.ba(j.Db.x / f * D.Gk, j.Db.y
+						F = new GameFramework.geom.TPoint(j.Db.x / f * D.Gk, j.Db.y
 										/ f * D.Gk);
 						q
 								? GameFramework.resources.va.i2(this, b, c, o, l, d, F,
@@ -9501,7 +9501,7 @@ GameFramework.resources.va.prototype = {
 						if (v
 								&& (P = !j.ul && l.rx || l.Ku, Z = !j.ul
 										&& l.sx || l.Lu, P || Z)) {
-							var V = j.Na.Wd(new GameFramework.geom.ba(0, 0)), W = V.x
+							var V = j.Na.Wd(new GameFramework.geom.TPoint(0, 0)), W = V.x
 									+ b.Pw.x | 0, V = V.y + b.Pw.y | 0, da = 0;
 							b.Dn != null && W >= 0 && V >= 0 && W < b.Dn.s
 									&& V < b.Dn.z || (da = 0);
@@ -9613,7 +9613,7 @@ GameFramework.resources.va.prototype = {
 						g.Ln = -GameFramework.resources.va.Rc(f.Hb.G(this.A));
 						if (g.ec) {
 							for (var h = 0; h < (f.Rh.length | 0); h++) {
-								var j = f.Rh[h], k = new GameFramework.geom.xb, l = j.Hb
+								var j = f.Rh[h], k = new GameFramework.geom.Matrix, l = j.Hb
 										.G(this.A);
 								l != 0 && k.rotate(GameFramework.resources.va.Rc(l));
 								l = j.qa.G(this.A);
@@ -9628,7 +9628,7 @@ GameFramework.resources.va.prototype = {
 							}
 							for (h = 0; h < (f.xi.length | 0); h++) {
 								j = f.xi[h];
-								k = new GameFramework.geom.xb;
+								k = new GameFramework.geom.Matrix;
 								k.scale(j.s.G(this.A) / 2, j.z.G(this.A) / 2);
 								l = j.Hb.G(this.A);
 								l != 0 && k.rotate(GameFramework.resources.va.Rc(l));
@@ -9640,11 +9640,11 @@ GameFramework.resources.va.prototype = {
 								l != 0 && k.rotate(GameFramework.resources.va.Rc(l));
 								k.concat(this.za);
 								for (var l = Array.O(5, 5,
-										new GameFramework.geom.ba(-1, -1),
-										new GameFramework.geom.ba(1, -1),
-										new GameFramework.geom.ba(1, 1),
-										new GameFramework.geom.ba(-1, 1),
-										new GameFramework.geom.ba(0, 0)), m = 0; m < 5; m++)
+										new GameFramework.geom.TPoint(-1, -1),
+										new GameFramework.geom.TPoint(1, -1),
+										new GameFramework.geom.TPoint(1, 1),
+										new GameFramework.geom.TPoint(-1, 1),
+										new GameFramework.geom.TPoint(0, 0)), m = 0; m < 5; m++)
 									j.ac[m] = k.Wd(l[m])
 							}
 							for (h = 0; h < (g.mf.length | 0); h++) {
@@ -10131,10 +10131,10 @@ U(function() {
 			GameFramework.resources.cw.c()
 		});
 GameFramework.resources.Sc = function() {
-	this.Na = new GameFramework.geom.xb;
+	this.Na = new GameFramework.geom.Matrix;
 	this.Mx = Array.O(3, 0, 0, 1, 2);
 	this.Ah = null;
-	this.D9 = new GameFramework.geom.ba(0, 0);
+	this.D9 = new GameFramework.geom.TPoint(0, 0);
 	E(GameFramework.resources.Sc, this);
 	this.yk = false
 };
@@ -10324,7 +10324,7 @@ GameFramework.resources.Sc.prototype = {
 				var j = c.ve[h];
 				if (j.Na) {
 					if (!j.iB) {
-						var k = new GameFramework.geom.xb;
+						var k = new GameFramework.geom.Matrix;
 						k.translate(j.Ke.s / 2, j.Ke.z / 2);
 						var l = d.zg();
 						l.concat(k);
@@ -10434,7 +10434,7 @@ GameFramework.resources.Sc.prototype = {
 					j.Ya.UB = false;
 					j.Ya.vo = 1;
 					j.Ya.sb = null;
-					j.Na = new GameFramework.geom.xb;
+					j.Na = new GameFramework.geom.Matrix;
 					j.Ya.Wx = (o & 8192) != 0 ? b.Ga() : 0;
 					if ((o & 4096) != 0)
 						this.Dg.Gm.push(b.bl()), j.Ya.sb = this.Dg.Gm[this.Dg.Gm.length
@@ -10464,7 +10464,7 @@ GameFramework.resources.Sc.prototype = {
 					j = d[q];
 					j = j.gi();
 					d[q] = j;
-					j.Na = new GameFramework.geom.xb;
+					j.Na = new GameFramework.geom.Matrix;
 					(o & GameFramework.resources.Sc.I2) != 0
 							? (j.Na.Ua = b.H() / 65536, j.Na.ub = b.H() / 65536, j.Na.Sb = b
 									.H()
@@ -10472,7 +10472,7 @@ GameFramework.resources.Sc.prototype = {
 							: (o & GameFramework.resources.Sc.J2) != 0
 									&& (q = b.Ga() / 1E3, j.Na.th(), j.Na
 											.rotate(q));
-					q = new GameFramework.geom.xb;
+					q = new GameFramework.geom.Matrix;
 					if ((o & GameFramework.resources.Sc.H2) != 0) {
 						var r = b.H();
 						q.Ca = r / 20;
@@ -10544,7 +10544,7 @@ GameFramework.resources.Sc.prototype = {
 			g.qo = 1;
 			g.Ox = b.Ga();
 			g.Nx = b.Ga();
-			g.Na = new GameFramework.geom.xb;
+			g.Na = new GameFramework.geom.Matrix;
 			g.Na.Ua = b.H() / 1310720;
 			g.Na.Sb = b.H() / 1310720;
 			g.Na.ub = b.H() / 1310720;
@@ -10581,7 +10581,7 @@ GameFramework.resources.Sc.prototype = {
 			if (b.ve != null)
 				for (var d = 0; d < b.ve.length; d++) {
 					var f = b.ve[d], g = null;
-					f.iB || (g = b.zG.Wd(new GameFramework.geom.ba(f.By, f.Cy)));
+					f.iB || (g = b.zG.Wd(new GameFramework.geom.TPoint(f.By, f.Cy)));
 					f.Ke.za.th();
 					g != null && f.Ke.za.translate(g.x, g.y);
 					f.Ke.za.scale(this.Qn, this.Qn);
@@ -10659,7 +10659,7 @@ GameFramework.resources.Sc.prototype = {
 					: (c = j.Na, j = j.n)
 		} else
 			c = j.Na, j = j.n;
-		g = k.Na != null ? k.Na.zg() : new GameFramework.geom.xb;
+		g = k.Na != null ? k.Na.zg() : new GameFramework.geom.Matrix;
 		g.concat(c);
 		c = g;
 		k.dX
@@ -13342,7 +13342,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 				context.fillRect(g, h, b - g, c - h);
 				hc = false
 			} else
-				g = new GameFramework.geom.xb, g.th(), g.Ca = b, g.Da = c, g.Ua = d, g.Va = f, g
+				g = new GameFramework.geom.Matrix, g.th(), g.Ca = b, g.Da = c, g.Ua = d, g.Va = f, g
 						.concat(this.sa), context.setTransform(g.Ua, g.Sb, g.ub,
 						g.Va, g.Ca, g.Da), context.fillRect(0, 0, 1, 1), hc = true
 		}
@@ -13488,9 +13488,9 @@ U(function() {
 			GameFramework.gfx.JSGraphics.c()
 		});
 GameFramework.gfx.JSGraphics3D = function(b) {
-	this.mP = new GameFramework.geom.Ce;
-	this.oP = new GameFramework.geom.Ce;
-	this.CO = new GameFramework.geom.Ce;
+	this.mP = new GameFramework.geom.Matrix3D;
+	this.oP = new GameFramework.geom.Matrix3D;
+	this.CO = new GameFramework.geom.Matrix3D;
 	this.pP = Array.O(3, 3, false, false, false);
 	this.qP = Array.O(3, 3, false, false, false);
 	E(GameFramework.gfx.JSGraphics3D, this, [b])
@@ -13579,7 +13579,7 @@ GameFramework.gfx.JSGraphics3D.prototype = {
 		O.BP != null && gl.uniformMatrix4fv(O.BP, false, d.X);
 		O.BP != null && gl.uniformMatrix4fv(O.R9, false, f.X);
 		if (O.hZ != null) {
-			var g = new GameFramework.geom.Ce;
+			var g = new GameFramework.geom.Matrix3D;
 			g.Ni(f);
 			g.Tu(d);
 			g.Tu(c);
@@ -13620,7 +13620,7 @@ GameFramework.resources.JSImageInst = function(b) {
 GameFramework.resources.JSImageInst.prototype = {
 	Og : function(b, c, d, f) {
 		if (!(this.jd == 0 || this.ge == 0)) {
-			var g = (b.n >>> 24) / 255, h = new GameFramework.geom.xb;
+			var g = (b.n >>> 24) / 255, h = new GameFramework.geom.Matrix;
 			h.Ca = d;
 			h.Da = f;
 			h.concat(c);
@@ -13672,7 +13672,7 @@ GameFramework.resources.JSImageResource.prototype = {
 	Sm : 0,
 	Rm : 0,
 	Og : function(b, c, d, f, g) {
-		var h = (g | 0) % this.ui | 0, g = (g | 0) / this.ui | 0, j = this.Hg, k = this.Gg, l = new GameFramework.geom.xb;
+		var h = (g | 0) % this.ui | 0, g = (g | 0) / this.ui | 0, j = this.Hg, k = this.Gg, l = new GameFramework.geom.Matrix;
 		l.th();
 		l.Ca = d;
 		l.Da = f;
@@ -14002,7 +14002,7 @@ GameFramework.resources.JSRenderEffect.prototype = {
 		this.yB != null && this.$T(b, c)
 	},
 	pL : function(b, c) {
-		this.ro[b] = new GameFramework.geom.qb(c.x, c.y, c.ia);
+		this.ro[b] = new GameFramework.geom.Vector3(c.x, c.y, c.ia);
 		this.yB != null && this.iU(b, c)
 	},
 	Qq : function(b, c) {
@@ -14024,7 +14024,7 @@ GameFramework.resources.JSRenderEffect.prototype = {
 		this.yB = d;
 		for (aName in this.ro)
 			d = this.ro[aName], Type.vf(d, Number) ? this.$T(aName, d) : Type
-					.vf(d, GameFramework.geom.qb) ? this.iU(aName, d) : this.ZT(
+					.vf(d, GameFramework.geom.Vector3) ? this.iU(aName, d) : this.ZT(
 					aName, d)
 	},
 	UD : function() {
@@ -14212,13 +14212,13 @@ U(function() {
 		});
 Game = Type.ci("Game");
 Game.Announcement = function(b, c) {
-	this.qa = new GameFramework.geom.ba(0, 0);
+	this.qa = new GameFramework.geom.TPoint(0, 0);
 	this.L = new GameFramework.CurvedVal;
 	this.m = new GameFramework.CurvedVal;
 	this.xx = new GameFramework.CurvedVal;
 	this.e = b;
 	if (this.e != null
-			&& (this.qa = new GameFramework.geom.ba(this.e.Se(), 500), !this.e.GB))
+			&& (this.qa = new GameFramework.geom.TPoint(this.e.Se(), 500), !this.e.GB))
 		this.qa.x = 800;
 	this.Re = c;
 	this.L.ea("b+0,1,0.003333,1,#### Q~###      ~~### O####");
@@ -14530,7 +14530,7 @@ Game.Bej3DialogButton.prototype = {
 				&& this.gP.length > 0
 				&& Game.BejApp.q.hP
 						.J3(this, this.t9, "^FFAACC^" + this.gP,
-								new GameFramework.geom.ba(this.w + this.s / 2,
+								new GameFramework.geom.TPoint(this.w + this.s / 2,
 										this.v + 0), 400, Game.Tooltip.Wc.CP, 10)
 	},
 	Ys : function() {
@@ -15355,7 +15355,7 @@ U(function() {
 		});
 Game.SwapData = function() {
 	this.rc = this.Xb = null;
-	this.Wj = new GameFramework.geom.ic(0, 0);
+	this.Wj = new GameFramework.geom.TIntPoint(0, 0);
 	this.Ek = new GameFramework.CurvedVal;
 	this.qx = new GameFramework.CurvedVal
 };
@@ -15503,8 +15503,8 @@ Game.LightningZap = function(b, c, d, f, g, h, j, k) {
 	this.TM = j;
 	this.$e = 0;
 	this.n = h;
-	this.Lg = new GameFramework.geom.ba(c, d);
-	this.Mt = new GameFramework.geom.ba(f, g);
+	this.Lg = new GameFramework.geom.TPoint(c, d);
+	this.Mt = new GameFramework.geom.TPoint(f, g);
 	b = this.Mt.y - this.Lg.y;
 	c = this.Mt.x - this.Lg.x;
 	this.Hb = Math.atan2(b, c);
@@ -15542,8 +15542,8 @@ Game.LightningZap.prototype = {
 			this.nf = Game.Util.Fc() % 5;
 			b = (Math.max(1, 0.5 * this.fC / b.z) | 0) + 1;
 			for (g = 0; g < b; g++) {
-				var j = Array.O(2, null, new GameFramework.geom.ba(0, 0),
-						new GameFramework.geom.ba(0, 0)), k = g / (b - 1), l = 1;
+				var j = Array.O(2, null, new GameFramework.geom.TPoint(0, 0),
+						new GameFramework.geom.TPoint(0, 0)), k = g / (b - 1), l = 1;
 				g != 0 && g < b - 1
 						&& (l = Math.max(80, 160 * this.$e / this.TM | 0) | 0);
 				j[0].x = j[1].x = this.Lg.x + k * c + (l / 2 | 0)
@@ -15754,9 +15754,9 @@ Game.LightningStorm.prototype = {
 		g.XX = Math.sin(k - 1.570795) * h * 0.4;
 		for (k = 0; k < Game.LightningStorm.hk; k++) {
 			var j = k / (Game.LightningStorm.hk - 1), h = b * (1 - j) + d * j, j = c
-					* (1 - j) + f * j, l = new GameFramework.geom.ic(0, 0);
+					* (1 - j) + f * j, l = new GameFramework.geom.TIntPoint(0, 0);
 			g.Z[g.Z.g * k + 0] = l;
-			var m = new GameFramework.geom.ic(0, 0);
+			var m = new GameFramework.geom.TIntPoint(0, 0);
 			g.Z[g.Z.g * k + 1] = m;
 			l.x = h | 0;
 			l.y = j | 0;
@@ -16122,7 +16122,7 @@ Game.Board = function() {
 	this.C6 = Array.Sd(64, 2, 0);
 	this.E6 = Array.O(64, 0);
 	this.FC = new GameFramework.CurvedVal;
-	this.ny = new GameFramework.geom.ba;
+	this.ny = new GameFramework.geom.TPoint;
 	this.Ze = new GameFramework.CurvedVal;
 	this.Jr = new GameFramework.CurvedVal;
 	this.Tx = new GameFramework.CurvedVal;
@@ -16168,7 +16168,7 @@ Game.Board = function() {
 	this.Ef = Game.Util.aK(Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD) + this.is;
 	this.tM = Game.Util.bK(Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD) - 60;
 	this.OO = false;
-	this.Ux = new GameFramework.geom.ba(-70, -200)
+	this.Ux = new GameFramework.geom.TPoint(-70, -200)
 };
 Game.Board.ina = function(b, c, d, f, g, h) {
 	for (var j = 0, k = 0; k < c.length; ++k)
@@ -16557,7 +16557,7 @@ Game.Board.prototype = {
 		this.jH = false;
 		this.f9 = -1;
 		this.aD = 0;
-		this.ah = new GameFramework.geom.ic(-1, -1);
+		this.ah = new GameFramework.geom.TIntPoint(-1, -1);
 		this.pC = 0;
 		this.GB = this.gx = true;
 		this.nP = this.AX = false;
@@ -17056,7 +17056,7 @@ Game.Board.prototype = {
 	No : function(b) {
 		b === UNDEF && (b = true);
 		if (this.rZ()
-				&& (this.ah = new GameFramework.geom.ic(-1, -1), !this.mx
+				&& (this.ah = new GameFramework.geom.TIntPoint(-1, -1), !this.mx
 						&& !(this.pf > 0 || this.Ar > 0)))
 			this.mx = true, b && this.GJ(), this.xL(true), this.pf = 1
 	},
@@ -17132,8 +17132,8 @@ Game.Board.prototype = {
 			this.Nf++;
 			this.FC.ea("b+0,1,0.01,1,~###         ~####");
 			b == null
-					? this.ny = new GameFramework.geom.ba(this.Se(), 1E3)
-					: (this.ny = new GameFramework.geom.ba(b.Ad(), b.Rd()), (b.n | 0) == 6
+					? this.ny = new GameFramework.geom.TPoint(this.Se(), 1E3)
+					: (this.ny = new GameFramework.geom.TPoint(b.Ad(), b.Rd()), (b.n | 0) == 6
 							&& (this.ny.y += -10), (b.n | 0) == 4
 							&& (this.ny.y += 12));
 			this.Ze.ea("b+0,1,0.006667,1,####M&0:N uP###   OP###   Nz-xH`~P##");
@@ -17601,7 +17601,7 @@ Game.Board.prototype = {
 		g = new Game.SwapData;
 		g.Xb = b;
 		g.rc = l;
-		g.Wj = new GameFramework.geom.ic(d - b.Ja, c - b.La);
+		g.Wj = new GameFramework.geom.TIntPoint(d - b.Ja, c - b.La);
 		g.Ek.ea("b+-1,1,0.033333,1,~x:*    }Ppt+     $#LPR");
 		g.qx.ea("b+-0.075,0.075,0.033333,1,P&X%     '~###    zPL=I");
 		g.Ek.Ye *= this.kS();
@@ -19366,7 +19366,7 @@ Game.Board.prototype = {
 	},
 	VQ : function(b) {
 		if (this.Om.V() > 0) {
-			var c = new GameFramework.geom.xb;
+			var c = new GameFramework.geom.Matrix;
 			c.translate(0, -30);
 			c.scale(this.Om.V(), this.Om.V());
 			c.translate(0, 30);
@@ -20189,12 +20189,12 @@ Game.Board.prototype = {
 	},
 	TQ : function(b, c) {
 		if (this.OO) {
-			var d = new GameFramework.geom.ba(238, 253);
+			var d = new GameFramework.geom.TPoint(238, 253);
 			d.x += this.Ux.x;
 			d.y += this.Ux.y;
 			if (c) {
 				if (this.Nf > 1 && (this.Jr.wg() || this.Sx.wg())) {
-					var f = this.ny, g = new GameFramework.geom.ba(this.Se(), 500), h = new GameFramework.geom.ba;
+					var f = this.ny, g = new GameFramework.geom.TPoint(this.Se(), 500), h = new GameFramework.geom.TPoint;
 					this.Eh
 							? (h.x = Math.max(0, 1 - this.Ze.D()) * f.x
 									+ Math.max(0, this.Ze.D()) * d.x, h.y = Math
@@ -20212,7 +20212,7 @@ Game.Board.prototype = {
 									+ Math.max(0, 2 * (this.Ze.D() - 0.5))
 									* d.y);
 					h.y += this.GH.D();
-					d = new GameFramework.geom.ba(h.x, h.y);
+					d = new GameFramework.geom.TPoint(h.x, h.y);
 					if (!this.Eh)
 						f = Math.abs((this.Ze.D() - 0.5) * 2), d.x = (1 - f)
 								* this.Se() + f * h.x, d.y = (1 - f) * 480 + f
@@ -20327,7 +20327,7 @@ Game.Board.prototype = {
 					try {
 						b.Ba(Game.Resources.IMAGE_DANGERBORDERUP, j, k);
 						b.Ba(Game.Resources.IMAGE_DANGERBORDERLEFT, j, k);
-						var o = new GameFramework.geom.xb;
+						var o = new GameFramework.geom.Matrix;
 						o.scale(g, 0 - l);
 						var q = b.jg(o);
 						try {
@@ -20400,7 +20400,7 @@ Game.Board.prototype = {
 	},
 	V_ : function(b) {
 		if (this.zf() != 0) {
-			var c = this.Hh(), d = this.uz(), d = new GameFramework.geom.ba(this
+			var c = this.Hh(), d = this.uz(), d = new GameFramework.geom.TPoint(this
 							.zz(), d.v + d.z / 2), f = 0.22 + this.Zr.D() * 1, g = GameFramework.Utils
 					.wj(((c + 59) / 60 | 0) % 60);
 			g.length == 1 && (g = "0" + g);
@@ -20569,13 +20569,13 @@ Game.Board.prototype = {
 										.Yc()
 										* g.vx.D() * 255 | 0));
 						try {
-							var j = new GameFramework.geom.xb;
+							var j = new GameFramework.geom.Matrix;
 							j.translate(0, g.XB.D());
-							for (var k = Array.O(4, null, new GameFramework.geom.ba(
+							for (var k = Array.O(4, null, new GameFramework.geom.TPoint(
 											1, 0),
-									new GameFramework.geom.ba(0, 0),
-									new GameFramework.geom.ba(0, 0),
-									new GameFramework.geom.ba(0, 1)), l = 0; l < 4; l++) {
+									new GameFramework.geom.TPoint(0, 0),
+									new GameFramework.geom.TPoint(0, 0),
+									new GameFramework.geom.TPoint(0, 1)), l = 0; l < 4; l++) {
 								var m = j.zg();
 								m.translate(g.Ad() + k[l].x, g.Rd() + k[l].y);
 								b.jg(m);
@@ -20667,7 +20667,7 @@ Game.Board.prototype = {
 			if (this.es || this.Bo > 0.5)
 				this.es = false;
 			else if (this.os()) {
-				this.ah = new GameFramework.geom.ic(-1, -1);
+				this.ah = new GameFramework.geom.TIntPoint(-1, -1);
 				this.wH = true;
 				this.iO = b | 0;
 				this.jO = c | 0;
@@ -20726,17 +20726,17 @@ Game.Board.prototype = {
 			if (d != null) {
 				var f = b - this.iO, g = c - this.jO;
 				if (Math.abs(f) >= 40 || Math.abs(g) >= 40) {
-					var h = new GameFramework.geom.ic(-1, -1);
+					var h = new GameFramework.geom.TIntPoint(-1, -1);
 					Math.abs(f) > Math.abs(g) ? f > 0 && d.Ja < this.$b - 1
-							? h = new GameFramework.geom.ic(d.Ja + 1, d.La)
+							? h = new GameFramework.geom.TIntPoint(d.Ja + 1, d.La)
 							: f < 0
 									&& d.Ja > 0
-									&& (h = new GameFramework.geom.ic(d.Ja - 1,
+									&& (h = new GameFramework.geom.TIntPoint(d.Ja - 1,
 											d.La)) : g > 0
-							&& d.La < this.wc - 1 ? h = new GameFramework.geom.ic(
+							&& d.La < this.wc - 1 ? h = new GameFramework.geom.TIntPoint(
 							d.Ja, d.La + 1) : g < 0 && d.La > 0
-							&& (h = new GameFramework.geom.ic(d.Ja, d.La - 1));
-					h != new GameFramework.geom.ic(-1, -1) && !this.vE(h.x, h.y)
+							&& (h = new GameFramework.geom.TIntPoint(d.Ja, d.La - 1));
+					h != new GameFramework.geom.TIntPoint(-1, -1) && !this.vE(h.x, h.y)
 							&& this.jw(d, h.y, h.x, false, true, false, true)
 				}
 			}
@@ -20749,7 +20749,7 @@ Game.Board.prototype = {
 	},
 	Aq : function(b) {
 		if (this.os() && !this.xc.Hz()) {
-			var c = new GameFramework.geom.ic, d = false, f = false;
+			var c = new GameFramework.geom.TIntPoint, d = false, f = false;
 			switch (b) {
 				case GameFramework.la.Ty :
 					this.Af(this.ao, this.bo);
@@ -20757,19 +20757,19 @@ Game.Board.prototype = {
 					break;
 				case GameFramework.la.Cq :
 					f = true;
-					c = new GameFramework.geom.ic(-1, 0);
+					c = new GameFramework.geom.TIntPoint(-1, 0);
 					break;
 				case GameFramework.la.$E :
 					f = true;
-					c = new GameFramework.geom.ic(1, 0);
+					c = new GameFramework.geom.TIntPoint(1, 0);
 					break;
 				case GameFramework.la.zF :
 					f = true;
-					c = new GameFramework.geom.ic(0, -1);
+					c = new GameFramework.geom.TIntPoint(0, -1);
 					break;
 				case GameFramework.la.vs :
 					f = true;
-					c = new GameFramework.geom.ic(0, 1);
+					c = new GameFramework.geom.TIntPoint(0, 1);
 					break;
 				case 32 :
 					b = this.Ro();
@@ -20777,18 +20777,18 @@ Game.Board.prototype = {
 					break;
 				case 65 :
 					d = true;
-					c = new GameFramework.geom.ic(-1, 0);
+					c = new GameFramework.geom.TIntPoint(-1, 0);
 					break;
 				case 68 :
 					d = true;
-					c = new GameFramework.geom.ic(1, 0);
+					c = new GameFramework.geom.TIntPoint(1, 0);
 					break;
 				case 87 :
 					d = true;
-					c = new GameFramework.geom.ic(0, -1);
+					c = new GameFramework.geom.TIntPoint(0, -1);
 					break;
 				case 83 :
-					d = true, c = new GameFramework.geom.ic(0, 1)
+					d = true, c = new GameFramework.geom.TIntPoint(0, 1)
 			}
 			b = null;
 			if (!this.Eh && this.os()) {
@@ -20812,7 +20812,7 @@ Game.Board.prototype = {
 								.ea("b+0,1,0.066667,1,~###         ~#@yd");
 					else if (this.ah.x == -1) {
 						if (!d)
-							this.ah = new GameFramework.geom.ic(3
+							this.ah = new GameFramework.geom.TIntPoint(3
 											+ Math.max(0, c.x) | 0, 3
 											+ Math.max(0, c.y) | 0)
 					} else if (f)
@@ -21079,7 +21079,7 @@ Game.ClassicBoard.prototype = {
 		c.sk = 150;
 		c.Fj = 740;
 		c.re = 70;
-		c.jm = new GameFramework.geom.ic(0, 3);
+		c.jm = new GameFramework.geom.TIntPoint(0, 3);
 		c.yt = 2;
 		c.jl = true;
 		c.aw(this, 0, 3, Game.TutorialStep.Wc.zF);
@@ -21097,7 +21097,7 @@ Game.ClassicBoard.prototype = {
 		c.sk = 240;
 		c.Fj = 740;
 		c.re = 0;
-		c.jm = new GameFramework.geom.ic(5, 0);
+		c.jm = new GameFramework.geom.TIntPoint(5, 0);
 		c.yt = 2;
 		c.jl = true;
 		c.aw(this, 5, 0, Game.TutorialStep.Wc.Cq);
@@ -21115,7 +21115,7 @@ Game.ClassicBoard.prototype = {
 		c.sk = 710;
 		c.Fj = 750;
 		c.re = 0;
-		c.jm = new GameFramework.geom.ic(4, 3);
+		c.jm = new GameFramework.geom.TIntPoint(4, 3);
 		c.yt = 2;
 		c.jl = true;
 		c.aw(this, 4, 3, Game.TutorialStep.Wc.vs);
@@ -21137,7 +21137,7 @@ Game.ClassicBoard.prototype = {
 		c.sk = 480;
 		c.Fj = 690;
 		c.re = 0;
-		c.jm = new GameFramework.geom.ic(4, 4);
+		c.jm = new GameFramework.geom.TIntPoint(4, 4);
 		c.yt = 2;
 		c.jl = true;
 		c.vI = true;
@@ -21357,7 +21357,7 @@ Game.CrystalBall = function(b, c) {
 	this.$B = new GameFramework.TIntRect(0, 0, 0, 0);
 	this.Tc = new GameFramework.CurvedVal;
 	this.m = new GameFramework.CurvedVal;
-	this.de = new GameFramework.geom.ba;
+	this.de = new GameFramework.geom.TPoint;
 	this.nD = new GameFramework.CurvedVal;
 	this.oD = new GameFramework.CurvedVal;
 	this.u8 = new GameFramework.CurvedVal;
@@ -21428,7 +21428,7 @@ Game.CrystalBall.prototype = {
 	},
 	nh : function(b, c) {
 		GameFramework.widgets.td.prototype.nh.apply(this, [b, c]);
-		var d = new GameFramework.geom.xb;
+		var d = new GameFramework.geom.Matrix;
 		d.th();
 		var f = this.m.V();
 		this.eg > 0 && (f *= 0.00195 / this.eg);
@@ -21439,7 +21439,7 @@ Game.CrystalBall.prototype = {
 	},
 	ja : function(b) {
 		if (!(this.Qb != null && this.s == 0)) {
-			var c = new GameFramework.geom.xb;
+			var c = new GameFramework.geom.Matrix;
 			c.translate(this.de.x, this.de.y);
 			b.jg(c);
 			c = this.m.V();
@@ -21463,7 +21463,7 @@ Game.CrystalBall.prototype = {
 				var l = b.Q(this.Hx ? GameFramework.gfx.Color.Zg(this.n & 16777215,
 						GameFramework.gfx.Color.S0(this.n) * 127.5 | 0) : this.n);
 				try {
-					var m = this.Hx ? 0 : (this.aa / 4 | 0) % 40, o = new GameFramework.geom.xb;
+					var m = this.Hx ? 0 : (this.aa / 4 | 0) % 40, o = new GameFramework.geom.Matrix;
 					o.scale(Math.min(1, g), Math.min(1, h));
 					var q = b.jg(o);
 					try {
@@ -21473,7 +21473,7 @@ Game.CrystalBall.prototype = {
 					} finally {
 						q.t()
 					}
-					o = new GameFramework.geom.xb;
+					o = new GameFramework.geom.Matrix;
 					o.scale(g, h);
 					var r = b.jg(o);
 					try {
@@ -22036,7 +22036,7 @@ Game.ParticleEffect.prototype = {
 	},
 	ca : function() {
 		Game.Effect.prototype.ca.apply(this);
-		var b = new GameFramework.geom.xb;
+		var b = new GameFramework.geom.Matrix;
 		b.scale(this.m, this.m);
 		b.rotate(this.Hb);
 		var c = null;
@@ -22115,7 +22115,7 @@ Game.Zo.prototype = {
 	},
 	ca : function() {
 		Game.Effect.prototype.ca.apply(this);
-		var b = this.m, c = this.Bk.s * b, d = this.Bk.z * b, f = new GameFramework.geom.xb;
+		var b = this.m, c = this.Bk.s * b, d = this.Bk.z * b, f = new GameFramework.geom.Matrix;
 		f.scale(b, b);
 		f.translate(-c / 2, -d / 2);
 		f.rotate(this.Hb);
@@ -22374,7 +22374,7 @@ Game.lq.prototype = {
 											if (k.Oa != null) {
 												S(k.nf >= 0 && k.nf < k.Oa.Em);
 												k.Oa.pc = k.Cg;
-												var o = new GameFramework.geom.xb;
+												var o = new GameFramework.geom.Matrix;
 												o.rotate(k.Hb);
 												o.scale(k.m, k.m);
 												b.jg(o);
@@ -22387,7 +22387,7 @@ Game.lq.prototype = {
 										}
 										break;
 									case Game.Effect.da.nv :
-										var q = k.n, r = k.m, v = new GameFramework.geom.xb;
+										var q = k.n, r = k.m, v = new GameFramework.geom.Matrix;
 										v.rotate(k.Hb);
 										var u = Math.sin(k.oa[0]);
 										u > 0 && u < 0.25 && (u = 0.25);
@@ -22431,7 +22431,7 @@ Game.lq.prototype = {
 										b.Q(GameFramework.gfx.Color.Zg(k.n, 255 * m
 														| 0));
 										k.Oa.pc = true;
-										m = new GameFramework.geom.xb;
+										m = new GameFramework.geom.Matrix;
 										m.rotate(k.Hb);
 										m.scale(k.m, k.m);
 										m.translate(k.w, k.v);
@@ -22475,7 +22475,7 @@ Game.lq.prototype = {
 										b.Q(GameFramework.gfx.Color.Zg(k.n, 255 * m
 														| 0));
 										k.Oa.pc = k.Cg;
-										m = new GameFramework.geom.xb;
+										m = new GameFramework.geom.Matrix;
 										m.scale(k.m, k.m);
 										m.rotate(k.Hb);
 										b.jg(m);
@@ -26778,10 +26778,10 @@ U(function() {
 			Game.vq.c()
 		});
 Game.qz = function() {
-	this.YN = new GameFramework.geom.qb;
-	this.Ff = new GameFramework.geom.sg;
-	this.qa = new GameFramework.geom.qb;
-	this.Jm = new GameFramework.geom.qb
+	this.YN = new GameFramework.geom.Vector3;
+	this.Ff = new GameFramework.geom.Coords3;
+	this.qa = new GameFramework.geom.Vector3;
+	this.Jm = new GameFramework.geom.Vector3
 };
 Game.qz.prototype = {
 	YN : null,
@@ -26804,7 +26804,7 @@ Game.qz.prototype = {
 		this.sM = c.d1(b.La, b.Ja);
 		var d = c.RR(b.La, b.Ja), f = c.QR(b.La, b.Ja), g = c.SR(b.La, b.Ja);
 		this.qa = f;
-		var h = new GameFramework.geom.sg;
+		var h = new GameFramework.geom.Coords3;
 		h.et(d.x);
 		h.ft(d.y);
 		h.bp(d.ia);
@@ -26829,7 +26829,7 @@ Game.Ny.prototype = {
 	pk : w("Ff"),
 	Ub : function(b, c) {
 		this.e = b;
-		var d = c.GR(), f = c.FR(), g = c.HR(), h = new GameFramework.geom.sg;
+		var d = c.GR(), f = c.FR(), g = c.HR(), h = new GameFramework.geom.Coords3;
 		h.et(d.x);
 		h.ft(d.y);
 		h.bp(d.ia);
@@ -26846,9 +26846,9 @@ U(function() {
 			Game.Ny.c()
 		});
 Game.wq = function() {
-	this.qa = new GameFramework.geom.qb;
-	this.Pc = new GameFramework.geom.qb;
-	this.m = new GameFramework.geom.qb
+	this.qa = new GameFramework.geom.Vector3;
+	this.Pc = new GameFramework.geom.Vector3;
+	this.m = new GameFramework.geom.Vector3
 };
 Game.wq.prototype = {
 	qa : null,
@@ -26904,7 +26904,7 @@ Game.Ui.prototype = {
 	},
 	QR : function(b, c) {
 		var d = this.dg | 0, f = this.dg - d, g = 1 - f;
-		return new GameFramework.geom.qb(
+		return new GameFramework.geom.Vector3(
 				this.S[this.S.g * b + this.S.Cb * c + d].qa.x * g
 						+ this.S[this.S.g * b + this.S.Cb * c + d + 1].qa.x * f,
 				this.S[this.S.g * b + this.S.Cb * c + d].qa.y * g
@@ -26915,7 +26915,7 @@ Game.Ui.prototype = {
 	},
 	RR : function(b, c) {
 		var d = this.dg | 0, f = this.dg - d;
-		return new GameFramework.geom.qb(Game.Ui.Lo(this.S[this.S.g * b
+		return new GameFramework.geom.Vector3(Game.Ui.Lo(this.S[this.S.g * b
 								+ this.S.Cb * c + d].Pc.x, this.S[this.S.g * b
 								+ this.S.Cb * c + d + 1].Pc.x, f), Game.Ui.Lo(
 						this.S[this.S.g * b + this.S.Cb * c + d].Pc.y,
@@ -26925,7 +26925,7 @@ Game.Ui.prototype = {
 	},
 	SR : function(b, c) {
 		var d = this.dg | 0, f = this.dg - d, g = 1 - f;
-		return new GameFramework.geom.qb(
+		return new GameFramework.geom.Vector3(
 				this.S[this.S.g * b + this.S.Cb * c + d].m.x * g
 						+ this.S[this.S.g * b + this.S.Cb * c + d + 1].m.x * f,
 				this.S[this.S.g * b + this.S.Cb * c + d].m.y * g
@@ -26935,33 +26935,33 @@ Game.Ui.prototype = {
 	},
 	FR : function() {
 		var b = this.dg | 0, c = this.dg - b, d = 1 - c;
-		return new GameFramework.geom.qb(this.e[b].qa.x * d + this.e[b + 1].qa.x
+		return new GameFramework.geom.Vector3(this.e[b].qa.x * d + this.e[b + 1].qa.x
 						* c, this.e[b].qa.y * d + this.e[b + 1].qa.y * c,
 				this.e[b].qa.ia * d + this.e[b + 1].qa.ia * c)
 	},
 	GR : function() {
 		var b = this.dg | 0, c = this.dg - b;
-		return new GameFramework.geom.qb(Game.Ui.Lo(this.e[b].Pc.x,
+		return new GameFramework.geom.Vector3(Game.Ui.Lo(this.e[b].Pc.x,
 						this.e[b + 1].Pc.x, c), Game.Ui.Lo(this.e[b].Pc.y,
 						this.e[b + 1].Pc.y, c), Game.Ui.Lo(this.e[b].Pc.ia,
 						this.e[b + 1].Pc.ia, c))
 	},
 	HR : function() {
 		var b = this.dg | 0, c = this.dg - b, d = 1 - c;
-		return new GameFramework.geom.qb(
+		return new GameFramework.geom.Vector3(
 				this.e[b].m.x * d + this.e[b + 1].m.x * c, this.e[b].m.y * d
 						+ this.e[b + 1].m.y * c, this.e[b].m.ia * d
 						+ this.e[b + 1].m.ia * c)
 	},
 	X0 : function() {
 		var b = this.dg | 0, c = this.dg - b, d = 1 - c;
-		return new GameFramework.geom.qb(this.xd[b].qa.x * d + this.xd[b + 1].qa.x
+		return new GameFramework.geom.Vector3(this.xd[b].qa.x * d + this.xd[b + 1].qa.x
 						* c, this.xd[b].qa.y * d + this.xd[b + 1].qa.y * c,
 				this.xd[b].qa.ia * d + this.xd[b + 1].qa.ia * c)
 	},
 	Y0 : function() {
 		var b = this.dg | 0, c = this.dg - b;
-		return new GameFramework.geom.qb(Game.Ui.Lo(this.xd[b].Pc.x,
+		return new GameFramework.geom.Vector3(Game.Ui.Lo(this.xd[b].Pc.x,
 						this.xd[b + 1].Pc.x, c), Game.Ui.Lo(this.xd[b].Pc.y,
 						this.xd[b + 1].Pc.y, c), Game.Ui.Lo(this.xd[b].Pc.ia,
 						this.xd[b + 1].Pc.ia, c))
@@ -27039,7 +27039,7 @@ Game.N = function(b) {
 	this.pu = new GameFramework.CurvedVal;
 	this.oY = new GameFramework.CurvedVal;
 	this.Qp = new GameFramework.CurvedVal;
-	this.np = new GameFramework.geom.qb;
+	this.np = new GameFramework.geom.Vector3;
 	E(Game.N, this);
 	this.ae = Game.BejApp.q.AN[0];
 	this.ae.Vg();
@@ -27303,7 +27303,7 @@ Game.N.prototype = {
 			case Game.N.ya.en :
 				this.Ay.$a(), b = 234 + this.Ay.D()
 		}
-		var c = this.ae.Y0(), d = this.ae.X0(), f = new GameFramework.geom.sg;
+		var c = this.ae.Y0(), d = this.ae.X0(), f = new GameFramework.geom.Coords3;
 		f.et(c.x);
 		f.ft(c.y);
 		f.bp(c.ia);
@@ -27329,7 +27329,7 @@ Game.N.prototype = {
 		}
 	},
 	c5 : function() {
-		var b = this.ae.GR(), c = this.ae.FR(), d = this.ae.HR(), f = new GameFramework.geom.sg;
+		var b = this.ae.GR(), c = this.ae.FR(), d = this.ae.HR(), f = new GameFramework.geom.Coords3;
 		f.et(b.x);
 		f.ft(b.y);
 		f.bp(b.ia);
@@ -27346,7 +27346,7 @@ Game.N.prototype = {
 					this.Wh[this.Wh.g * b + c].Pp = this.kf.e.e[this.kf.e.e.g
 							* b + c];
 		this.px.clear();
-		var b = this.si.Ff, c = new GameFramework.geom.Ce, d = new GameFramework.geom.Ce, f = new GameFramework.geom.Ce, g = new GameFramework.geom.Ce;
+		var b = this.si.Ff, c = new GameFramework.geom.Matrix3D, d = new GameFramework.geom.Matrix3D, f = new GameFramework.geom.Matrix3D, g = new GameFramework.geom.Matrix3D;
 		this.si.Az(c);
 		this.si.sv(d);
 		for (var h = 0; h < Game.Board.Zk; ++h)
@@ -27378,7 +27378,7 @@ Game.N.prototype = {
 				if (k.Pn) {
 					var o = this.ae.RR(h, j), l = this.ae.QR(h, j), q = this.ae
 							.SR(h, j);
-					m = new GameFramework.geom.sg;
+					m = new GameFramework.geom.Coords3;
 					m.et(o.x);
 					m.ft(o.y);
 					m.bp(o.ia);
@@ -27390,7 +27390,7 @@ Game.N.prototype = {
 					k.pk(m);
 					k.qa = l;
 					k.Ff.Ls(f);
-					g = new GameFramework.geom.Ce;
+					g = new GameFramework.geom.Matrix3D;
 					g.Ni(d);
 					g.Tu(c);
 					g.Tu(f);
@@ -27489,15 +27489,15 @@ Game.N.prototype = {
 			b.kt("time", this.Ju / 100);
 			var d = Array.O(4, 4, this.Kp.D(), this.hs.D(), 0.5, 1);
 			b.Qq("alphaVals", d);
-			var f = new GameFramework.geom.Ce;
+			var f = new GameFramework.geom.Matrix3D;
 			this.si.Az(f);
 			Game.N.nb.mt(f);
 			f.$J();
 			this.si.sv(f);
 			Game.N.nb.GA(f);
-			var g = new GameFramework.geom.sg;
+			var g = new GameFramework.geom.Coords3;
 			g.yg(1, 1, -1);
-			var h = new GameFramework.geom.Ce;
+			var h = new GameFramework.geom.Matrix3D;
 			g.Ls(h);
 			Game.N.nb.IA(h);
 			var j = c.$p(0);
@@ -27519,15 +27519,15 @@ Game.N.prototype = {
 			var b = Game.Resources.EFFECT_TUBECAP_3D, c = b.xD(Game.N.nb, "TubeCap3D");
 			try {
 				b.kt("time", this.Ju / 100);
-				var d = new GameFramework.geom.Ce;
+				var d = new GameFramework.geom.Matrix3D;
 				this.si.Az(d);
 				Game.N.nb.mt(d);
 				d.$J();
 				this.si.sv(d);
 				Game.N.nb.GA(d);
-				var f = new GameFramework.geom.sg;
+				var f = new GameFramework.geom.Coords3;
 				f.yg(1, 1, -1);
-				var g = new GameFramework.geom.Ce;
+				var g = new GameFramework.geom.Matrix3D;
 				f.Ls(g);
 				Game.N.nb.IA(g);
 				var h = c.$p(0);
@@ -27559,18 +27559,18 @@ Game.N.prototype = {
 	},
 	hq : function(b) {
 		Game.N.nb.Oq(GameFramework.gfx.hb.Dc.fi, GameFramework.gfx.hb.Dc.fi);
-		var c = new GameFramework.geom.Ce;
+		var c = new GameFramework.geom.Matrix3D;
 		this.si.Az(c);
 		c.X[c.X.g * 0 + 0] += 0.0030;
 		c.X[c.X.g * 3 + 0] += 3;
 		c.X[c.X.g * 1 + 1] += 0.0030;
-		var d = new GameFramework.geom.Ce;
+		var d = new GameFramework.geom.Matrix3D;
 		this.si.sv(d);
 		var f = Game.Resources.EFFECT_GEM_3D, g = f.xD(Game.N.nb, "Gem3D");
 		try {
 			Game.N.nb.mt(c);
 			Game.N.nb.GA(d);
-			var h = this.si.Ff.Mg, h = new GameFramework.geom.qb(h.x, h.y, h.ia
+			var h = this.si.Ff.Mg, h = new GameFramework.geom.Vector3(h.x, h.y, h.ia
 							* -1);
 			f.pL("cameraPosition", h);
 			f.Qq("ambientLightColor", Game.N.i6);
@@ -27579,13 +27579,13 @@ Game.N.prototype = {
 			Game.N.nb.it(GameFramework.gfx.hb.yf.Ws, true);
 			Game.N.nb.Nq(true, false);
 			f.kt("globalFade", this.Ot);
-			for (var j = g.$p(1), c = [], k = new GameFramework.geom.Ce, l = this.px, h = 0; h < l.length; h++) {
+			for (var j = g.$p(1), c = [], k = new GameFramework.geom.Matrix3D, l = this.px, h = 0; h < l.length; h++) {
 				var m = l[h];
 				if (m.Pn) {
 					var o = this.IJ(m);
 					if (o < (Game.DM.Ha.sc | 0)) {
 						Math.max(Math.min(m.Jt / 3425, 1), 0.5);
-						var q = new GameFramework.geom.sg;
+						var q = new GameFramework.geom.Coords3;
 						q.Ni(m.Ff);
 						q.Ls(k);
 						Game.N.nb.IA(k);
@@ -27606,13 +27606,13 @@ Game.N.prototype = {
 			Game.N.nb.Nq(true, false);
 			this.Bb == Game.N.ya.nq ? f.kt("globalFade", 1 - this.Qp.D()) : f
 					.kt("globalFade", this.Ot);
-			for (var v = new GameFramework.geom.Ce, j = g.$p(0), u = this.px, d = 0; d < u.length; d++) {
+			for (var v = new GameFramework.geom.Matrix3D, j = g.$p(0), u = this.px, d = 0; d < u.length; d++) {
 				var y = u[d];
 				if (y.Pn) {
 					var z = y.Pp, A = this.IJ(y);
 					if (A < (Game.DM.Ha.sc | 0)) {
 						y.Ff.Ls(k);
-						var B = new GameFramework.geom.sg;
+						var B = new GameFramework.geom.Coords3;
 						B.Ni(y.Ff);
 						var G = 0.99 + Math.max(Math.min(y.Jt / 3425, 1), 0.5)
 								* 0.1;
@@ -27743,11 +27743,11 @@ Game.N.c = function() {
 							1, 1), Array.O(4, null, 1, 1, 1, 0.6), 55),
 			new Game.Vl(Array.O(4, null, 0.8, 0.8, 0.8, 0.7), Array.O(4, null, 1, 1,
 							1, 1), Array.O(4, null, 1, 1, 1, 0.6), 45));
-	Game.N.E9 = Array.O(7, 7, new GameFramework.geom.qb(50, 150, -200),
-			new GameFramework.geom.qb(50, 150, -200), new GameFramework.geom.qb(50,
-					150, -200), new GameFramework.geom.qb(-100, -100, -200),
-			new GameFramework.geom.qb(100, 50, 0), new GameFramework.geom.qb(50, 150,
-					-200), new GameFramework.geom.qb(-100, 200, 0));
+	Game.N.E9 = Array.O(7, 7, new GameFramework.geom.Vector3(50, 150, -200),
+			new GameFramework.geom.Vector3(50, 150, -200), new GameFramework.geom.Vector3(50,
+					150, -200), new GameFramework.geom.Vector3(-100, -100, -200),
+			new GameFramework.geom.Vector3(100, 50, 0), new GameFramework.geom.Vector3(50, 150,
+					-200), new GameFramework.geom.Vector3(-100, 200, 0));
 	Game.N.i6 = Array.O(4, 4, 1, 1, 1, 1);
 	Game.N.u6 = Array.O(4, 4, 0.6, 0.6, 0.6, 1);
 	Game.N.Z9 = Array.O(4, 4, 1, 1, 1, 1)
@@ -27840,17 +27840,17 @@ Game.yv.prototype = {
 		} finally {
 			c.t()
 		}
-		Array.O(2, 2, new GameFramework.geom.ba(250, 600), new GameFramework.geom.ba(
+		Array.O(2, 2, new GameFramework.geom.TPoint(250, 600), new GameFramework.geom.TPoint(
 						960, 600));
 		c = Array.O(2, 2, this.KB, this.ty);
 		Array.O(2, 2, this.sl.D(), this.fP.D());
 		for (d = 1; d < 2; d++) {
-			var f = new GameFramework.geom.ba(this.s / 2, this.z / 2), g = b
+			var f = new GameFramework.geom.TPoint(this.s / 2, this.z / 2), g = b
 					.Q(GameFramework.gfx.Color.Jb(this.oM.D()));
 			try {
 				var h = b.gc(f.x, f.y);
 				try {
-					c[d].de = f.rg(new GameFramework.geom.ba(f.x, f.y)), c[d]
+					c[d].de = f.rg(new GameFramework.geom.TPoint(f.x, f.y)), c[d]
 							.ja(b)
 				} finally {
 					h.t()
@@ -28320,26 +28320,26 @@ Game.MainMenu.prototype = {
 						if (this.ue) {
 							var b = Game.BejApp.q.s / Game.BejApp.q.z, c = 38.5 * b;
 							this.xd.Ub(c, b, 0.1, 1E3);
-							this.xd.DE(new GameFramework.geom.qb(0, 0, 0.25),
-									new GameFramework.geom.qb(0, 10, 2.35),
-									new GameFramework.geom.qb(0, 0, 1));
+							this.xd.DE(new GameFramework.geom.Vector3(0, 0, 0.25),
+									new GameFramework.geom.Vector3(0, 10, 2.35),
+									new GameFramework.geom.Vector3(0, 0, 1));
 							this.Fn.Ub(c, b, 0.1, 1E3);
-							this.Fn.DE(new GameFramework.geom.qb(0, 0, 0.25),
-									new GameFramework.geom.qb(0, 10, 2.35),
-									new GameFramework.geom.qb(0, 0, 1));
-							b = new GameFramework.geom.sg;
+							this.Fn.DE(new GameFramework.geom.Vector3(0, 0, 0.25),
+									new GameFramework.geom.Vector3(0, 10, 2.35),
+									new GameFramework.geom.Vector3(0, 0, 1));
+							b = new GameFramework.geom.Coords3;
 							b.Aw(0, -0.4, 0);
 							this.xd.pk(this.xd.Ff.li(b));
 							this.Fn.pk(this.Fn.Ff.li(b));
-							b = new GameFramework.geom.sg;
+							b = new GameFramework.geom.Coords3;
 							b.bp(this.Kg.V() * -0.78);
 							this.xd.pk(this.xd.Ff.li(b));
 							b.bp(this.yM.V());
 							this.Fn.pk(this.Fn.Ff.li(b));
 							var b = this.Fn
-									.ML(new GameFramework.geom.qb(0, 2, 0.7)), d = c = 180, f = new GameFramework.geom.ba(
-									b.x * 1600, b.y * 1200), g = new GameFramework.geom.ba(
-									this.s / 2, this.z / 2), f = new GameFramework.geom.ba(
+									.ML(new GameFramework.geom.Vector3(0, 2, 0.7)), d = c = 180, f = new GameFramework.geom.TPoint(
+									b.x * 1600, b.y * 1200), g = new GameFramework.geom.TPoint(
+									this.s / 2, this.z / 2), f = new GameFramework.geom.TPoint(
 									g.x * this.ad.Tc.V() + f.x
 											* (1 - this.ad.Tc.V()), g.y
 											* this.ad.Tc.V() + f.y
@@ -28355,26 +28355,26 @@ Game.MainMenu.prototype = {
 											- (d / 2 | 0), c, d);
 							this.ad.eg = b.ia;
 							d = c = 120;
-							b = this.Fn.ML(new GameFramework.geom.qb(-0.602, 1.93,
+							b = this.Fn.ML(new GameFramework.geom.Vector3(-0.602, 1.93,
 									0.54));
 							b.x = 0.5 * this.ad.Tc.V() + b.x
 									* (1 - this.ad.Tc.V());
 							b.y = 0.5 * this.ad.Tc.V() + b.y
 									* (1 - this.ad.Tc.V());
-							f = new GameFramework.geom.ba(b.x * 1600, b.y * 1200);
+							f = new GameFramework.geom.TPoint(b.x * 1600, b.y * 1200);
 							this.ad.Lb((f.x | 0) - (c / 2 | 0), (f.y | 0)
 											- (d / 2 | 0), c, d);
 							this.ad.eg = b.ia;
 							this.ad.yk = !this.Kg.wg();
 							if (this.Kg.V() < 0)
 								this.ad.gI = this.Xp.V();
-							b = this.Fn.ML(new GameFramework.geom.qb(0.602, 1.93,
+							b = this.Fn.ML(new GameFramework.geom.Vector3(0.602, 1.93,
 									0.54));
 							b.x = 0.5 * this.Pe.Tc.V() + b.x
 									* (1 - this.Pe.Tc.V());
 							b.y = 0.5 * this.Pe.Tc.V() + b.y
 									* (1 - this.Pe.Tc.V());
-							f = new GameFramework.geom.ba(b.x * 1600, b.y * 1200);
+							f = new GameFramework.geom.TPoint(b.x * 1600, b.y * 1200);
 							this.Pe.Lb((f.x | 0) - (c / 2 | 0), (f.y | 0)
 											- (d / 2 | 0), c, d);
 							this.Pe.eg = b.ia;
@@ -29652,14 +29652,14 @@ Game.Points.prototype = {
 			if (!this.SM)
 				c = this.m;
 			if (this.VY && this.zM != null) {
-				var d = new GameFramework.geom.xb;
+				var d = new GameFramework.geom.Matrix;
 				d.th();
 				d.scale(c, c);
 				d.rotate(this.Kg);
 				d.translate(this.w, this.v);
 				Game.Util.O_(b, this.zM, d)
 			} else {
-				this.Kg != 0 && (new GameFramework.geom.xb).rotate(this.Kg);
+				this.Kg != 0 && (new GameFramework.geom.Matrix).rotate(this.Kg);
 				this.t4(b);
 				var d = this.U.hc(this.Za), f = this.U.Rl();
 				b.nc(c, c, this.w, this.v);
@@ -31823,7 +31823,7 @@ Game.SpeedBoard = function(b) {
 	this.$n = new GameFramework.CurvedVal;
 	E(Game.SpeedBoard, this, [b]);
 	this.OO = true;
-	this.Ux = new GameFramework.geom.ba(0, 50);
+	this.Ux = new GameFramework.geom.TPoint(0, 50);
 	this.yo = Game.Board.Pi.Dw;
 	this.Wr = new Game.lq(this);
 	this.UN = 40;
@@ -31965,7 +31965,7 @@ Game.SpeedBoard.prototype = {
 		c.sk = 420;
 		c.Fj = 650;
 		c.re = 70;
-		c.jm = new GameFramework.geom.ic(5, 1);
+		c.jm = new GameFramework.geom.TIntPoint(5, 1);
 		c.yt = 2;
 		c.jl = true;
 		c.zt = Game.TutorialStep.Pg.ct;
@@ -32009,7 +32009,7 @@ Game.SpeedBoard.prototype = {
 		c.sk = 250;
 		c.Fj = 790;
 		c.re = 0;
-		c.jm = new GameFramework.geom.ic(4, 4);
+		c.jm = new GameFramework.geom.TIntPoint(4, 4);
 		c.yt = 2;
 		c.jl = true;
 		c.aw(this, 4, 4, Game.TutorialStep.Wc.Cq);
@@ -32055,8 +32055,8 @@ Game.SpeedBoard.prototype = {
 		if (b.Y(Game.Piece.K.Yg)) {
 			this.ri += b.qe;
 			this.$r += b.qe;
-			var c = new Game.SpeedCollectEffect(this, new GameFramework.geom.ic(b.Ad() | 0, b.Rd()
-									| 0), new GameFramework.geom.ic(240, 430),
+			var c = new Game.SpeedCollectEffect(this, new GameFramework.geom.TIntPoint(b.Ad() | 0, b.Rd()
+									| 0), new GameFramework.geom.TIntPoint(240, 430),
 					b.qe, 1);
 			this.Wr.Gc(c);
 			c.Ub(b);
@@ -32152,7 +32152,7 @@ Game.SpeedBoard.prototype = {
 						: this.HQ();
 			else if (!(this.og > 0)) {
 				c = 0;
-				this.ah = new GameFramework.geom.ic(-1, -1);
+				this.ah = new GameFramework.geom.TIntPoint(-1, -1);
 				b = 0;
 				if (!this.CB) {
 					this.TX = this.Z;
@@ -33184,18 +33184,18 @@ Game.SpeedCollectEffect = function(b, c, d, f, g) {
 	this.Ii = new GameFramework.CurvedVal;
 	this.jp = new GameFramework.CurvedVal;
 	this.su = new GameFramework.CurvedVal;
-	this.Lg = new GameFramework.geom.ic;
-	this.qy = new GameFramework.geom.ic;
-	this.co = new GameFramework.geom.ic;
+	this.Lg = new GameFramework.geom.TIntPoint;
+	this.qy = new GameFramework.geom.TIntPoint;
+	this.co = new GameFramework.geom.TIntPoint;
 	E(Game.SpeedCollectEffect, this, [Game.Effect.da.Py]);
 	this.MY = f;
 	this.e = b;
 	this.w = c.x;
 	this.v = c.y;
-	this.co = new GameFramework.geom.ic(c.x, c.y);
+	this.co = new GameFramework.geom.TIntPoint(c.x, c.y);
 	this.aa = this.Ic = 0;
-	this.Lg = new GameFramework.geom.ic(c.x, c.y);
-	this.qy = new GameFramework.geom.ic(d.x, d.y);
+	this.Lg = new GameFramework.geom.TIntPoint(c.x, c.y);
+	this.qy = new GameFramework.geom.TIntPoint(d.x, d.y);
 	this.t8 = 0;
 	this.pG = false;
 	this.hI = g;
@@ -33307,7 +33307,7 @@ Game.LightningBarFillEffect = function() {
 	E(Game.LightningBarFillEffect, this, [Game.Effect.da.Py]);
 	for (var b = this.Zh = 0; b < Game.LightningBarFillEffect.Xk; ++b)
 		for (var c = 0; c < 2; ++c)
-			this.Z[this.Z.g * b + c] = new GameFramework.geom.ba
+			this.Z[this.Z.g * b + c] = new GameFramework.geom.TPoint
 };
 Game.LightningBarFillEffect.prototype = {
 	Z : null,
@@ -33583,7 +33583,7 @@ U(function() {
 			Game.SpreadCurve.c()
 		});
 Game.TooltipManager = function() {
-	this.oW = new GameFramework.geom.ba(0, 0);
+	this.oW = new GameFramework.geom.TPoint(0, 0);
 	this.uy = [];
 	this.L = new GameFramework.CurvedVal;
 	this.MV = new GameFramework.CurvedVal;
@@ -33608,7 +33608,7 @@ Game.TooltipManager.prototype = {
 		b = new Game.Tooltip;
 		b.V7 = c;
 		b.WV = d;
-		b.PC = new GameFramework.geom.ba(f.x, f.y);
+		b.PC = new GameFramework.geom.TPoint(f.x, f.y);
 		b.hm = h;
 		b.$e = j;
 		b.LV = true;
@@ -33641,7 +33641,7 @@ Game.TooltipManager.prototype = {
 				b.Hm.x += -b.s - 20, b.Hm.y += -b.z / 2
 		}
 		this.uy.push(b);
-		this.oW = new GameFramework.geom.ba(f.x, f.y)
+		this.oW = new GameFramework.geom.TPoint(f.x, f.y)
 	}
 };
 Game.TooltipManager.c = t();
@@ -33652,8 +33652,8 @@ U(function() {
 			Game.TooltipManager.c()
 		});
 Game.Tooltip = function() {
-	this.PC = new GameFramework.geom.ba(0, 0);
-	this.Hm = new GameFramework.geom.ba(0, 0)
+	this.PC = new GameFramework.geom.TPoint(0, 0);
+	this.Hm = new GameFramework.geom.TPoint(0, 0)
 };
 Game.Tooltip.prototype = {
 	PC : null,
@@ -33833,7 +33833,7 @@ Game.TutorialStep.prototype = {
 					default :
 						d = 0, g += -f
 				}
-				var k = new GameFramework.geom.xb;
+				var k = new GameFramework.geom.Matrix;
 				k.translate(-this.cr - j.s / 2, -this.dr);
 				k.rotate(d);
 				k.translate(this.cr + g, this.dr + h);
@@ -33893,7 +33893,7 @@ Game.TutorialStep.prototype = {
 	sd : function(b, c, d, f, g) {
 		f === UNDEF && (f = true);
 		g === UNDEF && (g = true);
-		var h = new GameFramework.geom.ic(c, d);
+		var h = new GameFramework.geom.TIntPoint(c, d);
 		f && this.iP.push(h);
 		if (g)
 			this.vl = Game.TutorialStep.nZ(b, this.vl, c, d, this.X7)
@@ -34360,7 +34360,7 @@ Game.Util.vba = function(b) {
 	return GameFramework.Utils.aE(b) - 65 + 1 | 0
 };
 Game.Util.Rba = function(b, c, d, f, g, h, j) {
-	var k = new GameFramework.geom.xb;
+	var k = new GameFramework.geom.Matrix;
 	j && k.translate(0 - (c.s / 2 | 0), 0 - (c.z / 2 | 0));
 	k.scale(d / c.s, f / c.z);
 	d = b.jg(k);
@@ -34385,7 +34385,7 @@ Game.Util.Nba = function(b, c, d, f, g) {
 	d.Da -= g
 };
 Game.Util.Qba = function(b, c, d, f, g, h) {
-	var j = new GameFramework.geom.xb;
+	var j = new GameFramework.geom.Matrix;
 	j.rotate(f);
 	j.scale(d, d);
 	j.translate(g, h);
@@ -34394,7 +34394,7 @@ Game.Util.Qba = function(b, c, d, f, g, h) {
 	b.Ab()
 };
 Game.Util.Pba = function(b, c, d, f, g) {
-	var h = new GameFramework.geom.xb;
+	var h = new GameFramework.geom.Matrix;
 	h.rotate(d);
 	h.translate(f, g);
 	b.jg(h);
@@ -34402,7 +34402,7 @@ Game.Util.Pba = function(b, c, d, f, g) {
 	b.Ab()
 };
 Game.Util.Oba = function(b, c, d) {
-	var f = new GameFramework.geom.xb;
+	var f = new GameFramework.geom.Matrix;
 	f.rotate(d);
 	b.jg(f);
 	b.Ba(c, 0, 0);
