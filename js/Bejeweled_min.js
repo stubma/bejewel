@@ -13614,10 +13614,10 @@ U(function() {
 			GameFramework.gfx.JSGraphics3D.c()
 		});
 GameFramework.resources = Type.ci("GameFramework.resources");
-GameFramework.resources.Us = function(b) {
-	E(GameFramework.resources.Us, this, [b])
+GameFramework.resources.JSImageInst = function(b) {
+	E(GameFramework.resources.JSImageInst, this, [b])
 };
-GameFramework.resources.Us.prototype = {
+GameFramework.resources.JSImageInst.prototype = {
 	Og : function(b, c, d, f) {
 		if (!(this.jd == 0 || this.ge == 0)) {
 			var g = (b.n >>> 24) / 255, h = new GameFramework.geom.xb;
@@ -13649,13 +13649,13 @@ GameFramework.resources.Us.prototype = {
 		}
 	}
 };
-GameFramework.resources.Us.c = t();
+GameFramework.resources.JSImageInst.c = t();
 T(function() {
-			GameFramework.resources.Us.u("GameFramework.resources.JSImageInst",
+			GameFramework.resources.JSImageInst.u("GameFramework.resources.JSImageInst",
 					GameFramework.resources.Rs)
 		});
 U(function() {
-			GameFramework.resources.Us.c()
+			GameFramework.resources.JSImageInst.c()
 		});
 GameFramework.resources.Vs = function() {
 	E(GameFramework.resources.Vs, this)
@@ -13703,7 +13703,7 @@ GameFramework.resources.Vs.prototype = {
 		this.ym = this.vh = null
 	},
 	bk : function(b) {
-		var c = b % this.ui, b = b / this.ui | 0, d = new GameFramework.resources.Us(this);
+		var c = b % this.ui, b = b / this.ui | 0, d = new GameFramework.resources.JSImageInst(this);
 		d.he = c * this.Hg;
 		d.uf = b * this.Gg;
 		d.jd = this.Hg;
@@ -13711,7 +13711,7 @@ GameFramework.resources.Vs.prototype = {
 		return d
 	},
 	dv : function(b, c, d, f) {
-		var g = new GameFramework.resources.Us(this);
+		var g = new GameFramework.resources.JSImageInst(this);
 		g.he = b;
 		g.uf = c;
 		g.jd = d;
