@@ -17106,8 +17106,8 @@ Game.Board.prototype = {
 										* 16)
 										* 1.67;
 								o.yi = 0.0835;
-								o.oa[0] = GameFramework.Utils.P() * Game.Od.gT;
-								o.oa[1] = o.oa[0] + 0.25 * Game.Od.gT;
+								o.oa[0] = GameFramework.Utils.P() * Game.MathUtil.gT;
+								o.oa[1] = o.oa[0] + 0.25 * Game.MathUtil.gT;
 								o.oa[2] = GameFramework.Utils.P() > 0 ? 0 : 1;
 								o.oa[3] = 0.045
 										* (3 * Math.abs(GameFramework.Utils.P()) + 1);
@@ -17930,7 +17930,7 @@ Game.Board.prototype = {
 						for (var v = 0; v < 14; v++) {
 							var u = this.ob.wf(Game.R.da.cp), y = GameFramework.Utils
 									.P()
-									* Game.Od.PI, z = (0 + 2
+									* Game.MathUtil.PI, z = (0 + 2
 									* Math.abs(GameFramework.Utils.P()))
 									* 1.67;
 							u.Nc = z * Math.cos(y) + k;
@@ -17975,8 +17975,8 @@ Game.Board.prototype = {
 							u.Hb = z;
 							u.Qh = GameFramework.Utils.P() * 0.0835;
 							u.yi = 0.06;
-							u.oa[0] = GameFramework.Utils.P() * Game.Od.PI * 2;
-							u.oa[1] = GameFramework.Utils.P() * Game.Od.PI * 2;
+							u.oa[0] = GameFramework.Utils.P() * Game.MathUtil.PI * 2;
+							u.oa[1] = GameFramework.Utils.P() * Game.MathUtil.PI * 2;
 							u.oa[2] = 0.045
 									* (3 * Math.abs(GameFramework.Utils.P()) + 1);
 							u.oa[3] = 0.045
@@ -17986,7 +17986,7 @@ Game.Board.prototype = {
 							this.ob.Gc(u)
 						}
 						for (v = 0; v < 14; v++)
-							u = this.ob.wf(Game.R.da.cp), y = v * Game.Od.PI
+							u = this.ob.wf(Game.R.da.cp), y = v * Game.MathUtil.PI
 									* 2 / 14, z = 0.5 + 5.75
 									* Math.abs(GameFramework.Utils.P()), u.Nc = (z
 									* Math.cos(y) + k)
@@ -18000,7 +18000,7 @@ Game.Board.prototype = {
 									.ta(128, 128, 128), this.ob.Gc(u)
 					} else
 						for (v = 0; v < 6; v++)
-							u = this.ob.wf(Game.R.da.cp), y = v * Game.Od.PI
+							u = this.ob.wf(Game.R.da.cp), y = v * Game.MathUtil.PI
 									* 2 / 6, z = 0.5 + 5.75
 									* Math.abs(GameFramework.Utils.P()), u.Nc = (z
 									* Math.cos(y) + k)
@@ -18074,7 +18074,7 @@ Game.Board.prototype = {
 			if (GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f)
 				for (var l = 0; l < 14; l++) {
 					var m = this.ob.wf(Game.R.da.cp), o = GameFramework.Utils.P()
-							* Game.Od.PI, q = 0 + 2
+							* Game.MathUtil.PI, q = 0 + 2
 							* Math.abs(GameFramework.Utils.P());
 					m.Nc = (q * Math.cos(o) + j) * 1.67;
 					m.Vb = (q * Math.sin(o) + k) * 1.67;
@@ -18118,15 +18118,15 @@ Game.Board.prototype = {
 								+ (1.2 * m * l.Vb | 0) + 10), l.Hb = o, l.Qh = GameFramework.Utils
 						.P()
 						* 0.0835, l.yi = 0.06, l.oa[0] = GameFramework.Utils.P()
-						* Game.Od.PI * 2, l.oa[1] = GameFramework.Utils.P()
-						* Game.Od.PI * 2, l.oa[2] = 0.045
+						* Game.MathUtil.PI * 2, l.oa[1] = GameFramework.Utils.P()
+						* Game.MathUtil.PI * 2, l.oa[2] = 0.045
 						* (3 * Math.abs(GameFramework.Utils.P()) + 1), l.oa[3] = 0.045
 						* (3 * Math.abs(GameFramework.Utils.P()) + 1), l.Ic = -0.0025
 						* (2 * Math.abs(GameFramework.Utils.P()) + 4), this.ob
 						.Gc(l);
 			if (GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f) {
 				for (c = 0; c < 14; c++)
-					d = this.ob.wf(Game.R.da.cp), g = c * Game.Od.PI * 2 / 20, l = 0.5
+					d = this.ob.wf(Game.R.da.cp), g = c * Game.MathUtil.PI * 2 / 20, l = 0.5
 							+ 5.75 * Math.abs(GameFramework.Utils.P()), d.Nc = (l
 							* Math.cos(g) + j)
 							* 1.67, d.Vb = (l * Math.sin(g) + k) * 1.67, d.w = f
@@ -18140,7 +18140,7 @@ Game.Board.prototype = {
 						j = f.wf(Game.R.da.WD), k = 1
 								+ Math.abs(GameFramework.Utils.P()) * 2, c = GameFramework.Utils
 								.P()
-								* Game.Od.PI, j.m = 1 + GameFramework.Utils.P()
+								* Game.MathUtil.PI, j.m = 1 + GameFramework.Utils.P()
 								* 0.5, j.Nc = k * Math.cos(c) * 1.67, j.Vb = k
 								* Math.sin(c) * 1.67, j.w = b.$d()
 								+ (Game.Board.bb / 2 | 0) + Math.cos(c) * Game.Board.bb
@@ -18697,9 +18697,9 @@ Game.Board.prototype = {
 								ta.nr = true;
 								if (Lc != 0) {
 									if (ta.UE("smear horizontal"), Lc < 0)
-										ta.Hb = Game.Od.PI
+										ta.Hb = Game.MathUtil.PI
 								} else if (ta.UE("smear vertical"), cd < 0)
-									ta.Hb = Game.Od.PI;
+									ta.Hb = Game.MathUtil.PI;
 								this.ob.Gc(ta)
 							}
 						}
@@ -20581,7 +20581,7 @@ Game.Board.prototype = {
 								b.jg(m);
 								b.Ba(Game.a.IMAGE_HINTARROW.Ee(), 0, 0);
 								b.Ab();
-								j.rotate(Game.Od.Y2)
+								j.rotate(Game.MathUtil.Y2)
 							}
 						} finally {
 							h.t()
@@ -20625,9 +20625,9 @@ Game.Board.prototype = {
 					&& this.K_(b, h);
 		for (d = 0; d < (this.Qf.length | 0); d++)
 			f = this.Qf[d], g = f.qx.D(), !f.Gt && f.rc != null
-					&& f.Ek.D() <= Game.Od.PI && this.bz(b, f.rc, 1 - g), this
+					&& f.Ek.D() <= Game.MathUtil.PI && this.bz(b, f.rc, 1 - g), this
 					.bz(b, f.Xb, 1 + g), !f.Gt && f.rc != null
-					&& f.Ek.D() > Game.Od.PI && this.bz(b, f.rc, 1 - g);
+					&& f.Ek.D() > Game.MathUtil.PI && this.bz(b, f.rc, 1 - g);
 		this.ah.x != -1
 				&& this.Ro() == null
 				&& (b.Q(GameFramework.gfx.k
@@ -34264,30 +34264,30 @@ T(function() {
 U(function() {
 			Game.GfxUtil.c()
 		});
-Game.Od = t();
-Game.Od.Saa = function(b) {
+Game.MathUtil = t();
+Game.MathUtil.Saa = function(b) {
 	return Math.abs(b)
 };
-Game.Od.Rla = function(b, c) {
+Game.MathUtil.Rla = function(b, c) {
 	return Math.min(b, c)
 };
-Game.Od.L2 = function(b, c) {
+Game.MathUtil.L2 = function(b, c) {
 	return Math.max(b, c)
 };
-Game.Od.prototype = {};
-Game.Od.c = function() {
-	Game.Od.PI = 3.141593;
-	Game.Od.gT = 6.283185;
-	Game.Od.Y2 = 1.570796;
-	Game.Od.E = 2.71828;
-	Game.Od.Xba = 0.0010;
-	Game.Od.Yba = 1.0E-6
+Game.MathUtil.prototype = {};
+Game.MathUtil.c = function() {
+	Game.MathUtil.PI = 3.141593;
+	Game.MathUtil.gT = 6.283185;
+	Game.MathUtil.Y2 = 1.570796;
+	Game.MathUtil.E = 2.71828;
+	Game.MathUtil.Xba = 0.0010;
+	Game.MathUtil.Yba = 1.0E-6
 };
 T(function() {
-			Game.Od.u("Game.MathUtil", null)
+			Game.MathUtil.u("Game.MathUtil", null)
 		});
 U(function() {
-			Game.Od.c()
+			Game.MathUtil.c()
 		});
 Game.fb = t();
 Game.fb.Play = function(b) {
