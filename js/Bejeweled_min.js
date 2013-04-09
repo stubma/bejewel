@@ -19918,11 +19918,11 @@ Game.Board.prototype = {
 		if (c.Y(Game.J.K.xg))
 			h = Math.min(c.eh * Game.a.IMAGE_GEMS_RED.Em,
 					Game.a.IMAGE_GEMS_RED.Em - 1)
-					| 0, b.Bd(Game.Jo.PR(c.n).vd(), f, g, h);
+					| 0, b.Bd(Game.BejUtil.PR(c.n).vd(), f, g, h);
 		else if ((c.n | 0) > -1 && (c.n | 0) < 7 || c.Y(Game.J.K.Ue))
 			h = Math.min(c.eh * Game.a.IMAGE_GEMS_RED.Em | 0,
 					Game.a.IMAGE_GEMS_RED.Em - 1)
-					| 0, b.Bd(Game.Jo.PR(c.n).vd(), f, g, h);
+					| 0, b.Bd(Game.BejUtil.PR(c.n).vd(), f, g, h);
 		b.pb();
 		d != 1 && b.Ab()
 	},
@@ -19965,7 +19965,7 @@ Game.Board.prototype = {
 											.ta(255, 255, 255)), c
 									.Y(Game.J.K.Ue)
 									&& b.Q(GameFramework.gfx.k.Zg(h[c.n | 0], 255
-													* c.L.D() * this.Yc() | 0)), h = Game.Jo
+													* c.L.D() * this.Yc() | 0)), h = Game.BejUtil
 									.c1(c.n), j = c.eh * h.Em, b.Bd(h.vd(), d,
 									f, j | 0), c.Y(Game.J.K.Ue) && b.pb()));
 			b.pb();
@@ -22892,7 +22892,7 @@ Game.Xc.prototype = {
 			h = b.Q(h);
 			try {
 				b.zb(String.Mb("{0:d}.", d + 1), 830, 455 + 45 * d, 1, -1), b
-						.zb(Game.Ms.LR(b, this.zc[d].sb, g), 880, 455 + 45 * d,
+						.zb(Game.GfxUtil.LR(b, this.zc[d].sb, g), 880, 455 + 45 * d,
 								-1, -1), b.zb(f, 1370, 455 + 45 * d, -1, 1), Game.a.FONT_GAMEOVER_DIALOG
 						.ib("OUTLINE"), Game.a.FONT_GAMEOVER_DIALOG.ib("GLOW"), Game.a.FONT_GAMEOVER_DIALOG
 						.ib("MAIN")
@@ -30367,7 +30367,7 @@ Game.$l.prototype = {
 				if (d[c].sb != null) {
 					var g = Game.Ns.HU(GameFramework.Utils.ei(d[c].Hl));
 					b.zb(String.Mb("{0:d}.", c + 1), 30, 70 + 45 * c, 1, -1);
-					b.zb(Game.Ms.LR(b, d[c].sb, 455 - (b.hc(g) | 0)), 80, 70
+					b.zb(Game.GfxUtil.LR(b, d[c].sb, 455 - (b.hc(g) | 0)), 80, 70
 									+ 45 * c, -1, -1);
 					b.zb(g, 570, 70 + 45 * c, -1, 1)
 				} else
@@ -34184,23 +34184,23 @@ T(function() {
 U(function() {
 			Game.CheckMatrixInfo.c()
 		});
-Game.JD = function(b) {
+Game.ColorTracker = function(b) {
 	this.R7 = b;
 	this.Q8 = 0
 };
-Game.JD.prototype = {
+Game.ColorTracker.prototype = {
 	R7 : null,
 	Q8 : 0
 };
-Game.JD.c = t();
+Game.ColorTracker.c = t();
 T(function() {
-			Game.JD.u("Game.ColorTracker", null)
+			Game.ColorTracker.u("Game.ColorTracker", null)
 		});
 U(function() {
-			Game.JD.c()
+			Game.ColorTracker.c()
 		});
-Game.Jo = t();
-Game.Jo.c1 = function(b) {
+Game.BejUtil = t();
+Game.BejUtil.c1 = function(b) {
 	switch (b) {
 		case Game.f.Ha.wD :
 			return Game.a.IMAGE_GEMS_BLUE;
@@ -34220,7 +34220,7 @@ Game.Jo.c1 = function(b) {
 	S(false);
 	return Game.a.IMAGE_GEMS_WHITE
 };
-Game.Jo.PR = function(b) {
+Game.BejUtil.PR = function(b) {
 	switch (b) {
 		case Game.f.Ha.wD :
 			return Game.a.IMAGE_GEMSSHADOW_BLUE;
@@ -34240,29 +34240,29 @@ Game.Jo.PR = function(b) {
 	S(false);
 	return Game.a.IMAGE_GEMSSHADOW_WHITE
 };
-Game.Jo.prototype = {};
-Game.Jo.c = t();
+Game.BejUtil.prototype = {};
+Game.BejUtil.c = t();
 T(function() {
-			Game.Jo.u("Game.BejUtil", null)
+			Game.BejUtil.u("Game.BejUtil", null)
 		});
 U(function() {
-			Game.Jo.c()
+			Game.BejUtil.c()
 		});
-Game.Ms = t();
-Game.Ms.LR = function(b, c, d) {
+Game.GfxUtil = t();
+Game.GfxUtil.LR = function(b, c, d) {
 	if (b.hc(c) <= d)
 		return c;
 	for (; c.length > 0 && b.hc(c + "...") > d;)
 		c = c.remove(c.length - 1);
 	return c + "..."
 };
-Game.Ms.prototype = {};
-Game.Ms.c = t();
+Game.GfxUtil.prototype = {};
+Game.GfxUtil.c = t();
 T(function() {
-			Game.Ms.u("Game.GfxUtil", null)
+			Game.GfxUtil.u("Game.GfxUtil", null)
 		});
 U(function() {
-			Game.Ms.c()
+			Game.GfxUtil.c()
 		});
 Game.Od = t();
 Game.Od.Saa = function(b) {
