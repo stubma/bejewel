@@ -3606,8 +3606,8 @@ GameFramework.XMLParser.prototype = {
 	},
 	Gb : ha("sb"),
 	Pb : function(b) {
-		return this.er == null ? new GameFramework.hp : this.er[b] == null
-				? new GameFramework.hp
+		return this.er == null ? new GameFramework.XMLParserList : this.er[b] == null
+				? new GameFramework.XMLParserList
 				: this.er[b]
 	}
 };
@@ -3618,8 +3618,8 @@ T(function() {
 U(function() {
 			GameFramework.XMLParser.c()
 		});
-GameFramework.hp = t();
-GameFramework.hp.prototype = {
+GameFramework.XMLParserList = t();
+GameFramework.XMLParserList.prototype = {
 	vm : null,
 	oa : null,
 	tQ : function() {
@@ -3632,12 +3632,12 @@ GameFramework.hp.prototype = {
 		return this.vm == null ? this.oa == null ? "" : this.oa : this.vm[0]
 	}
 };
-GameFramework.hp.c = t();
+GameFramework.XMLParserList.c = t();
 T(function() {
-			GameFramework.hp.u("GameFramework.XMLParserList", null)
+			GameFramework.XMLParserList.u("GameFramework.XMLParserList", null)
 		});
 U(function() {
-			GameFramework.hp.c()
+			GameFramework.XMLParserList.c()
 		});
 GameFramework.Gw = Type.ci("GameFramework.ads");
 GameFramework.Gw.Gy = function(b) {
@@ -13075,7 +13075,7 @@ GameFramework.JSBaseApp.prototype = {
 			var f = d.oe(), g = b;
 			if (g.er == null)
 				g.er = {}, g.OV = [];
-			var h = f.nodeName, j = new GameFramework.hp;
+			var h = f.nodeName, j = new GameFramework.XMLParserList;
 			j.oa = f.nodeValue;
 			g.er[h] = j;
 			g.OV.push(h)
@@ -13089,12 +13089,12 @@ GameFramework.JSBaseApp.prototype = {
 				var k;
 				j.sb = h;
 				if (g.$c == null)
-					g.$c = new GameFramework.hp, g.$c.vm = [];
+					g.$c = new GameFramework.XMLParserList, g.$c.vm = [];
 				g.$c.vm.push(j);
 				if (g.OB == null)
 					g.OB = new GameFramework.TDictionary;
 				g.OB[h] == null
-						? (k = new GameFramework.hp, g.OB[h] = k)
+						? (k = new GameFramework.XMLParserList, g.OB[h] = k)
 						: k = g.OB[h];
 				if (k.vm == null)
 					k.vm = [];
