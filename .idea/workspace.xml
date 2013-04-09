@@ -9,7 +9,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365264647261" ignored="false" />
     <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365336645136" ignored="false" />
-    <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365479098149" ignored="false" />
+    <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365480165785" ignored="false" />
     <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365408132098" ignored="false" />
     <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365473724198" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,7 +61,7 @@
       <file leaf-file-name="Bejeweled_min.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12991" column="0" selection-start="341080" selection-end="341080" vertical-scroll-proportion="0.33333334">
+            <state line="13001" column="0" selection-start="341563" selection-end="341563" vertical-scroll-proportion="0.33333334">
               <folding />
             </state>
           </provider>
@@ -505,7 +505,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12991" column="0" selection-start="341080" selection-end="341080" vertical-scroll-proportion="0.33333334">
+        <state line="13001" column="0" selection-start="341563" selection-end="341563" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>

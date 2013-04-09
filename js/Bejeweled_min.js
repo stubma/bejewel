@@ -12993,10 +12993,12 @@ GameFramework.JSBaseApp.prototype = {
 						h = this.vb.b1(stream.vc.substr(5)), h != null && stream.Or != stream.Uj
 								&& (this.vb.ET(stream.xa, h.gi()), stream.Or++);
 					else if (h = null, h = stream.vc.indexOf("@"), h != -1) {
-						var j = stream.vc.indexOf(":", h), k = stream.vc.indexOf("-", h), h = stream.vc
-								.substr(h + 1, j - h - 1), j = stream.vc.substr(j
-										+ 1, k - j - 1)
-								| 0, k = stream.vc.substr(k + 1) | 0, l = this.NB[h];
+						var j = stream.vc.indexOf(":", h);
+						var k = stream.vc.indexOf("-", h);
+						h = stream.vc.substr(h + 1, j - h - 1);
+						j = stream.vc.substr(j + 1, k - j - 1) | 0;
+						k = stream.vc.substr(k + 1) | 0;
+						var l = this.NB[h];
 						l
 								? (l = this.NB[h], typeof l == "string"
 										&& this.nk(l.substr(j, k - j), stream))
