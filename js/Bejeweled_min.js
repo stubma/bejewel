@@ -2247,34 +2247,34 @@ T(function() {
 U(function() {
 			GameFramework.BaseApp.c()
 		});
-GameFramework.B = function(b) {
+GameFramework.CurvedVal = function(b) {
 	b === UNDEF && (b = "");
 	this.h2();
 	b.length > 0 && this.ea(b)
 };
-GameFramework.B.qs = function(b) {
-	var c = new GameFramework.B;
+GameFramework.CurvedVal.qs = function(b) {
+	var c = new GameFramework.CurvedVal;
 	c.Aa(b);
 	return c
 };
-GameFramework.B.UP = function(b) {
+GameFramework.CurvedVal.UP = function(b) {
 	b >= 92 && b--;
 	return (b - 35) / 90
 };
-GameFramework.B.FD = function(b) {
+GameFramework.CurvedVal.FD = function(b) {
 	b >= 92 && b--;
 	return b - 35
 };
-GameFramework.B.WZ = function(b) {
+GameFramework.CurvedVal.WZ = function(b) {
 	var c = 0;
-	c += GameFramework.B.FD(GameFramework.Utils.hi(b, 0));
+	c += GameFramework.CurvedVal.FD(GameFramework.Utils.hi(b, 0));
 	c *= 90;
-	c += GameFramework.B.FD(GameFramework.Utils.hi(b, 1));
+	c += GameFramework.CurvedVal.FD(GameFramework.Utils.hi(b, 1));
 	c *= 90;
-	c += GameFramework.B.FD(GameFramework.Utils.hi(b, 2));
+	c += GameFramework.CurvedVal.FD(GameFramework.Utils.hi(b, 2));
 	return c * 360 / 729E3
 };
-GameFramework.B.prototype = {
+GameFramework.CurvedVal.prototype = {
 	Nj : 0,
 	Lr : 0,
 	Ye : 0,
@@ -2314,7 +2314,7 @@ GameFramework.B.prototype = {
 		this.zx = this.wt != null ? this.wt.aa : GameFramework.BaseApp.M.aa;
 		this.Vm = false;
 		this.hu = c;
-		this.Lr = GameFramework.B.HK;
+		this.Lr = GameFramework.CurvedVal.HK;
 		this.jT(b);
 		this.Xh = this.cc;
 		return this
@@ -2324,8 +2324,8 @@ GameFramework.B.prototype = {
 		return this
 	},
 	h2 : function() {
-		this.Nj = GameFramework.B.US;
-		this.Lr = GameFramework.B.VE;
+		this.Nj = GameFramework.CurvedVal.US;
+		this.Lr = GameFramework.CurvedVal.VE;
 		this.Ph = null;
 		this.xt = this.eu = this.Vm = this.CH = this.Lx = this.XC = false;
 		this.zx = 0;
@@ -2376,7 +2376,7 @@ GameFramework.B.prototype = {
 		f >= 97 && f <= 98 && (d = f - 97);
 		c++;
 		if (d >= 1)
-			f = GameFramework.B.FD(GameFramework.Utils.hi(b, c++)), this.Lx = (f & GameFramework.B.m_) != 0, this.XC = (f & GameFramework.B.o_) != 0, this.CH = (f & GameFramework.B.n_) != 0, this.eu = (f & GameFramework.B.l_) != 0, this.xt = (f & GameFramework.B.k_) != 0;
+			f = GameFramework.CurvedVal.FD(GameFramework.Utils.hi(b, c++)), this.Lx = (f & GameFramework.CurvedVal.m_) != 0, this.XC = (f & GameFramework.CurvedVal.o_) != 0, this.CH = (f & GameFramework.CurvedVal.n_) != 0, this.eu = (f & GameFramework.CurvedVal.l_) != 0, this.xt = (f & GameFramework.CurvedVal.k_) != 0;
 		f = b.indexOf(String.fromCharCode(44), c) | 0;
 		if (f == -1)
 			this.eu = true;
@@ -2394,29 +2394,29 @@ GameFramework.B.prototype = {
 				c = f + 1
 			}
 			d = b.substr(c);
-			this.ZV = GameFramework.B.lW;
-			this.Ph = GameFramework.B.pW[d];
+			this.ZV = GameFramework.CurvedVal.lW;
+			this.Ph = GameFramework.CurvedVal.pW[d];
 			if (this.Ph == null) {
 				this.Ph = new GameFramework.W.Uy;
-				GameFramework.B.pW[d] = this.Ph;
+				GameFramework.CurvedVal.pW[d] = this.Ph;
 				d = [];
 				for (f = 0; c < b.length;) {
 					var g = GameFramework.Utils.hi(b, c++), h = new GameFramework.W.Vy;
 					h.w = f;
-					h.v = GameFramework.B.UP(g);
+					h.v = GameFramework.CurvedVal.UP(g);
 					this.eu
-							? (h.fM = GameFramework.B.WZ(b.substr(c, 3)), c += 3)
+							? (h.fM = GameFramework.CurvedVal.WZ(b.substr(c, 3)), c += 3)
 							: h.fM = 0;
 					for (d.push(h); c < b.length;)
 						if (g = GameFramework.Utils.hi(b, c++), g == 32)
 							f += 0.1;
 						else {
-							f = Math.min(f + GameFramework.B.UP(g) * 0.1, 1);
+							f = Math.min(f + GameFramework.CurvedVal.UP(g) * 0.1, 1);
 							break
 						}
 				}
 				if (!this.eu)
-					this.Ph.dD = Array.O(GameFramework.B.WI, null), this.P0(d,
+					this.Ph.dD = Array.O(GameFramework.CurvedVal.WI, null), this.P0(d,
 							this.Ph.dD);
 				this.Ph.A7 = b;
 				this.Ph.VB = new GameFramework.W.qh;
@@ -2438,7 +2438,7 @@ GameFramework.B.prototype = {
 		this.Xh = 0;
 		this.Vm = false;
 		this.hu = null;
-		this.Lr = GameFramework.B.VE;
+		this.Lr = GameFramework.CurvedVal.VE;
 		this.cc = this.Oc = 0;
 		this.zd = this.bg = b;
 		this.Ye = 0;
@@ -2446,18 +2446,18 @@ GameFramework.B.prototype = {
 	},
 	wE : ha("xl"),
 	dQ : function() {
-		this.LC != null && GameFramework.B.lW != this.ZV
-				&& this.jT(GameFramework.B.T8[this.LC])
+		this.LC != null && GameFramework.CurvedVal.lW != this.ZV
+				&& this.jT(GameFramework.CurvedVal.T8[this.LC])
 	},
 	bQ : function() {
 		this.dQ();
-		if (this.Nj == GameFramework.B.US) {
+		if (this.Nj == GameFramework.CurvedVal.US) {
 			if (this.Xh < this.cc)
 				return this.Xh = this.cc, false;
 			if (this.Xh > this.Oc)
 				return this.Xh = this.Oc, false
-		} else if (this.Nj == GameFramework.B.Uz
-				|| this.Nj == GameFramework.B.Vo) {
+		} else if (this.Nj == GameFramework.CurvedVal.Uz
+				|| this.Nj == GameFramework.CurvedVal.Vo) {
 			var b = this.Oc - this.cc;
 			if (this.Xh > this.Oc || this.Xh < this.cc)
 				this.Xh = this.cc + (this.Xh - this.cc + b) % b
@@ -2470,12 +2470,12 @@ GameFramework.B.prototype = {
 		this.Oc = c
 	},
 	D : function() {
-		return this.Lr == GameFramework.B.VE ? this.zd : this.V()
+		return this.Lr == GameFramework.CurvedVal.VE ? this.zd : this.V()
 	},
 	Ks : function(b) {
 		switch (this.Lr) {
-			case GameFramework.B.uT :
-				if (this.Nj == GameFramework.B.Vo)
+			case GameFramework.CurvedVal.uT :
+				if (this.Nj == GameFramework.CurvedVal.Vo)
 					return b - this.cc <= (this.Oc - this.cc) / 2 ? this.zd
 							+ (b - this.cc) / (this.Oc - this.cc)
 							* (this.bg - this.zd) * 2 : this.zd
@@ -2486,46 +2486,46 @@ GameFramework.B.prototype = {
 				else
 					return this.zd + (b - this.cc) / (this.Oc - this.cc)
 							* (this.bg - this.zd);
-			case GameFramework.B.v3 :
+			case GameFramework.CurvedVal.v3 :
 				return b = (b - this.cc) / (this.Oc - this.cc)
-						* GameFramework.B.PI / 2, this.Nj == GameFramework.B.Vo
-						&& (b *= 2), b > GameFramework.B.PI / 2
-						&& (b = GameFramework.B.PI - b), this.zd
+						* GameFramework.CurvedVal.PI / 2, this.Nj == GameFramework.CurvedVal.Vo
+						&& (b *= 2), b > GameFramework.CurvedVal.PI / 2
+						&& (b = GameFramework.CurvedVal.PI - b), this.zd
 						+ (1 - Math.cos(b)) * (this.bg - this.zd);
-			case GameFramework.B.t3 :
+			case GameFramework.CurvedVal.t3 :
 				return b = (b - this.cc) / (this.Oc - this.cc)
-						* GameFramework.B.PI / 2, this.Nj == GameFramework.B.Vo
+						* GameFramework.CurvedVal.PI / 2, this.Nj == GameFramework.CurvedVal.Vo
 						&& (b *= 2), this.zd + Math.sin(b)
 						* (this.bg - this.zd);
-			case GameFramework.B.u3 :
+			case GameFramework.CurvedVal.u3 :
 				return b = (b - this.cc) / (this.Oc - this.cc)
-						* GameFramework.B.PI, this.Nj == GameFramework.B.Vo
+						* GameFramework.CurvedVal.PI, this.Nj == GameFramework.CurvedVal.Vo
 						&& (b *= 2), this.zd + (-Math.cos(b) + 1) / 2
 						* (this.bg - this.zd);
-			case GameFramework.B.s3 :
+			case GameFramework.CurvedVal.s3 :
 				return b = (b - this.cc) / (this.Oc - this.cc)
-						* GameFramework.B.PI, this.Nj == GameFramework.B.Vo
-						&& (b *= 2), b > GameFramework.B.PI
-						&& (b = GameFramework.B.PI * 2 - b), b < GameFramework.B.PI
+						* GameFramework.CurvedVal.PI, this.Nj == GameFramework.CurvedVal.Vo
+						&& (b *= 2), b > GameFramework.CurvedVal.PI
+						&& (b = GameFramework.CurvedVal.PI * 2 - b), b < GameFramework.CurvedVal.PI
 						/ 2
 						? this.zd + Math.sin(b) / 2 * (this.bg - this.zd)
 						: this.zd + (2 - Math.sin(b)) / 2 * (this.bg - this.zd);
-			case GameFramework.B.HK :
+			case GameFramework.CurvedVal.HK :
 				this.dQ();
 				if (this.Ph == null)
 					return 0;
 				if (this.Oc - this.cc == 0)
 					return 0;
 				b = Math.min((b - this.cc) / (this.Oc - this.cc), 1);
-				this.Nj == GameFramework.B.Vo
+				this.Nj == GameFramework.CurvedVal.Vo
 						&& (b > 0.5 ? b = (1 - b) * 2 : b *= 2);
 				if (this.eu)
 					return b = this.zd + this.Ph.VB.iz(b) * (this.bg - this.zd), this.Lx
 							|| (b = this.zd < this.bg ? Math.min(Math.max(b,
 											this.zd), this.bg) : Math.max(Math
 											.min(b, this.zd), this.bg)), b;
-				var c = b * (GameFramework.B.WI - 1), b = c | 0;
-				if (b == GameFramework.B.WI - 1)
+				var c = b * (GameFramework.CurvedVal.WI - 1), b = c | 0;
+				if (b == GameFramework.CurvedVal.WI - 1)
 					return this.zd + this.Ph.dD[b] * (this.bg - this.zd);
 				c -= b;
 				return this.zd
@@ -2550,11 +2550,11 @@ GameFramework.B.prototype = {
 								+ ((this.wt != null
 										? this.wt.aa
 										: GameFramework.BaseApp.M.aa) - this.zx)
-								* this.Ye * GameFramework.BaseApp.M.Le / 10, b = this.Nj == GameFramework.B.Uz
-								|| this.Nj == GameFramework.B.Vo
+								* this.Ye * GameFramework.BaseApp.M.Le / 10, b = this.Nj == GameFramework.CurvedVal.Uz
+								|| this.Nj == GameFramework.CurvedVal.Vo
 								? (b - this.cc) % (this.Oc - this.cc) + this.cc
 								: Math.min(b, this.Oc));
-		return this.Nj == GameFramework.B.Vo
+		return this.Nj == GameFramework.CurvedVal.Vo
 				? (b = (b - this.cc) / (this.Oc - this.cc), b > 0.5 ? this.cc
 						+ (1 - b) * 2 * (this.Oc - this.cc) : this.cc + b * 2
 						* (this.Oc - this.cc))
@@ -2601,7 +2601,7 @@ GameFramework.B.prototype = {
 		this.Vm = false
 	},
 	wg : function() {
-		return this.pv() != this.Oc && this.Lr != GameFramework.B.VE
+		return this.pv() != this.Oc && this.Lr != GameFramework.CurvedVal.VE
 	},
 	To : function(b) {
 		this.j2(b, 0.01, false)
@@ -2623,34 +2623,34 @@ GameFramework.B.prototype = {
 		return k
 	}
 };
-GameFramework.B.c = function() {
-	GameFramework.B.WI = 256;
-	GameFramework.B.PI = 3.14159;
-	GameFramework.B.US = 0;
-	GameFramework.B.Uz = 1;
-	GameFramework.B.Vo = 2;
-	GameFramework.B.VE = 0;
-	GameFramework.B.uT = 1;
-	GameFramework.B.v3 = 2;
-	GameFramework.B.t3 = 3;
-	GameFramework.B.u3 = 4;
-	GameFramework.B.s3 = 5;
-	GameFramework.B.HK = 6;
-	GameFramework.B.m_ = 1;
-	GameFramework.B.o_ = 2;
-	GameFramework.B.n_ = 4;
-	GameFramework.B.l_ = 8;
-	GameFramework.B.k_ = 16;
-	GameFramework.B.T8 = null;
-	GameFramework.B.ara = null;
-	GameFramework.B.lW = 0;
-	GameFramework.B.pW = {}
+GameFramework.CurvedVal.c = function() {
+	GameFramework.CurvedVal.WI = 256;
+	GameFramework.CurvedVal.PI = 3.14159;
+	GameFramework.CurvedVal.US = 0;
+	GameFramework.CurvedVal.Uz = 1;
+	GameFramework.CurvedVal.Vo = 2;
+	GameFramework.CurvedVal.VE = 0;
+	GameFramework.CurvedVal.uT = 1;
+	GameFramework.CurvedVal.v3 = 2;
+	GameFramework.CurvedVal.t3 = 3;
+	GameFramework.CurvedVal.u3 = 4;
+	GameFramework.CurvedVal.s3 = 5;
+	GameFramework.CurvedVal.HK = 6;
+	GameFramework.CurvedVal.m_ = 1;
+	GameFramework.CurvedVal.o_ = 2;
+	GameFramework.CurvedVal.n_ = 4;
+	GameFramework.CurvedVal.l_ = 8;
+	GameFramework.CurvedVal.k_ = 16;
+	GameFramework.CurvedVal.T8 = null;
+	GameFramework.CurvedVal.ara = null;
+	GameFramework.CurvedVal.lW = 0;
+	GameFramework.CurvedVal.pW = {}
 };
 T(function() {
-			GameFramework.B.u("GameFramework.CurvedVal", null)
+			GameFramework.CurvedVal.u("GameFramework.CurvedVal", null)
 		});
 U(function() {
-			GameFramework.B.c()
+			GameFramework.CurvedVal.c()
 		});
 GameFramework.ck = function() {
 	this.nd = GameFramework.BaseApp.M.uQ()
@@ -14213,9 +14213,9 @@ U(function() {
 Game = Type.ci("Game");
 Game.Announcement = function(b, c) {
 	this.qa = new GameFramework.geom.ba(0, 0);
-	this.L = new GameFramework.B;
-	this.m = new GameFramework.B;
-	this.xx = new GameFramework.B;
+	this.L = new GameFramework.CurvedVal;
+	this.m = new GameFramework.CurvedVal;
+	this.xx = new GameFramework.CurvedVal;
 	this.e = b;
 	if (this.e != null
 			&& (this.qa = new GameFramework.geom.ba(this.e.Se(), 500), !this.e.GB))
@@ -14296,9 +14296,9 @@ U(function() {
 		});
 Game.Background = function() {
 	this.hf = null;
-	this.qI = new GameFramework.B;
-	this.yp = new GameFramework.B;
-	this.JW = new GameFramework.B;
+	this.qI = new GameFramework.CurvedVal;
+	this.yp = new GameFramework.CurvedVal;
+	this.JW = new GameFramework.CurvedVal;
 	E(Game.Background, this);
 	this.Hk = false;
 	this.yp.Aa(1);
@@ -14551,8 +14551,8 @@ U(function() {
 			Game.Wu.c()
 		});
 Game.Qc = function(b, c, d, f, g, h, j, k) {
-	this.m = new GameFramework.B;
-	this.L = new GameFramework.B;
+	this.m = new GameFramework.CurvedVal;
+	this.L = new GameFramework.CurvedVal;
 	this.B8 = [];
 	E(Game.Qc, this, [b, c, f, g, h, j, k]);
 	this.PM = d;
@@ -14605,7 +14605,7 @@ Game.Qc.prototype = {
 		this.QH = this.s / 2;
 		this.MO = this.z / 2;
 		this.L.$a();
-		!this.m.$a() && this.m.Lr != GameFramework.B.uT
+		!this.m.$a() && this.m.Lr != GameFramework.CurvedVal.uT
 				&& (this.m.V() == 0 ? Game.BejApp.q.te.PS(this.PM) : this.m.V())
 	},
 	Te : function() {
@@ -15199,7 +15199,7 @@ Game.BejApp.prototype = {
 		this.e != null && this.Bi.h5(this.e.Ge.V0());
 		this.Bi.ec = true;
 		this.Bi.l3();
-		var b = new GameFramework.B;
+		var b = new GameFramework.CurvedVal;
 		b.vj("BejApp_cs_11_21_11__05_46_54_679");
 		Game.BejApp.q.kA(Game.a.QT, b)
 	},
@@ -15356,8 +15356,8 @@ U(function() {
 Game.SwapData = function() {
 	this.rc = this.Xb = null;
 	this.Wj = new GameFramework.geom.ic(0, 0);
-	this.Ek = new GameFramework.B;
-	this.qx = new GameFramework.B
+	this.Ek = new GameFramework.CurvedVal;
+	this.qx = new GameFramework.CurvedVal
 };
 Game.SwapData.prototype = {
 	Xb : null,
@@ -15490,8 +15490,8 @@ U(function() {
 			Game.Bz.c()
 		});
 Game.Mv = function(b, c, d, f, g, h, j, k) {
-	this.$X = new GameFramework.B;
-	this.ZX = new GameFramework.B;
+	this.$X = new GameFramework.CurvedVal;
+	this.ZX = new GameFramework.CurvedVal;
 	this.Z = Array.O(2, null, [], []);
 	this.e = b;
 	this.ce = false;
@@ -15645,11 +15645,11 @@ Game.LightningStorm = function(b, c, d) {
 	this.Fp = [];
 	this.Rp = [];
 	this.HB = [];
-	this.zH = new GameFramework.B;
-	this.rC = new GameFramework.B;
-	this.tC = new GameFramework.B;
-	this.sC = new GameFramework.B;
-	this.tX = new GameFramework.B;
+	this.zH = new GameFramework.CurvedVal;
+	this.rC = new GameFramework.CurvedVal;
+	this.tC = new GameFramework.CurvedVal;
+	this.sC = new GameFramework.CurvedVal;
+	this.tX = new GameFramework.CurvedVal;
 	this.e = b;
 	this.aa = 0;
 	this.lN = this.v8 = 1;
@@ -16104,62 +16104,62 @@ Game.Board = function() {
 	this.f7 = [];
 	this.At = Array.O(2, null);
 	this.Qd = [];
-	this.gC = new GameFramework.B;
-	this.ly = new GameFramework.B;
-	this.m9 = new GameFramework.B;
-	this.l9 = new GameFramework.B;
-	this.zu = new GameFramework.B;
-	this.PG = new GameFramework.B;
+	this.gC = new GameFramework.CurvedVal;
+	this.ly = new GameFramework.CurvedVal;
+	this.m9 = new GameFramework.CurvedVal;
+	this.l9 = new GameFramework.CurvedVal;
+	this.zu = new GameFramework.CurvedVal;
+	this.PG = new GameFramework.CurvedVal;
 	this.cN = [];
 	this.yH = [];
-	this.Up = new GameFramework.B;
+	this.Up = new GameFramework.CurvedVal;
 	this.Pm = Array.O(2, null);
-	this.$C = new GameFramework.B;
-	this.Om = new GameFramework.B;
-	this.Zw = new GameFramework.B;
+	this.$C = new GameFramework.CurvedVal;
+	this.Om = new GameFramework.CurvedVal;
+	this.Zw = new GameFramework.CurvedVal;
 	this.fB = Array.Sd(64, 2, 0);
 	this.D6 = Array.Sd(64, 2, 0);
 	this.C6 = Array.Sd(64, 2, 0);
 	this.E6 = Array.O(64, 0);
-	this.FC = new GameFramework.B;
+	this.FC = new GameFramework.CurvedVal;
 	this.ny = new GameFramework.geom.ba;
-	this.Ze = new GameFramework.B;
-	this.Jr = new GameFramework.B;
-	this.Tx = new GameFramework.B;
-	this.Sx = new GameFramework.B;
-	this.GH = new GameFramework.B;
-	this.zC = new GameFramework.B;
-	this.Zr = new GameFramework.B;
-	this.Yr = new GameFramework.B;
+	this.Ze = new GameFramework.CurvedVal;
+	this.Jr = new GameFramework.CurvedVal;
+	this.Tx = new GameFramework.CurvedVal;
+	this.Sx = new GameFramework.CurvedVal;
+	this.GH = new GameFramework.CurvedVal;
+	this.zC = new GameFramework.CurvedVal;
+	this.Zr = new GameFramework.CurvedVal;
+	this.Yr = new GameFramework.CurvedVal;
 	this.BC = [];
-	this.MB = new GameFramework.B;
-	this.St = new GameFramework.B;
-	this.UG = new GameFramework.B;
-	this.qB = new GameFramework.B;
-	this.CM = new GameFramework.B;
-	this.oG = new GameFramework.B;
-	this.$w = new GameFramework.B;
-	this.sG = new GameFramework.B;
+	this.MB = new GameFramework.CurvedVal;
+	this.St = new GameFramework.CurvedVal;
+	this.UG = new GameFramework.CurvedVal;
+	this.qB = new GameFramework.CurvedVal;
+	this.CM = new GameFramework.CurvedVal;
+	this.oG = new GameFramework.CurvedVal;
+	this.$w = new GameFramework.CurvedVal;
+	this.sG = new GameFramework.CurvedVal;
 	this.wi = [];
-	this.pI = new GameFramework.B;
-	this.Fu = new GameFramework.B;
-	this.L = new GameFramework.B;
-	this.m = new GameFramework.B;
-	this.to = new GameFramework.B;
-	this.so = new GameFramework.B;
-	this.we = new GameFramework.B;
-	this.vM = new GameFramework.B;
-	this.X8 = new GameFramework.B;
-	this.g7 = new GameFramework.B;
-	this.Cm = new GameFramework.B;
-	this.sC = new GameFramework.B;
-	this.mO = new GameFramework.B;
-	this.rC = new GameFramework.B;
-	this.TW = new GameFramework.B;
-	this.SW = new GameFramework.B;
+	this.pI = new GameFramework.CurvedVal;
+	this.Fu = new GameFramework.CurvedVal;
+	this.L = new GameFramework.CurvedVal;
+	this.m = new GameFramework.CurvedVal;
+	this.to = new GameFramework.CurvedVal;
+	this.so = new GameFramework.CurvedVal;
+	this.we = new GameFramework.CurvedVal;
+	this.vM = new GameFramework.CurvedVal;
+	this.X8 = new GameFramework.CurvedVal;
+	this.g7 = new GameFramework.CurvedVal;
+	this.Cm = new GameFramework.CurvedVal;
+	this.sC = new GameFramework.CurvedVal;
+	this.mO = new GameFramework.CurvedVal;
+	this.rC = new GameFramework.CurvedVal;
+	this.TW = new GameFramework.CurvedVal;
+	this.SW = new GameFramework.CurvedVal;
 	this.Ft = [];
-	this.S8 = new GameFramework.B;
-	this.R8 = new GameFramework.B;
+	this.S8 = new GameFramework.CurvedVal;
+	this.R8 = new GameFramework.CurvedVal;
 	this.H7 = [];
 	this.I7 = [];
 	this.zj = [];
@@ -17258,7 +17258,7 @@ Game.Board.prototype = {
 	},
 	sU : function(b) {
 		b.gM.ea("b390,-90,0.005,1,~         ~#");
-		b.gM.jL(GameFramework.B.Uz);
+		b.gM.jL(GameFramework.CurvedVal.Uz);
 		var c = new Game.tj(Game.a.PIEFFECT_MULTIPLIER);
 		c.qd = b.xa;
 		c.lr = true;
@@ -21034,7 +21034,7 @@ Game.ClassicBoard.prototype = {
 	dE : x("Classic"),
 	Ub : function() {
 		Game.Board.prototype.Ub.apply(this);
-		var b = new GameFramework.B;
+		var b = new GameFramework.CurvedVal;
 		b.vj("ClassicBoard_cs_11_21_11__05_39_07_684");
 		Game.BejApp.q.kA(Game.a.U3, b)
 	},
@@ -21355,13 +21355,13 @@ U(function() {
 Game.kd = function(b, c) {
 	this.Oa = null;
 	this.$B = new GameFramework.qt(0, 0, 0, 0);
-	this.Tc = new GameFramework.B;
-	this.m = new GameFramework.B;
+	this.Tc = new GameFramework.CurvedVal;
+	this.m = new GameFramework.CurvedVal;
 	this.de = new GameFramework.geom.ba;
-	this.nD = new GameFramework.B;
-	this.oD = new GameFramework.B;
-	this.u8 = new GameFramework.B;
-	this.Z8 = new GameFramework.B;
+	this.nD = new GameFramework.CurvedVal;
+	this.oD = new GameFramework.CurvedVal;
+	this.u8 = new GameFramework.CurvedVal;
+	this.Z8 = new GameFramework.CurvedVal;
 	this.EB = Array.O(Game.kd.Yo, null);
 	this.eD = Array.O(Game.kd.Yo, null);
 	this.YF = Array.O(Game.kd.Yo, null);
@@ -21386,10 +21386,10 @@ Game.kd = function(b, c) {
 	this.Mr.tm = true;
 	this.O7 = GameFramework.gfx.k.Ma(128, 0, 64, 160);
 	this.nD.ea("b;-3,3,0.003333,1,####     $~###    }####");
-	this.nD.jL(GameFramework.B.Uz);
+	this.nD.jL(GameFramework.CurvedVal.Uz);
 	this.nD.zx = GameFramework.Utils.Sk() % 100;
 	this.oD.ea("b;-3,3,0.005,1,####     $~###    }####");
-	this.oD.jL(GameFramework.B.Uz);
+	this.oD.jL(GameFramework.CurvedVal.Uz);
 	this.oD.zx = GameFramework.Utils.Sk() % 100
 };
 Game.kd.prototype = {
@@ -21548,7 +21548,7 @@ Game.kd.prototype = {
 			}
 			b.Ab();
 			b.Ab();
-			g = new GameFramework.B;
+			g = new GameFramework.CurvedVal;
 			g.ea("b+1,1.3,0,1,####         ~~###");
 			c *= g.Ks(this.nC) * 4 + this.GW;
 			g = (1 - this.Tc.V() * 2) * this.gI;
@@ -21649,7 +21649,7 @@ U(function() {
 Game.Nk = function() {
 	this.se = [];
 	this.BB = {};
-	this.Ht = GameFramework.B.qs(0);
+	this.Ht = GameFramework.CurvedVal.qs(0);
 	E(Game.Nk, this);
 	S(Game.Nk.te == null);
 	Game.Nk.te = this
@@ -21989,8 +21989,8 @@ Game.XA = function() {
 	this.ZM = 200;
 	this.U = Game.a.FONT_HUGE;
 	this.Ic = 0;
-	this.qJ = (new GameFramework.B).ea("b+0,1.3,0,0.2,#6g<     8~###    ii###");
-	this.rJ = (new GameFramework.B).ea("b+0,1,0,0.2,~###         ~#>Hu")
+	this.qJ = (new GameFramework.CurvedVal).ea("b+0,1.3,0,0.2,#6g<     8~###    ii###");
+	this.rJ = (new GameFramework.CurvedVal).ea("b+0,1,0,0.2,~###         ~#>Hu")
 };
 Game.XA.prototype = {
 	Re : null,
@@ -22606,12 +22606,12 @@ U(function() {
 Game.Xc = function(b) {
 	this.We = {};
 	this.zc = [];
-	this.uB = new GameFramework.B;
+	this.uB = new GameFramework.CurvedVal;
 	this.od = Array.O(Game.f.T.Zc | 0, 0);
 	this.Qd = [];
-	this.Jd = new GameFramework.B;
-	this.ho = new GameFramework.B;
-	this.E8 = new GameFramework.B;
+	this.Jd = new GameFramework.CurvedVal;
+	this.ho = new GameFramework.CurvedVal;
+	this.E8 = new GameFramework.CurvedVal;
 	E(Game.Xc, this, [null, null, Game.f.mb.uJ, true, "", "", "", 0]);
 	this.e = b;
 	this.e.Qd.length = this.e.Qd.length;
@@ -26678,7 +26678,7 @@ U(function() {
 Game.vq = function(b, c, d, f, g) {
 	f === UNDEF && (f = true);
 	g === UNDEF && (g = true);
-	this.Lp = GameFramework.B.qs(0);
+	this.Lp = GameFramework.CurvedVal.qs(0);
 	this.wo = Game.f.Xa.NONE;
 	E(Game.vq, this, [
 					f
@@ -27031,14 +27031,14 @@ Game.N = function(b) {
 	this.kf = new Game.Ny;
 	this.px = [];
 	this.si = new GameFramework.gfx.Hq;
-	this.kB = new GameFramework.B;
-	this.Ay = new GameFramework.B;
-	this.Kp = new GameFramework.B;
-	this.wu = new GameFramework.B;
-	this.hs = new GameFramework.B;
-	this.pu = new GameFramework.B;
-	this.oY = new GameFramework.B;
-	this.Qp = new GameFramework.B;
+	this.kB = new GameFramework.CurvedVal;
+	this.Ay = new GameFramework.CurvedVal;
+	this.Kp = new GameFramework.CurvedVal;
+	this.wu = new GameFramework.CurvedVal;
+	this.hs = new GameFramework.CurvedVal;
+	this.pu = new GameFramework.CurvedVal;
+	this.oY = new GameFramework.CurvedVal;
+	this.Qp = new GameFramework.CurvedVal;
 	this.np = new GameFramework.geom.qb;
 	E(Game.N, this);
 	this.ae = Game.BejApp.q.AN[0];
@@ -27779,10 +27779,10 @@ T(function() {
 			Game.N.ya.c()
 		});
 Game.yv = function(b) {
-	this.sl = new GameFramework.B;
-	this.fP = new GameFramework.B;
-	this.oM = new GameFramework.B;
-	this.AO = new GameFramework.B;
+	this.sl = new GameFramework.CurvedVal;
+	this.fP = new GameFramework.CurvedVal;
+	this.oM = new GameFramework.CurvedVal;
+	this.AO = new GameFramework.CurvedVal;
 	E(Game.yv, this);
 	this.e = this.e = b;
 	this.KB = new Game.kd("", 0);
@@ -27947,7 +27947,7 @@ U(function() {
 			Game.TE.c()
 		});
 Game.ev = function() {
-	this.eM = GameFramework.B.qs(1);
+	this.eM = GameFramework.CurvedVal.qs(1);
 	E(Game.ev, this)
 };
 Game.ev.prototype = {
@@ -27982,7 +27982,7 @@ U(function() {
 			Game.mv.c()
 		});
 Game.WA = function(b, c) {
-	this.LO = new GameFramework.B;
+	this.LO = new GameFramework.CurvedVal;
 	E(Game.WA, this, [c]);
 	this.U = Game.a.FONT_MENU_BTN;
 	this.LO.Aa(1);
@@ -28041,22 +28041,22 @@ Game.mc = function() {
 	this.Qx = [];
 	this.xd = new GameFramework.gfx.Hq;
 	this.Fn = new GameFramework.gfx.Hq;
-	this.Kg = new GameFramework.B;
-	this.yM = new GameFramework.B;
-	this.PW = new GameFramework.B;
-	this.lB = new GameFramework.B;
-	this.nM = new GameFramework.B;
-	this.kC = new GameFramework.B;
-	this.Gx = new GameFramework.B;
-	this.qN = new GameFramework.B;
-	this.JM = new GameFramework.B;
-	this.Xp = new GameFramework.B;
-	this.Mp = new GameFramework.B;
-	this.lI = new GameFramework.B;
+	this.Kg = new GameFramework.CurvedVal;
+	this.yM = new GameFramework.CurvedVal;
+	this.PW = new GameFramework.CurvedVal;
+	this.lB = new GameFramework.CurvedVal;
+	this.nM = new GameFramework.CurvedVal;
+	this.kC = new GameFramework.CurvedVal;
+	this.Gx = new GameFramework.CurvedVal;
+	this.qN = new GameFramework.CurvedVal;
+	this.JM = new GameFramework.CurvedVal;
+	this.Xp = new GameFramework.CurvedVal;
+	this.Mp = new GameFramework.CurvedVal;
+	this.lI = new GameFramework.CurvedVal;
 	this.We = [];
-	this.ru = GameFramework.B.qs(0);
-	this.Vt = GameFramework.B.qs(0);
-	this.Z_ = new GameFramework.B("b;0,1,0.01,5,####  ,####K~###      ^~###m####");
+	this.ru = GameFramework.CurvedVal.qs(0);
+	this.Vt = GameFramework.CurvedVal.qs(0);
+	this.Z_ = new GameFramework.CurvedVal("b;0,1,0.01,5,####  ,####K~###      ^~###m####");
 	E(Game.mc, this);
 	Game.BejApp.q.Ka.A2();
 	this.xH = true;
@@ -29156,18 +29156,18 @@ T(function() {
 			Game.ph.cn.c()
 		});
 Game.J = function(b) {
-	this.m = new GameFramework.B;
-	this.L = new GameFramework.B;
-	this.Gi = new GameFramework.B;
-	this.Dj = new GameFramework.B;
-	this.vx = new GameFramework.B;
-	this.XB = new GameFramework.B;
-	this.$W = new GameFramework.B;
-	this.ZW = new GameFramework.B;
-	this.xN = new GameFramework.B;
-	this.JX = new GameFramework.B;
-	this.IX = new GameFramework.B;
-	this.gM = new GameFramework.B;
+	this.m = new GameFramework.CurvedVal;
+	this.L = new GameFramework.CurvedVal;
+	this.Gi = new GameFramework.CurvedVal;
+	this.Dj = new GameFramework.CurvedVal;
+	this.vx = new GameFramework.CurvedVal;
+	this.XB = new GameFramework.CurvedVal;
+	this.$W = new GameFramework.CurvedVal;
+	this.ZW = new GameFramework.CurvedVal;
+	this.xN = new GameFramework.CurvedVal;
+	this.JX = new GameFramework.CurvedVal;
+	this.IX = new GameFramework.CurvedVal;
+	this.gM = new GameFramework.CurvedVal;
 	this.Sf = [];
 	this.e = b;
 	this.Ub(this.e.lO++)
@@ -29294,7 +29294,7 @@ Game.J.prototype = {
 		this.e.qZ(this.xa, this)
 	},
 	t2 : function() {
-		return this.m.Lr == GameFramework.B.HK
+		return this.m.Lr == GameFramework.CurvedVal.HK
 	},
 	gK : function() {
 		return this.Y(Game.J.K.Nl) || this.Y(Game.J.K.rn)
@@ -29986,7 +29986,7 @@ U(function() {
 			GameDll.hw.c()
 		});
 Game.Lq = function(b, c, d, f) {
-	this.$x = new GameFramework.B;
+	this.$x = new GameFramework.CurvedVal;
 	E(Game.Lq, this);
 	this.e = c;
 	this.FO = d;
@@ -30123,7 +30123,7 @@ U(function() {
 			Game.Lq.c()
 		});
 Game.uA = function(b) {
-	this.KC = new GameFramework.B;
+	this.KC = new GameFramework.CurvedVal;
 	E(Game.uA, this, [null, Game.a.IMAGE_DIALOG_BUTTON, Game.f.mb.w3, true,
 					"RANK UP", "", "", GameFramework.widgets.rb.Zp]);
 	this.e = b;
@@ -30164,11 +30164,11 @@ Game.uA.prototype = {
 							.ib("GLOW"), Game.a.FONT_GAMEOVER_DIALOG
 							.ib("OUTLINE"));
 			g -= 260;
-			var j = new GameFramework.B;
+			var j = new GameFramework.CurvedVal;
 			j.me("b+1,1.5,0,1,####   P~###      P####", this.KC);
-			var k = new GameFramework.B;
+			var k = new GameFramework.CurvedVal;
 			k.me("b#1,2,0,1,#         ~~", this.KC);
-			var l = new GameFramework.B;
+			var l = new GameFramework.CurvedVal;
 			l.me("b+0,1,0,1,####     $~###    }####", this.KC);
 			b.kb(Game.a.FONT_RANKUP_NAME);
 			var m = b.nc(j.V(), j.V(), f, g - 20);
@@ -31780,7 +31780,7 @@ U(function() {
 			Game.a.c()
 		});
 Game.iw = function() {
-	this.qp = new GameFramework.B;
+	this.qp = new GameFramework.CurvedVal;
 	this.qH = this.bD = 0
 };
 Game.iw.prototype = {
@@ -31790,7 +31790,7 @@ Game.iw.prototype = {
 	Ub : function(b) {
 		this.qH = this.bD = 0;
 		this.qp.ea(b);
-		b = new GameFramework.B;
+		b = new GameFramework.CurvedVal;
 		b.vj("SpeedBoard_cs_11_21_11__05_51_47_583");
 		Game.BejApp.q.kA(Game.a.W3, b)
 	},
@@ -31817,10 +31817,10 @@ U(function() {
 Game.SpeedBoard = function(b) {
 	this.Zq = new Game.iw;
 	this.Yq = new Game.iw;
-	this.Bj = new GameFramework.B;
-	this.rG = new GameFramework.B;
-	this.jI = new GameFramework.B;
-	this.$n = new GameFramework.B;
+	this.Bj = new GameFramework.CurvedVal;
+	this.rG = new GameFramework.CurvedVal;
+	this.jI = new GameFramework.CurvedVal;
+	this.$n = new GameFramework.CurvedVal;
 	E(Game.SpeedBoard, this, [b]);
 	this.OO = true;
 	this.Ux = new GameFramework.geom.ba(0, 50);
@@ -31989,7 +31989,7 @@ Game.SpeedBoard.prototype = {
 		c.rk = 602;
 		c.sk = 180;
 		c.Fj = 890;
-		c.Pr = new GameFramework.B;
+		c.Pr = new GameFramework.CurvedVal;
 		c.Pr.vj("SpeedBoard_cs_11_15_11__17_35_36_339");
 		c.hm = Game.TutorialStep.Wc.$E;
 		c.cr = 1500;
@@ -32146,7 +32146,7 @@ Game.SpeedBoard.prototype = {
 								.UJ(Game.f.Xa.eF)
 								? this.HQ()
 								: (c = new Game.TutorialStep, c.Fb = Game.TutorialStep.hg.KE, c.Fk = "Bonus Round", c.Re = "If you have Bonus Time stored, you'll get a ^007700^BONUS ROUND^oldclr^ when time runs out.\n\nEach ^007700^BONUS ROUND^oldclr^ ups your multiplier by 1!", c.Fh = Game.f.Xa.eF, c.zt = Game.TutorialStep.Pg.pT, c.Sw = 100, c.rM = 120, c.Il = Game.TutorialStep.Qg.bT, c.vl = new GameFramework.ne(
-										490, 0, 1100, 150), c.rk = 602, c.sk = 180, c.Fj = 680, c.Pr = new GameFramework.B, c.Pr
+										490, 0, 1100, 150), c.rk = 602, c.sk = 180, c.Fj = 680, c.Pr = new GameFramework.CurvedVal, c.Pr
 										.vj("SpeedBoard_cs_11_15_11__17_35_36_339"), c.hm = Game.TutorialStep.Wc.Cq, c.cr = 280, c.dr = 300, c.re = 15, c.jl = true, b
 										.Yd(c)))
 						: this.HQ();
@@ -32158,7 +32158,7 @@ Game.SpeedBoard.prototype = {
 					this.TX = this.Z;
 					this.rG.ea("b;0,1,0.05,1,~###         ~####");
 					this.yF("death", 15);
-					var d = new GameFramework.B;
+					var d = new GameFramework.CurvedVal;
 					d.vj("SpeedBoard_cs_11_21_11__05_58_39_924");
 					Game.BejApp.q.kA(Game.a.V3, d, false);
 					Game.fb.Play(Game.a.SOUND_BOMB_EXPLODE);
@@ -32683,8 +32683,8 @@ U(function() {
 			Game.ElectroBolt.c()
 		});
 Game.xw = function(b) {
-	this.Aj = new GameFramework.B;
-	this.Lm = new GameFramework.B;
+	this.Aj = new GameFramework.CurvedVal;
+	this.Lm = new GameFramework.CurvedVal;
 	E(Game.xw, this, [Game.R.da.yL]);
 	this.qd = b.xa;
 	this.Kj = b.n;
@@ -32773,8 +32773,8 @@ U(function() {
 			Game.xw.c()
 		});
 Game.TimeBonusEffect = function(b) {
-	this.Aj = new GameFramework.B;
-	this.Lm = new GameFramework.B;
+	this.Aj = new GameFramework.CurvedVal;
+	this.Lm = new GameFramework.CurvedVal;
 	E(Game.TimeBonusEffect, this, [Game.R.da.Yg]);
 	this.sm = [];
 	this.qd = b.xa;
@@ -33181,9 +33181,9 @@ U(function() {
 		});
 Game.SpeedCollectEffect = function(b, c, d, f, g) {
 	this.Hi = new GameFramework.W.Vu;
-	this.Ii = new GameFramework.B;
-	this.jp = new GameFramework.B;
-	this.su = new GameFramework.B;
+	this.Ii = new GameFramework.CurvedVal;
+	this.jp = new GameFramework.CurvedVal;
+	this.su = new GameFramework.CurvedVal;
 	this.Lg = new GameFramework.geom.ic;
 	this.qy = new GameFramework.geom.ic;
 	this.co = new GameFramework.geom.ic;
@@ -33585,8 +33585,8 @@ U(function() {
 Game.TooltipManager = function() {
 	this.oW = new GameFramework.geom.ba(0, 0);
 	this.uy = [];
-	this.L = new GameFramework.B;
-	this.MV = new GameFramework.B;
+	this.L = new GameFramework.CurvedVal;
+	this.MV = new GameFramework.CurvedVal;
 	E(Game.TooltipManager, this);
 	this.L.ea("b+0,1,0.01,1,####         ~~###");
 	this.MV.Aa(-16)
@@ -33690,9 +33690,9 @@ T(function() {
 		});
 Game.TutorialStep = function() {
 	this.Fb = Game.TutorialStep.hg.KE;
-	this.hB = GameFramework.B.qs(0);
+	this.hB = GameFramework.CurvedVal.qs(0);
 	this.iP = [];
-	this.ur = GameFramework.B.qs(0);
+	this.ur = GameFramework.CurvedVal.qs(0);
 	this.jm = this.Pr = this.DG = this.vl = null;
 	this.hm = Game.TutorialStep.Wc.jk;
 	this.Fh = Game.f.Xa.Zc;
