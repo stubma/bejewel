@@ -1322,9 +1322,9 @@ ss.StringBuilder.prototype = {
 	}
 };
 ss.StringBuilder.u("StringBuilder");
-ss.jv = t();
-ss.jv.u("EventArgs");
-ss.jv.a0 = new ss.jv;
+ss.EventArgs = t();
+ss.EventArgs.u("EventArgs");
+ss.EventArgs.a0 = new ss.EventArgs;
 if (!window.XMLHttpRequest)
 	window.XMLHttpRequest = function() {
 		for (var b = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"], c = 0; c < b.length; c++)
@@ -1359,7 +1359,7 @@ ss.ZI = function() {
 	this.oqa = false
 };
 ss.ZI.prototype = {};
-ss.ZI.u("CancelEventArgs", ss.jv);
+ss.ZI.u("CancelEventArgs", ss.EventArgs);
 ss.DS = t();
 ss.DS.prototype = {};
 Ba(ss.DS, "INotifyPropertyChanged");
@@ -1368,7 +1368,7 @@ ss.GK = function(b) {
 	this.qqa = b
 };
 ss.GK.prototype = {};
-ss.GK.u("PropertyChangedEventArgs", ss.jv);
+ss.GK.u("PropertyChangedEventArgs", ss.EventArgs);
 ss.CS = t();
 ss.CS.prototype = {};
 Ba(ss.CS, "INotifyCollectionChanged");
@@ -1390,7 +1390,7 @@ ss.dJ = function(b, c, d) {
 	this.HF = d || -1
 };
 ss.dJ.prototype = {};
-ss.dJ.u("CollectionChangedEventArgs", ss.jv);
+ss.dJ.u("CollectionChangedEventArgs", ss.EventArgs);
 function Ha(b, c, d, f, g, h, j, k, l) {
 	var m = document.getElementById("ScratchCanvas").getContext("2d"), o = 256;
 	h && j && (o = 128);
