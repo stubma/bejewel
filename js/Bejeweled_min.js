@@ -2037,7 +2037,7 @@ U(function() {
 GameFramework.BaseApp = function() {
 	this.u7 = {};
 	this.Bb = null;
-	this.GG = new GameFramework.events.Qk;
+	this.GG = new GameFramework.events.EventDispatcher;
 	this.XM = Array.O(100, 0);
 	this.K7 = [];
 	this.M7 = {};
@@ -2203,7 +2203,7 @@ GameFramework.BaseApp.prototype = {
 		this.BG != null && this.BG.ca();
 		this.AY != null && this.AY.ca();
 		this.tr != null && this.tr.ca();
-		this.ld(new GameFramework.events.Mc("update"))
+		this.ld(new GameFramework.events.Event("update"))
 	},
 	ja : function() {
 		this.Bb != null && this.Bb.ja(10);
@@ -3647,7 +3647,7 @@ GameFramework.Gw.Gy.prototype = {};
 GameFramework.Gw.Gy.c = t();
 T(function() {
 			GameFramework.Gw.Gy.u("GameFramework.ads.AdAPIEvent",
-					GameFramework.events.Mc)
+					GameFramework.events.Event)
 		});
 U(function() {
 			GameFramework.Gw.Gy.c()
@@ -3684,7 +3684,7 @@ GameFramework.connected.ef.c = function() {
 T(function() {
 			GameFramework.connected.ef.u(
 					"GameFramework.connected.ConnectedRequest",
-					GameFramework.events.Qk)
+					GameFramework.events.EventDispatcher)
 		});
 U(function() {
 			GameFramework.connected.ef.c()
@@ -3800,29 +3800,29 @@ U(function() {
 			GameFramework.connected.AF.c()
 		});
 GameFramework.events = Type.ci("GameFramework.events");
-GameFramework.events.Mc = w("type");
-GameFramework.events.Mc.prototype = {
+GameFramework.events.Event = w("type");
+GameFramework.events.Event.prototype = {
 	type : null,
 	text : null,
 	target : null
 };
-GameFramework.events.Mc.c = function() {
-	GameFramework.events.Mc.kba = "cancel";
-	GameFramework.events.Mc.lba = "change";
-	GameFramework.events.Mc.hh = "complete";
-	GameFramework.events.Mc.Wba = "enterFrame";
-	GameFramework.events.Mc.Zba = "exitFrame"
+GameFramework.events.Event.c = function() {
+	GameFramework.events.Event.kba = "cancel";
+	GameFramework.events.Event.lba = "change";
+	GameFramework.events.Event.hh = "complete";
+	GameFramework.events.Event.Wba = "enterFrame";
+	GameFramework.events.Event.Zba = "exitFrame"
 };
 T(function() {
-			GameFramework.events.Mc.u("GameFramework.events.Event", null)
+			GameFramework.events.Event.u("GameFramework.events.Event", null)
 		});
 U(function() {
-			GameFramework.events.Mc.c()
+			GameFramework.events.Event.c()
 		});
-GameFramework.events.Qk = function() {
+GameFramework.events.EventDispatcher = function() {
 	this.Hp = {}
 };
-GameFramework.events.Qk.prototype = {
+GameFramework.events.EventDispatcher.prototype = {
 	Hp : null,
 	Ra : function(b, c) {
 		this.Hp.hasOwnProperty(b) || (this.Hp[b] = []);
@@ -3840,13 +3840,13 @@ GameFramework.events.Qk.prototype = {
 		this.Hp = null
 	}
 };
-GameFramework.events.Qk.c = t();
+GameFramework.events.EventDispatcher.c = t();
 T(function() {
-			GameFramework.events.Qk.u("GameFramework.events.EventDispatcher", null,
+			GameFramework.events.EventDispatcher.u("GameFramework.events.EventDispatcher", null,
 					System.Wl)
 		});
 U(function() {
-			GameFramework.events.Qk.c()
+			GameFramework.events.EventDispatcher.c()
 		});
 GameFramework.events.Sg = function(b) {
 	E(GameFramework.events.Sg, this, [b])
@@ -3857,7 +3857,7 @@ GameFramework.events.Sg.c = function() {
 };
 T(function() {
 			GameFramework.events.Sg.u("GameFramework.events.IOErrorEvent",
-					GameFramework.events.Mc)
+					GameFramework.events.Event)
 		});
 U(function() {
 			GameFramework.events.Sg.c()
@@ -5914,9 +5914,9 @@ GameFramework.resources.Mo.prototype = {
 			j = k != null ? GameFramework.BaseApp.M.vb.sw(k) : GameFramework.BaseApp.M.vb
 					.vU(j);
 			GameFramework.BaseApp.M.vb.gw(j);
-			j.Ra(GameFramework.events.Mc.hh, ss.Delegate.create(h, h.xq));
+			j.Ra(GameFramework.events.Event.hh, ss.Delegate.create(h, h.xq));
 			c != null
-					&& (c.Uj++, j.Ra(GameFramework.events.Mc.hh, ss.Delegate.create(c,
+					&& (c.Uj++, j.Ra(GameFramework.events.Event.hh, ss.Delegate.create(c,
 									c.Sy)), j.Ra(GameFramework.events.Sg.fk, ss.Delegate
 									.create(c, c.ps)));
 			h.WM = b.H();
@@ -6382,7 +6382,7 @@ GameFramework.resources.gk.c = function() {
 };
 T(function() {
 			GameFramework.resources.gk.u("GameFramework.resources.MeshEvent",
-					GameFramework.events.Mc)
+					GameFramework.events.Event)
 		});
 U(function() {
 			GameFramework.resources.gk.c()
@@ -6420,9 +6420,9 @@ GameFramework.resources.Gq.prototype = {
 									&& (m = GameFramework.BaseApp.M.vb.al("images/"
 											+ GameFramework.BaseApp.M.aj
 											+ "/NonResize/" + o)), o = GameFramework.BaseApp.M.vb
-									.sw(m), o.Ra(GameFramework.events.Mc.hh, ss.Delegate
+									.sw(m), o.Ra(GameFramework.events.Event.hh, ss.Delegate
 											.create(l, l.xq)), o.Ra(
-									GameFramework.events.Mc.hh, ss.Delegate.create(c,
+									GameFramework.events.Event.hh, ss.Delegate.create(c,
 											c.Sy)), o.Ra(
 									GameFramework.events.Sg.fk, ss.Delegate.create(c,
 											c.ps)), c.Uj++, GameFramework.BaseApp.M.vb
@@ -6451,7 +6451,7 @@ GameFramework.resources.Gq.prototype = {
 GameFramework.resources.Gq.c = t();
 T(function() {
 			GameFramework.resources.Gq.u("GameFramework.resources.MeshResource",
-					GameFramework.events.Qk)
+					GameFramework.events.EventDispatcher)
 		});
 U(function() {
 			GameFramework.resources.Gq.c()
@@ -7631,7 +7631,7 @@ GameFramework.resources.va.prototype = {
 		b = c.indexOf(String.fromCharCode(124));
 		return b != -1
 				? (c = GameFramework.BaseApp.M.vb.sw(c.substr(b + 1)), c.Ra(
-						GameFramework.events.Mc.hh, ss.Delegate.create(d, d.Sy)), c.Ra(
+						GameFramework.events.Event.hh, ss.Delegate.create(d, d.Sy)), c.Ra(
 						GameFramework.events.Sg.fk, ss.Delegate.create(d, d.ps)), d.Uj++, GameFramework.BaseApp.M.vb
 						.gw(c), c)
 				: null
@@ -8163,7 +8163,7 @@ GameFramework.resources.va.prototype = {
 				this.C.Ga();
 				g.O8 = this.C.oc();
 				var j = this.ni(), k = this.e1(g.sb, j, c), j = k.Kb;
-				k.Ra(GameFramework.events.Mc.hh, ss.Delegate.create(g, g.xq));
+				k.Ra(GameFramework.events.Event.hh, ss.Delegate.create(g, g.xq));
 				for (k = 0; k < h; k++) {
 					var l = new GameFramework.resources.jA;
 					l.Ki = g;
@@ -10558,8 +10558,8 @@ GameFramework.resources.Sc.prototype = {
 			var j = h.indexOf(String.fromCharCode(124));
 			j != -1
 					? (h = h.substr(j + 1), g.dH.push(h), h = GameFramework.BaseApp.M.vb
-							.sw(h), h.Ra(GameFramework.events.Mc.hh, ss.Delegate.create(
-									g, g.xq)), h.Ra(GameFramework.events.Mc.hh,
+							.sw(h), h.Ra(GameFramework.events.Event.hh, ss.Delegate.create(
+									g, g.xq)), h.Ra(GameFramework.events.Event.hh,
 							ss.Delegate.create(c, c.Sy)), h.Ra(
 							GameFramework.events.Sg.fk, ss.Delegate.create(c, c.ps)), c.Uj++, GameFramework.BaseApp.M.vb
 							.gw(h))
@@ -11090,7 +11090,7 @@ GameFramework.resources.ResourceManager.prototype = {
 				g.vc = f;
 				g.Kb = d;
 				g.Uj = 1;
-				g.Ra(GameFramework.events.Mc.hh, ss.Delegate.create(c, c.Sy));
+				g.Ra(GameFramework.events.Event.hh, ss.Delegate.create(c, c.Sy));
 				g.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(c, c.ps));
 				GameFramework.BaseApp.M.Su(g);
 				c.Uj++
@@ -11243,7 +11243,7 @@ GameFramework.resources.ResourceStreamer.prototype = {
 GameFramework.resources.ResourceStreamer.c = t();
 T(function() {
 			GameFramework.resources.ResourceStreamer.u("GameFramework.resources.ResourceStreamer",
-					GameFramework.events.Qk)
+					GameFramework.events.EventDispatcher)
 		});
 U(function() {
 			GameFramework.resources.ResourceStreamer.c()
@@ -11287,7 +11287,7 @@ GameFramework.resources.SoundManager.c = function() {
 T(function() {
 			GameFramework.resources.SoundManager
 					.u("GameFramework.resources.SoundManager",
-							GameFramework.events.Qk)
+							GameFramework.events.EventDispatcher)
 		});
 U(function() {
 			GameFramework.resources.SoundManager.c()
@@ -11343,7 +11343,7 @@ GameFramework.resources.Fa.on.c = function() {
 T(function() {
 			GameFramework.resources.Fa.on.u(
 					"GameFramework.resources.popanim.PopAnimEvent",
-					GameFramework.events.Mc)
+					GameFramework.events.Event)
 		});
 U(function() {
 			GameFramework.resources.Fa.on.c()
@@ -11804,7 +11804,7 @@ GameFramework.widgets.Ta.prototype = {
 		for (var b = ss.Md.Pd(this.cf); b.ye();)
 			b.oe().t();
 		this.cf.clear();
-		GameFramework.events.Qk.prototype.t.apply(this)
+		GameFramework.events.EventDispatcher.prototype.t.apply(this)
 	},
 	zQ : function() {
 		this.wd.zB.push(this)
@@ -11957,7 +11957,7 @@ GameFramework.widgets.Ta.prototype = {
 GameFramework.widgets.Ta.c = t();
 T(function() {
 			GameFramework.widgets.Ta.u("GameFramework.widgets.ClassicWidget",
-					GameFramework.events.Qk)
+					GameFramework.events.EventDispatcher)
 		});
 U(function() {
 			GameFramework.widgets.Ta.c()
@@ -12066,7 +12066,7 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 GameFramework.widgets.ClassicWidgetAppState.c = t();
 T(function() {
 			GameFramework.widgets.ClassicWidgetAppState.u("GameFramework.widgets.ClassicWidgetAppState",
-					GameFramework.events.Qk, GameFramework.iea)
+					GameFramework.events.EventDispatcher, GameFramework.iea)
 		});
 U(function() {
 			GameFramework.widgets.ClassicWidgetAppState.c()
@@ -12087,7 +12087,7 @@ GameFramework.widgets.ih.c = function() {
 };
 T(function() {
 			GameFramework.widgets.ih.u("GameFramework.widgets.DialogEvent",
-					GameFramework.events.Mc)
+					GameFramework.events.Event)
 		});
 U(function() {
 			GameFramework.widgets.ih.c()
@@ -12891,7 +12891,7 @@ GameFramework.widgets.wa.c = function() {
 };
 T(function() {
 			GameFramework.widgets.wa.u("GameFramework.widgets.WidgetEvent",
-					GameFramework.events.Mc)
+					GameFramework.events.Event)
 		});
 U(function() {
 			GameFramework.widgets.wa.c()
@@ -12956,7 +12956,7 @@ GameFramework.JSBaseApp.prototype = {
 									c.Fi = b
 								}, "text");
 				if (c.Fi != null)
-					c.ld(new GameFramework.events.Mc(GameFramework.events.Mc.hh)), c.fX = true
+					c.ld(new GameFramework.events.Event(GameFramework.events.Event.hh)), c.fX = true
 			}
 			c.fX && (C(this.tB, b), b--)
 		}
@@ -13016,9 +13016,9 @@ GameFramework.JSBaseApp.prototype = {
 				g.OM(), g.OM = null;
 			if (g.tk || g.Or == g.Uj && !GameFramework.BaseApp.M.vb.YO)
 				g.tk
-						? g.ld(new GameFramework.events.Mc(GameFramework.events.Sg.fk))
+						? g.ld(new GameFramework.events.Event(GameFramework.events.Sg.fk))
 						: (this.fu.JT(g), g
-								.ld(new GameFramework.events.Mc(GameFramework.events.Mc.hh))), C(
+								.ld(new GameFramework.events.Event(GameFramework.events.Event.hh))), C(
 						this.Ck, f), f--, b = true;
 			f == this.Ck.length - 1 && b && (f = -1, b = false)
 		}
@@ -14299,7 +14299,7 @@ Game.Tb.pU = function(b) {
 	if (!Game.Tb.Ax[b]) {
 		var c = new Game.Jy(b), b = Game.Tb.lm[b] != null ? GameFramework.BaseApp.M.vb
 				.dl(Game.Tb.lm[b]) : GameFramework.BaseApp.M.vb.vU(Game.Tb.eN[b]);
-		b.Ra(GameFramework.events.Mc.hh, ss.Delegate.create(c, c.JZ));
+		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(c, c.JZ));
 		return b
 	}
 	return null
@@ -14996,7 +14996,7 @@ Game.BejApp.prototype = {
 					.Bc(this.Bi), this.Bi.ca(), this.Nh.oi(this.Bi), this.hP = new Game.TooltipManager, this.fe
 					.Bc(this.hP);
 		var b = this.vb.J4("http://127.0.0.1/~maruojie/properties/resources.xml");
-		b.Ra(GameFramework.events.Mc.hh, ss.Delegate.create(this, this.M3));
+		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.M3));
 		b.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz))
 	},
 	M3 : function(b) {
@@ -15045,13 +15045,13 @@ Game.BejApp.prototype = {
 	},
 	I4 : function() {
 		this.FN = this.vb.dl("Init");
-		this.FN.Ra(GameFramework.events.Mc.hh, ss.Delegate.create(this, this.dK));
+		this.FN.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.dK));
 		this.FN.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz))
 	},
 	dl : function(b) {
 		b = this.vb.dl(b);
 		this.Ut++;
-		b.Ra(GameFramework.events.Mc.hh, ss.Delegate.create(this, this.pK));
+		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.pK));
 		b.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz))
 	},
 	$K : function() {
@@ -15066,7 +15066,7 @@ Game.BejApp.prototype = {
 		this.Bi.dK();
 		var b = Game.Tb.pU(0);
 		this.Ut++;
-		b.Ra(GameFramework.events.Mc.hh, ss.Delegate.create(this, this.pK));
+		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.pK));
 		b.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz));
 		this.dl("Gameplay");
 		this.dl("Fonts");
@@ -15077,7 +15077,7 @@ Game.BejApp.prototype = {
 		this.dl("MainMenu");
 		b = this.vb.H4(Game.a.z3);
 		this.Ut++;
-		b.Ra(GameFramework.events.Mc.hh, ss.Delegate.create(this, this.R1));
+		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.R1));
 		b.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz))
 	},
 	R1 : function(b) {
@@ -28807,7 +28807,7 @@ Game.Yz.prototype = {
 	},
 	nL : function(b) {
 		GameFramework.BaseApp.M.tr == null && GameFramework.BaseApp.M.fJ();
-		GameFramework.BaseApp.M.tr.sz(b).Ra(GameFramework.events.Mc.hh,
+		GameFramework.BaseApp.M.tr.sz(b).Ra(GameFramework.events.Event.hh,
 				ss.Delegate.create(this, this.v1));
 		this.mY = true
 	},
