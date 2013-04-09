@@ -13746,10 +13746,10 @@ T(function() {
 U(function() {
 			GameFramework.resources.JSMeshPiece.c()
 		});
-GameFramework.resources.Dv = function() {
-	E(GameFramework.resources.Dv, this)
+GameFramework.resources.JSMeshResource = function() {
+	E(GameFramework.resources.JSMeshResource, this)
 };
-GameFramework.resources.Dv.prototype = {
+GameFramework.resources.JSMeshResource.prototype = {
 	BE : function(b, c) {
 		if (!GameFramework.resources.Gq.prototype.BE.apply(this, [b, c]))
 			return false;
@@ -13806,13 +13806,13 @@ GameFramework.resources.Dv.prototype = {
 		return true
 	}
 };
-GameFramework.resources.Dv.c = t();
+GameFramework.resources.JSMeshResource.c = t();
 T(function() {
-			GameFramework.resources.Dv.u("GameFramework.resources.JSMeshResource",
+			GameFramework.resources.JSMeshResource.u("GameFramework.resources.JSMeshResource",
 					GameFramework.resources.Gq)
 		});
 U(function() {
-			GameFramework.resources.Dv.c()
+			GameFramework.resources.JSMeshResource.c()
 		});
 GameFramework.resources.Xl = function(b, c, d) {
 	this.be = b;
@@ -14054,7 +14054,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 		this.G3(b.xa, c)
 	},
 	kT : function(b) {
-		var c = b.rd, d = new GameFramework.resources.Dv;
+		var c = b.rd, d = new GameFramework.resources.JSMeshResource;
 		d.BE(c, b);
 		this.FT(b.xa, d)
 	},
