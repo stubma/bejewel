@@ -12966,58 +12966,58 @@ GameFramework.JSBaseApp.prototype = {
 		for (var b = false, c = false, d = false, f = 0; f < this.Ck.length; f++) {
 			if (this.wW && GameFramework.h.sq() - this.nX >= 100)
 				break;
-			var g = this.Ck[f];
-			g.Pf == GameFramework.resources.ResourceManager.tA
+			var stream = this.Ck[f];
+			stream.Pf == GameFramework.resources.ResourceManager.tA
 					? c = true
-					: g.Pf != GameFramework.resources.ResourceManager.zT && (d = true);
-			if (g.rd == null && g.vc != null)
-				if (g.Pf === GameFramework.resources.ResourceManager.sA)
-					g.Kb != null && g.Kb.Qb != null ? this.vb.Gs(g.Kb.Qb) != null
-							&& g.Or != g.Uj && g.Or++ : g.rd = g.Kb != null
-							&& g.Kb.gX ? Oa(g, g.vc ? this.Op + g.vc : null, g.Rx
-									? this.Op + g.Rx
-									: null) : Na(g, g.vc ? this.Op + g.vc : null,
-							g.Rx ? this.Op + g.Rx : null);
-				else if (g.Pf === GameFramework.resources.ResourceManager.tA) {
-					var h = g.vc;
-					h.indexOf(".") === -1 && (h += g.Kb.Jj[0]);
-					g.rd = Wc(g, h);
-					this.vb.JT(g)
-				} else if (g.Pf === GameFramework.resources.ResourceManager.KK
-						|| g.Pf === GameFramework.resources.ResourceManager.NK
-						|| g.Pf === GameFramework.resources.ResourceManager.MK
-						|| g.Pf === GameFramework.resources.ResourceManager.LK
-						|| g.Pf === GameFramework.resources.ResourceManager.OK
-						|| g.Pf === GameFramework.resources.ResourceManager.yT)
-					if (ua(g.vc, "!ref:"))
-						h = this.vb.b1(g.vc.substr(5)), h != null && g.Or != g.Uj
-								&& (this.vb.ET(g.xa, h.gi()), g.Or++);
-					else if (h = null, h = g.vc.indexOf("@"), h != -1) {
-						var j = g.vc.indexOf(":", h), k = g.vc.indexOf("-", h), h = g.vc
-								.substr(h + 1, j - h - 1), j = g.vc.substr(j
+					: stream.Pf != GameFramework.resources.ResourceManager.zT && (d = true);
+			if (stream.rd == null && stream.vc != null)
+				if (stream.Pf === GameFramework.resources.ResourceManager.sA)
+					stream.Kb != null && stream.Kb.Qb != null ? this.vb.Gs(stream.Kb.Qb) != null
+							&& stream.Or != stream.Uj && stream.Or++ : stream.rd = stream.Kb != null
+							&& stream.Kb.gX ? Oa(stream, stream.vc ? this.Op + stream.vc : null, stream.Rx
+									? this.Op + stream.Rx
+									: null) : Na(stream, stream.vc ? this.Op + stream.vc : null,
+							stream.Rx ? this.Op + stream.Rx : null);
+				else if (stream.Pf === GameFramework.resources.ResourceManager.tA) {
+					var h = stream.vc;
+					h.indexOf(".") === -1 && (h += stream.Kb.Jj[0]);
+					stream.rd = Wc(stream, h);
+					this.vb.JT(stream)
+				} else if (stream.Pf === GameFramework.resources.ResourceManager.KK
+						|| stream.Pf === GameFramework.resources.ResourceManager.NK
+						|| stream.Pf === GameFramework.resources.ResourceManager.MK
+						|| stream.Pf === GameFramework.resources.ResourceManager.LK
+						|| stream.Pf === GameFramework.resources.ResourceManager.OK
+						|| stream.Pf === GameFramework.resources.ResourceManager.yT)
+					if (ua(stream.vc, "!ref:"))
+						h = this.vb.b1(stream.vc.substr(5)), h != null && stream.Or != stream.Uj
+								&& (this.vb.ET(stream.xa, h.gi()), stream.Or++);
+					else if (h = null, h = stream.vc.indexOf("@"), h != -1) {
+						var j = stream.vc.indexOf(":", h), k = stream.vc.indexOf("-", h), h = stream.vc
+								.substr(h + 1, j - h - 1), j = stream.vc.substr(j
 										+ 1, k - j - 1)
-								| 0, k = g.vc.substr(k + 1) | 0, l = this.NB[h];
+								| 0, k = stream.vc.substr(k + 1) | 0, l = this.NB[h];
 						l
 								? (l = this.NB[h], typeof l == "string"
-										&& this.nk(l.substr(j, k - j), g))
+										&& this.nk(l.substr(j, k - j), stream))
 								: (this.NB[h] = true, k = this.Op + h, (new XMLHttpRequest).overrideMimeType
 										|| (j = k.indexOf(".bin"), j != -1
 												&& (k = k.substr(0, j)
-														+ ".utf8")), Za(g, h, k))
+														+ ".utf8")), Za(stream, h, k))
 					} else
-						h = Ya(g, this.Op + g.vc), h.nY = g, this.tN[h
-								.toString()] = g, g.rd = h;
+						h = Ya(stream, this.Op + stream.vc), h.nY = stream, this.tN[h
+								.toString()] = stream, stream.rd = h;
 				else
-					h = g.vc.indexOf(".json") !== -1 ? $.get(this.Op + g.vc, null,
+					h = stream.vc.indexOf(".json") !== -1 ? $.get(this.Op + stream.vc, null,
 							ss.Delegate.create(this, this.KT), "text") : $.get(
-							this.Op + g.vc, null, ss.Delegate.create(this, this.KT)), h.nY = g, this.tN[h
-							.toString()] = g, g.rd = h;
-			if (g.OM && !GameFramework.BaseApp.M.vb.YO)
-				g.OM(), g.OM = null;
-			if (g.tk || g.Or == g.Uj && !GameFramework.BaseApp.M.vb.YO)
-				g.tk
-						? g.ld(new GameFramework.events.Event(GameFramework.events.Sg.fk))
-						: (this.fu.JT(g), g
+							this.Op + stream.vc, null, ss.Delegate.create(this, this.KT)), h.nY = stream, this.tN[h
+							.toString()] = stream, stream.rd = h;
+			if (stream.OM && !GameFramework.BaseApp.M.vb.YO)
+				stream.OM(), stream.OM = null;
+			if (stream.tk || stream.Or == stream.Uj && !GameFramework.BaseApp.M.vb.YO)
+				stream.tk
+						? stream.ld(new GameFramework.events.Event(GameFramework.events.Sg.fk))
+						: (this.fu.JT(stream), stream
 								.ld(new GameFramework.events.Event(GameFramework.events.Event.hh))), C(
 						this.Ck, f), f--, b = true;
 			f == this.Ck.length - 1 && b && (f = -1, b = false)
