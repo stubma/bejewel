@@ -3711,17 +3711,17 @@ T(function() {
 U(function() {
 			GameFramework.connected.Database.c()
 		});
-GameFramework.connected.jz = function() {
-	E(GameFramework.connected.jz, this)
+GameFramework.connected.Facebook = function() {
+	E(GameFramework.connected.Facebook, this)
 };
-GameFramework.connected.jz.prototype = {};
-GameFramework.connected.jz.c = t();
+GameFramework.connected.Facebook.prototype = {};
+GameFramework.connected.Facebook.c = t();
 T(function() {
-			GameFramework.connected.jz.u("GameFramework.connected.Facebook",
+			GameFramework.connected.Facebook.u("GameFramework.connected.Facebook",
 					GameFramework.connected.LA)
 		});
 U(function() {
-			GameFramework.connected.jz.c()
+			GameFramework.connected.Facebook.c()
 		});
 GameFramework.connected.xv = t();
 GameFramework.connected.xv.fqa = function(b) {
