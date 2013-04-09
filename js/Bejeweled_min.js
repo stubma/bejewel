@@ -5661,8 +5661,8 @@ U(function() {
 			GameFramework.misc.TMapSorter.c()
 		});
 GameFramework.resources = Type.ci("GameFramework.resources");
-GameFramework.resources.Ly = t();
-GameFramework.resources.Ly.prototype = {
+GameFramework.resources.BaseRes = t();
+GameFramework.resources.BaseRes.prototype = {
 	Fb : 0,
 	xa : null,
 	vc : null,
@@ -5694,15 +5694,15 @@ GameFramework.resources.Ly.prototype = {
 	DO : 0,
 	Nn : null
 };
-GameFramework.resources.Ly.c = t();
+GameFramework.resources.BaseRes.c = t();
 T(function() {
-			GameFramework.resources.Ly.u("GameFramework.resources.BaseRes", null)
+			GameFramework.resources.BaseRes.u("GameFramework.resources.BaseRes", null)
 		});
 U(function() {
-			GameFramework.resources.Ly.c()
+			GameFramework.resources.BaseRes.c()
 		});
-GameFramework.resources.mz = t();
-GameFramework.resources.mz.prototype = {
+GameFramework.resources.FontCharData = t();
+GameFramework.resources.FontCharData.prototype = {
 	m7 : 0,
 	cY : 0,
 	dY : 0,
@@ -5716,46 +5716,46 @@ GameFramework.resources.mz.prototype = {
 	GX : 0,
 	bu : null
 };
-GameFramework.resources.mz.c = t();
+GameFramework.resources.FontCharData.c = t();
 T(function() {
-			GameFramework.resources.mz.u("GameFramework.resources.FontCharData", null)
+			GameFramework.resources.FontCharData.u("GameFramework.resources.FontCharData", null)
 		});
 U(function() {
-			GameFramework.resources.mz.c()
+			GameFramework.resources.FontCharData.c()
 		});
-GameFramework.resources.nz = t();
-GameFramework.resources.nz.prototype = {
+GameFramework.resources.FontDrawCmd = t();
+GameFramework.resources.FontDrawCmd.prototype = {
 	$V : null,
 	hN : null,
 	By : 0,
 	Cy : 0,
 	n : 0
 };
-GameFramework.resources.nz.c = t();
+GameFramework.resources.FontDrawCmd.c = t();
 T(function() {
-			GameFramework.resources.nz.u("GameFramework.resources.FontDrawCmd", null)
+			GameFramework.resources.FontDrawCmd.u("GameFramework.resources.FontDrawCmd", null)
 		});
 U(function() {
-			GameFramework.resources.nz.c()
+			GameFramework.resources.FontDrawCmd.c()
 		});
-GameFramework.resources.oz = t();
-GameFramework.resources.oz.prototype = {
+GameFramework.resources.FontDrawData = t();
+GameFramework.resources.FontDrawData.prototype = {
 	gN : 0,
 	OW : 0
 };
-GameFramework.resources.oz.c = t();
+GameFramework.resources.FontDrawData.c = t();
 T(function() {
-			GameFramework.resources.oz.u("GameFramework.resources.FontDrawData", null)
+			GameFramework.resources.FontDrawData.u("GameFramework.resources.FontDrawData", null)
 		});
 U(function() {
-			GameFramework.resources.oz.c()
+			GameFramework.resources.FontDrawData.c()
 		});
-GameFramework.resources.pz = function() {
+GameFramework.resources.FontLayer = function() {
 	this.KO = [];
 	this.aN = [];
 	this.Hn = {}
 };
-GameFramework.resources.pz.prototype = {
+GameFramework.resources.FontLayer.prototype = {
 	qX : null,
 	KO : null,
 	aN : null,
@@ -5797,18 +5797,18 @@ GameFramework.resources.pz.prototype = {
 		this.cj = this.Tf.pop() | 0
 	}
 };
-GameFramework.resources.pz.c = t();
+GameFramework.resources.FontLayer.c = t();
 T(function() {
-			GameFramework.resources.pz.u("GameFramework.resources.FontLayer", null)
+			GameFramework.resources.FontLayer.u("GameFramework.resources.FontLayer", null)
 		});
 U(function() {
-			GameFramework.resources.pz.c()
+			GameFramework.resources.FontLayer.c()
 		});
-GameFramework.resources.Mo = function() {
+GameFramework.resources.FontResource = function() {
 	this.Ll = [];
 	this.FH = GameFramework.resources.De.fi
 };
-GameFramework.resources.Mo.prototype = {
+GameFramework.resources.FontResource.prototype = {
 	Mh : 0,
 	hl : 0,
 	z : 0,
@@ -5827,7 +5827,7 @@ GameFramework.resources.Mo.prototype = {
 	FH : null,
 	dU : w("FH"),
 	gi : function() {
-		var b = new GameFramework.resources.Mo;
+		var b = new GameFramework.resources.FontResource;
 		b.Mh = this.Mh;
 		b.hl = this.hl;
 		b.gj = this.gj;
@@ -5867,7 +5867,7 @@ GameFramework.resources.Mo.prototype = {
 			b.Ga(), b.Ga();
 		f = b.H();
 		for (g = 0; g < f; g++) {
-			var h = new GameFramework.resources.pz;
+			var h = new GameFramework.resources.FontLayer;
 			d = b.H();
 			h.qX = b.lk(d);
 			var j, k = b.H();
@@ -5882,7 +5882,7 @@ GameFramework.resources.Mo.prototype = {
 				h.Xn[k] = b.H();
 			j = b.H();
 			for (k = 0; k < j; k++) {
-				d = new GameFramework.resources.mz;
+				d = new GameFramework.resources.FontCharData;
 				var l = b.Ga() | 0;
 				d.m7 = l;
 				d.cY = b.H();
@@ -6122,9 +6122,9 @@ GameFramework.resources.Mo.prototype = {
 					var v = r.oe(), u = k, y = v.Hn[m];
 					if (y != null) {
 						var z = (v.UV + y.GX << 16) + j, A;
-						A = GameFramework.resources.Mo.zW.length == 0
-								? new GameFramework.resources.nz
-								: GameFramework.resources.Mo.zW.pop();
+						A = GameFramework.resources.FontResource.zW.length == 0
+								? new GameFramework.resources.FontDrawCmd
+								: GameFramework.resources.FontResource.zW.pop();
 						A.hN = v;
 						A.$V = y;
 						A.By = u + v.Ir + y.sf;
@@ -6225,16 +6225,16 @@ GameFramework.resources.Mo.prototype = {
 		}
 	}
 };
-GameFramework.resources.Mo.c = function() {
-	GameFramework.resources.Mo.zW = []
+GameFramework.resources.FontResource.c = function() {
+	GameFramework.resources.FontResource.zW = []
 };
 T(function() {
-			GameFramework.resources.Mo.u("GameFramework.resources.FontResource", null)
+			GameFramework.resources.FontResource.u("GameFramework.resources.FontResource", null)
 		});
 U(function() {
-			GameFramework.resources.Mo.c()
+			GameFramework.resources.FontResource.c()
 		});
-GameFramework.resources.Rs = function(b) {
+GameFramework.resources.ImageInst = function(b) {
 	this.jj = null;
 	this.Mf = 0;
 	this.jj = b;
@@ -6242,7 +6242,7 @@ GameFramework.resources.Rs = function(b) {
 	this.Mf = this.jj.Mf;
 	this.PO = this.jj.PO
 };
-GameFramework.resources.Rs.prototype = {
+GameFramework.resources.ImageInst.prototype = {
 	jj : null,
 	he : 0,
 	uf : 0,
@@ -6259,13 +6259,13 @@ GameFramework.resources.Rs.prototype = {
 	$o : t(),
 	Og : t()
 };
-GameFramework.resources.Rs.c = t();
+GameFramework.resources.ImageInst.c = t();
 T(function() {
-			GameFramework.resources.Rs.u("GameFramework.resources.ImageInst", null,
+			GameFramework.resources.ImageInst.u("GameFramework.resources.ImageInst", null,
 					GameFramework.gfx.WJ)
 		});
 U(function() {
-			GameFramework.resources.Rs.c()
+			GameFramework.resources.ImageInst.c()
 		});
 GameFramework.resources.De = {};
 GameFramework.resources.De.c = function() {
@@ -6277,12 +6277,12 @@ GameFramework.resources.De.c = function() {
 T(function() {
 			GameFramework.resources.De.c()
 		});
-GameFramework.resources.gn = function() {
+GameFramework.resources.ImageResource = function() {
 	this.Mf = GameFramework.resources.De.LI;
-	GameFramework.resources.gn.cX++;
-	this.xa = GameFramework.resources.gn.cX
+	GameFramework.resources.ImageResource.cX++;
+	this.xa = GameFramework.resources.ImageResource.cX
 };
-GameFramework.resources.gn.prototype = {
+GameFramework.resources.ImageResource.prototype = {
 	qo : 1,
 	ui : 1,
 	Em : 1,
@@ -6317,7 +6317,7 @@ GameFramework.resources.gn.prototype = {
 		return this.DM
 	},
 	bk : function(b) {
-		var c = b % this.ui, b = b / this.ui | 0, d = new GameFramework.resources.Rs(this);
+		var c = b % this.ui, b = b / this.ui | 0, d = new GameFramework.resources.ImageInst(this);
 		d.jj = this;
 		d.he = c * this.Hg;
 		d.uf = b * this.Gg;
@@ -6326,7 +6326,7 @@ GameFramework.resources.gn.prototype = {
 		return d
 	},
 	dv : function(b, c, d, f) {
-		var g = new GameFramework.resources.Rs(this);
+		var g = new GameFramework.resources.ImageInst(this);
 		g.jj = this;
 		g.he = b;
 		g.uf = c;
@@ -6335,18 +6335,18 @@ GameFramework.resources.gn.prototype = {
 		return g
 	}
 };
-GameFramework.resources.gn.c = function() {
-	GameFramework.resources.gn.cX = 0
+GameFramework.resources.ImageResource.c = function() {
+	GameFramework.resources.ImageResource.cX = 0
 };
 T(function() {
-			GameFramework.resources.gn.u("GameFramework.resources.ImageResource", null,
+			GameFramework.resources.ImageResource.u("GameFramework.resources.ImageResource", null,
 					GameFramework.gfx.WJ, GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.gn.c()
+			GameFramework.resources.ImageResource.c()
 		});
-GameFramework.resources.Nv = t();
-GameFramework.resources.Nv.prototype = {
+GameFramework.resources.MeshPiece = t();
+GameFramework.resources.MeshPiece.prototype = {
 	G8 : null,
 	tY : null,
 	hy : 0,
@@ -6361,37 +6361,37 @@ GameFramework.resources.Nv.prototype = {
 		this.Oa = b.xa != null ? GameFramework.BaseApp.M.vb.Gs(b.xa) : b.rd
 	}
 };
-GameFramework.resources.Nv.c = t();
+GameFramework.resources.MeshPiece.c = t();
 T(function() {
-			GameFramework.resources.Nv.u("GameFramework.resources.MeshPiece", null)
+			GameFramework.resources.MeshPiece.u("GameFramework.resources.MeshPiece", null)
 		});
 U(function() {
-			GameFramework.resources.Nv.c()
+			GameFramework.resources.MeshPiece.c()
 		});
-GameFramework.resources.gk = function(b) {
-	E(GameFramework.resources.gk, this, [b])
+GameFramework.resources.MeshEvent = function(b) {
+	E(GameFramework.resources.MeshEvent, this, [b])
 };
-GameFramework.resources.gk.prototype = {
+GameFramework.resources.MeshEvent.prototype = {
 	tY : null
 };
-GameFramework.resources.gk.c = function() {
-	GameFramework.resources.gk.gna = "mesh_predraw";
-	GameFramework.resources.gk.dna = "mesh_postdraw";
-	GameFramework.resources.gk.iT = "mesh_predrawset";
-	GameFramework.resources.gk.hT = "mesh_postdrawset"
+GameFramework.resources.MeshEvent.c = function() {
+	GameFramework.resources.MeshEvent.gna = "mesh_predraw";
+	GameFramework.resources.MeshEvent.dna = "mesh_postdraw";
+	GameFramework.resources.MeshEvent.iT = "mesh_predrawset";
+	GameFramework.resources.MeshEvent.hT = "mesh_postdrawset"
 };
 T(function() {
-			GameFramework.resources.gk.u("GameFramework.resources.MeshEvent",
+			GameFramework.resources.MeshEvent.u("GameFramework.resources.MeshEvent",
 					GameFramework.events.Event)
 		});
 U(function() {
-			GameFramework.resources.gk.c()
+			GameFramework.resources.MeshEvent.c()
 		});
-GameFramework.resources.Gq = function() {
+GameFramework.resources.MeshResource = function() {
 	this.ee = [];
-	E(GameFramework.resources.Gq, this)
+	E(GameFramework.resources.MeshResource, this)
 };
-GameFramework.resources.Gq.prototype = {
+GameFramework.resources.MeshResource.prototype = {
 	ee : null,
 	BE : function(b, c) {
 		if (b.H() != 1035923200)
@@ -6403,7 +6403,7 @@ GameFramework.resources.Gq.prototype = {
 			var h = b.bl(), j = b.Ga(), k;
 			for (k = 0; k < j; k++)
 				if (!(d > 1 && b.eb() == 0)) {
-					var l = new GameFramework.resources.Nv;
+					var l = new GameFramework.resources.MeshPiece;
 					this.ee.push(l);
 					var m = b.bl(), o = null;
 					l.G8 = h;
@@ -6448,44 +6448,44 @@ GameFramework.resources.Gq.prototype = {
 		return true
 	}
 };
-GameFramework.resources.Gq.c = t();
+GameFramework.resources.MeshResource.c = t();
 T(function() {
-			GameFramework.resources.Gq.u("GameFramework.resources.MeshResource",
+			GameFramework.resources.MeshResource.u("GameFramework.resources.MeshResource",
 					GameFramework.events.EventDispatcher)
 		});
 U(function() {
-			GameFramework.resources.Gq.c()
+			GameFramework.resources.MeshResource.c()
 		});
-GameFramework.resources.Wv = t();
-GameFramework.resources.Wv.prototype = {
+GameFramework.resources.PIValuePoint = t();
+GameFramework.resources.PIValuePoint.prototype = {
 	Eb : 0,
 	oa : 0,
 	t : t()
 };
-GameFramework.resources.Wv.c = t();
+GameFramework.resources.PIValuePoint.c = t();
 T(function() {
-			GameFramework.resources.Wv.u("GameFramework.resources.PIValuePoint", null,
+			GameFramework.resources.PIValuePoint.u("GameFramework.resources.PIValuePoint", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.Wv.c()
+			GameFramework.resources.PIValuePoint.c()
 		});
-GameFramework.resources.fA = t();
-GameFramework.resources.fA.prototype = {
+GameFramework.resources.PIGeomDataEx = t();
+GameFramework.resources.PIGeomDataEx.prototype = {
 	bs : 0,
 	S6 : null,
 	t : t()
 };
-GameFramework.resources.fA.c = t();
+GameFramework.resources.PIGeomDataEx.c = t();
 T(function() {
-			GameFramework.resources.fA.u("GameFramework.resources.PIGeomDataEx", null,
+			GameFramework.resources.PIGeomDataEx.u("GameFramework.resources.PIGeomDataEx", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.fA.c()
+			GameFramework.resources.PIGeomDataEx.c()
 		});
-GameFramework.resources.le = t();
-GameFramework.resources.le.prototype = {
+GameFramework.resources.PIValue = t();
+GameFramework.resources.PIValue.prototype = {
 	Kr : null,
 	dc : null,
 	km : null,
@@ -6497,11 +6497,11 @@ GameFramework.resources.le.prototype = {
 	r3 : function() {
 		var b = this.dc[0].Eb, c = this.dc[this.dc.length - 1].Eb;
 		this.Kr = [];
-		this.Kr.length = GameFramework.resources.le.Yv;
+		this.Kr.length = GameFramework.resources.PIValue.Yv;
 		for (var d = true, f = 0, g = 0, h = b, j = (c - b)
-				/ GameFramework.resources.le.Yv / 2, k = 0;;) {
+				/ GameFramework.resources.PIValue.Yv / 2, k = 0;;) {
 			for (var l = this.km.iz(h), m = (l.x - b) / (c - b)
-					* (GameFramework.resources.le.Yv - 1) + 0.5 | 0, o = false; l.x >= this.dc[k
+					* (GameFramework.resources.PIValue.Yv - 1) + 0.5 | 0, o = false; l.x >= this.dc[k
 					+ 1].Eb;)
 				if (k++, k >= (this.dc.length | 0) - 1) {
 					o = true;
@@ -6523,7 +6523,7 @@ GameFramework.resources.le.prototype = {
 			h += j
 		}
 		for (f = 0; f < (this.dc.length | 0); f++)
-			this.Kr[(this.dc[f].Eb - b) / (c - b) * (GameFramework.resources.le.Yv - 1)
+			this.Kr[(this.dc[f].Eb - b) / (c - b) * (GameFramework.resources.PIValue.Yv - 1)
 					+ 0.5 | 0] = this.dc[f].oa
 	},
 	G : function(b, c) {
@@ -6538,10 +6538,10 @@ GameFramework.resources.le.prototype = {
 			var f = this.dc[0].Eb, g = this.dc[this.dc.length - 1].Eb;
 			if (g <= 1.001) {
 				this.Kr == null && this.r3();
-				var h = (b - f) / (g - f) * (GameFramework.resources.le.Yv - 1) + 0.5;
+				var h = (b - f) / (g - f) * (GameFramework.resources.PIValue.Yv - 1) + 0.5;
 				if (h <= 0)
 					return this.Bm = this.dc[0].oa;
-				if (h >= GameFramework.resources.le.Yv - 1)
+				if (h >= GameFramework.resources.PIValue.Yv - 1)
 					return this.Bm = this.dc[this.dc.length - 1].oa;
 				var j = h | 0;
 				h -= j;
@@ -6608,32 +6608,32 @@ GameFramework.resources.le.prototype = {
 		return -1
 	}
 };
-GameFramework.resources.le.c = function() {
-	GameFramework.resources.le.Yv = 256
+GameFramework.resources.PIValue.c = function() {
+	GameFramework.resources.PIValue.Yv = 256
 };
 T(function() {
-			GameFramework.resources.le.u("GameFramework.resources.PIValue", null,
+			GameFramework.resources.PIValue.u("GameFramework.resources.PIValue", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.le.c()
+			GameFramework.resources.PIValue.c()
 		});
-GameFramework.resources.Xv = t();
-GameFramework.resources.Xv.prototype = {
+GameFramework.resources.PIValuePoint2D = t();
+GameFramework.resources.PIValuePoint2D.prototype = {
 	Eb : 0,
 	oa : null,
 	t : t()
 };
-GameFramework.resources.Xv.c = t();
+GameFramework.resources.PIValuePoint2D.c = t();
 T(function() {
-			GameFramework.resources.Xv.u("GameFramework.resources.PIValuePoint2D", null,
+			GameFramework.resources.PIValuePoint2D.u("GameFramework.resources.PIValuePoint2D", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.Xv.c()
+			GameFramework.resources.PIValuePoint2D.c()
 		});
-GameFramework.resources.$k = t();
-GameFramework.resources.$k.prototype = {
+GameFramework.resources.PIValue2D = t();
+GameFramework.resources.PIValue2D.prototype = {
 	mj : null,
 	km : null,
 	Fx : -1,
@@ -6673,32 +6673,32 @@ GameFramework.resources.$k.prototype = {
 		return this.rH = new GameFramework.geom.TPoint(0, 0)
 	}
 };
-GameFramework.resources.$k.c = t();
+GameFramework.resources.PIValue2D.c = t();
 T(function() {
-			GameFramework.resources.$k.u("GameFramework.resources.PIValue2D", null,
+			GameFramework.resources.PIValue2D.u("GameFramework.resources.PIValue2D", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.$k.c()
+			GameFramework.resources.PIValue2D.c()
 		});
-GameFramework.resources.Tv = t();
-GameFramework.resources.Tv.prototype = {
+GameFramework.resources.PIInterpolatorPoint = t();
+GameFramework.resources.PIInterpolatorPoint.prototype = {
 	oa : 0,
 	Eb : 0,
 	t : t()
 };
-GameFramework.resources.Tv.c = t();
+GameFramework.resources.PIInterpolatorPoint.c = t();
 T(function() {
-			GameFramework.resources.Tv.u("GameFramework.resources.PIInterpolatorPoint",
+			GameFramework.resources.PIInterpolatorPoint.u("GameFramework.resources.PIInterpolatorPoint",
 					null, GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.Tv.c()
+			GameFramework.resources.PIInterpolatorPoint.c()
 		});
-GameFramework.resources.Sv = function() {
+GameFramework.resources.PIInterpolator = function() {
 	this.Zf = []
 };
-GameFramework.resources.Sv.prototype = {
+GameFramework.resources.PIInterpolator.prototype = {
 	Zf : null,
 	t : t(),
 	G : function(b) {
@@ -6719,16 +6719,16 @@ GameFramework.resources.Sv.prototype = {
 		return this.Zf.length == 0 ? 0 : this.Zf[b % this.Zf.length].oa
 	}
 };
-GameFramework.resources.Sv.c = t();
+GameFramework.resources.PIInterpolator.c = t();
 T(function() {
-			GameFramework.resources.Sv.u("GameFramework.resources.PIInterpolator", null,
+			GameFramework.resources.PIInterpolator.u("GameFramework.resources.PIInterpolator", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.Sv.c()
+			GameFramework.resources.PIInterpolator.c()
 		});
-GameFramework.resources.jA = t();
-GameFramework.resources.jA.prototype = {
+GameFramework.resources.PITextureChunk = t();
+GameFramework.resources.PITextureChunk.prototype = {
 	Ki : null,
 	Oa : null,
 	Ww : 0,
@@ -6739,18 +6739,18 @@ GameFramework.resources.jA.prototype = {
 	UC : 0,
 	t : t()
 };
-GameFramework.resources.jA.c = t();
+GameFramework.resources.PITextureChunk.c = t();
 T(function() {
-			GameFramework.resources.jA.u("GameFramework.resources.PITextureChunk", null,
+			GameFramework.resources.PITextureChunk.u("GameFramework.resources.PITextureChunk", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.jA.c()
+			GameFramework.resources.PITextureChunk.c()
 		});
-GameFramework.resources.iA = function() {
+GameFramework.resources.PITexture = function() {
 	this.Xj = []
 };
-GameFramework.resources.iA.prototype = {
+GameFramework.resources.PITexture.prototype = {
 	Xj : null,
 	sb : null,
 	cu : null,
@@ -6763,16 +6763,16 @@ GameFramework.resources.iA.prototype = {
 		this.zi = b.xa != null ? GameFramework.BaseApp.M.vb.Gs(b.xa) : b.rd
 	}
 };
-GameFramework.resources.iA.c = t();
+GameFramework.resources.PITexture.c = t();
 T(function() {
-			GameFramework.resources.iA.u("GameFramework.resources.PITexture", null,
+			GameFramework.resources.PITexture.u("GameFramework.resources.PITexture", null,
 					GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.iA.c()
+			GameFramework.resources.PITexture.c()
 		});
-GameFramework.resources.hA = t();
-GameFramework.resources.hA.prototype = {
+GameFramework.resources.PILifeValueSample = t();
+GameFramework.resources.PILifeValueSample.prototype = {
 	jy : 0,
 	ky : 0,
 	Gk : 0,
@@ -6782,13 +6782,13 @@ GameFramework.resources.hA.prototype = {
 	n : 0,
 	t : t()
 };
-GameFramework.resources.hA.c = t();
+GameFramework.resources.PILifeValueSample.c = t();
 T(function() {
-			GameFramework.resources.hA.u("GameFramework.resources.PILifeValueSample",
+			GameFramework.resources.PILifeValueSample.u("GameFramework.resources.PILifeValueSample",
 					null, GameFramework.ff)
 		});
 U(function() {
-			GameFramework.resources.hA.c()
+			GameFramework.resources.PILifeValueSample.c()
 		});
 GameFramework.resources.yb = t();
 GameFramework.resources.yb.prototype = {
@@ -7709,7 +7709,7 @@ GameFramework.resources.va.prototype = {
 				g[j] = l.add(m)
 			}
 			this.Ai || (this.C.H(), m = this.C.H(), h |= (m & 1) == 0);
-			m = new GameFramework.resources.Xv;
+			m = new GameFramework.resources.PIValuePoint2D;
 			m.oa = l;
 			m.Eb = k;
 			b.mj.push(m)
@@ -7721,7 +7721,7 @@ GameFramework.resources.va.prototype = {
 		b.mj = [];
 		for (var d = 0; d < c; d++) {
 			this.Qi("CPointKey");
-			var f = new GameFramework.resources.Xv;
+			var f = new GameFramework.resources.PIValuePoint2D;
 			f.Eb = this.C.H();
 			f.oa = new GameFramework.geom.TPoint;
 			f.oa.x = this.C.fa();
@@ -7762,7 +7762,7 @@ GameFramework.resources.va.prototype = {
 							.fa(), m > 0 && (j[l++] = q.add(r)), r = new GameFramework.geom.TPoint, r.x = this.C
 							.fa(), r.y = this.C.fa(), j[l++] = q.add(r);
 				this.Ai || (this.C.H(), r = this.C.H(), f |= (r & 1) == 0);
-				r = new GameFramework.resources.Wv;
+				r = new GameFramework.resources.PIValuePoint;
 				r.oa = q.y;
 				r.Eb = o;
 				b.dc[m] = r;
@@ -7826,25 +7826,25 @@ GameFramework.resources.va.prototype = {
 			f.EO = this.C.oc();
 			this.C.H();
 			f.lj = this.C.H();
-			f.n = new GameFramework.resources.Sv;
+			f.n = new GameFramework.resources.PIInterpolator;
 			for (var g = this.C.Ga(), h = 0; h < g; h++) {
 				this.Qi("CColorPoint");
 				var j = this.C.eb(), k = this.C.eb(), l = this.C.eb(), j = 4278190080
 						| (j | 0) << 16 | (k | 0) << 8 | (l | 0) << 0, k = this.C
-						.fa(), l = new GameFramework.resources.Tv;
+						.fa(), l = new GameFramework.resources.PIInterpolatorPoint;
 				l.oa = j;
 				l.Eb = k;
 				f.n.Zf.push(l)
 			}
-			f.L = new GameFramework.resources.Sv;
+			f.L = new GameFramework.resources.PIInterpolator;
 			g = this.C.Ga();
 			for (h = 0; h < g; h++)
-				this.Qi("CAlphaPoint"), j = this.C.eb(), k = this.C.fa(), l = new GameFramework.resources.Tv, l.oa = j, l.Eb = k, f.L.Zf
+				this.Qi("CAlphaPoint"), j = this.C.eb(), k = this.C.fa(), l = new GameFramework.resources.PIInterpolatorPoint, l.oa = j, l.Eb = k, f.L.Zf
 						.push(l);
 			f.F = [];
 			f.F.length = GameFramework.resources.ua.p.Jh | 0;
 			for (g = 0; g < (GameFramework.resources.ua.p.Jh | 0); g++)
-				f.F[g] = new GameFramework.resources.le;
+				f.F[g] = new GameFramework.resources.PIValue;
 			for (g = 0; g < 23; g++)
 				this.Bf(f.F[g]);
 			f.ou = new GameFramework.geom.TPoint;
@@ -7871,7 +7871,7 @@ GameFramework.resources.va.prototype = {
 			this.Bf(f.F[GameFramework.resources.ua.p.xs | 0]);
 			this.Bf(f.F[GameFramework.resources.ua.p.ys | 0]);
 			this.C.H();
-			this.Bf(new GameFramework.resources.le);
+			this.Bf(new GameFramework.resources.PIValue);
 			f.kP = this.C.oc();
 			f.Lu = this.C.oc();
 			f.lP = this.C.oc();
@@ -7918,7 +7918,7 @@ GameFramework.resources.va.prototype = {
 					k != null ? r = k.G(o) : q = l.G(o);
 					switch (h) {
 						case GameFramework.resources.yb.Nd.Wg | 0 :
-							g.qf[m] = new GameFramework.resources.hA;
+							g.qf[m] = new GameFramework.resources.PILifeValueSample;
 							g.qf[m].jy = r;
 							break;
 						case GameFramework.resources.yb.Nd.Xg | 0 :
@@ -7944,7 +7944,7 @@ GameFramework.resources.va.prototype = {
 					}
 				}
 				if (j.length == 1)
-					k = new GameFramework.resources.Wv, k.Eb = 1, k.oa = j[0].oa, j
+					k = new GameFramework.resources.PIValuePoint, k.Eb = 1, k.oa = j[0].oa, j
 							.push(k)
 			}
 			f.fj = g;
@@ -7954,7 +7954,7 @@ GameFramework.resources.va.prototype = {
 		this.C.H();
 		b.F = Array.O(42, null);
 		for (c = 0; c < 42; c++)
-			b.F[c] = new GameFramework.resources.le, this.Bf(b.F[c]);
+			b.F[c] = new GameFramework.resources.PIValue, this.Bf(b.F[c]);
 		b.Ac = b.F[0].dc.length != 0;
 		this.C.H();
 		this.C.H()
@@ -8155,7 +8155,7 @@ GameFramework.resources.va.prototype = {
 		this.ga.gh = [];
 		for (var d = this.C.Ga(), f = 0; f < d; f++) {
 			this.Qi("CMultiTexture");
-			var g = new GameFramework.resources.iA;
+			var g = new GameFramework.resources.PITexture;
 			g.sb = this.ni();
 			var h = this.C.Ga();
 			g.zk = h;
@@ -8165,7 +8165,7 @@ GameFramework.resources.va.prototype = {
 				var j = this.ni(), k = this.e1(g.sb, j, c), j = k.Kb;
 				k.Ra(GameFramework.events.Event.hh, ss.Delegate.create(g, g.xq));
 				for (k = 0; k < h; k++) {
-					var l = new GameFramework.resources.jA;
+					var l = new GameFramework.resources.PITextureChunk;
 					l.Ki = g;
 					l.Ww = k;
 					l.UC = Math.max(j.Ox, j.Nx);
@@ -8257,7 +8257,7 @@ GameFramework.resources.va.prototype = {
 				q.Bh.length = r.tf.length;
 				for (var v = 0; v < (r.tf.length | 0); v++)
 					q.Bh[v] = new GameFramework.resources.nn, d[r.tf[v].lj] = true;
-				o.oo = new GameFramework.resources.$k;
+				o.oo = new GameFramework.resources.PIValue2D;
 				this.wA(o.oo);
 				r = this.C.Ga();
 				o.Z = [];
@@ -8265,14 +8265,14 @@ GameFramework.resources.va.prototype = {
 					this.Qi("CEPoint");
 					this.C.fa();
 					this.C.fa();
-					var u = new GameFramework.resources.$k;
+					var u = new GameFramework.resources.PIValue2D;
 					this.QK(u);
 					o.Z.push(u)
 				}
 				o.F = [];
 				o.F.length = GameFramework.resources.$.p.Jh | 0;
 				for (r = 0; r < (GameFramework.resources.$.p.Jh | 0); r++)
-					o.F[r] = new GameFramework.resources.le;
+					o.F[r] = new GameFramework.resources.PIValue;
 				for (r = 0; r < 17; r++)
 					this.Bf(o.F[r]);
 				o.pr = this.C.H();
@@ -8315,18 +8315,18 @@ GameFramework.resources.va.prototype = {
 				m.bH = this.C.fa();
 				m.Hu = this.C.fa();
 				m.ec = this.C.oc();
-				m.qa = new GameFramework.resources.$k;
+				m.qa = new GameFramework.resources.PIValue2D;
 				this.wA(m.qa);
 				q = this.C.Ga();
 				m.Z = [];
 				m.ac = [];
 				for (o = 0; o < q; o++)
-					this.Qi("CEPoint"), this.C.fa(), this.C.fa(), r = new GameFramework.resources.$k, this
+					this.Qi("CEPoint"), this.C.fa(), this.C.fa(), r = new GameFramework.resources.PIValue2D, this
 							.QK(r), m.Z.push(r), m.ac
 							.push(new GameFramework.geom.TPoint);
-				m.yj = new GameFramework.resources.le;
+				m.yj = new GameFramework.resources.PIValue;
 				this.Bf(m.yj);
-				m.Hb = new GameFramework.resources.le;
+				m.Hb = new GameFramework.resources.PIValue;
 				this.Bf(m.Hb);
 				j.Rh.push(m)
 			}
@@ -8340,23 +8340,23 @@ GameFramework.resources.va.prototype = {
 				this.C.H();
 				this.C.H();
 				this.C.H();
-				m.qa = new GameFramework.resources.$k;
+				m.qa = new GameFramework.resources.PIValue2D;
 				this.wA(m.qa);
 				q = this.C.Ga();
 				m.Z = [];
 				for (o = 0; o < q; o++)
-					this.Qi("CEPoint"), this.C.fa(), this.C.fa(), r = new GameFramework.resources.$k, this
+					this.Qi("CEPoint"), this.C.fa(), this.C.fa(), r = new GameFramework.resources.PIValue2D, this
 							.QK(r), m.Z.push(r);
-				m.yj = new GameFramework.resources.le;
+				m.yj = new GameFramework.resources.PIValue;
 				this.Bf(m.yj);
-				m.Hb = new GameFramework.resources.le;
+				m.Hb = new GameFramework.resources.PIValue;
 				this.Bf(m.Hb);
 				j.j7.push(m)
 			}
-			j.de = new GameFramework.resources.$k;
+			j.de = new GameFramework.resources.PIValue2D;
 			this.wA(j.de);
 			j.qO = j.de.G(0);
-			j.Hb = new GameFramework.resources.le;
+			j.Hb = new GameFramework.resources.PIValue;
 			this.Bf(j.Hb);
 			this.ni();
 			for (k = 0; k < 32; k++)
@@ -8370,10 +8370,10 @@ GameFramework.resources.va.prototype = {
 			k = this.C.Ga();
 			for (l = 0; l < k; l++)
 				this.Qi("CForce"), m = new GameFramework.resources.eA, m.sb = this.ni(), m.ec = this.C
-						.oc(), m.qa = new GameFramework.resources.$k, this.wA(m.qa), m.yj = new GameFramework.resources.le, this
-						.Bf(m.yj), this.Bf(new GameFramework.resources.le), m.cD = new GameFramework.resources.le, this
-						.Bf(m.cD), m.s = new GameFramework.resources.le, this.Bf(m.s), m.z = new GameFramework.resources.le, this
-						.Bf(m.z), m.Hb = new GameFramework.resources.le, this.Bf(m.Hb), m.DB = new GameFramework.resources.le, this
+						.oc(), m.qa = new GameFramework.resources.PIValue2D, this.wA(m.qa), m.yj = new GameFramework.resources.PIValue, this
+						.Bf(m.yj), this.Bf(new GameFramework.resources.PIValue), m.cD = new GameFramework.resources.PIValue, this
+						.Bf(m.cD), m.s = new GameFramework.resources.PIValue, this.Bf(m.s), m.z = new GameFramework.resources.PIValue, this
+						.Bf(m.z), m.Hb = new GameFramework.resources.PIValue, this.Bf(m.Hb), m.DB = new GameFramework.resources.PIValue, this
 						.Bf(m.DB), j.xi.push(m);
 			for (j = 0; j < 28; j++)
 				this.C.eb()
@@ -10106,7 +10106,7 @@ GameFramework.resources.va.c = function() {
 	GameFramework.resources.va.ena = 1;
 	GameFramework.resources.va.S7 = 1;
 	GameFramework.resources.va.z6 = 0;
-	GameFramework.resources.va.Qu = new GameFramework.resources.fA;
+	GameFramework.resources.va.Qu = new GameFramework.resources.PIGeomDataEx;
 	GameFramework.resources.va.An = null;
 	GameFramework.resources.va.sh = -1
 };
@@ -10923,7 +10923,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		this.YO = b
 	},
 	c3 : function(b) {
-		var c = new GameFramework.resources.Mo;
+		var c = new GameFramework.resources.FontResource;
 		c.aL(b.rd, b);
 		this.ET(b.xa, c)
 	},
@@ -10938,7 +10938,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		this.E3(b.xa, c)
 	},
 	kT : function(b) {
-		var c = b.rd, d = new GameFramework.resources.Gq;
+		var c = b.rd, d = new GameFramework.resources.MeshResource;
 		d.BE(c, b);
 		this.FT(b.xa, d)
 	},
@@ -10960,7 +10960,7 @@ GameFramework.resources.ResourceManager.prototype = {
 						else if (GameFramework.BaseApp.M.aj != d)
 							continue;
 					for (d = 0; d < g.tQ(); d++) {
-						var h = g.VR(d), j = h.Gb(), k = new GameFramework.resources.Ly;
+						var h = g.VR(d), j = h.Gb(), k = new GameFramework.resources.BaseRes;
 						k.T7 = f;
 						if (j == "Font")
 							k.Fb = GameFramework.resources.ResourceManager.KK;
@@ -12192,7 +12192,7 @@ GameFramework.widgets.rb.prototype = {
 				&& (c += this.Xf.Sl() - this.Xf.DR(), d = true);
 		this.EG.length > 0
 				&& this.fo != null
-				&& (d && (c += this.Qr), d = new GameFramework.resources.oz, GameFramework.gfx.Graphics
+				&& (d && (c += this.Qr), d = new GameFramework.resources.FontDrawData, GameFramework.gfx.Graphics
 						.$0(this.EG, this.fo, b - this.Fd.yh - this.Fd.Vj
 										- this.Df.yh - this.Df.Vj - 4, this.gj,
 								d), c += d.OW + d.gN, d = true);
@@ -13588,7 +13588,7 @@ GameFramework.gfx.JSGraphics3D.prototype = {
 		O.xU != null && gl.uniform1i(O.xU, 0);
 		O.yU != null && gl.uniform1i(O.yU, 1);
 		for (c = 0; c < b.ee.length; c++)
-			d = b.ee[c], this.lw(0, d.Oa), f = new GameFramework.resources.Fa.on(GameFramework.resources.gk.iT), b
+			d = b.ee[c], this.lw(0, d.Oa), f = new GameFramework.resources.Fa.on(GameFramework.resources.MeshEvent.iT), b
 					.ld(f), d.js != null
 					&& (gl.bindBuffer(gl.ARRAY_BUFFER, d.YY), gl
 							.vertexAttribPointer(O.Ey, 3, gl.FLOAT, false, 0, 0)), d.rp != null
@@ -13601,7 +13601,7 @@ GameFramework.gfx.JSGraphics3D.prototype = {
 					&& (gl.bindBuffer(gl.ARRAY_BUFFER, d.KY), gl
 							.vertexAttribPointer(O.AP, 2, gl.FLOAT, false, 0, 0)), gl
 					.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, d.bX), gl.drawElements(
-					gl.TRIANGLES, d.yx, gl.UNSIGNED_SHORT, 0), f = new GameFramework.resources.Fa.on(GameFramework.resources.gk.hT), b
+					gl.TRIANGLES, d.yx, gl.UNSIGNED_SHORT, 0), f = new GameFramework.resources.Fa.on(GameFramework.resources.MeshEvent.hT), b
 					.ld(f)
 	}
 };
@@ -13652,7 +13652,7 @@ GameFramework.resources.JSImageInst.prototype = {
 GameFramework.resources.JSImageInst.c = t();
 T(function() {
 			GameFramework.resources.JSImageInst.u("GameFramework.resources.JSImageInst",
-					GameFramework.resources.Rs)
+					GameFramework.resources.ImageInst)
 		});
 U(function() {
 			GameFramework.resources.JSImageInst.c()
@@ -13698,7 +13698,7 @@ GameFramework.resources.JSImageResource.prototype = {
 				j, k)
 	},
 	t : function() {
-		GameFramework.resources.gn.prototype.t.apply(this);
+		GameFramework.resources.ImageResource.prototype.t.apply(this);
 		this.vh != null && this.sO && gl.deleteTexture(this.vh);
 		this.ym = this.vh = null
 	},
@@ -13722,7 +13722,7 @@ GameFramework.resources.JSImageResource.prototype = {
 GameFramework.resources.JSImageResource.c = t();
 T(function() {
 			GameFramework.resources.JSImageResource.u("GameFramework.resources.JSImageResource",
-					GameFramework.resources.gn)
+					GameFramework.resources.ImageResource)
 		});
 U(function() {
 			GameFramework.resources.JSImageResource.c()
@@ -13741,7 +13741,7 @@ GameFramework.resources.JSMeshPiece.prototype = {
 GameFramework.resources.JSMeshPiece.c = t();
 T(function() {
 			GameFramework.resources.JSMeshPiece.u("GameFramework.resources.JSMeshPiece",
-					GameFramework.resources.Nv)
+					GameFramework.resources.MeshPiece)
 		});
 U(function() {
 			GameFramework.resources.JSMeshPiece.c()
@@ -13751,7 +13751,7 @@ GameFramework.resources.JSMeshResource = function() {
 };
 GameFramework.resources.JSMeshResource.prototype = {
 	BE : function(b, c) {
-		if (!GameFramework.resources.Gq.prototype.BE.apply(this, [b, c]))
+		if (!GameFramework.resources.MeshResource.prototype.BE.apply(this, [b, c]))
 			return false;
 		if (gl != null)
 			for (var d = 0; d < this.ee.length; d++) {
@@ -13809,7 +13809,7 @@ GameFramework.resources.JSMeshResource.prototype = {
 GameFramework.resources.JSMeshResource.c = t();
 T(function() {
 			GameFramework.resources.JSMeshResource.u("GameFramework.resources.JSMeshResource",
-					GameFramework.resources.Gq)
+					GameFramework.resources.MeshResource)
 		});
 U(function() {
 			GameFramework.resources.JSMeshResource.c()
@@ -14282,7 +14282,7 @@ Game.BackgroundLoader = w("Tn");
 Game.BackgroundLoader.prototype = {
 	Tn : 0,
 	JZ : function(b) {
-		Game.Background.iC[this.Tn] = Type.di(b.target.rd, GameFramework.resources.gn);
+		Game.Background.iC[this.Tn] = Type.di(b.target.rd, GameFramework.resources.ImageResource);
 		Game.Background.Ax[this.Tn] = true;
 		GameFramework.BaseApp.M.nQ()
 	}
@@ -15124,9 +15124,9 @@ Game.BejApp.prototype = {
 					.al("3d/gemPurple.p3d"))), this.Sn.push(this.vb.Po(this.vb
 					.al("3d/gemOrange.p3d"))), this.Sn.push(this.vb.Po(this.vb
 					.al("3d/gemBlue.p3d"))), this.AI = this.vb.Po(this.vb
-					.al("3d/warptube.p3d")), this.AI.Ra(GameFramework.resources.gk.iT,
+					.al("3d/warptube.p3d")), this.AI.Ra(GameFramework.resources.MeshEvent.iT,
 					ss.Delegate.create(Game.N, Game.N.T1)), this.AI.Ra(
-					GameFramework.resources.gk.hT, ss.Delegate.create(Game.N, Game.N.S1)), this.XY = this.vb
+					GameFramework.resources.MeshEvent.hT, ss.Delegate.create(Game.N, Game.N.S1)), this.XY = this.vb
 					.Po(this.vb.al("3d/warptube_cap.p3d"))
 	},
 	gq : function(b, c, d, f, g) {
