@@ -29973,17 +29973,17 @@ T(function() {
 			Game.Profile.Zv.c()
 		});
 GameDll = Type.ci("GameDll");
-GameDll.hw = t();
-GameDll.hw.Pla = t();
-GameDll.hw.prototype = {};
-GameDll.hw.c = function() {
-	GameDll.hw.q = null
+GameDll.Program = t();
+GameDll.Program.Pla = t();
+GameDll.Program.prototype = {};
+GameDll.Program.c = function() {
+	GameDll.Program.q = null
 };
 T(function() {
-			GameDll.hw.u("GameDll.Program", null)
+			GameDll.Program.u("GameDll.Program", null)
 		});
 U(function() {
-			GameDll.hw.c()
+			GameDll.Program.c()
 		});
 Game.Lq = function(b, c, d, f) {
 	this.$x = new GameFramework.CurvedVal;
