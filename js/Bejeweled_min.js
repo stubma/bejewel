@@ -32225,7 +32225,7 @@ Game.nw.prototype = {
 			this.uH = this.ri * 60;
 			this.wp = this.Me = Math.max(0, (60 - this.ri) * 60 + 0) | 0;
 			this.Iu = this.ri = 0;
-			b = new Game.Tg;
+			b = new Game.LightningBarFillEffect;
 			b.Ak = true;
 			this.ob.Gc(b)
 		}
@@ -33292,14 +33292,14 @@ T(function() {
 U(function() {
 			Game.SpeedCollectEffect.c()
 		});
-Game.Tg = function() {
-	this.Z = Array.Sd(Game.Tg.Xk, 2, null);
-	E(Game.Tg, this, [Game.R.da.Py]);
-	for (var b = this.Zh = 0; b < Game.Tg.Xk; ++b)
+Game.LightningBarFillEffect = function() {
+	this.Z = Array.Sd(Game.LightningBarFillEffect.Xk, 2, null);
+	E(Game.LightningBarFillEffect, this, [Game.R.da.Py]);
+	for (var b = this.Zh = 0; b < Game.LightningBarFillEffect.Xk; ++b)
 		for (var c = 0; c < 2; ++c)
 			this.Z[this.Z.g * b + c] = new GameFramework.geom.ba
 };
-Game.Tg.prototype = {
+Game.LightningBarFillEffect.prototype = {
 	Z : null,
 	Zh : 0,
 	ca : function() {
@@ -33308,12 +33308,12 @@ Game.Tg.prototype = {
 		if (this.Zh > 1)
 			this.ce = true;
 		else if (Math.max(0, 1 - (1 - this.Zh) * 3), this.Nb.e.aa % 2 == 0 || b)
-			for (var b = 550 + this.Nb.e.Mj * 1E3, c = 0; c < Game.Tg.Xk; c++) {
-				var d = c / (Game.Tg.Xk - 1), f = 1 - Math.abs(1 - d * 2), g = 200
+			for (var b = 550 + this.Nb.e.Mj * 1E3, c = 0; c < Game.LightningBarFillEffect.Xk; c++) {
+				var d = c / (Game.LightningBarFillEffect.Xk - 1), f = 1 - Math.abs(1 - d * 2), g = 200
 						* (1 - d) + b * d + f * GameFramework.h.P() * 60, d = 320
 						* (1 - d) + 70 * d + f * GameFramework.h.P() * 60, f = this.Z[this.Z.g
 						* c + 0], h = this.Z[this.Z.g * c + 1];
-				c == 0 || c == Game.Tg.Xk - 1
+				c == 0 || c == Game.LightningBarFillEffect.Xk - 1
 						? (f.x = g, f.y = d, h.x = g, h.y = d)
 						: (f.x = g + GameFramework.h.P() * 60, f.y = d
 								+ GameFramework.h.P() * 60, h.x = g
@@ -33324,20 +33324,20 @@ Game.Tg.prototype = {
 	ja : function(b) {
 		var c = Math.min((1 - this.Zh) * 8, 1) * this.Nb.e.Yc() * 255 | 0;
 		if (GameFramework.BaseApp.M.kc()) {
-			for (var d = Array.Sd((Game.Tg.Xk - 1) * 2, 3, null), f = 0; f < (Game.Tg.Xk - 1)
+			for (var d = Array.Sd((Game.LightningBarFillEffect.Xk - 1) * 2, 3, null), f = 0; f < (Game.LightningBarFillEffect.Xk - 1)
 					* 2; f++)
 				d[d.g * f + 0] = new GameFramework.gfx.jc, d[d.g * f + 1] = new GameFramework.gfx.jc, d[d.g
 						* f + 2] = new GameFramework.gfx.jc;
-			for (var f = 0, g = GameFramework.gfx.k.Ma(255, 200, 100, c), h = 0; h < Game.Tg.Xk
+			for (var f = 0, g = GameFramework.gfx.k.Ma(255, 200, 100, c), h = 0; h < Game.LightningBarFillEffect.Xk
 					- 1; h++) {
 				var j = this.Z[this.Z.g * h + 0], k = this.Z[this.Z.g * h + 1], l = this.Z[this.Z.g
 						* (h + 1) + 0], m = this.Z[this.Z.g * (h + 1) + 1], o = h
-						/ (Game.Tg.Xk - 1), q = (h + 1) / (Game.Tg.Xk - 1);
+						/ (Game.LightningBarFillEffect.Xk - 1), q = (h + 1) / (Game.LightningBarFillEffect.Xk - 1);
 				if (h == 0)
 					k = d[d.g * f + 0], k.x = j.x, k.y = j.y, k.Ng = 0.5, k.Ob = o, k.color = g, k = d[d.g
 							* f + 1], k.x = m.x, k.y = m.y, k.Ng = 1, k.Ob = q, k.color = g, k = d[d.g
 							* f + 2], k.x = l.x, k.y = l.y, k.Ng = 0, k.Ob = q, k.color = g;
-				else if (h == Game.Tg.Xk - 2)
+				else if (h == Game.LightningBarFillEffect.Xk - 2)
 					m = d[d.g * f + 0], m.x = j.x, m.y = j.y, m.Ng = 0, m.Ob = o, m.color = g, m = d[d.g
 							* f + 1], m.x = k.x, m.y = k.y, m.Ng = 1, m.Ob = o, m.color = g, m = d[d.g
 							* f + 2], m.x = l.x, m.y = l.y, m.Ng = 0.5, m.Ob = q, m.color = g;
@@ -33391,7 +33391,7 @@ Game.Tg.prototype = {
 			b.bn(Game.a.IMAGE_LIGHTNING_CENTER, d)
 		} else {
 			d = GameFramework.gfx.k.ta(255, 200, 100);
-			for (f = 0; f < Game.Tg.Xk - 1; f++) {
+			for (f = 0; f < Game.LightningBarFillEffect.Xk - 1; f++) {
 				var v = this.Z[this.Z.g * f + 0], u = this.Z[this.Z.g * f + 1], y = this.Z[this.Z.g
 						* (f + 1) + 0], z = this.Z[this.Z.g * (f + 1) + 1], g = v.x
 						* 0.3 + u.x * 0.7, h = v.y * 0.3 + u.y * 0.7, j = u.x
@@ -33424,14 +33424,14 @@ Game.Tg.prototype = {
 		}
 	}
 };
-Game.Tg.c = function() {
-	Game.Tg.Xk = 8
+Game.LightningBarFillEffect.c = function() {
+	Game.LightningBarFillEffect.Xk = 8
 };
 T(function() {
-			Game.Tg.u("Game.LightningBarFillEffect", Game.R)
+			Game.LightningBarFillEffect.u("Game.LightningBarFillEffect", Game.R)
 		});
 U(function() {
-			Game.Tg.c()
+			Game.LightningBarFillEffect.c()
 		});
 Game.pw = function(b) {
 	E(Game.pw, this, [b]);
