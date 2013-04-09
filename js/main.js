@@ -202,7 +202,6 @@ soundManager.waitForWindowLoad = true;
 soundManager.onload = JSFExt_SoundManagerReady;
 soundManager.onerror = JSFExt_SoundError;
 
-alert('hidd');
 JS_Init();
 gApp = new Game.BejApp();
 JFSExt_SetRequiresBinaryHack(false);
