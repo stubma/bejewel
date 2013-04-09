@@ -17213,7 +17213,7 @@ Game.Board.prototype = {
 	},
 	A4 : function(b) {
 		var c;
-		c = new Game.tj(Game.a.PIEFFECT_FIREGEM_HYPERSPACE);
+		c = new Game.ParticleEffect(Game.a.PIEFFECT_FIREGEM_HYPERSPACE);
 		c.jt(true);
 		c.lr = true;
 		c.uc |= Game.Effect.K.uS | 0;
@@ -17230,7 +17230,7 @@ Game.Board.prototype = {
 	},
 	P2 : function(b) {
 		var c, d;
-		c = new Game.tj(Game.a.PIEFFECT_STARGEM);
+		c = new Game.ParticleEffect(Game.a.PIEFFECT_STARGEM);
 		c.jt(true);
 		c.lr = true;
 		for (var f = 0; f < 7; f++)
@@ -17243,7 +17243,7 @@ Game.Board.prototype = {
 	},
 	N2 : function(b) {
 		var c, d;
-		c = new Game.tj(Game.a.PIEFFECT_STARGEM);
+		c = new Game.ParticleEffect(Game.a.PIEFFECT_STARGEM);
 		c.jt(true);
 		c.lr = true;
 		c.nr = true;
@@ -17259,7 +17259,7 @@ Game.Board.prototype = {
 	sU : function(b) {
 		b.gM.ea("b390,-90,0.005,1,~         ~#");
 		b.gM.jL(GameFramework.CurvedVal.Uz);
-		var c = new Game.tj(Game.a.PIEFFECT_MULTIPLIER);
+		var c = new Game.ParticleEffect(Game.a.PIEFFECT_MULTIPLIER);
 		c.qd = b.xa;
 		c.lr = true;
 		c.nr = true;
@@ -17272,7 +17272,7 @@ Game.Board.prototype = {
 	},
 	qU : function(b) {
 		if (GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f) {
-			var c = new Game.tj(Game.a.PIEFFECT_HYPERCUBE);
+			var c = new Game.ParticleEffect(Game.a.PIEFFECT_HYPERCUBE);
 			c.qd = b.xa;
 			c.jt(true);
 			c.lr = true;
@@ -18813,7 +18813,7 @@ Game.Board.prototype = {
 		b.vx.ea("b+0,1,0.006667,1,#### ;~###       O~### 9####");
 		b.XB.ea("b+80,64,0.006667,1,####  &}### |####  #~### z####  &~###");
 		if (c) {
-			var d = new Game.tj(Game.a.PIEFFECT_HINTFLASH);
+			var d = new Game.ParticleEffect(Game.a.PIEFFECT_HINTFLASH);
 			d.qd = b.xa;
 			d.nr = true;
 			this.ob.Gc(d)
@@ -22018,14 +22018,14 @@ T(function() {
 U(function() {
 			Game.TextNotifyEffect.c()
 		});
-Game.tj = function(b) {
-	E(Game.tj, this, [Game.Effect.da.PI]);
+Game.ParticleEffect = function(b) {
+	E(Game.ParticleEffect, this, [Game.Effect.da.PI]);
 	this.mg = b.gi();
 	this.lr = false;
 	this.Ic = 0;
 	this.fH = true
 };
-Game.tj.prototype = {
+Game.ParticleEffect.prototype = {
 	mg : null,
 	fH : null,
 	lr : null,
@@ -22087,12 +22087,12 @@ Game.tj.prototype = {
 		return this.mg.KJ(b)
 	}
 };
-Game.tj.c = t();
+Game.ParticleEffect.c = t();
 T(function() {
-			Game.tj.u("Game.ParticleEffect", Game.Effect)
+			Game.ParticleEffect.u("Game.ParticleEffect", Game.Effect)
 		});
 U(function() {
-			Game.tj.c()
+			Game.ParticleEffect.c()
 		});
 Game.Zo = function(b) {
 	E(Game.Zo, this, [Game.Effect.da.BK]);
@@ -27366,7 +27366,7 @@ Game.N.prototype = {
 					l = l[this.nN % l.length];
 					if (this.ae.Rk() > 270 && this.ie - this.oN > 2)
 						GameFramework.BaseApp.M.mi(l), this.oN = this.ie | 0, this.nN++;
-					m = new Game.tj(m);
+					m = new Game.ParticleEffect(m);
 					g >= 0
 							&& g <= (Game.f.Ha.sc | 0)
 							&& (m.fL(0, 0, Game.f.Yi[g + 1]), m.fL(0, 1,
@@ -32362,7 +32362,7 @@ Game.SpeedBoard.prototype = {
 						.Mb("pulse{0:d}", Math.min(5, (this.ri * 5 / 60 | 0)
 												+ 1)), 12);
 		if (this.Bj.V() == 0)
-			b = new Game.tj(Game.a.PIEFFECT_LIGHTNING_STEAMPULSE), b.w = 245, b.v = 255, b.Ak = true, this.ob
+			b = new Game.ParticleEffect(Game.a.PIEFFECT_LIGHTNING_STEAMPULSE), b.w = 245, b.v = 255, b.Ak = true, this.ob
 					.Gc(b)
 	},
 	rw : function(b) {
@@ -33238,7 +33238,7 @@ Game.SpeedCollectEffect.prototype = {
 		this.Hi.Kk(520, 150);
 		this.Hi.Kk(this.qy.x, this.qy.y);
 		this.Hi.XI(false);
-		this.kj = new Game.tj(Game.a.PIEFFECT_QUEST_DIG_COLLECT_GOLD);
+		this.kj = new Game.ParticleEffect(Game.a.PIEFFECT_QUEST_DIG_COLLECT_GOLD);
 		this.kj.jt(true);
 		this.kj.lr = false;
 		this.kj.hj++;
