@@ -3718,7 +3718,7 @@ GameFramework.connected.Facebook.prototype = {};
 GameFramework.connected.Facebook.c = t();
 T(function() {
 			GameFramework.connected.Facebook.u("GameFramework.connected.Facebook",
-					GameFramework.connected.LA)
+					GameFramework.connected.SocialService)
 		});
 U(function() {
 			GameFramework.connected.Facebook.c()
@@ -3772,21 +3772,21 @@ T(function() {
 U(function() {
 			GameFramework.connected.HTTPService.c()
 		});
-GameFramework.connected.LA = function() {
+GameFramework.connected.SocialService = function() {
 	this.Q7 = []
 };
-GameFramework.connected.LA.prototype = {
+GameFramework.connected.SocialService.prototype = {
 	Q7 : null,
 	Ub : x(null),
 	ca : t()
 };
-GameFramework.connected.LA.c = t();
+GameFramework.connected.SocialService.c = t();
 T(function() {
-			GameFramework.connected.LA.u(
+			GameFramework.connected.SocialService.u(
 					"GameFramework.connected.SocialService", null)
 		});
 U(function() {
-			GameFramework.connected.LA.c()
+			GameFramework.connected.SocialService.c()
 		});
 GameFramework.connected.AF = t();
 GameFramework.connected.AF.prototype = {
