@@ -14798,7 +14798,7 @@ Game.BejApp = function() {
 	this.uh = Game.f.xf.jk;
 	this.AN = [];
 	this.Sn = [];
-	this.Jp = new Game.Yz;
+	this.Jp = new Game.Metrics;
 	this.by = [];
 	E(Game.BejApp, this);
 	S(Game.BejApp.q == null);
@@ -28776,11 +28776,11 @@ Game.Messager.hv.c = function() {
 T(function() {
 			Game.Messager.hv.c()
 		});
-Game.Yz = function() {
+Game.Metrics = function() {
 	this.xC = [];
 	this.Kx = {}
 };
-Game.Yz.prototype = {
+Game.Metrics.prototype = {
 	SC : 0,
 	l8 : false,
 	xC : null,
@@ -28858,12 +28858,12 @@ Game.Yz.prototype = {
 			}
 	}
 };
-Game.Yz.c = t();
+Game.Metrics.c = t();
 T(function() {
-			Game.Yz.u("Game.Metrics", null)
+			Game.Metrics.u("Game.Metrics", null)
 		});
 U(function() {
-			Game.Yz.c()
+			Game.Metrics.c()
 		});
 Game.tc = function() {
 	this.Gh = Array.O(Game.tc.Xq, null);
