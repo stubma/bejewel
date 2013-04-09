@@ -12932,7 +12932,7 @@ GameFramework.JSBaseApp.prototype = {
 		return new GameFramework.JSDataBufferData
 	},
 	wQ : function() {
-		this.Uc = this.m8 = new GameFramework.gfx.Bv(this.Di, this.Ig)
+		this.Uc = this.m8 = new GameFramework.gfx.JSGraphics(this.Di, this.Ig)
 	},
 	Is : function(b, c) {
 		return localStorage.getItem(b + "/" + c)
@@ -13307,10 +13307,10 @@ U(function() {
 			GameFramework.JSDataBufferData.c()
 		});
 GameFramework.gfx = Type.ci("GameFramework.gfx");
-GameFramework.gfx.Bv = function(b, c) {
-	E(GameFramework.gfx.Bv, this, [b, c])
+GameFramework.gfx.JSGraphics = function(b, c) {
+	E(GameFramework.gfx.JSGraphics, this, [b, c])
 };
-GameFramework.gfx.Bv.prototype = {
+GameFramework.gfx.JSGraphics.prototype = {
 	Am : 0,
 	kX : "#800000",
 	JR : function() {
@@ -13479,13 +13479,13 @@ GameFramework.gfx.Bv.prototype = {
 		gl.disableVertexAttribArray(4)
 	}
 };
-GameFramework.gfx.Bv.c = t();
+GameFramework.gfx.JSGraphics.c = t();
 T(function() {
-			GameFramework.gfx.Bv.u("GameFramework.gfx.JSGraphics",
+			GameFramework.gfx.JSGraphics.u("GameFramework.gfx.JSGraphics",
 					GameFramework.gfx.Ul)
 		});
 U(function() {
-			GameFramework.gfx.Bv.c()
+			GameFramework.gfx.JSGraphics.c()
 		});
 GameFramework.gfx.Cv = function(b) {
 	this.mP = new GameFramework.geom.Ce;
