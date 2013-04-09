@@ -210,7 +210,7 @@ JFSExt_SetRequiresBinaryHack(false);
 // gApp.SetMetricsURL("http://stats.popcap.com");
 gApp.SetThrottlingURL("http://127.0.0.1/~maruojie/properties/jew.conf");
 gApp.SetMetricsURL("http://127.0.0.1/~maruojie");
-//gApp.SetPathPrefix("http://127.1.1.1/~maruojie/");
+gApp.SetPathPrefix("http://127.0.0.1/~maruojie/");
 
 gApp.SetExceptionCallback(HandleException);
 

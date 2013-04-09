@@ -15005,7 +15005,7 @@ Game.BejApp.prototype = {
 			this.Bi = new Game.mc, this.Bi.s = 1600, this.Bi.z = 1200, this.nx
 					.Bc(this.Bi), this.Bi.ca(), this.Nh.oi(this.Bi), this.hP = new Game.TooltipManager, this.fe
 					.Bc(this.hP);
-		var b = this.vb.J4("http://127.0.0.1/~maruojie/properties/resources.xml");
+		var b = this.vb.J4("properties/resources.xml");
 		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.M3));
 		b.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz))
 	},
