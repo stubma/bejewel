@@ -1363,12 +1363,12 @@ ss.ZI.u("CancelEventArgs", ss.EventArgs);
 ss.DS = t();
 ss.DS.prototype = {};
 Ba(ss.DS, "INotifyPropertyChanged");
-ss.GK = function(b) {
-	E(ss.GK, this);
+ss.PropertyChangedEventArgs = function(b) {
+	E(ss.PropertyChangedEventArgs, this);
 	this.qqa = b
 };
-ss.GK.prototype = {};
-ss.GK.u("PropertyChangedEventArgs", ss.EventArgs);
+ss.PropertyChangedEventArgs.prototype = {};
+ss.PropertyChangedEventArgs.u("PropertyChangedEventArgs", ss.EventArgs);
 ss.CS = t();
 ss.CS.prototype = {};
 Ba(ss.CS, "INotifyCollectionChanged");
