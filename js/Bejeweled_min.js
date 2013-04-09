@@ -14776,7 +14776,7 @@ Game.TopWidget.prototype = {
 				b.kb(Game.a.FONT_FLAREGOTHIC16);
 				Game.BejApp.q.uh != Game.f.xf.jk
 						&& b.Cc(String.Mb("Autoplay: {0} -- {1}",
-										Game.f.sV[Game.BejApp.q.uh | 0], Game.pa
+										Game.f.sV[Game.BejApp.q.uh | 0], Game.Util
 												.U4()), 8, 22);
 				var d = String.Mb("v{0}", Game.wn.sz()), d = "DEBUG " + d;
 				b.zb(d, Game.BejApp.q.s - 4, 22, 0, 1);
@@ -14955,7 +14955,7 @@ Game.BejApp.prototype = {
     Init : function() {
 		this.po = "Bejeweled";
 		kc = false;
-		Game.pa.TF.gF(GameFramework.Utils.Sk() | 0);
+		Game.Util.TF.gF(GameFramework.Utils.Sk() | 0);
 		var b = this.aj, c = this.Is(this.po, "ArtRes");
 		if (c != null)
 			this.aj = GameFramework.Utils.Hc(c);
@@ -15539,7 +15539,7 @@ Game.Mv.prototype = {
 		if (this.jP % 3 == 0) {
 			this.Z[0].clear();
 			this.Z[1].clear();
-			this.nf = Game.pa.Fc() % 5;
+			this.nf = Game.Util.Fc() % 5;
 			b = (Math.max(1, 0.5 * this.fC / b.z) | 0) + 1;
 			for (g = 0; g < b; g++) {
 				var j = Array.O(2, null, new GameFramework.geom.ba(0, 0),
@@ -15547,9 +15547,9 @@ Game.Mv.prototype = {
 				g != 0 && g < b - 1
 						&& (l = Math.max(80, 160 * this.$e / this.TM | 0) | 0);
 				j[0].x = j[1].x = this.Lg.x + k * c + (l / 2 | 0)
-						- Game.pa.Fc() % l;
+						- Game.Util.Fc() % l;
 				j[0].y = j[1].y = this.Lg.y + k * d + (l / 2 | 0)
-						- Game.pa.Fc() % l;
+						- Game.Util.Fc() % l;
 				j[0].x -= h;
 				j[1].x += h;
 				j[0].y += f;
@@ -16165,8 +16165,8 @@ Game.Board = function() {
 	this.zj = [];
 	this.EL = Array.O(6, 0, 3, 6, 12, 20, 30, 45);
 	E(Game.Board, this);
-	this.Ef = Game.pa.aK(Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD) + this.is;
-	this.tM = Game.pa.bK(Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD) - 60;
+	this.Ef = Game.Util.aK(Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD) + this.is;
+	this.tM = Game.Util.bK(Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD) - 60;
 	this.OO = false;
 	this.Ux = new GameFramework.geom.ba(-70, -200)
 };
@@ -16523,7 +16523,7 @@ Game.Board.prototype = {
 		this.mx = false;
 		this.lO = 1;
 		this.jG = this.wc - 1;
-		this.Of.gF(Game.pa.Fc() | 0);
+		this.Of.gF(Game.Util.Fc() | 0);
 		for (b = 0; b < (Game.f.T.Zc | 0); b++)
 			this.od[b] = 0;
 		this.QW = true;
@@ -17086,7 +17086,7 @@ Game.Board.prototype = {
 							for (var m = 0; m < 8; m++) {
 								var o = this.ob.wf(Game.R.da.nv);
 								o.n = Game.f.Yi[j.n | 0];
-								var q = m * 0.503 + Game.pa.Fc() % 100 / 800;
+								var q = m * 0.503 + Game.Util.Fc() % 100 / 800;
 								o.w = j.Ad() + GameFramework.Utils.P() * Game.Board.bb
 										/ 2;
 								o.v = j.Rd() + GameFramework.Utils.P() * Game.Board.ab
@@ -17953,7 +17953,7 @@ Game.Board.prototype = {
 							u = this.ob.wf(Game.R.da.nv);
 							u.n = Game.f.Yi[(m.n | 0) + 1];
 							var y = v * ((v + 120) / 120 | 0), z = v * 0.503
-									+ Game.pa.Fc() % 100 / 800, A = 1.2
+									+ Game.Util.Fc() % 100 / 800, A = 1.2
 									+ Math.abs(GameFramework.Utils.P()) * 1.2;
 							u.Nc = Math.cos(z) * A + k * 1.67;
 							u.Vb = Math.sin(z) * A + -2 + l * 1.67;
@@ -18097,7 +18097,7 @@ Game.Board.prototype = {
 				}
 			for (g = 0; g < 25; g++)
 				l = this.ob.wf(Game.R.da.nv), l.n = Game.f.Yi[(b.n | 0) + 1], m = g
-						* ((g + 120) / 120 | 0), o = g * 0.503 + Game.pa.Fc()
+						* ((g + 120) / 120 | 0), o = g * 0.503 + Game.Util.Fc()
 						% 100 / 800, q = 1.2 + Math.abs(GameFramework.Utils.P())
 						* 1.2, l.Nc = (Math.cos(o) * q + j) * 1.67, l.Vb = (Math
 						.sin(o)
@@ -19632,27 +19632,27 @@ Game.Board.prototype = {
 				else if (this.Hs() >= 1
 						&& (Game.BejApp.q.jB = Math.max(0, Game.BejApp.q.jB + 1) | 0, Game.BejApp.q.jB == 1))
 					for (b = 0; b < 3; ++b)
-						c = this.ji(Game.pa.Fc() % this.wc, Game.pa.Fc()
+						c = this.ji(Game.Util.Fc() % this.wc, Game.Util.Fc()
 										% this.$b), c != null && this.Iz(c)
 								&& this.VJ(c);
 			if (!this.N5()
 					&& Game.BejApp.q.uh != Game.f.xf.jk
 					&& this.os()
-					&& (this.tE() && Game.pa.Fc() % 40 == 0
+					&& (this.tE() && Game.Util.Fc() % 40 == 0
 							|| Game.BejApp.q.uh == Game.f.xf.T2
 							|| Game.BejApp.q.uh == Game.f.xf.dT
-							|| Game.BejApp.q.uh == Game.f.xf.VA || Game.pa.Fc() % 60 == 0)) {
+							|| Game.BejApp.q.uh == Game.f.xf.VA || Game.Util.Fc() % 60 == 0)) {
 				b = false;
-				if (Game.pa.Fc() % 8 < 8
+				if (Game.Util.Fc() % 8 < 8
 						&& (b = true, c = Array.O(4, 0), Game.BejApp.q.uh == Game.f.xf.VA
 								&& this.uR(c, true) || this.tR(c)))
 					d = this.e[this.e.g * c[1] + c[0]], this.jw(this.e[this.e.g
 									* c[3] + c[2]], d.La, d.Ja, false, true);
 				if (!b || Game.BejApp.q.uh == Game.f.xf.dT && this.aa % 1 == 0
 						|| Game.BejApp.q.uh == Game.f.xf.VA && this.aa % 40 == 0)
-					b = this.e[this.e.g * (Game.pa.Fc() % this.wc)
-							+ Game.pa.Fc() % this.$b], b != null
-							&& (c = Array.Sd(4, 2, 0, -1, 0, 1, 0, 0, -1, 0, 1), d = Game.pa
+					b = this.e[this.e.g * (Game.Util.Fc() % this.wc)
+							+ Game.Util.Fc() % this.$b], b != null
+							&& (c = Array.Sd(4, 2, 0, -1, 0, 1, 0, 0, -1, 0, 1), d = Game.Util
 									.Fc()
 									% 4, this.jw(b, b.La + c[c.g * d + 1], b.Ja
 											+ c[c.g * d + 0], false, true))
@@ -21026,9 +21026,9 @@ T(function() {
 		});
 Game.ClassicBoard = function(b) {
 	E(Game.ClassicBoard, this, [b]);
-	this.Ef = Game.pa.aK(Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC)
+	this.Ef = Game.Util.aK(Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC)
 			+ this.is;
-	this.tM = Game.pa.bK(Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC) - 60
+	this.tM = Game.Util.bK(Game.a.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC) - 60
 };
 Game.ClassicBoard.prototype = {
 	dE : x("Classic"),
@@ -21794,14 +21794,14 @@ Game.R = function(b) {
 			this.oa[2] = 0.93;
 			break;
 		case Game.R.da.EA :
-			this.ds = Game.pa.Fc() % 2 + 2;
-			this.Nc = (-1 + Game.pa.Fc() % 20 * 0.1) * 1.67;
-			this.Vb = Game.pa.Fc() % 50 * 0.167;
+			this.ds = Game.Util.Fc() % 2 + 2;
+			this.Nc = (-1 + Game.Util.Fc() % 20 * 0.1) * 1.67;
+			this.Vb = Game.Util.Fc() % 50 * 0.167;
 			this.n = GameFramework.gfx.k.Ma(255, 255, 255, 255);
 			break;
 		case Game.R.da.nv :
 			this.oa = Array.O(4, null);
-			this.nf = Game.pa.Fc() % 40;
+			this.nf = Game.Util.Fc() % 40;
 			this.ds = 0;
 			this.L = 1;
 			this.Ic = (-0.0050 + Math.abs(GameFramework.Utils.P()) * -0.01) * 1.67;
@@ -21830,7 +21830,7 @@ Game.R = function(b) {
 		case Game.R.da.TD :
 		case Game.R.da.cz :
 			this.Oa = Game.a.IMAGE_FIREPARTICLE;
-			this.n = GameFramework.gfx.k.Ma(255, Game.pa.Fc() % 64 + 64, Game.pa
+			this.n = GameFramework.gfx.k.Ma(255, Game.Util.Fc() % 64 + 64, Game.Util
 							.Fc()
 							% 32 + 30, 255);
 			this.yi = 0;
@@ -21842,7 +21842,7 @@ Game.R = function(b) {
 				this.L = 0.01, this.Ic = 0.02, this.oy = 0;
 			break;
 		case Game.R.da.ED :
-			var b = Game.pa.Fc() % 2, c = Game.pa.Fc() % 2 * 3.141593;
+			var b = Game.Util.Fc() % 2, c = Game.Util.Fc() % 2 * 3.141593;
 			c += GameFramework.Utils.P() * 3.141593 * 0.3;
 			var d = Game.Board.bb * (0.02 + Math.abs(GameFramework.Utils.P()) * 0.05);
 			b != 0
@@ -21850,7 +21850,7 @@ Game.R = function(b) {
 					: this.Hb = 0;
 			this.Hb = GameFramework.Utils.P() * 3.141593;
 			this.Qh = GameFramework.Utils.P() * 0.2;
-			this.nf = Game.pa.Fc() % this.Oa.Em;
+			this.nf = Game.Util.Fc() % this.Oa.Em;
 			this.n = GameFramework.gfx.k.pi;
 			this.Nc = Math.cos(c) * d * 1.25;
 			this.Vb = -Math.abs(Math.sin(c) * d) * 1.5;
@@ -22264,7 +22264,7 @@ Game.lq.prototype = {
 								g.m += g.Ag;
 								break;
 							case Game.R.da.EJ :
-								g.L = Game.pa.Fc() % 5 == 0 ? 1 : 0.25;
+								g.L = Game.Util.Fc() % 5 == 0 ? 1 : 0.25;
 								break;
 							case Game.R.da.WD :
 								g.Vb += g.yi;
@@ -22284,7 +22284,7 @@ Game.lq.prototype = {
 							case Game.R.da.NONE :
 								if (g.ds == 0 || this.aa % g.ds == 0) {
 									if (g.eX)
-										g.wG = (g.wG + 8) % 256, g.n = Game.pa
+										g.wG = (g.wG + 8) % 256, g.n = Game.Util
 												.pE(g.wG | 0, 128);
 									g.Hb += g.Qh
 								}
@@ -22872,7 +22872,7 @@ Game.Xc.prototype = {
 					var j = this.aa % 45 / 45;
 					j > 0.5 && (j = 1 - j);
 					j *= 2;
-					Game.a.FONT_GAMEOVER_DIALOG.Ia("MAIN", Game.pa.pE(185
+					Game.a.FONT_GAMEOVER_DIALOG.Ia("MAIN", Game.Util.pE(185
 											+ (j * 20 | 0), 150))
 				} else
 					Game.a.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", GameFramework.gfx.k
@@ -29365,11 +29365,11 @@ Game.J.prototype = {
 				var c;
 				if (!(Game.BejApp.q.vp != 1 && GameFramework.Utils.Ec() > 0.4
 						+ Game.BejApp.q.vp * 0.6)) {
-					var d = Game.pa.Fc() % 5 != 0;
+					var d = Game.Util.Fc() % 5 != 0;
 					if (d || GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f) {
 						var f;
 						if (d) {
-							f = Game.pa.Fc() % 32 == 0 ? this.e.ob : this.e.Jg;
+							f = Game.Util.Fc() % 32 == 0 ? this.e.ob : this.e.Jg;
 							c = f.wf(Game.R.da.ws);
 							c.Hb = 0;
 							c.Qh = 0;
@@ -29379,22 +29379,22 @@ Game.J.prototype = {
 							c.m = 0.12 + 0.035 * GameFramework.Utils.P();
 							c.Ag = (0.01 + 0.0050 * GameFramework.Utils.P()) * 1.67;
 							c.Vb = (-0.12 + -0.05 * GameFramework.Utils.P()) * 1.67;
-							var g = this.e.nP && Game.pa.Fc() % 4 <= 0
+							var g = this.e.nP && Game.Util.Fc() % 4 <= 0
 									&& f == this.e.Jg;
 							if (this.n == Game.f.Ha.bB || g) {
 								if (c.n = GameFramework.gfx.k.ta(255, 128, 128), g)
 									c.Fb = Game.R.da.iv
 							} else
 								c.n = GameFramework.gfx.k.ta(255, 255, 255)
-						} else if (f = Game.pa.Fc() % 2 == 0
+						} else if (f = Game.Util.Fc() % 2 == 0
 								? this.e.ob
 								: this.e.Jg, c = f.wf(Game.R.da.cz), c.L = 1, c.m = 2, c.Ag = -0.0167, c.nf = 0, c.Oa = Game.a.IMAGE_SPARKLET, c.Vb = (-0.4 + GameFramework.Utils
 								.P()
 								* 0.15)
-								* 1.67, c.n = GameFramework.gfx.k.ta(128, Game.pa
+								* 1.67, c.n = GameFramework.gfx.k.ta(128, Game.Util
 										.Fc()
-										% 32 + 48, Game.pa.Fc() % 24 + 24), g = this.e.nP
-								&& Game.pa.Fc() % 3 <= 0 && f == this.e.Jg, this.n == Game.f.Ha.bB
+										% 32 + 48, Game.Util.Fc() % 24 + 24), g = this.e.nP
+								&& Game.Util.Fc() % 3 <= 0 && f == this.e.Jg, this.n == Game.f.Ha.bB
 								|| g) {
 							if (c.n = GameFramework.gfx.k.ta(255, 0, 0), g)
 								c.Fb = Game.R.da.TD
@@ -29403,7 +29403,7 @@ Game.J.prototype = {
 						var g = 3.141593
 								+ Math.abs(GameFramework.Utils.P() * 6.283186), h = this
 								.CR(g), j = Math.cos(g), k = Math.sin(g);
-						if (d && k > 0 && Game.pa.Fc() % 2 != 0)
+						if (d && k > 0 && Game.Util.Fc() % 2 != 0)
 							d = j < 0 ? 0.0010 : -0.0010, d = Math.atan2((Math
 											.sin(g + d) + Math.sin(g + d * 2))
 											/ 2 - k, (Math.cos(g + d) + Math
@@ -29420,7 +29420,7 @@ Game.J.prototype = {
 						c.w = d + (Game.Board.bb / 2 | 0) + Math.cos(g) * h;
 						c.v = this.dd() + (Game.Board.ab / 2 | 0) + Math.sin(g) * h
 								+ 2;
-						if (Game.pa.Fc() % 6 != 0)
+						if (Game.Util.Fc() % 6 != 0)
 							c.w -= d, c.v -= this.dd(), c.qd = this.xa;
 						f.Gc(c);
 						if (Game.BejApp.q.$f)
@@ -29428,7 +29428,7 @@ Game.J.prototype = {
 					}
 				}
 			}
-			if ((Game.BejApp.q.aa + this.xa) % 24 == 0 || Game.pa.Fc() % 64 == 0) {
+			if ((Game.BejApp.q.aa + this.xa) % 24 == 0 || Game.Util.Fc() % 64 == 0) {
 				b = this.e.ob.wf(Game.R.da.Yl);
 				b.uc = Game.R.K.ks | 0;
 				b.w = this.Ad() + GameFramework.Utils.P() * 30;
@@ -29440,14 +29440,14 @@ Game.J.prototype = {
 				b.L = 0;
 				b.Ic = 0.07;
 				b.m = 0.75;
-				b.n = Game.pa.pE(Game.pa.Fc() % 255 | 0, 128);
-				if (Game.pa.Fc() % 2 != 0)
+				b.n = Game.Util.pE(Game.Util.Fc() % 255 | 0, 128);
+				if (Game.Util.Fc() % 2 != 0)
 					b.lu = this.xa;
 				this.e.ob.Gc(b)
 			}
 		}
 		if (this.Y(Game.J.K.sc)
-				&& ((Game.BejApp.q.aa + this.xa) % 24 == 0 || Game.pa.Fc() % 64 == 0)) {
+				&& ((Game.BejApp.q.aa + this.xa) % 24 == 0 || Game.Util.Fc() % 64 == 0)) {
 			b = this.e.ob.wf(Game.R.da.Yl);
 			b.uc = Game.R.K.ks | 0;
 			b.w = this.Ad() + GameFramework.Utils.P() * 30;
@@ -29459,8 +29459,8 @@ Game.J.prototype = {
 			b.L = 0;
 			b.Ic = 0.07;
 			b.m = 1;
-			b.n = Game.pa.pE(Game.pa.Fc() % 255 | 0, 128);
-			if (Game.pa.Fc() % 2 != 0)
+			b.n = Game.Util.pE(Game.Util.Fc() % 255 | 0, 128);
+			if (Game.Util.Fc() % 2 != 0)
 				b.lu = this.xa;
 			this.e.ob.Gc(b)
 		}
@@ -29657,7 +29657,7 @@ Game.Points.prototype = {
 				d.scale(c, c);
 				d.rotate(this.Kg);
 				d.translate(this.w, this.v);
-				Game.pa.O_(b, this.zM, d)
+				Game.Util.O_(b, this.zM, d)
 			} else {
 				this.Kg != 0 && (new GameFramework.geom.xb).rotate(this.Kg);
 				this.t4(b);
@@ -34313,24 +34313,24 @@ T(function() {
 U(function() {
 			Game.fb.c()
 		});
-Game.pa = t();
-Game.pa.Fc = function() {
-	return Game.pa.TF.Dd() | 0
+Game.Util = t();
+Game.Util.Fc = function() {
+	return Game.Util.TF.Dd() | 0
 };
-Game.pa.Una = function(b) {
+Game.Util.Una = function(b) {
 	for (var c = 0; c < (b.length / 2 | 0); ++c) {
 		var d = b[c], f = b.length - 1 - c;
 		b[c] = b[f];
 		b[f] = d
 	}
 };
-Game.pa.Rna = function(b) {
-	return (Game.pa.TF.Dd() | 0) % b
+Game.Util.Rna = function(b) {
+	return (Game.Util.TF.Dd() | 0) % b
 };
-Game.pa.Hba = function(b, c, d) {
-	Game.pa.p_(b, (d ? -160 : 0) + Game.pa.aK(c), Game.pa.bK(c))
+Game.Util.Hba = function(b, c, d) {
+	Game.Util.p_(b, (d ? -160 : 0) + Game.Util.aK(c), Game.Util.bK(c))
 };
-Game.pa.p_ = function(b, c, d) {
+Game.Util.p_ = function(b, c, d) {
 	var f = b.Q(0);
 	try {
 		b.fc(c - 12, d - 12, 24, 24)
@@ -34350,16 +34350,16 @@ Game.pa.p_ = function(b, c, d) {
 		f.t()
 	}
 };
-Game.pa.aK = function(b) {
+Game.Util.aK = function(b) {
 	return b.sf + (b.s / 2 | 0)
 };
-Game.pa.bK = function(b) {
+Game.Util.bK = function(b) {
 	return b.Oe + (b.z / 2 | 0)
 };
-Game.pa.vba = function(b) {
+Game.Util.vba = function(b) {
 	return GameFramework.Utils.aE(b) - 65 + 1 | 0
 };
-Game.pa.Rba = function(b, c, d, f, g, h, j) {
+Game.Util.Rba = function(b, c, d, f, g, h, j) {
 	var k = new GameFramework.geom.xb;
 	j && k.translate(0 - (c.s / 2 | 0), 0 - (c.z / 2 | 0));
 	k.scale(d / c.s, f / c.z);
@@ -34370,12 +34370,12 @@ Game.pa.Rba = function(b, c, d, f, g, h, j) {
 		d.t()
 	}
 };
-Game.pa.O_ = function(b, c, d) {
+Game.Util.O_ = function(b, c, d) {
 	b.jg(d);
 	b.Ba(c.Ee(), 0, 0);
 	b.Ab()
 };
-Game.pa.Nba = function(b, c, d, f, g) {
+Game.Util.Nba = function(b, c, d, f, g) {
 	d.Ca += f;
 	d.Da += g;
 	b.jg(d);
@@ -34384,7 +34384,7 @@ Game.pa.Nba = function(b, c, d, f, g) {
 	d.Ca -= f;
 	d.Da -= g
 };
-Game.pa.Qba = function(b, c, d, f, g, h) {
+Game.Util.Qba = function(b, c, d, f, g, h) {
 	var j = new GameFramework.geom.xb;
 	j.rotate(f);
 	j.scale(d, d);
@@ -34393,7 +34393,7 @@ Game.pa.Qba = function(b, c, d, f, g, h) {
 	b.Ba(c, 0, 0);
 	b.Ab()
 };
-Game.pa.Pba = function(b, c, d, f, g) {
+Game.Util.Pba = function(b, c, d, f, g) {
 	var h = new GameFramework.geom.xb;
 	h.rotate(d);
 	h.translate(f, g);
@@ -34401,34 +34401,34 @@ Game.pa.Pba = function(b, c, d, f, g) {
 	b.Ba(c, 0, 0);
 	b.Ab()
 };
-Game.pa.Oba = function(b, c, d) {
+Game.Util.Oba = function(b, c, d) {
 	var f = new GameFramework.geom.xb;
 	f.rotate(d);
 	b.jg(f);
 	b.Ba(c, 0, 0);
 	b.Ab()
 };
-Game.pa.Kba = function(b, c, d) {
+Game.Util.Kba = function(b, c, d) {
 	c.pc = d;
 	b.Ba(c, c.sf, c.Oe);
 	c.pc = false
 };
-Game.pa.Lba = function(b, c, d, f, g) {
+Game.Util.Lba = function(b, c, d, f, g) {
 	c.pc = g;
 	b.Ba(c, c.sf + d, c.Oe + f);
 	c.pc = false
 };
-Game.pa.Mba = function(b, c, d, f) {
+Game.Util.Mba = function(b, c, d, f) {
 	b.Ba(c, d - c.s / 2, f - c.z / 2)
 };
-Game.pa.Npa = function(b) {
+Game.Util.Npa = function(b) {
 	for (var c = b.length - 1; c >= 1; --c) {
-		var d = (Game.pa.TF.Dd() | 0) % c, f = b[c];
+		var d = (Game.Util.TF.Dd() | 0) % c, f = b[c];
 		b[c] = b[d];
 		b[d] = f
 	}
 };
-Game.pa.Qna = function(b, c, d) {
+Game.Util.Qna = function(b, c, d) {
 	var f = Math.max(b, Math.max(c, d)) | 0, g = Math.min(b, Math.min(c, d))
 			| 0, h = 0, j = 0, k = (g + f) / 2 | 0, l = f - g;
 	l != 0
@@ -34442,7 +34442,7 @@ Game.pa.Qna = function(b, c, d) {
 					/ 6 | 0);
 	return 4278190080 | h | j << 8 | k << 16
 };
-Game.pa.pE = function(b, c) {
+Game.Util.pE = function(b, c) {
 	var d, f, g;
 	g = c < 128 ? c * 510 / 255 | 0 : c + 255 - (c * 255 / 255 | 0);
 	var h = 2 * c - g | 0;
@@ -34487,7 +34487,7 @@ Game.pa.pE = function(b, c) {
 	}
 	return 4278190080 | d << 16 | f << 8 | g
 };
-Game.pa.U4 = function() {
+Game.Util.U4 = function() {
 	var b = Game.Board.QY, b = b / 60 | 0, c = b % 60, b = b / 60 | 0, d = b % 60, f = (b
 			/ 60 | 0)
 			% 24, b = (b / 60 | 0) / 24 | 0;
@@ -34497,23 +34497,23 @@ Game.pa.U4 = function() {
 			? String.Mb("{0:00} min {1:00} sec", d, c)
 			: String.Mb("{0:00} sec", c)
 };
-Game.pa.Rpa = function(b, c, d) {
-	Game.pa.x4(b, c, d)
+Game.Util.Rpa = function(b, c, d) {
+	Game.Util.x4(b, c, d)
 };
-Game.pa.x4 = function(b, c, d) {
+Game.Util.x4 = function(b, c, d) {
 	if (b.length != 0)
 		for (var f = 0, g = 0, h = 0;;) {
 			var f = b.indexOf(String.fromCharCode(44), g), j = f == -1;
 			if (j)
 				f = b.length;
 			switch (d) {
-				case Game.pa.kq.S4 :
+				case Game.Util.kq.S4 :
 					Type.di(c, GameFramework.Tq).push(b.substr(g, f - g));
 					break;
-				case Game.pa.kq.vw :
+				case Game.Util.kq.vw :
 					c.push(GameFramework.Utils.Hc(b.substr(g, f - g)));
 					break;
-				case Game.pa.kq.R4 :
+				case Game.Util.kq.R4 :
 					Type.di(c, GameFramework.Tq).push(GameFramework.Utils.fp(b
 							.substr(g, f - g)))
 			}
@@ -34523,44 +34523,44 @@ Game.pa.x4 = function(b, c, d) {
 			g = f + 1
 		}
 };
-Game.pa.tba = function(b) {
+Game.Util.tba = function(b) {
 	var c = new Game.CheckMatrixInfo;
 	c.Eg = b.Eg;
 	c.dW = b.Tf.length;
 	c.Uc = b;
-	c.VX = new GameFramework.W.Yy(ss.Delegate.create(this, Game.pa.$Z));
-	Game.pa.mp.push(c);
+	c.VX = new GameFramework.W.Yy(ss.Delegate.create(this, Game.Util.$Z));
+	Game.Util.mp.push(c);
 	return c.VX
 };
-Game.pa.$Z = function() {
+Game.Util.$Z = function() {
 	S(
-			Game.pa.mp[Game.pa.mp.length - 1].Eg == Game.pa.mp[Game.pa.mp.length
+			Game.Util.mp[Game.Util.mp.length - 1].Eg == Game.Util.mp[Game.Util.mp.length
 					- 1].Uc.Eg,
 			"CheckGraphicsState MATRIX calls not aligned (check push/pop calls)");
 	S(
-			Game.pa.mp[Game.pa.mp.length - 1].dW == Game.pa.mp[Game.pa.mp.length
+			Game.Util.mp[Game.Util.mp.length - 1].dW == Game.Util.mp[Game.Util.mp.length
 					- 1].Uc.Tf.length,
 			"CheckGraphicsState COLOR calls not aligned (check push/pop calls)")
 };
-Game.pa.prototype = {};
-Game.pa.c = function() {
-	Game.pa.mp = [];
-	Game.pa.TF = new Game.tc
+Game.Util.prototype = {};
+Game.Util.c = function() {
+	Game.Util.mp = [];
+	Game.Util.TF = new Game.tc
 };
 T(function() {
-			Game.pa.u("Game.Util", null)
+			Game.Util.u("Game.Util", null)
 		});
 U(function() {
-			Game.pa.c()
+			Game.Util.c()
 		});
-Game.pa.kq = {};
-Game.pa.kq.c = function() {
-	Game.pa.kq.vw = 0;
-	Game.pa.kq.S4 = 1;
-	Game.pa.kq.R4 = 2
+Game.Util.kq = {};
+Game.Util.kq.c = function() {
+	Game.Util.kq.vw = 0;
+	Game.Util.kq.S4 = 1;
+	Game.Util.kq.R4 = 2
 };
 T(function() {
-			Game.pa.kq.c()
+			Game.Util.kq.c()
 		});
 Game.wn = t();
 Game.wn.sz = function() {
