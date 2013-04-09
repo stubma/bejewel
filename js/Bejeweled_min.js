@@ -2951,16 +2951,16 @@ GameFramework.la.c = function() {
 T(function() {
 			GameFramework.la.c()
 		});
-GameFramework.aA = function() {
-	E(GameFramework.aA, this)
+GameFramework.NoRename = function() {
+	E(GameFramework.NoRename, this)
 };
-GameFramework.aA.prototype = {};
-GameFramework.aA.c = t();
+GameFramework.NoRename.prototype = {};
+GameFramework.NoRename.c = t();
 T(function() {
-			GameFramework.aA.u("GameFramework.NoRename", System.Zaa)
+			GameFramework.NoRename.u("GameFramework.NoRename", System.Zaa)
 		});
 U(function() {
-			GameFramework.aA.c()
+			GameFramework.NoRename.c()
 		});
 GameFramework.RA = function() {
 	this.pp = []
