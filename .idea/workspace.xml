@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bejeweled_min.js" afterPath="$PROJECT_DIR$/js/Bejeweled_min.js" />
     </list>
     <ignored path="bejewel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,10 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="206" column="28" selection-start="7181" selection-end="7209" vertical-scroll-proportion="0.28947368">
+            <state line="206" column="28" selection-start="7181" selection-end="7209" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -60,10 +59,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bejeweled_min.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Bejeweled_min.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14861" column="188" selection-start="398502" selection-end="398502" vertical-scroll-proportion="0.0">
+            <state line="34066" column="69" selection-start="1128265" selection-end="1128265" vertical-scroll-proportion="11.119522">
               <folding />
             </state>
           </provider>
@@ -492,16 +491,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
+    <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14861" column="188" selection-start="398502" selection-end="398502" vertical-scroll-proportion="0.0">
+        <state line="206" column="28" selection-start="7181" selection-end="7209" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
+    <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="28" selection-start="7181" selection-end="7209" vertical-scroll-proportion="0.28947368">
+        <state line="34066" column="69" selection-start="1128265" selection-end="1128265" vertical-scroll-proportion="11.119522">
           <folding />
         </state>
       </provider>

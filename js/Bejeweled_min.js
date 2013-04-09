@@ -3014,7 +3014,7 @@ GameFramework.TDictionary.prototype = {
 		return this.wh.hasOwnProperty(b)
 	},
 	Si : function() {
-		return new GameFramework.uw(this.wh.Si(), false)
+		return new GameFramework.TDictionaryEnumerator(this.wh.Si(), false)
 	}
 };
 GameFramework.TDictionary.c = t();
@@ -3025,11 +3025,11 @@ T(function() {
 U(function() {
 			GameFramework.TDictionary.c()
 		});
-GameFramework.uw = function(b, c) {
+GameFramework.TDictionaryEnumerator = function(b, c) {
 	this.Bg = b;
 	this.cC = c
 };
-GameFramework.uw.prototype = {
+GameFramework.TDictionaryEnumerator.prototype = {
 	Bg : null,
 	cC : false,
 	ip : function() {
@@ -3045,35 +3045,35 @@ GameFramework.uw.prototype = {
 		return this
 	}
 };
-GameFramework.uw.c = t();
+GameFramework.TDictionaryEnumerator.c = t();
 T(function() {
-			GameFramework.uw.u("GameFramework.TDictionaryEnumerator", null)
+			GameFramework.TDictionaryEnumerator.u("GameFramework.TDictionaryEnumerator", null)
 		});
 U(function() {
-			GameFramework.uw.c()
+			GameFramework.TDictionaryEnumerator.c()
 		});
-GameFramework.sF = function() {
+GameFramework.TIntDictionary = function() {
 	this.wh = {}
 };
-GameFramework.sF.prototype = {
+GameFramework.TIntDictionary.prototype = {
 	wh : null,
 	xA : function(b) {
 		delete this.wh[b]
 	},
 	Si : function() {
-		return new GameFramework.uw(this.wh.Si(), false)
+		return new GameFramework.TDictionaryEnumerator(this.wh.Si(), false)
 	}
 };
-GameFramework.sF.c = t();
+GameFramework.TIntDictionary.c = t();
 T(function() {
-			GameFramework.sF.u("GameFramework.TIntDictionary", null,
+			GameFramework.TIntDictionary.u("GameFramework.TIntDictionary", null,
 					GameFramework.W.ZJ)
 		});
 U(function() {
-			GameFramework.sF.c()
+			GameFramework.TIntDictionary.c()
 		});
-GameFramework.vF = w("Bg");
-GameFramework.vF.prototype = {
+GameFramework.TMapKeyEnumerator = w("Bg");
+GameFramework.TMapKeyEnumerator.prototype = {
 	Bg : null,
 	t : t(),
 	ip : function() {
@@ -3089,15 +3089,15 @@ GameFramework.vF.prototype = {
 		return this
 	}
 };
-GameFramework.vF.c = t();
+GameFramework.TMapKeyEnumerator.c = t();
 T(function() {
-			GameFramework.vF.u("GameFramework.TMapKeyEnumerator", null)
+			GameFramework.TMapKeyEnumerator.u("GameFramework.TMapKeyEnumerator", null)
 		});
 U(function() {
-			GameFramework.vF.c()
+			GameFramework.TMapKeyEnumerator.c()
 		});
-GameFramework.UA = w("Bg");
-GameFramework.UA.prototype = {
+GameFramework.TMapValueEnumerator = w("Bg");
+GameFramework.TMapValueEnumerator.prototype = {
 	Bg : null,
 	t : t(),
 	ip : function() {
@@ -3113,17 +3113,17 @@ GameFramework.UA.prototype = {
 		return this
 	}
 };
-GameFramework.UA.c = t();
+GameFramework.TMapValueEnumerator.c = t();
 T(function() {
-			GameFramework.UA.u("GameFramework.TMapValueEnumerator", null)
+			GameFramework.TMapValueEnumerator.u("GameFramework.TMapValueEnumerator", null)
 		});
 U(function() {
-			GameFramework.UA.c()
+			GameFramework.TMapValueEnumerator.c()
 		});
-GameFramework.tF = function() {
+GameFramework.TIntMap = function() {
 	this.wh = new System.f_.Q0.u_
 };
-GameFramework.tF.prototype = {
+GameFramework.TIntMap.prototype = {
 	wh : null,
 	xA : function(b) {
 		this.wh.xA(b)
@@ -3132,23 +3132,23 @@ GameFramework.tF.prototype = {
 		return this.wh.KD(b)
 	},
 	Si : function() {
-		return new GameFramework.UA(this.wh.Si())
+		return new GameFramework.TMapValueEnumerator(this.wh.Si())
 	}
 };
-GameFramework.tF.c = t();
+GameFramework.TIntMap.c = t();
 T(function() {
-			GameFramework.tF.u("GameFramework.TIntMap", null, GameFramework.W.ZJ)
+			GameFramework.TIntMap.u("GameFramework.TIntMap", null, GameFramework.W.ZJ)
 		});
 U(function() {
-			GameFramework.tF.c()
+			GameFramework.TIntMap.c()
 		});
-GameFramework.qt = function(b, c, d, f) {
+GameFramework.TIntRect = function(b, c, d, f) {
 	this.w = b;
 	this.v = c;
 	this.s = d;
 	this.z = f
 };
-GameFramework.qt.prototype = {
+GameFramework.TIntRect.prototype = {
 	w : 0,
 	v : 0,
 	s : 0,
@@ -3159,7 +3159,7 @@ GameFramework.qt.prototype = {
 				| 0, f = Math.min(this.v, b.v) | 0, b = Math.max(this.v
 						+ this.z, b.v + b.z)
 				| 0;
-		return new GameFramework.qt(c, f, d - c, b - f)
+		return new GameFramework.TIntRect(c, f, d - c, b - f)
 	},
 	an : function(b, c) {
 		return b >= this.w && b < this.w + this.s && c >= this.v
@@ -3176,17 +3176,17 @@ GameFramework.qt.prototype = {
 		this.z = this.z * c | 0
 	}
 };
-GameFramework.qt.c = t();
+GameFramework.TIntRect.c = t();
 T(function() {
-			GameFramework.qt.u("GameFramework.TIntRect", null)
+			GameFramework.TIntRect.u("GameFramework.TIntRect", null)
 		});
 U(function() {
-			GameFramework.qt.c()
+			GameFramework.TIntRect.c()
 		});
-GameFramework.vw = function() {
+GameFramework.TIntVector = function() {
 	this.He = []
 };
-GameFramework.vw.prototype = {
+GameFramework.TIntVector.prototype = {
 	He : null,
 	CV : false,
 	UF : function() {
@@ -3211,18 +3211,18 @@ GameFramework.vw.prototype = {
 		return this.He.Si()
 	}
 };
-GameFramework.vw.c = t();
+GameFramework.TIntVector.c = t();
 T(function() {
-			GameFramework.vw.u("GameFramework.TIntVector", null)
+			GameFramework.TIntVector.u("GameFramework.TIntVector", null)
 		});
 U(function() {
-			GameFramework.vw.c()
+			GameFramework.TIntVector.c()
 		});
-GameFramework.TA = function(b, c) {
+GameFramework.TMapEnumerator = function(b, c) {
 	this.Bg = b;
 	this.cC = c
 };
-GameFramework.TA.prototype = {
+GameFramework.TMapEnumerator.prototype = {
 	Bg : null,
 	cC : false,
 	ip : function() {
@@ -3236,17 +3236,17 @@ GameFramework.TA.prototype = {
 		return this
 	}
 };
-GameFramework.TA.c = t();
+GameFramework.TMapEnumerator.c = t();
 T(function() {
-			GameFramework.TA.u("GameFramework.TMapEnumerator", null)
+			GameFramework.TMapEnumerator.u("GameFramework.TMapEnumerator", null)
 		});
 U(function() {
-			GameFramework.TA.c()
+			GameFramework.TMapEnumerator.c()
 		});
-GameFramework.uF = function() {
+GameFramework.TMap = function() {
 	this.wh = new System.f_.Q0.u_
 };
-GameFramework.uF.prototype = {
+GameFramework.TMap.prototype = {
 	wh : null,
 	xA : function(b) {
 		this.wh.xA(b)
@@ -3255,23 +3255,23 @@ GameFramework.uF.prototype = {
 		return this.wh.KD(b)
 	},
 	Si : function() {
-		return new GameFramework.TA(this.wh.Si(), false)
+		return new GameFramework.TMapEnumerator(this.wh.Si(), false)
 	}
 };
-GameFramework.uF.c = t();
+GameFramework.TMap.c = t();
 T(function() {
-			GameFramework.uF.u("GameFramework.TMap", null, GameFramework.W.ZJ)
+			GameFramework.TMap.u("GameFramework.TMap", null, GameFramework.W.ZJ)
 		});
 U(function() {
-			GameFramework.uF.c()
+			GameFramework.TMap.c()
 		});
-GameFramework.ne = function(b, c, d, f) {
+GameFramework.TRect = function(b, c, d, f) {
 	this.w = b;
 	this.v = c;
 	this.s = d;
 	this.z = f
 };
-GameFramework.ne.prototype = {
+GameFramework.TRect.prototype = {
 	w : 0,
 	v : 0,
 	s : 0,
@@ -3279,7 +3279,7 @@ GameFramework.ne.prototype = {
 	GU : function(b) {
 		var c = Math.min(this.w, b.w), d = Math.max(this.w + this.s, b.w + b.s), f = Math
 				.min(this.v, b.v), b = Math.max(this.v + this.z, b.v + b.z);
-		return new GameFramework.ne(c, f, d - c, b - f)
+		return new GameFramework.TRect(c, f, d - c, b - f)
 	},
 	an : function(b, c) {
 		return b >= this.w && b < this.w + this.s && c >= this.v
@@ -3296,12 +3296,12 @@ GameFramework.ne.prototype = {
 		this.z *= c
 	}
 };
-GameFramework.ne.c = t();
+GameFramework.TRect.c = t();
 T(function() {
-			GameFramework.ne.u("GameFramework.TRect", null)
+			GameFramework.TRect.u("GameFramework.TRect", null)
 		});
 U(function() {
-			GameFramework.ne.c()
+			GameFramework.TRect.c()
 		});
 GameFramework.Tq = function(b) {
 	this.He = [];
@@ -11698,8 +11698,8 @@ U(function() {
 		});
 Game = Type.ci("Game");
 Game.aq = function(b, c) {
-	this.EM = new GameFramework.ne(0, 0, 0, 0);
-	this.x9 = new GameFramework.ne(0, 0, 0, 0);
+	this.EM = new GameFramework.TRect(0, 0, 0, 0);
+	this.x9 = new GameFramework.TRect(0, 0, 0, 0);
 	E(Game.aq, this);
 	this.hD = b;
 	this.qG = c;
@@ -12208,7 +12208,7 @@ GameFramework.widgets.rb.prototype = {
 	},
 	ja : function(b) {
 		this.wd.ZD();
-		var c = new GameFramework.ne(this.Df.yh, this.Df.Um, this.s
+		var c = new GameFramework.TRect(this.Df.yh, this.Df.Um, this.s
 						- this.Df.yh - this.Df.Vj, this.z - this.Df.Um
 						- this.Df.bj);
 		if (this.gr != null)
@@ -15431,41 +15431,41 @@ T(function() {
 U(function() {
 			Game.Lightning.c()
 		});
-Game.ez = t();
-Game.ez.prototype = {
+Game.ElectrocutedCel = t();
+Game.ElectrocutedCel.prototype = {
 	Ja : -1,
 	La : -1,
 	Th : 0
 };
-Game.ez.c = t();
+Game.ElectrocutedCel.c = t();
 T(function() {
-			Game.ez.u("Game.ElectrocutedCel", null)
+			Game.ElectrocutedCel.u("Game.ElectrocutedCel", null)
 		});
 U(function() {
-			Game.ez.c()
+			Game.ElectrocutedCel.c()
 		});
-Game.wv = function() {
+Game.GridTileData = function() {
 	this.PV = [];
 	this.NV = 0
 };
-Game.wv.prototype = {
+Game.GridTileData.prototype = {
 	PV : null,
 	NV : 0,
 	ro : null
 };
-Game.wv.c = t();
+Game.GridTileData.c = t();
 T(function() {
-			Game.wv.u("Game.GridTileData", null)
+			Game.GridTileData.u("Game.GridTileData", null)
 		});
 U(function() {
-			Game.wv.c()
+			Game.GridTileData.c()
 		});
-Game.Bz = function(b, c) {
+Game.GridData = function(b, c) {
 	this.Vr = [];
 	this.$b = b;
 	this.wc = c
 };
-Game.Bz.prototype = {
+Game.GridData.prototype = {
 	Vr : null,
 	$b : 0,
 	wc : 0,
@@ -15474,22 +15474,22 @@ Game.Bz.prototype = {
 	},
 	pZ : function() {
 		for (var b = 0; b < this.$b; ++b)
-			this.Vr.push(new Game.wv)
+			this.Vr.push(new Game.GridTileData)
 	},
 	KI : function(b, c) {
 		for (var d = this.$b * b + c; this.Vr.length < d;)
-			this.Vr.push(new Game.wv);
+			this.Vr.push(new Game.GridTileData);
 		return this.Vr[d]
 	}
 };
-Game.Bz.c = t();
+Game.GridData.c = t();
 T(function() {
-			Game.Bz.u("Game.GridData", null)
+			Game.GridData.u("Game.GridData", null)
 		});
 U(function() {
-			Game.Bz.c()
+			Game.GridData.c()
 		});
-Game.Mv = function(b, c, d, f, g, h, j, k) {
+Game.LightningZap = function(b, c, d, f, g, h, j, k) {
 	this.$X = new GameFramework.CurvedVal;
 	this.ZX = new GameFramework.CurvedVal;
 	this.Z = Array.O(2, null, [], []);
@@ -15512,7 +15512,7 @@ Game.Mv = function(b, c, d, f, g, h, j, k) {
 	this.jP = this.nf = 0;
 	this.ca()
 };
-Game.Mv.prototype = {
+Game.LightningZap.prototype = {
 	e : null,
 	Lg : null,
 	Mt : null,
@@ -15633,12 +15633,12 @@ Game.Mv.prototype = {
 		}
 	}
 };
-Game.Mv.c = t();
+Game.LightningZap.c = t();
 T(function() {
-			Game.Mv.u("Game.LightningZap", null)
+			Game.LightningZap.u("Game.LightningZap", null)
 		});
 U(function() {
-			Game.Mv.c()
+			Game.LightningZap.c()
 		});
 Game.LightningStorm = function(b, c, d) {
 	this.Pu = [];
@@ -15685,7 +15685,7 @@ Game.LightningStorm = function(b, c, d) {
 			d = this.e.lE((c.v | 0) + (Game.Board.ab / 2 | 0) + b * Game.Board.ab), d >= 0
 					&& d < this.e.wc
 					&& this.Qe != Game.LightningStorm.Yb.BF
-					&& this.Pu.push(new Game.Mv(this.e, Math.max(0, this.nB
+					&& this.Pu.push(new Game.LightningZap(this.e, Math.max(0, this.nB
 											- this.Du * Game.Board.bb
 											- (Game.Board.bb / 2 | 0))
 									| 0, (c.v | 0) + (Game.Board.ab / 2 | 0) + b
@@ -15698,7 +15698,7 @@ Game.LightningStorm = function(b, c, d) {
 					.bE((c.w | 0) + (Game.Board.bb / 2 | 0) + b * Game.Board.bb), d >= 0
 					&& d < this.e.$b
 					&& this.Qe != Game.LightningStorm.Yb.oE
-					&& this.Pu.push(new Game.Mv(this.e, (c.w | 0)
+					&& this.Pu.push(new Game.LightningZap(this.e, (c.w | 0)
 									+ (Game.Board.bb / 2 | 0) + b * Game.Board.bb, Math
 									.max(0, this.oB - this.Du * Game.Board.ab
 													- (Game.Board.ab / 2 | 0))
@@ -16183,7 +16183,7 @@ Game.Board.ina = function(b, c, d, f, g, h) {
 			else if (!f
 					&& (d.length == 0 || ((j | 0) / b.$b | 0) >= d[d.length - 1]
 							.r1()))
-				d.length == 0 && d.push(new Game.Bz(g, h)), d[d.length - 1]
+				d.length == 0 && d.push(new Game.GridData(g, h)), d[d.length - 1]
 						.pZ();
 			d[d.length - 1].KI(j / b.wc | 0, j % b.$b).PV.push(GameFramework.Utils
 					.Hc(c.substr(k, 1)));
@@ -16581,10 +16581,10 @@ Game.Board.prototype = {
 		this.rl != null && this.rl.t()
 	},
 	qv : function() {
-		return new GameFramework.ne(554, 1108, 900, 40)
+		return new GameFramework.TRect(554, 1108, 900, 40)
 	},
 	uz : function() {
-		return new GameFramework.ne(0, 200, 1E3, 200)
+		return new GameFramework.TRect(0, 200, 1E3, 200)
 	},
 	sZ : function() {
 		return this.Bl != 0 && this.og == 0
@@ -17762,7 +17762,7 @@ Game.Board.prototype = {
 										&& !(o < 0 || o >= this.Ri(this.$b)))
 									if (!(r < 0 || r >= this.vg(this.wc))) {
 										if (o != f.nB || r != f.oB)
-											q = new Game.ez, q.Ja = this.bE(o), q.La = this
+											q = new Game.ElectrocutedCel, q.Ja = this.bE(o), q.La = this
 													.lE(r), q.Th = 0.01, f.HB
 													.push(q);
 										if (v != null && !v.ol) {
@@ -21149,7 +21149,7 @@ Game.ClassicBoard.prototype = {
 		b.Yd(c);
 		if (this.gp(Game.f.Xa.Oy))
 			c = new Game.TutorialStep, c.Fb = Game.TutorialStep.hg.sK, c.Fk = "Hints", c.Re = "If you are stuck, use the ^007700^HINT^oldclr^ Button to find a match.", c.Fh = Game.f.Xa.Oy, c.Il = Game.TutorialStep.Qg.qE, c.hm = Game.TutorialStep.Wc.vs, c.cr = this.Ib.w
-					+ this.Ib.s / 2, c.dr = this.Ib.v + this.Ib.z / 2 - 50, c.rk = 426, c.sk = 708, c.Fj = 700, c.vI = true, c.gB = true, c.vl = new GameFramework.ne(
+					+ this.Ib.s / 2, c.dr = this.Ib.v + this.Ib.z / 2 - 50, c.rk = 426, c.sk = 708, c.Fj = 700, c.vI = true, c.gB = true, c.vl = new GameFramework.TRect(
 					this.Ib.w - this.Ib.s * (1.65 - 1) / 2, this.Ib.v
 							- this.Ib.z * (1.65 - 1) / 2, this.Ib.s * 1.65,
 					this.Ib.z * 1.65), c.re = 0, c.jl = true, b.Yd(c);
@@ -21354,7 +21354,7 @@ U(function() {
 		});
 Game.CrystalBall = function(b, c) {
 	this.Oa = null;
-	this.$B = new GameFramework.qt(0, 0, 0, 0);
+	this.$B = new GameFramework.TIntRect(0, 0, 0, 0);
 	this.Tc = new GameFramework.CurvedVal;
 	this.m = new GameFramework.CurvedVal;
 	this.de = new GameFramework.geom.ba;
@@ -27964,22 +27964,22 @@ T(function() {
 U(function() {
 			Game.ev.c()
 		});
-Game.mv = function() {
-	E(Game.mv, this)
+Game.LightningZap = function() {
+	E(Game.LightningZap, this)
 };
-Game.mv.prototype = {
+Game.LightningZap.prototype = {
 	ja : function(b) {
 		GameFramework.widgets.td.prototype.ja.apply(this, [b]);
 		b.Ba(Game.Resources.IMAGE_BOARD_HDSD_BUTTON_FRAME.vd(), -160 - this.w, 0
 						- this.v)
 	}
 };
-Game.mv.c = t();
+Game.LightningZap.c = t();
 T(function() {
-			Game.mv.u("Game.FrameButton", GameFramework.widgets.td)
+			Game.LightningZap.u("Game.FrameButton", GameFramework.widgets.td)
 		});
 U(function() {
-			Game.mv.c()
+			Game.LightningZap.c()
 		});
 Game.WA = function(b, c) {
 	this.LO = new GameFramework.CurvedVal;
@@ -28122,7 +28122,7 @@ Game.MainMenu.prototype = {
 		b.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.R3));
 		this.Bc(b);
 		this.RC = b;
-		b = new Game.mv;
+		b = new Game.LightningZap;
 		b.wb = Game.Resources.IMAGE_BOARD_HD;
 		b.w = b.wb.sf - 160;
 		b.v = b.wb.Oe;
@@ -28622,7 +28622,7 @@ Game.MainMenu.prototype = {
 					? GameFramework.BaseApp.M.kc()
 							? (c.L.ea("b;0,1,0.01,1,####  Z####       F~###"), c.m
 									.ea("b;1,5,0.01,1,~pF[         ~####"), b.Oa = c.Ge
-									.ER(true, false), b.$B = new GameFramework.qt(0,
+									.ER(true, false), b.$B = new GameFramework.TIntRect(0,
 									0, 0, 0))
 							: (c.L.ea("b;0,1,0.012,1,#########         ~~###"), c.Ge.yp
 									.ea("b;0.001,1,0.012,1,####   B####      _~###"))
@@ -30122,9 +30122,9 @@ T(function() {
 U(function() {
 			Game.RankBarWidget.c()
 		});
-Game.uA = function(b) {
+Game.RankUpDialog = function(b) {
 	this.KC = new GameFramework.CurvedVal;
-	E(Game.uA, this, [null, Game.Resources.IMAGE_DIALOG_BUTTON, Game.f.mb.w3, true,
+	E(Game.RankUpDialog, this, [null, Game.Resources.IMAGE_DIALOG_BUTTON, Game.f.mb.w3, true,
 					"RANK UP", "", "", GameFramework.widgets.rb.Zp]);
 	this.e = b;
 	this.Fd.Um = 17;
@@ -30138,7 +30138,7 @@ Game.uA = function(b) {
 	this.Tp.nh((this.s - 1E3) / 2, 225);
 	this.Bc(this.Tp)
 };
-Game.uA.prototype = {
+Game.RankUpDialog.prototype = {
 	e : null,
 	Tp : null,
 	KC : null,
@@ -30213,12 +30213,12 @@ Game.uA.prototype = {
 		this.KC.ea("b30,1,0.028571,1,#         ~~")
 	}
 };
-Game.uA.c = t();
+Game.RankUpDialog.c = t();
 T(function() {
-			Game.uA.u("Game.RankUpDialog", Game.Bej3Dialog)
+			Game.RankUpDialog.u("Game.RankUpDialog", Game.Bej3Dialog)
 		});
 U(function() {
-			Game.uA.c()
+			Game.RankUpDialog.c()
 		});
 Game.RecordsDialog = function(b) {
 	b === UNDEF && (b = false);
@@ -31985,7 +31985,7 @@ Game.SpeedBoard.prototype = {
 		c.zt = Game.TutorialStep.Pg.mT;
 		c.Sw = 360;
 		c.Il = Game.TutorialStep.Qg.zU;
-		c.vl = new GameFramework.ne(490, 0, 1100, 150);
+		c.vl = new GameFramework.TRect(490, 0, 1100, 150);
 		c.rk = 602;
 		c.sk = 180;
 		c.Fj = 890;
@@ -32022,7 +32022,7 @@ Game.SpeedBoard.prototype = {
 		b.Yd(c);
 		if (this.gp(Game.f.Xa.Oy))
 			c = new Game.TutorialStep, c.Fb = Game.TutorialStep.hg.sK, c.Fk = "Hints", c.Re = "If you are stuck, use the ^007700^HINT^oldclr^ Button to find a match.", c.Fh = Game.f.Xa.Oy, c.Il = Game.TutorialStep.Qg.qE, c.zt = Game.TutorialStep.Pg.ct, c.hm = Game.TutorialStep.Wc.vs, c.cr = this.Ib.w
-					+ this.Ib.s / 2, c.dr = this.Ib.v + this.Ib.z / 2 - 50, c.rk = 426, c.sk = 708, c.Fj = 700, c.gB = true, c.vl = new GameFramework.ne(
+					+ this.Ib.s / 2, c.dr = this.Ib.v + this.Ib.z / 2 - 50, c.rk = 426, c.sk = 708, c.Fj = 700, c.gB = true, c.vl = new GameFramework.TRect(
 					this.Ib.w - this.Ib.s * (1.65 - 1) / 2, this.Ib.v
 							- this.Ib.z * (1.65 - 1) / 2, this.Ib.s * 1.65,
 					this.Ib.z * 1.65), c.re = 0, c.jl = true, b.Yd(c);
@@ -32078,7 +32078,7 @@ Game.SpeedBoard.prototype = {
 		Game.Board.prototype.EK.apply(this, [b])
 	},
 	qv : function() {
-		var b = new GameFramework.ne(0, 0,
+		var b = new GameFramework.TRect(0, 0,
 				Game.Resources.IMAGE_LIGHTNING_TOP_BACK_LIGHTNING.s,
 				Game.Resources.IMAGE_LIGHTNING_TOP_BACK_LIGHTNING.z);
 		b.eT(this.Se() - b.s / 2, this.Cd() + -55 - b.z / 2);
@@ -32145,7 +32145,7 @@ Game.SpeedBoard.prototype = {
 								&& (b = new Game.TutorialSequence, this.xc.oL(b)), b
 								.UJ(Game.f.Xa.eF)
 								? this.HQ()
-								: (c = new Game.TutorialStep, c.Fb = Game.TutorialStep.hg.KE, c.Fk = "Bonus Round", c.Re = "If you have Bonus Time stored, you'll get a ^007700^BONUS ROUND^oldclr^ when time runs out.\n\nEach ^007700^BONUS ROUND^oldclr^ ups your multiplier by 1!", c.Fh = Game.f.Xa.eF, c.zt = Game.TutorialStep.Pg.pT, c.Sw = 100, c.rM = 120, c.Il = Game.TutorialStep.Qg.bT, c.vl = new GameFramework.ne(
+								: (c = new Game.TutorialStep, c.Fb = Game.TutorialStep.hg.KE, c.Fk = "Bonus Round", c.Re = "If you have Bonus Time stored, you'll get a ^007700^BONUS ROUND^oldclr^ when time runs out.\n\nEach ^007700^BONUS ROUND^oldclr^ ups your multiplier by 1!", c.Fh = Game.f.Xa.eF, c.zt = Game.TutorialStep.Pg.pT, c.Sw = 100, c.rM = 120, c.Il = Game.TutorialStep.Qg.bT, c.vl = new GameFramework.TRect(
 										490, 0, 1100, 150), c.rk = 602, c.sk = 180, c.Fj = 680, c.Pr = new GameFramework.CurvedVal, c.Pr
 										.vj("SpeedBoard_cs_11_15_11__17_35_36_339"), c.hm = Game.TutorialStep.Wc.Cq, c.cr = 280, c.dr = 300, c.re = 15, c.jl = true, b
 										.Yd(c)))
@@ -33703,7 +33703,7 @@ Game.TutorialStep = function() {
 };
 Game.TutorialStep.nZ = function(b, c, d, f, g) {
 	g === UNDEF && (g = 0);
-	b = new GameFramework.ne(b.tz(d) - g, b.xz(f) - g, Game.Board.bb + g * 2,
+	b = new GameFramework.TRect(b.tz(d) - g, b.xz(f) - g, Game.Board.bb + g * 2,
 			Game.Board.ab + g * 2);
 	return c == null || c.s == 0 || c.z == 0 ? b : c.GU(b)
 };
@@ -33773,14 +33773,14 @@ Game.TutorialStep.prototype = {
 					&& (this.Il == Game.TutorialStep.Qg.qE
 							? Game.TutorialMgr.M_(b, this.vl)
 							: this.Il == Game.TutorialStep.Qg.bT
-									? (Game.TutorialMgr.az(b, new GameFramework.ne(62,
+									? (Game.TutorialMgr.az(b, new GameFramework.TRect(62,
 													240, 360, 500),
-											new GameFramework.ne(0, 0, 450,
+											new GameFramework.TRect(0, 0, 450,
 													GameFramework.BaseApp.M.z)), Game.TutorialMgr
 											.az(
 													b,
 													this.vl,
-													new GameFramework.ne(450,
+													new GameFramework.TRect(450,
 															0,
 															GameFramework.BaseApp.M.s
 																	- 450,
@@ -33790,10 +33790,10 @@ Game.TutorialStep.prototype = {
 											? (Game.TutorialMgr
 													.az(
 															b,
-															new GameFramework.ne(
+															new GameFramework.TRect(
 																	62, 240,
 																	360, 500),
-															new GameFramework.ne(
+															new GameFramework.TRect(
 																	0,
 																	0,
 																	450,
@@ -33801,7 +33801,7 @@ Game.TutorialStep.prototype = {
 													.az(
 															b,
 															this.vl,
-															new GameFramework.ne(
+															new GameFramework.TRect(
 																	450,
 																	0,
 																	GameFramework.BaseApp.M.s
@@ -33885,7 +33885,7 @@ Game.TutorialStep.prototype = {
 						&& Game.BejApp.q.e.Cf(this.Fh))
 	},
 	aw : function(b, c, d, f) {
-		b = new GameFramework.ne(b.tz(c), b.xz(d), Game.Board.bb, Game.Board.ab);
+		b = new GameFramework.TRect(b.tz(c), b.xz(d), Game.Board.bb, Game.Board.ab);
 		this.hm = f;
 		this.cr = b.w + b.s / 2;
 		this.dr = b.v + b.z / 2
@@ -34032,11 +34032,11 @@ Game.TutorialMgr.M_ = function(b, c) {
 	d === UNDEF && (d = null);
 	var f = b.Q(3221225472);
 	try {
-		var g = b.mh(c.w), h = b.mh(c.v), c = new GameFramework.ne(g, h, b
+		var g = b.mh(c.w), h = b.mh(c.v), c = new GameFramework.TRect(g, h, b
 						.mh(c.w + c.s)
 						- g, b.mh(c.v + c.z) - h);
 		d == null
-				&& (d = new GameFramework.ne(GameFramework.BaseApp.M.w,
+				&& (d = new GameFramework.TRect(GameFramework.BaseApp.M.w,
 						GameFramework.BaseApp.M.v, GameFramework.BaseApp.M.ix,
 						GameFramework.BaseApp.M.hx));
 		b.fc(d.w, d.v, c.w - d.w, d.z);
@@ -34059,12 +34059,12 @@ Game.TutorialMgr.M_ = function(b, c) {
 Game.TutorialMgr.az = function(b, c, d) {
 	d === UNDEF && (d = null);
 	d == null
-			&& (d = new GameFramework.ne(GameFramework.BaseApp.M.w,
+			&& (d = new GameFramework.TRect(GameFramework.BaseApp.M.w,
 					GameFramework.BaseApp.M.v, GameFramework.BaseApp.M.ix,
 					GameFramework.BaseApp.M.hx));
 	var f = b.Q(3221225472);
 	try {
-		var g = b.mh(c.w), h = b.mh(c.v), c = new GameFramework.ne(g, h, b
+		var g = b.mh(c.w), h = b.mh(c.v), c = new GameFramework.TRect(g, h, b
 						.mh(c.w + c.s)
 						- g, b.mh(c.v + c.z) - h);
 		b.fc(d.w, d.v, c.w - d.w, d.z);
