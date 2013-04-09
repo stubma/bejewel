@@ -13461,7 +13461,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 		c === UNDEF && (c = null);
 		d === UNDEF && (d = null);
 		$b();
-		var f = new GameFramework.gfx.Cv(this);
+		var f = new GameFramework.gfx.JSGraphics3D(this);
 		b != null && f.mt(b);
 		c != null && f.mt(c);
 		d != null && f.mt(d);
@@ -13487,15 +13487,15 @@ T(function() {
 U(function() {
 			GameFramework.gfx.JSGraphics.c()
 		});
-GameFramework.gfx.Cv = function(b) {
+GameFramework.gfx.JSGraphics3D = function(b) {
 	this.mP = new GameFramework.geom.Ce;
 	this.oP = new GameFramework.geom.Ce;
 	this.CO = new GameFramework.geom.Ce;
 	this.pP = Array.O(3, 3, false, false, false);
 	this.qP = Array.O(3, 3, false, false, false);
-	E(GameFramework.gfx.Cv, this, [b])
+	E(GameFramework.gfx.JSGraphics3D, this, [b])
 };
-GameFramework.gfx.Cv.prototype = {
+GameFramework.gfx.JSGraphics3D.prototype = {
 	mP : null,
 	oP : null,
 	CO : null,
@@ -13605,13 +13605,13 @@ GameFramework.gfx.Cv.prototype = {
 					.ld(f)
 	}
 };
-GameFramework.gfx.Cv.c = t();
+GameFramework.gfx.JSGraphics3D.c = t();
 T(function() {
-			GameFramework.gfx.Cv.u("GameFramework.gfx.JSGraphics3D",
+			GameFramework.gfx.JSGraphics3D.u("GameFramework.gfx.JSGraphics3D",
 					GameFramework.gfx.hb)
 		});
 U(function() {
-			GameFramework.gfx.Cv.c()
+			GameFramework.gfx.JSGraphics3D.c()
 		});
 GameFramework.resources = Type.ci("GameFramework.resources");
 GameFramework.resources.Us = function(b) {
