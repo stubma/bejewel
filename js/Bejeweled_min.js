@@ -1506,12 +1506,12 @@ function Oa(b, c, d) {
 		}, f.src = c;
 	return f
 }
-var Pa, Qa;
+var Pa, requestAnimationFrame;
 if (typeof webkitRequestAnimationFrame == "function")
-	Qa = webkitRequestAnimationFrame;
+	requestAnimationFrame = webkitRequestAnimationFrame;
 else if (typeof window.G9 == "function")
-	Qa = window.G9;
-Qa ? Qa(Ra) : setInterval("JSFExt_Timer()", 16);
+	requestAnimationFrame = window.G9;
+requestAnimationFrame ? requestAnimationFrame(drawFrame) : setInterval("JSFExt_Timer()", 16);
 var curApp, gl = null, context = null;
 function Ja(b) {
 	if (gl != null) {
@@ -1657,7 +1657,7 @@ ab.g6(Math.random(), document.documentElement.clientWidth,
 				? window.screenX
 				: 0, window.screenY ? window.screenY : 0);
 var nb, J, K = 0, ob, L, N = 0, pb = (new Date).getTime(), qb = 0, rb = 0.2, sb = 1, tb = true, ub, vb;
-function Ra() {
+function drawFrame() {
 	var now = (new Date).getTime();
 	qb += (now - pb) * sb;
 	pb = now;
@@ -1696,9 +1696,9 @@ function Ra() {
 			gl && (gl.colorMask(1, 1, 1, 1), gl.flush())
 		}
 	}
-	Qa && Qa(Ra)
+	requestAnimationFrame && requestAnimationFrame(drawFrame)
 }
-window.JSFExt_Timer = Ra;
+window.JSFExt_Timer = drawFrame;
 function ac(b) {
 	b.which ? curApp.Bb.Tk(b.which) : curApp.Bb.Tk(b.keyCode)
 }
