@@ -2131,9 +2131,9 @@ GameFramework.BaseApp.prototype = {
 		this.ix = this.s;
 		this.hx = this.z;
 		this.O0();
-		GameFramework.Utils.TS("Init", Array.O(3, null, new GameFramework.W.cb(
-								"ProdName", this.po), new GameFramework.W.cb(
-								"Version", this.nj), new GameFramework.W.cb(
+		GameFramework.Utils.TS("Init", Array.O(3, null, new GameFramework.misc.KeyVal(
+								"ProdName", this.po), new GameFramework.misc.KeyVal(
+								"Version", this.nj), new GameFramework.misc.KeyVal(
 								"ExecutionId", this.bN)));
 		this.wQ();
 		this.fJ()
@@ -2228,8 +2228,8 @@ GameFramework.BaseApp.prototype = {
 	Is : x(null),
 	lt : t(),
 	TS : function(b, c) {
-		this.xX.push(this.rj(Array.O(3, null, new GameFramework.W.cb("Event", b),
-				new GameFramework.W.cb("Time", 0), new GameFramework.W.cb(
+		this.xX.push(this.rj(Array.O(3, null, new GameFramework.misc.KeyVal("Event", b),
+				new GameFramework.misc.KeyVal("Time", 0), new GameFramework.misc.KeyVal(
 						"Param", c))))
 	},
 	uQ : function() {
@@ -2338,7 +2338,7 @@ GameFramework.CurvedVal.prototype = {
 		this.BO = this.Ye = this.IH = this.Xh = this.mW = 0
 	},
 	P0 : function(b, c) {
-		var d = new GameFramework.W.Vu, f;
+		var d = new GameFramework.misc.BSpline, f;
 		for (f = 0; f < (b.length | 0); f++) {
 			var g = b[f];
 			d.Kk(g.w, g.v)
@@ -2397,11 +2397,11 @@ GameFramework.CurvedVal.prototype = {
 			this.ZV = GameFramework.CurvedVal.lW;
 			this.Ph = GameFramework.CurvedVal.pW[d];
 			if (this.Ph == null) {
-				this.Ph = new GameFramework.W.Uy;
+				this.Ph = new GameFramework.misc.CurveCacheRecord;
 				GameFramework.CurvedVal.pW[d] = this.Ph;
 				d = [];
 				for (f = 0; c < b.length;) {
-					var g = GameFramework.Utils.hi(b, c++), h = new GameFramework.W.Vy;
+					var g = GameFramework.Utils.hi(b, c++), h = new GameFramework.misc.CurveValDataPoint;
 					h.w = f;
 					h.v = GameFramework.CurvedVal.UP(g);
 					this.eu
@@ -2419,7 +2419,7 @@ GameFramework.CurvedVal.prototype = {
 					this.Ph.dD = Array.O(GameFramework.CurvedVal.WI, null), this.P0(d,
 							this.Ph.dD);
 				this.Ph.A7 = b;
-				this.Ph.VB = new GameFramework.W.qh;
+				this.Ph.VB = new GameFramework.misc.SexyMathHermite;
 				this.Ph.VB.Z.clear();
 				for (b = 0; b < (d.length | 0); ++b)
 					c = d[b], this.Ph.VB.Kk(c.w, c.v, Math.tan(c.fM * 3.14159
@@ -3020,7 +3020,7 @@ GameFramework.TDictionary.prototype = {
 GameFramework.TDictionary.c = t();
 T(function() {
 			GameFramework.TDictionary.u("GameFramework.TDictionary", null,
-					GameFramework.W.ZJ)
+					GameFramework.misc.ZJ)
 		});
 U(function() {
 			GameFramework.TDictionary.c()
@@ -3067,7 +3067,7 @@ GameFramework.TIntDictionary.prototype = {
 GameFramework.TIntDictionary.c = t();
 T(function() {
 			GameFramework.TIntDictionary.u("GameFramework.TIntDictionary", null,
-					GameFramework.W.ZJ)
+					GameFramework.misc.ZJ)
 		});
 U(function() {
 			GameFramework.TIntDictionary.c()
@@ -3137,7 +3137,7 @@ GameFramework.TIntMap.prototype = {
 };
 GameFramework.TIntMap.c = t();
 T(function() {
-			GameFramework.TIntMap.u("GameFramework.TIntMap", null, GameFramework.W.ZJ)
+			GameFramework.TIntMap.u("GameFramework.TIntMap", null, GameFramework.misc.ZJ)
 		});
 U(function() {
 			GameFramework.TIntMap.c()
@@ -3260,7 +3260,7 @@ GameFramework.TMap.prototype = {
 };
 GameFramework.TMap.c = t();
 T(function() {
-			GameFramework.TMap.u("GameFramework.TMap", null, GameFramework.W.ZJ)
+			GameFramework.TMap.u("GameFramework.TMap", null, GameFramework.misc.ZJ)
 		});
 U(function() {
 			GameFramework.TMap.c()
@@ -3461,14 +3461,14 @@ GameFramework.Utils.Aba = function(b, c) {
 	var d = [];
 	for (aKey in b)
 		d.push(aKey);
-	d.He.mU(new GameFramework.W.ww(b, c));
+	d.He.mU(new GameFramework.misc.TMapSorter(b, c));
 	return d
 };
 GameFramework.Utils.Bba = function(b, c) {
 	var d = [];
 	for (aKey in b)
 		d.push(aKey);
-	d.He.mU(new GameFramework.W.ww(b, c));
+	d.He.mU(new GameFramework.misc.TMapSorter(b, c));
 	return d
 };
 GameFramework.Utils.Tpa = function(b, c) {
@@ -3534,11 +3534,11 @@ GameFramework.Utils.X4 = t();
 GameFramework.Utils.TS = function(b, c) {
 	c === UNDEF && (c = null);
 	c == null
-			? GameFramework.Utils.wX.push(Array.O(2, null, new GameFramework.W.cb(
-							"Time", 0), new GameFramework.W.cb("Data", b)))
-			: GameFramework.Utils.wX.push(Array.O(3, null, new GameFramework.W.cb(
-							"Time", 0), new GameFramework.W.cb("Data", b),
-					new GameFramework.W.cb("Param", c)))
+			? GameFramework.Utils.wX.push(Array.O(2, null, new GameFramework.misc.KeyVal(
+							"Time", 0), new GameFramework.misc.KeyVal("Data", b)))
+			: GameFramework.Utils.wX.push(Array.O(3, null, new GameFramework.misc.KeyVal(
+							"Time", 0), new GameFramework.misc.KeyVal("Data", b),
+					new GameFramework.misc.KeyVal("Param", c)))
 };
 GameFramework.Utils.RS = function(b, c, d) {
 	var f = 1 - d, g = new GameFramework.geom.Matrix;
@@ -4635,8 +4635,8 @@ GameFramework.gfx.Graphics = function() {
 	this.Nr = new GameFramework.geom.Matrix;
 	this.xM = {};
 	this.BN = {};
-	this.cG = new GameFramework.W.gv(ss.Delegate.create(this, this.Ab));
-	this.mM = new GameFramework.W.gv(ss.Delegate.create(this, this.pb));
+	this.cG = new GameFramework.misc.DisposeProxyStatic(ss.Delegate.create(this, this.Ab));
+	this.mM = new GameFramework.misc.DisposeProxyStatic(ss.Delegate.create(this, this.pb));
 	this.lC = [];
 	this.sa = new GameFramework.geom.Matrix;
 	this.Eg = 0;
@@ -5155,9 +5155,9 @@ T(function() {
 U(function() {
 			GameFramework.gfx.TransformedDrawable.c()
 		});
-GameFramework.W = Type.ci("GameFramework.misc");
-GameFramework.W.My = t();
-GameFramework.W.My.prototype = {
+GameFramework.misc = Type.ci("GameFramework.misc");
+GameFramework.misc.Bezier = t();
+GameFramework.misc.Bezier.prototype = {
 	Yj : null,
 	zr : null,
 	oI : 0,
@@ -5323,17 +5323,17 @@ GameFramework.W.My.prototype = {
 				+ this.wL(r, v, o, q, g, h, j, k)
 	}
 };
-GameFramework.W.My.c = t();
+GameFramework.misc.Bezier.c = t();
 T(function() {
-			GameFramework.W.My.u("GameFramework.misc.Bezier", null)
+			GameFramework.misc.Bezier.u("GameFramework.misc.Bezier", null)
 		});
 U(function() {
-			GameFramework.W.My.c()
+			GameFramework.misc.Bezier.c()
 		});
-GameFramework.W.Vu = function() {
+GameFramework.misc.BSpline = function() {
 	this.Vg()
 };
-GameFramework.W.Vu.prototype = {
+GameFramework.misc.BSpline.prototype = {
 	Do : null,
 	Dy : null,
 	hM : null,
@@ -5464,111 +5464,111 @@ GameFramework.W.Vu.prototype = {
 		return this.eS(b, this.DI)
 	}
 };
-GameFramework.W.Vu.c = t();
+GameFramework.misc.BSpline.c = t();
 T(function() {
-			GameFramework.W.Vu.u("GameFramework.misc.BSpline", null)
+			GameFramework.misc.BSpline.u("GameFramework.misc.BSpline", null)
 		});
 U(function() {
-			GameFramework.W.Vu.c()
+			GameFramework.misc.BSpline.c()
 		});
-GameFramework.W.Uy = t();
-GameFramework.W.Uy.prototype = {
+GameFramework.misc.CurveCacheRecord = t();
+GameFramework.misc.CurveCacheRecord.prototype = {
 	dD : null,
 	VB : null,
 	A7 : null
 };
-GameFramework.W.Uy.c = t();
+GameFramework.misc.CurveCacheRecord.c = t();
 T(function() {
-			GameFramework.W.Uy.u("GameFramework.misc.CurveCacheRecord", null)
+			GameFramework.misc.CurveCacheRecord.u("GameFramework.misc.CurveCacheRecord", null)
 		});
 U(function() {
-			GameFramework.W.Uy.c()
+			GameFramework.misc.CurveCacheRecord.c()
 		});
-GameFramework.W.Vy = t();
-GameFramework.W.Vy.prototype = {
+GameFramework.misc.CurveValDataPoint = t();
+GameFramework.misc.CurveValDataPoint.prototype = {
 	w : 0,
 	v : 0,
 	fM : 0
 };
-GameFramework.W.Vy.c = t();
+GameFramework.misc.CurveValDataPoint.c = t();
 T(function() {
-			GameFramework.W.Vy.u("GameFramework.misc.CurveValDataPoint", null)
+			GameFramework.misc.CurveValDataPoint.u("GameFramework.misc.CurveValDataPoint", null)
 		});
 U(function() {
-			GameFramework.W.Vy.c()
+			GameFramework.misc.CurveValDataPoint.c()
 		});
-GameFramework.W.Yy = w("GC");
-GameFramework.W.Yy.prototype = {
+GameFramework.misc.DisposeProxy = w("GC");
+GameFramework.misc.DisposeProxy.prototype = {
 	GC : null,
 	t : function() {
 		this.GC.tt()
 	}
 };
-GameFramework.W.Yy.c = t();
+GameFramework.misc.DisposeProxy.c = t();
 T(function() {
-			GameFramework.W.Yy.u("GameFramework.misc.DisposeProxy", null,
+			GameFramework.misc.DisposeProxy.u("GameFramework.misc.DisposeProxy", null,
 					System.Wl)
 		});
 U(function() {
-			GameFramework.W.Yy.c()
+			GameFramework.misc.DisposeProxy.c()
 		});
-GameFramework.W.gv = w("GC");
-GameFramework.W.gv.prototype = {
+GameFramework.misc.DisposeProxyStatic = w("GC");
+GameFramework.misc.DisposeProxyStatic.prototype = {
 	GC : null,
 	t : function() {
 		this.GC.tt()
 	}
 };
-GameFramework.W.gv.c = t();
+GameFramework.misc.DisposeProxyStatic.c = t();
 T(function() {
-			GameFramework.W.gv.u("GameFramework.misc.DisposeProxyStatic", null,
+			GameFramework.misc.DisposeProxyStatic.u("GameFramework.misc.DisposeProxyStatic", null,
 					GameFramework.yla)
 		});
 U(function() {
-			GameFramework.W.gv.c()
+			GameFramework.misc.DisposeProxyStatic.c()
 		});
-GameFramework.W.Lz = w("Za");
-GameFramework.W.Lz.prototype = {
+GameFramework.misc.JSONString = w("Za");
+GameFramework.misc.JSONString.prototype = {
 	Za : null
 };
-GameFramework.W.Lz.c = t();
+GameFramework.misc.JSONString.c = t();
 T(function() {
-			GameFramework.W.Lz.u("GameFramework.misc.JSONString", null)
+			GameFramework.misc.JSONString.u("GameFramework.misc.JSONString", null)
 		});
 U(function() {
-			GameFramework.W.Lz.c()
+			GameFramework.misc.JSONString.c()
 		});
-GameFramework.W.Oz = function(b) {
-	E(GameFramework.W.Oz, this, [b, 1])
+GameFramework.misc.Key1 = function(b) {
+	E(GameFramework.misc.Key1, this, [b, 1])
 };
-GameFramework.W.Oz.prototype = {};
-GameFramework.W.Oz.c = t();
+GameFramework.misc.Key1.prototype = {};
+GameFramework.misc.Key1.c = t();
 T(function() {
-			GameFramework.W.Oz.u("GameFramework.misc.Key1", GameFramework.W.cb)
+			GameFramework.misc.Key1.u("GameFramework.misc.Key1", GameFramework.misc.KeyVal)
 		});
 U(function() {
-			GameFramework.W.Oz.c()
+			GameFramework.misc.Key1.c()
 		});
-GameFramework.W.cb = function(b, c) {
+GameFramework.misc.KeyVal = function(b, c) {
 	this.gH = b;
 	this.oa = c
 };
-GameFramework.W.cb.prototype = {
+GameFramework.misc.KeyVal.prototype = {
 	gH : null,
 	oa : null
 };
-GameFramework.W.cb.c = t();
+GameFramework.misc.KeyVal.c = t();
 T(function() {
-			GameFramework.W.cb.u("GameFramework.misc.KeyVal", null)
+			GameFramework.misc.KeyVal.u("GameFramework.misc.KeyVal", null)
 		});
 U(function() {
-			GameFramework.W.cb.c()
+			GameFramework.misc.KeyVal.c()
 		});
-GameFramework.W.qh = function() {
+GameFramework.misc.SexyMathHermite = function() {
 	this.Z = [];
 	this.ee = []
 };
-GameFramework.W.qh.prototype = {
+GameFramework.misc.SexyMathHermite.prototype = {
 	HN : null,
 	Z : null,
 	ee : null,
@@ -5589,33 +5589,33 @@ GameFramework.W.qh.prototype = {
 		return Type.di(this.Z[this.Z.length - 1], Array)[1]
 	},
 	j_ : function(b, c) {
-		var d = Array.O(GameFramework.W.qh.fl * GameFramework.W.qh.fl, null), f = Array
-				.O(GameFramework.W.qh.fl, null), g;
+		var d = Array.O(GameFramework.misc.SexyMathHermite.fl * GameFramework.misc.SexyMathHermite.fl, null), f = Array
+				.O(GameFramework.misc.SexyMathHermite.fl, null), g;
 		for (g = 0; g <= 1; g++) {
 			var h = Type.di(this.Z[b + g], Array), j = 2 * g;
 			f[j] = h[0];
 			f[j + 1] = h[0];
 			d[j] = h[1];
 			d[j + 1] = h[1];
-			d[j + 1 + 1 * GameFramework.W.qh.fl] = h[2];
+			d[j + 1 + 1 * GameFramework.misc.SexyMathHermite.fl] = h[2];
 			g != 0
-					&& (d[j + 1 * GameFramework.W.qh.fl] = (d[j] - d[j - 1])
+					&& (d[j + 1 * GameFramework.misc.SexyMathHermite.fl] = (d[j] - d[j - 1])
 							/ (f[j] - f[j - 1]))
 		}
-		for (g = 2; g < GameFramework.W.qh.fl; g++)
+		for (g = 2; g < GameFramework.misc.SexyMathHermite.fl; g++)
 			for (h = 2; h <= g; h++)
-				d[g + h * GameFramework.W.qh.fl] = (d[g + (h - 1)
-						* GameFramework.W.qh.fl] - d[g - 1 + (h - 1)
-						* GameFramework.W.qh.fl])
+				d[g + h * GameFramework.misc.SexyMathHermite.fl] = (d[g + (h - 1)
+						* GameFramework.misc.SexyMathHermite.fl] - d[g - 1 + (h - 1)
+						* GameFramework.misc.SexyMathHermite.fl])
 						/ (f[g] - f[g - h]);
-		for (g = 0; g < GameFramework.W.qh.fl; g++)
-			c[g] = d[g + g * GameFramework.W.qh.fl]
+		for (g = 0; g < GameFramework.misc.SexyMathHermite.fl; g++)
+			c[g] = d[g + g * GameFramework.misc.SexyMathHermite.fl]
 	},
 	h0 : function(b, c, d) {
 		var f = Array.O(2, null);
 		f[0] = b - Type.di(this.Z[c + 0], Array)[0];
 		f[1] = b - Type.di(this.Z[c + 1], Array)[0];
-		for (var b = 1, c = d[0], g = 1; g < GameFramework.W.qh.fl; g++)
+		for (var b = 1, c = d[0], g = 1; g < GameFramework.misc.SexyMathHermite.fl; g++)
 			b *= f[(g - 1) / 2 | 0], c += b * d[g];
 		return c
 	},
@@ -5636,29 +5636,29 @@ GameFramework.W.qh.prototype = {
 		this.Z.push(Array.O(3, null, b, c, d))
 	}
 };
-GameFramework.W.qh.c = function() {
-	GameFramework.W.qh.fl = 4
+GameFramework.misc.SexyMathHermite.c = function() {
+	GameFramework.misc.SexyMathHermite.fl = 4
 };
 T(function() {
-			GameFramework.W.qh.u("GameFramework.misc.SexyMathHermite", null)
+			GameFramework.misc.SexyMathHermite.u("GameFramework.misc.SexyMathHermite", null)
 		});
 U(function() {
-			GameFramework.W.qh.c()
+			GameFramework.misc.SexyMathHermite.c()
 		});
-GameFramework.W.ww = function(b, c) {
+GameFramework.misc.TMapSorter = function(b, c) {
 	this.F7 = b;
 	this.v7 = c
 };
-GameFramework.W.ww.prototype = {
+GameFramework.misc.TMapSorter.prototype = {
 	v7 : null,
 	F7 : null
 };
-GameFramework.W.ww.c = t();
+GameFramework.misc.TMapSorter.c = t();
 T(function() {
-			GameFramework.W.ww.u("GameFramework.misc.TMapSorter", null)
+			GameFramework.misc.TMapSorter.u("GameFramework.misc.TMapSorter", null)
 		});
 U(function() {
-			GameFramework.W.ww.c()
+			GameFramework.misc.TMapSorter.c()
 		});
 GameFramework.resources = Type.ci("GameFramework.resources");
 GameFramework.resources.Ly = t();
@@ -7772,7 +7772,7 @@ GameFramework.resources.va.prototype = {
 		}
 		!f && b.dc.length == 2 && b.dc[0].oa == b.dc[1].oa && b.dc.length--;
 		if (d > 1 && f)
-			b.km = new GameFramework.W.My, b.km.GS(h, j, g)
+			b.km = new GameFramework.misc.Bezier, b.km.GS(h, j, g)
 	},
 	C3 : function(b) {
 		this.C.H();
@@ -13185,7 +13185,7 @@ GameFramework.JSBaseApp.prototype = {
 			return String.Mb("{0:f}", b);
 		if (Type.vf(b, Boolean))
 			return b ? "true" : "false";
-		if (Type.vf(b, GameFramework.W.Lz))
+		if (Type.vf(b, GameFramework.misc.JSONString))
 			return b.Za;
 		if (Type.vf(b, String)) {
 			for (var c = 0; c < b.length; c++) {
@@ -13208,11 +13208,11 @@ GameFramework.JSBaseApp.prototype = {
 			c += "]";
 			return c.toString()
 		}
-		if (Type.vf(b, GameFramework.W.cb))
+		if (Type.vf(b, GameFramework.misc.KeyVal))
 			return c = "", c += "{", c += this.rj(b.gH), c += ":", c += this
 					.rj(b.oa), c += "}", c.toString();
 		if (Type.vf(b, Array)) {
-			if (b.length > 0 && Type.vf(b[0], GameFramework.W.cb)) {
+			if (b.length > 0 && Type.vf(b[0], GameFramework.misc.KeyVal)) {
 				c = "";
 				c += "{";
 				for (d = 0; d < b.length; d++)
@@ -14976,10 +14976,10 @@ Game.BejApp.prototype = {
 		this.m = this.Ig / this.dC;
 		if (this.BG != null)
 			this.BG.v9 = "http://10.1.244.102/query_engine.php";
-		this.tw("startup", [new GameFramework.W.cb("DefaultArtRes", b),
-						new GameFramework.W.cb("WebGL", this.kc()),
-						new GameFramework.W.cb("ArtRes", this.aj),
-						new GameFramework.W.cb("PlatformInfo", this.UY)]);
+		this.tw("startup", [new GameFramework.misc.KeyVal("DefaultArtRes", b),
+						new GameFramework.misc.KeyVal("WebGL", this.kc()),
+						new GameFramework.misc.KeyVal("ArtRes", this.aj),
+						new GameFramework.misc.KeyVal("PlatformInfo", this.UY)]);
 		this.Nh = new GameFramework.widgets.ClassicWidgetAppState;
 		this.Nh.Uc = this.Uc;
 		this.fe = this.Nh.fe;
@@ -15022,17 +15022,17 @@ Game.BejApp.prototype = {
 		var g = [];
 		if (c != null)
 			for (aKey in c)
-				g.push(new GameFramework.W.cb(aKey, c[aKey]));
+				g.push(new GameFramework.misc.KeyVal(aKey, c[aKey]));
 		this.tw(b, g, d, f)
 	},
 	tw : function(b, c, d, f) {
 		d === UNDEF && (d = false);
 		f === UNDEF && (f = null);
-		var g = [new GameFramework.W.cb("PlayerId", this.zo),
-				new GameFramework.W.cb("ProductName", "Bejeweled"),
-				new GameFramework.W.cb("PlatformName", "HTML5"),
-				new GameFramework.W.cb("ClientVersion", Game.Version.getVersion()),
-				new GameFramework.W.cb("SessionId", this.sY)];
+		var g = [new GameFramework.misc.KeyVal("PlayerId", this.zo),
+				new GameFramework.misc.KeyVal("ProductName", "Bejeweled"),
+				new GameFramework.misc.KeyVal("PlatformName", "HTML5"),
+				new GameFramework.misc.KeyVal("ClientVersion", Game.Version.getVersion()),
+				new GameFramework.misc.KeyVal("SessionId", this.sY)];
 		if (c != null)
 			for (var h = 0; h < c.length; h++)
 				g.push(c[h]);
@@ -15106,7 +15106,7 @@ Game.BejApp.prototype = {
 		this.Ut--;
 		if (this.Ut == 0 && !this.jC)
 			this.wW = false, this.dl("Music"), this.tw("load_complete",
-					[new GameFramework.W.cb("LoadSeconds", GameFramework.Utils.bootTime()
+					[new GameFramework.misc.KeyVal("LoadSeconds", GameFramework.Utils.bootTime()
 									/ 1E3 | 0)]), this.bU(this.Ka.Fr), this
 					.lL(this.Ka.tu), this.kA(Game.Resources.QT), this.nI.f2(), this.jC = true, Game.Resources.FONT_DIALOG_BUTTONS
 					.Ia("MAIN", GameFramework.gfx.Color.Ma(255, 255, 255, 230)), Game.Resources.FONT_DIALOG_BUTTONS
@@ -16682,7 +16682,7 @@ Game.Board.prototype = {
 		this.xc.oL(this.ki());
 		this.TG = GameFramework.Utils.eJ();
 		Game.BejApp.q
-				.tw("game_started", [new GameFramework.W.cb("GameId", this.TG)]);
+				.tw("game_started", [new GameFramework.misc.KeyVal("GameId", this.TG)]);
 		this.es = false;
 		this.Bo = 0;
 		this.Nw = this.Mw = -1;
@@ -16816,41 +16816,41 @@ Game.Board.prototype = {
 			d += this.Qd[this.Qd.length - 1][Game.Board.je.cF | 0], g += this.Qd[this.Qd.length
 					- 1][Game.Board.je.GE | 0];
 		c = [
-				new GameFramework.W.cb("IsSlow", Game.BejApp.q.$f),
-				new GameFramework.W.cb("MusicVolume", Game.BejApp.q.Ka.Fr),
-				new GameFramework.W.cb("SfxVolume", Game.BejApp.q.Ka.tu),
-				new GameFramework.W.cb("GameId", this.TG),
-				new GameFramework.W.cb("GameMode", this.dE()),
-				new GameFramework.W.cb("GameTimePlayed", c[Game.DM.T.aF | 0]
+				new GameFramework.misc.KeyVal("IsSlow", Game.BejApp.q.$f),
+				new GameFramework.misc.KeyVal("MusicVolume", Game.BejApp.q.Ka.Fr),
+				new GameFramework.misc.KeyVal("SfxVolume", Game.BejApp.q.Ka.tu),
+				new GameFramework.misc.KeyVal("GameId", this.TG),
+				new GameFramework.misc.KeyVal("GameMode", this.dE()),
+				new GameFramework.misc.KeyVal("GameTimePlayed", c[Game.DM.T.aF | 0]
 								* 10),
-				new GameFramework.W.cb("WasGameCompleted", this.mx),
-				new GameFramework.W.cb("FpsAverage", c[Game.DM.T.kR | 0]
+				new GameFramework.misc.KeyVal("WasGameCompleted", this.mx),
+				new GameFramework.misc.KeyVal("FpsAverage", c[Game.DM.T.kR | 0]
 								/ Math.max(1, c[Game.DM.T.jR | 0]) | 0),
-				new GameFramework.W.cb("FpsLow", c[Game.DM.T.As | 0]),
-				new GameFramework.W.cb("FpsHigh", c[Game.DM.T.iR | 0]),
-				new GameFramework.W.cb("Level", Math.max(this.Nf, this.Bl + 1)),
-				new GameFramework.W.cb("Points", this.Z),
-				new GameFramework.W.cb("SpeedPoints", d),
-				new GameFramework.W.cb("HurrahPoints", f),
-				new GameFramework.W.cb("MatchPoints", g),
-				new GameFramework.W.cb("GemsCleared", c[Game.DM.T.dn | 0]),
-				new GameFramework.W.cb("FlamegemsCleared", c[Game.DM.T.yJ | 0]),
-				new GameFramework.W.cb("StargemsCleared", c[Game.DM.T.yE | 0]),
-				new GameFramework.W.cb("HypergemsCleared", c[Game.DM.T.RJ | 0]),
-				new GameFramework.W.cb("SupernovagemsCleared", c[Game.DM.T.WT
+				new GameFramework.misc.KeyVal("FpsLow", c[Game.DM.T.As | 0]),
+				new GameFramework.misc.KeyVal("FpsHigh", c[Game.DM.T.iR | 0]),
+				new GameFramework.misc.KeyVal("Level", Math.max(this.Nf, this.Bl + 1)),
+				new GameFramework.misc.KeyVal("Points", this.Z),
+				new GameFramework.misc.KeyVal("SpeedPoints", d),
+				new GameFramework.misc.KeyVal("HurrahPoints", f),
+				new GameFramework.misc.KeyVal("MatchPoints", g),
+				new GameFramework.misc.KeyVal("GemsCleared", c[Game.DM.T.dn | 0]),
+				new GameFramework.misc.KeyVal("FlamegemsCleared", c[Game.DM.T.yJ | 0]),
+				new GameFramework.misc.KeyVal("StargemsCleared", c[Game.DM.T.yE | 0]),
+				new GameFramework.misc.KeyVal("HypergemsCleared", c[Game.DM.T.RJ | 0]),
+				new GameFramework.misc.KeyVal("SupernovagemsCleared", c[Game.DM.T.WT
 								| 0]),
-				new GameFramework.W.cb("FlamegemsMade", c[Game.DM.T.kv | 0]),
-				new GameFramework.W.cb("StargemsMade", c[Game.DM.T.Kv | 0]),
-				new GameFramework.W.cb("HypergemsMade", c[Game.DM.T.Cz | 0]),
-				new GameFramework.W.cb("SupernovagemsMade", c[Game.DM.T.VT | 0]),
-				new GameFramework.W.cb("NumMoves", c[Game.DM.T.LE | 0]),
-				new GameFramework.W.cb("NumMovesDrag", c[Game.DM.T.xK | 0]),
-				new GameFramework.W.cb("NumMovesClick", c[Game.DM.T.wK | 0]),
-				new GameFramework.W.cb("NumGoodMoves", c[Game.DM.T.vK | 0]),
-				new GameFramework.W.cb("NumMatches", c[Game.DM.T.qK | 0]),
-				new GameFramework.W.cb("TotalXP", Game.BejApp.q.Ka.El),
-				new GameFramework.W.cb("PlayerRank", Game.BejApp.q.Ka.Qj),
-				new GameFramework.W.cb("HintsUsed", c[Game.DM.T.tS | 0])];
+				new GameFramework.misc.KeyVal("FlamegemsMade", c[Game.DM.T.kv | 0]),
+				new GameFramework.misc.KeyVal("StargemsMade", c[Game.DM.T.Kv | 0]),
+				new GameFramework.misc.KeyVal("HypergemsMade", c[Game.DM.T.Cz | 0]),
+				new GameFramework.misc.KeyVal("SupernovagemsMade", c[Game.DM.T.VT | 0]),
+				new GameFramework.misc.KeyVal("NumMoves", c[Game.DM.T.LE | 0]),
+				new GameFramework.misc.KeyVal("NumMovesDrag", c[Game.DM.T.xK | 0]),
+				new GameFramework.misc.KeyVal("NumMovesClick", c[Game.DM.T.wK | 0]),
+				new GameFramework.misc.KeyVal("NumGoodMoves", c[Game.DM.T.vK | 0]),
+				new GameFramework.misc.KeyVal("NumMatches", c[Game.DM.T.qK | 0]),
+				new GameFramework.misc.KeyVal("TotalXP", Game.BejApp.q.Ka.El),
+				new GameFramework.misc.KeyVal("PlayerRank", Game.BejApp.q.Ka.Qj),
+				new GameFramework.misc.KeyVal("HintsUsed", c[Game.DM.T.tS | 0])];
 		Game.BejApp.q.tw("gameplay", c)
 	},
 	p5 : function() {
@@ -19070,11 +19070,11 @@ Game.Board.prototype = {
 				&& d
 				&& (d = Game.DM.F6[b | 0], d != null
 						&& Game.BejApp.q.tw("tutorial_cleared", [
-										new GameFramework.W.cb("GameId",
+										new GameFramework.misc.KeyVal("GameId",
 												this.TG),
-										new GameFramework.W.cb("TutorialType",
+										new GameFramework.misc.KeyVal("TutorialType",
 												d),
-										new GameFramework.W.cb(
+										new GameFramework.misc.KeyVal(
 												"TutorialsEnabled",
 												Game.BejApp.q.Ka.Zj)]));
 		Game.BejApp.q.Ka.Cf(b | 0, c)
@@ -26656,9 +26656,9 @@ Game.uq.prototype = {
 			b[aName] = c;
 			for (var d = this.xp[aName].zc, f = 0; f < d.length; f++) {
 				var g = d[f];
-				c.push(Array.O(3, null, new GameFramework.W.cb("Name", g.sb),
-						new GameFramework.W.cb("Score", g.Hl),
-						new GameFramework.W.cb("Time", g.Eb)))
+				c.push(Array.O(3, null, new GameFramework.misc.KeyVal("Name", g.sb),
+						new GameFramework.misc.KeyVal("Score", g.Hl),
+						new GameFramework.misc.KeyVal("Time", g.Eb)))
 			}
 		}
 		GameFramework.BaseApp.M.lt(GameFramework.BaseApp.M.po, "HighScores",
@@ -28803,9 +28803,9 @@ Game.Metrics.prototype = {
 		f === UNDEF && (f = null);
 		var g = 1;
 		!d && this.Kx.hasOwnProperty(b) && (g = this.Kx[b]);
-		b = [new GameFramework.W.cb("MetricsType", b),
-				new GameFramework.W.cb("MetricsVersion", "v1.0"),
-				new GameFramework.W.cb("SamplingProb", g)];
+		b = [new GameFramework.misc.KeyVal("MetricsType", b),
+				new GameFramework.misc.KeyVal("MetricsVersion", "v1.0"),
+				new GameFramework.misc.KeyVal("SamplingProb", g)];
 		if (Type.vf(c, Array))
 			for (g = 0; g < c.length; g++)
 				b.push(c[g]);
@@ -33180,7 +33180,7 @@ U(function() {
 			Game.TimeBonusEffect.c()
 		});
 Game.SpeedCollectEffect = function(b, c, d, f, g) {
-	this.Hi = new GameFramework.W.Vu;
+	this.Hi = new GameFramework.misc.BSpline;
 	this.Ii = new GameFramework.CurvedVal;
 	this.jp = new GameFramework.CurvedVal;
 	this.su = new GameFramework.CurvedVal;
@@ -34528,7 +34528,7 @@ Game.Util.tba = function(b) {
 	c.Eg = b.Eg;
 	c.dW = b.Tf.length;
 	c.Uc = b;
-	c.VX = new GameFramework.W.Yy(ss.Delegate.create(this, Game.Util.$Z));
+	c.VX = new GameFramework.misc.DisposeProxy(ss.Delegate.create(this, Game.Util.$Z));
 	Game.Util.mp.push(c);
 	return c.VX
 };
