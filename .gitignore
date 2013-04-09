@@ -1,8 +1,6 @@
 .DS_Store
-bin/
 build/
 gen/
-libs/
 obj/
 dist/
 javadoc/
