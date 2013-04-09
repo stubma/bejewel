@@ -208,9 +208,8 @@ JFSExt_SetRequiresBinaryHack(false);
 
 // gApp.SetThrottlingURL("http://gats.popcap.com/bejeweled-html5.json?t=" + (new Date().getTime()));
 // gApp.SetMetricsURL("http://stats.popcap.com");
-gApp.SetThrottlingURL("http://127.0.0.1/~maruojie/properties/jew.conf");
-gApp.SetMetricsURL("http://127.0.0.1/~maruojie");
-gApp.SetPathPrefix("http://127.0.0.1/~maruojie/");
+gApp.SetThrottlingURL("http://localhost/~maruojie/bejewel/properties/jew.conf");
+gApp.SetMetricsURL("http://localhost/~maruojie");
 
 gApp.SetExceptionCallback(HandleException);
 
