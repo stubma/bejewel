@@ -13727,10 +13727,10 @@ T(function() {
 U(function() {
 			GameFramework.resources.JSImageResource.c()
 		});
-GameFramework.resources.Jz = function() {
-	E(GameFramework.resources.Jz, this)
+GameFramework.resources.JSMeshPiece = function() {
+	E(GameFramework.resources.JSMeshPiece, this)
 };
-GameFramework.resources.Jz.prototype = {
+GameFramework.resources.JSMeshPiece.prototype = {
 	js : null,
 	Gr : null,
 	rp : null,
@@ -13738,13 +13738,13 @@ GameFramework.resources.Jz.prototype = {
 	Gu : null,
 	CN : null
 };
-GameFramework.resources.Jz.c = t();
+GameFramework.resources.JSMeshPiece.c = t();
 T(function() {
-			GameFramework.resources.Jz.u("GameFramework.resources.JSMeshPiece",
+			GameFramework.resources.JSMeshPiece.u("GameFramework.resources.JSMeshPiece",
 					GameFramework.resources.Nv)
 		});
 U(function() {
-			GameFramework.resources.Jz.c()
+			GameFramework.resources.JSMeshPiece.c()
 		});
 GameFramework.resources.Dv = function() {
 	E(GameFramework.resources.Dv, this)
