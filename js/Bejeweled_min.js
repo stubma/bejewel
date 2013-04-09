@@ -15660,7 +15660,7 @@ Game.LightningStorm = function(b, c, d) {
 	this.Pa = c.Pa;
 	this.Lf = c.Lf;
 	this.L7 = 0;
-	c.Y(Game.J.K.Be)
+	c.Y(Game.Piece.K.Be)
 			? (this.zH.ea("b+0,1.5,0.013333,1,#4I(         ~~P##"), this.rC.me(
 					"b+0,1,0,1,####    e~###     <####", this.zH), this.tC
 					.ea("b+0,2,0.006667,1,####   ^X### bX### S~###   /####"), this.sC
@@ -15773,15 +15773,15 @@ Game.LightningStorm.prototype = {
 					var m = this.e.e[this.e.e.g * k + l];
 					if (m != null)
 						if (m.If > 0 && (j = true), m.aC)
-							if (m.Th += m.Y(Game.J.K.sc) ? 0.0167 : 0.02505, m.Th > 1) {
+							if (m.Th += m.Y(Game.Piece.K.sc) ? 0.0167 : 0.02505, m.Th > 1) {
 								if (this.e.jF(m, this.Pa), m.Ij = this.jx, m.Hj |= this.WO, !this.e
 										.YA(m, this.e.lh(this.jx)))
 									m.If = 1
 							} else
 								m.Th < 0.04 && (d[f++] = m), b[c++] = m;
 						else if ((m.n == this.n || this.n == Game.f.Ha.sc)
-								&& m.dd() > -Game.Board.ab && !m.Y(Game.J.K.LD)
-								&& !m.Y(Game.J.K.Nl) && !m.Y(Game.J.K.rn))
+								&& m.dd() > -Game.Board.ab && !m.Y(Game.Piece.K.LD)
+								&& !m.Y(Game.Piece.K.Nl) && !m.Y(Game.Piece.K.rn))
 							g[h++] = m
 				}
 			k = ((20 / (c + 1) | 0) + 5) / 1.67 | 0;
@@ -16612,7 +16612,7 @@ Game.Board.prototype = {
 			return false;
 		for (var b = this.e, c = 0; c < b.length; c++) {
 			var d = b[c];
-			if (d != null && (d.Y(Game.J.K.ns) || d.Y(Game.J.K.ap)) && d.qe == 0)
+			if (d != null && (d.Y(Game.Piece.K.ns) || d.Y(Game.Piece.K.ap)) && d.qe == 0)
 				return false
 		}
 		return this.Yp || this.Jf != null ? false : true
@@ -16709,7 +16709,7 @@ Game.Board.prototype = {
 	zL : function(b, c) {
 		if (!b.fI)
 			b.fI = true, this.EK(b), c
-					&& (b.Y(Game.J.K.LD)
+					&& (b.Y(Game.Piece.K.LD)
 							|| (this.fg(Game.f.T.dn, 1, b.Pa), S(b.n < Game.f.Ha.Zc), b.n != Game.f.Ha.Ve
 									&& this.fg((Game.f.T.IK | 0) + (b.n | 0),
 											1, b.Pa), b.Pa != -1
@@ -16717,11 +16717,11 @@ Game.Board.prototype = {
 													Game.f.T.POINTS)), this.rK(
 											Game.f.T.yZ, this.ek(b.Pa,
 													Game.f.T.dn)))), b
-							.Y(Game.J.K.xg)
+							.Y(Game.Piece.K.xg)
 							&& this.ES(b))
 	},
 	EK : function(b) {
-		if (b.Y(Game.J.K.$u) && this.tl == null) {
+		if (b.Y(Game.Piece.K.$u) && this.tl == null) {
 			var c = b.Ad() | 0, d = b.Rd() | 0, f = this.ob.wf(Game.Effect.da.Yl);
 			f.uc = Game.Effect.K.ks | 0;
 			f.w = c;
@@ -17009,7 +17009,7 @@ Game.Board.prototype = {
 				this.GB = false;
 				for (b = new Game.Vi(this); b.Dd();) {
 					var c = b.Tl();
-					c.Y(Game.J.K.Be) && this.A4(c)
+					c.Y(Game.Piece.K.Be) && this.A4(c)
 				}
 				this.PK();
 				break;
@@ -17033,7 +17033,7 @@ Game.Board.prototype = {
 				this.we.ea("b+0,-202,0.009091,1,~},XB~P## ;olsb        F#O%V");
 				this.m.Aa(1);
 				for (b = new Game.Vi(this); b.Dd();)
-					c = b.Tl(), c.Y(Game.J.K.Be) && c.c_();
+					c = b.Tl(), c.Y(Game.Piece.K.Be) && c.c_();
 				break;
 			case Game.lc.Zb.Cs :
 				this.Jf.Mq(), this.Jf = null, b = new Game.Announcement(this, String.Mb(
@@ -17162,12 +17162,12 @@ Game.Board.prototype = {
 			this.Cl[b] = 0
 	},
 	YD : function(b) {
-		if ((b.n | 0) != -1 && b.cl(Game.J.K.Be)) {
+		if ((b.n | 0) != -1 && b.cl(Game.Piece.K.Be)) {
 			Game.SoundUtil.Play(Game.a.SOUND_POWERGEM_CREATED);
 			b.mQ();
-			b.Pq(Game.J.K.$u, false);
-			b.Pq(Game.J.K.ns, false);
-			b.Pq(Game.J.K.ap, false);
+			b.Pq(Game.Piece.K.$u, false);
+			b.Pq(Game.Piece.K.ns, false);
+			b.Pq(Game.Piece.K.ap, false);
 			b.wl = 25;
 			var c = new Game.Zo(Game.a.POPANIM_FLAMEGEMCREATION);
 			c.w = b.Ad();
@@ -17192,24 +17192,24 @@ Game.Board.prototype = {
 		this.Q1(b, true)
 	},
 	Q1 : function(b, c) {
-		if (b.GD(Game.J.K.sc))
-			b.cJ(), b.cl(Game.J.K.sc), b.Gn = this.aa, b.Am = b.n, b.n = Game.f.Ha.sc, b.wl = 25, b
-					.cq(Game.J.K.Be), c
+		if (b.GD(Game.Piece.K.sc))
+			b.cJ(), b.cl(Game.Piece.K.sc), b.Gn = this.aa, b.Am = b.n, b.n = Game.f.Ha.sc, b.wl = 25, b
+					.cq(Game.Piece.K.Be), c
 					&& (this.qU(b), Game.SoundUtil.Play(Game.a.SOUND_HYPERCUBE_CREATE))
 	},
 	zE : function(b) {
-		if ((b.n | 0) != -1 && b.cl(Game.J.K.Ue))
+		if ((b.n | 0) != -1 && b.cl(Game.Piece.K.Ue))
 			Game.SoundUtil.Play(Game.a.SOUND_LASERGEM_CREATED), b.mQ(), b.Pq(
-					Game.J.K.$u, false), b.Pq(Game.J.K.ns, false), b.Pq(Game.J.K.ap, false), b.wl = 25, this
+					Game.Piece.K.$u, false), b.Pq(Game.Piece.K.ns, false), b.Pq(Game.Piece.K.ap, false), b.wl = 25, this
 					.rU(b)
 	},
 	LZ : function(b) {
-		b.GD(Game.J.K.Zm) && (b.cl(Game.J.K.Zm), this.rw(b))
+		b.GD(Game.Piece.K.Zm) && (b.cl(Game.Piece.K.Zm), this.rw(b))
 	},
 	rw : function(b) {
-		b.Y(Game.J.K.xg) && this.sU(b);
-		b.Y(Game.J.K.Ue) && this.rU(b);
-		b.Y(Game.J.K.sc) && this.qU(b)
+		b.Y(Game.Piece.K.xg) && this.sU(b);
+		b.Y(Game.Piece.K.Ue) && this.rU(b);
+		b.Y(Game.Piece.K.sc) && this.qU(b)
 	},
 	A4 : function(b) {
 		var c;
@@ -17293,7 +17293,7 @@ Game.Board.prototype = {
 		return b
 	},
 	xQ : function(b, c) {
-		var d = new Game.J(this);
+		var d = new Game.Piece(this);
 		d.vG = this.aa;
 		d.Yn = this.aa;
 		d.Ja = c;
@@ -17432,17 +17432,17 @@ Game.Board.prototype = {
 	},
 	Iz : function(b) {
 		return b.Xe == 0 && !b.Dj.wg() && this.vg(b.La) == b.v && !this.xE(b)
-				&& !this.hn(b) && (b.Vw || b.Y(Game.J.K.LD)) && b.If == 0
-				&& b.Dj.D() == 0 && !b.Y(Game.J.K.ZS)
+				&& !this.hn(b) && (b.Vw || b.Y(Game.Piece.K.LD)) && b.If == 0
+				&& b.Dj.D() == 0 && !b.Y(Game.Piece.K.ZS)
 	},
 	R5 : function(b) {
 		return !this.xE(b) && !this.HS(b, false, true) && b.Vw && b.If == 0
-				&& b.Dj.D() == 0 && !b.Y(Game.J.K.ZS)
+				&& b.Dj.D() == 0 && !b.Y(Game.Piece.K.ZS)
 	},
 	$P : function(b) {
-		return !this.hn(b) && b.eh == 0 && !b.Y(Game.J.K.Be)
-				&& !b.Y(Game.J.K.Ue) && !b.Y(Game.J.K.xg) && !b.Y(Game.J.K.Nl)
-				&& !b.Y(Game.J.K.rn)
+		return !this.hn(b) && b.eh == 0 && !b.Y(Game.Piece.K.Be)
+				&& !b.Y(Game.Piece.K.Ue) && !b.Y(Game.Piece.K.xg) && !b.Y(Game.Piece.K.Nl)
+				&& !b.Y(Game.Piece.K.rn)
 	},
 	tE : function() {
 		if (this.gy != 0)
@@ -17525,9 +17525,9 @@ Game.Board.prototype = {
 		if (!b.pB)
 			return false;
 		var f = this.ji(c, d);
-		if (!this.Iz(b) || b.Y(Game.J.K.ts))
+		if (!this.Iz(b) || b.Y(Game.Piece.K.ts))
 			return false;
-		if (f != null && (!f.pB || !this.Iz(f) || f.Y(Game.J.K.ts)))
+		if (f != null && (!f.pB || !this.Iz(f) || f.Y(Game.Piece.K.ts)))
 			return false;
 		if (this.wi.length > 0)
 			return false;
@@ -17573,7 +17573,7 @@ Game.Board.prototype = {
 		b.Pa = k;
 		if (l != null)
 			l.Pa = k;
-		if (b.Y(Game.J.K.sc) && l != null) {
+		if (b.Y(Game.Piece.K.sc) && l != null) {
 			if (!l.fr)
 				return false;
 			this.fs = 0;
@@ -17581,7 +17581,7 @@ Game.Board.prototype = {
 			this.FQ(b, l);
 			return true
 		}
-		if (l != null && l.Y(Game.J.K.sc) && l != null) {
+		if (l != null && l.Y(Game.Piece.K.sc) && l != null) {
 			if (!b.fr)
 				return false;
 			this.fs = 0;
@@ -17715,7 +17715,7 @@ Game.Board.prototype = {
 									k.Lf = f.Lf;
 									k.Ij = f.jx;
 									k.Hj |= f.WO;
-									if (k.Y(Game.J.K.xg))
+									if (k.Y(Game.Piece.K.xg))
 										k.If = 3;
 									else if (!this.YA(k, l) && !k.ol)
 										k.If = 1;
@@ -17862,7 +17862,7 @@ Game.Board.prototype = {
 							this.eW = 1;
 							g = this.lh(f.Rp[0]);
 							if (g != null)
-								g.cq(Game.J.K.Ue), g.Y(Game.J.K.sc)
+								g.cq(Game.Piece.K.Ue), g.Y(Game.Piece.K.sc)
 										? this.YA(g, g)
 										: (g.If = 1, g.Ij = g.xa, g.Hj |= g.uc, g.ed = false);
 							f.zN -= 0.4175;
@@ -18012,7 +18012,7 @@ Game.Board.prototype = {
 									* Math.abs(GameFramework.Utils.P()), u.Cg = false, u.m = 1, u.Ag = 0.0167, u.L = 0.5, u.oa[1] *= 1
 									- Math.abs(GameFramework.Utils.P() * 0.5), u.n = 4294967295, this.ob
 									.Gc(u);
-					m.Y(Game.J.K.Be) && (r = true)
+					m.Y(Game.Piece.K.Be) && (r = true)
 				}
 				if (m.wl == 0) {
 					if (g != null) {
@@ -18023,16 +18023,16 @@ Game.Board.prototype = {
 					}
 					if (r)
 						m.If = 15, m.Ij = g.xa, m.Hj |= g.uc, m.ed = false;
-					else if (m.Y(Game.J.K.xg))
+					else if (m.Y(Game.Piece.K.xg))
 						m.If = 5, m.Ij = g.xa, m.Hj |= g.uc, m.ed = false;
 					else {
-						if (m.Y(Game.J.K.Ue)
+						if (m.Y(Game.Piece.K.Ue)
 								&& (o = this.kz(m), o != -1
 										&& (q = this.qc[o], q.aa == 0
 												&& (q.Qe == Game.LightningStorm.Yb.oE || q.Qe == Game.LightningStorm.Yb.BF))))
 							C(this.qc, o), m.ol = false;
-						if (((m.Y(Game.J.K.Be) || m.Y(Game.J.K.Zm))
-								&& !m.Y(Game.J.K.Ue) || !this.YA(m, g))
+						if (((m.Y(Game.Piece.K.Be) || m.Y(Game.Piece.K.Zm))
+								&& !m.Y(Game.Piece.K.Ue) || !this.YA(m, g))
 								&& m.fr) {
 							m.IN = true;
 							if (g != null)
@@ -18060,12 +18060,12 @@ Game.Board.prototype = {
 		this.ob.Gc(d)
 	},
 	v4 : function(b, c, d, f, g) {
-		!b.Y(Game.J.K.rn)
-				&& !b.Y(Game.J.K.Nl)
+		!b.Y(Game.Piece.K.rn)
+				&& !b.Y(Game.Piece.K.Nl)
 				&& this.oj(b.$d() | 0, b.dd() | 0, 50,
 						Game.f.Yi[(b.n | 0) + 1], b.Lf, true, true, b.Pa, false,
 						Game.Board.je.sn);
-		if (!b.Y(Game.J.K.Mk)) {
+		if (!b.Y(Game.Piece.K.Mk)) {
 			var f = (b.$d() | 0) + (Game.Board.bb / 2 | 0), h = (b.dd() | 0)
 					+ (Game.Board.ab / 2 | 0), j = 0.01 * (f - c), k = 0.01
 					* (h - d);
@@ -18178,14 +18178,14 @@ Game.Board.prototype = {
 					if (r != null) {
 						if (!r.Ik)
 							continue;
-						if (r.Y(Game.J.K.ts) || !r.pB)
+						if (r.Y(Game.Piece.K.ts) || !r.pB)
 							continue
 					}
 					for (var v = 0; v < 4; v++) {
 						var u = q + k[k.g * v + 0], y = o + k[k.g * v + 1];
 						if (u >= 0 && u < 8 && y >= 0 && y < 8) {
 							var z = r, A = false, B = h == null;
-							r != null && r.Y(Game.J.K.sc)
+							r != null && r.Y(Game.Piece.K.sc)
 									&& this.e[this.e.g * y + u] != null
 									&& (h != null && r.n == h.n && (B = true), A = true);
 							if (this.e[this.e.g * y + u] != null
@@ -18291,7 +18291,7 @@ Game.Board.prototype = {
 			for (c = 0; c < 8; c++) {
 				var h = this.e[this.e.g * b + c];
 				if (h != null) {
-					var j = h.vG == this.aa && h.Y(Game.J.K.xg);
+					var j = h.vG == this.aa && h.Y(Game.Piece.K.xg);
 					if (h.n != Game.f.Ha.Ve && h.n == f) {
 						if (j && (g = true), ++d >= 3 && g)
 							return true
@@ -18307,7 +18307,7 @@ Game.Board.prototype = {
 			g = false;
 			for (b = 0; b < 8; b++)
 				if (h = this.e[this.e.g * b + c], h != null)
-					if (j = h.vG == this.aa && h.Y(Game.J.K.xg), h.n != Game.f.Ha.Ve
+					if (j = h.vG == this.aa && h.Y(Game.Piece.K.xg), h.n != Game.f.Ha.Ve
 							&& h.n == f) {
 						if (j && (g = true), ++d >= 3 && g)
 							return true
@@ -18321,15 +18321,15 @@ Game.Board.prototype = {
 	YA : function(b, c) {
 		if (b.ol)
 			return false;
-		if (b.Y(Game.J.K.Be) && !b.Y(Game.J.K.Ue))
+		if (b.Y(Game.Piece.K.Be) && !b.Y(Game.Piece.K.Ue))
 			return b.If = 1, b.Ij = c != null ? c.xa : -1, b.Hj |= c != null
 					? c.uc
 					: 0, b.ed = false, true;
-		if (b.Y(Game.J.K.Zm))
+		if (b.Y(Game.Piece.K.Zm))
 			return b.If = 1, b.Ij = c != null ? c.xa : -1, b.Hj |= c != null
 					? c.uc
 					: 0, b.ed = false, true;
-		if (b.Y(Game.J.K.sc) && this.kz(b) == -1) {
+		if (b.Y(Game.Piece.K.sc) && this.kz(b) == -1) {
 			var d;
 			d = c != null
 					? c.n == Game.f.Ha.Ve ? c.Am : c.n
@@ -18338,11 +18338,11 @@ Game.Board.prototype = {
 			this.GQ(b, d);
 			return true
 		}
-		if (b.Y(Game.J.K.Ue) && this.kz(b) == -1)
-			return b.ol = true, b.Y(Game.J.K.Be) && this.fg(Game.f.T.WT, 1, b.Pa), this
+		if (b.Y(Game.Piece.K.Ue) && this.kz(b) == -1)
+			return b.ol = true, b.Y(Game.Piece.K.Be) && this.fg(Game.f.T.WT, 1, b.Pa), this
 					.fg(Game.f.T.yE, 1, b.Pa), this.qc.push(new Game.LightningStorm(this,
 					b, Game.LightningStorm.Yb.MI)), true;
-		return b.Y(Game.J.K.xg) ? (b.ol = true, b.If = 1, b.ed = false, b.Ij = c != null
+		return b.Y(Game.Piece.K.xg) ? (b.ol = true, b.If = 1, b.ed = false, b.Ij = c != null
 				? c.xa
 				: -1, b.Hj |= c != null ? c.uc : 0, true) : false
 	},
@@ -18429,9 +18429,9 @@ Game.Board.prototype = {
 									for (var Hb = ia; Hb <= fa; Hb++) {
 										var Ta = this.e[this.e.g * Gb + Hb];
 										Ta != null
-												&& Ta.Y(Game.J.K.xg)
+												&& Ta.Y(Game.Piece.K.xg)
 												&& (this.ES(Ta), Ta
-														.cq(Game.J.K.xg), this.ob
+														.cq(Game.Piece.K.xg), this.ob
 														.J0(Ta.xa))
 									}
 								for (var Ib = X; Ib <= aa; Ib++)
@@ -18440,14 +18440,14 @@ Game.Board.prototype = {
 										if (M != null) {
 											M.Lf = ya.Lf;
 											M.Pa = ea;
-											M.Y(Game.J.K.Mk)
-													&& M.cq(Game.J.K.Mk);
+											M.Y(Game.Piece.K.Mk)
+													&& M.cq(Game.Piece.K.Mk);
 											vc || (vc = false);
 											var Kb = false;
-											if (M.Y(Game.J.K.Be)
-													|| M.Y(Game.J.K.Zm))
+											if (M.Y(Game.Piece.K.Be)
+													|| M.Y(Game.Piece.K.Zm))
 												F.push(M), ya.FW++;
-											if (M.Y(Game.J.K.Ue)
+											if (M.Y(Game.Piece.K.Ue)
 													&& M.Gn != this.aa)
 												this.kz(M) == -1
 														&& (this.fg(
@@ -18462,7 +18462,7 @@ Game.Board.prototype = {
 											else if (M.Gn == this.aa
 													&& M.n != Game.f.Ha.Ve) {
 												if (M.uc == 0
-														|| M.Y(Game.J.K.Be)) {
+														|| M.Y(Game.Piece.K.Be)) {
 													if (this.gp(Game.f.Xa.Ue))
 														this
 																.PD(
@@ -18525,8 +18525,8 @@ Game.Board.prototype = {
 																| 0), la != null
 												&& la.uc == 0)
 											break;
-									if (W >= 6 && Q.GD(Game.J.K.Ue)
-											&& Q.GD(Game.J.K.Be))
+									if (W >= 6 && Q.GD(Game.Piece.K.Ue)
+											&& Q.GD(Game.Piece.K.Be))
 										if (this.gp(Game.f.Xa.ZK))
 											this.PD(Game.f.Xa.ZK, Q), ra = true;
 										else {
@@ -18541,7 +18541,7 @@ Game.Board.prototype = {
 												G.push(la)
 											}
 										}
-									else if (W >= 5 && !Q.Y(Game.J.K.Ue)
+									else if (W >= 5 && !Q.Y(Game.Piece.K.Ue)
 											&& l.indexOf(Q) == -1)
 										if (this.gp(Game.f.Xa.sc))
 											this.PD(Game.f.Xa.sc, Q), ra = true;
@@ -18604,7 +18604,7 @@ Game.Board.prototype = {
 		}
 		for (var Pb = 0; Pb < D.length; ++Pb) {
 			var ma = D[Pb];
-			if (ma.Y(Game.J.K.Be) || ma.Y(Game.J.K.Zm))
+			if (ma.Y(Game.Piece.K.Be) || ma.Y(Game.Piece.K.Zm))
 				ma.If = 1, ma.Ij = ma.xa, ma.Hj = ma.uc, ma.ed = false, ma.uc = 0;
 			this.fg(Game.f.T.dn, 1, ma.Pa);
 			this.fg(Game.f.T.Kv, 1, ma.Pa);
@@ -18612,7 +18612,7 @@ Game.Board.prototype = {
 		}
 		for (var La = 0; La < A.length; ++La) {
 			var R = A[La];
-			R.Y(Game.J.K.Ue) && (R = G[La]);
+			R.Y(Game.Piece.K.Ue) && (R = G[La]);
 			if (R.uc == 0 && l.indexOf(R) == -1) {
 				q.indexOf(R) == -1 && q.push(R);
 				B[La] > 5
@@ -18640,7 +18640,7 @@ Game.Board.prototype = {
 				Gc += Aa.$d() | 0;
 				Hc += Aa.dd() | 0;
 				q.indexOf(Aa) != -1 && (za = Aa);
-				Aa.Y(Game.J.K.Ue) && Aa.Gn != this.aa && (Ec = true);
+				Aa.Y(Game.Piece.K.Ue) && Aa.Gn != this.aa && (Ec = true);
 				l.indexOf(Aa) != -1 && (Fc = true)
 			}
 			if (b && this.og > 0) {
@@ -18650,7 +18650,7 @@ Game.Board.prototype = {
 						wa = Tb, Ic = Tb.py
 				}
 				if (wa != null)
-					wa.cl(Game.J.K.YJ), this.qD(Game.f.T.BZ, 1), wa.If = 1, wa.Ij = wa.xa, wa.Hj |= wa.uc, wa.ed = false
+					wa.cl(Game.Piece.K.YJ), this.qD(Game.f.T.BZ, 1), wa.If = 1, wa.Ij = wa.xa, wa.Hj |= wa.uc, wa.ed = false
 			}
 			if (Fc)
 				for (var Ub = 0; Ub < (Y.ee.length | 0); Ub++) {
@@ -18688,7 +18688,7 @@ Game.Board.prototype = {
 							ba.qk = za.Ja;
 							ba.Ej = za.La;
 							var Lc = za.Ja - ba.Ja, cd = za.La - ba.La;
-							if (za.Y(Game.J.K.Be)) {
+							if (za.Y(Game.Piece.K.Be)) {
 								var ta = new Game.Zo(Game.a.POPANIM_FLAMEGEMCREATION);
 								ta.qd = ba.xa;
 								ta.w = ba.Ad();
@@ -18755,7 +18755,7 @@ Game.Board.prototype = {
 				if (this.tR(c)) {
 					var d = this.e[this.e.g * c[3] + c[2]], c = this.e[this.e.g
 							* c[1] + c[0]];
-					c != null && c.Y(Game.J.K.sc) && (d = c);
+					c != null && c.Y(Game.Piece.K.sc) && (d = c);
 					this.lU(d, b)
 				}
 			}
@@ -18890,7 +18890,7 @@ Game.Board.prototype = {
 					h && this.$Q(c);
 					for (k = 0; k < (c.length | 0); k++) {
 						g = c[k];
-						if (g.uc == 0 || g.Y(Game.J.K.ns) || g.Y(Game.J.K.ap))
+						if (g.uc == 0 || g.Y(Game.Piece.K.ns) || g.Y(Game.Piece.K.ap))
 							g.n = j[this.Of.R2(j.length | 0) | 0];
 						if (d >= (this.Wt ? 200 : 2E5) && k == 0)
 							f = b = true
@@ -19037,22 +19037,22 @@ Game.Board.prototype = {
 	OD : function(b) {
 		for (var c = this.e, d = 0; d < c.length; d++) {
 			var f = c[d];
-			f != null && !f.Y(Game.J.K.ap) && !f.Y(Game.J.K.ts) && this.hJ(f, b)
+			f != null && !f.Y(Game.Piece.K.ap) && !f.Y(Game.Piece.K.ts) && this.hJ(f, b)
 		}
 		return false
 	},
 	q_ : function(b) {
 		for (var c = this.e, d = 0; d < c.length; d++) {
 			var f = c[d];
-			f != null && f.Y(Game.J.K.ts) && this.hJ(f, b)
+			f != null && f.Y(Game.Piece.K.ts) && this.hJ(f, b)
 		}
 	},
 	hJ : function(b, c) {
 		if (b.qe > 0)
 			if (c)
-				b.qe--, b.qe == 0 && b.Y(Game.J.K.$u) && this.pf == 0
+				b.qe--, b.qe == 0 && b.Y(Game.Piece.K.$u) && this.pf == 0
 						&& this.No();
-			else if (b.Y(Game.J.K.$u))
+			else if (b.Y(Game.Piece.K.$u))
 				b.uo = 1, b.my = 0.33;
 		return false
 	},
@@ -19379,17 +19379,17 @@ Game.Board.prototype = {
 	},
 	mS : function(b) {
 		var c = false;
-		if (b.Y(Game.J.K.Be))
+		if (b.Y(Game.Piece.K.Be))
 			c = true;
-		else if (b.Y(Game.J.K.Ue))
+		else if (b.Y(Game.Piece.K.Ue))
 			c = true;
-		else if (b.Y(Game.J.K.sc))
+		else if (b.Y(Game.Piece.K.sc))
 			c = true;
-		else if (b.Y(Game.J.K.xg))
+		else if (b.Y(Game.Piece.K.xg))
 			c = true;
-		else if (b.Y(Game.J.K.Nl))
+		else if (b.Y(Game.Piece.K.Nl))
 			c = true;
-		else if (b.Y(Game.J.K.ns) || b.Y(Game.J.K.ap))
+		else if (b.Y(Game.Piece.K.ns) || b.Y(Game.Piece.K.ap))
 			c = true;
 		return c
 	},
@@ -19453,17 +19453,17 @@ Game.Board.prototype = {
 				var d = b[c];
 				if (d != null) {
 					d.wl != 0 && --d.wl;
-					(d.Y(Game.J.K.ns) || d.Y(Game.J.K.ap) || d.Y(Game.J.K.ts))
+					(d.Y(Game.Piece.K.ns) || d.Y(Game.Piece.K.ap) || d.Y(Game.Piece.K.ts))
 							&& d.qe == 0 && this.yl && this.MZ(d);
 					if (d.my != 0
 							&& (d.uo += d.my, d.uo < 0 && (d.uo += 20), d
-									.Y(Game.J.K.$u))) {
+									.Y(Game.Piece.K.$u))) {
 						if (d.uo >= 20)
 							d.uo = 0, d.my = 0;
 						if (d.my != 0 && d.uo >= 5 && d.uo <= 10)
 							d.qe--, d.uo = 16
 					}
-					if (d.Y(Game.J.K.ap) && this.pf == 0 && this.Ar == 0
+					if (d.Y(Game.Piece.K.ap) && this.pf == 0 && this.Ar == 0
 							&& !this.uE())
 						d.$e = (d.$e + 1) % d.OY, d.$e == 0 && this.hJ(d, false)
 				}
@@ -19471,7 +19471,7 @@ Game.Board.prototype = {
 			for (var f = false, c = b = false, g = d = 0, h = this.e, j = 0; j < h.length; j++) {
 				var k = h[j];
 				if (k != null && k.If > 0 && --k.If == 0)
-					if (k.Y(Game.J.K.YJ)) {
+					if (k.Y(Game.Piece.K.YJ)) {
 						var l = k.wl;
 						k.wl = 1;
 						g += k.Ad() | 0;
@@ -19479,10 +19479,10 @@ Game.Board.prototype = {
 						this.gR(k.Ad() | 0, k.Rd() | 0);
 						f = true;
 						k.wl = l;
-						k.cq(Game.J.K.YJ)
-					} else if (k.Y(Game.J.K.Be) || k.Y(Game.J.K.Zm)
-							|| k.Y(Game.J.K.Ue) && k.wl > 0) {
-						if (k.Y(Game.J.K.Zm)) {
+						k.cq(Game.Piece.K.YJ)
+					} else if (k.Y(Game.Piece.K.Be) || k.Y(Game.Piece.K.Zm)
+							|| k.Y(Game.Piece.K.Ue) && k.wl > 0) {
+						if (k.Y(Game.Piece.K.Zm)) {
 							this.oj(k.Ad() | 0, k.Rd() | 0, 1E3
 											* this.od[Game.f.T.IP | 0],
 									Game.f.Yi[k.n | 0], k.Lf, false, false, -1, false,
@@ -19491,14 +19491,14 @@ Game.Board.prototype = {
 							for (var f = k.Pa, l = 0, m = this.e, o = 0; o < m.length; o++) {
 								var q = m[o];
 								if (q != null
-										&& (q.Y(Game.J.K.Be)
-												|| q.Y(Game.J.K.sc)
-												|| q.Y(Game.J.K.Ue)
-												|| q.Y(Game.J.K.Mk)
-												|| q.Y(Game.J.K.xg) || q
-												.Y(Game.J.K.Zm)))
-									q.Y(Game.J.K.Mk)
-											? (l == 0 && l++, q.cq(Game.J.K.Mk))
+										&& (q.Y(Game.Piece.K.Be)
+												|| q.Y(Game.Piece.K.sc)
+												|| q.Y(Game.Piece.K.Ue)
+												|| q.Y(Game.Piece.K.Mk)
+												|| q.Y(Game.Piece.K.xg) || q
+												.Y(Game.Piece.K.Zm)))
+									q.Y(Game.Piece.K.Mk)
+											? (l == 0 && l++, q.cq(Game.Piece.K.Mk))
 											: (q.Pa = f, q.If = 1 + l * 15, q.wl = 0, l++)
 							}
 						} else
@@ -19510,11 +19510,11 @@ Game.Board.prototype = {
 								Game.Board.je.sn);
 						this.gR(k.Ad() | 0, k.Rd() | 0);
 						f = true
-					} else if (!k.Y(Game.J.K.sc) && !k.Y(Game.J.K.Ue)
-							&& !k.Y(Game.J.K.Mk) && !k.Y(Game.J.K.xg)
+					} else if (!k.Y(Game.Piece.K.sc) && !k.Y(Game.Piece.K.Ue)
+							&& !k.Y(Game.Piece.K.Mk) && !k.Y(Game.Piece.K.xg)
 							|| !this.YA(k, null))
-						k.Y(Game.J.K.xg) ? c || (c = true) : b = true, (k
-								.Y(Game.J.K.Nl) || k.Y(Game.J.K.rn))
+						k.Y(Game.Piece.K.xg) ? c || (c = true) : b = true, (k
+								.Y(Game.Piece.K.Nl) || k.Y(Game.Piece.K.rn))
 								&& this.oj(k.Ad() | 0, k.Rd() | 0, 300,
 										GameFramework.gfx.k.pi, k.Lf, true, true, k.Pa,
 										false, Game.Board.je.sn), this.v4(k, k.Ad(), k
@@ -19915,11 +19915,11 @@ Game.Board.prototype = {
 		var h;
 		h = this.Jf != null ? c.L.D() * this.Jf.Yc() : c.L.D() * this.Yc();
 		b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * h | 0));
-		if (c.Y(Game.J.K.xg))
+		if (c.Y(Game.Piece.K.xg))
 			h = Math.min(c.eh * Game.a.IMAGE_GEMS_RED.Em,
 					Game.a.IMAGE_GEMS_RED.Em - 1)
 					| 0, b.Bd(Game.BejUtil.PR(c.n).vd(), f, g, h);
-		else if ((c.n | 0) > -1 && (c.n | 0) < 7 || c.Y(Game.J.K.Ue))
+		else if ((c.n | 0) > -1 && (c.n | 0) < 7 || c.Y(Game.Piece.K.Ue))
 			h = Math.min(c.eh * Game.a.IMAGE_GEMS_RED.Em | 0,
 					Game.a.IMAGE_GEMS_RED.Em - 1)
 					| 0, b.Bd(Game.BejUtil.PR(c.n).vd(), f, g, h);
@@ -19931,7 +19931,7 @@ Game.Board.prototype = {
 		var g = c.m.D(), h;
 		h = this.Jf != null && !f ? c.L.D() * this.Jf.Yc() : c.L.D() * this.Yc();
 		if (h != 0) {
-			c.Y(Game.J.K.xg) && (g += this.vM.D() * 0.25);
+			c.Y(Game.Piece.K.xg) && (g += this.vM.D() * 0.25);
 			g *= d;
 			var d = c.$d() + c.uu | 0, f = c.dd() + c.vu | 0, j = false;
 			g != 1
@@ -19946,9 +19946,9 @@ Game.Board.prototype = {
 											.dd()
 											+ 20), b.pb());
 			b.Q(GameFramework.gfx.k.Ma(255, 255, 255, 255 * h | 0));
-			c.Y(Game.J.K.sc) ? this.N_(b, c) : !c.Y(Game.J.K.ns)
-					&& !c.Y(Game.J.K.ap)
-					&& (c.Y(Game.J.K.ts) || (c.Y(Game.J.K.LD) ? c.n >= 0
+			c.Y(Game.Piece.K.sc) ? this.N_(b, c) : !c.Y(Game.Piece.K.ns)
+					&& !c.Y(Game.Piece.K.ap)
+					&& (c.Y(Game.Piece.K.ts) || (c.Y(Game.Piece.K.LD) ? c.n >= 0
 							&& (j = true) : j = true));
 			j
 					&& c.n >= 0
@@ -19963,11 +19963,11 @@ Game.Board.prototype = {
 											255, 255), GameFramework.gfx.k.ta(
 											255, 160, 32), GameFramework.gfx.k
 											.ta(255, 255, 255)), c
-									.Y(Game.J.K.Ue)
+									.Y(Game.Piece.K.Ue)
 									&& b.Q(GameFramework.gfx.k.Zg(h[c.n | 0], 255
 													* c.L.D() * this.Yc() | 0)), h = Game.BejUtil
 									.c1(c.n), j = c.eh * h.Em, b.Bd(h.vd(), d,
-									f, j | 0), c.Y(Game.J.K.Ue) && b.pb()));
+									f, j | 0), c.Y(Game.Piece.K.Ue) && b.pb()));
 			b.pb();
 			g != 1 && b.Ab();
 			c.WB > 0
@@ -20603,7 +20603,7 @@ Game.Board.prototype = {
 			d = this.e;
 			for (f = 0; f < d.length; f++) {
 				var g = d[f];
-				g != null && !g.Y(Game.J.K.Be) && !g.Y(Game.J.K.Yg) && !this.$P(g)
+				g != null && !g.Y(Game.Piece.K.Be) && !g.Y(Game.Piece.K.Yg) && !this.$P(g)
 						&& this.S_(b, g)
 			}
 			this.Jg.ja(b);
@@ -20614,14 +20614,14 @@ Game.Board.prototype = {
 			var h = f[g];
 			h != null && !this.hn(h) && h != this.tl
 					&& (!c || h.Th > 0 || (d & (1 << (h.n | 0) + 1 | 0)) != 0)
-					&& (!c || !h.Y(Game.J.K.rn) && !h.Y(Game.J.K.Nl))
+					&& (!c || !h.Y(Game.Piece.K.rn) && !h.Y(Game.Piece.K.Nl))
 					&& this.bz(b, h, 1)
 		}
 		f = this.e;
 		for (g = 0; g < f.length; g++)
 			h = f[g], h != null && !this.hn(h) && h != this.tl
 					&& (!c || h.Th > 0 || (d & (1 << (h.n | 0) + 1 | 0)) != 0)
-					&& (!c || !h.Y(Game.J.K.rn) && !h.Y(Game.J.K.Nl))
+					&& (!c || !h.Y(Game.Piece.K.rn) && !h.Y(Game.Piece.K.Nl))
 					&& this.K_(b, h);
 		for (d = 0; d < (this.Qf.length | 0); d++)
 			f = this.Qf[d], g = f.qx.D(), !f.Gt && f.rc != null
@@ -20798,7 +20798,7 @@ Game.Board.prototype = {
 									+ (Game.Board.bb / 2 | 0), this.Cd()
 									+ this.vg(this.ah.y) + (Game.Board.ab / 2 | 0));
 					if (g != null)
-						if (g.Y(Game.J.K.Nl) || g.Y(Game.J.K.rn))
+						if (g.Y(Game.Piece.K.Nl) || g.Y(Game.Piece.K.rn))
 							this.ah.x != -1 && (b = g);
 						else if ((c.x != 0 || c.y != 0 || this.ah.x != -1)
 								&& !this.hn(g))
@@ -20882,14 +20882,14 @@ Game.Board.prototype = {
 				else if (b == 104)
 					this.VJ(c);
 				else if (b == 109)
-					this.W2(Game.J.K.xg) < 8 - this.Nf
-							&& (c.cJ(), c.cl(Game.J.K.xg), this.sU(c));
+					this.W2(Game.Piece.K.xg) < 8 - this.Nf
+							&& (c.cJ(), c.cl(Game.Piece.K.xg), this.sU(c));
 				else if (GameFramework.Utils.aE(b) == 8)
 					this.Xy(c);
 				else if (b == 33)
-					c.n = Game.f.Ha.Ve, c.cl(Game.J.K.Nl), c.fr = false, this.rw(c);
+					c.n = Game.f.Ha.Ve, c.cl(Game.Piece.K.Nl), c.fr = false, this.rw(c);
 				else if (b == 64)
-					c.n = Game.f.Ha.Ve, c.cl(Game.J.K.rn), c.fr = false, this.rw(c);
+					c.n = Game.f.Ha.Ve, c.cl(Game.Piece.K.rn), c.fr = false, this.rw(c);
 			if (b == 45)
 				GameFramework.BaseApp.M.vo *= 0.75, sb *= 0.75;
 			else if (b == 43)
@@ -29155,7 +29155,7 @@ Game.OptionsDialog.cn.c = function() {
 T(function() {
 			Game.OptionsDialog.cn.c()
 		});
-Game.J = function(b) {
+Game.Piece = function(b) {
 	this.m = new GameFramework.CurvedVal;
 	this.L = new GameFramework.CurvedVal;
 	this.Gi = new GameFramework.CurvedVal;
@@ -29172,26 +29172,26 @@ Game.J = function(b) {
 	this.e = b;
 	this.Ub(this.e.lO++)
 };
-Game.J.NR = function(b) {
+Game.Piece.NR = function(b) {
 	return 1 << (b | 0)
 };
-Game.J.iE = function(b, c, d) {
+Game.Piece.iE = function(b, c, d) {
 	b = b * 1792 + c * 256 + d;
 	return b < 12544 ? Game.BejApp.q.pN.AR[b] : Game.BejApp.q.pN.BR[b - 12544]
 };
-Game.J.Es = function(b, c, d) {
+Game.Piece.Es = function(b, c, d) {
 	for (; b >= 6.283186;)
 		b -= 6.283186;
 	for (; b < 0;)
 		b += 6.283186;
 	var f = 256 * b / 6.283186, b = f | 0;
 	c |= 0;
-	return b < 0 ? Game.J.iE(d, c, 0) : b >= 255
-			? Game.J.iE(d, c, 255)
-			: (f -= b, Game.J.iE(d, c, b) * (1 - f) + Game.J.iE(d, c, b + 1)
+	return b < 0 ? Game.Piece.iE(d, c, 0) : b >= 255
+			? Game.Piece.iE(d, c, 255)
+			: (f -= b, Game.Piece.iE(d, c, b) * (1 - f) + Game.Piece.iE(d, c, b + 1)
 					* f)
 };
-Game.J.prototype = {
+Game.Piece.prototype = {
 	e : null,
 	xa : 0,
 	Ja : 0,
@@ -29297,7 +29297,7 @@ Game.J.prototype = {
 		return this.m.Lr == GameFramework.CurvedVal.HK
 	},
 	gK : function() {
-		return this.Y(Game.J.K.Nl) || this.Y(Game.J.K.rn)
+		return this.Y(Game.Piece.K.Nl) || this.Y(Game.Piece.K.rn)
 	},
 	zD : function(b) {
 		b.qd = this.xa;
@@ -29331,14 +29331,14 @@ Game.J.prototype = {
 		return this.Pq(b, true)
 	},
 	Pq : function(b, c) {
-		var d = Game.J.NR(b);
+		var d = Game.Piece.NR(b);
 		if (c && (d & this.FG) != 0)
 			return false;
 		c ? this.uc |= d : this.uc &= ~d;
 		return true
 	},
 	GD : function(b) {
-		return (Game.J.NR(b) & this.FG) == 0
+		return (Game.Piece.NR(b) & this.FG) == 0
 	},
 	cq : function(b) {
 		this.Pq(b, false)
@@ -29351,7 +29351,7 @@ Game.J.prototype = {
 	},
 	CR : function(b) {
 		var c = Math.min(19, 20 * this.eh) | 0;
-		return Game.J.Es(b, this.n, c)
+		return Game.Piece.Es(b, this.n, c)
 	},
 	ca : function() {
 		this.IX.$a();
@@ -29360,7 +29360,7 @@ Game.J.prototype = {
 				.cos(this.WH)
 				* this.iy * Game.Board.bb / 20, this.vu = Math.sin(this.WH)
 				* this.iy * Game.Board.ab / 20) : this.vu = this.uu = 0;
-		if (this.Y(Game.J.K.Be)) {
+		if (this.Y(Game.Piece.K.Be)) {
 			for (var b = 0; b < 4; b++) {
 				var c;
 				if (!(Game.BejApp.q.vp != 1 && GameFramework.Utils.Ec() > 0.4
@@ -29446,7 +29446,7 @@ Game.J.prototype = {
 				this.e.ob.Gc(b)
 			}
 		}
-		if (this.Y(Game.J.K.sc)
+		if (this.Y(Game.Piece.K.sc)
 				&& ((Game.BejApp.q.aa + this.xa) % 24 == 0 || Game.Util.Fc() % 64 == 0)) {
 			b = this.e.ob.wf(Game.Effect.da.Yl);
 			b.uc = Game.Effect.K.ks | 0;
@@ -29471,36 +29471,36 @@ Game.J.prototype = {
 		return (this.uc & 1 << (b | 0)) != 0
 	}
 };
-Game.J.c = t();
+Game.Piece.c = t();
 T(function() {
-			Game.J.u("Game.Piece", null, GameFramework.ff)
+			Game.Piece.u("Game.Piece", null, GameFramework.ff)
 		});
 U(function() {
-			Game.J.c()
+			Game.Piece.c()
 		});
-Game.J.K = {};
-Game.J.K.c = function() {
-	Game.J.K.Be = 0;
-	Game.J.K.sc = 1;
-	Game.J.K.Ue = 2;
-	Game.J.K.sna = 3;
-	Game.J.K.xg = 4;
-	Game.J.K.ns = 5;
-	Game.J.K.ap = 6;
-	Game.J.K.ts = 7;
-	Game.J.K.$u = 8;
-	Game.J.K.Mk = 9;
-	Game.J.K.Nl = 10;
-	Game.J.K.rn = 11;
-	Game.J.K.ZS = 12;
-	Game.J.K.aoa = 13;
-	Game.J.K.YJ = 14;
-	Game.J.K.LD = 15;
-	Game.J.K.Zm = 16;
-	Game.J.K.Yg = 17
+Game.Piece.K = {};
+Game.Piece.K.c = function() {
+	Game.Piece.K.Be = 0;
+	Game.Piece.K.sc = 1;
+	Game.Piece.K.Ue = 2;
+	Game.Piece.K.sna = 3;
+	Game.Piece.K.xg = 4;
+	Game.Piece.K.ns = 5;
+	Game.Piece.K.ap = 6;
+	Game.Piece.K.ts = 7;
+	Game.Piece.K.$u = 8;
+	Game.Piece.K.Mk = 9;
+	Game.Piece.K.Nl = 10;
+	Game.Piece.K.rn = 11;
+	Game.Piece.K.ZS = 12;
+	Game.Piece.K.aoa = 13;
+	Game.Piece.K.YJ = 14;
+	Game.Piece.K.LD = 15;
+	Game.Piece.K.Zm = 16;
+	Game.Piece.K.Yg = 17
 };
 T(function() {
-			Game.J.K.c()
+			Game.Piece.K.c()
 		});
 Game.Points = function(b, c, d, f, g, h, j, k, l) {
 	this.Oa = Array.O(Game.Points.Tz, null);
@@ -31938,7 +31938,7 @@ Game.SpeedBoard.prototype = {
 						.charCodeAt(b) == 116) {
 					var c = this.e[this.e.g * (b / Game.Board.oh | 0) + b
 							% Game.Board.oh];
-					c.cl(Game.J.K.Yg);
+					c.cl(Game.Piece.K.Yg);
 					c.n = Game.f.Ha.wD;
 					c.qe = 5;
 					this.uL(c)
@@ -32035,7 +32035,7 @@ Game.SpeedBoard.prototype = {
 	mS : function(b, c, d) {
 		if (Game.Board.prototype.mS.apply(this, [b, c, d]))
 			return true;
-		else if (b.Y(Game.J.K.Yg))
+		else if (b.Y(Game.Piece.K.Yg))
 			return true;
 		return false
 	},
@@ -32052,7 +32052,7 @@ Game.SpeedBoard.prototype = {
 		Game.SoundUtil.Play(Game.a.SOUND_VOICE_TIMEUP)
 	},
 	EK : function(b) {
-		if (b.Y(Game.J.K.Yg)) {
+		if (b.Y(Game.Piece.K.Yg)) {
 			this.ri += b.qe;
 			this.$r += b.qe;
 			var c = new Game.SpeedCollectEffect(this, new GameFramework.geom.ic(b.Ad() | 0, b.Rd()
@@ -32132,12 +32132,12 @@ Game.SpeedBoard.prototype = {
 			this.ri == 0 && (this.Qd.length | 0) <= this.Nf && this.pD();
 			for (var b = new Game.Vi(this); b.Dd();) {
 				var c = b.Tl();
-				if (c != null && c.Y(Game.J.K.Yg))
+				if (c != null && c.Y(Game.Piece.K.Yg))
 					this.ri == 0 ? this.oj(c.Ad() | 0, c.Rd() | 0, c.qe * 50,
 							Game.f.Yi[c.n | 0], c.Lf, true, true, c.Pa, false,
 							Game.Board.je.sn).$e *= 1.5 : c.qe >= 10
 							? this.zE(c)
-							: this.YD(c), c.cq(Game.J.K.Yg), c.qe = 0
+							: this.YD(c), c.cq(Game.Piece.K.Yg), c.qe = 0
 			}
 			if (this.ri > 0)
 				this.Eh = false, this.gp(Game.f.Xa.eF)
@@ -32170,12 +32170,12 @@ Game.SpeedBoard.prototype = {
 				for (var d = false, f = new Game.Vi(this); f.Dd();) {
 					var g = f.Tl();
 					if (g != null
-							&& (d |= g.Y(Game.J.K.Mk), g.Y(Game.J.K.Be)
-									|| g.Y(Game.J.K.sc) || g.Y(Game.J.K.Ue)
-									|| g.Y(Game.J.K.xg) || g.Y(Game.J.K.Nl)
-									|| g.Y(Game.J.K.rn) || g.Y(Game.J.K.Zm)
-									|| g.Y(Game.J.K.Yg))) {
-						if (g.Y(Game.J.K.Mk))
+							&& (d |= g.Y(Game.Piece.K.Mk), g.Y(Game.Piece.K.Be)
+									|| g.Y(Game.Piece.K.sc) || g.Y(Game.Piece.K.Ue)
+									|| g.Y(Game.Piece.K.xg) || g.Y(Game.Piece.K.Nl)
+									|| g.Y(Game.Piece.K.rn) || g.Y(Game.Piece.K.Zm)
+									|| g.Y(Game.Piece.K.Yg))) {
+						if (g.Y(Game.Piece.K.Mk))
 							g.ol = true;
 						g.If = this.Xr == 0 ? 175 + b * 25 : 25 + b * 25;
 						b++;
@@ -32184,12 +32184,12 @@ Game.SpeedBoard.prototype = {
 				}
 				if (b == 0)
 					for (c = new Game.Vi(this); c.Dd();)
-						if (d = c.Tl(), d != null && d.Y(Game.J.K.Mk) && !d.fI) {
-							if (d.Y(Game.J.K.Mk))
+						if (d = c.Tl(), d != null && d.Y(Game.Piece.K.Mk) && !d.fI) {
+							if (d.Y(Game.Piece.K.Mk))
 								d.ol = true;
 							this.zL(d, true);
 							d.L.Aa(1);
-							d.cq(Game.J.K.Mk);
+							d.cq(Game.Piece.K.Mk);
 							b++
 						}
 				if (b > 0 && this.$n.V() == 0)
@@ -32313,7 +32313,7 @@ Game.SpeedBoard.prototype = {
 				if (f > 3)
 					break
 			}
-			b[c].cl(Game.J.K.xg)
+			b[c].cl(Game.Piece.K.xg)
 		} else {
 			c = this.Of.Dd() % (b.length | 0) | 0;
 			for (d = 0; d < 7; d++) {
@@ -32343,7 +32343,7 @@ Game.SpeedBoard.prototype = {
 						&& (c = 5);
 		if (c > 0
 				&& (d = this.Of.Dd() % (b.length | 0) | 0, b = b[d], b.uc == 0))
-			b.cl(Game.J.K.Yg), b.qe = c, b.qe == 5
+			b.cl(Game.Piece.K.Yg), b.qe = c, b.qe == 5
 					? Game.SoundUtil.Ug(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_5,
 							this.aS(b), 1)
 					: Game.SoundUtil.Ug(Game.a.SOUND_SPEEDBOARD_TIMEBONUS_APPEARS_10,
@@ -32367,7 +32367,7 @@ Game.SpeedBoard.prototype = {
 	},
 	rw : function(b) {
 		Game.Board.prototype.rw.apply(this, [b]);
-		b.Y(Game.J.K.Yg) && this.uL(b)
+		b.Y(Game.Piece.K.Yg) && this.uL(b)
 	},
 	ca : function() {
 		var b = this.Me;
@@ -32494,7 +32494,7 @@ Game.SpeedBoard.prototype = {
 			var c = this.rq(this.ao | 0, this.bo | 0);
 			if (b == 116) {
 				if (c != null) {
-					c.cl(Game.J.K.Yg);
+					c.cl(Game.Piece.K.Yg);
 					c.qe = 5;
 					this.uL(c);
 					return
@@ -32711,7 +32711,7 @@ Game.TimeBonusEffectTop.prototype = {
 						&& this.Nb.e.qc[c].n == b.n)
 					this.Ak = true
 		}
-		if (this.qd != -1 && (b == null || !b.Y(Game.J.K.Yg)))
+		if (this.qd != -1 && (b == null || !b.Y(Game.Piece.K.Yg)))
 			this.ce = true
 	},
 	ja : function(b) {
@@ -32812,7 +32812,7 @@ Game.TimeBonusEffect.prototype = {
 		if (!Game.BejApp.q.$f
 				&& GameFramework.Utils.Ec() < 0.025 * Math.min(5, this.Tm - 1)
 				&& !d) {
-			var g = this.Nb.wf(Game.Effect.da.cz), h = GameFramework.Utils.P() * Math.PI, j = Game.J
+			var g = this.Nb.wf(Game.Effect.da.cz), h = GameFramework.Utils.P() * Math.PI, j = Game.Piece
 					.Es(h, this.Kj, c), k = 0.35 + GameFramework.Utils.Ec() * 0.1;
 			g.L = 1;
 			g.m = 1;
@@ -32929,7 +32929,7 @@ Game.TimeBonusEffect.prototype = {
 					h = true
 			}
 			if (g.Lj) {
-				j = Game.J.Es(g.$g, this.Kj, c) + 0;
+				j = Game.Piece.Es(g.$g, this.Kj, c) + 0;
 				k = Math.cos(g.$g) * j;
 				l = Math.sin(g.$g) * j;
 				j = this.Nb.e.lh(g.yN);
@@ -32972,7 +32972,7 @@ Game.TimeBonusEffect.prototype = {
 			this.Nb.Gc(c)
 		}
 		if (this.qd != -1
-				&& (b == null || !b.Y(Game.J.K.Yg) && this.sm.length == 0))
+				&& (b == null || !b.Y(Game.Piece.K.Yg) && this.sm.length == 0))
 			this.ce = true
 	},
 	NQ : function(b, c, d, f, g, h, j, k, l) {
@@ -33088,12 +33088,12 @@ Game.TimeBonusEffect.prototype = {
 								: Game.f.rV[this.Kj | 0], 255 * this.L | 0), q = b
 						.Q(o.Hc());
 				try {
-					var l = 0, r = Game.J.Es(m.$g, this.Kj, d), r = (this.Aj
+					var l = 0, r = Game.Piece.Es(m.$g, this.Kj, d), r = (this.Aj
 							.V()
 							* 48 + (1 - this.Aj.V()) * r)
 							* this.Lm.V(), v = Math.cos(m.$g) * r, u = Math
 							.sin(m.$g)
-							* r, y = v, z = u, A = Game.J.Es(m.Lh, this.Kj, d), A = (this.Aj
+							* r, y = v, z = u, A = Game.Piece.Es(m.Lh, this.Kj, d), A = (this.Aj
 							.V()
 							* 48 + (1 - this.Aj.V()) * A)
 							* this.Lm.V(), B = Math.cos(m.Lh) * A, G = Math
@@ -33102,7 +33102,7 @@ Game.TimeBonusEffect.prototype = {
 					if (m.Lj) {
 						var D = this.Nb.e.lh(m.yN);
 						D != null
-								&& (A = Game.J.Es(m.Lh, this.Kj, d), A = this.Aj
+								&& (A = Game.Piece.Es(m.Lh, this.Kj, d), A = this.Aj
 										.V()
 										* 48 + (1 - this.Aj.V()) * A, B = (D.w - g)
 										/ 1 + Math.cos(m.Lh) * A, G = (D.v - h)
@@ -33112,7 +33112,7 @@ Game.TimeBonusEffect.prototype = {
 						var P = (F + 1) / (m.ko + 1), Z = m.$g * (1 - P) + m.Lh
 								* P, V = 0;
 						F < m.ko && (V = m.lg[F]);
-						var W = Game.J.Es(Z, this.Kj, d), W = (this.Aj.V() * 48
+						var W = Game.Piece.Es(Z, this.Kj, d), W = (this.Aj.V() * 48
 								+ (1 - this.Aj.V()) * W + V)
 								* this.Lm.V(), da = Math.cos(Z) * W, X = Math
 								.sin(Z)
