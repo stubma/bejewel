@@ -27964,22 +27964,22 @@ T(function() {
 U(function() {
 			Game.ev.c()
 		});
-Game.LightningZap = function() {
-	E(Game.LightningZap, this)
+Game.FrameButton = function() {
+	E(Game.FrameButton, this)
 };
-Game.LightningZap.prototype = {
+Game.FrameButton.prototype = {
 	ja : function(b) {
 		GameFramework.widgets.td.prototype.ja.apply(this, [b]);
 		b.Ba(Game.Resources.IMAGE_BOARD_HDSD_BUTTON_FRAME.vd(), -160 - this.w, 0
 						- this.v)
 	}
 };
-Game.LightningZap.c = t();
+Game.FrameButton.c = t();
 T(function() {
-			Game.LightningZap.u("Game.FrameButton", GameFramework.widgets.td)
+			Game.FrameButton.u("Game.FrameButton", GameFramework.widgets.td)
 		});
 U(function() {
-			Game.LightningZap.c()
+			Game.FrameButton.c()
 		});
 Game.WA = function(b, c) {
 	this.LO = new GameFramework.CurvedVal;
@@ -28122,7 +28122,7 @@ Game.MainMenu.prototype = {
 		b.Ra(GameFramework.widgets.wa.Ld, ss.Delegate.create(this, this.R3));
 		this.Bc(b);
 		this.RC = b;
-		b = new Game.LightningZap;
+		b = new Game.FrameButton;
 		b.wb = Game.Resources.IMAGE_BOARD_HD;
 		b.w = b.wb.sf - 160;
 		b.v = b.wb.Oe;
