@@ -3689,27 +3689,27 @@ T(function() {
 U(function() {
 			GameFramework.connected.ConnectedRequest.c()
 		});
-GameFramework.connected.us = function() {
+GameFramework.connected.Database = function() {
 	this.U8 = {};
 	this.y8 = {}
 };
-GameFramework.connected.us.prototype = {
+GameFramework.connected.Database.prototype = {
 	kY : 0,
 	v9 : "http://mooami.internal.popcap.com/p4_managed/PrimeSharp/prime/Database/query_engine.php",
 	U8 : null,
 	y8 : null,
 	ca : t()
 };
-GameFramework.connected.us.c = function() {
-	GameFramework.connected.us.Cca = 1;
-	GameFramework.connected.us.Bca = 2;
-	GameFramework.connected.us.Aca = 64
+GameFramework.connected.Database.c = function() {
+	GameFramework.connected.Database.Cca = 1;
+	GameFramework.connected.Database.Bca = 2;
+	GameFramework.connected.Database.Aca = 64
 };
 T(function() {
-			GameFramework.connected.us.u("GameFramework.connected.Database", null)
+			GameFramework.connected.Database.u("GameFramework.connected.Database", null)
 		});
 U(function() {
-			GameFramework.connected.us.c()
+			GameFramework.connected.Database.c()
 		});
 GameFramework.connected.jz = function() {
 	E(GameFramework.connected.jz, this)
