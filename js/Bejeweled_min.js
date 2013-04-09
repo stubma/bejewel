@@ -2829,7 +2829,7 @@ T(function() {
 U(function() {
 			GameFramework.DataBufferData.c()
 		});
-GameFramework.sj = function(b, c, d, f) {
+GameFramework.Insets = function(b, c, d, f) {
 	b === UNDEF && (b = 0);
 	c === UNDEF && (c = 0);
 	d === UNDEF && (d = 0);
@@ -2839,18 +2839,18 @@ GameFramework.sj = function(b, c, d, f) {
 	this.Vj = d;
 	this.bj = f
 };
-GameFramework.sj.prototype = {
+GameFramework.Insets.prototype = {
 	yh : 0,
 	Um : 0,
 	Vj : 0,
 	bj : 0
 };
-GameFramework.sj.c = t();
+GameFramework.Insets.c = t();
 T(function() {
-			GameFramework.sj.u("GameFramework.Insets", null)
+			GameFramework.Insets.u("GameFramework.Insets", null)
 		});
 U(function() {
-			GameFramework.sj.c()
+			GameFramework.Insets.c()
 		});
 GameFramework.la = {};
 GameFramework.la.c = function() {
@@ -12095,14 +12095,14 @@ U(function() {
 GameFramework.widgets.rb = function(b, c, d, f, g, h, j) {
 	this.pe = Array.O(6, null, 4294967295, 4294967295, 4294967295, 4294967295,
 			4294967295, 4294967295);
-	this.Df = new GameFramework.sj;
-	this.Fd = new GameFramework.sj;
+	this.Df = new GameFramework.Insets;
+	this.Fd = new GameFramework.Insets;
 	E(GameFramework.widgets.rb, this);
 	this.Fi = 2147483647;
 	this.gr = b;
 	this.zl = this.EY = false;
 	this.Bx = d;
-	this.Fd = new GameFramework.sj(24, 24, 24, 24);
+	this.Fd = new GameFramework.Insets(24, 24, 24, 24);
 	this.nG = this.Qr = this.gj = this.LY = 0;
 	this.mG = 8;
 	this.AB = f;
@@ -14562,7 +14562,7 @@ Game.Qc = function(b, c, d, f, g, h, j, k) {
 	this.MO = this.QH = 0;
 	this.gs = true;
 	this.Qr = 45;
-	this.Fd = new GameFramework.sj(90, 22, 90, 45);
+	this.Fd = new GameFramework.Insets(90, 22, 90, 45);
 	this.mG = 10;
 	this.nG = 25;
 	this.gj = -3;
@@ -15137,7 +15137,7 @@ Game.BejApp.prototype = {
 		b.dL(Game.a.FONT_DIALOG_BUTTONS);
 		b.gL(Game.a.FONT_DIALOG_HEADER);
 		b.aU(Game.a.FONT_DIALOG_TEXT);
-		b.Fd = new GameFramework.sj(128, 20, 128, 64);
+		b.Fd = new GameFramework.Insets(128, 20, 128, 64);
 		b.am(GameFramework.widgets.rb.VI, 4278190080);
 		b.Qr = 32;
 		b.Lb(300, 300, 1E3, b.Qo(1E3));
@@ -21162,7 +21162,7 @@ Game.ClassicBoard.prototype = {
 		c.CG = 650;
 		c.rk = -6;
 		c.sk = 80;
-		c.DG = new GameFramework.sj(64, 64, 64, 64);
+		c.DG = new GameFramework.Insets(64, 64, 64, 64);
 		c.QM = 50;
 		c.uX = false;
 		c.re = 0;
@@ -26688,7 +26688,7 @@ Game.vq = function(b, c, d, f, g) {
 					d ? GameFramework.widgets.rb.Zp : GameFramework.widgets.rb.DZ]);
 	this.uI = g;
 	this.Bx = this.gs = f;
-	this.Fd = new GameFramework.sj(128, 20, 128, 64);
+	this.Fd = new GameFramework.Insets(128, 20, 128, 64);
 	this.dL(Game.a.FONT_DIALOG_BUTTONS);
 	this.gL(Game.a.FONT_DIALOG_HEADER);
 	this.am(GameFramework.widgets.rb.VI, 4278190080);
@@ -28949,7 +28949,7 @@ Game.OptionsDialog = function(b) {
 	this.tI = !Game.BejApp.q.$f && Game.BejApp.q.kc() || !Game.BejApp.q.Ka.vt;
 	b = (this.Wn = b) ? 740 : 850;
 	this.tI || (b -= 94);
-	this.Fd = new GameFramework.sj(128, 20, 128, 88);
+	this.Fd = new GameFramework.Insets(128, 20, 128, 88);
 	this.Lb(350, this.Wn ? 250 : 180, 900, b);
 	Game.BejApp.q.Nh.oi(this);
 	this.tb.Id = "OK";
@@ -29075,9 +29075,9 @@ Game.OptionsDialog.prototype = {
 	},
 	A5 : function() {
 		this.Wn
-				? (this.Un = new GameFramework.sj(120, 175, this.s - 120,
+				? (this.Un = new GameFramework.Insets(120, 175, this.s - 120,
 						this.z - 200), this.tb.ec = false)
-				: this.Un = new GameFramework.sj(120, 300, this.s - 120, this.z
+				: this.Un = new GameFramework.Insets(120, 300, this.s - 120, this.z
 								- 200);
 		this.qr = 80;
 		var b = this.Un.Vj - 510, c = this.Un.Um - 40, d = GameFramework.BaseApp.M.Uc;
