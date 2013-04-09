@@ -22651,7 +22651,7 @@ Game.Xc = function(b) {
 	this.Bc(c);
 	this.Pt = 100;
 	this.dM = false;
-	this.Gl = new Game.Lq(1195, this.e, null, true);
+	this.Gl = new Game.RankBarWidget(1195, this.e, null, true);
 	this.Gl.nh(200, 240);
 	this.Bc(this.Gl);
 	Game.BejApp.q.Nh.oi(this.Gl)
@@ -29985,9 +29985,9 @@ T(function() {
 U(function() {
 			GameDll.Program.c()
 		});
-Game.Lq = function(b, c, d, f) {
+Game.RankBarWidget = function(b, c, d, f) {
 	this.$x = new GameFramework.CurvedVal;
-	E(Game.Lq, this);
+	E(Game.RankBarWidget, this);
 	this.e = c;
 	this.FO = d;
 	this.AW = f;
@@ -30001,7 +30001,7 @@ Game.Lq = function(b, c, d, f) {
 	this.qm = c - Game.BejApp.q.Ka.El;
 	this.Lb(0, 0, b, 142)
 };
-Game.Lq.prototype = {
+Game.RankBarWidget.prototype = {
 	$x : null,
 	qm : 0,
 	dx : 0,
@@ -30115,12 +30115,12 @@ Game.Lq.prototype = {
 		GameFramework.widgets.Ta.prototype.Tk.apply(this, [b])
 	}
 };
-Game.Lq.c = t();
+Game.RankBarWidget.c = t();
 T(function() {
-			Game.Lq.u("Game.RankBarWidget", GameFramework.widgets.Ta)
+			Game.RankBarWidget.u("Game.RankBarWidget", GameFramework.widgets.Ta)
 		});
 U(function() {
-			Game.Lq.c()
+			Game.RankBarWidget.c()
 		});
 Game.uA = function(b) {
 	this.KC = new GameFramework.CurvedVal;
@@ -30134,7 +30134,7 @@ Game.uA = function(b) {
 	this.tb.w = (this.s - 200) / 2;
 	this.tb.v += 10;
 	this.tb = null;
-	this.Tp = new Game.Lq(1E3, this.e, this, false);
+	this.Tp = new Game.RankBarWidget(1E3, this.e, this, false);
 	this.Tp.nh((this.s - 1E3) / 2, 225);
 	this.Bc(this.Tp)
 };
@@ -30228,7 +30228,7 @@ Game.$l = function(b) {
 					Game.a.IMAGE_DIALOG_BUTTON, Game.f.mb.vT, true, "", "", "",
 					GameFramework.widgets.rb.Zp]);
 	this.LB = b;
-	this.Gl = new Game.Lq(1195, null, null, true);
+	this.Gl = new Game.RankBarWidget(1195, null, null, true);
 	this.Gl.nh(200, 240);
 	this.Bc(this.Gl);
 	Game.BejApp.q.Nh.oi(this.Gl);
