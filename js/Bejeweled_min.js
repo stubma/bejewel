@@ -3848,19 +3848,19 @@ T(function() {
 U(function() {
 			GameFramework.events.EventDispatcher.c()
 		});
-GameFramework.events.Sg = function(b) {
-	E(GameFramework.events.Sg, this, [b])
+GameFramework.events.IOErrorEvent = function(b) {
+	E(GameFramework.events.IOErrorEvent, this, [b])
 };
-GameFramework.events.Sg.prototype = {};
-GameFramework.events.Sg.c = function() {
-	GameFramework.events.Sg.fk = "ioError"
+GameFramework.events.IOErrorEvent.prototype = {};
+GameFramework.events.IOErrorEvent.c = function() {
+	GameFramework.events.IOErrorEvent.fk = "ioError"
 };
 T(function() {
-			GameFramework.events.Sg.u("GameFramework.events.IOErrorEvent",
+			GameFramework.events.IOErrorEvent.u("GameFramework.events.IOErrorEvent",
 					GameFramework.events.Event)
 		});
 U(function() {
-			GameFramework.events.Sg.c()
+			GameFramework.events.IOErrorEvent.c()
 		});
 GameFramework.geom = Type.ci("GameFramework.geom");
 GameFramework.geom.pj = function(b, c, d) {
@@ -5917,7 +5917,7 @@ GameFramework.resources.Mo.prototype = {
 			j.Ra(GameFramework.events.Event.hh, ss.Delegate.create(h, h.xq));
 			c != null
 					&& (c.Uj++, j.Ra(GameFramework.events.Event.hh, ss.Delegate.create(c,
-									c.Sy)), j.Ra(GameFramework.events.Sg.fk, ss.Delegate
+									c.Sy)), j.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate
 									.create(c, c.ps)));
 			h.WM = b.H();
 			h.Ir = b.H();
@@ -6424,7 +6424,7 @@ GameFramework.resources.Gq.prototype = {
 											.create(l, l.xq)), o.Ra(
 									GameFramework.events.Event.hh, ss.Delegate.create(c,
 											c.Sy)), o.Ra(
-									GameFramework.events.Sg.fk, ss.Delegate.create(c,
+									GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(c,
 											c.ps)), c.Uj++, GameFramework.BaseApp.M.vb
 									.gw(o));
 					b.Ga();
@@ -7632,7 +7632,7 @@ GameFramework.resources.va.prototype = {
 		return b != -1
 				? (c = GameFramework.BaseApp.M.vb.sw(c.substr(b + 1)), c.Ra(
 						GameFramework.events.Event.hh, ss.Delegate.create(d, d.Sy)), c.Ra(
-						GameFramework.events.Sg.fk, ss.Delegate.create(d, d.ps)), d.Uj++, GameFramework.BaseApp.M.vb
+						GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(d, d.ps)), d.Uj++, GameFramework.BaseApp.M.vb
 						.gw(c), c)
 				: null
 	},
@@ -10561,7 +10561,7 @@ GameFramework.resources.Sc.prototype = {
 							.sw(h), h.Ra(GameFramework.events.Event.hh, ss.Delegate.create(
 									g, g.xq)), h.Ra(GameFramework.events.Event.hh,
 							ss.Delegate.create(c, c.Sy)), h.Ra(
-							GameFramework.events.Sg.fk, ss.Delegate.create(c, c.ps)), c.Uj++, GameFramework.BaseApp.M.vb
+							GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(c, c.ps)), c.Uj++, GameFramework.BaseApp.M.vb
 							.gw(h))
 					: g.dH.push(h);
 			this.cu.push(g)
@@ -11076,7 +11076,7 @@ GameFramework.resources.ResourceManager.prototype = {
 			d.Qb != null
 					&& this.bh[d.Qb] == null
 					&& !GameFramework.BaseApp.M.zS(d.Qb)
-					&& this.sw(d.Qb).Ra(GameFramework.events.Sg.fk,
+					&& this.sw(d.Qb).Ra(GameFramework.events.IOErrorEvent.fk,
 							ss.Delegate.create(c, c.ps));
 			if (!(d.Fb == GameFramework.resources.ResourceManager.zT || d.hX)) {
 				var f = d.vc, g = new GameFramework.resources.ResourceStreamer;
@@ -11091,7 +11091,7 @@ GameFramework.resources.ResourceManager.prototype = {
 				g.Kb = d;
 				g.Uj = 1;
 				g.Ra(GameFramework.events.Event.hh, ss.Delegate.create(c, c.Sy));
-				g.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(c, c.ps));
+				g.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(c, c.ps));
 				GameFramework.BaseApp.M.Su(g);
 				c.Uj++
 			}
@@ -11124,7 +11124,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		d.Qb != null
 				&& this.bh[d.Qb] == null
 				&& !GameFramework.BaseApp.M.zS(d.Qb)
-				&& this.sw(d.Qb).Ra(GameFramework.events.Sg.fk,
+				&& this.sw(d.Qb).Ra(GameFramework.events.IOErrorEvent.fk,
 						ss.Delegate.create(c, c.ps));
 		c.xa = b;
 		c.Kb = d;
@@ -13026,7 +13026,7 @@ GameFramework.JSBaseApp.prototype = {
 				stream.OM(), stream.OM = null;
 			if (stream.tk || stream.Or == stream.Uj && !GameFramework.BaseApp.M.vb.YO)
 				stream.tk
-						? stream.ld(new GameFramework.events.Event(GameFramework.events.Sg.fk))
+						? stream.ld(new GameFramework.events.Event(GameFramework.events.IOErrorEvent.fk))
 						: (this.fu.JT(stream), stream
 								.ld(new GameFramework.events.Event(GameFramework.events.Event.hh))), C(
 						this.Ck, f), f--, b = true;
@@ -15007,7 +15007,7 @@ Game.BejApp.prototype = {
 					.Bc(this.hP);
 		var b = this.vb.J4("properties/resources.xml");
 		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.M3));
-		b.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz))
+		b.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(this, this.Rz))
 	},
 	M3 : function(b) {
 		this.vb.g3(b.target.rd);
@@ -15056,13 +15056,13 @@ Game.BejApp.prototype = {
 	I4 : function() {
 		this.FN = this.vb.dl("Init");
 		this.FN.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.dK));
-		this.FN.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz))
+		this.FN.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(this, this.Rz))
 	},
 	dl : function(b) {
 		b = this.vb.dl(b);
 		this.Ut++;
 		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.pK));
-		b.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz))
+		b.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(this, this.Rz))
 	},
 	$K : function() {
 		this.uk.gt()
@@ -15077,7 +15077,7 @@ Game.BejApp.prototype = {
 		var b = Game.Background.pU(0);
 		this.Ut++;
 		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.pK));
-		b.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz));
+		b.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(this, this.Rz));
 		this.dl("Gameplay");
 		this.dl("Fonts");
 		this.dl("LoadingThread");
@@ -15088,7 +15088,7 @@ Game.BejApp.prototype = {
 		b = this.vb.H4(Game.Resources.z3);
 		this.Ut++;
 		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.R1));
-		b.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz))
+		b.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(this, this.Rz))
 	},
 	R1 : function(b) {
 		var c = b.target.rd, d = new GameFramework.DataBuffer;
