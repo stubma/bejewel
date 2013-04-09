@@ -1383,14 +1383,14 @@ for (Ea in Da.prototype)
 Da.qi = "CollectionChangedAction";
 Da.YU = true;
 Da.toString = ss.Enum.toString;
-ss.dJ = function(b, c, d) {
-	E(ss.dJ, this);
+ss.CollectionChangedEventArgs = function(b, c, d) {
+	E(ss.CollectionChangedEventArgs, this);
 	this.mqa = b;
 	this.pqa = c || null;
 	this.HF = d || -1
 };
-ss.dJ.prototype = {};
-ss.dJ.u("CollectionChangedEventArgs", ss.EventArgs);
+ss.CollectionChangedEventArgs.prototype = {};
+ss.CollectionChangedEventArgs.u("CollectionChangedEventArgs", ss.EventArgs);
 function Ha(b, c, d, f, g, h, j, k, l) {
 	var m = document.getElementById("ScratchCanvas").getContext("2d"), o = 256;
 	h && j && (o = 128);
