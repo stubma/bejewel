@@ -18759,7 +18759,7 @@ Game.r.prototype = {
 		if (b != null) {
 			if (!b.gB)
 				return;
-			b.Il == Game.ha.Qg.qE && b.Cs()
+			b.Il == Game.TutorialStep.Qg.qE && b.Cs()
 		}
 		Game.fb.Play(Game.a.SOUND_BUTTON_RELEASE);
 		this.kU(true);
@@ -18905,7 +18905,7 @@ Game.r.prototype = {
 		this.fs = this.pH = 0;
 		this.Nw = this.Mw = -1;
 		b = this.xc.ii();
-		b != null && b.Fb == Game.ha.hg.Wo && b.Cs();
+		b != null && b.Fb == Game.TutorialStep.hg.Wo && b.Cs();
 		if (this.II()) {
 			this.cO++;
 			if (this.ng >= 9 && this.og == 0
@@ -21060,8 +21060,8 @@ Game.av.prototype = {
 			return null;
 		var b = new Game.rt;
 		b.gG = 1234;
-		var c = new Game.ha;
-		c.Fb = Game.ha.hg.Wo;
+		var c = new Game.TutorialStep;
+		c.Fb = Game.TutorialStep.hg.Wo;
 		c.Fk = "Make Sets of 3";
 		c.Re = "Swap the red and white gems to make a set of 3.";
 		c.Fh = Game.f.Xa.RP;
@@ -21072,14 +21072,14 @@ Game.av.prototype = {
 		c.jm = new GameFramework.geom.ic(0, 3);
 		c.yt = 2;
 		c.jl = true;
-		c.aw(this, 0, 3, Game.ha.Wc.zF);
+		c.aw(this, 0, 3, Game.TutorialStep.Wc.zF);
 		c.sd(this, 0, 0, false);
 		c.sd(this, 0, 1, false);
 		c.sd(this, 0, 2);
 		c.sd(this, 0, 3);
 		b.Yd(c);
-		c = new Game.ha;
-		c.Fb = Game.ha.hg.Wo;
+		c = new Game.TutorialStep;
+		c.Fb = Game.TutorialStep.hg.Wo;
 		c.Fk = "Swap Gems";
 		c.Re = "Create horizontal or vertical sets of 3 gems.";
 		c.Fh = Game.f.Xa.OP;
@@ -21090,14 +21090,14 @@ Game.av.prototype = {
 		c.jm = new GameFramework.geom.ic(5, 0);
 		c.yt = 2;
 		c.jl = true;
-		c.aw(this, 5, 0, Game.ha.Wc.Cq);
+		c.aw(this, 5, 0, Game.TutorialStep.Wc.Cq);
 		c.sd(this, 2, 0, false);
 		c.sd(this, 3, 0, false);
 		c.sd(this, 4, 0);
 		c.sd(this, 5, 0);
 		b.Yd(c);
-		c = new Game.ha;
-		c.Fb = Game.ha.hg.Wo;
+		c = new Game.TutorialStep;
+		c.Fb = Game.TutorialStep.hg.Wo;
 		c.Fk = "Special Gems";
 		c.Re = "Match 4 or more gems to create a ^007700^SPECIAL GEM^oldclr^.";
 		c.Fh = Game.f.Xa.PP;
@@ -21108,7 +21108,7 @@ Game.av.prototype = {
 		c.jm = new GameFramework.geom.ic(4, 3);
 		c.yt = 2;
 		c.jl = true;
-		c.aw(this, 4, 3, Game.ha.Wc.vs);
+		c.aw(this, 4, 3, Game.TutorialStep.Wc.vs);
 		c.sd(this, 2, 3, false);
 		c.sd(this, 3, 3, false);
 		c.sd(this, 4, 3);
@@ -21118,8 +21118,8 @@ Game.av.prototype = {
 		c.sd(this, 4, 4);
 		c.sd(this, 5, 4, false);
 		b.Yd(c);
-		c = new Game.ha;
-		c.Fb = Game.ha.hg.Wo;
+		c = new Game.TutorialStep;
+		c.Fb = Game.TutorialStep.hg.Wo;
 		c.Fk = "Flame Gem";
 		c.Re = "Match your special gem to create a ^ff0000^FIERY BLAST^oldclr^.";
 		c.Fh = Game.f.Xa.QP;
@@ -21131,20 +21131,20 @@ Game.av.prototype = {
 		c.yt = 2;
 		c.jl = true;
 		c.vI = true;
-		c.aw(this, 4, 4, Game.ha.Wc.vs);
+		c.aw(this, 4, 4, Game.TutorialStep.Wc.vs);
 		c.sd(this, 4, 4);
 		c.sd(this, 4, 5);
 		c.sd(this, 4, 6, false);
 		c.sd(this, 4, 7, false);
 		b.Yd(c);
 		if (this.gp(Game.f.Xa.Oy))
-			c = new Game.ha, c.Fb = Game.ha.hg.sK, c.Fk = "Hints", c.Re = "If you are stuck, use the ^007700^HINT^oldclr^ Button to find a match.", c.Fh = Game.f.Xa.Oy, c.Il = Game.ha.Qg.qE, c.hm = Game.ha.Wc.vs, c.cr = this.Ib.w
+			c = new Game.TutorialStep, c.Fb = Game.TutorialStep.hg.sK, c.Fk = "Hints", c.Re = "If you are stuck, use the ^007700^HINT^oldclr^ Button to find a match.", c.Fh = Game.f.Xa.Oy, c.Il = Game.TutorialStep.Qg.qE, c.hm = Game.TutorialStep.Wc.vs, c.cr = this.Ib.w
 					+ this.Ib.s / 2, c.dr = this.Ib.v + this.Ib.z / 2 - 50, c.rk = 426, c.sk = 708, c.Fj = 700, c.vI = true, c.gB = true, c.vl = new GameFramework.ne(
 					this.Ib.w - this.Ib.s * (1.65 - 1) / 2, this.Ib.v
 							- this.Ib.z * (1.65 - 1) / 2, this.Ib.s * 1.65,
 					this.Ib.z * 1.65), c.re = 0, c.jl = true, b.Yd(c);
-		c = new Game.ha;
-		c.Fb = Game.ha.hg.Wo;
+		c = new Game.TutorialStep;
+		c.Fb = Game.TutorialStep.hg.Wo;
 		c.Fk = "Make More\nMatches";
 		c.Re = "Go ahead and play by making more matches. Use the Hint Button if you are stuck.";
 		c.Fh = Game.f.Xa.BD;
@@ -31946,8 +31946,8 @@ Game.nw.prototype = {
 			return null;
 		var b = new Game.rt;
 		b.gG = 4321;
-		var c = new Game.ha;
-		c.Fb = Game.ha.hg.Wo;
+		var c = new Game.TutorialStep;
+		c.Fb = Game.TutorialStep.hg.Wo;
 		c.Fk = "Speed Mode";
 		c.Re = "Swap adjacent gems to make a set of 3 in a row!";
 		c.Fh = Game.f.Xa.ST;
@@ -31958,8 +31958,8 @@ Game.nw.prototype = {
 		c.jm = new GameFramework.geom.ic(5, 1);
 		c.yt = 2;
 		c.jl = true;
-		c.zt = Game.ha.Pg.ct;
-		c.aw(this, 5, 1, Game.ha.Wc.Cq);
+		c.zt = Game.TutorialStep.Pg.ct;
+		c.aw(this, 5, 1, Game.TutorialStep.Wc.Cq);
 		c.sd(this, 3, 0, false);
 		c.sd(this, 4, 0, false);
 		c.sd(this, 5, 0);
@@ -31967,33 +31967,33 @@ Game.nw.prototype = {
 		c.sd(this, 4, 1, false);
 		c.sd(this, 5, 1);
 		b.Yd(c);
-		c = new Game.ha;
-		c.Fb = Game.ha.hg.KE;
+		c = new Game.TutorialStep;
+		c.Fb = Game.TutorialStep.hg.KE;
 		c.Fk = "Timer";
 		c.Re = "... but watch the clock! You only have 60 seconds to start with.";
 		c.Fh = Game.f.Xa.TT;
-		c.zt = Game.ha.Pg.mT;
+		c.zt = Game.TutorialStep.Pg.mT;
 		c.Sw = 360;
-		c.Il = Game.ha.Qg.zU;
+		c.Il = Game.TutorialStep.Qg.zU;
 		c.vl = new GameFramework.ne(490, 0, 1100, 150);
 		c.rk = 602;
 		c.sk = 180;
 		c.Fj = 890;
 		c.Pr = new GameFramework.B;
 		c.Pr.vj("SpeedBoard_cs_11_15_11__17_35_36_339");
-		c.hm = Game.ha.Wc.$E;
+		c.hm = Game.TutorialStep.Wc.$E;
 		c.cr = 1500;
 		c.dr = 72;
 		c.re = 15;
 		c.jl = true;
 		b.Yd(c);
-		c = new Game.ha;
-		c.Fb = Game.ha.hg.Wo;
-		c.zt = Game.ha.Pg.ct;
+		c = new Game.TutorialStep;
+		c.Fb = Game.TutorialStep.hg.Wo;
+		c.zt = Game.TutorialStep.Pg.ct;
 		c.Fk = "Time Gem";
 		c.Re = "Score big to earn ^007700^TIME GEMS^oldclr^. Match these to collect Bonus Time!";
 		c.Fh = Game.f.Xa.fF;
-		c.Il = Game.ha.Qg.BL;
+		c.Il = Game.TutorialStep.Qg.BL;
 		c.vI = true;
 		c.rk = 644;
 		c.sk = 250;
@@ -32002,7 +32002,7 @@ Game.nw.prototype = {
 		c.jm = new GameFramework.geom.ic(4, 4);
 		c.yt = 2;
 		c.jl = true;
-		c.aw(this, 4, 4, Game.ha.Wc.Cq);
+		c.aw(this, 4, 4, Game.TutorialStep.Wc.Cq);
 		c.sd(this, 3, 4, true);
 		c.sd(this, 3, 5, false);
 		c.sd(this, 3, 6, false);
@@ -32011,7 +32011,7 @@ Game.nw.prototype = {
 		c.sd(this, 4, 6, false);
 		b.Yd(c);
 		if (this.gp(Game.f.Xa.Oy))
-			c = new Game.ha, c.Fb = Game.ha.hg.sK, c.Fk = "Hints", c.Re = "If you are stuck, use the ^007700^HINT^oldclr^ Button to find a match.", c.Fh = Game.f.Xa.Oy, c.Il = Game.ha.Qg.qE, c.zt = Game.ha.Pg.ct, c.hm = Game.ha.Wc.vs, c.cr = this.Ib.w
+			c = new Game.TutorialStep, c.Fb = Game.TutorialStep.hg.sK, c.Fk = "Hints", c.Re = "If you are stuck, use the ^007700^HINT^oldclr^ Button to find a match.", c.Fh = Game.f.Xa.Oy, c.Il = Game.TutorialStep.Qg.qE, c.zt = Game.TutorialStep.Pg.ct, c.hm = Game.TutorialStep.Wc.vs, c.cr = this.Ib.w
 					+ this.Ib.s / 2, c.dr = this.Ib.v + this.Ib.z / 2 - 50, c.rk = 426, c.sk = 708, c.Fj = 700, c.gB = true, c.vl = new GameFramework.ne(
 					this.Ib.w - this.Ib.s * (1.65 - 1) / 2, this.Ib.v
 							- this.Ib.z * (1.65 - 1) / 2, this.Ib.s * 1.65,
@@ -32135,9 +32135,9 @@ Game.nw.prototype = {
 								&& (b = new Game.rt, this.xc.oL(b)), b
 								.UJ(Game.f.Xa.eF)
 								? this.HQ()
-								: (c = new Game.ha, c.Fb = Game.ha.hg.KE, c.Fk = "Bonus Round", c.Re = "If you have Bonus Time stored, you'll get a ^007700^BONUS ROUND^oldclr^ when time runs out.\n\nEach ^007700^BONUS ROUND^oldclr^ ups your multiplier by 1!", c.Fh = Game.f.Xa.eF, c.zt = Game.ha.Pg.pT, c.Sw = 100, c.rM = 120, c.Il = Game.ha.Qg.bT, c.vl = new GameFramework.ne(
+								: (c = new Game.TutorialStep, c.Fb = Game.TutorialStep.hg.KE, c.Fk = "Bonus Round", c.Re = "If you have Bonus Time stored, you'll get a ^007700^BONUS ROUND^oldclr^ when time runs out.\n\nEach ^007700^BONUS ROUND^oldclr^ ups your multiplier by 1!", c.Fh = Game.f.Xa.eF, c.zt = Game.TutorialStep.Pg.pT, c.Sw = 100, c.rM = 120, c.Il = Game.TutorialStep.Qg.bT, c.vl = new GameFramework.ne(
 										490, 0, 1100, 150), c.rk = 602, c.sk = 180, c.Fj = 680, c.Pr = new GameFramework.B, c.Pr
-										.vj("SpeedBoard_cs_11_15_11__17_35_36_339"), c.hm = Game.ha.Wc.Cq, c.cr = 280, c.dr = 300, c.re = 15, c.jl = true, b
+										.vj("SpeedBoard_cs_11_15_11__17_35_36_339"), c.hm = Game.TutorialStep.Wc.Cq, c.cr = 280, c.dr = 300, c.re = 15, c.jl = true, b
 										.Yd(c)))
 						: this.HQ();
 			else if (!(this.og > 0)) {
@@ -33678,26 +33678,26 @@ Game.Tooltip.Wc.c = function() {
 T(function() {
 			Game.Tooltip.Wc.c()
 		});
-Game.ha = function() {
-	this.Fb = Game.ha.hg.KE;
+Game.TutorialStep = function() {
+	this.Fb = Game.TutorialStep.hg.KE;
 	this.hB = GameFramework.B.qs(0);
 	this.iP = [];
 	this.ur = GameFramework.B.qs(0);
 	this.jm = this.Pr = this.DG = this.vl = null;
-	this.hm = Game.ha.Wc.jk;
+	this.hm = Game.TutorialStep.Wc.jk;
 	this.Fh = Game.f.Xa.Zc;
-	this.zt = Game.ha.Pg.jk;
-	this.Bb = Game.ha.Td.Ub;
-	this.Il = Game.ha.Qg.jk;
+	this.zt = Game.TutorialStep.Pg.jk;
+	this.Bb = Game.TutorialStep.Td.Ub;
+	this.Il = Game.TutorialStep.Qg.jk;
 	this.Hd = null
 };
-Game.ha.nZ = function(b, c, d, f, g) {
+Game.TutorialStep.nZ = function(b, c, d, f, g) {
 	g === UNDEF && (g = 0);
 	b = new GameFramework.ne(b.tz(d) - g, b.xz(f) - g, Game.r.bb + g * 2,
 			Game.r.ab + g * 2);
 	return c == null || c.s == 0 || c.z == 0 ? b : c.GU(b)
 };
-Game.ha.prototype = {
+Game.TutorialStep.prototype = {
 	VH : null,
 	Fk : "",
 	Re : "",
@@ -33734,12 +33734,12 @@ Game.ha.prototype = {
 	aa : 0,
 	OG : 0,
 	Cs : function() {
-		this.Il == Game.ha.Qg.BL && this.Bb != Game.ha.Td.DJ
-				? (this.OG = 150, this.Bb = Game.ha.Td.DJ)
-				: this.Bb = Game.ha.Td.lz
+		this.Il == Game.TutorialStep.Qg.BL && this.Bb != Game.TutorialStep.Td.DJ
+				? (this.OG = 150, this.Bb = Game.TutorialStep.Td.DJ)
+				: this.Bb = Game.TutorialStep.Td.lz
 	},
 	Q5 : function() {
-		return this.Bb == Game.ha.Td.lz
+		return this.Bb == Game.TutorialStep.Td.lz
 	},
 	Te : function(b) {
 		this.Hd != null && this.Hd.Te();
@@ -33749,10 +33749,10 @@ Game.ha.prototype = {
 	ca : function() {
 		if (this.Pr != null && (this.Pr.$a(), this.Hd != null))
 			this.Hd.XH = this.Pr.D();
-		this.Bb == Game.ha.Td.Ub
+		this.Bb == Game.TutorialStep.Td.Ub
 				? this.re > 0 ? --this.re : this.pt()
 				: ++this.aa;
-		this.Bb != Game.ha.Td.lz && this.OG > 0
+		this.Bb != Game.TutorialStep.Td.lz && this.OG > 0
 				&& (--this.OG, this.OG == 0 && this.Cs())
 	},
 	ja : function(b) {
@@ -33760,9 +33760,9 @@ Game.ha.prototype = {
 		var c = b.Q(GameFramework.gfx.k.Jb(Math.min(1, this.ur.D())));
 		try {
 			this.vl != null
-					&& (this.Il == Game.ha.Qg.qE
+					&& (this.Il == Game.TutorialStep.Qg.qE
 							? Game.Xi.M_(b, this.vl)
-							: this.Il == Game.ha.Qg.bT
+							: this.Il == Game.TutorialStep.Qg.bT
 									? (Game.Xi.az(b, new GameFramework.ne(62,
 													240, 360, 500),
 											new GameFramework.ne(0, 0, 450,
@@ -33775,8 +33775,8 @@ Game.ha.prototype = {
 															GameFramework.BaseApp.M.s
 																	- 450,
 															GameFramework.BaseApp.M.z)))
-									: this.Il == Game.ha.Qg.BL
-											&& (this.Bb == Game.ha.Td.DJ || this.Bb == Game.ha.Td.lz)
+									: this.Il == Game.TutorialStep.Qg.BL
+											&& (this.Bb == Game.TutorialStep.Td.DJ || this.Bb == Game.TutorialStep.Td.lz)
 											? (Game.Xi
 													.az(
 															b,
@@ -33803,20 +33803,20 @@ Game.ha.prototype = {
 		}
 		c = b.Q(GameFramework.gfx.k.Jb(this.hB.D()));
 		try {
-			if (this.hm != Game.ha.Wc.jk) {
+			if (this.hm != Game.TutorialStep.Wc.jk) {
 				var d = 0, f = 50 + (Math.sin(this.aa / 10) / 2 + 0.5) * 50, g = 0, h = 0, j = Game.a.IMAGE_BOARD_HIGHLIGHT_ARROW;
-				this.Il == Game.ha.Qg.zU
+				this.Il == Game.TutorialStep.Qg.zU
 						&& (g -= (this.VH.iu.e.Me - 120) * 0.25);
 				switch (this.hm) {
-					case Game.ha.Wc.vs :
+					case Game.TutorialStep.Wc.vs :
 						d = Math.PI / 2;
 						h += -f;
 						break;
-					case Game.ha.Wc.zF :
+					case Game.TutorialStep.Wc.zF :
 						d = -Math.PI / 2;
 						h += f;
 						break;
-					case Game.ha.Wc.Cq :
+					case Game.TutorialStep.Wc.Cq :
 						d = Math.PI;
 						g += f;
 						break;
@@ -33836,7 +33836,7 @@ Game.ha.prototype = {
 		}
 	},
 	pt : function() {
-		this.Bb = Game.ha.Td.E4;
+		this.Bb = Game.TutorialStep.Td.E4;
 		var b = this.VH.iu.e;
 		if (this.jm != null) {
 			var c = b.cS(this.jm.x, this.jm.y);
@@ -33847,9 +33847,9 @@ Game.ha.prototype = {
 		this.ur.D() == 0 && this.ur.vj("TutorialMgr_cs_11_11_11__15_19_51_707");
 		this.hB.vj("TutorialMgr_cs_11_11_11__15_19_51_707");
 		this.Hd != null && this.Hd.Te();
-		if (this.Fb == Game.ha.hg.KE)
+		if (this.Fb == Game.TutorialStep.hg.KE)
 			this.Hd = new Game.vq(this.Fk, this.Re, true, false), this.Hd.gs = false;
-		else if (this.Fb == Game.ha.hg.Wo || this.Fb == Game.ha.hg.sK)
+		else if (this.Fb == Game.TutorialStep.hg.Wo || this.Fb == Game.TutorialStep.hg.sK)
 			this.Hd = new Game.vq(this.Fk, this.Re, true, false), this.Hd.gs = false, this.Hd.XH = 0;
 		Game.BejApp.q.te.Ho(this.Hd);
 		this.Hd.Ra(GameFramework.widgets.ih.CLOSED, ss.Delegate.create(this, this.N6));
@@ -33868,7 +33868,7 @@ Game.ha.prototype = {
 		this.Hd.nh(this.rk, this.sk)
 	},
 	N6 : function() {
-		this.Bb = Game.ha.Td.lz;
+		this.Bb = Game.TutorialStep.Td.lz;
 		this.Hd != null
 				&& this.Hd.Pj.ti
 				&& (this.VH.iu.HA(false), this.Fh != Game.f.Xa.Zc
@@ -33886,68 +33886,68 @@ Game.ha.prototype = {
 		var h = new GameFramework.geom.ic(c, d);
 		f && this.iP.push(h);
 		if (g)
-			this.vl = Game.ha.nZ(b, this.vl, c, d, this.X7)
+			this.vl = Game.TutorialStep.nZ(b, this.vl, c, d, this.X7)
 	}
 };
-Game.ha.c = t();
+Game.TutorialStep.c = t();
 T(function() {
-			Game.ha.u("Game.TutorialStep", null)
+			Game.TutorialStep.u("Game.TutorialStep", null)
 		});
 U(function() {
-			Game.ha.c()
+			Game.TutorialStep.c()
 		});
-Game.ha.hg = {};
-Game.ha.hg.c = function() {
-	Game.ha.hg.KE = 0;
-	Game.ha.hg.Wo = 1;
-	Game.ha.hg.sK = 2
+Game.TutorialStep.hg = {};
+Game.TutorialStep.hg.c = function() {
+	Game.TutorialStep.hg.KE = 0;
+	Game.TutorialStep.hg.Wo = 1;
+	Game.TutorialStep.hg.sK = 2
 };
 T(function() {
-			Game.ha.hg.c()
+			Game.TutorialStep.hg.c()
 		});
-Game.ha.Wc = {};
-Game.ha.Wc.c = function() {
-	Game.ha.Wc.jk = -1;
-	Game.ha.Wc.Cq = 0;
-	Game.ha.Wc.$E = 1;
-	Game.ha.Wc.zF = 2;
-	Game.ha.Wc.vs = 3
+Game.TutorialStep.Wc = {};
+Game.TutorialStep.Wc.c = function() {
+	Game.TutorialStep.Wc.jk = -1;
+	Game.TutorialStep.Wc.Cq = 0;
+	Game.TutorialStep.Wc.$E = 1;
+	Game.TutorialStep.Wc.zF = 2;
+	Game.TutorialStep.Wc.vs = 3
 };
 T(function() {
-			Game.ha.Wc.c()
+			Game.TutorialStep.Wc.c()
 		});
-Game.ha.Td = {};
-Game.ha.Td.c = function() {
-	Game.ha.Td.Ub = 0;
-	Game.ha.Td.E4 = 1;
-	Game.ha.Td.DJ = 2;
-	Game.ha.Td.lz = 3
+Game.TutorialStep.Td = {};
+Game.TutorialStep.Td.c = function() {
+	Game.TutorialStep.Td.Ub = 0;
+	Game.TutorialStep.Td.E4 = 1;
+	Game.TutorialStep.Td.DJ = 2;
+	Game.TutorialStep.Td.lz = 3
 };
 T(function() {
-			Game.ha.Td.c()
+			Game.TutorialStep.Td.c()
 		});
-Game.ha.Qg = {};
-Game.ha.Qg.c = function() {
-	Game.ha.Qg.jk = 0;
-	Game.ha.Qg.qE = 1;
-	Game.ha.Qg.zU = 2;
-	Game.ha.Qg.BL = 3;
-	Game.ha.Qg.bT = 4
+Game.TutorialStep.Qg = {};
+Game.TutorialStep.Qg.c = function() {
+	Game.TutorialStep.Qg.jk = 0;
+	Game.TutorialStep.Qg.qE = 1;
+	Game.TutorialStep.Qg.zU = 2;
+	Game.TutorialStep.Qg.BL = 3;
+	Game.TutorialStep.Qg.bT = 4
 };
 T(function() {
-			Game.ha.Qg.c()
+			Game.TutorialStep.Qg.c()
 		});
-Game.ha.Pg = {};
-Game.ha.Pg.c = function() {
-	Game.ha.Pg.jk = 0;
-	Game.ha.Pg.ct = 1;
-	Game.ha.Pg.mT = 2;
-	Game.ha.Pg.i3 = 3;
-	Game.ha.Pg.pT = 4;
-	Game.ha.Pg.h3 = 5
+Game.TutorialStep.Pg = {};
+Game.TutorialStep.Pg.c = function() {
+	Game.TutorialStep.Pg.jk = 0;
+	Game.TutorialStep.Pg.ct = 1;
+	Game.TutorialStep.Pg.mT = 2;
+	Game.TutorialStep.Pg.i3 = 3;
+	Game.TutorialStep.Pg.pT = 4;
+	Game.TutorialStep.Pg.h3 = 5
 };
 T(function() {
-			Game.ha.Pg.c()
+			Game.TutorialStep.Pg.c()
 		});
 Game.rt = function() {
 	this.xo = []
@@ -34137,15 +34137,15 @@ Game.Xi.prototype = {
 		var b = this.ii();
 		if (b != null)
 			switch (b.zt) {
-				case Game.ha.Pg.ct :
+				case Game.TutorialStep.Pg.ct :
 					return true;
-				case Game.ha.Pg.mT :
+				case Game.TutorialStep.Pg.mT :
 					return b.aa > b.Sw;
-				case Game.ha.Pg.i3 :
+				case Game.TutorialStep.Pg.i3 :
 					return b.aa < b.Sw;
-				case Game.ha.Pg.h3 :
+				case Game.TutorialStep.Pg.h3 :
 					return b.Sw < b.aa && b.aa < b.rM;
-				case Game.ha.Pg.pT :
+				case Game.TutorialStep.Pg.pT :
 					return b.Sw > b.aa || b.aa > b.rM
 			}
 		return false
