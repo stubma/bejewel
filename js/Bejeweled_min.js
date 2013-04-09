@@ -1780,29 +1780,29 @@ function rc() {
 	qc = nc = O
 }
 function sc(b, c) {
-	if (b == GameFramework.gfx.hb.Dc.fi)
+	if (b == GameFramework.gfx.Graphics3D.Dc.fi)
 		return c;
-	if (b == GameFramework.gfx.hb.Dc.T5)
+	if (b == GameFramework.gfx.Graphics3D.Dc.T5)
 		return gl.ZERO;
-	if (b == GameFramework.gfx.hb.Dc.fT)
+	if (b == GameFramework.gfx.Graphics3D.Dc.fT)
 		return gl.ONE;
-	if (b == GameFramework.gfx.hb.Dc.oU)
+	if (b == GameFramework.gfx.Graphics3D.Dc.oU)
 		return gl.SRC_COLOR;
-	if (b == GameFramework.gfx.hb.Dc.n2)
+	if (b == GameFramework.gfx.Graphics3D.Dc.n2)
 		return gl.ONE_MINUS_SRC_COLOR;
-	if (b == GameFramework.gfx.hb.Dc.y4)
+	if (b == GameFramework.gfx.Graphics3D.Dc.y4)
 		return gl.SRC_ALPHA;
-	if (b == GameFramework.gfx.hb.Dc.m2)
+	if (b == GameFramework.gfx.Graphics3D.Dc.m2)
 		return gl.ONE_MINUS_SRC_ALPHA;
-	if (b == GameFramework.gfx.hb.Dc.s_)
+	if (b == GameFramework.gfx.Graphics3D.Dc.s_)
 		return gl.DST_ALPHA;
-	if (b == GameFramework.gfx.hb.Dc.k2)
+	if (b == GameFramework.gfx.Graphics3D.Dc.k2)
 		return gl.ONE_MINUS_DST_ALPHA;
-	if (b == GameFramework.gfx.hb.Dc.t_)
+	if (b == GameFramework.gfx.Graphics3D.Dc.t_)
 		return gl.DST_COLOR;
-	if (b == GameFramework.gfx.hb.Dc.l2)
+	if (b == GameFramework.gfx.Graphics3D.Dc.l2)
 		return gl.ONE_MINUS_DST_COLOR;
-	if (b == GameFramework.gfx.hb.Dc.z4)
+	if (b == GameFramework.gfx.Graphics3D.Dc.z4)
 		return gl.SRC_ALPHA_SATURATE
 }
 function Oc() {
@@ -4429,12 +4429,12 @@ U(function() {
 			GameFramework.geom.Vector3.c()
 		});
 GameFramework.gfx = Type.ci("GameFramework.gfx");
-GameFramework.gfx.Qy = function() {
+GameFramework.gfx.Camera = function() {
 	this.Ff = new GameFramework.geom.Coords3;
 	this.ZY = 1;
 	this.rP = 1E4
 };
-GameFramework.gfx.Qy.prototype = {
+GameFramework.gfx.Camera.prototype = {
 	Ff : null,
 	ZY : 0,
 	rP : 0,
@@ -4470,12 +4470,12 @@ GameFramework.gfx.Qy.prototype = {
 		return true
 	}
 };
-GameFramework.gfx.Qy.c = t();
+GameFramework.gfx.Camera.c = t();
 T(function() {
-			GameFramework.gfx.Qy.u("GameFramework.gfx.Camera", null)
+			GameFramework.gfx.Camera.u("GameFramework.gfx.Camera", null)
 		});
 U(function() {
-			GameFramework.gfx.Qy.c()
+			GameFramework.gfx.Camera.c()
 		});
 GameFramework.gfx.Color = function(b, c, d, f) {
 	this.Mm = b;
@@ -4601,7 +4601,7 @@ GameFramework.gfx.Oi.c = function() {
 T(function() {
 			GameFramework.gfx.Oi.c()
 		});
-GameFramework.gfx.jc = function(b, c, d, f, g) {
+GameFramework.gfx.TriVertex = function(b, c, d, f, g) {
 	b === UNDEF && (b = 0);
 	c === UNDEF && (c = 0);
 	d === UNDEF && (d = 0);
@@ -4613,19 +4613,19 @@ GameFramework.gfx.jc = function(b, c, d, f, g) {
 	this.Ob = f;
 	this.color = g
 };
-GameFramework.gfx.jc.prototype = {
+GameFramework.gfx.TriVertex.prototype = {
 	x : 0,
 	y : 0,
 	Ng : 0,
 	Ob : 0,
 	color : 0
 };
-GameFramework.gfx.jc.c = t();
+GameFramework.gfx.TriVertex.c = t();
 T(function() {
-			GameFramework.gfx.jc.u("GameFramework.gfx.TriVertex", null)
+			GameFramework.gfx.TriVertex.u("GameFramework.gfx.TriVertex", null)
 		});
 U(function() {
-			GameFramework.gfx.jc.c()
+			GameFramework.gfx.TriVertex.c()
 		});
 GameFramework.gfx.Graphics = function() {
 	this.Tf = [];
@@ -4994,8 +4994,8 @@ T(function() {
 U(function() {
 			GameFramework.gfx.Graphics.c()
 		});
-GameFramework.gfx.hb = w("Uc");
-GameFramework.gfx.hb.prototype = {
+GameFramework.gfx.Graphics3D = w("Uc");
+GameFramework.gfx.Graphics3D.prototype = {
 	Uc : null,
 	t : function() {
 		this.Uc.gz(this)
@@ -5014,50 +5014,50 @@ GameFramework.gfx.hb.prototype = {
 	$m : t(),
 	BA : t()
 };
-GameFramework.gfx.hb.c = t();
+GameFramework.gfx.Graphics3D.c = t();
 T(function() {
-			GameFramework.gfx.hb.u("GameFramework.gfx.Graphics3D", null, System.Wl)
+			GameFramework.gfx.Graphics3D.u("GameFramework.gfx.Graphics3D", null, System.Wl)
 		});
 U(function() {
-			GameFramework.gfx.hb.c()
+			GameFramework.gfx.Graphics3D.c()
 		});
-GameFramework.gfx.hb.yf = {};
-GameFramework.gfx.hb.yf.c = function() {
-	GameFramework.gfx.hb.yf.ik = 1;
-	GameFramework.gfx.hb.yf.Ws = 2;
-	GameFramework.gfx.hb.yf.c0 = 3;
-	GameFramework.gfx.hb.yf.w2 = 4;
-	GameFramework.gfx.hb.yf.w1 = 5;
-	GameFramework.gfx.hb.yf.x1 = 6;
-	GameFramework.gfx.hb.yf.ms = 7
+GameFramework.gfx.Graphics3D.yf = {};
+GameFramework.gfx.Graphics3D.yf.c = function() {
+	GameFramework.gfx.Graphics3D.yf.ik = 1;
+	GameFramework.gfx.Graphics3D.yf.Ws = 2;
+	GameFramework.gfx.Graphics3D.yf.c0 = 3;
+	GameFramework.gfx.Graphics3D.yf.w2 = 4;
+	GameFramework.gfx.Graphics3D.yf.w1 = 5;
+	GameFramework.gfx.Graphics3D.yf.x1 = 6;
+	GameFramework.gfx.Graphics3D.yf.ms = 7
 };
 T(function() {
-			GameFramework.gfx.hb.yf.c()
+			GameFramework.gfx.Graphics3D.yf.c()
 		});
-GameFramework.gfx.hb.Dc = {};
-GameFramework.gfx.hb.Dc.c = function() {
-	GameFramework.gfx.hb.Dc.T5 = 1;
-	GameFramework.gfx.hb.Dc.fT = 2;
-	GameFramework.gfx.hb.Dc.oU = 3;
-	GameFramework.gfx.hb.Dc.n2 = 4;
-	GameFramework.gfx.hb.Dc.y4 = 5;
-	GameFramework.gfx.hb.Dc.m2 = 6;
-	GameFramework.gfx.hb.Dc.s_ = 7;
-	GameFramework.gfx.hb.Dc.k2 = 8;
-	GameFramework.gfx.hb.Dc.t_ = 9;
-	GameFramework.gfx.hb.Dc.l2 = 10;
-	GameFramework.gfx.hb.Dc.z4 = 11;
-	GameFramework.gfx.hb.Dc.fi = 65535
+GameFramework.gfx.Graphics3D.Dc = {};
+GameFramework.gfx.Graphics3D.Dc.c = function() {
+	GameFramework.gfx.Graphics3D.Dc.T5 = 1;
+	GameFramework.gfx.Graphics3D.Dc.fT = 2;
+	GameFramework.gfx.Graphics3D.Dc.oU = 3;
+	GameFramework.gfx.Graphics3D.Dc.n2 = 4;
+	GameFramework.gfx.Graphics3D.Dc.y4 = 5;
+	GameFramework.gfx.Graphics3D.Dc.m2 = 6;
+	GameFramework.gfx.Graphics3D.Dc.s_ = 7;
+	GameFramework.gfx.Graphics3D.Dc.k2 = 8;
+	GameFramework.gfx.Graphics3D.Dc.t_ = 9;
+	GameFramework.gfx.Graphics3D.Dc.l2 = 10;
+	GameFramework.gfx.Graphics3D.Dc.z4 = 11;
+	GameFramework.gfx.Graphics3D.Dc.fi = 65535
 };
 T(function() {
-			GameFramework.gfx.hb.Dc.c()
+			GameFramework.gfx.Graphics3D.Dc.c()
 		});
-GameFramework.gfx.Qv = function(b, c, d) {
+GameFramework.gfx.OffsetDrawable = function(b, c, d) {
 	this.tp = b;
 	this.sf = c;
 	this.Oe = d
 };
-GameFramework.gfx.Qv.prototype = {
+GameFramework.gfx.OffsetDrawable.prototype = {
 	tp : null,
 	sf : 0,
 	Oe : 0,
@@ -5071,24 +5071,24 @@ GameFramework.gfx.Qv.prototype = {
 		this.tp.Og(b, c, d + this.sf, f + this.Oe, g)
 	}
 };
-GameFramework.gfx.Qv.c = t();
+GameFramework.gfx.OffsetDrawable.c = t();
 T(function() {
-			GameFramework.gfx.Qv.u("GameFramework.gfx.OffsetDrawable", null,
+			GameFramework.gfx.OffsetDrawable.u("GameFramework.gfx.OffsetDrawable", null,
 					GameFramework.gfx.WJ)
 		});
 U(function() {
-			GameFramework.gfx.Qv.c()
+			GameFramework.gfx.OffsetDrawable.c()
 		});
-GameFramework.gfx.Hq = function(b, c, d, f) {
+GameFramework.gfx.PerspectiveCamera = function(b, c, d, f) {
 	b === UNDEF && (b = 0);
 	c === UNDEF && (c = 0);
 	d === UNDEF && (d = 1);
 	f === UNDEF && (f = 1E4);
-	E(GameFramework.gfx.Hq, this);
+	E(GameFramework.gfx.PerspectiveCamera, this);
 	b == 0 ? (this.Fl = new GameFramework.geom.Vector3(0, 0, 0), this.KH = 0) : this
 			.Ub(b, c, d, f)
 };
-GameFramework.gfx.Hq.prototype = {
+GameFramework.gfx.PerspectiveCamera.prototype = {
 	Fl : null,
 	KH : 0,
 	Ub : function(b, c, d, f) {
@@ -5118,19 +5118,19 @@ GameFramework.gfx.Hq.prototype = {
 		return c
 	}
 };
-GameFramework.gfx.Hq.c = t();
+GameFramework.gfx.PerspectiveCamera.c = t();
 T(function() {
-			GameFramework.gfx.Hq.u("GameFramework.gfx.PerspectiveCamera",
-					GameFramework.gfx.Qy)
+			GameFramework.gfx.PerspectiveCamera.u("GameFramework.gfx.PerspectiveCamera",
+					GameFramework.gfx.Camera)
 		});
 U(function() {
-			GameFramework.gfx.Hq.c()
+			GameFramework.gfx.PerspectiveCamera.c()
 		});
-GameFramework.gfx.xF = function(b, c) {
+GameFramework.gfx.TransformedDrawable = function(b, c) {
 	this.tp = b;
 	this.sa = c
 };
-GameFramework.gfx.xF.prototype = {
+GameFramework.gfx.TransformedDrawable.prototype = {
 	tp : null,
 	sa : null,
 	Jw : function() {
@@ -5147,13 +5147,13 @@ GameFramework.gfx.xF.prototype = {
 		this.tp.Og(b, h, 0, 0, g)
 	}
 };
-GameFramework.gfx.xF.c = t();
+GameFramework.gfx.TransformedDrawable.c = t();
 T(function() {
-			GameFramework.gfx.xF.u("GameFramework.gfx.TransformedDrawable", null,
+			GameFramework.gfx.TransformedDrawable.u("GameFramework.gfx.TransformedDrawable", null,
 					GameFramework.gfx.WJ)
 		});
 U(function() {
-			GameFramework.gfx.xF.c()
+			GameFramework.gfx.TransformedDrawable.c()
 		});
 GameFramework.W = Type.ci("GameFramework.misc");
 GameFramework.W.My = t();
@@ -6308,12 +6308,12 @@ GameFramework.resources.gn.prototype = {
 	Og : t(),
 	vd : function() {
 		if (this.oO == null)
-			this.oO = new GameFramework.gfx.Qv(this, this.sf, this.Oe);
+			this.oO = new GameFramework.gfx.OffsetDrawable(this, this.sf, this.Oe);
 		return this.oO
 	},
 	Ee : function() {
 		if (this.DM == null)
-			this.DM = new GameFramework.gfx.Qv(this, -this.s / 2, -this.z / 2);
+			this.DM = new GameFramework.gfx.OffsetDrawable(this, -this.s / 2, -this.z / 2);
 		return this.DM
 	},
 	bk : function(b) {
@@ -13556,14 +13556,14 @@ GameFramework.gfx.JSGraphics3D.prototype = {
 				.disable(gl.CULL_FACE)
 	},
 	it : function(b, c) {
-		if (c || b != GameFramework.gfx.hb.yf.ms)
-			gl.enable(gl.DEPTH_TEST), b == GameFramework.gfx.hb.yf.ms ? gl
-					.depthFunc(gl.ALWAYS) : b == GameFramework.gfx.hb.yf.Ws ? gl
-					.depthFunc(gl.LESS) : b == GameFramework.gfx.hb.yf.w2 ? gl
-					.depthFunc(gl.LEQUAL) : b == GameFramework.gfx.hb.yf.w1 ? gl
-					.depthFunc(gl.GREATER) : b == GameFramework.gfx.hb.yf.x1 ? gl
-					.depthFunc(gl.GEQUAL) : b == GameFramework.gfx.hb.yf.c0 ? gl
-					.depthFunc(gl.EQUAL) : b == GameFramework.gfx.hb.yf.ik
+		if (c || b != GameFramework.gfx.Graphics3D.yf.ms)
+			gl.enable(gl.DEPTH_TEST), b == GameFramework.gfx.Graphics3D.yf.ms ? gl
+					.depthFunc(gl.ALWAYS) : b == GameFramework.gfx.Graphics3D.yf.Ws ? gl
+					.depthFunc(gl.LESS) : b == GameFramework.gfx.Graphics3D.yf.w2 ? gl
+					.depthFunc(gl.LEQUAL) : b == GameFramework.gfx.Graphics3D.yf.w1 ? gl
+					.depthFunc(gl.GREATER) : b == GameFramework.gfx.Graphics3D.yf.x1 ? gl
+					.depthFunc(gl.GEQUAL) : b == GameFramework.gfx.Graphics3D.yf.c0 ? gl
+					.depthFunc(gl.EQUAL) : b == GameFramework.gfx.Graphics3D.yf.ik
 					&& gl.depthFunc(gl.NEVER);
 		gl.depthMask(c)
 	},
@@ -13608,7 +13608,7 @@ GameFramework.gfx.JSGraphics3D.prototype = {
 GameFramework.gfx.JSGraphics3D.c = t();
 T(function() {
 			GameFramework.gfx.JSGraphics3D.u("GameFramework.gfx.JSGraphics3D",
-					GameFramework.gfx.hb)
+					GameFramework.gfx.Graphics3D)
 		});
 U(function() {
 			GameFramework.gfx.JSGraphics3D.c()
@@ -15585,9 +15585,9 @@ Game.LightningZap.prototype = {
 			f = b.gc(this.e.Ef, this.e.Cd());
 			try {
 				for (var g = 0; g < c - 1; g++) {
-					var h = Array.O(4, 4, new GameFramework.gfx.jc,
-							new GameFramework.gfx.jc, new GameFramework.gfx.jc,
-							new GameFramework.gfx.jc), j = h[0], k = this.Z[0][g].x
+					var h = Array.O(4, 4, new GameFramework.gfx.TriVertex,
+							new GameFramework.gfx.TriVertex, new GameFramework.gfx.TriVertex,
+							new GameFramework.gfx.TriVertex), j = h[0], k = this.Z[0][g].x
 							- this.Z[0][g + 1].x
 							+ this.Z[1][g].x
 							- this.Z[1][g + 1].x, l = this.Z[0][g].y
@@ -15853,22 +15853,22 @@ Game.LightningStorm.prototype = {
 							/ (Game.LightningStorm.hk - 1), v = (k + 1) / (Game.LightningStorm.hk - 1), u = GameFramework.gfx.Color
 							.st(Game.DM.RF[(this.n | 0) + 1], f);
 					k == 0
-							? (h[h.g * j + 0] = new GameFramework.gfx.jc(l.x,
-									l.y, 0.5, r, u), h[h.g * j + 1] = new GameFramework.gfx.jc(
-									q.x, q.y, 1, v, u), h[h.g * j + 2] = new GameFramework.gfx.jc(
+							? (h[h.g * j + 0] = new GameFramework.gfx.TriVertex(l.x,
+									l.y, 0.5, r, u), h[h.g * j + 1] = new GameFramework.gfx.TriVertex(
+									q.x, q.y, 1, v, u), h[h.g * j + 2] = new GameFramework.gfx.TriVertex(
 									o.x, o.y, 0, v, u))
 							: k == Game.LightningStorm.hk - 2
-									? (h[h.g * j + 0] = new GameFramework.gfx.jc(
-											l.x, l.y, 0, r, u), h[h.g * j + 1] = new GameFramework.gfx.jc(
-											m.x, m.y, 1, r, u), h[h.g * j + 2] = new GameFramework.gfx.jc(
+									? (h[h.g * j + 0] = new GameFramework.gfx.TriVertex(
+											l.x, l.y, 0, r, u), h[h.g * j + 1] = new GameFramework.gfx.TriVertex(
+											m.x, m.y, 1, r, u), h[h.g * j + 2] = new GameFramework.gfx.TriVertex(
 											o.x, o.y, 0.5, v, u))
-									: (h[h.g * j + 0] = new GameFramework.gfx.jc(
-											l.x, l.y, 0, r, u), h[h.g * j + 1] = new GameFramework.gfx.jc(
-											q.x, q.y, 1, v, u), h[h.g * j + 2] = new GameFramework.gfx.jc(
+									: (h[h.g * j + 0] = new GameFramework.gfx.TriVertex(
+											l.x, l.y, 0, r, u), h[h.g * j + 1] = new GameFramework.gfx.TriVertex(
+											q.x, q.y, 1, v, u), h[h.g * j + 2] = new GameFramework.gfx.TriVertex(
 											o.x, o.y, 0, v, u), j++, h[h.g * j
-											+ 0] = new GameFramework.gfx.jc(l.x,
-											l.y, 0, r, u), h[h.g * j + 1] = new GameFramework.gfx.jc(
-											m.x, m.y, 1, r, u), h[h.g * j + 2] = new GameFramework.gfx.jc(
+											+ 0] = new GameFramework.gfx.TriVertex(l.x,
+											l.y, 0, r, u), h[h.g * j + 1] = new GameFramework.gfx.TriVertex(
+											m.x, m.y, 1, r, u), h[h.g * j + 2] = new GameFramework.gfx.TriVertex(
 											q.x, q.y, 1, v, u));
 					j++
 				}
@@ -21512,7 +21512,7 @@ Game.CrystalBall.prototype = {
 										/ 2 | 0))
 										/ this.Oa.s - 0.5) : k *= this.Oa.z
 										/ this.Oa.s / 0.625;
-								var B = new GameFramework.gfx.jc(this.uG[j] * z
+								var B = new GameFramework.gfx.TriVertex(this.uG[j] * z
 												* y, this.YH[j] * 600 * y, 0.5
 												+ this.uG[j] * 0.5 * A * k + l,
 										0.5 + this.YH[j] * 0.5 * A * 1,
@@ -27030,7 +27030,7 @@ Game.N = function(b) {
 	this.Wh = Array.Sd(Game.Board.Zk, Game.Board.oh, null);
 	this.kf = new Game.Ny;
 	this.px = [];
-	this.si = new GameFramework.gfx.Hq;
+	this.si = new GameFramework.gfx.PerspectiveCamera;
 	this.kB = new GameFramework.CurvedVal;
 	this.Ay = new GameFramework.CurvedVal;
 	this.Kp = new GameFramework.CurvedVal;
@@ -27472,8 +27472,8 @@ Game.N.prototype = {
 	},
 	C_ : function() {
 		Game.N.nb.Nq(true, false);
-		Game.N.nb.it(GameFramework.gfx.hb.yf.Ws, true);
-		Game.N.nb.Oq(GameFramework.gfx.hb.Dc.fi, GameFramework.gfx.hb.Dc.fi);
+		Game.N.nb.it(GameFramework.gfx.Graphics3D.yf.Ws, true);
+		Game.N.nb.Oq(GameFramework.gfx.Graphics3D.Dc.fi, GameFramework.gfx.Graphics3D.Dc.fi);
 		Game.N.nb.kF(0, true);
 		switch (this.Bb) {
 			case Game.N.ya.en :
@@ -27513,8 +27513,8 @@ Game.N.prototype = {
 	B_ : function() {
 		if (!(this.Bb != Game.N.ya.fw && this.Bb != Game.N.ya.Bq)) {
 			Game.N.nb.Nq(true, false);
-			Game.N.nb.it(GameFramework.gfx.hb.yf.Ws, false);
-			Game.N.nb.Oq(GameFramework.gfx.hb.Dc.oU, GameFramework.gfx.hb.Dc.fT);
+			Game.N.nb.it(GameFramework.gfx.Graphics3D.yf.Ws, false);
+			Game.N.nb.Oq(GameFramework.gfx.Graphics3D.Dc.oU, GameFramework.gfx.Graphics3D.Dc.fT);
 			Game.N.nb.kF(0, true);
 			var b = Game.Resources.EFFECT_TUBECAP_3D, c = b.xD(Game.N.nb, "TubeCap3D");
 			try {
@@ -27539,7 +27539,7 @@ Game.N.prototype = {
 			} finally {
 				c.t()
 			}
-			Game.N.nb.Oq(GameFramework.gfx.hb.Dc.fi, GameFramework.gfx.hb.Dc.fi)
+			Game.N.nb.Oq(GameFramework.gfx.Graphics3D.Dc.fi, GameFramework.gfx.Graphics3D.Dc.fi)
 		}
 	},
 	LQ : function(b) {
@@ -27558,7 +27558,7 @@ Game.N.prototype = {
 		}
 	},
 	hq : function(b) {
-		Game.N.nb.Oq(GameFramework.gfx.hb.Dc.fi, GameFramework.gfx.hb.Dc.fi);
+		Game.N.nb.Oq(GameFramework.gfx.Graphics3D.Dc.fi, GameFramework.gfx.Graphics3D.Dc.fi);
 		var c = new GameFramework.geom.Matrix3D;
 		this.si.Az(c);
 		c.X[c.X.g * 0 + 0] += 0.0030;
@@ -27576,7 +27576,7 @@ Game.N.prototype = {
 			f.Qq("ambientLightColor", Game.N.i6);
 			f.Qq("diffuseLightColor", Game.N.u6);
 			f.Qq("specularLightColor", Game.N.Z9);
-			Game.N.nb.it(GameFramework.gfx.hb.yf.Ws, true);
+			Game.N.nb.it(GameFramework.gfx.Graphics3D.yf.Ws, true);
 			Game.N.nb.Nq(true, false);
 			f.kt("globalFade", this.Ot);
 			for (var j = g.$p(1), c = [], k = new GameFramework.geom.Matrix3D, l = this.px, h = 0; h < l.length; h++) {
@@ -27602,7 +27602,7 @@ Game.N.prototype = {
 			j.t();
 			d.X[d.X.g * 3 + 2] += 1;
 			Game.N.nb.GA(d);
-			Game.N.nb.it(GameFramework.gfx.hb.yf.Ws, false);
+			Game.N.nb.it(GameFramework.gfx.Graphics3D.yf.Ws, false);
 			Game.N.nb.Nq(true, false);
 			this.Bb == Game.N.ya.nq ? f.kt("globalFade", 1 - this.Qp.D()) : f
 					.kt("globalFade", this.Ot);
@@ -27634,10 +27634,10 @@ Game.N.prototype = {
 							if (f || A == (Game.DM.Ha.sc | 0)) {
 								j.t();
 								Game.N.nb.qL(Math.max(0, y.Jm.ia + 0.0025));
-								Game.N.nb.it(GameFramework.gfx.hb.yf.Ws, false);
+								Game.N.nb.it(GameFramework.gfx.Graphics3D.yf.Ws, false);
 								Game.N.nb.Nq(false, false);
-								Game.N.nb.Oq(GameFramework.gfx.hb.Dc.fi,
-										GameFramework.gfx.hb.Dc.fi);
+								Game.N.nb.Oq(GameFramework.gfx.Graphics3D.Dc.fi,
+										GameFramework.gfx.Graphics3D.Dc.fi);
 								var P = z.L.D();
 								z.L.Aa(1);
 								if (A == (Game.DM.Ha.sc | 0)) {
@@ -27670,10 +27670,10 @@ Game.N.prototype = {
 							}
 							if (l) {
 								Game.N.nb.qL(Math.max(0, y.Jm.ia - 0.0025));
-								Game.N.nb.it(GameFramework.gfx.hb.yf.Ws, false);
+								Game.N.nb.it(GameFramework.gfx.Graphics3D.yf.Ws, false);
 								Game.N.nb.Nq(false, false);
-								Game.N.nb.Oq(GameFramework.gfx.hb.Dc.fi,
-										GameFramework.gfx.hb.Dc.fi);
+								Game.N.nb.Oq(GameFramework.gfx.Graphics3D.Dc.fi,
+										GameFramework.gfx.Graphics3D.Dc.fi);
 								if (f)
 									for (f = 0; f < (z.Sf.length | 0); f++) {
 										var X = z.Sf[f];
@@ -27693,8 +27693,8 @@ Game.N.prototype = {
 									}
 								Game.N.nb.vJ()
 							}
-							Game.N.nb.Oq(GameFramework.gfx.hb.Dc.fi,
-									GameFramework.gfx.hb.Dc.fi);
+							Game.N.nb.Oq(GameFramework.gfx.Graphics3D.Dc.fi,
+									GameFramework.gfx.Graphics3D.Dc.fi);
 							j = g.$p(0);
 							Game.N.nb.Nq(true, false)
 						} finally {
@@ -28039,8 +28039,8 @@ U(function() {
 Game.MainMenu = function() {
 	this.WC = Game.MainMenu.Pl.U5;
 	this.Qx = [];
-	this.xd = new GameFramework.gfx.Hq;
-	this.Fn = new GameFramework.gfx.Hq;
+	this.xd = new GameFramework.gfx.PerspectiveCamera;
+	this.Fn = new GameFramework.gfx.PerspectiveCamera;
 	this.Kg = new GameFramework.CurvedVal;
 	this.yM = new GameFramework.CurvedVal;
 	this.PW = new GameFramework.CurvedVal;
@@ -28477,12 +28477,12 @@ Game.MainMenu.prototype = {
 							d += l;
 							var o;
 							o = k == 0 ? 0 : k == Game.MainMenu.Ov - 1 ? 1 : 0.5;
-							l = new GameFramework.gfx.jc(
+							l = new GameFramework.gfx.TriVertex(
 									this.s / 2 + Math.cos(m) * 180,
 									300
 											+ (Game.Resources.IMAGE_LOADER_POPCAP.z / 2 | 0)
 											+ Math.sin(m) * 180, o, 0, f);
-							m = new GameFramework.gfx.jc(
+							m = new GameFramework.gfx.TriVertex(
 									this.s / 2 + Math.cos(m) * 240,
 									300
 											+ (Game.Resources.IMAGE_LOADER_POPCAP.z / 2 | 0)
@@ -32980,33 +32980,33 @@ Game.TimeBonusEffect.prototype = {
 			var m = Math.atan2(h - f, g - d), o = Math.cos(m), m = -Math.sin(m), q = d
 					+ o * -j, r = g + o * j;
 			Game.TimeBonusEffect.na == null
-					? Game.TimeBonusEffect.na = Array.Sd(6, 3, null, new GameFramework.gfx.jc(q
+					? Game.TimeBonusEffect.na = Array.Sd(6, 3, null, new GameFramework.gfx.TriVertex(q
 											+ m * j, f + o * j, 0, 0, k),
-							new GameFramework.gfx.jc(q + m * -j, f + o * -j, 0,
-									1, k), new GameFramework.gfx.jc(d + m * j, f
+							new GameFramework.gfx.TriVertex(q + m * -j, f + o * -j, 0,
+									1, k), new GameFramework.gfx.TriVertex(d + m * j, f
 											+ o * j, 0.5, 0, k),
-							new GameFramework.gfx.jc(q + m * -j, f + o * -j, 0,
-									1, k), new GameFramework.gfx.jc(d + m * j, f
+							new GameFramework.gfx.TriVertex(q + m * -j, f + o * -j, 0,
+									1, k), new GameFramework.gfx.TriVertex(d + m * j, f
 											+ o * j, 0.5, 0, k),
-							new GameFramework.gfx.jc(d + m * -j, f + o * -j, 0.5,
-									1, k), new GameFramework.gfx.jc(d + m * j, f
+							new GameFramework.gfx.TriVertex(d + m * -j, f + o * -j, 0.5,
+									1, k), new GameFramework.gfx.TriVertex(d + m * j, f
 											+ o * j, 0.5, 0, k),
-							new GameFramework.gfx.jc(d + m * -j, f + o * -j, 0.5,
-									1, k), new GameFramework.gfx.jc(g + m * j, h
+							new GameFramework.gfx.TriVertex(d + m * -j, f + o * -j, 0.5,
+									1, k), new GameFramework.gfx.TriVertex(g + m * j, h
 											+ o * j, 0.5, 0, l),
-							new GameFramework.gfx.jc(d + m * -j, f + o * -j, 0.5,
-									1, k), new GameFramework.gfx.jc(g + m * j, h
+							new GameFramework.gfx.TriVertex(d + m * -j, f + o * -j, 0.5,
+									1, k), new GameFramework.gfx.TriVertex(g + m * j, h
 											+ o * j, 0.5, 0, l),
-							new GameFramework.gfx.jc(g + m * -j, h + o * -j, 0.5,
-									1, l), new GameFramework.gfx.jc(g + m * j, h
+							new GameFramework.gfx.TriVertex(g + m * -j, h + o * -j, 0.5,
+									1, l), new GameFramework.gfx.TriVertex(g + m * j, h
 											+ o * j, 0.5, 0, l),
-							new GameFramework.gfx.jc(g + m * -j, h + o * -j, 0.5,
-									1, l), new GameFramework.gfx.jc(r + m * j, h
+							new GameFramework.gfx.TriVertex(g + m * -j, h + o * -j, 0.5,
+									1, l), new GameFramework.gfx.TriVertex(r + m * j, h
 											+ o * j, 1, 0, l),
-							new GameFramework.gfx.jc(g + m * -j, h + o * -j, 0.5,
-									1, l), new GameFramework.gfx.jc(r + m * j, h
+							new GameFramework.gfx.TriVertex(g + m * -j, h + o * -j, 0.5,
+									1, l), new GameFramework.gfx.TriVertex(r + m * j, h
 											+ o * j, 1, 0, l),
-							new GameFramework.gfx.jc(r + m * -j, h + o * -j, 1,
+							new GameFramework.gfx.TriVertex(r + m * -j, h + o * -j, 1,
 									1, l))
 					: (Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 0 + 0].x = q + m * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g
 							* 0 + 0].y = f + o * j, Game.TimeBonusEffect.na[Game.TimeBonusEffect.na.g * 0
@@ -33336,8 +33336,8 @@ Game.LightningBarFillEffect.prototype = {
 		if (GameFramework.BaseApp.M.kc()) {
 			for (var d = Array.Sd((Game.LightningBarFillEffect.Xk - 1) * 2, 3, null), f = 0; f < (Game.LightningBarFillEffect.Xk - 1)
 					* 2; f++)
-				d[d.g * f + 0] = new GameFramework.gfx.jc, d[d.g * f + 1] = new GameFramework.gfx.jc, d[d.g
-						* f + 2] = new GameFramework.gfx.jc;
+				d[d.g * f + 0] = new GameFramework.gfx.TriVertex, d[d.g * f + 1] = new GameFramework.gfx.TriVertex, d[d.g
+						* f + 2] = new GameFramework.gfx.TriVertex;
 			for (var f = 0, g = GameFramework.gfx.Color.Ma(255, 200, 100, c), h = 0; h < Game.LightningBarFillEffect.Xk
 					- 1; h++) {
 				var j = this.Z[this.Z.g * h + 0], k = this.Z[this.Z.g * h + 1], l = this.Z[this.Z.g
