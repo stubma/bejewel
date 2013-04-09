@@ -2652,10 +2652,10 @@ T(function() {
 U(function() {
 			GameFramework.CurvedVal.c()
 		});
-GameFramework.ck = function() {
+GameFramework.DataBuffer = function() {
 	this.nd = GameFramework.BaseApp.M.uQ()
 };
-GameFramework.ck.prototype = {
+GameFramework.DataBuffer.prototype = {
 	nd : null,
 	kr : false,
 	uV : function() {
@@ -2746,12 +2746,12 @@ GameFramework.ck.prototype = {
 		this.nd.SU(b)
 	}
 };
-GameFramework.ck.c = t();
+GameFramework.DataBuffer.c = t();
 T(function() {
-			GameFramework.ck.u("GameFramework.DataBuffer", null)
+			GameFramework.DataBuffer.u("GameFramework.DataBuffer", null)
 		});
 U(function() {
-			GameFramework.ck.c()
+			GameFramework.DataBuffer.c()
 		});
 GameFramework.fv = t();
 GameFramework.fv.prototype = {
@@ -6434,12 +6434,12 @@ GameFramework.resources.Gq.prototype = {
 					l.Ao = b.Ga();
 					o = Array.O(36 * l.Ao, 0);
 					b.vA(o, 0, 36 * l.Ao);
-					l.Li = new GameFramework.ck;
+					l.Li = new GameFramework.DataBuffer;
 					l.Li.Ss(o);
 					l.yx = b.Ga() * 3;
 					o = Array.O(l.yx * 2, 0);
 					b.vA(o, 0, l.yx * 2);
-					l.DN = new GameFramework.ck;
+					l.DN = new GameFramework.DataBuffer;
 					l.DN.Ss(o)
 				}
 			if (k < j)
@@ -8438,7 +8438,7 @@ GameFramework.resources.va.prototype = {
 		this.C.Ga();
 		if (this.Ai && this.nj >= 1) {
 			if (d = this.C.H(), d > 0)
-				this.Sr = new GameFramework.ck, f = Array.O(d, 0), b
+				this.Sr = new GameFramework.DataBuffer, f = Array.O(d, 0), b
 						.vA(f, 0, d), this.Sr.Ss(f)
 		} else
 			this.Sr = null;
@@ -13046,19 +13046,19 @@ GameFramework.JSBaseApp.prototype = {
 		if (c.Pf == GameFramework.resources.ResourceManager.tA)
 			this.YW = true;
 		if (c.Pf == GameFramework.resources.ResourceManager.KK) {
-			var d = new GameFramework.ck;
+			var d = new GameFramework.DataBuffer;
 			d.nd.Ya = c.rd;
 			c.rd = d;
 			this.fu.c3(c)
 		}
 		if (c.Pf == GameFramework.resources.ResourceManager.NK)
-			d = new GameFramework.ck, d.nd.Ya = c.rd, c.rd = d, this.fu.e3(c);
+			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.fu.e3(c);
 		if (c.Pf == GameFramework.resources.ResourceManager.MK)
-			d = new GameFramework.ck, d.nd.Ya = c.rd, c.rd = d, this.fu.d3(c);
+			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.fu.d3(c);
 		if (c.Pf == GameFramework.resources.ResourceManager.LK)
-			d = new GameFramework.ck, d.nd.Ya = c.rd, c.rd = d, this.fu.kT(c);
+			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.fu.kT(c);
 		if (c.Pf == GameFramework.resources.ResourceManager.OK)
-			d = new GameFramework.ck, d.nd.Ya = c.rd, c.rd = d, this.fu.f3(c);
+			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.fu.f3(c);
 		c.Or++
 	},
 	KT : function(b, c, d) {
@@ -15091,7 +15091,7 @@ Game.BejApp.prototype = {
 		b.Ra(GameFramework.events.Sg.fk, ss.Delegate.create(this, this.Rz))
 	},
 	R1 : function(b) {
-		var c = b.target.rd, d = new GameFramework.ck;
+		var c = b.target.rd, d = new GameFramework.DataBuffer;
 		d.Ss(c);
 		c = new Game.Ui;
 		this.z2(d, c);
