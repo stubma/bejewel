@@ -31779,11 +31779,11 @@ T(function() {
 U(function() {
 			Game.Resources.c()
 		});
-Game.iw = function() {
+Game.QuasiRandom = function() {
 	this.qp = new GameFramework.CurvedVal;
 	this.qH = this.bD = 0
 };
-Game.iw.prototype = {
+Game.QuasiRandom.prototype = {
 	qp : null,
 	bD : 0,
 	qH : 0,
@@ -31807,16 +31807,16 @@ Game.iw.prototype = {
 		return b < this.qH ? (this.bD = 0, true) : false
 	}
 };
-Game.iw.c = t();
+Game.QuasiRandom.c = t();
 T(function() {
-			Game.iw.u("Game.QuasiRandom", null)
+			Game.QuasiRandom.u("Game.QuasiRandom", null)
 		});
 U(function() {
-			Game.iw.c()
+			Game.QuasiRandom.c()
 		});
 Game.SpeedBoard = function(b) {
-	this.Zq = new Game.iw;
-	this.Yq = new Game.iw;
+	this.Zq = new Game.QuasiRandom;
+	this.Yq = new Game.QuasiRandom;
 	this.Bj = new GameFramework.CurvedVal;
 	this.rG = new GameFramework.CurvedVal;
 	this.jI = new GameFramework.CurvedVal;
