@@ -3639,18 +3639,18 @@ T(function() {
 U(function() {
 			GameFramework.XMLParserList.c()
 		});
-GameFramework.Gw = Type.ci("GameFramework.ads");
-GameFramework.Gw.Gy = function(b) {
-	E(GameFramework.Gw.Gy, this, [b])
+GameFramework.ads = Type.ci("GameFramework.ads");
+GameFramework.ads.AdAPIEvent = function(b) {
+	E(GameFramework.ads.AdAPIEvent, this, [b])
 };
-GameFramework.Gw.Gy.prototype = {};
-GameFramework.Gw.Gy.c = t();
+GameFramework.ads.AdAPIEvent.prototype = {};
+GameFramework.ads.AdAPIEvent.c = t();
 T(function() {
-			GameFramework.Gw.Gy.u("GameFramework.ads.AdAPIEvent",
+			GameFramework.ads.AdAPIEvent.u("GameFramework.ads.AdAPIEvent",
 					GameFramework.events.Event)
 		});
 U(function() {
-			GameFramework.Gw.Gy.c()
+			GameFramework.ads.AdAPIEvent.c()
 		});
 GameFramework.connected = Type.ci("GameFramework.connected");
 GameFramework.connected.ef = function() {
