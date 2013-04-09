@@ -12999,13 +12999,21 @@ GameFramework.JSBaseApp.prototype = {
 						j = stream.vc.substr(j + 1, k - j - 1) | 0;
 						k = stream.vc.substr(k + 1) | 0;
 						var l = this.NB[h];
-						l
-								? (l = this.NB[h], typeof l == "string"
-										&& this.nk(l.substr(j, k - j), stream))
-								: (this.NB[h] = true, k = this.Op + h, (new XMLHttpRequest).overrideMimeType
-										|| (j = k.indexOf(".bin"), j != -1
-												&& (k = k.substr(0, j)
-														+ ".utf8")), Za(stream, h, k))
+						if(l) {
+							if(typeof l == "string") {
+								this.nk(l.substr(j, k - j), stream);
+							}
+						} else {
+							this.NB[h] = true;
+							k = this.Op + h;
+							if(!(new XMLHttpRequest).overrideMimeType) {
+								j = k.indexOf(".bin");
+								if(j != -1) {
+									k = k.substr(0, j) + ".utf8";
+								}
+							}
+							Za(stream, h, k);
+						}
 					} else
 						h = Ya(stream, this.Op + stream.vc), h.nY = stream, this.tN[h
 								.toString()] = stream, stream.rd = h;
