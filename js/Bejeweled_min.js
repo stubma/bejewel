@@ -1,4 +1,4 @@
-alert('a34f');
+alert('333');
 function ca(b) {
 	throw b;
 }
@@ -1361,9 +1361,9 @@ ss.CancelEventArgs = function() {
 };
 ss.CancelEventArgs.prototype = {};
 ss.CancelEventArgs.registerClass("CancelEventArgs", ss.EventArgs);
-ss.DS = dummy();
-ss.DS.prototype = {};
-Ba(ss.DS, "INotifyPropertyChanged");
+ss.INotifyPropertyChanged = dummy();
+ss.INotifyPropertyChanged.prototype = {};
+Ba(ss.INotifyPropertyChanged, "INotifyPropertyChanged");
 ss.PropertyChangedEventArgs = function(b) {
 	E(ss.PropertyChangedEventArgs, this);
 	this.qqa = b
