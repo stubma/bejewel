@@ -1746,27 +1746,30 @@ function lc(b, c, d, f, g, h, j, k, l, m, o, q, r) {
 						* j)
 	}
 }
-function mc(b) {
-	var c = document.getElementById(b);
-	if (!c)
+
+// load shader from dom, by shader script dom id
+function loadShader(id) {
+	var shader = document.getElementById(id);
+	if (!shader)
 		return null;
-	for (var b = "", d = c.firstChild; d;)
-		d.nodeType == 3 && (b += d.textContent), d = d.nextSibling;
-	if (c.type == "x-shader/x-fragment")
-		c = gl.createShader(gl.FRAGMENT_SHADER);
-	else if (c.type == "x-shader/x-vertex")
-		c = gl.createShader(gl.VERTEX_SHADER);
+	for (var src = "", child = shader.firstChild; child;)
+		child.nodeType == 3 && (src += child.textContent), child = child.nextSibling;
+	if (shader.type == "x-shader/x-fragment")
+		shader = gl.createShader(gl.FRAGMENT_SHADER);
+	else if (shader.type == "x-shader/x-vertex")
+		shader = gl.createShader(gl.VERTEX_SHADER);
 	else
 		return null;
-	gl.shaderSource(c, b);
-	gl.compileShader(c);
-	gl.getShaderParameter(c, gl.COMPILE_STATUS)
-			|| ca(Error("Shader compilation error: " + gl.getShaderInfoLog(c)));
-	return c
+	gl.shaderSource(shader, src);
+	gl.compileShader(shader);
+	gl.getShaderParameter(shader, gl.COMPILE_STATUS)
+			|| ca(Error("Shader compilation error: " + gl.getShaderInfoLog(shader)));
+	return shader
 }
+
 var nc, oc, pc = 1, O, qc;
 function rc() {
-	var b = mc("shader-fs"), c = mc("shader-vs");
+	var b = loadShader("shader-fs"), c = loadShader("shader-vs");
 	oc = c;
 	O = gl.createProgram();
 	gl.attachShader(O, c);
