@@ -140,8 +140,6 @@ function HandleException(e) {
         var aType = e.type ? e.type : "error";
         var aStack = e.stackStr ? e.stackStr : e.stack ? e.stack.replaceAll('\n', '').substring(0, 1024) : "";
         var aMessage = e.message;
-		alert(aMessage);
-		alert(aStack);
         if (e.GetDetails) {
             aMessage = e.GetDetails();
             aType = "loadingError";
@@ -203,7 +201,7 @@ soundManager.flashLoadTimeout = 0;
 soundManager.waitForWindowLoad = true;
 soundManager.onload = JSFExt_SoundManagerReady;
 soundManager.onerror = JSFExt_SoundError;
-
+alert('aadd');
 JS_Init();
 gApp = new Game.BejApp();
 JFSExt_SetRequiresBinaryHack(false);

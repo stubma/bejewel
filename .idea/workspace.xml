@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="" />
+    <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bejeweled_min.js" afterPath="$PROJECT_DIR$/js/Bejeweled_min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
+    </list>
     <ignored path="bejewel.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365264647261" ignored="false" />
@@ -10,7 +13,7 @@
     <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365408132098" ignored="false" />
     <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365566882505" ignored="false" />
     <file path="/fragment.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365523764710" ignored="false" />
-    <file path="/main.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365567080678" ignored="false" />
+    <file path="/main.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365567975104" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +36,7 @@
       <file leaf-file-name="Bejeweled_min.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19664" column="41" selection-start="562412" selection-end="562412" vertical-scroll-proportion="0.33126935">
+            <state line="398" column="13" selection-start="8484" selection-end="8490" vertical-scroll-proportion="0.33238637">
               <folding />
             </state>
           </provider>
@@ -42,7 +45,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="22" selection-start="5448" selection-end="5448" vertical-scroll-proportion="0.0">
+            <state line="203" column="11" selection-start="7152" selection-end="7152" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -73,8 +76,8 @@
         <option value="$PROJECT_DIR$/js/soundmanager2.js" />
         <option value="127.0.0.1/~maruojie/bejewel/js/main.js" />
         <option value="127.0.0.1/~maruojie/bejewel/js/Bejeweled_min.js" />
-        <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/Bejeweled_min.js" />
+        <option value="$PROJECT_DIR$/js/main.js" />
       </list>
     </option>
   </component>
@@ -227,7 +230,7 @@
       <recent name="$PROJECT_DIR$/js" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.bejewel (remote)">
+  <component name="RunManager" selected="JavaScript Debug.bejewel (local)">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -491,14 +494,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="22" selection-start="5448" selection-end="5448" vertical-scroll-proportion="0.0">
+        <state line="203" column="11" selection-start="7152" selection-end="7152" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19664" column="41" selection-start="562412" selection-end="562412" vertical-scroll-proportion="0.33126935">
+        <state line="398" column="13" selection-start="8484" selection-end="8490" vertical-scroll-proportion="0.33238637">
           <folding />
         </state>
       </provider>
