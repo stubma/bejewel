@@ -1302,11 +1302,11 @@ ss.IDisposable = dummy();
 ss.IDisposable.prototype = {};
 registerInterface(ss.IDisposable, "IDisposable");
 ss.StringBuilder = function(b) {
-	this.WL = ss.isNullUndef(b) ? [] : [b]
+	this.buf = ss.isNullUndef(b) ? [] : [b]
 };
 ss.StringBuilder.prototype = {
 	append : function(b) {
-		ss.isNullUndef(b) || this.WL.add(b);
+		ss.isNullUndef(b) || this.buf.add(b);
 		return this
 	},
 	Wq : function(b) {
@@ -1315,10 +1315,10 @@ ss.StringBuilder.prototype = {
 		return this
 	},
 	clear : function() {
-		this.WL.clear()
+		this.buf.clear()
 	},
 	toString : function(b) {
-		return this.WL.join(b || "")
+		return this.buf.join(b || "")
 	}
 };
 ss.StringBuilder.registerClass("StringBuilder");
