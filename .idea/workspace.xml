@@ -4,7 +4,6 @@
     <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bejeweled_min.js" afterPath="$PROJECT_DIR$/js/Bejeweled_min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bejewel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,19 +33,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Bejeweled_min.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Bejeweled_min.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="39" selection-start="1936" selection-end="1936" vertical-scroll-proportion="-8.637624">
+            <state line="14737" column="35" selection-start="421207" selection-end="421209" vertical-scroll-proportion="-3.0545454">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="229" column="10" selection-start="7932" selection-end="7932" vertical-scroll-proportion="0.0">
+            <state line="229" column="12" selection-start="7934" selection-end="7934" vertical-scroll-proportion="0.89528793">
               <folding />
             </state>
           </provider>
@@ -409,7 +408,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/Bejeweled_min.js</url>
-          <line>2038</line>
+          <line>2043</line>
           <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -499,16 +498,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
+    <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="229" column="10" selection-start="7932" selection-end="7932" vertical-scroll-proportion="0.0">
+        <state line="14737" column="35" selection-start="421207" selection-end="421209" vertical-scroll-proportion="-3.0545454">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
+    <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="39" selection-start="1936" selection-end="1936" vertical-scroll-proportion="-8.637624">
+        <state line="229" column="12" selection-start="7934" selection-end="7934" vertical-scroll-proportion="0.89528793">
           <folding />
         </state>
       </provider>
