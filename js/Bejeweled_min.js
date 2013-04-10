@@ -1982,7 +1982,7 @@ var classEntries = [], classInitEntries = [];
 function addClassEntry(b) {
 	classEntries[classEntries.length] = b
 }
-function U(b) {
+function addClassInitEntry(b) {
 	classInitEntries[classInitEntries.length] = b
 }
 
@@ -2011,7 +2011,7 @@ GameFramework.JSONHelperData.c = dummy();
 addClassEntry(function() {
 			GameFramework.JSONHelperData.registerClass("GameFramework.JSONHelperData", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.JSONHelperData.c()
 		});
 GameFramework.JSONFormatException = function(b, c) {
@@ -2027,7 +2027,7 @@ GameFramework.JSONFormatException.c = dummy();
 addClassEntry(function() {
 			GameFramework.JSONFormatException.registerClass("GameFramework.JSONFormatException", System.wJ)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.JSONFormatException.c()
 		});
 GameFramework.Sprite = dummy();
@@ -2036,7 +2036,7 @@ GameFramework.Sprite.c = dummy();
 addClassEntry(function() {
 			GameFramework.Sprite.registerClass("GameFramework.Sprite", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.Sprite.c()
 		});
 GameFramework.BaseApp = function() {
@@ -2249,7 +2249,7 @@ GameFramework.BaseApp.c = function() {
 addClassEntry(function() {
 			GameFramework.BaseApp.registerClass("GameFramework.BaseApp", GameFramework.Sprite)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.BaseApp.c()
 		});
 GameFramework.CurvedVal = function(b) {
@@ -2654,7 +2654,7 @@ GameFramework.CurvedVal.c = function() {
 addClassEntry(function() {
 			GameFramework.CurvedVal.registerClass("GameFramework.CurvedVal", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.CurvedVal.c()
 		});
 GameFramework.DataBuffer = function() {
@@ -2755,7 +2755,7 @@ GameFramework.DataBuffer.c = dummy();
 addClassEntry(function() {
 			GameFramework.DataBuffer.registerClass("GameFramework.DataBuffer", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.DataBuffer.c()
 		});
 GameFramework.DataBufferData = dummy();
@@ -2831,7 +2831,7 @@ GameFramework.DataBufferData.c = dummy();
 addClassEntry(function() {
 			GameFramework.DataBufferData.registerClass("GameFramework.DataBufferData", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.DataBufferData.c()
 		});
 GameFramework.Insets = function(b, c, d, f) {
@@ -2854,7 +2854,7 @@ GameFramework.Insets.c = dummy();
 addClassEntry(function() {
 			GameFramework.Insets.registerClass("GameFramework.Insets", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.Insets.c()
 		});
 GameFramework.la = {};
@@ -2964,7 +2964,7 @@ GameFramework.NoRename.c = dummy();
 addClassEntry(function() {
 			GameFramework.NoRename.registerClass("GameFramework.NoRename", System.Zaa)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.NoRename.c()
 		});
 GameFramework.TArray = function() {
@@ -3004,7 +3004,7 @@ GameFramework.TArray.c = dummy();
 addClassEntry(function() {
 			GameFramework.TArray.registerClass("GameFramework.TArray", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TArray.c()
 		});
 GameFramework.TDictionary = function() {
@@ -3027,7 +3027,7 @@ addClassEntry(function() {
 			GameFramework.TDictionary.registerClass("GameFramework.TDictionary", null,
 					GameFramework.misc.ZJ)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TDictionary.c()
 		});
 GameFramework.TDictionaryEnumerator = function(b, c) {
@@ -3054,7 +3054,7 @@ GameFramework.TDictionaryEnumerator.c = dummy();
 addClassEntry(function() {
 			GameFramework.TDictionaryEnumerator.registerClass("GameFramework.TDictionaryEnumerator", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TDictionaryEnumerator.c()
 		});
 GameFramework.TIntDictionary = function() {
@@ -3074,7 +3074,7 @@ addClassEntry(function() {
 			GameFramework.TIntDictionary.registerClass("GameFramework.TIntDictionary", null,
 					GameFramework.misc.ZJ)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TIntDictionary.c()
 		});
 GameFramework.TMapKeyEnumerator = set("Bg");
@@ -3098,7 +3098,7 @@ GameFramework.TMapKeyEnumerator.c = dummy();
 addClassEntry(function() {
 			GameFramework.TMapKeyEnumerator.registerClass("GameFramework.TMapKeyEnumerator", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TMapKeyEnumerator.c()
 		});
 GameFramework.TMapValueEnumerator = set("Bg");
@@ -3122,7 +3122,7 @@ GameFramework.TMapValueEnumerator.c = dummy();
 addClassEntry(function() {
 			GameFramework.TMapValueEnumerator.registerClass("GameFramework.TMapValueEnumerator", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TMapValueEnumerator.c()
 		});
 GameFramework.TIntMap = function() {
@@ -3144,7 +3144,7 @@ GameFramework.TIntMap.c = dummy();
 addClassEntry(function() {
 			GameFramework.TIntMap.registerClass("GameFramework.TIntMap", null, GameFramework.misc.ZJ)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TIntMap.c()
 		});
 GameFramework.TIntRect = function(b, c, d, f) {
@@ -3185,7 +3185,7 @@ GameFramework.TIntRect.c = dummy();
 addClassEntry(function() {
 			GameFramework.TIntRect.registerClass("GameFramework.TIntRect", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TIntRect.c()
 		});
 GameFramework.TIntVector = function() {
@@ -3220,7 +3220,7 @@ GameFramework.TIntVector.c = dummy();
 addClassEntry(function() {
 			GameFramework.TIntVector.registerClass("GameFramework.TIntVector", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TIntVector.c()
 		});
 GameFramework.TMapEnumerator = function(b, c) {
@@ -3245,7 +3245,7 @@ GameFramework.TMapEnumerator.c = dummy();
 addClassEntry(function() {
 			GameFramework.TMapEnumerator.registerClass("GameFramework.TMapEnumerator", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TMapEnumerator.c()
 		});
 GameFramework.TMap = function() {
@@ -3267,7 +3267,7 @@ GameFramework.TMap.c = dummy();
 addClassEntry(function() {
 			GameFramework.TMap.registerClass("GameFramework.TMap", null, GameFramework.misc.ZJ)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TMap.c()
 		});
 GameFramework.TRect = function(b, c, d, f) {
@@ -3305,7 +3305,7 @@ GameFramework.TRect.c = dummy();
 addClassEntry(function() {
 			GameFramework.TRect.registerClass("GameFramework.TRect", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TRect.c()
 		});
 GameFramework.TVector = function(b) {
@@ -3361,7 +3361,7 @@ GameFramework.TVector.c = dummy();
 addClassEntry(function() {
 			GameFramework.TVector.registerClass("GameFramework.TVector", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.TVector.c()
 		});
 GameFramework.Utils = dummy();
@@ -3593,7 +3593,7 @@ GameFramework.Utils.c = function() {
 addClassEntry(function() {
 			GameFramework.Utils.registerClass("GameFramework.Utils", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.Utils.c()
 		});
 GameFramework.XMLParser = function() {
@@ -3620,7 +3620,7 @@ GameFramework.XMLParser.c = dummy();
 addClassEntry(function() {
 			GameFramework.XMLParser.registerClass("GameFramework.XMLParser", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.XMLParser.c()
 		});
 GameFramework.XMLParserList = dummy();
@@ -3641,7 +3641,7 @@ GameFramework.XMLParserList.c = dummy();
 addClassEntry(function() {
 			GameFramework.XMLParserList.registerClass("GameFramework.XMLParserList", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.XMLParserList.c()
 		});
 GameFramework.ads = Type.ci("GameFramework.ads");
@@ -3654,7 +3654,7 @@ addClassEntry(function() {
 			GameFramework.ads.AdAPIEvent.registerClass("GameFramework.ads.AdAPIEvent",
 					GameFramework.events.Event)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.ads.AdAPIEvent.c()
 		});
 GameFramework.connected = Type.ci("GameFramework.connected");
@@ -3691,7 +3691,7 @@ addClassEntry(function() {
 					"GameFramework.connected.ConnectedRequest",
 					GameFramework.events.EventDispatcher)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.connected.ConnectedRequest.c()
 		});
 GameFramework.connected.Database = function() {
@@ -3713,7 +3713,7 @@ GameFramework.connected.Database.c = function() {
 addClassEntry(function() {
 			GameFramework.connected.Database.registerClass("GameFramework.connected.Database", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.connected.Database.c()
 		});
 GameFramework.connected.Facebook = function() {
@@ -3725,7 +3725,7 @@ addClassEntry(function() {
 			GameFramework.connected.Facebook.registerClass("GameFramework.connected.Facebook",
 					GameFramework.connected.SocialService)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.connected.Facebook.c()
 		});
 GameFramework.connected.HTTPService = dummy();
@@ -3774,7 +3774,7 @@ addClassEntry(function() {
 			GameFramework.connected.HTTPService.registerClass("GameFramework.connected.HTTPService",
 					null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.connected.HTTPService.c()
 		});
 GameFramework.connected.SocialService = function() {
@@ -3790,7 +3790,7 @@ addClassEntry(function() {
 			GameFramework.connected.SocialService.registerClass(
 					"GameFramework.connected.SocialService", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.connected.SocialService.c()
 		});
 GameFramework.connected.UserInfo = dummy();
@@ -3801,7 +3801,7 @@ GameFramework.connected.UserInfo.c = dummy();
 addClassEntry(function() {
 			GameFramework.connected.UserInfo.registerClass("GameFramework.connected.UserInfo", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.connected.UserInfo.c()
 		});
 GameFramework.events = Type.ci("GameFramework.events");
@@ -3821,7 +3821,7 @@ GameFramework.events.Event.c = function() {
 addClassEntry(function() {
 			GameFramework.events.Event.registerClass("GameFramework.events.Event", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.events.Event.c()
 		});
 GameFramework.events.EventDispatcher = function() {
@@ -3850,7 +3850,7 @@ addClassEntry(function() {
 			GameFramework.events.EventDispatcher.registerClass("GameFramework.events.EventDispatcher", null,
 					System.Wl)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.events.EventDispatcher.c()
 		});
 GameFramework.events.IOErrorEvent = function(b) {
@@ -3864,7 +3864,7 @@ addClassEntry(function() {
 			GameFramework.events.IOErrorEvent.registerClass("GameFramework.events.IOErrorEvent",
 					GameFramework.events.Event)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.events.IOErrorEvent.c()
 		});
 GameFramework.geom = Type.ci("GameFramework.geom");
@@ -3945,7 +3945,7 @@ GameFramework.geom.Axes3.c = dummy();
 addClassEntry(function() {
 			GameFramework.geom.Axes3.registerClass("GameFramework.geom.Axes3", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.geom.Axes3.c()
 		});
 GameFramework.geom.Coords3 = function(b, c, d) {
@@ -4048,7 +4048,7 @@ GameFramework.geom.Coords3.c = dummy();
 addClassEntry(function() {
 			GameFramework.geom.Coords3.registerClass("GameFramework.geom.Coords3", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.geom.Coords3.c()
 		});
 GameFramework.geom.Matrix = function() {
@@ -4121,7 +4121,7 @@ GameFramework.geom.Matrix.c = dummy();
 addClassEntry(function() {
 			GameFramework.geom.Matrix.registerClass("GameFramework.geom.Matrix", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.geom.Matrix.c()
 		});
 GameFramework.geom.Matrix3D = function() {
@@ -4174,7 +4174,7 @@ GameFramework.geom.Matrix3D.c = function() {
 addClassEntry(function() {
 			GameFramework.geom.Matrix3D.registerClass("GameFramework.geom.Matrix3D", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.geom.Matrix3D.c()
 		});
 GameFramework.geom.Quat3 = function(b, c) {
@@ -4275,7 +4275,7 @@ GameFramework.geom.Quat3.c = dummy();
 addClassEntry(function() {
 			GameFramework.geom.Quat3.registerClass("GameFramework.geom.Quat3", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.geom.Quat3.c()
 		});
 GameFramework.geom.TIntPoint = function(b, c) {
@@ -4299,7 +4299,7 @@ GameFramework.geom.TIntPoint.c = dummy();
 addClassEntry(function() {
 			GameFramework.geom.TIntPoint.registerClass("GameFramework.geom.TIntPoint", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.geom.TIntPoint.c()
 		});
 GameFramework.geom.TPoint = function(b, c) {
@@ -4347,7 +4347,7 @@ GameFramework.geom.TPoint.c = dummy();
 addClassEntry(function() {
 			GameFramework.geom.TPoint.registerClass("GameFramework.geom.TPoint", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.geom.TPoint.c()
 		});
 GameFramework.geom.Vector3 = function(b, c, d) {
@@ -4430,7 +4430,7 @@ GameFramework.geom.Vector3.c = dummy();
 addClassEntry(function() {
 			GameFramework.geom.Vector3.registerClass("GameFramework.geom.Vector3", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.geom.Vector3.c()
 		});
 GameFramework.gfx = Type.ci("GameFramework.gfx");
@@ -4479,7 +4479,7 @@ GameFramework.gfx.Camera.c = dummy();
 addClassEntry(function() {
 			GameFramework.gfx.Camera.registerClass("GameFramework.gfx.Camera", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.gfx.Camera.c()
 		});
 GameFramework.gfx.Color = function(b, c, d, f) {
@@ -4593,7 +4593,7 @@ GameFramework.gfx.Color.c = function() {
 addClassEntry(function() {
 			GameFramework.gfx.Color.registerClass("GameFramework.gfx.Color", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.gfx.Color.c()
 		});
 GameFramework.gfx.Oi = {};
@@ -4629,7 +4629,7 @@ GameFramework.gfx.TriVertex.c = dummy();
 addClassEntry(function() {
 			GameFramework.gfx.TriVertex.registerClass("GameFramework.gfx.TriVertex", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.gfx.TriVertex.c()
 		});
 GameFramework.gfx.Graphics = function() {
@@ -4996,7 +4996,7 @@ GameFramework.gfx.Graphics.c = dummy();
 addClassEntry(function() {
 			GameFramework.gfx.Graphics.registerClass("GameFramework.gfx.Graphics", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.gfx.Graphics.c()
 		});
 GameFramework.gfx.Graphics3D = set("Uc");
@@ -5023,7 +5023,7 @@ GameFramework.gfx.Graphics3D.c = dummy();
 addClassEntry(function() {
 			GameFramework.gfx.Graphics3D.registerClass("GameFramework.gfx.Graphics3D", null, System.Wl)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.gfx.Graphics3D.c()
 		});
 GameFramework.gfx.Graphics3D.yf = {};
@@ -5081,7 +5081,7 @@ addClassEntry(function() {
 			GameFramework.gfx.OffsetDrawable.registerClass("GameFramework.gfx.OffsetDrawable", null,
 					GameFramework.gfx.WJ)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.gfx.OffsetDrawable.c()
 		});
 GameFramework.gfx.PerspectiveCamera = function(b, c, d, f) {
@@ -5128,7 +5128,7 @@ addClassEntry(function() {
 			GameFramework.gfx.PerspectiveCamera.registerClass("GameFramework.gfx.PerspectiveCamera",
 					GameFramework.gfx.Camera)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.gfx.PerspectiveCamera.c()
 		});
 GameFramework.gfx.TransformedDrawable = function(b, c) {
@@ -5157,7 +5157,7 @@ addClassEntry(function() {
 			GameFramework.gfx.TransformedDrawable.registerClass("GameFramework.gfx.TransformedDrawable", null,
 					GameFramework.gfx.WJ)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.gfx.TransformedDrawable.c()
 		});
 GameFramework.misc = Type.ci("GameFramework.misc");
@@ -5332,7 +5332,7 @@ GameFramework.misc.Bezier.c = dummy();
 addClassEntry(function() {
 			GameFramework.misc.Bezier.registerClass("GameFramework.misc.Bezier", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.misc.Bezier.c()
 		});
 GameFramework.misc.BSpline = function() {
@@ -5473,7 +5473,7 @@ GameFramework.misc.BSpline.c = dummy();
 addClassEntry(function() {
 			GameFramework.misc.BSpline.registerClass("GameFramework.misc.BSpline", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.misc.BSpline.c()
 		});
 GameFramework.misc.CurveCacheRecord = dummy();
@@ -5486,7 +5486,7 @@ GameFramework.misc.CurveCacheRecord.c = dummy();
 addClassEntry(function() {
 			GameFramework.misc.CurveCacheRecord.registerClass("GameFramework.misc.CurveCacheRecord", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.misc.CurveCacheRecord.c()
 		});
 GameFramework.misc.CurveValDataPoint = dummy();
@@ -5499,7 +5499,7 @@ GameFramework.misc.CurveValDataPoint.c = dummy();
 addClassEntry(function() {
 			GameFramework.misc.CurveValDataPoint.registerClass("GameFramework.misc.CurveValDataPoint", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.misc.CurveValDataPoint.c()
 		});
 GameFramework.misc.DisposeProxy = set("GC");
@@ -5514,7 +5514,7 @@ addClassEntry(function() {
 			GameFramework.misc.DisposeProxy.registerClass("GameFramework.misc.DisposeProxy", null,
 					System.Wl)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.misc.DisposeProxy.c()
 		});
 GameFramework.misc.DisposeProxyStatic = set("GC");
@@ -5529,7 +5529,7 @@ addClassEntry(function() {
 			GameFramework.misc.DisposeProxyStatic.registerClass("GameFramework.misc.DisposeProxyStatic", null,
 					GameFramework.yla)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.misc.DisposeProxyStatic.c()
 		});
 GameFramework.misc.JSONString = set("Za");
@@ -5540,7 +5540,7 @@ GameFramework.misc.JSONString.c = dummy();
 addClassEntry(function() {
 			GameFramework.misc.JSONString.registerClass("GameFramework.misc.JSONString", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.misc.JSONString.c()
 		});
 GameFramework.misc.Key1 = function(b) {
@@ -5551,7 +5551,7 @@ GameFramework.misc.Key1.c = dummy();
 addClassEntry(function() {
 			GameFramework.misc.Key1.registerClass("GameFramework.misc.Key1", GameFramework.misc.KeyVal)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.misc.Key1.c()
 		});
 GameFramework.misc.KeyVal = function(b, c) {
@@ -5566,7 +5566,7 @@ GameFramework.misc.KeyVal.c = dummy();
 addClassEntry(function() {
 			GameFramework.misc.KeyVal.registerClass("GameFramework.misc.KeyVal", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.misc.KeyVal.c()
 		});
 GameFramework.misc.SexyMathHermite = function() {
@@ -5647,7 +5647,7 @@ GameFramework.misc.SexyMathHermite.c = function() {
 addClassEntry(function() {
 			GameFramework.misc.SexyMathHermite.registerClass("GameFramework.misc.SexyMathHermite", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.misc.SexyMathHermite.c()
 		});
 GameFramework.misc.TMapSorter = function(b, c) {
@@ -5662,7 +5662,7 @@ GameFramework.misc.TMapSorter.c = dummy();
 addClassEntry(function() {
 			GameFramework.misc.TMapSorter.registerClass("GameFramework.misc.TMapSorter", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.misc.TMapSorter.c()
 		});
 GameFramework.resources = Type.ci("GameFramework.resources");
@@ -5703,7 +5703,7 @@ GameFramework.resources.BaseRes.c = dummy();
 addClassEntry(function() {
 			GameFramework.resources.BaseRes.registerClass("GameFramework.resources.BaseRes", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.BaseRes.c()
 		});
 GameFramework.resources.FontCharData = dummy();
@@ -5725,7 +5725,7 @@ GameFramework.resources.FontCharData.c = dummy();
 addClassEntry(function() {
 			GameFramework.resources.FontCharData.registerClass("GameFramework.resources.FontCharData", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.FontCharData.c()
 		});
 GameFramework.resources.FontDrawCmd = dummy();
@@ -5740,7 +5740,7 @@ GameFramework.resources.FontDrawCmd.c = dummy();
 addClassEntry(function() {
 			GameFramework.resources.FontDrawCmd.registerClass("GameFramework.resources.FontDrawCmd", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.FontDrawCmd.c()
 		});
 GameFramework.resources.FontDrawData = dummy();
@@ -5752,7 +5752,7 @@ GameFramework.resources.FontDrawData.c = dummy();
 addClassEntry(function() {
 			GameFramework.resources.FontDrawData.registerClass("GameFramework.resources.FontDrawData", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.FontDrawData.c()
 		});
 GameFramework.resources.FontLayer = function() {
@@ -5806,7 +5806,7 @@ GameFramework.resources.FontLayer.c = dummy();
 addClassEntry(function() {
 			GameFramework.resources.FontLayer.registerClass("GameFramework.resources.FontLayer", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.FontLayer.c()
 		});
 GameFramework.resources.FontResource = function() {
@@ -6236,7 +6236,7 @@ GameFramework.resources.FontResource.c = function() {
 addClassEntry(function() {
 			GameFramework.resources.FontResource.registerClass("GameFramework.resources.FontResource", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.FontResource.c()
 		});
 GameFramework.resources.ImageInst = function(b) {
@@ -6269,7 +6269,7 @@ addClassEntry(function() {
 			GameFramework.resources.ImageInst.registerClass("GameFramework.resources.ImageInst", null,
 					GameFramework.gfx.WJ)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.ImageInst.c()
 		});
 GameFramework.resources.De = {};
@@ -6347,7 +6347,7 @@ addClassEntry(function() {
 			GameFramework.resources.ImageResource.registerClass("GameFramework.resources.ImageResource", null,
 					GameFramework.gfx.WJ, GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.ImageResource.c()
 		});
 GameFramework.resources.MeshPiece = dummy();
@@ -6370,7 +6370,7 @@ GameFramework.resources.MeshPiece.c = dummy();
 addClassEntry(function() {
 			GameFramework.resources.MeshPiece.registerClass("GameFramework.resources.MeshPiece", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.MeshPiece.c()
 		});
 GameFramework.resources.MeshEvent = function(b) {
@@ -6389,7 +6389,7 @@ addClassEntry(function() {
 			GameFramework.resources.MeshEvent.registerClass("GameFramework.resources.MeshEvent",
 					GameFramework.events.Event)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.MeshEvent.c()
 		});
 GameFramework.resources.MeshResource = function() {
@@ -6458,7 +6458,7 @@ addClassEntry(function() {
 			GameFramework.resources.MeshResource.registerClass("GameFramework.resources.MeshResource",
 					GameFramework.events.EventDispatcher)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.MeshResource.c()
 		});
 GameFramework.resources.PIValuePoint = dummy();
@@ -6472,7 +6472,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIValuePoint.registerClass("GameFramework.resources.PIValuePoint", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIValuePoint.c()
 		});
 GameFramework.resources.PIGeomDataEx = dummy();
@@ -6486,7 +6486,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIGeomDataEx.registerClass("GameFramework.resources.PIGeomDataEx", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIGeomDataEx.c()
 		});
 GameFramework.resources.PIValue = dummy();
@@ -6620,7 +6620,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIValue.registerClass("GameFramework.resources.PIValue", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIValue.c()
 		});
 GameFramework.resources.PIValuePoint2D = dummy();
@@ -6634,7 +6634,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIValuePoint2D.registerClass("GameFramework.resources.PIValuePoint2D", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIValuePoint2D.c()
 		});
 GameFramework.resources.PIValue2D = dummy();
@@ -6683,7 +6683,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIValue2D.registerClass("GameFramework.resources.PIValue2D", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIValue2D.c()
 		});
 GameFramework.resources.PIInterpolatorPoint = dummy();
@@ -6697,7 +6697,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIInterpolatorPoint.registerClass("GameFramework.resources.PIInterpolatorPoint",
 					null, GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIInterpolatorPoint.c()
 		});
 GameFramework.resources.PIInterpolator = function() {
@@ -6729,7 +6729,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIInterpolator.registerClass("GameFramework.resources.PIInterpolator", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIInterpolator.c()
 		});
 GameFramework.resources.PITextureChunk = dummy();
@@ -6749,7 +6749,7 @@ addClassEntry(function() {
 			GameFramework.resources.PITextureChunk.registerClass("GameFramework.resources.PITextureChunk", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PITextureChunk.c()
 		});
 GameFramework.resources.PITexture = function() {
@@ -6773,7 +6773,7 @@ addClassEntry(function() {
 			GameFramework.resources.PITexture.registerClass("GameFramework.resources.PITexture", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PITexture.c()
 		});
 GameFramework.resources.PILifeValueSample = dummy();
@@ -6792,7 +6792,7 @@ addClassEntry(function() {
 			GameFramework.resources.PILifeValueSample.registerClass("GameFramework.resources.PILifeValueSample",
 					null, GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PILifeValueSample.c()
 		});
 GameFramework.resources.PILifeValueTable = dummy();
@@ -6808,7 +6808,7 @@ addClassEntry(function() {
 			GameFramework.resources.PILifeValueTable.registerClass("GameFramework.resources.PILifeValueTable", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PILifeValueTable.c()
 		});
 GameFramework.resources.PILifeValueTable.Nd = {};
@@ -6876,7 +6876,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIParticleDef.registerClass("GameFramework.resources.PIParticleDef", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIParticleDef.c()
 		});
 GameFramework.resources.PIParticleDef.p = {};
@@ -6932,7 +6932,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIEmitter.registerClass("GameFramework.resources.PIEmitter", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIEmitter.c()
 		});
 GameFramework.resources.PIEmitter.p = {};
@@ -7040,7 +7040,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIParticleInstance.registerClass("GameFramework.resources.PIParticleInstance",
 					null, GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIParticleInstance.c()
 		});
 GameFramework.resources.PIParticleInstance.Sa = {};
@@ -7082,7 +7082,7 @@ addClassEntry(function() {
 					"GameFramework.resources.PIParticleDefInstance", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIParticleDefInstance.c()
 		});
 GameFramework.resources.PIParticleGroup = function() {
@@ -7113,7 +7113,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIParticleGroup.registerClass("GameFramework.resources.PIParticleGroup", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIParticleGroup.c()
 		});
 GameFramework.resources.PIEmitterBase = function() {
@@ -7131,7 +7131,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIEmitterBase.registerClass("GameFramework.resources.PIEmitterBase", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIEmitterBase.c()
 		});
 GameFramework.resources.PIFreeEmitterInstance = function() {
@@ -7152,7 +7152,7 @@ addClassEntry(function() {
 					"GameFramework.resources.PIFreeEmitterInstance",
 					GameFramework.resources.PIParticleInstance)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIFreeEmitterInstance.c()
 		});
 GameFramework.resources.PIEmitterInstanceDef = dummy();
@@ -7179,7 +7179,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIEmitterInstanceDef.registerClass("GameFramework.resources.PIEmitterInstanceDef",
 					null, GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIEmitterInstanceDef.c()
 		});
 GameFramework.resources.PIEmitterInstanceDef.p = {};
@@ -7253,7 +7253,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIEmitterInstance.registerClass("GameFramework.resources.PIEmitterInstance",
 					GameFramework.resources.PIEmitterBase)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIEmitterInstance.c()
 		});
 GameFramework.resources.PIDeflector = dummy();
@@ -7273,7 +7273,7 @@ GameFramework.resources.PIDeflector.c = dummy();
 addClassEntry(function() {
 			GameFramework.resources.PIDeflector.registerClass("GameFramework.resources.PIDeflector", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIDeflector.c()
 		});
 GameFramework.resources.PIBlocker = dummy();
@@ -7288,7 +7288,7 @@ GameFramework.resources.PIBlocker.c = dummy();
 addClassEntry(function() {
 			GameFramework.resources.PIBlocker.registerClass("GameFramework.resources.PIBlocker", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIBlocker.c()
 		});
 GameFramework.resources.PIForce = function() {
@@ -7310,7 +7310,7 @@ GameFramework.resources.PIForce.c = dummy();
 addClassEntry(function() {
 			GameFramework.resources.PIForce.registerClass("GameFramework.resources.PIForce", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIForce.c()
 		});
 GameFramework.resources.PILayerDef = function() {
@@ -7332,7 +7332,7 @@ addClassEntry(function() {
 			GameFramework.resources.PILayerDef.registerClass("GameFramework.resources.PILayerDef", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PILayerDef.c()
 		});
 GameFramework.resources.PILayer = function() {
@@ -7367,7 +7367,7 @@ addClassEntry(function() {
 			GameFramework.resources.PILayer.registerClass("GameFramework.resources.PILayer", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PILayer.c()
 		});
 GameFramework.resources.PIEffectDef = function() {
@@ -7387,7 +7387,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIEffectDef.registerClass("GameFramework.resources.PIEffectDef", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIEffectDef.c()
 		});
 GameFramework.resources.PIEffect = function() {
@@ -10119,7 +10119,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIEffect.registerClass("GameFramework.resources.PIEffect", null,
 					GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PIEffect.c()
 		});
 GameFramework.resources.PopAnimCalcObjectPosData = dummy();
@@ -10132,7 +10132,7 @@ addClassEntry(function() {
 			GameFramework.resources.PopAnimCalcObjectPosData.registerClass(
 					"GameFramework.resources.PopAnimCalcObjectPosData", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PopAnimCalcObjectPosData.c()
 		});
 GameFramework.resources.PopAnimResource = function() {
@@ -10834,7 +10834,7 @@ addClassEntry(function() {
 			GameFramework.resources.PopAnimResource.registerClass("GameFramework.resources.PopAnimResource",
 					GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.PopAnimResource.c()
 		});
 GameFramework.resources.RenderEffectPass = function(b, c) {
@@ -10853,7 +10853,7 @@ addClassEntry(function() {
 			GameFramework.resources.RenderEffectPass.registerClass("GameFramework.resources.RenderEffectPass", null,
 					System.Wl)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.RenderEffectPass.c()
 		});
 GameFramework.resources.RenderEffectRunHandle = set("NH");
@@ -10877,7 +10877,7 @@ addClassEntry(function() {
 					"GameFramework.resources.RenderEffectRunHandle", null,
 					System.Wl)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.RenderEffectRunHandle.c()
 		});
 GameFramework.resources.RenderEffect = dummy();
@@ -10894,7 +10894,7 @@ GameFramework.resources.RenderEffect.c = dummy();
 addClassEntry(function() {
 			GameFramework.resources.RenderEffect.registerClass("GameFramework.resources.RenderEffect", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.RenderEffect.c()
 		});
 GameFramework.resources.ResourceManager = function() {
@@ -11218,7 +11218,7 @@ GameFramework.resources.ResourceManager.c = function() {
 addClassEntry(function() {
 			GameFramework.resources.ResourceManager.registerClass("GameFramework.resources.ResourceManager", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.ResourceManager.c()
 		});
 GameFramework.resources.ResourceStreamer = function() {
@@ -11250,7 +11250,7 @@ addClassEntry(function() {
 			GameFramework.resources.ResourceStreamer.registerClass("GameFramework.resources.ResourceStreamer",
 					GameFramework.events.EventDispatcher)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.ResourceStreamer.c()
 		});
 GameFramework.resources.SoundInstance = set("i9");
@@ -11272,7 +11272,7 @@ addClassEntry(function() {
 			GameFramework.resources.SoundInstance.registerClass("GameFramework.resources.SoundInstance", null,
 					System.Wl)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.SoundInstance.c()
 		});
 GameFramework.resources.SoundManager = function() {
@@ -11294,7 +11294,7 @@ addClassEntry(function() {
 					.registerClass("GameFramework.resources.SoundManager",
 							GameFramework.events.EventDispatcher)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.SoundManager.c()
 		});
 GameFramework.resources.SoundResource = dummy();
@@ -11305,7 +11305,7 @@ GameFramework.resources.SoundResource.c = dummy();
 addClassEntry(function() {
 			GameFramework.resources.SoundResource.registerClass("GameFramework.resources.SoundResource", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.SoundResource.c()
 		});
 GameFramework.resources.popanim = Type.ci("GameFramework.resources.popanim");
@@ -11319,7 +11319,7 @@ addClassEntry(function() {
 			GameFramework.resources.popanim.PopAnimCommand.registerClass(
 					"GameFramework.resources.popanim.PopAnimCommand", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimCommand.c()
 		});
 GameFramework.resources.popanim.PopAnimDef = function() {
@@ -11335,7 +11335,7 @@ addClassEntry(function() {
 			GameFramework.resources.popanim.PopAnimDef.registerClass(
 					"GameFramework.resources.popanim.PopAnimDef", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimDef.c()
 		});
 GameFramework.resources.popanim.PopAnimEvent = function(b) {
@@ -11350,7 +11350,7 @@ addClassEntry(function() {
 					"GameFramework.resources.popanim.PopAnimEvent",
 					GameFramework.events.Event)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimEvent.c()
 		});
 GameFramework.resources.popanim.PopAnimFrame = dummy();
@@ -11364,7 +11364,7 @@ addClassEntry(function() {
 			GameFramework.resources.popanim.PopAnimFrame.registerClass(
 					"GameFramework.resources.popanim.PopAnimFrame", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimFrame.c()
 		});
 GameFramework.resources.popanim.PopAnimImage = function() {
@@ -11391,7 +11391,7 @@ addClassEntry(function() {
 			GameFramework.resources.popanim.PopAnimImage.registerClass(
 					"GameFramework.resources.popanim.PopAnimImage", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimImage.c()
 		});
 GameFramework.resources.popanim.PopAnimObjectDef = dummy();
@@ -11404,7 +11404,7 @@ addClassEntry(function() {
 			GameFramework.resources.popanim.PopAnimObjectDef.registerClass(
 					"GameFramework.resources.popanim.PopAnimObjectDef", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimObjectDef.c()
 		});
 GameFramework.resources.popanim.PopAnimObjectInst = dummy();
@@ -11423,7 +11423,7 @@ addClassEntry(function() {
 			GameFramework.resources.popanim.PopAnimObjectInst.registerClass(
 					"GameFramework.resources.popanim.PopAnimObjectInst", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimObjectInst.c()
 		});
 GameFramework.resources.popanim.PopAnimObjectPos = function() {
@@ -11450,7 +11450,7 @@ addClassEntry(function() {
 			GameFramework.resources.popanim.PopAnimObjectPos.registerClass(
 					"GameFramework.resources.popanim.PopAnimObjectPos", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimObjectPos.c()
 		});
 GameFramework.resources.popanim.PopAnimObjectPosData = function() {
@@ -11493,7 +11493,7 @@ addClassEntry(function() {
 			GameFramework.resources.popanim.PopAnimObjectPosData.registerClass(
 					"GameFramework.resources.popanim.PopAnimObjectPosData", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimObjectPosData.c()
 		});
 GameFramework.resources.popanim.PopAnimParticleEffect = dummy();
@@ -11512,7 +11512,7 @@ addClassEntry(function() {
 			GameFramework.resources.popanim.PopAnimParticleEffect.registerClass(
 					"GameFramework.resources.popanim.PopAnimParticleEffect", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimParticleEffect.c()
 		});
 GameFramework.resources.popanim.PopAnimSpriteDef = dummy();
@@ -11533,7 +11533,7 @@ addClassEntry(function() {
 			GameFramework.resources.popanim.PopAnimSpriteDef.registerClass(
 					"GameFramework.resources.popanim.PopAnimSpriteDef", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimSpriteDef.c()
 		});
 GameFramework.resources.popanim.PopAnimSpriteInst = dummy();
@@ -11579,7 +11579,7 @@ addClassEntry(function() {
 					"GameFramework.resources.popanim.PopAnimSpriteInst", null,
 					System.Wl)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimSpriteInst.c()
 		});
 GameFramework.widgets = Type.ci("GameFramework.widgets");
@@ -11698,7 +11698,7 @@ addClassEntry(function() {
 			GameFramework.widgets.ButtonWidget.registerClass("GameFramework.widgets.ButtonWidget",
 					GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.widgets.ButtonWidget.c()
 		});
 Game = Type.ci("Game");
@@ -11764,7 +11764,7 @@ Game.Checkbox.c = dummy();
 addClassEntry(function() {
 			Game.Checkbox.registerClass("Game.Checkbox", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Checkbox.c()
 		});
 GameFramework.widgets.ClassicWidget = function() {
@@ -11964,7 +11964,7 @@ addClassEntry(function() {
 			GameFramework.widgets.ClassicWidget.registerClass("GameFramework.widgets.ClassicWidget",
 					GameFramework.events.EventDispatcher)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.widgets.ClassicWidget.c()
 		});
 GameFramework.widgets.ClassicWidgetAppState = function() {
@@ -12073,7 +12073,7 @@ addClassEntry(function() {
 			GameFramework.widgets.ClassicWidgetAppState.registerClass("GameFramework.widgets.ClassicWidgetAppState",
 					GameFramework.events.EventDispatcher, GameFramework.iea)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.widgets.ClassicWidgetAppState.c()
 		});
 GameFramework.widgets.DialogEvent = function(b, c) {
@@ -12094,7 +12094,7 @@ addClassEntry(function() {
 			GameFramework.widgets.DialogEvent.registerClass("GameFramework.widgets.DialogEvent",
 					GameFramework.events.Event)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.widgets.DialogEvent.c()
 		});
 GameFramework.widgets.Dialog = function(b, c, d, f, g, h, j) {
@@ -12365,7 +12365,7 @@ addClassEntry(function() {
 			GameFramework.widgets.Dialog.registerClass("GameFramework.widgets.Dialog",
 					GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.widgets.Dialog.c()
 		});
 GameFramework.widgets.WidthCheckEntry = dummy();
@@ -12377,7 +12377,7 @@ GameFramework.widgets.WidthCheckEntry.c = dummy();
 addClassEntry(function() {
 			GameFramework.widgets.WidthCheckEntry.registerClass("GameFramework.widgets.WidthCheckEntry", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.widgets.WidthCheckEntry.c()
 		});
 GameFramework.widgets.EditWidget = function() {
@@ -12753,7 +12753,7 @@ addClassEntry(function() {
 			GameFramework.widgets.EditWidget.registerClass("GameFramework.widgets.EditWidget",
 					GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.widgets.EditWidget.c()
 		});
 Game.Slider = function(b, c) {
@@ -12867,7 +12867,7 @@ Game.Slider.c = dummy();
 addClassEntry(function() {
 			Game.Slider.registerClass("Game.Slider", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Slider.c()
 		});
 GameFramework.widgets.WidgetEvent = function(b) {
@@ -12898,7 +12898,7 @@ addClassEntry(function() {
 			GameFramework.widgets.WidgetEvent.registerClass("GameFramework.widgets.WidgetEvent",
 					GameFramework.events.Event)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.widgets.WidgetEvent.c()
 		});
 GameFramework = Type.ci("GameFramework");
@@ -13256,7 +13256,7 @@ GameFramework.JSBaseApp.c = function() {
 addClassEntry(function() {
 			GameFramework.JSBaseApp.registerClass("GameFramework.JSBaseApp", GameFramework.BaseApp)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.JSBaseApp.c()
 		});
 GameFramework.JSDataBufferData = function() {
@@ -13308,7 +13308,7 @@ addClassEntry(function() {
 			GameFramework.JSDataBufferData.registerClass("GameFramework.JSDataBufferData",
 					GameFramework.DataBufferData)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.JSDataBufferData.c()
 		});
 GameFramework.gfx = Type.ci("GameFramework.gfx");
@@ -13489,7 +13489,7 @@ addClassEntry(function() {
 			GameFramework.gfx.JSGraphics.registerClass("GameFramework.gfx.JSGraphics",
 					GameFramework.gfx.Graphics)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.gfx.JSGraphics.c()
 		});
 GameFramework.gfx.JSGraphics3D = function(b) {
@@ -13615,7 +13615,7 @@ addClassEntry(function() {
 			GameFramework.gfx.JSGraphics3D.registerClass("GameFramework.gfx.JSGraphics3D",
 					GameFramework.gfx.Graphics3D)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.gfx.JSGraphics3D.c()
 		});
 GameFramework.resources = Type.ci("GameFramework.resources");
@@ -13659,7 +13659,7 @@ addClassEntry(function() {
 			GameFramework.resources.JSImageInst.registerClass("GameFramework.resources.JSImageInst",
 					GameFramework.resources.ImageInst)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.JSImageInst.c()
 		});
 GameFramework.resources.JSImageResource = function() {
@@ -13729,7 +13729,7 @@ addClassEntry(function() {
 			GameFramework.resources.JSImageResource.registerClass("GameFramework.resources.JSImageResource",
 					GameFramework.resources.ImageResource)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.JSImageResource.c()
 		});
 GameFramework.resources.JSMeshPiece = function() {
@@ -13748,7 +13748,7 @@ addClassEntry(function() {
 			GameFramework.resources.JSMeshPiece.registerClass("GameFramework.resources.JSMeshPiece",
 					GameFramework.resources.MeshPiece)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.JSMeshPiece.c()
 		});
 GameFramework.resources.JSMeshResource = function() {
@@ -13816,7 +13816,7 @@ addClassEntry(function() {
 			GameFramework.resources.JSMeshResource.registerClass("GameFramework.resources.JSMeshResource",
 					GameFramework.resources.MeshResource)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.JSMeshResource.c()
 		});
 GameFramework.resources.JSRenderEffectBlock = function(b, c, d) {
@@ -13834,7 +13834,7 @@ addClassEntry(function() {
 			GameFramework.resources.JSRenderEffectBlock.registerClass("GameFramework.resources.JSRenderEffectBlock",
 					null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.JSRenderEffectBlock.c()
 		});
 GameFramework.resources.JSRenderEffectPass = dummy();
@@ -13846,7 +13846,7 @@ addClassEntry(function() {
 			GameFramework.resources.JSRenderEffectPass.registerClass("GameFramework.resources.JSRenderEffectPass",
 					null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.JSRenderEffectPass.c()
 		});
 GameFramework.resources.JSRenderEffectTechnique = function() {
@@ -13860,7 +13860,7 @@ addClassEntry(function() {
 			GameFramework.resources.JSRenderEffectTechnique.registerClass(
 					"GameFramework.resources.JSRenderEffectTechnique", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.JSRenderEffectTechnique.c()
 		});
 GameFramework.resources.JSRenderEffectRunHandle = function(b) {
@@ -13875,7 +13875,7 @@ addClassEntry(function() {
 					"GameFramework.resources.JSRenderEffectRunHandle",
 					GameFramework.resources.RenderEffectRunHandle)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.JSRenderEffectRunHandle.c()
 		});
 GameFramework.resources.JSRenderEffect = function() {
@@ -14042,7 +14042,7 @@ addClassEntry(function() {
 			GameFramework.resources.JSRenderEffect.registerClass("GameFramework.resources.JSRenderEffect",
 					GameFramework.resources.RenderEffect)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.JSRenderEffect.c()
 		});
 GameFramework.resources.JSResourceManager = function() {
@@ -14143,7 +14143,7 @@ addClassEntry(function() {
 			GameFramework.resources.JSResourceManager.registerClass("GameFramework.resources.JSResourceManager",
 					GameFramework.resources.ResourceManager)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.JSResourceManager.c()
 		});
 GameFramework.resources.JSSoundInstance = function(b) {
@@ -14198,7 +14198,7 @@ addClassEntry(function() {
 			GameFramework.resources.JSSoundInstance.registerClass("GameFramework.resources.JSSoundInstance",
 					GameFramework.resources.SoundInstance)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.JSSoundInstance.c()
 		});
 GameFramework.resources.JSSoundResource = function() {
@@ -14212,7 +14212,7 @@ addClassEntry(function() {
 			GameFramework.resources.JSSoundResource.registerClass("GameFramework.resources.JSSoundResource",
 					GameFramework.resources.SoundResource)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameFramework.resources.JSSoundResource.c()
 		});
 Game = Type.ci("Game");
@@ -14280,7 +14280,7 @@ Game.Announcement.c = dummy();
 addClassEntry(function() {
 			Game.Announcement.registerClass("Game.Announcement", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Announcement.c()
 		});
 Game.BackgroundLoader = set("Tn");
@@ -14296,7 +14296,7 @@ Game.BackgroundLoader.c = dummy();
 addClassEntry(function() {
 			Game.BackgroundLoader.registerClass("Game.BackgroundLoader", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.BackgroundLoader.c()
 		});
 Game.Background = function() {
@@ -14488,7 +14488,7 @@ Game.Background.c = function() {
 addClassEntry(function() {
 			Game.Background.registerClass("Game.Background", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Background.c()
 		});
 Game.Bej3Button = function(b) {
@@ -14506,7 +14506,7 @@ Game.Bej3Button.c = dummy();
 addClassEntry(function() {
 			Game.Bej3Button.registerClass("Game.Bej3Button", GameFramework.widgets.ButtonWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Bej3Button.c()
 		});
 Game.Bej3DialogButton = function(b) {
@@ -14552,7 +14552,7 @@ Game.Bej3DialogButton.c = dummy();
 addClassEntry(function() {
 			Game.Bej3DialogButton.registerClass("Game.Bej3DialogButton", GameFramework.widgets.ButtonWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Bej3DialogButton.c()
 		});
 Game.Bej3Dialog = function(b, c, d, f, g, h, j, k) {
@@ -14668,7 +14668,7 @@ Game.Bej3Dialog.c = dummy();
 addClassEntry(function() {
 			Game.Bej3Dialog.registerClass("Game.Bej3Dialog", GameFramework.widgets.Dialog)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Bej3Dialog.c()
 		});
 Game.Bej3Dialog.gg = {};
@@ -14691,7 +14691,7 @@ Game.LoadingError.c = dummy();
 addClassEntry(function() {
 			Game.LoadingError.registerClass("Game.LoadingError", System.wJ)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.LoadingError.c()
 		});
 Game.ScalingIconButton = function() {
@@ -14722,7 +14722,7 @@ Game.ScalingIconButton.c = dummy();
 addClassEntry(function() {
 			Game.ScalingIconButton.registerClass("Game.ScalingIconButton", Game.IconButton)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.ScalingIconButton.c()
 		});
 Game.MusicInterface = dummy();
@@ -14731,7 +14731,7 @@ Game.MusicInterface.c = dummy();
 addClassEntry(function() {
 			Game.MusicInterface.registerClass("Game.MusicInterface", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.MusicInterface.c()
 		});
 Game.ResourceCache = function() {
@@ -14744,7 +14744,7 @@ Game.ResourceCache.c = dummy();
 addClassEntry(function() {
 			Game.ResourceCache.registerClass("Game.ResourceCache", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.ResourceCache.c()
 		});
 Game.TopWidget = function() {
@@ -14793,7 +14793,7 @@ Game.TopWidget.c = dummy();
 addClassEntry(function() {
 			Game.TopWidget.registerClass("Game.TopWidget", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.TopWidget.c()
 		});
 Game.BejApp = function() {
@@ -15355,7 +15355,7 @@ Game.BejApp.c = function() {
 addClassEntry(function() {
 			Game.BejApp.registerClass("Game.BejApp", GameFramework.JSBaseApp)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.BejApp.c()
 		});
 Game.SwapData = function() {
@@ -15381,7 +15381,7 @@ Game.SwapData.c = dummy();
 addClassEntry(function() {
 			Game.SwapData.registerClass("Game.SwapData", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.SwapData.c()
 		});
 Game.MoveData = dummy();
@@ -15397,7 +15397,7 @@ Game.MoveData.c = dummy();
 addClassEntry(function() {
 			Game.MoveData.registerClass("Game.MoveData", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.MoveData.c()
 		});
 Game.QueuedMove = dummy();
@@ -15415,7 +15415,7 @@ Game.QueuedMove.c = dummy();
 addClassEntry(function() {
 			Game.QueuedMove.registerClass("Game.QueuedMove", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.QueuedMove.c()
 		});
 Game.Lightning = function() {
@@ -15433,7 +15433,7 @@ Game.Lightning.c = function() {
 addClassEntry(function() {
 			Game.Lightning.registerClass("Game.Lightning", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Lightning.c()
 		});
 Game.ElectrocutedCel = dummy();
@@ -15446,7 +15446,7 @@ Game.ElectrocutedCel.c = dummy();
 addClassEntry(function() {
 			Game.ElectrocutedCel.registerClass("Game.ElectrocutedCel", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.ElectrocutedCel.c()
 		});
 Game.GridTileData = function() {
@@ -15462,7 +15462,7 @@ Game.GridTileData.c = dummy();
 addClassEntry(function() {
 			Game.GridTileData.registerClass("Game.GridTileData", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.GridTileData.c()
 		});
 Game.GridData = function(b, c) {
@@ -15491,7 +15491,7 @@ Game.GridData.c = dummy();
 addClassEntry(function() {
 			Game.GridData.registerClass("Game.GridData", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.GridData.c()
 		});
 Game.LightningZap = function(b, c, d, f, g, h, j, k) {
@@ -15642,7 +15642,7 @@ Game.LightningZap.c = dummy();
 addClassEntry(function() {
 			Game.LightningZap.registerClass("Game.LightningZap", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.LightningZap.c()
 		});
 Game.LightningStorm = function(b, c, d) {
@@ -15955,7 +15955,7 @@ Game.LightningStorm.c = function() {
 addClassEntry(function() {
 			Game.LightningStorm.registerClass("Game.LightningStorm", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.LightningStorm.c()
 		});
 Game.LightningStorm.Yb = {};
@@ -15988,7 +15988,7 @@ Game.DistortionQuad.c = dummy();
 addClassEntry(function() {
 			Game.DistortionQuad.registerClass("Game.DistortionQuad", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.DistortionQuad.c()
 		});
 Game.MatchSet = function() {
@@ -16004,7 +16004,7 @@ Game.MatchSet.c = dummy();
 addClassEntry(function() {
 			Game.MatchSet.registerClass("Game.MatchSet", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.MatchSet.c()
 		});
 Game.StateInfo = dummy();
@@ -16018,7 +16018,7 @@ Game.StateInfo.c = dummy();
 addClassEntry(function() {
 			Game.StateInfo.registerClass("Game.StateInfo", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.StateInfo.c()
 		});
 Game.Span = dummy();
@@ -16027,7 +16027,7 @@ Game.Span.c = dummy();
 addClassEntry(function() {
 			Game.Span.registerClass("Game.Span", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Span.c()
 		});
 Game.SpanRow = function() {
@@ -16040,7 +16040,7 @@ Game.SpanRow.c = dummy();
 addClassEntry(function() {
 			Game.SpanRow.registerClass("Game.SpanRow", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.SpanRow.c()
 		});
 Game.DeferredTutorial = dummy();
@@ -16052,7 +16052,7 @@ Game.DeferredTutorial.c = dummy();
 addClassEntry(function() {
 			Game.DeferredTutorial.registerClass("Game.DeferredTutorial", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.DeferredTutorial.c()
 		});
 Game.PieceIter = function(b) {
@@ -16085,7 +16085,7 @@ Game.PieceIter.c = dummy();
 addClassEntry(function() {
 			Game.PieceIter.registerClass("Game.PieceIter", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.PieceIter.c()
 		});
 Game.BarInstance = dummy();
@@ -16099,7 +16099,7 @@ Game.BarInstance.c = dummy();
 addClassEntry(function() {
 			Game.BarInstance.registerClass("Game.BarInstance", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.BarInstance.c()
 		});
 Game.Board = function() {
@@ -20991,7 +20991,7 @@ Game.Board.c = function() {
 addClassEntry(function() {
 			Game.Board.registerClass("Game.Board", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Board.c()
 		});
 Game.Board.el = {};
@@ -21189,7 +21189,7 @@ Game.ClassicBoard.c = dummy();
 addClassEntry(function() {
 			Game.ClassicBoard.registerClass("Game.ClassicBoard", Game.Board)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.ClassicBoard.c()
 		});
 Game.ClassicEndLevelDialog = function(b) {
@@ -21285,7 +21285,7 @@ Game.ClassicEndLevelDialog.c = dummy();
 addClassEntry(function() {
 			Game.ClassicEndLevelDialog.registerClass("Game.ClassicEndLevelDialog", Game.EndLevelDialog)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.ClassicEndLevelDialog.c()
 		});
 Game.ColorCycle = function() {
@@ -21352,7 +21352,7 @@ Game.ColorCycle.c = function() {
 addClassEntry(function() {
 			Game.ColorCycle.registerClass("Game.ColorCycle", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.ColorCycle.c()
 		});
 Game.CrystalBall = function(b, c) {
@@ -21591,7 +21591,7 @@ Game.CrystalBall.c = function() {
 addClassEntry(function() {
 			Game.CrystalBall.registerClass("Game.CrystalBall", GameFramework.widgets.ButtonWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.CrystalBall.c()
 		});
 Game.CurvedValTable = dummy();
@@ -21629,7 +21629,7 @@ Game.CurvedValTable.c = function() {
 addClassEntry(function() {
 			Game.CurvedValTable.registerClass("Game.CurvedValTable", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.CurvedValTable.c()
 		});
 Game.DeferredSound = function(b, c, d) {
@@ -21646,7 +21646,7 @@ Game.DeferredSound.c = dummy();
 addClassEntry(function() {
 			Game.DeferredSound.registerClass("Game.DeferredSound", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.DeferredSound.c()
 		});
 Game.DialogMgr = function() {
@@ -21756,7 +21756,7 @@ Game.DialogMgr.c = function() {
 addClassEntry(function() {
 			Game.DialogMgr.registerClass("Game.DialogMgr", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.DialogMgr.c()
 		});
 Game.Effect = function(b) {
@@ -21941,7 +21941,7 @@ Game.Effect.c = dummy();
 addClassEntry(function() {
 			Game.Effect.registerClass("Game.Effect", null, GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Effect.c()
 		});
 Game.Effect.da = {};
@@ -22018,7 +22018,7 @@ Game.TextNotifyEffect.c = dummy();
 addClassEntry(function() {
 			Game.TextNotifyEffect.registerClass("Game.TextNotifyEffect", Game.Effect)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.TextNotifyEffect.c()
 		});
 Game.ParticleEffect = function(b) {
@@ -22094,7 +22094,7 @@ Game.ParticleEffect.c = dummy();
 addClassEntry(function() {
 			Game.ParticleEffect.registerClass("Game.ParticleEffect", Game.Effect)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.ParticleEffect.c()
 		});
 Game.PopAnimEffect = function(b) {
@@ -22147,7 +22147,7 @@ Game.PopAnimEffect.c = dummy();
 addClassEntry(function() {
 			Game.PopAnimEffect.registerClass("Game.PopAnimEffect", Game.Effect)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.PopAnimEffect.c()
 		});
 Game.EffectsManager = function(b) {
@@ -22564,7 +22564,7 @@ Game.EffectsManager.c = dummy();
 addClassEntry(function() {
 			Game.EffectsManager.registerClass("Game.EffectsManager", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.EffectsManager.c()
 		});
 Game.Bej3EditWidget = function() {
@@ -22589,7 +22589,7 @@ Game.Bej3EditWidget.c = dummy();
 addClassEntry(function() {
 			Game.Bej3EditWidget.registerClass("Game.Bej3EditWidget", GameFramework.widgets.EditWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Bej3EditWidget.c()
 		});
 Game.GlobalMembersEndLevelDialog = dummy();
@@ -22603,7 +22603,7 @@ Game.GlobalMembersEndLevelDialog.c = dummy();
 addClassEntry(function() {
 			Game.GlobalMembersEndLevelDialog.registerClass("Game.GlobalMembersEndLevelDialog", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.GlobalMembersEndLevelDialog.c()
 		});
 Game.EndLevelDialog = function(b) {
@@ -23026,7 +23026,7 @@ Game.EndLevelDialog.c = function() {
 addClassEntry(function() {
 			Game.EndLevelDialog.registerClass("Game.EndLevelDialog", Game.Bej3Dialog, GameFramework.widgets.$ba)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.EndLevelDialog.c()
 		});
 Game.EndLevelDialog.ug = {};
@@ -26242,7 +26242,7 @@ Game.GemOutlines.c = dummy();
 addClassEntry(function() {
 			Game.GemOutlines.registerClass("Game.GemOutlines", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.GemOutlines.c()
 		});
 Game.DM = dummy();
@@ -26370,7 +26370,7 @@ Game.DM.c = function() {
 addClassEntry(function() {
 			Game.DM.registerClass("Game.DM", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.DM.c()
 		});
 Game.DM.Ha = {};
@@ -26520,7 +26520,7 @@ Game.GlobalMembersHighScoreMgr.c = function() {
 addClassEntry(function() {
 			Game.GlobalMembersHighScoreMgr.registerClass("Game.GlobalMembersHighScoreMgr", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.GlobalMembersHighScoreMgr.c()
 		});
 Game.HighScoreEntry = function() {
@@ -26546,7 +26546,7 @@ Game.HighScoreEntry.c = dummy();
 addClassEntry(function() {
 			Game.HighScoreEntry.registerClass("Game.HighScoreEntry", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.HighScoreEntry.c()
 		});
 Game.HighScoreTable = function() {
@@ -26602,7 +26602,7 @@ Game.HighScoreTable.c = function() {
 addClassEntry(function() {
 			Game.HighScoreTable.registerClass("Game.HighScoreTable", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.HighScoreTable.c()
 		});
 Game.HighScoreMgr = function() {
@@ -26675,7 +26675,7 @@ Game.HighScoreMgr.c = function() {
 addClassEntry(function() {
 			Game.HighScoreMgr.registerClass("Game.HighScoreMgr", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.HighScoreMgr.c()
 		});
 Game.HintDialog = function(b, c, d, f, g) {
@@ -26777,7 +26777,7 @@ Game.HintDialog.c = dummy();
 addClassEntry(function() {
 			Game.HintDialog.registerClass("Game.HintDialog", Game.Bej3Dialog)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.HintDialog.c()
 		});
 Game.GemInfo = function() {
@@ -26822,7 +26822,7 @@ Game.GemInfo.c = dummy();
 addClassEntry(function() {
 			Game.GemInfo.registerClass("Game.GemInfo", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.GemInfo.c()
 		});
 Game.BoardInfo = dummy();
@@ -26845,7 +26845,7 @@ Game.BoardInfo.c = dummy();
 addClassEntry(function() {
 			Game.BoardInfo.registerClass("Game.BoardInfo", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.BoardInfo.c()
 		});
 Game.HyperAnimKey = function() {
@@ -26862,7 +26862,7 @@ Game.HyperAnimKey.c = dummy();
 addClassEntry(function() {
 			Game.HyperAnimKey.registerClass("Game.HyperAnimKey", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.HyperAnimKey.c()
 		});
 Game.HyperAnimSequence = function() {
@@ -26974,7 +26974,7 @@ Game.HyperAnimSequence.c = dummy();
 addClassEntry(function() {
 			Game.HyperAnimSequence.registerClass("Game.HyperAnimSequence", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.HyperAnimSequence.c()
 		});
 Game.HyperMaterial = function(b, c, d, f) {
@@ -26997,7 +26997,7 @@ Game.HyperMaterial.c = dummy();
 addClassEntry(function() {
 			Game.HyperMaterial.registerClass("Game.HyperMaterial", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.HyperMaterial.c()
 		});
 Game.Hyperspace = function() {
@@ -27012,7 +27012,7 @@ Game.Hyperspace.c = function() {
 addClassEntry(function() {
 			Game.Hyperspace.registerClass("Game.Hyperspace", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Hyperspace.c()
 		});
 Game.Hyperspace.Zb = {};
@@ -27758,7 +27758,7 @@ Game.HyperspaceUltra.c = function() {
 addClassEntry(function() {
 			Game.HyperspaceUltra.registerClass("Game.HyperspaceUltra", Game.Hyperspace)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.HyperspaceUltra.c()
 		});
 Game.HyperspaceUltra.ya = {};
@@ -27868,7 +27868,7 @@ Game.HyperspaceFallback.c = dummy();
 addClassEntry(function() {
 			Game.HyperspaceFallback.registerClass("Game.HyperspaceFallback", Game.Hyperspace)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.HyperspaceFallback.c()
 		});
 Game.IconButton = function() {
@@ -27887,7 +27887,7 @@ Game.IconButton.c = dummy();
 addClassEntry(function() {
 			Game.IconButton.registerClass("Game.IconButton", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.IconButton.c()
 		});
 Game.LoadingScreen = function(b) {
@@ -27929,7 +27929,7 @@ Game.LoadingScreen.c = dummy();
 addClassEntry(function() {
 			Game.LoadingScreen.registerClass("Game.LoadingScreen", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.LoadingScreen.c()
 		});
 Game.PartnerLogo = function() {
@@ -27946,7 +27946,7 @@ Game.PartnerLogo.c = dummy();
 addClassEntry(function() {
 			Game.PartnerLogo.registerClass("Game.PartnerLogo", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.PartnerLogo.c()
 		});
 Game.CurvedAlphaButton = function() {
@@ -27964,7 +27964,7 @@ Game.CurvedAlphaButton.c = dummy();
 addClassEntry(function() {
 			Game.CurvedAlphaButton.registerClass("Game.CurvedAlphaButton", GameFramework.widgets.ButtonWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.CurvedAlphaButton.c()
 		});
 Game.FrameButton = function() {
@@ -27981,7 +27981,7 @@ Game.FrameButton.c = dummy();
 addClassEntry(function() {
 			Game.FrameButton.registerClass("Game.FrameButton", GameFramework.widgets.ButtonWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.FrameButton.c()
 		});
 Game.TextButton = function(b, c) {
@@ -28036,7 +28036,7 @@ Game.TextButton.c = dummy();
 addClassEntry(function() {
 			Game.TextButton.registerClass("Game.TextButton", Game.Bej3Button)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.TextButton.c()
 		});
 Game.MainMenu = function() {
@@ -28658,7 +28658,7 @@ Game.MainMenu.c = function() {
 addClassEntry(function() {
 			Game.MainMenu.registerClass("Game.MainMenu", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.MainMenu.c()
 		});
 Game.MainMenu.gg = {};
@@ -28691,7 +28691,7 @@ Game.MessagerMsg.c = dummy();
 addClassEntry(function() {
 			Game.MessagerMsg.registerClass("Game.MessagerMsg", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.MessagerMsg.c()
 		});
 Game.Messager = function() {
@@ -28768,7 +28768,7 @@ Game.Messager.c = dummy();
 addClassEntry(function() {
 			Game.Messager.registerClass("Game.Messager", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Messager.c()
 		});
 Game.Messager.hv = {};
@@ -28865,7 +28865,7 @@ Game.Metrics.c = dummy();
 addClassEntry(function() {
 			Game.Metrics.registerClass("Game.Metrics", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Metrics.c()
 		});
 Game.MTRand = function() {
@@ -28942,7 +28942,7 @@ Game.MTRand.c = function() {
 addClassEntry(function() {
 			Game.MTRand.registerClass("Game.MTRand", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.MTRand.c()
 		});
 Game.OptionsDialog = function(b) {
@@ -29146,7 +29146,7 @@ Game.OptionsDialog.c = dummy();
 addClassEntry(function() {
 			Game.OptionsDialog.registerClass("Game.OptionsDialog", Game.Bej3Dialog)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.OptionsDialog.c()
 		});
 Game.OptionsDialog.cn = {};
@@ -29478,7 +29478,7 @@ Game.Piece.c = dummy();
 addClassEntry(function() {
 			Game.Piece.registerClass("Game.Piece", null, GameFramework.ff)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Piece.c()
 		});
 Game.Piece.K = {};
@@ -29706,7 +29706,7 @@ Game.Points.c = function() {
 addClassEntry(function() {
 			Game.Points.registerClass("Game.Points", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Points.c()
 		});
 Game.Points.Td = {};
@@ -29832,7 +29832,7 @@ Game.PointsManager.c = dummy();
 addClassEntry(function() {
 			Game.PointsManager.registerClass("Game.PointsManager", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.PointsManager.c()
 		});
 Game.Profile = function() {
@@ -29962,7 +29962,7 @@ Game.Profile.c = function() {
 addClassEntry(function() {
 			Game.Profile.registerClass("Game.Profile", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Profile.c()
 		});
 Game.Profile.Zv = {};
@@ -29985,7 +29985,7 @@ GameDll.Program.c = function() {
 addClassEntry(function() {
 			GameDll.Program.registerClass("GameDll.Program", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			GameDll.Program.c()
 		});
 Game.RankBarWidget = function(b, c, d, f) {
@@ -30122,7 +30122,7 @@ Game.RankBarWidget.c = dummy();
 addClassEntry(function() {
 			Game.RankBarWidget.registerClass("Game.RankBarWidget", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.RankBarWidget.c()
 		});
 Game.RankUpDialog = function(b) {
@@ -30220,7 +30220,7 @@ Game.RankUpDialog.c = dummy();
 addClassEntry(function() {
 			Game.RankUpDialog.registerClass("Game.RankUpDialog", Game.Bej3Dialog)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.RankUpDialog.c()
 		});
 Game.RecordsDialog = function(b) {
@@ -30397,7 +30397,7 @@ Game.RecordsDialog.c = function() {
 addClassEntry(function() {
 			Game.RecordsDialog.registerClass("Game.RecordsDialog", Game.Bej3Dialog)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.RecordsDialog.c()
 		});
 Game.Resources = dummy();
@@ -31779,7 +31779,7 @@ Game.Resources.c = function() {
 addClassEntry(function() {
 			Game.Resources.registerClass("Game.Resources", null, GameFramework.resources.xla)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Resources.c()
 		});
 Game.QuasiRandom = function() {
@@ -31814,7 +31814,7 @@ Game.QuasiRandom.c = dummy();
 addClassEntry(function() {
 			Game.QuasiRandom.registerClass("Game.QuasiRandom", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.QuasiRandom.c()
 		});
 Game.SpeedBoard = function(b) {
@@ -32659,7 +32659,7 @@ Game.SpeedBoard.c = dummy();
 addClassEntry(function() {
 			Game.SpeedBoard.registerClass("Game.SpeedBoard", Game.Board)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.SpeedBoard.c()
 		});
 Game.ElectroBolt = function() {
@@ -32682,7 +32682,7 @@ Game.ElectroBolt.c = dummy();
 addClassEntry(function() {
 			Game.ElectroBolt.registerClass("Game.ElectroBolt", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.ElectroBolt.c()
 		});
 Game.TimeBonusEffectTop = function(b) {
@@ -32772,7 +32772,7 @@ Game.TimeBonusEffectTop.c = dummy();
 addClassEntry(function() {
 			Game.TimeBonusEffectTop.registerClass("Game.TimeBonusEffectTop", Game.Effect)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.TimeBonusEffectTop.c()
 		});
 Game.TimeBonusEffect = function(b) {
@@ -33179,7 +33179,7 @@ Game.TimeBonusEffect.c = function() {
 addClassEntry(function() {
 			Game.TimeBonusEffect.registerClass("Game.TimeBonusEffect", Game.Effect)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.TimeBonusEffect.c()
 		});
 Game.SpeedCollectEffect = function(b, c, d, f, g) {
@@ -33302,7 +33302,7 @@ Game.SpeedCollectEffect.c = dummy();
 addClassEntry(function() {
 			Game.SpeedCollectEffect.registerClass("Game.SpeedCollectEffect", Game.Effect)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.SpeedCollectEffect.c()
 		});
 Game.LightningBarFillEffect = function() {
@@ -33443,7 +33443,7 @@ Game.LightningBarFillEffect.c = function() {
 addClassEntry(function() {
 			Game.LightningBarFillEffect.registerClass("Game.LightningBarFillEffect", Game.Effect)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.LightningBarFillEffect.c()
 		});
 Game.SpeedEndLevelDialog = function(b) {
@@ -33538,7 +33538,7 @@ Game.SpeedEndLevelDialog.c = dummy();
 addClassEntry(function() {
 			Game.SpeedEndLevelDialog.registerClass("Game.SpeedEndLevelDialog", Game.EndLevelDialog)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.SpeedEndLevelDialog.c()
 		});
 Game.SpreadCurve = function(b) {
@@ -33582,7 +33582,7 @@ Game.SpreadCurve.c = dummy();
 addClassEntry(function() {
 			Game.SpreadCurve.registerClass("Game.SpreadCurve", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.SpreadCurve.c()
 		});
 Game.TooltipManager = function() {
@@ -33651,7 +33651,7 @@ Game.TooltipManager.c = dummy();
 addClassEntry(function() {
 			Game.TooltipManager.registerClass("Game.TooltipManager", GameFramework.widgets.ClassicWidget)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.TooltipManager.c()
 		});
 Game.Tooltip = function() {
@@ -33677,7 +33677,7 @@ Game.Tooltip.c = dummy();
 addClassEntry(function() {
 			Game.Tooltip.registerClass("Game.Tooltip", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Tooltip.c()
 		});
 Game.Tooltip.Wc = {};
@@ -33906,7 +33906,7 @@ Game.TutorialStep.c = dummy();
 addClassEntry(function() {
 			Game.TutorialStep.registerClass("Game.TutorialStep", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.TutorialStep.c()
 		});
 Game.TutorialStep.hg = {};
@@ -34022,7 +34022,7 @@ Game.TutorialSequence.c = dummy();
 addClassEntry(function() {
 			Game.TutorialSequence.registerClass("Game.TutorialSequence", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.TutorialSequence.c()
 		});
 Game.TutorialMgr = function(b) {
@@ -34170,7 +34170,7 @@ Game.TutorialMgr.c = function() {
 addClassEntry(function() {
 			Game.TutorialMgr.registerClass("Game.TutorialMgr", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.TutorialMgr.c()
 		});
 Game.CheckMatrixInfo = dummy();
@@ -34184,7 +34184,7 @@ Game.CheckMatrixInfo.c = dummy();
 addClassEntry(function() {
 			Game.CheckMatrixInfo.registerClass("Game.CheckMatrixInfo", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.CheckMatrixInfo.c()
 		});
 Game.ColorTracker = function(b) {
@@ -34199,7 +34199,7 @@ Game.ColorTracker.c = dummy();
 addClassEntry(function() {
 			Game.ColorTracker.registerClass("Game.ColorTracker", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.ColorTracker.c()
 		});
 Game.BejUtil = dummy();
@@ -34248,7 +34248,7 @@ Game.BejUtil.c = dummy();
 addClassEntry(function() {
 			Game.BejUtil.registerClass("Game.BejUtil", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.BejUtil.c()
 		});
 Game.GfxUtil = dummy();
@@ -34264,7 +34264,7 @@ Game.GfxUtil.c = dummy();
 addClassEntry(function() {
 			Game.GfxUtil.registerClass("Game.GfxUtil", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.GfxUtil.c()
 		});
 Game.MathUtil = dummy();
@@ -34289,7 +34289,7 @@ Game.MathUtil.c = function() {
 addClassEntry(function() {
 			Game.MathUtil.registerClass("Game.MathUtil", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.MathUtil.c()
 		});
 Game.SoundUtil = dummy();
@@ -34313,7 +34313,7 @@ Game.SoundUtil.c = function() {
 addClassEntry(function() {
 			Game.SoundUtil.registerClass("Game.SoundUtil", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.SoundUtil.c()
 		});
 Game.Util = dummy();
@@ -34553,7 +34553,7 @@ Game.Util.c = function() {
 addClassEntry(function() {
 			Game.Util.registerClass("Game.Util", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Util.c()
 		});
 Game.Util.kq = {};
@@ -34576,6 +34576,6 @@ Game.Version.c = function() {
 addClassEntry(function() {
 			Game.Version.registerClass("Game.Version", null)
 		});
-U(function() {
+addClassInitEntry(function() {
 			Game.Version.c()
 		});
