@@ -1,3 +1,6 @@
+// log flag
+var TRACE = true;
+
 function ca(b) {
 	throw b;
 }
@@ -600,7 +603,7 @@ if (!String.prototype.trim)
 		return this.replace(/^\s*/, "")
 	};
 Array.qi = "Array";
-Array.GF = [ss.IEnumerable];
+Array.interfaces = [ss.IEnumerable];
 Array.O = function(b, c) {
 	for (var d = Array(b), f = 2; f < arguments.length; f++)
 		d[f - 2] = arguments[f];
@@ -1017,9 +1020,9 @@ Type.prototype.registerClass = function(name, parent, d) {
 	if (parent)
 		this.needCopyParent = true;
 	if (d) {
-		this.GF = [];
+		this.interfaces = [];
 		for (var f = 2; f < arguments.length; f++)
-			d = arguments[f], this.GF.add(d)
+			d = arguments[f], this.interfaces.add(d)
 	}
 };
 function registerInterface(intf, name) {
@@ -1056,11 +1059,11 @@ function isAncestor(type, clazz) {
 			d = d.parent
 		}
 	else if (type._isIntf) {
-		var f = clazz.GF;
+		var f = clazz.interfaces;
 		if (f && f.contains(type))
 			return true;
 		for (d = clazz.parent; d;) {
-			if ((f = d.GF) && f.contains(type))
+			if ((f = d.interfaces) && f.contains(type))
 				return true;
 			d = d.parent
 		}
@@ -1561,7 +1564,7 @@ function Za(b, c, d) {
 	var f = d.indexOf(".utf8") != -1, ajax = new XMLHttpRequest;
 	ajax.overrideMimeType || !requiresBinaryHack || f ? ajax.open("GET", d, true) : ajax.open("GET",
 			"file_getter.php?path=" + d, true);
-    console.log(d);
+    TRACE && ss.Debug.writeln(d);
 	ajax.onreadystatechange = function() {
 		if (ajax.readyState == 4)
 			ajax.status != 200 ? b.tk = true : curApp.KZ(c, ajax.responseText)

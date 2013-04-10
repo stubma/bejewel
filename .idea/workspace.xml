@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bejeweled_min.js" afterPath="$PROJECT_DIR$/js/Bejeweled_min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bejewel.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365264647261" ignored="false" />
     <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365336645136" ignored="false" />
-    <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365610741128" ignored="false" />
+    <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365611562782" ignored="false" />
     <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365408132098" ignored="false" />
     <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365609298907" ignored="false" />
     <file path="/fragment.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365571509530" ignored="false" />
@@ -36,7 +35,7 @@
       <file leaf-file-name="Bejeweled_min.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1093" column="13" selection-start="25627" selection-end="25627" vertical-scroll-proportion="0.33267328">
+            <state line="1748" column="9" selection-start="42367" selection-end="42367" vertical-scroll-proportion="0.33267328">
               <folding />
             </state>
           </provider>
@@ -457,13 +456,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="274" column="0" selection-start="6735" selection-end="6735" vertical-scroll-proportion="0.040871933">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="http://localhost/~maruojie/bejewel/js/main.js">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
@@ -492,9 +484,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="274" column="0" selection-start="6735" selection-end="6735" vertical-scroll-proportion="-1.0765027">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1093" column="13" selection-start="25627" selection-end="25627" vertical-scroll-proportion="0.33267328">
+        <state line="1748" column="9" selection-start="42367" selection-end="42367" vertical-scroll-proportion="0.33267328">
           <folding />
         </state>
       </provider>
