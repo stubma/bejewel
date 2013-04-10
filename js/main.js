@@ -226,3 +226,5 @@ var aLeftPillar = document.getElementById('leftPillar');
 aLeftPillar.onload = ResizeElements;
 var aLeftPillarBot = document.getElementById('leftPillarBot');
 aLeftPillarBot.onload = ResizeElements;
+
+alert('dfd');

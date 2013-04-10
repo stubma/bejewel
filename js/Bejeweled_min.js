@@ -1,4 +1,3 @@
-alert('df');
 function ca(b) {
 	throw b;
 }
@@ -281,7 +280,7 @@ window.ss = {
 				return f
 			},
 			a6 : function(b) {
-				b = (ss.ZL ? b.Cqa || b.S9 : b.S9).replace(/\{0\}/, b.name)
+				b = (ss.ZL ? b.Cqa || b.S9 : b.S9).replace(/\{0\}/, b.qi)
 						|| "";
 				if (b.substr(0, 2) === "%/")
 					var c = this.iV, b = c
@@ -303,20 +302,20 @@ window.ss = {
 				function g(b) {
 					var b = o(b), c = q(b);
 					c < B && !b.SL
-							&& (h[b.name] = b, k = true, d(b.dependencies, g));
+							&& (h[b.qi] = b, k = true, d(b.dependencies, g));
 					c < G && d(b.executionDependencies, g)
 				}
 				var h = {}, j = {}, k;
 				d(b, g);
 				k && (c(ss.XL, function(b) {
 							if (f(b.contains, function(b) {
-										if (!h[b.name])
+										if (!h[b.qi])
 											return true
 									})) {
 								var g = {}, k = 0;
 								d(b.contains, function(b) {
-											if ((b = j[b]) && !g[b.name])
-												g[b.name] = b, k += b.contains.length
+											if ((b = j[b]) && !g[b.qi])
+												g[b.qi] = b, k += b.contains.length
 														- 1
 										});
 								b.contains.length - 1 > k && (c(g, function(b) {
@@ -358,14 +357,14 @@ window.ss = {
 			},
 			fV : function(b) {
 				function c(d) {
-					var d = l(d), f = b.name, g = b;
+					var d = l(d), f = b.qi, g = b;
 					u(d, "_parents", {})[f] = g
 				}
 				d(b.dependencies, c);
 				d(b.executionDependencies, c)
 			},
 			s6 : function(c) {
-				var d = ss.scripts, h = c.name, j = c.contains;
+				var d = ss.scripts, h = c.qi, j = c.contains;
 				j ? (d = ss.XL, d[h] = c = b(d[h], c), c.TL = g(j), f(j,
 						function(b) {
 							var d = c;
@@ -396,7 +395,7 @@ window.ss = {
 	ss.Zi.b6();
 	ss.W5()
 })();
-Object.name = "Object";
+Object.qi = "Object";
 Object.parent = null;
 Object.Lqa = function(b) {
 	var c = 0, d;
@@ -414,11 +413,11 @@ Object.Zqa = function(b, c) {
 Function.prototype.tt = function() {
 	return this.apply(null, arguments)
 };
-Boolean.name = "Boolean";
+Boolean.qi = "Boolean";
 Boolean.parse = function(b) {
 	return b.toLowerCase() == "true"
 };
-Number.name = "Number";
+Number.qi = "Number";
 Number.parse = function(b) {
 	return !b || !b.length ? 0 : b.indexOf(".") >= 0 || b.indexOf("e") >= 0
 			|| na(b, "f") || na(b, "F") ? parseFloat(b) : parseInt(b, 10)
@@ -526,7 +525,7 @@ Number.prototype.JF = function(b, c) {
 Math.truncate = function(b) {
 	return b >= 0 ? Math.floor(b) : Math.ceil(b)
 };
-String.name = "String";
+String.qi = "String";
 String.a0 = "";
 String.k6 = function(b, c, d) {
 	d && (b && (b = b.toUpperCase()), c && (c = c.toUpperCase()));
@@ -600,7 +599,7 @@ if (!String.prototype.trim)
 	}, String.prototype.c$ = function() {
 		return this.replace(/^\s*/, "")
 	};
-Array.name = "Array";
+Array.qi = "Array";
 Array.GF = [ss.IEnumerable];
 Array.O = function(b, c) {
 	for (var d = Array(b), f = 2; f < arguments.length; f++)
@@ -715,7 +714,7 @@ if (!Array.prototype.some)
 Array.qra = function(b) {
 	return Array.prototype.slice.call(b)
 };
-RegExp.name = "RegExp";
+RegExp.qi = "RegExp";
 RegExp.parse = function(b) {
 	if (startsWith(b, "/")) {
 		var c = b.lastIndexOf("/");
@@ -724,7 +723,7 @@ RegExp.parse = function(b) {
 	}
 	return null
 };
-Date.name = "Date";
+Date.qi = "Date";
 Date.empty = null;
 Date.Mqa = function() {
 	return new Date
@@ -888,7 +887,7 @@ Date.prototype.JF = function(b, c) {
 Date.ira = function(b) {
 	return new Date(Date.parse(b))
 };
-Error.name = "Error";
+Error.qi = "Error";
 Error.xqa = function(b, c, d) {
 	b = Error(b);
 	if (c)
@@ -909,7 +908,7 @@ Error.xqa = function(b, c, d) {
 	return b
 };
 ss.Debug = window.tg ? window.tg : dummy();
-ss.Debug.name = "Debug";
+ss.Debug.qi = "Debug";
 if (!ss.Debug.writeln)
 	ss.Debug.writeln = function(b) {
 		window.console ? window.console.ZL
@@ -953,7 +952,7 @@ ss.Debug.LF = function(b, c, d, f, g) {
 					break
 				}
 				g.add(c);
-				var h = Type.aM(c).name, j = f + "  ";
+				var h = Type.aM(c).qi, j = f + "  ";
 				if (xa(Array, c)) {
 					b.Wq(f + d + ": {" + h + "}");
 					for (var d = c.length, k = 0; k < d; k++)
@@ -972,7 +971,7 @@ ss.Debug.LF = function(b, c, d, f, g) {
 };
 ss.Debug.sra = function(b, c) {
 	if ((!c || !c.length) && b !== null)
-		c = Type.aM(b).name;
+		c = Type.aM(b).qi;
 	var d = new ss.StringBuilder;
 	ss.Debug.LF(d, b, c, "", []);
 	ss.Debug.f$(d.toString())
@@ -988,8 +987,8 @@ ss.Debug.f$ = function(b) {
 	}
 };
 window.Type = Function;
-Type.name = "Type";
-__Namespace = set("name");
+Type.qi = "Type";
+__Namespace = set("qi");
 __Namespace.prototype = {
 	V5 : true
 };
@@ -1012,7 +1011,7 @@ Type.ci = function(b) {
 };
 Type.prototype.registerClass = function(name, parent, d) {
 	this.prototype.constructor = this;
-	this.name = name;
+	this.qi = name;
 	this._isClass = true;
 	this.parent = parent || Object;
 	if (parent)
@@ -1024,7 +1023,7 @@ Type.prototype.registerClass = function(name, parent, d) {
 	}
 };
 function registerInterface(intf, name) {
-	intf.name = name;
+	intf.qi = name;
 	intf._isIntf = true
 }
 Type.prototype.xP = function() {
@@ -1098,7 +1097,7 @@ Type.aM = function(b) {
 		c = b.constructor
 	} catch (d) {
 	}
-	if (!c || !c.name)
+	if (!c || !c.qi)
 		c = Object;
 	return c
 };
@@ -1219,7 +1218,7 @@ ss.Delegate.vqa = function(b) {
 		ss.Delegate[b] = Delegate.V2
 };
 ss.CultureInfo = function(b, c, d) {
-	this.name = b;
+	this.qi = b;
 	this.aZ = c;
 	this.kV = d
 };
@@ -1381,7 +1380,7 @@ ss.CollectionChangedAction.prototype = {
 var Da = ss.CollectionChangedAction, Ea;
 for (Ea in Da.prototype)
 	Da[Ea] = Da.prototype[Ea];
-Da.name = "CollectionChangedAction";
+Da.qi = "CollectionChangedAction";
 Da.YU = true;
 Da.toString = ss.Enum.toString;
 ss.CollectionChangedEventArgs = function(b, c, d) {
@@ -1973,7 +1972,7 @@ function S(b, c) {
 	if (!b) {
 		c == null && (c = "Assertion failed");
 		var d = new Xc(c);
-		d.pra = arguments.callee.caller.name;
+		d.pra = arguments.callee.caller.qi;
 		ca(d)
 	}
 }
