@@ -1,4 +1,4 @@
-alert('a3f');
+alert('a34f');
 function ca(b) {
 	throw b;
 }
@@ -1023,9 +1023,9 @@ Type.prototype.registerClass = function(name, parent, d) {
 			d = arguments[f], this.GF.add(d)
 	}
 };
-function Ba(b, c) {
-	b.name = c;
-	b.$U = true
+function Ba(clazz, name) {
+	clazz.name = name;
+	clazz.$U = true
 }
 Type.prototype.xP = function() {
 	if (this.needCopyParent) {
@@ -1299,9 +1299,9 @@ ss.ArrayEnumerator.prototype = {
 	}
 };
 ss.ArrayEnumerator.registerClass("ArrayEnumerator", null, ss.IEnumerator);
-ss.Wl = dummy();
-ss.Wl.prototype = {};
-Ba(ss.Wl, "IDisposable");
+ss.IDisposable = dummy();
+ss.IDisposable.prototype = {};
+Ba(ss.IDisposable, "IDisposable");
 ss.StringBuilder = function(b) {
 	this.WL = ss.isNullUndef(b) ? [] : [b]
 };
