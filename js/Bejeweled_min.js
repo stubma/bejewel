@@ -14879,7 +14879,7 @@ Game.BejApp.prototype = {
 	KM : 1,
 	WY : 1,
 	yX : null,
-	UY : "unknown",
+	userAgent : "unknown",
 	ca : function() {
 		this.Jp.ca();
 		if (this.Bi == null)
@@ -14946,7 +14946,7 @@ Game.BejApp.prototype = {
     setThrottlingURL : function(b) {
 		this.Jp.nL(b)
 	},
-	setUserAgent : set("UY"),
+	setUserAgent : set("userAgent"),
 	setUserId : set("userId"),
 	getUserId : get("userId"),
 	setUseGL : set("useGL"),
@@ -14984,7 +14984,7 @@ Game.BejApp.prototype = {
 		this.tw("startup", [new GameFramework.misc.KeyVal("DefaultArtRes", b),
 						new GameFramework.misc.KeyVal("WebGL", this.kc()),
 						new GameFramework.misc.KeyVal("ArtRes", this.aj),
-						new GameFramework.misc.KeyVal("PlatformInfo", this.UY)]);
+						new GameFramework.misc.KeyVal("PlatformInfo", this.userAgent)]);
 		this.Nh = new GameFramework.widgets.ClassicWidgetAppState;
 		this.Nh.Uc = this.Uc;
 		this.fe = this.Nh.fe;
