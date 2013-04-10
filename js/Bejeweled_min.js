@@ -7118,7 +7118,7 @@ GameFramework.resources.PIEmitterBase.prototype = {
 	Bh : null,
 	Wb : null,
 	t : function() {
-		this.Wb.dummy()
+		this.Wb.t()
 	}
 };
 GameFramework.resources.PIEmitterBase.c = dummy();
@@ -7137,7 +7137,7 @@ GameFramework.resources.PIFreeEmitterInstance = function() {
 GameFramework.resources.PIFreeEmitterInstance.prototype = {
 	kg : null,
 	t : function() {
-		this.kg.dummy();
+		this.kg.t();
 		GameFramework.resources.PIParticleInstance.prototype.t.apply(this)
 	}
 };
@@ -7239,7 +7239,7 @@ GameFramework.resources.PIEmitterInstance.prototype = {
 	ec : null,
 	tn : w("ec"),
 	t : function() {
-		this.$h.dummy();
+		this.$h.t();
 		GameFramework.resources.PIEmitterBase.prototype.t.apply(this)
 	}
 };
@@ -7543,7 +7543,7 @@ GameFramework.resources.PIEffect.prototype = {
 	dj : null,
 	Le : 0,
 	e2 : function(b) {
-		--this.ga.hj == 0 && this.ga.dummy();
+		--this.ga.hj == 0 && this.ga.t();
 		this.NG = b.NG;
 		this.DY = b.DY;
 		this.nj = b.nj;
@@ -7609,13 +7609,13 @@ GameFramework.resources.PIEffect.prototype = {
 		for (var b = this.xh, c = 0; c < b.length; c++) {
 			for (var d = b[c], f = d.mf, g = 0; g < f.length; g++) {
 				for (var h = f[g], j = h.Bh, k = 0; k < j.length; k++)
-					j[k].dummy();
-				h.dummy()
+					j[k].t();
+				h.t()
 			}
-			d.dummy()
+			d.t()
 		}
 		this.xh = null;
-		--this.ga.hj == 0 && this.ga.dummy()
+		--this.ga.hj == 0 && this.ga.t()
 	},
 	zq : function(b, c, d) {
 		var d = d * 256 | 0, f = 256 - d;
@@ -8575,17 +8575,17 @@ GameFramework.resources.PIEffect.prototype = {
 						var l = k.gd;
 						for (j = k.kg.Wb.pd; j != null;) {
 							var m = j.gd;
-							j.dummy();
+							j.t();
 							j = m
 						}
-						k.dummy();
+						k.t();
 						k = l
 					}
 					h.$h.pd = null;
 					h.$h.cg = null;
 					h.$h.be = 0;
 					for (j = h.Wb.pd; j != null;)
-						k = j.gd, j.dummy(), j = k;
+						k = j.gd, j.t(), j = k;
 					h.Wb.pd = null;
 					h.Wb.cg = null;
 					for (j = h.Wb.be = 0; j < (g.ej.length | 0); j++)
@@ -8983,7 +8983,7 @@ GameFramework.resources.PIEffect.prototype = {
 		if (d.cg == c)
 			d.cg = c.Ei;
 		d.be--;
-		c.dummy()
+		c.t()
 	},
 	x5 : function(b, c, d) {
 		for (var f = 1E3 / this.Le / this.Fe, g = d.pd, h = b.xk, j = c.Wa; g != null;) {
@@ -9004,7 +9004,7 @@ GameFramework.resources.PIEffect.prototype = {
 					continue
 				}
 				if (d.Ac || !m.fh || !c.Co) {
-					g.dummy();
+					g.t();
 					if (g.Ei != null)
 						g.Ei.gd = g.gd;
 					if (g.gd != null)
@@ -9779,7 +9779,7 @@ GameFramework.resources.PIEffect.prototype = {
 							try {
 								v.ai.Ki.zi.Og(b, z, 0, 0, A.Ww)
 							} finally {
-								y.dummy()
+								y.t()
 							}
 							v.ul = true
 						}
@@ -9833,7 +9833,7 @@ GameFramework.resources.PIEffect.prototype = {
 							try {
 								g.ai.Ki.zi.Og(b, k, 0, 0, v.Ww)
 							} finally {
-								r.dummy()
+								r.t()
 							}
 							g.ul = true
 						}
@@ -9903,7 +9903,7 @@ GameFramework.resources.PIEffect.prototype = {
 								try {
 									q.ai.Ki.zi.Og(b, k, 0, 0, u.Ww)
 								} finally {
-									v.dummy()
+									v.t()
 								}
 								q.ul = true
 							}
@@ -9962,7 +9962,7 @@ GameFramework.resources.PIEffect.prototype = {
 								try {
 									q.ai.Ki.zi.Og(b, l, 0, 0, k.Ww)
 								} finally {
-									v.dummy()
+									v.t()
 								}
 								q.ul = true
 							}
@@ -10018,7 +10018,7 @@ GameFramework.resources.PIEffect.prototype = {
 						try {
 							g.ai.Ki.zi.Og(b, l, 0, 0, k.Ww)
 						} finally {
-							r.dummy()
+							r.t()
 						}
 						g.ul = true
 					}
@@ -10180,7 +10180,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 	},
 	t : function() {
 		GameFramework.widgets.ClassicWidget.prototype.t.apply(this);
-		this.Kc.dummy();
+		this.Kc.t();
 		this.Kc = null
 	},
 	LJ : function(b) {
@@ -11057,13 +11057,13 @@ GameFramework.resources.ResourceManager.prototype = {
 			if (c.Qb != null) {
 				var d = this.Nm[c.Qb];
 				if (d.Nn != null)
-					d.Nn.dummy(), d.Nn = null
+					d.Nn.t(), d.Nn = null
 			}
 			if (c.nu != null && (d = this.Nm[c.nu], d.DO = 0, d.Nn != null))
-				d.Nn.dummy(), d.Nn = null;
+				d.Nn.t(), d.Nn = null;
 			if (c.Nn != null)
-				c.Nn.dummy(), c.Nn = null;
-			this.bh[c.xa] != null && (this.bh[c.xa].dummy(), this.bh[c.xa] = null)
+				c.Nn.t(), c.Nn = null;
+			this.bh[c.xa] != null && (this.bh[c.xa].t(), this.bh[c.xa] = null)
 		}
 	},
 	dl : function(b) {
@@ -11563,7 +11563,7 @@ GameFramework.resources.popanim.PopAnimSpriteInst.prototype = {
 		if (this.$c != null)
 			for (var b = 0; b < this.$c.length; b++) {
 				var c = this.$c[b];
-				c.Ji != null && c.Ji.dummy()
+				c.Ji != null && c.Ji.t()
 			}
 		this.Qb = this.ve = this.ga = this.$c = null
 	}
@@ -11735,20 +11735,20 @@ Game.Checkbox.prototype = {
 			try {
 				b.fc(0, 0, this.s, this.z)
 			} finally {
-				d.dummy()
+				d.t()
 			}
 			d = b.Q(this.jf);
 			try {
 				b.fc(1, 1, this.s - 2, this.z - 2)
 			} finally {
-				d.dummy()
+				d.t()
 			}
 			if (this.ti) {
 				d = b.Q(this.aW);
 				try {
 					b.fc(3, 3, this.s - 6, this.z - 6)
 				} finally {
-					d.dummy()
+					d.t()
 				}
 			}
 		}
@@ -11802,7 +11802,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 		}
 		this.Qb = null;
 		for (var b = ss.IEnumerator.Pd(this.cf); b.ye();)
-			b.oe().dummy();
+			b.oe().t();
 		this.cf.clear();
 		GameFramework.events.EventDispatcher.prototype.t.apply(this)
 	},
@@ -11998,7 +11998,7 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 			try {
 				c.jq(this.Uc)
 			} finally {
-				d.dummy()
+				d.t()
 			}
 		}
 		this.zB.clear()
@@ -12218,14 +12218,14 @@ GameFramework.widgets.Dialog.prototype = {
 			try {
 				b.fc(13, 13, this.s - 24 - 2, this.z - 24 - 2)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 			c = b.Q(2130706432);
 			try {
 				b.fc(this.s - 12, 24, 12, this.z - 36), b.fc(24, this.z - 12,
 						this.s - 24, 12)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		}
 		c = this.Fd.Um + this.Df.Um;
@@ -12236,7 +12236,7 @@ GameFramework.widgets.Dialog.prototype = {
 			try {
 				b.zb(this.AB, 0, c, this.s, 0)
 			} finally {
-				d.dummy()
+				d.t()
 			}
 			c += this.Xf.Sl() - this.Xf.Rl();
 			for (d = -1;;) {
@@ -12254,7 +12254,7 @@ GameFramework.widgets.Dialog.prototype = {
 							- this.Fd.yh - this.Fd.Vj - this.Df.yh - this.Df.Vj
 							- 4, this.LY, GameFramework.gfx.Oi.aB, this.gj)
 		} finally {
-			d.dummy()
+			d.t()
 		}
 		if (this.It != null && this.It.length != 0
 				&& this.Bt != GameFramework.widgets.Dialog.Zp) {
@@ -12265,7 +12265,7 @@ GameFramework.widgets.Dialog.prototype = {
 			try {
 				b.zb(this.It, 0, c, this.s, 0)
 			} finally {
-				d.dummy()
+				d.t()
 			}
 		}
 	},
@@ -12440,13 +12440,13 @@ GameFramework.widgets.EditWidget.prototype = {
 		try {
 			b.fc(-1, -1, this.s - 1, this.z - 1)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		c = b.Q(this.pe[GameFramework.widgets.EditWidget.CD]);
 		try {
 			b.fc(1, 1, this.s - 2, this.z - 2)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		b.kb(this.U);
 		c = 0;
@@ -12463,7 +12463,7 @@ GameFramework.widgets.EditWidget.prototype = {
 						try {
 							b.fc(this.eB(f, c), 1, k + 3, this.z - 2)
 						} finally {
-							j.dummy()
+							j.t()
 						}
 					} else {
 						var l = b.Q(this.pe[GameFramework.widgets.EditWidget.SP]);
@@ -12472,7 +12472,7 @@ GameFramework.widgets.EditWidget.prototype = {
 											f, c), (this.z - this.U.Sl()) / 2
 											+ this.U.Rl())
 						} finally {
-							l.dummy()
+							l.t()
 						}
 					}
 				else if (d == 1) {
@@ -12482,7 +12482,7 @@ GameFramework.widgets.EditWidget.prototype = {
 								this.eB(f, c), (this.z - this.U.Sl()) / 2
 										+ this.U.Rl())
 					} finally {
-						l.dummy()
+						l.t()
 					}
 				}
 				f += k;
@@ -12494,7 +12494,7 @@ GameFramework.widgets.EditWidget.prototype = {
 				try {
 					b.fc(g + 3, 1, 3, this.z - 2)
 				} finally {
-					f.dummy()
+					f.t()
 				}
 			}
 		}
@@ -12798,13 +12798,13 @@ Game.Slider.prototype = {
 			try {
 				b.fc(0, 0, this.s, this.z)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 			c = b.Q(this.jf);
 			try {
 				b.fc(1, 1, this.s - 2, this.z - 2)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		}
 		this.wx && this.Dh != null ? b.Ba(this.Dh, this.af * (this.s - this.Dh.s)
@@ -14323,7 +14323,7 @@ Game.Background.KP = function(b) {
 	Game.Background.Ax[b]
 			&& (Game.Background.lm[b] != null
 					? GameFramework.BaseApp.M.vb.b5(Game.Background.lm[b])
-					: (Game.Background.iC[b].dummy(), Game.Background.iC[b] = null), Game.Background.Ax[b] = false)
+					: (Game.Background.iC[b].t(), Game.Background.iC[b] = null), Game.Background.Ax[b] = false)
 };
 Game.Background.prototype = {
 	hf : null,
@@ -14390,12 +14390,12 @@ Game.Background.prototype = {
 					try {
 						b.Ba(this.Oa, (1920 - this.Oa.s * g) / 2, 0)
 					} finally {
-						h.dummy()
+						h.t()
 					}
 				}
 				c = true
 			} finally {
-				f.dummy()
+				f.t()
 			}
 		}
 		if (!c) {
@@ -14403,7 +14403,7 @@ Game.Background.prototype = {
 			try {
 				b.fc(0, 0, this.s * 2, this.z)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		}
 		d && b.pb();
@@ -14520,7 +14520,7 @@ Game.Bej3DialogButton.prototype = {
 		try {
 			GameFramework.widgets.ButtonWidget.prototype.Ok.apply(this, [b])
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	ca : function() {
@@ -14709,7 +14709,7 @@ Game.ScalingIconButton.prototype = {
 			Game.IconButton.prototype.ja.apply(this, [b]), !this.DW && this.aX != null
 					&& b.Ba(this.aX, this.d8, this.e8)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	}
 };
@@ -15146,7 +15146,7 @@ Game.BejApp.prototype = {
 	},
 	b_ : function() {
 		if (this.e != null)
-			this.nx.pn(this.e), this.e.dummy(), this.e = null
+			this.nx.pn(this.e), this.e.t(), this.e = null
 	},
 	oV : function(b) {
 		this.b_();
@@ -15628,7 +15628,7 @@ Game.LightningZap.prototype = {
 					b.bn(Game.Resources.IMAGE_GRITTYBLURRY, r)
 				}
 			} finally {
-				f.dummy()
+				f.t()
 			}
 		}
 	}
@@ -16575,10 +16575,10 @@ Game.Board.prototype = {
 		this.kQ();
 		GameFramework.widgets.ClassicWidget.prototype.t.apply(this);
 		if (this.Jg != null)
-			this.Jg.dummy(), this.Jg = null;
+			this.Jg.t(), this.Jg = null;
 		if (this.ob != null)
-			this.ob.dummy(), this.ob = null;
-		this.rl != null && this.rl.dummy()
+			this.ob.t(), this.ob = null;
+		this.rl != null && this.rl.t()
 	},
 	qv : function() {
 		return new GameFramework.TRect(554, 1108, 900, 40)
@@ -16652,7 +16652,7 @@ Game.Board.prototype = {
 	Iy : function() {
 		this.L.D() > 0 && this.L.ea("b;0,1,0.02,1,~###         ~#EAC");
 		this.m.ea("b;1,1.2,0.02,1,####         ~~^bn");
-		this.rl != null && this.rl.dummy();
+		this.rl != null && this.rl.t();
 		this.rl = null;
 		Game.BejApp.q.mi(Game.Resources.SOUND_BACKTOMAIN);
 		this.jH = true;
@@ -17400,12 +17400,12 @@ Game.Board.prototype = {
 			d = this.e[this.e.g * c + b.Ja], d != null && this.jF(d, b.Pa);
 		this.ju[b.Ja] = Math.max(this.ju[b.Ja], b.Pa) | 0;
 		this.e[this.e.g * b.La + b.Ja] = null;
-		b.dummy()
+		b.t()
 	},
 	kQ : function() {
 		for (var b = new Game.PieceIter(this); b.Dd();) {
 			var c = b.Tl();
-			c != null && (this.e[this.e.g * b.iS() + b.IR()] = null, c.dummy())
+			c != null && (this.e[this.e.g * b.iS() + b.IR()] = null, c.t())
 		}
 		this.Qf = []
 	},
@@ -19371,7 +19371,7 @@ Game.Board.prototype = {
 			c.scale(this.Om.V(), this.Om.V());
 			c.translate(0, 30);
 			c.translate(238, 60);
-			b.jg(c).dummy()
+			b.jg(c).t()
 		}
 	},
 	E5 : function() {
@@ -19850,7 +19850,7 @@ Game.Board.prototype = {
 								b.Bd(Game.Resources.IMAGE_GEMLIGHTING.vd(), f, g,
 										(c.n | 0) * 9 + h)
 							} finally {
-								j.dummy()
+								j.t()
 							}
 						}
 				}
@@ -19869,7 +19869,7 @@ Game.Board.prototype = {
 						b.Bd(Game.Resources.IMAGE_GEMLIGHTING.vd(), d, f, (c.n | 0) * 9
 										+ 1)
 					} finally {
-						h.dummy()
+						h.t()
 					}
 				}
 				h = Math.min(0.5, 8 / Math.max(1, Math.abs(g) - 0));
@@ -19879,7 +19879,7 @@ Game.Board.prototype = {
 						b.Bd(Game.Resources.IMAGE_GEMLIGHTING.vd(), d, f, (c.n | 0) * 9
 										+ 8)
 					} finally {
-						h.dummy()
+						h.t()
 					}
 				}
 				g = Math.min(0.5, 8 / Math.max(1, Math.abs(g + 32)));
@@ -19889,7 +19889,7 @@ Game.Board.prototype = {
 						b.Bd(Game.Resources.IMAGE_GEMLIGHTING.vd(), d, f, (c.n | 0) * 9
 										+ 5)
 					} finally {
-						g.dummy()
+						g.t()
 					}
 				}
 			}
@@ -20006,7 +20006,7 @@ Game.Board.prototype = {
 				b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_FRAME.Ee(), this.Se(), this.Cd()
 								+ Game.Board.ab * this.wc + 33)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		} else if (this.OU()) {
 			this.kJ(b);
@@ -20015,7 +20015,7 @@ Game.Board.prototype = {
 				b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_FRAME.Ee(), this.Se(), this.Cd()
 								+ Game.Board.ab * this.wc + 33)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		} else {
 			c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.Rf() | 0));
@@ -20024,7 +20024,7 @@ Game.Board.prototype = {
 								.Cd()
 								+ Game.Board.ab * this.wc + 11)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		}
 		if (this.xn()) {
@@ -20036,7 +20036,7 @@ Game.Board.prototype = {
 						Game.Resources.IMAGE_BOARD_THIN_BOTTOM_FRAME_GLOW.Ee(), this
 								.Se(), this.Cd() + Game.Board.ab * this.wc + 11)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		}
 	},
@@ -20055,7 +20055,7 @@ Game.Board.prototype = {
 				try {
 					b.fc(h, f.v, j, f.z)
 				} finally {
-					k.dummy()
+					k.t()
 				}
 			}
 			for (k = 0; k < this.Cn.length; k++) {
@@ -20069,7 +20069,7 @@ Game.Board.prototype = {
 				try {
 					b.Ba(m, h, f.v)
 				} finally {
-					o.dummy()
+					o.t()
 				}
 			}
 			if (g) {
@@ -20077,11 +20077,11 @@ Game.Board.prototype = {
 				try {
 					b.fc(h, f.v, j, f.z)
 				} finally {
-					q.dummy()
+					q.t()
 				}
 			}
 		} finally {
-			d.dummy()
+			d.t()
 		}
 	},
 	H_ : function(b) {
@@ -20091,7 +20091,7 @@ Game.Board.prototype = {
 			d = this.Se(), f = this.Cd() + Game.Board.ab * this.wc + 30, b.Ba(
 					Game.Resources.IMAGE_BOARD_BOTTOM_FRAME_BACK.Ee(), d, f)
 		} finally {
-			h.dummy()
+			h.t()
 		}
 		c = b.Q(GameFramework.gfx.Color.Ma(188, 67, 137, c * 100 | 0));
 		try {
@@ -20102,7 +20102,7 @@ Game.Board.prototype = {
 					try {
 						b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_FRAME_BACK.Ee(), d, f)
 					} finally {
-						k.dummy()
+						k.t()
 					}
 				}
 			}
@@ -20116,11 +20116,11 @@ Game.Board.prototype = {
 				try {
 					b.fc(l.w, l.v, l.s, l.z)
 				} finally {
-					m.dummy()
+					m.t()
 				}
 			}
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	G_ : function(b) {
@@ -20254,7 +20254,7 @@ Game.Board.prototype = {
 									+ Game.DM.Z4 * this.to.D() + this.Ux.x, 275
 									+ this.Ux.y)
 				} finally {
-					d.dummy()
+					d.t()
 				}
 				Game.Resources.FONT_MULTIPLIER.ib("MAIN");
 				Game.Resources.FONT_MULTIPLIER.ib("OUTLINE");
@@ -20296,10 +20296,10 @@ Game.Board.prototype = {
 				try {
 					this.fd.ja(b)
 				} finally {
-					d.dummy()
+					d.t()
 				}
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		}
 		this.xc.M5() && this.ob.ja(b)
@@ -20339,17 +20339,17 @@ Game.Board.prototype = {
 													+ (Game.Resources.IMAGE_DANGERBORDERUP.z
 															/ 2 | 0))
 						} finally {
-							q.dummy()
+							q.t()
 						}
 					} finally {
-						m.dummy()
+						m.t()
 					}
 				}
 				this.hG != 0 && b.Ab();
 				this.m.D() >= 0.8 && this.UQ(b);
 				this.J_(b)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		}
 	},
@@ -20395,7 +20395,7 @@ Game.Board.prototype = {
 					break
 			}
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	V_ : function(b) {
@@ -20415,10 +20415,10 @@ Game.Board.prototype = {
 					try {
 						b.zb(g, d.x, d.y + 30, -1, 0)
 					} finally {
-						h.dummy()
+						h.t()
 					}
 				} finally {
-					c.dummy()
+					c.t()
 				}
 			} else if (this.Zr.D() == 0) {
 				b.kb(Game.Resources.FONT_TIMER_SMALL);
@@ -20428,7 +20428,7 @@ Game.Board.prototype = {
 				try {
 					b.zb(g, d.x, d.y + 14, -1, 0)
 				} finally {
-					h.dummy()
+					h.t()
 				}
 				Game.Resources.FONT_TIMER_SMALL.ib("GLOW")
 			}
@@ -20473,7 +20473,7 @@ Game.Board.prototype = {
 							try {
 								b.Cc(f, 244 - g / 2, 66)
 							} finally {
-								h.dummy()
+								h.t()
 							}
 						}
 						if (this.ng > 0) {
@@ -20501,7 +20501,7 @@ Game.Board.prototype = {
 										try {
 											b.Cc(h, 244 - g / 2, 66)
 										} finally {
-											r.dummy()
+											r.t()
 										}
 									}
 									if (f.length > 0) {
@@ -20512,7 +20512,7 @@ Game.Board.prototype = {
 															+ b.U.hc(h + "0")
 															- b.U.hc("0"), 66)
 										} finally {
-											v.dummy()
+											v.t()
 										}
 									}
 								} else {
@@ -20522,7 +20522,7 @@ Game.Board.prototype = {
 											b.kb(Game.Resources.FONT_SPEED_SCORE), b
 													.Cc(h, 244 - g / 2, 66)
 										} finally {
-											u.dummy()
+											u.t()
 										}
 									}
 									if (f.length > 0) {
@@ -20533,7 +20533,7 @@ Game.Board.prototype = {
 															+ b.U.hc(h + "0")
 															- b.U.hc("0"), 66)
 										} finally {
-											y.dummy()
+											y.t()
 										}
 									}
 								}
@@ -20543,10 +20543,10 @@ Game.Board.prototype = {
 					Game.Resources.FONT_SPEED_SCORE.ib("GLOW");
 					Game.Resources.FONT_SPEED_TEXT.ib("OUTLINE")
 				} finally {
-					d.dummy()
+					d.t()
 				}
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		}
 	},
@@ -20556,7 +20556,7 @@ Game.Board.prototype = {
 		try {
 			this.E_(b)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		c = b.gc(Game.DM.CL * this.to.D(), 0);
 		try {
@@ -20584,13 +20584,13 @@ Game.Board.prototype = {
 								j.rotate(Game.MathUtil.Y2)
 							}
 						} finally {
-							h.dummy()
+							h.t()
 						}
 					}
 				}
 			}
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	SQ : function(b, c) {
@@ -20644,7 +20644,7 @@ Game.Board.prototype = {
 			b.kb(Game.Resources.FONT_LEVEL);
 			b.zb(GameFramework.Utils.ei(this.Bl + 1), 243, 250, 0, 0)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	Ok : function(b) {
@@ -21229,7 +21229,7 @@ Game.ClassicEndLevelDialog.prototype = {
 						"OUTLINE", 4282400768), Game.Resources.FONT_GAMEOVER_DIALOG.Ia(
 						"GLOW", 0), b.jh("Please enter your name:", g, 500)
 			} finally {
-				h.dummy()
+				h.t()
 			}
 			this.Vd.Lb(this.s / 2 - 250 + c, 500 + d, 500, 50);
 			this.Vd.L = this.Jd.D();
@@ -21239,7 +21239,7 @@ Game.ClassicEndLevelDialog.prototype = {
 			Game.Resources.FONT_GAMEOVER_DIALOG.ib("OUTLINE");
 			Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW")
 		} finally {
-			f.dummy()
+			f.t()
 		}
 	},
 	PQ : function(b) {
@@ -21251,7 +21251,7 @@ Game.ClassicEndLevelDialog.prototype = {
 			try {
 				b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 195, 385, 602, 282, 0)
 			} finally {
-				d.dummy()
+				d.t()
 			}
 			this.Jd.D() > 0
 					&& this.Vd != null
@@ -21264,7 +21264,7 @@ Game.ClassicEndLevelDialog.prototype = {
 							.Q_(b), this.Jd.D() > 0 && b.pb());
 			this.P_(b)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		if (this.Vd != null)
 			this.Vd.L = this.Jd.D();
@@ -21274,7 +21274,7 @@ Game.ClassicEndLevelDialog.prototype = {
 		try {
 			this.T_(b)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	}
 };
@@ -21471,7 +21471,7 @@ Game.CrystalBall.prototype = {
 								&& b.Ba(Game.Resources.IMAGE_CRYSTALBALL_SHADOW.Ee(),
 										0, 0)
 					} finally {
-						q.dummy()
+						q.t()
 					}
 					o = new GameFramework.geom.Matrix;
 					o.scale(g, h);
@@ -21479,10 +21479,10 @@ Game.CrystalBall.prototype = {
 					try {
 						b.Bd(Game.Resources.IMAGE_CRYSTALBALL.Ee(), 0, 0, m)
 					} finally {
-						r.dummy()
+						r.t()
 					}
 				} finally {
-					l.dummy()
+					l.t()
 				}
 				if (!this.Hx) {
 					for (j = 0; j < Game.CrystalBall.Yo; j++)
@@ -21544,7 +21544,7 @@ Game.CrystalBall.prototype = {
 					d && this.sr.ja(b)
 				}
 			} finally {
-				f.dummy()
+				f.t()
 			}
 			b.Ab();
 			b.Ab();
@@ -21563,10 +21563,10 @@ Game.CrystalBall.prototype = {
 										- Game.Resources.FONT_PLAYBUTTONS.hc(this.Id)
 										/ 2, this.z / 2 + 34)
 					} finally {
-						P.dummy()
+						P.t()
 					}
 				} finally {
-					c.dummy()
+					c.t()
 				}
 			}
 		}
@@ -21694,7 +21694,7 @@ Game.DialogMgr.prototype = {
 				try {
 					h.NN = b.sa.Ca, h.ON = b.sa.Da, h.Ok(b)
 				} finally {
-					j.dummy()
+					j.t()
 				}
 			}
 			S(c == b.Eg, "Matrix stack error - pops don't match pushes");
@@ -21709,7 +21709,7 @@ Game.DialogMgr.prototype = {
 				b.fc(GameFramework.BaseApp.M.w, GameFramework.BaseApp.M.v,
 						GameFramework.BaseApp.M.ix, GameFramework.BaseApp.M.hx)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		}
 	},
@@ -22031,7 +22031,7 @@ Game.ParticleEffect.prototype = {
 	lr : null,
 	t : function() {
 		Game.Effect.prototype.t.apply(this);
-		this.mg.dummy();
+		this.mg.t();
 		this.mg = null
 	},
 	ca : function() {
@@ -22104,7 +22104,7 @@ Game.PopAnimEffect.prototype = {
 	Bk : null,
 	yW : null,
 	t : function() {
-		this.Bk != null && this.Bk.dummy();
+		this.Bk != null && this.Bk.t();
 		Game.Effect.prototype.t.apply(this)
 	},
 	Play : function() {
@@ -22383,7 +22383,7 @@ Game.EffectsManager.prototype = {
 												k.Oa.pc = false
 											}
 										} finally {
-											m.dummy()
+											m.t()
 										}
 										break;
 									case Game.Effect.da.nv :
@@ -22527,7 +22527,7 @@ Game.EffectsManager.prototype = {
 		return new Game.Effect(b)
 	},
 	I0 : function(b) {
-		b != null && b.dummy()
+		b != null && b.t()
 	},
 	R0 : function() {
 		for (var b = 0, c = 0; c < this.Sh.length; ++c)
@@ -22552,7 +22552,7 @@ Game.EffectsManager.prototype = {
 			var d = b[c];
 			if (d != null)
 				for (var f = 0; f < d.length; f++)
-					d[f].dummy()
+					d[f].t()
 		}
 		this.Sh = Array.O(Game.Effect.da.Jh | 0, null)
 	}
@@ -22897,7 +22897,7 @@ Game.EndLevelDialog.prototype = {
 						.ib("OUTLINE"), Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW"), Game.Resources.FONT_GAMEOVER_DIALOG
 						.ib("MAIN")
 			} finally {
-				h.dummy()
+				h.t()
 			}
 		}
 	},
@@ -22918,7 +22918,7 @@ Game.EndLevelDialog.prototype = {
 		try {
 			this.$y(b)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	YQ : function(b) {
@@ -22929,13 +22929,13 @@ Game.EndLevelDialog.prototype = {
 		try {
 			this.oJ(b)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		c = b.Q(4294967136);
 		try {
 			this.pJ(b)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		b.U.ib("MAIN");
 		b.U.ib("GLOW")
@@ -22953,7 +22953,7 @@ Game.EndLevelDialog.prototype = {
 		try {
 			this.YQ(b)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	mJ : function(b, c, d) {
@@ -22987,7 +22987,7 @@ Game.EndLevelDialog.prototype = {
 				b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 				b.jh("Please enter your name:", h, 515)
 			} finally {
-				g.dummy()
+				g.t()
 			}
 			this.Vd.Lb(this.s / 2 - 250 + c, 528 + d, 500, 54);
 			this.Vd.L = this.Jd.D();
@@ -22997,7 +22997,7 @@ Game.EndLevelDialog.prototype = {
 			Game.Resources.FONT_GAMEOVER_DIALOG.ib("OUTLINE");
 			Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW")
 		} finally {
-			f.dummy()
+			f.t()
 		}
 	},
 	PQ : function(b) {
@@ -26760,7 +26760,7 @@ Game.HintDialog.prototype = {
 				b.Cc("Disable Hints", f, g);
 				this.Pj.nh(f - 60, g - 30)
 			} finally {
-				d.dummy()
+				d.t()
 			}
 		}
 	},
@@ -27504,10 +27504,10 @@ Game.HyperspaceUltra.prototype = {
 			try {
 				Game.HyperspaceUltra.nb.BA(Game.BejApp.q.AI)
 			} finally {
-				j.dummy()
+				j.t()
 			}
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	B_ : function() {
@@ -27534,10 +27534,10 @@ Game.HyperspaceUltra.prototype = {
 				try {
 					Game.HyperspaceUltra.nb.BA(Game.BejApp.q.XY)
 				} finally {
-					h.dummy()
+					h.t()
 				}
 			} finally {
-				c.dummy()
+				c.t()
 			}
 			Game.HyperspaceUltra.nb.Oq(GameFramework.gfx.Graphics3D.Dc.fi, GameFramework.gfx.Graphics3D.Dc.fi)
 		}
@@ -27550,10 +27550,10 @@ Game.HyperspaceUltra.prototype = {
 				try {
 					Game.Resources.POPANIM_ANIMS_BOARDSHATTER.ja(b)
 				} finally {
-					d.dummy()
+					d.t()
 				}
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		}
 	},
@@ -27599,7 +27599,7 @@ Game.HyperspaceUltra.prototype = {
 					}
 				}
 			}
-			j.dummy();
+			j.t();
 			d.X[d.X.g * 3 + 2] += 1;
 			Game.HyperspaceUltra.nb.GA(d);
 			Game.HyperspaceUltra.nb.it(GameFramework.gfx.Graphics3D.yf.Ws, false);
@@ -27632,7 +27632,7 @@ Game.HyperspaceUltra.prototype = {
 						var F = b.gc(y.Jm.x * 800 + 960, y.Jm.y * -600 + 600);
 						try {
 							if (f || A == (Game.DM.Ha.sc | 0)) {
-								j.dummy();
+								j.t();
 								Game.HyperspaceUltra.nb.qL(Math.max(0, y.Jm.ia + 0.0025));
 								Game.HyperspaceUltra.nb.it(GameFramework.gfx.Graphics3D.yf.Ws, false);
 								Game.HyperspaceUltra.nb.Nq(false, false);
@@ -27645,7 +27645,7 @@ Game.HyperspaceUltra.prototype = {
 									try {
 										this.kf.e.bz(b, z, y.fy, true)
 									} finally {
-										Z.dummy()
+										Z.t()
 									}
 								}
 								if (f)
@@ -27658,10 +27658,10 @@ Game.HyperspaceUltra.prototype = {
 												try {
 													V.ja(b)
 												} finally {
-													da.dummy()
+													da.t()
 												}
 											} finally {
-												W.dummy()
+												W.t()
 											}
 										}
 									}
@@ -27684,10 +27684,10 @@ Game.HyperspaceUltra.prototype = {
 												try {
 													X.ja(b)
 												} finally {
-													aa.dummy()
+													aa.t()
 												}
 											} finally {
-												ia.dummy()
+												ia.t()
 											}
 										}
 									}
@@ -27698,14 +27698,14 @@ Game.HyperspaceUltra.prototype = {
 							j = g.$p(0);
 							Game.HyperspaceUltra.nb.Nq(true, false)
 						} finally {
-							F.dummy()
+							F.t()
 						}
 					}
 				}
 			}
-			j.dummy()
+			j.t()
 		} finally {
-			g.dummy()
+			g.t()
 		}
 	},
 	IJ : function(b) {
@@ -27834,11 +27834,11 @@ Game.HyperspaceFallback.prototype = {
 				try {
 					b.Ba(this.mu, (1920 - this.mu.s * d) / 2, 0)
 				} finally {
-					f.dummy()
+					f.t()
 				}
 			}
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		Array.O(2, 2, new GameFramework.geom.TPoint(250, 600), new GameFramework.geom.TPoint(
 						960, 600));
@@ -27853,10 +27853,10 @@ Game.HyperspaceFallback.prototype = {
 					c[d].de = f.rg(new GameFramework.geom.TPoint(f.x, f.y)), c[d]
 							.ja(b)
 				} finally {
-					h.dummy()
+					h.t()
 				}
 			} finally {
-				g.dummy()
+				g.t()
 			}
 		}
 	}
@@ -27904,7 +27904,7 @@ Game.LoadingScreen.prototype = {
 			try {
 				this.Ke.ja(b)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		} else if (this.XW) {
 			b.kb(Game.Resources.FONT_DEFAULT);
@@ -28010,7 +28010,7 @@ Game.TextButton.prototype = {
 			try {
 				b.fc(0, 0, this.s, this.z)
 			} finally {
-				c.dummy()
+				c.t()
 			}
 		}
 		c = this.LO.D();
@@ -28236,7 +28236,7 @@ Game.MainMenu.prototype = {
 			this.ec = Game.BejApp.q.e == null || !Game.BejApp.q.e.ec || Game.BejApp.q.e.L.V() < 1
 					&& Game.BejApp.q.e.Jf == null;
 			if (!this.JS() && this.ec && Game.BejApp.q.e != null)
-				Game.BejApp.q.e.Mq(), Game.BejApp.q.e.dummy(), Game.BejApp.q.e = null;
+				Game.BejApp.q.e.Mq(), Game.BejApp.q.e.t(), Game.BejApp.q.e = null;
 			this.or = this.ec;
 			if (this.ue)
 				this.ad.ec = this.or, this.Pe.ec = this.or, this.Tj.ec = this.or;
@@ -28394,7 +28394,7 @@ Game.MainMenu.prototype = {
 				try {
 					b.fc(0, 0, this.s, this.z)
 				} finally {
-					c.dummy()
+					c.t()
 				}
 			}
 			if (Game.BejApp.q.EN)
@@ -28404,7 +28404,7 @@ Game.MainMenu.prototype = {
 					try {
 						b.Ba(c.Oa, 160, 0)
 					} finally {
-						d.dummy()
+						d.t()
 					}
 				} else {
 					c = Math.min(1, 2.3 - this.Mn * this.lB.V() * 2);
@@ -28416,7 +28416,7 @@ Game.MainMenu.prototype = {
 							b.fc(GameFramework.BaseApp.M.w, GameFramework.BaseApp.M.v,
 									GameFramework.BaseApp.M.ix, GameFramework.BaseApp.M.hx)
 						} finally {
-							c.dummy()
+							c.t()
 						}
 					}
 					Math.min(1, 1.9 - this.Mn * 2.1);
@@ -28426,7 +28426,7 @@ Game.MainMenu.prototype = {
 						try {
 							b.Ba(Game.Resources.IMAGE_TITLE, GameFramework.BaseApp.M.w, 0)
 						} finally {
-							c.dummy()
+							c.t()
 						}
 					}
 					if (this.kC != null) {
@@ -28440,7 +28440,7 @@ Game.MainMenu.prototype = {
 													- (Game.Resources.IMAGE_LOADER_POPCAP.s
 															/ 2 | 0), 300)
 						} finally {
-							c.dummy()
+							c.t()
 						}
 					}
 					b.kb(Game.Resources.FONT_LOADER_TIP);
@@ -28459,7 +28459,7 @@ Game.MainMenu.prototype = {
 							b.Cc(d, 800 - b.hc("Loading..") / 2, 850);
 							b.zb((this.Mn * 100 | 0) + "%", 800, 900, 0, 0)
 						} finally {
-							c.dummy()
+							c.t()
 						}
 					}
 					b.U.ib("OUTLINE");
@@ -28509,7 +28509,7 @@ Game.MainMenu.prototype = {
 											% Game.BejApp.q.mI.length], this.s / 2,
 									1165), b.U.ib("OUTLINE"), b.U.ib("GLOW")
 						} finally {
-							c.dummy()
+							c.t()
 						}
 					}
 					if (this.ru.D() > 0) {
@@ -28518,7 +28518,7 @@ Game.MainMenu.prototype = {
 							b.zb("Switch to\nStandard Definition", 1416, 1030,
 									0, 0)
 						} finally {
-							c.dummy()
+							c.t()
 						}
 					}
 					if (this.Vt.D() > 0) {
@@ -28528,7 +28528,7 @@ Game.MainMenu.prototype = {
 									.zb("Switch to\nHigh Definition", 1416,
 											1030, 0, 0)
 						} finally {
-							c.dummy()
+							c.t()
 						}
 					}
 				}
@@ -28537,7 +28537,7 @@ Game.MainMenu.prototype = {
 				try {
 					b.fc(0, 0, this.s, this.z)
 				} finally {
-					c.dummy()
+					c.t()
 				}
 				if (this.aa > 200)
 					for (c = 0; c < 12; c++) {
@@ -28548,7 +28548,7 @@ Game.MainMenu.prototype = {
 						try {
 							b.fc(d, f, 6, 6)
 						} finally {
-							g.dummy()
+							g.t()
 						}
 					}
 			}
@@ -28749,13 +28749,13 @@ Game.Messager.prototype = {
 				try {
 					b.Cc(g.wF, c + 1, d + 1)
 				} finally {
-					h.dummy()
+					h.t()
 				}
 				j = b.Q(j);
 				try {
 					b.Cc(g.wF, c, d)
 				} finally {
-					j.dummy()
+					j.t()
 				}
 			}
 		}
@@ -29116,10 +29116,10 @@ Game.OptionsDialog.prototype = {
 						"Tutorials", 0, this.qr * 2), this.tI
 						&& b.Cc("Animate Backdrops", 0, this.qr * 3)
 			} finally {
-				d.dummy()
+				d.t()
 			}
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		if (!this.Wn) {
 			c = this.s / 2 - 2;
@@ -29127,7 +29127,7 @@ Game.OptionsDialog.prototype = {
 			try {
 				b.Ba(Game.Resources.IMAGE_GAMEOVER_STAMP.Ee(), c, 142)
 			} finally {
-				d.dummy()
+				d.t()
 			}
 			b.kb(Game.Resources.FONT_GAMEOVER_DIALOG_HUGE);
 			b.U.Ia("MAIN", 4287121432);
@@ -30049,7 +30049,7 @@ Game.RankBarWidget.prototype = {
 				try {
 					b.Ba(Game.Resources.IMAGE_RECORDS_RANK_GLOW.vd(), 0, 0)
 				} finally {
-					f.dummy()
+					f.t()
 				}
 			}
 			this.AW
@@ -30153,7 +30153,7 @@ Game.RankUpDialog.prototype = {
 				b.jh("You have been promoted to:", f, g), g += 270, b.jh(
 						"Your next rank will be earned in:", f, g), g += 55
 			} finally {
-				h.dummy()
+				h.t()
 			}
 			(this.Tp.OJ() | 0) > 0
 					&& (b.kb(Game.Resources.FONT_GAMEOVER_DIALOG), Game.Resources.FONT_GAMEOVER_DIALOG
@@ -30177,7 +30177,7 @@ Game.RankUpDialog.prototype = {
 						"OUTLINE", GameFramework.gfx.Color.ta(80, 40, 20)), b.jh(
 						this.Tp.NJ(d), f, g), b.U.ib("GLOW"), b.U.ib("OUTLINE")
 			} finally {
-				m.dummy()
+				m.t()
 			}
 			var o = b.nc(k.V(), k.V(), f, g - 20);
 			try {
@@ -30186,13 +30186,13 @@ Game.RankUpDialog.prototype = {
 				try {
 					b.jh(this.Tp.NJ(d), f, g)
 				} finally {
-					q.dummy()
+					q.t()
 				}
 			} finally {
-				o.dummy()
+				o.t()
 			}
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	ca : function() {
@@ -30254,7 +30254,7 @@ Game.RecordsDialog.prototype = {
 		try {
 			b.Ba(Game.Resources.IMAGE_GAMEOVER_STAMP.Ee(), c, 142)
 		} finally {
-			d.dummy()
+			d.t()
 		}
 		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG_HUGE);
 		b.U.Ia("MAIN", 4287121432);
@@ -30264,7 +30264,7 @@ Game.RecordsDialog.prototype = {
 		try {
 			this.U_(b)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		this.X_(b)
 	},
@@ -30295,7 +30295,7 @@ Game.RecordsDialog.prototype = {
 		try {
 			b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 125, 670, 1145, 225, 0)
 		} finally {
-			h.dummy()
+			h.t()
 		}
 		var h = 730, j = b.Q(4294887784);
 		try {
@@ -30308,7 +30308,7 @@ Game.RecordsDialog.prototype = {
 				h += 46
 			}
 		} finally {
-			j.dummy()
+			j.t()
 		}
 		this.LB && b.Ab();
 		b.U.ib("OUTLINE");
@@ -30319,13 +30319,13 @@ Game.RecordsDialog.prototype = {
 		try {
 			this.$y(b, "CLASSIC", this.FM)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		c = b.gc(this.s - 600 - 102, 240);
 		try {
 			this.$y(b, "SPEED", this.UO)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	oQ : function(b, c) {
@@ -30376,7 +30376,7 @@ Game.RecordsDialog.prototype = {
 				Game.Resources.FONT_GAMEOVER_DIALOG.ib("OUTLINE");
 				Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW")
 			} finally {
-				f.dummy()
+				f.t()
 			}
 		}
 	},
@@ -31886,7 +31886,7 @@ Game.SpeedBoard.prototype = {
 	z7 : null,
 	nW : 0,
 	t : function() {
-		this.Wr != null && this.Wr.dummy();
+		this.Wr != null && this.Wr.t();
 		this.Wr = null;
 		Game.Board.prototype.t.apply(this)
 	},
@@ -32461,7 +32461,7 @@ Game.SpeedBoard.prototype = {
 			try {
 				b.fc(g, c.v, h, c.z)
 			} finally {
-				j.dummy()
+				j.t()
 			}
 		}
 		this.gC.V() > 0
@@ -32477,7 +32477,7 @@ Game.SpeedBoard.prototype = {
 			try {
 				b.Ba(l, g, c.v)
 			} finally {
-				k.dummy()
+				k.t()
 			}
 		}
 		if (f) {
@@ -32485,7 +32485,7 @@ Game.SpeedBoard.prototype = {
 			try {
 				b.fc(g, c.v, h, c.z)
 			} finally {
-				d.dummy()
+				d.t()
 			}
 		}
 	},
@@ -32523,7 +32523,7 @@ Game.SpeedBoard.prototype = {
 		try {
 			Game.Resources.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.ja(b)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	vv : function() {
@@ -32546,7 +32546,7 @@ Game.SpeedBoard.prototype = {
 				try {
 					Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.ja(b)
 				} finally {
-					g.dummy()
+					g.t()
 				}
 				if (this.xn()) {
 					var h = b.Q(this.vv());
@@ -32554,7 +32554,7 @@ Game.SpeedBoard.prototype = {
 						b.Ba(Game.Resources.IMAGE_LIGHTNING_MEGASHARD_RED_LIGHTNING,
 								45, 34)
 					} finally {
-						h.dummy()
+						h.t()
 					}
 				}
 				b.kb(Game.Resources.FONT_SCORE);
@@ -32566,7 +32566,7 @@ Game.SpeedBoard.prototype = {
 						0, 0);
 				Game.Resources.FONT_SCORE.ib("GLOW")
 			} finally {
-				f.dummy()
+				f.t()
 			}
 			b.pb();
 			var k = this.Ef - 523 - 160, l = this.Cd() - 130;
@@ -32576,7 +32576,7 @@ Game.SpeedBoard.prototype = {
 			try {
 				Game.Resources.POPANIM_ANIMS_LIGHTNINGUI.ja(b)
 			} finally {
-				m.dummy()
+				m.t()
 			}
 			if (this.$n != null && this.$n.D() > 0) {
 				b.kb(Game.Resources.FONT_SPEED_TEXT);
@@ -32591,7 +32591,7 @@ Game.SpeedBoard.prototype = {
 					b.U.ib("GLOW");
 					b.U.ib("OUTLINE")
 				} finally {
-					o.dummy()
+					o.t()
 				}
 			}
 			var r = b.Q(GameFramework.gfx.Color.Jb(this.kh()));
@@ -32599,7 +32599,7 @@ Game.SpeedBoard.prototype = {
 				b.Ba(Game.Resources.IMAGE_LIGHTNING_TIMER_LIGHTNING.Ee(), this.zz()
 								+ -2, 76)
 			} finally {
-				r.dummy()
+				r.t()
 			}
 			if (this.jI != null) {
 				var v = b.Q(GameFramework.gfx.Color.Jb(this.jI.V()));
@@ -32608,7 +32608,7 @@ Game.SpeedBoard.prototype = {
 									.zz()
 									+ -2, 76)
 				} finally {
-					v.dummy()
+					v.t()
 				}
 			}
 			this.VQ(b);
@@ -32616,7 +32616,7 @@ Game.SpeedBoard.prototype = {
 			try {
 				Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.ja(b)
 			} finally {
-				u.dummy()
+				u.t()
 			}
 			if (this.xn()) {
 				var y = b.Q(this.vv());
@@ -32630,12 +32630,12 @@ Game.SpeedBoard.prototype = {
 							Game.Resources.IMAGE_LIGHTNING_TIMER_RED_LIGHTNING.Ee(),
 							this.zz() + -2, 76)
 				} finally {
-					y.dummy()
+					y.t()
 				}
 			}
 			this.nJ(b)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	NU : x(false),
@@ -32755,12 +32755,12 @@ Game.TimeBonusEffectTop.prototype = {
 						b.Bd(Game.Resources.IMAGE_LIGHTNING_GEMNUMS_WHITE, f, g,
 								(this.Tm / 5 | 0) - 1)
 					} finally {
-						j.dummy()
+						j.t()
 					}
 				}
 			}
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		d != null && d.m.V() != 1 && b.Ab()
 	}
@@ -33076,10 +33076,10 @@ Game.TimeBonusEffect.prototype = {
 						b.Bd(Game.Resources.IMAGE_GEMOUTLINES.Ee(), j.Ad(), j.Rd() - 2,
 								this.Kj | 0)
 					} finally {
-						l.dummy()
+						l.t()
 					}
 				} finally {
-					k.dummy()
+					k.t()
 				}
 			}
 			for (k = 0; k < (this.sm.length | 0); k++) {
@@ -33161,12 +33161,12 @@ Game.TimeBonusEffect.prototype = {
 						l = V
 					}
 				} finally {
-					q.dummy()
+					q.t()
 				}
 			}
 			j != null && j.m.V() != 1 && b.Ab()
 		} finally {
-			f.dummy()
+			f.t()
 		}
 	}
 };
@@ -33417,7 +33417,7 @@ Game.LightningBarFillEffect.prototype = {
 							* 1 + 0] = u.x | 0, r[r.g * 1 + 1] = u.y | 0, r[r.g
 							* 2 + 0] = z.x | 0, r[r.g * 2 + 1] = z.y | 0
 				} finally {
-					A.dummy()
+					A.t()
 				}
 				v = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, c));
 				try {
@@ -33428,7 +33428,7 @@ Game.LightningBarFillEffect.prototype = {
 							* 1 + 1] = l | 0, r[r.g * 2 + 0] = k | 0, r[r.g * 2
 							+ 1] = m | 0, b.dt(r)
 				} finally {
-					v.dummy()
+					v.t()
 				}
 			}
 		}
@@ -33481,7 +33481,7 @@ Game.SpeedEndLevelDialog.prototype = {
 					Game.Resources.IMAGE_GAMEOVER_BOX_PINK.vd(), 0, 0), b.Ba(
 					Game.Resources.IMAGE_GAMEOVER_BOX_ORANGE.vd(), 0, 0)
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG_SMALL);
 		Game.Resources.FONT_GAMEOVER_DIALOG_SMALL.Ia("OUTLINE", 255868960);
@@ -33511,7 +33511,7 @@ Game.SpeedEndLevelDialog.prototype = {
 				b.zb(String.Mb("{0}k", (j + 1) * d / 1E3 | 0), 330, 975 + j
 								* -46, -1, 1)
 		} finally {
-			h.dummy()
+			h.t()
 		}
 		for (h = 0; h < (this.Qd.length | 0); h++) {
 			for (j = c.length - 1; j >= 0; j--) {
@@ -33809,7 +33809,7 @@ Game.TutorialStep.prototype = {
 																	GameFramework.BaseApp.M.z)))
 											: Game.TutorialMgr.az(b, this.vl))
 		} finally {
-			c.dummy()
+			c.t()
 		}
 		c = b.Q(GameFramework.gfx.Color.Jb(this.hB.D()));
 		try {
@@ -33842,7 +33842,7 @@ Game.TutorialStep.prototype = {
 				b.Ab()
 			}
 		} finally {
-			c.dummy()
+			c.t()
 		}
 	},
 	pt : function() {
@@ -34050,10 +34050,10 @@ Game.TutorialMgr.M_ = function(b, c) {
 		try {
 			b.Ba(j, g, h)
 		} finally {
-			k.dummy()
+			k.t()
 		}
 	} finally {
-		f.dummy()
+		f.t()
 	}
 };
 Game.TutorialMgr.az = function(b, c, d) {
@@ -34073,7 +34073,7 @@ Game.TutorialMgr.az = function(b, c, d) {
 		b.fc(c.w + c.s, d.v, d.s - (c.w - d.w + c.s), d.z);
 		b.dk(Game.Resources.IMAGE_BOARD_HIGHLIGHT_FULL, c.w, c.v, c.s, c.z, 0)
 	} finally {
-		f.dummy()
+		f.t()
 	}
 };
 Game.TutorialMgr.prototype = {
@@ -34335,19 +34335,19 @@ Game.Util.p_ = function(b, c, d) {
 	try {
 		b.fc(c - 12, d - 12, 24, 24)
 	} finally {
-		f.dummy()
+		f.t()
 	}
 	f = b.Q(4294901760);
 	try {
 		b.fc(c - 8, d - 8, 16, 16)
 	} finally {
-		f.dummy()
+		f.t()
 	}
 	f = b.Q(4294967295);
 	try {
 		b.fc(c - 4, d - 4, 8, 8)
 	} finally {
-		f.dummy()
+		f.t()
 	}
 };
 Game.Util.aK = function(b) {
@@ -34367,7 +34367,7 @@ Game.Util.Rba = function(b, c, d, f, g, h, j) {
 	try {
 		b.Ba(c, g, h)
 	} finally {
-		d.dummy()
+		d.t()
 	}
 };
 Game.Util.O_ = function(b, c, d) {
