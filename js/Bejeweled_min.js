@@ -11090,7 +11090,7 @@ GameFramework.resources.ResourceManager.prototype = {
 						g.Rx = f + d.Jj[1];
 					f += d.Jj[0]
 				}
-				g.Pf = d.Fb;
+				g.resType = d.Fb;
 				g.xa = d.xa;
 				g.vc = f;
 				g.Kb = d;
@@ -11107,7 +11107,7 @@ GameFramework.resources.ResourceManager.prototype = {
 	J4 : function(b) {
 		var c = new GameFramework.resources.ResourceStreamer;
 		c.vc = b;
-		c.Pf = GameFramework.resources.ResourceManager.A3;
+		c.resType = GameFramework.resources.ResourceManager.A3;
 		c.Uj = 1;
 		GameFramework.BaseApp.M.Su(c);
 		return c
@@ -11116,7 +11116,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		var b = this.Nm[b], c = new GameFramework.resources.ResourceStreamer;
 		c.vc = b.vc;
 		b.Jj != null && (c.vc += b.Jj[0]);
-		c.Pf = GameFramework.resources.ResourceManager.yT;
+		c.resType = GameFramework.resources.ResourceManager.yT;
 		c.Uj = 1;
 		GameFramework.BaseApp.M.Su(c);
 		return c
@@ -11137,7 +11137,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		if (c.Kb.Jj != null && (c.vc = c.Kb.vc + c.Kb.Jj[0], c.Kb.Jj.length > 1))
 			c.Rx = c.Kb.vc + c.Kb.Jj[1];
 		c.vc = GameFramework.Utils.qF(c.vc);
-		c.Pf = GameFramework.resources.ResourceManager.sA;
+		c.resType = GameFramework.resources.ResourceManager.sA;
 		c.Uj = 1;
 		GameFramework.BaseApp.M.Su(c);
 		return c
@@ -11145,7 +11145,7 @@ GameFramework.resources.ResourceManager.prototype = {
 	vU : function(b) {
 		var c = new GameFramework.resources.ResourceStreamer;
 		c.vc = b;
-		c.Pf = GameFramework.resources.ResourceManager.sA;
+		c.resType = GameFramework.resources.ResourceManager.sA;
 		c.Uj = 1;
 		GameFramework.BaseApp.M.Su(c);
 		return c
@@ -11232,7 +11232,7 @@ GameFramework.resources.ResourceStreamer.prototype = {
 	Rx : null,
 	Kb : null,
 	rd : null,
-	Pf : 0,
+	resType : 0,
 	Uj : 0,
 	Or : 0,
 	tk : false,
@@ -12972,37 +12972,39 @@ GameFramework.JSBaseApp.prototype = {
 			if (this.wW && GameFramework.Utils.bootTime() - this.nX >= 100)
 				break;
 			var stream = this.Ck[f];
-			stream.Pf == GameFramework.resources.ResourceManager.tA
+			stream.resType == GameFramework.resources.ResourceManager.tA
 					? c = true
-					: stream.Pf != GameFramework.resources.ResourceManager.zT && (d = true);
+					: stream.resType != GameFramework.resources.ResourceManager.zT && (d = true);
 			if (stream.rd == null && stream.vc != null)
-				if (stream.Pf === GameFramework.resources.ResourceManager.sA)
+				if (stream.resType === GameFramework.resources.ResourceManager.sA)
 					stream.Kb != null && stream.Kb.Qb != null ? this.vb.Gs(stream.Kb.Qb) != null
 							&& stream.Or != stream.Uj && stream.Or++ : stream.rd = stream.Kb != null
 							&& stream.Kb.gX ? Oa(stream, stream.vc ? this.pathPrefix + stream.vc : null, stream.Rx
 									? this.pathPrefix + stream.Rx
 									: null) : Na(stream, stream.vc ? this.pathPrefix + stream.vc : null,
 							stream.Rx ? this.pathPrefix + stream.Rx : null);
-				else if (stream.Pf === GameFramework.resources.ResourceManager.tA) {
+				else if (stream.resType === GameFramework.resources.ResourceManager.tA) {
 					var h = stream.vc;
 					h.indexOf(".") === -1 && (h += stream.Kb.Jj[0]);
 					stream.rd = Wc(stream, h);
 					this.vb.JT(stream)
-				} else if (stream.Pf === GameFramework.resources.ResourceManager.KK
-						|| stream.Pf === GameFramework.resources.ResourceManager.NK
-						|| stream.Pf === GameFramework.resources.ResourceManager.MK
-						|| stream.Pf === GameFramework.resources.ResourceManager.LK
-						|| stream.Pf === GameFramework.resources.ResourceManager.OK
-						|| stream.Pf === GameFramework.resources.ResourceManager.yT)
+				} else if (stream.resType === GameFramework.resources.ResourceManager.KK
+						|| stream.resType === GameFramework.resources.ResourceManager.NK
+						|| stream.resType === GameFramework.resources.ResourceManager.MK
+						|| stream.resType === GameFramework.resources.ResourceManager.LK
+						|| stream.resType === GameFramework.resources.ResourceManager.OK
+						|| stream.resType === GameFramework.resources.ResourceManager.yT)
 					if (startsWith(stream.vc, "!ref:"))
 						h = this.vb.b1(stream.vc.substr(5)), h != null && stream.Or != stream.Uj
 								&& (this.vb.ET(stream.xa, h.gi()), stream.Or++);
 					else if (h = null, h = stream.vc.indexOf("@"), h != -1) {
+                        // search : and -, h will be filename, j, k is start and end codepoint
 						var j = stream.vc.indexOf(":", h);
 						var k = stream.vc.indexOf("-", h);
 						h = stream.vc.substr(h + 1, j - h - 1);
 						j = stream.vc.substr(j + 1, k - j - 1) | 0;
 						k = stream.vc.substr(k + 1) | 0;
+                        
 						var l = this.NB[h];
 						if(l) {
 							if(typeof l == "string") {
@@ -13048,21 +13050,21 @@ GameFramework.JSBaseApp.prototype = {
 	nk : function(b, c) {
 		this.RN = GameFramework.Utils.bootTime();
 		c.rd = b;
-		if (c.Pf == GameFramework.resources.ResourceManager.tA)
+		if (c.resType == GameFramework.resources.ResourceManager.tA)
 			this.YW = true;
-		if (c.Pf == GameFramework.resources.ResourceManager.KK) {
+		if (c.resType == GameFramework.resources.ResourceManager.KK) {
 			var d = new GameFramework.DataBuffer;
 			d.nd.Ya = c.rd;
 			c.rd = d;
 			this.fu.c3(c)
 		}
-		if (c.Pf == GameFramework.resources.ResourceManager.NK)
+		if (c.resType == GameFramework.resources.ResourceManager.NK)
 			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.fu.e3(c);
-		if (c.Pf == GameFramework.resources.ResourceManager.MK)
+		if (c.resType == GameFramework.resources.ResourceManager.MK)
 			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.fu.d3(c);
-		if (c.Pf == GameFramework.resources.ResourceManager.LK)
+		if (c.resType == GameFramework.resources.ResourceManager.LK)
 			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.fu.kT(c);
-		if (c.Pf == GameFramework.resources.ResourceManager.OK)
+		if (c.resType == GameFramework.resources.ResourceManager.OK)
 			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.fu.f3(c);
 		c.Or++
 	},
@@ -14064,7 +14066,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 		this.FT(b.xa, d)
 	},
 	JT : function(b) {
-		if (b.Pf == GameFramework.resources.ResourceManager.sA)
+		if (b.resType == GameFramework.resources.ResourceManager.sA)
 			if (b.xa != null && this.bh[b.xa] != null)
 				b.rd = this.bh[b.xa];
 			else {
@@ -14128,7 +14130,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 				b.rd = c;
 				b.xa != null && (this.dp(b.xa, c), this.bh[b.xa] = c)
 			}
-		else if (b.Pf == GameFramework.resources.ResourceManager.tA) {
+		else if (b.resType == GameFramework.resources.ResourceManager.tA) {
 			c = new GameFramework.resources.JSSoundResource;
 			c.WW = b.rd;
 			if (b.Kb != null)
