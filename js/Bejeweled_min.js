@@ -2061,7 +2061,7 @@ GameFramework.BaseApp.prototype = {
 	Bb : null,
 	ZH : null,
 	vb : null,
-	zo : null,
+	userId : null,
 	Nt : null,
 	bN : null,
 	po : "PopCapGame",
@@ -14947,8 +14947,8 @@ Game.BejApp.prototype = {
 		this.Jp.nL(b)
 	},
 	setUserAgent : set("UY"),
-	setUserId : set("zo"),
-	getUserId : get("zo"),
+	setUserId : set("userId"),
+	getUserId : get("userId"),
 	setUseGL : set("useGL"),
 	isUseGL : get("useGL"),
     setBkgImagePath : function(b, c) {
@@ -14966,15 +14966,15 @@ Game.BejApp.prototype = {
 			this.aj = GameFramework.Utils.Hc(c);
 		GameFramework.JSBaseApp.prototype.Ub.apply(this);
 		this.sY = GameFramework.Utils.eJ();
-		if (this.zo == null)
-			this.zo = this.Is("Global", "UserId");
-		if (this.zo == null)
-			this.zo = GameFramework.Utils.eJ(), this
-					.lt("Global", "UserId", this.zo);
+		if (this.userId == null)
+			this.userId = this.Is("Global", "UserId");
+		if (this.userId == null)
+			this.userId = GameFramework.Utils.eJ(), this
+					.lt("Global", "UserId", this.userId);
 		if (!this.eH)
 			this.Jp.Ub(), this.eH = true;
-		for (var d = c = 0; d < this.zo.length; d++)
-			c ^= (this.zo.charCodeAt(d) | 0) << d % 4 * 8;
+		for (var d = c = 0; d < this.userId.length; d++)
+			c ^= (this.userId.charCodeAt(d) | 0) << d % 4 * 8;
 		this.Jp.SC == 0 && this.Jp.n4(c % 1234567 / 1234567);
 		this.uk.x2();
 		this.FS();
@@ -15033,7 +15033,7 @@ Game.BejApp.prototype = {
 	tw : function(b, c, d, f) {
 		d === UNDEF && (d = false);
 		f === UNDEF && (f = null);
-		var g = [new GameFramework.misc.KeyVal("PlayerId", this.zo),
+		var g = [new GameFramework.misc.KeyVal("PlayerId", this.userId),
 				new GameFramework.misc.KeyVal("ProductName", "Bejeweled"),
 				new GameFramework.misc.KeyVal("PlatformName", "HTML5"),
 				new GameFramework.misc.KeyVal("ClientVersion", Game.Version.getVersion()),
