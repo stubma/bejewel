@@ -1013,7 +1013,7 @@ Type.ci = function(b) {
 Type.prototype.registerClass = function(name, parent, d) {
 	this.prototype.constructor = this;
 	this.name = name;
-	this.XU = true;
+	this._isClass = true;
 	this.parent = parent || Object;
 	if (parent)
 		this.needCopyParent = true;
@@ -1050,7 +1050,7 @@ function xa(b, c) {
 function Ca(b, c) {
 	if (b == Object || b == c)
 		return true;
-	if (b.XU)
+	if (b._isClass)
 		for (var d = c.parent; d;) {
 			if (b == d)
 				return true;
@@ -1069,7 +1069,7 @@ function Ca(b, c) {
 	return false
 }
 Type.Pqa = function(b) {
-	return b.XU == true
+	return b._isClass == true
 };
 Type.Rqa = function(b) {
 	return b.YU == true
