@@ -201,7 +201,7 @@ soundManager.flashLoadTimeout = 0;
 soundManager.waitForWindowLoad = true;
 soundManager.onload = JSFExt_SoundManagerReady;
 soundManager.onerror = JSFExt_SoundError;
-alert('aadd');
+alert('aad');
 JS_Init();
 gApp = new Game.BejApp();
 JFSExt_SetRequiresBinaryHack(false);

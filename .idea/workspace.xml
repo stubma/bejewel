@@ -33,19 +33,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Bejeweled_min.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Bejeweled_min.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="398" column="13" selection-start="8484" selection-end="8490" vertical-scroll-proportion="0.33238637">
+            <state line="398" column="30" selection-start="8500" selection-end="8500" vertical-scroll-proportion="-4.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="203" column="11" selection-start="7152" selection-end="7152" vertical-scroll-proportion="0.0">
+            <state line="203" column="10" selection-start="7151" selection-end="7151" vertical-scroll-proportion="0.44444445">
               <folding />
             </state>
           </provider>
@@ -230,7 +230,7 @@
       <recent name="$PROJECT_DIR$/js" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.bejewel (local)">
+  <component name="RunManager" selected="JavaScript Debug.bejewel (remote)">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -492,16 +492,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
+    <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="11" selection-start="7152" selection-end="7152" vertical-scroll-proportion="0.0">
+        <state line="398" column="30" selection-start="8500" selection-end="8500" vertical-scroll-proportion="-4.5">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
+    <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="398" column="13" selection-start="8484" selection-end="8490" vertical-scroll-proportion="0.33238637">
+        <state line="203" column="10" selection-start="7151" selection-end="7151" vertical-scroll-proportion="0.44444445">
           <folding />
         </state>
       </provider>

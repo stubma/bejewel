@@ -11,7 +11,7 @@ function dummy() {
 	return function() {
 	}
 }
-function w(b) {
+function set(b) {
 	return function(c) {
 		this[b] = c
 	}
@@ -988,7 +988,7 @@ ss.Debug.f$ = function(b) {
 };
 window.Type = Function;
 Type.name = "Type";
-__Namespace = w("name");
+__Namespace = set("name");
 __Namespace.prototype = {
 	V5 : true
 };
@@ -2118,7 +2118,7 @@ GameFramework.BaseApp.prototype = {
 			this.bN = this.Nt + GameFramework.Utils.wj(0)
 		}
 	},
-	l4 : w("$M"),
+	l4 : set("$M"),
 	SJ : function(b) {
 		this.EW = true;
 		this.$M != null ? this.$M.tt(b) || ca(b) : ca(b)
@@ -2160,7 +2160,7 @@ GameFramework.BaseApp.prototype = {
 		return b
 	},
 	xq : dummy(),
-	pt : w("Bb"),
+	pt : set("Bb"),
 	Su : function(b) {
 		this.Ck.push(b)
 	},
@@ -2464,7 +2464,7 @@ GameFramework.CurvedVal.prototype = {
 		}
 		return true
 	},
-	jL : w("Nj"),
+	jL : set("Nj"),
 	hL : function(b, c) {
 		this.cc = b;
 		this.Oc = c
@@ -2766,7 +2766,7 @@ GameFramework.DataBufferData.prototype = {
 	xV : function() {
 		return this.oo | 0
 	},
-	Fo : w("oo"),
+	Fo : set("oo"),
 	Ss : dummy(),
 	yq : dummy(),
 	AU : x(null),
@@ -3072,7 +3072,7 @@ T(function() {
 U(function() {
 			GameFramework.TIntDictionary.c()
 		});
-GameFramework.TMapKeyEnumerator = w("Bg");
+GameFramework.TMapKeyEnumerator = set("Bg");
 GameFramework.TMapKeyEnumerator.prototype = {
 	Bg : null,
 	t : dummy(),
@@ -3096,7 +3096,7 @@ T(function() {
 U(function() {
 			GameFramework.TMapKeyEnumerator.c()
 		});
-GameFramework.TMapValueEnumerator = w("Bg");
+GameFramework.TMapValueEnumerator = set("Bg");
 GameFramework.TMapValueEnumerator.prototype = {
 	Bg : null,
 	t : dummy(),
@@ -3800,7 +3800,7 @@ U(function() {
 			GameFramework.connected.UserInfo.c()
 		});
 GameFramework.events = Type.ci("GameFramework.events");
-GameFramework.events.Event = w("type");
+GameFramework.events.Event = set("type");
 GameFramework.events.Event.prototype = {
 	type : null,
 	text : null,
@@ -4438,7 +4438,7 @@ GameFramework.gfx.Camera.prototype = {
 	Ff : null,
 	ZY : 0,
 	rP : 0,
-	pk : w("Ff"),
+	pk : set("Ff"),
 	Az : function(b) {
 		if (b != null) {
 			var c = new GameFramework.geom.Coords3;
@@ -4947,7 +4947,7 @@ GameFramework.gfx.Graphics.prototype = {
 		g.Va = f;
 		g.concat(this.sa)
 	},
-	kb : w("U"),
+	kb : set("U"),
 	jh : function(b, c, d) {
 		this.zb(b, c, d, 0, 0)
 	},
@@ -4994,7 +4994,7 @@ T(function() {
 U(function() {
 			GameFramework.gfx.Graphics.c()
 		});
-GameFramework.gfx.Graphics3D = w("Uc");
+GameFramework.gfx.Graphics3D = set("Uc");
 GameFramework.gfx.Graphics3D.prototype = {
 	Uc : null,
 	t : function() {
@@ -5497,7 +5497,7 @@ T(function() {
 U(function() {
 			GameFramework.misc.CurveValDataPoint.c()
 		});
-GameFramework.misc.DisposeProxy = w("GC");
+GameFramework.misc.DisposeProxy = set("GC");
 GameFramework.misc.DisposeProxy.prototype = {
 	GC : null,
 	t : function() {
@@ -5512,7 +5512,7 @@ T(function() {
 U(function() {
 			GameFramework.misc.DisposeProxy.c()
 		});
-GameFramework.misc.DisposeProxyStatic = w("GC");
+GameFramework.misc.DisposeProxyStatic = set("GC");
 GameFramework.misc.DisposeProxyStatic.prototype = {
 	GC : null,
 	t : function() {
@@ -5527,7 +5527,7 @@ T(function() {
 U(function() {
 			GameFramework.misc.DisposeProxyStatic.c()
 		});
-GameFramework.misc.JSONString = w("Za");
+GameFramework.misc.JSONString = set("Za");
 GameFramework.misc.JSONString.prototype = {
 	Za : null
 };
@@ -5825,7 +5825,7 @@ GameFramework.resources.FontResource.prototype = {
 	em : null,
 	Kw : false,
 	FH : null,
-	dU : w("FH"),
+	dU : set("FH"),
 	gi : function() {
 		var b = new GameFramework.resources.FontResource;
 		b.Mh = this.Mh;
@@ -6255,7 +6255,7 @@ GameFramework.resources.ImageInst.prototype = {
 	IO : 1,
 	JO : 1,
 	Jw : ha("pc"),
-	qg : w("pc"),
+	qg : set("pc"),
 	$o : dummy(),
 	Og : dummy()
 };
@@ -6303,7 +6303,7 @@ GameFramework.resources.ImageResource.prototype = {
 	oO : null,
 	DM : null,
 	Jw : ha("pc"),
-	qg : w("pc"),
+	qg : set("pc"),
 	t : dummy(),
 	Og : dummy(),
 	vd : function() {
@@ -7237,7 +7237,7 @@ GameFramework.resources.PIEmitterInstance.prototype = {
 	de : null,
 	EX : 0,
 	ec : null,
-	tn : w("ec"),
+	tn : set("ec"),
 	t : function() {
 		this.$h.t();
 		GameFramework.resources.PIEmitterBase.prototype.t.apply(this)
@@ -7346,7 +7346,7 @@ GameFramework.resources.PILayer.prototype = {
 	Dn : null,
 	Pw : null,
 	t : dummy(),
-	tn : w("ec"),
+	tn : set("ec"),
 	a1 : function(b) {
 		return b < (this.mf.length | 0) ? this.mf[b] : null
 	},
@@ -10851,7 +10851,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.RenderEffectPass.c()
 		});
-GameFramework.resources.RenderEffectRunHandle = w("NH");
+GameFramework.resources.RenderEffectRunHandle = set("NH");
 GameFramework.resources.RenderEffectRunHandle.prototype = {
 	NH : null,
 	t : function() {
@@ -11248,7 +11248,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.ResourceStreamer.c()
 		});
-GameFramework.resources.SoundInstance = w("i9");
+GameFramework.resources.SoundInstance = set("i9");
 GameFramework.resources.SoundInstance.prototype = {
 	i9 : null,
 	fU : dummy(),
@@ -11627,7 +11627,7 @@ GameFramework.widgets.ButtonWidget.prototype = {
 				f, g, this.s, 0);
 		h != 1 && b.Ab()
 	},
-	kb : w("U"),
+	kb : set("U"),
 	am : function(b, c) {
 		this.pe[b] = c
 	},
@@ -12184,8 +12184,8 @@ GameFramework.widgets.Dialog.prototype = {
 		this.tb != null && this.tb.kb(b);
 		this.Fg != null && this.Fg.kb(b)
 	},
-	gL : w("Xf"),
-	aU : w("fo"),
+	gL : set("Xf"),
+	aU : set("fo"),
 	Qo : function(b) {
 		var c = this.Fd.Um + this.Fd.bj + this.Df.Um + this.Df.bj, d = false;
 		this.AB.length > 0 && this.Xf != null
@@ -12412,8 +12412,8 @@ GameFramework.widgets.EditWidget.prototype = {
 	SY : 0,
 	xr : 0,
 	pe : null,
-	V9 : w("kx"),
-	kb : w("U"),
+	V9 : set("kx"),
+	kb : set("U"),
 	gU : function(b, c) {
 		this.Za = b;
 		this.Qa = this.Za.length;
@@ -14151,7 +14151,7 @@ GameFramework.resources.JSSoundInstance.prototype = {
 	KX : 0,
 	yu : null,
 	QO : 0,
-	cU : w("KX"),
+	cU : set("KX"),
 	fU : function(b) {
 		this.QO = b;
 		this.GT()
@@ -14278,7 +14278,7 @@ T(function() {
 U(function() {
 			Game.Announcement.c()
 		});
-Game.BackgroundLoader = w("Tn");
+Game.BackgroundLoader = set("Tn");
 Game.BackgroundLoader.prototype = {
 	Tn : 0,
 	JZ : function(b) {
@@ -14933,18 +14933,18 @@ Game.BejApp.prototype = {
 		this.hr = true
 	},
 	GetArtRes : ha("aj"),
-	SetArtRes : w("aj"),
-	SetPathPrefix : w("pathPrefix"),
+	SetArtRes : set("aj"),
+	SetPathPrefix : set("pathPrefix"),
     SetMetricsURL : function(b) {
 		this.Jp.iL(b)
 	},
     SetThrottlingURL : function(b) {
 		this.Jp.nL(b)
 	},
-	SetUserAgent : w("UY"),
-	SetUserId : w("zo"),
+	SetUserAgent : set("UY"),
+	SetUserId : set("zo"),
 	GetUserId : ha("zo"),
-	SetUseGL : w("useGL"),
+	SetUseGL : set("useGL"),
 	isUseGL : ha("useGL"),
     SetBkgImagePath : function(b, c) {
 		Game.Background.cL(b, c)
@@ -15164,7 +15164,7 @@ Game.BejApp.prototype = {
 	lL : function(b) {
 		this.ZH.Rq(b, 0)
 	},
-	bU : w("WY"),
+	bU : set("WY"),
 	kA : function(b, c, d) {
 		c === UNDEF && (c = null);
 		d === UNDEF && (d = true);
@@ -21303,7 +21303,7 @@ Game.ColorCycle.prototype = {
 	aO : null,
 	lf : null,
 	t : dummy(),
-	o4 : w("$H"),
+	o4 : set("$H"),
 	ca : function() {
 		if (this.$H != 0)
 			if (this.lf.length == 0)
@@ -26795,7 +26795,7 @@ Game.GemInfo.prototype = {
 	r7 : 0,
 	q7 : 0,
 	Pn : null,
-	pk : w("Ff"),
+	pk : set("Ff"),
 	Ub : function(b, c) {
 		this.Pp = b;
 		this.r7 = this.Pp.n | 0;
@@ -26826,7 +26826,7 @@ Game.BoardInfo = dummy();
 Game.BoardInfo.prototype = {
 	Ff : null,
 	e : null,
-	pk : w("Ff"),
+	pk : set("Ff"),
 	Ub : function(b, c) {
 		this.e = b;
 		var d = c.GR(), f = c.FR(), g = c.HR(), h = new GameFramework.geom.Coords3;
