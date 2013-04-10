@@ -1545,17 +1545,17 @@ window.JFSExt_SetRequiresBinaryHack = function(b) {
 	requiresBinaryHack = b
 };
 function Ya(b, c) {
-	var d = new XMLHttpRequest;
-	d.overrideMimeType || !requiresBinaryHack ? d.open("GET", c, true) : d.open("GET",
+	var ajax = new XMLHttpRequest;
+	ajax.overrideMimeType || !requiresBinaryHack ? ajax.open("GET", c, true) : ajax.open("GET",
 			"file_getter.php?path=" + c, true);
-	d.onreadystatechange = function() {
-		if (d.readyState == 4)
-			d.status != 200 ? b.tk = true : curApp.nk(d.responseText, b)
+	ajax.onreadystatechange = function() {
+		if (ajax.readyState == 4)
+			ajax.status != 200 ? b.tk = true : curApp.nk(ajax.responseText, b)
 	};
-	d.overrideMimeType
-			&& d.overrideMimeType("text/plain;charset=x-user-defined");
-	d.send();
-	return d
+	ajax.overrideMimeType
+			&& ajax.overrideMimeType("text/plain;charset=x-user-defined");
+	ajax.send();
+	return ajax
 }
 function Za(b, c, d) {
 	var f = d.indexOf(".utf8") != -1, ajax = new XMLHttpRequest;
