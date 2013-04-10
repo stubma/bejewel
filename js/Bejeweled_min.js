@@ -7,7 +7,7 @@ function ga() {
 		return b
 	}
 }
-function dummy() {
+function t() {
 	return function() {
 	}
 }
@@ -280,7 +280,7 @@ window.ss = {
 				return f
 			},
 			a6 : function(b) {
-				b = (ss.ZL ? b.Cqa || b.S9 : b.S9).replace(/\{0\}/, b.name)
+				b = (ss.ZL ? b.Cqa || b.S9 : b.S9).replace(/\{0\}/, b.qi)
 						|| "";
 				if (b.substr(0, 2) === "%/")
 					var c = this.iV, b = c
@@ -302,20 +302,20 @@ window.ss = {
 				function g(b) {
 					var b = o(b), c = q(b);
 					c < B && !b.SL
-							&& (h[b.name] = b, k = true, d(b.dependencies, g));
+							&& (h[b.qi] = b, k = true, d(b.dependencies, g));
 					c < G && d(b.executionDependencies, g)
 				}
 				var h = {}, j = {}, k;
 				d(b, g);
 				k && (c(ss.XL, function(b) {
 							if (f(b.contains, function(b) {
-										if (!h[b.name])
+										if (!h[b.qi])
 											return true
 									})) {
 								var g = {}, k = 0;
 								d(b.contains, function(b) {
-											if ((b = j[b]) && !g[b.name])
-												g[b.name] = b, k += b.contains.length
+											if ((b = j[b]) && !g[b.qi])
+												g[b.qi] = b, k += b.contains.length
 														- 1
 										});
 								b.contains.length - 1 > k && (c(g, function(b) {
@@ -357,14 +357,14 @@ window.ss = {
 			},
 			fV : function(b) {
 				function c(d) {
-					var d = l(d), f = b.name, g = b;
+					var d = l(d), f = b.qi, g = b;
 					u(d, "_parents", {})[f] = g
 				}
 				d(b.dependencies, c);
 				d(b.executionDependencies, c)
 			},
 			s6 : function(c) {
-				var d = ss.scripts, h = c.name, j = c.contains;
+				var d = ss.scripts, h = c.qi, j = c.contains;
 				j ? (d = ss.XL, d[h] = c = b(d[h], c), c.TL = g(j), f(j,
 						function(b) {
 							var d = c;
@@ -395,7 +395,7 @@ window.ss = {
 	ss.Zi.b6();
 	ss.W5()
 })();
-Object.name = "Object";
+Object.qi = "Object";
 Object.parent = null;
 Object.Lqa = function(b) {
 	var c = 0, d;
@@ -413,11 +413,11 @@ Object.Zqa = function(b, c) {
 Function.prototype.tt = function() {
 	return this.apply(null, arguments)
 };
-Boolean.name = "Boolean";
+Boolean.qi = "Boolean";
 Boolean.parse = function(b) {
 	return b.toLowerCase() == "true"
 };
-Number.name = "Number";
+Number.qi = "Number";
 Number.parse = function(b) {
 	return !b || !b.length ? 0 : b.indexOf(".") >= 0 || b.indexOf("e") >= 0
 			|| na(b, "f") || na(b, "F") ? parseFloat(b) : parseInt(b, 10)
@@ -525,7 +525,7 @@ Number.prototype.JF = function(b, c) {
 Math.truncate = function(b) {
 	return b >= 0 ? Math.floor(b) : Math.ceil(b)
 };
-String.name = "String";
+String.qi = "String";
 String.a0 = "";
 String.k6 = function(b, c, d) {
 	d && (b && (b = b.toUpperCase()), c && (c = c.toUpperCase()));
@@ -599,7 +599,7 @@ if (!String.prototype.trim)
 	}, String.prototype.c$ = function() {
 		return this.replace(/^\s*/, "")
 	};
-Array.name = "Array";
+Array.qi = "Array";
 Array.GF = [ss.IEnumerable];
 Array.O = function(b, c) {
 	for (var d = Array(b), f = 2; f < arguments.length; f++)
@@ -714,7 +714,7 @@ if (!Array.prototype.some)
 Array.qra = function(b) {
 	return Array.prototype.slice.call(b)
 };
-RegExp.name = "RegExp";
+RegExp.qi = "RegExp";
 RegExp.parse = function(b) {
 	if (startsWith(b, "/")) {
 		var c = b.lastIndexOf("/");
@@ -723,7 +723,7 @@ RegExp.parse = function(b) {
 	}
 	return null
 };
-Date.name = "Date";
+Date.qi = "Date";
 Date.empty = null;
 Date.Mqa = function() {
 	return new Date
@@ -887,7 +887,7 @@ Date.prototype.JF = function(b, c) {
 Date.ira = function(b) {
 	return new Date(Date.parse(b))
 };
-Error.name = "Error";
+Error.qi = "Error";
 Error.xqa = function(b, c, d) {
 	b = Error(b);
 	if (c)
@@ -907,8 +907,8 @@ Error.xqa = function(b, c, d) {
 	}
 	return b
 };
-ss.Debug = window.tg ? window.tg : dummy();
-ss.Debug.name = "Debug";
+ss.Debug = window.tg ? window.tg : t();
+ss.Debug.qi = "Debug";
 if (!ss.Debug.writeln)
 	ss.Debug.writeln = function(b) {
 		window.console ? window.console.ZL
@@ -952,7 +952,7 @@ ss.Debug.LF = function(b, c, d, f, g) {
 					break
 				}
 				g.add(c);
-				var h = Type.aM(c).name, j = f + "  ";
+				var h = Type.aM(c).qi, j = f + "  ";
 				if (xa(Array, c)) {
 					b.Wq(f + d + ": {" + h + "}");
 					for (var d = c.length, k = 0; k < d; k++)
@@ -971,7 +971,7 @@ ss.Debug.LF = function(b, c, d, f, g) {
 };
 ss.Debug.sra = function(b, c) {
 	if ((!c || !c.length) && b !== null)
-		c = Type.aM(b).name;
+		c = Type.aM(b).qi;
 	var d = new ss.StringBuilder;
 	ss.Debug.LF(d, b, c, "", []);
 	ss.Debug.f$(d.toString())
@@ -987,8 +987,8 @@ ss.Debug.f$ = function(b) {
 	}
 };
 window.Type = Function;
-Type.name = "Type";
-__Namespace = w("name");
+Type.qi = "Type";
+__Namespace = w("qi");
 __Namespace.prototype = {
 	V5 : true
 };
@@ -1011,7 +1011,7 @@ Type.ci = function(b) {
 };
 Type.prototype.u = function(name, parent, d) {
 	this.prototype.constructor = this;
-	this.name = name;
+	this.qi = name;
 	this.XU = true;
 	this.parent = parent || Object;
 	if (parent)
@@ -1023,7 +1023,7 @@ Type.prototype.u = function(name, parent, d) {
 	}
 };
 function Ba(b, c) {
-	b.name = c;
+	b.qi = c;
 	b.$U = true
 }
 Type.prototype.xP = function() {
@@ -1097,7 +1097,7 @@ Type.aM = function(b) {
 		c = b.constructor
 	} catch (d) {
 	}
-	if (!c || !c.name)
+	if (!c || !c.qi)
 		c = Object;
 	return c
 };
@@ -1113,7 +1113,7 @@ Type.G6 = function(b) {
 Type.parse = function(b) {
 	return Type.G6(b)
 };
-ss.Enum = dummy();
+ss.Enum = t();
 ss.Enum.u("Enum");
 ss.Enum.parse = function(b, c) {
 	var d = b.prototype;
@@ -1154,9 +1154,9 @@ ss.Enum.toString = function(b) {
 		return f.join("")
 	}
 };
-ss.Delegate = dummy();
+ss.Delegate = t();
 ss.Delegate.u("Delegate");
-ss.Delegate.V2 = dummy();
+ss.Delegate.V2 = t();
 ss.Delegate.TL = function(b, c, d) {
 	for (var f = 0; f < b.length; f += 2)
 		if (b[f] === c && b[f + 1] === d)
@@ -1218,7 +1218,7 @@ ss.Delegate.vqa = function(b) {
 		ss.Delegate[b] = Delegate.V2
 };
 ss.CultureInfo = function(b, c, d) {
-	this.name = b;
+	this.qi = b;
 	this.aZ = c;
 	this.kV = d
 };
@@ -1270,7 +1270,7 @@ ss.CultureInfo.fK = new ss.CultureInfo("en-US", {
 			X9 : "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec,".split(",")
 		});
 ss.CultureInfo.yQ = ss.CultureInfo.fK;
-ss.IEnumerator = dummy();
+ss.IEnumerator = t();
 ss.IEnumerator.prototype = {
 	oe : null,
 	ye : null
@@ -1279,7 +1279,7 @@ ss.IEnumerator.Pd = function(b) {
 	return b ? b.Pd ? b.Pd() : new ss.ArrayEnumerator(b) : null
 };
 Ba(ss.IEnumerator, "IEnumerator");
-ss.IEnumerable = dummy();
+ss.IEnumerable = t();
 ss.IEnumerable.prototype = {
 	Pd : null
 };
@@ -1298,7 +1298,7 @@ ss.ArrayEnumerator.prototype = {
 	}
 };
 ss.ArrayEnumerator.u("ArrayEnumerator", null, ss.IEnumerator);
-ss.Wl = dummy();
+ss.Wl = t();
 ss.Wl.prototype = {};
 Ba(ss.Wl, "IDisposable");
 ss.StringBuilder = function(b) {
@@ -1322,7 +1322,7 @@ ss.StringBuilder.prototype = {
 	}
 };
 ss.StringBuilder.u("StringBuilder");
-ss.EventArgs = dummy();
+ss.EventArgs = t();
 ss.EventArgs.u("EventArgs");
 ss.EventArgs.a0 = new ss.EventArgs;
 if (!window.XMLHttpRequest)
@@ -1334,7 +1334,7 @@ if (!window.XMLHttpRequest)
 			}
 		return null
 	};
-ss.XmlDocumentParser = dummy();
+ss.XmlDocumentParser = t();
 ss.XmlDocumentParser.u("XmlDocumentParser");
 ss.XmlDocumentParser.parse = function(b) {
 	if (window.DOMParser)
@@ -1360,7 +1360,7 @@ ss.CancelEventArgs = function() {
 };
 ss.CancelEventArgs.prototype = {};
 ss.CancelEventArgs.u("CancelEventArgs", ss.EventArgs);
-ss.DS = dummy();
+ss.DS = t();
 ss.DS.prototype = {};
 Ba(ss.DS, "INotifyPropertyChanged");
 ss.PropertyChangedEventArgs = function(b) {
@@ -1369,10 +1369,10 @@ ss.PropertyChangedEventArgs = function(b) {
 };
 ss.PropertyChangedEventArgs.prototype = {};
 ss.PropertyChangedEventArgs.u("PropertyChangedEventArgs", ss.EventArgs);
-ss.CS = dummy();
+ss.CS = t();
 ss.CS.prototype = {};
 Ba(ss.CS, "INotifyCollectionChanged");
-ss.pQ = dummy();
+ss.pQ = t();
 ss.pQ.prototype = {
 	add : 0,
 	remove : 1
@@ -1380,7 +1380,7 @@ ss.pQ.prototype = {
 var Da = ss.pQ, Ea;
 for (Ea in Da.prototype)
 	Da[Ea] = Da.prototype[Ea];
-Da.name = "CollectionChangedAction";
+Da.qi = "CollectionChangedAction";
 Da.YU = true;
 Da.toString = ss.Enum.toString;
 ss.CollectionChangedEventArgs = function(b, c, d) {
@@ -1932,7 +1932,7 @@ window.JSFExt_Init = function(app, canvas) {
 			}, false);
 	wb = true
 };
-window.JSFExt_SoundManagerReady = dummy();
+window.JSFExt_SoundManagerReady = t();
 window.JSFExt_SoundError = function() {
 	curApp.SJ(Error("SoundManager2 error"))
 };
@@ -1972,7 +1972,7 @@ function S(b, c) {
 	if (!b) {
 		c == null && (c = "Assertion failed");
 		var d = new Xc(c);
-		d.pra = arguments.callee.caller.name;
+		d.pra = arguments.callee.caller.qi;
 		ca(d)
 	}
 }
@@ -1995,14 +1995,14 @@ function $c(b, c, d) {
 		b.VF(c + f - 3, arguments[f])
 }
 Type.ci("System");
-System.Wl = dummy();
+System.Wl = t();
 GameFramework = Type.ci("GameFramework");
-GameFramework.JSONHelperData = dummy();
+GameFramework.JSONHelperData = t();
 GameFramework.JSONHelperData.prototype = {
 	hC : 1,
 	Jl : 0
 };
-GameFramework.JSONHelperData.c = dummy();
+GameFramework.JSONHelperData.c = t();
 T(function() {
 			GameFramework.JSONHelperData.u("GameFramework.JSONHelperData", null)
 		});
@@ -2018,16 +2018,16 @@ GameFramework.JSONFormatException.prototype = {
 	h8 : null,
 	hC : 0
 };
-GameFramework.JSONFormatException.c = dummy();
+GameFramework.JSONFormatException.c = t();
 T(function() {
 			GameFramework.JSONFormatException.u("GameFramework.JSONFormatException", System.wJ)
 		});
 U(function() {
 			GameFramework.JSONFormatException.c()
 		});
-GameFramework.Sprite = dummy();
+GameFramework.Sprite = t();
 GameFramework.Sprite.prototype = {};
-GameFramework.Sprite.c = dummy();
+GameFramework.Sprite.c = t();
 T(function() {
 			GameFramework.Sprite.u("GameFramework.Sprite", null)
 		});
@@ -2123,7 +2123,7 @@ GameFramework.BaseApp.prototype = {
 		this.EW = true;
 		this.$M != null ? this.$M.tt(b) || ca(b) : ca(b)
 	},
-	wQ : dummy(),
+	wQ : t(),
 	Ub : function() {
 		this.lH == 0
 				? (this.lH = this.s, this.dC = this.z)
@@ -2143,9 +2143,9 @@ GameFramework.BaseApp.prototype = {
 		this.Ig = c;
 		this.m = this.Ig / this.z
 	},
-	bL : dummy(),
-	X4 : dummy(),
-	nQ : dummy(),
+	bL : t(),
+	X4 : t(),
+	nQ : t(),
 	yz : function(b) {
 		return new GameFramework.resources.SoundInstance(b)
 	},
@@ -2159,7 +2159,7 @@ GameFramework.BaseApp.prototype = {
 		b != null && (b.Rq(c), b.cU(d), b.Ug(false, true));
 		return b
 	},
-	xq : dummy(),
+	xq : t(),
 	pt : w("Bb"),
 	Su : function(b) {
 		this.Ck.push(b)
@@ -2222,11 +2222,11 @@ GameFramework.BaseApp.prototype = {
 			this.ml = c * 1E3 / d + 0.5 | 0, this.mX = b;
 		this.VM++
 	},
-	SE : dummy(),
-	ND : dummy(),
+	SE : t(),
+	ND : t(),
 	rj : x(""),
 	Is : x(null),
-	lt : dummy(),
+	lt : t(),
 	TS : function(b, c) {
 		this.xX.push(this.rj(Array.O(3, null, new GameFramework.misc.KeyVal("Event", b),
 				new GameFramework.misc.KeyVal("Time", 0), new GameFramework.misc.KeyVal(
@@ -2235,7 +2235,7 @@ GameFramework.BaseApp.prototype = {
 	uQ : function() {
 		return new GameFramework.DataBufferData
 	},
-	FL : dummy()
+	FL : t()
 };
 GameFramework.BaseApp.prototype.SetExceptionCallback = GameFramework.BaseApp.prototype.l4;
 GameFramework.BaseApp.c = function() {
@@ -2746,14 +2746,14 @@ GameFramework.DataBuffer.prototype = {
 		this.nd.SU(b)
 	}
 };
-GameFramework.DataBuffer.c = dummy();
+GameFramework.DataBuffer.c = t();
 T(function() {
 			GameFramework.DataBuffer.u("GameFramework.DataBuffer", null)
 		});
 U(function() {
 			GameFramework.DataBuffer.c()
 		});
-GameFramework.DataBufferData = dummy();
+GameFramework.DataBufferData = t();
 GameFramework.DataBufferData.prototype = {
 	fC : 0,
 	oo : 0,
@@ -2767,8 +2767,8 @@ GameFramework.DataBufferData.prototype = {
 		return this.oo | 0
 	},
 	Fo : w("oo"),
-	Ss : dummy(),
-	yq : dummy(),
+	Ss : t(),
+	yq : t(),
 	AU : x(null),
 	eb : x(0),
 	AT : function() {
@@ -2800,7 +2800,7 @@ GameFramework.DataBufferData.prototype = {
 		return GameFramework.Utils.L4(this.lk(b))
 	},
 	BU : x(""),
-	yn : dummy(),
+	yn : t(),
 	RU : function(b) {
 		for (var c = 0; c < b.length; c++)
 			this.yn(GameFramework.Utils.hi(b, c) | 0)
@@ -2815,14 +2815,14 @@ GameFramework.DataBufferData.prototype = {
 		this.yn(b & 255 | 0);
 		this.yn(b >> 8 & 255 | 0)
 	},
-	UU : dummy(),
+	UU : t(),
 	TU : function(b, c, d) {
 		for (var f = 0; f < d; f++)
 			this.yn(b[f + c])
 	},
-	SU : dummy()
+	SU : t()
 };
-GameFramework.DataBufferData.c = dummy();
+GameFramework.DataBufferData.c = t();
 T(function() {
 			GameFramework.DataBufferData.u("GameFramework.DataBufferData", null)
 		});
@@ -2845,7 +2845,7 @@ GameFramework.Insets.prototype = {
 	Vj : 0,
 	bj : 0
 };
-GameFramework.Insets.c = dummy();
+GameFramework.Insets.c = t();
 T(function() {
 			GameFramework.Insets.u("GameFramework.Insets", null)
 		});
@@ -2955,7 +2955,7 @@ GameFramework.NoRename = function() {
 	E(GameFramework.NoRename, this)
 };
 GameFramework.NoRename.prototype = {};
-GameFramework.NoRename.c = dummy();
+GameFramework.NoRename.c = t();
 T(function() {
 			GameFramework.NoRename.u("GameFramework.NoRename", System.Zaa)
 		});
@@ -2995,7 +2995,7 @@ GameFramework.TArray.prototype = {
 		return this.pp.Si()
 	}
 };
-GameFramework.TArray.c = dummy();
+GameFramework.TArray.c = t();
 T(function() {
 			GameFramework.TArray.u("GameFramework.TArray", null)
 		});
@@ -3017,7 +3017,7 @@ GameFramework.TDictionary.prototype = {
 		return new GameFramework.TDictionaryEnumerator(this.wh.Si(), false)
 	}
 };
-GameFramework.TDictionary.c = dummy();
+GameFramework.TDictionary.c = t();
 T(function() {
 			GameFramework.TDictionary.u("GameFramework.TDictionary", null,
 					GameFramework.misc.ZJ)
@@ -3045,7 +3045,7 @@ GameFramework.TDictionaryEnumerator.prototype = {
 		return this
 	}
 };
-GameFramework.TDictionaryEnumerator.c = dummy();
+GameFramework.TDictionaryEnumerator.c = t();
 T(function() {
 			GameFramework.TDictionaryEnumerator.u("GameFramework.TDictionaryEnumerator", null)
 		});
@@ -3064,7 +3064,7 @@ GameFramework.TIntDictionary.prototype = {
 		return new GameFramework.TDictionaryEnumerator(this.wh.Si(), false)
 	}
 };
-GameFramework.TIntDictionary.c = dummy();
+GameFramework.TIntDictionary.c = t();
 T(function() {
 			GameFramework.TIntDictionary.u("GameFramework.TIntDictionary", null,
 					GameFramework.misc.ZJ)
@@ -3075,7 +3075,7 @@ U(function() {
 GameFramework.TMapKeyEnumerator = w("Bg");
 GameFramework.TMapKeyEnumerator.prototype = {
 	Bg : null,
-	t : dummy(),
+	t : t(),
 	ip : function() {
 		return this.Bg.ip().wV()
 	},
@@ -3089,7 +3089,7 @@ GameFramework.TMapKeyEnumerator.prototype = {
 		return this
 	}
 };
-GameFramework.TMapKeyEnumerator.c = dummy();
+GameFramework.TMapKeyEnumerator.c = t();
 T(function() {
 			GameFramework.TMapKeyEnumerator.u("GameFramework.TMapKeyEnumerator", null)
 		});
@@ -3099,7 +3099,7 @@ U(function() {
 GameFramework.TMapValueEnumerator = w("Bg");
 GameFramework.TMapValueEnumerator.prototype = {
 	Bg : null,
-	t : dummy(),
+	t : t(),
 	ip : function() {
 		return this.Bg.ip().yV()
 	},
@@ -3113,7 +3113,7 @@ GameFramework.TMapValueEnumerator.prototype = {
 		return this
 	}
 };
-GameFramework.TMapValueEnumerator.c = dummy();
+GameFramework.TMapValueEnumerator.c = t();
 T(function() {
 			GameFramework.TMapValueEnumerator.u("GameFramework.TMapValueEnumerator", null)
 		});
@@ -3135,7 +3135,7 @@ GameFramework.TIntMap.prototype = {
 		return new GameFramework.TMapValueEnumerator(this.wh.Si())
 	}
 };
-GameFramework.TIntMap.c = dummy();
+GameFramework.TIntMap.c = t();
 T(function() {
 			GameFramework.TIntMap.u("GameFramework.TIntMap", null, GameFramework.misc.ZJ)
 		});
@@ -3176,7 +3176,7 @@ GameFramework.TIntRect.prototype = {
 		this.z = this.z * c | 0
 	}
 };
-GameFramework.TIntRect.c = dummy();
+GameFramework.TIntRect.c = t();
 T(function() {
 			GameFramework.TIntRect.u("GameFramework.TIntRect", null)
 		});
@@ -3211,7 +3211,7 @@ GameFramework.TIntVector.prototype = {
 		return this.He.Si()
 	}
 };
-GameFramework.TIntVector.c = dummy();
+GameFramework.TIntVector.c = t();
 T(function() {
 			GameFramework.TIntVector.u("GameFramework.TIntVector", null)
 		});
@@ -3231,12 +3231,12 @@ GameFramework.TMapEnumerator.prototype = {
 	Zs : function() {
 		return this.Bg.Zs()
 	},
-	Vg : dummy(),
+	Vg : t(),
 	Si : function() {
 		return this
 	}
 };
-GameFramework.TMapEnumerator.c = dummy();
+GameFramework.TMapEnumerator.c = t();
 T(function() {
 			GameFramework.TMapEnumerator.u("GameFramework.TMapEnumerator", null)
 		});
@@ -3258,7 +3258,7 @@ GameFramework.TMap.prototype = {
 		return new GameFramework.TMapEnumerator(this.wh.Si(), false)
 	}
 };
-GameFramework.TMap.c = dummy();
+GameFramework.TMap.c = t();
 T(function() {
 			GameFramework.TMap.u("GameFramework.TMap", null, GameFramework.misc.ZJ)
 		});
@@ -3296,7 +3296,7 @@ GameFramework.TRect.prototype = {
 		this.z *= c
 	}
 };
-GameFramework.TRect.c = dummy();
+GameFramework.TRect.c = t();
 T(function() {
 			GameFramework.TRect.u("GameFramework.TRect", null)
 		});
@@ -3352,14 +3352,14 @@ GameFramework.TVector.prototype = {
 		b == null ? this.He.sL() : this.He.mU(b)
 	}
 };
-GameFramework.TVector.c = dummy();
+GameFramework.TVector.c = t();
 T(function() {
 			GameFramework.TVector.u("GameFramework.TVector", null)
 		});
 U(function() {
 			GameFramework.TVector.c()
 		});
-GameFramework.Utils = dummy();
+GameFramework.Utils = t();
 GameFramework.Utils.Hc = function(b) {
 	return b | 0
 };
@@ -3530,7 +3530,7 @@ GameFramework.Utils.F4 = function(b) {
 GameFramework.Utils.uU = function(b) {
 	return GameFramework.Utils.G4(GameFramework.Utils.F4(b))
 };
-GameFramework.Utils.X4 = dummy();
+GameFramework.Utils.X4 = t();
 GameFramework.Utils.TS = function(b, c) {
 	c === UNDEF && (c = null);
 	c == null
@@ -3611,14 +3611,14 @@ GameFramework.XMLParser.prototype = {
 				: this.er[b]
 	}
 };
-GameFramework.XMLParser.c = dummy();
+GameFramework.XMLParser.c = t();
 T(function() {
 			GameFramework.XMLParser.u("GameFramework.XMLParser", null)
 		});
 U(function() {
 			GameFramework.XMLParser.c()
 		});
-GameFramework.XMLParserList = dummy();
+GameFramework.XMLParserList = t();
 GameFramework.XMLParserList.prototype = {
 	vm : null,
 	oa : null,
@@ -3632,7 +3632,7 @@ GameFramework.XMLParserList.prototype = {
 		return this.vm == null ? this.oa == null ? "" : this.oa : this.vm[0]
 	}
 };
-GameFramework.XMLParserList.c = dummy();
+GameFramework.XMLParserList.c = t();
 T(function() {
 			GameFramework.XMLParserList.u("GameFramework.XMLParserList", null)
 		});
@@ -3644,7 +3644,7 @@ GameFramework.ads.AdAPIEvent = function(b) {
 	E(GameFramework.ads.AdAPIEvent, this, [b])
 };
 GameFramework.ads.AdAPIEvent.prototype = {};
-GameFramework.ads.AdAPIEvent.c = dummy();
+GameFramework.ads.AdAPIEvent.c = t();
 T(function() {
 			GameFramework.ads.AdAPIEvent.u("GameFramework.ads.AdAPIEvent",
 					GameFramework.events.Event)
@@ -3658,7 +3658,7 @@ GameFramework.connected.ConnectedRequest = function() {
 	GameFramework.connected.ConnectedRequest.jY++;
 	this.kY = GameFramework.connected.ConnectedRequest.jY
 };
-GameFramework.connected.ConnectedRequest.Hla = dummy();
+GameFramework.connected.ConnectedRequest.Hla = t();
 GameFramework.connected.ConnectedRequest.prototype = {
 	OC : GameFramework.connected.ConnectedRequest.y3,
 	kY : 0,
@@ -3698,7 +3698,7 @@ GameFramework.connected.Database.prototype = {
 	v9 : "http://mooami.internal.popcap.com/p4_managed/PrimeSharp/prime/Database/query_engine.php",
 	U8 : null,
 	y8 : null,
-	ca : dummy()
+	ca : t()
 };
 GameFramework.connected.Database.c = function() {
 	GameFramework.connected.Database.Cca = 1;
@@ -3715,7 +3715,7 @@ GameFramework.connected.Facebook = function() {
 	E(GameFramework.connected.Facebook, this)
 };
 GameFramework.connected.Facebook.prototype = {};
-GameFramework.connected.Facebook.c = dummy();
+GameFramework.connected.Facebook.c = t();
 T(function() {
 			GameFramework.connected.Facebook.u("GameFramework.connected.Facebook",
 					GameFramework.connected.SocialService)
@@ -3723,7 +3723,7 @@ T(function() {
 U(function() {
 			GameFramework.connected.Facebook.c()
 		});
-GameFramework.connected.HTTPService = dummy();
+GameFramework.connected.HTTPService = t();
 GameFramework.connected.HTTPService.fqa = function(b) {
 	for (var c = "", d = 0; d < b.length; d++)
 		switch (b.charCodeAt(d)) {
@@ -3762,9 +3762,9 @@ GameFramework.connected.HTTPService.prototype = {
 		c.OH = b;
 		return c
 	},
-	ca : dummy()
+	ca : t()
 };
-GameFramework.connected.HTTPService.c = dummy();
+GameFramework.connected.HTTPService.c = t();
 T(function() {
 			GameFramework.connected.HTTPService.u("GameFramework.connected.HTTPService",
 					null)
@@ -3778,9 +3778,9 @@ GameFramework.connected.SocialService = function() {
 GameFramework.connected.SocialService.prototype = {
 	Q7 : null,
 	Ub : x(null),
-	ca : dummy()
+	ca : t()
 };
-GameFramework.connected.SocialService.c = dummy();
+GameFramework.connected.SocialService.c = t();
 T(function() {
 			GameFramework.connected.SocialService.u(
 					"GameFramework.connected.SocialService", null)
@@ -3788,11 +3788,11 @@ T(function() {
 U(function() {
 			GameFramework.connected.SocialService.c()
 		});
-GameFramework.connected.UserInfo = dummy();
+GameFramework.connected.UserInfo = t();
 GameFramework.connected.UserInfo.prototype = {
 	sb : null
 };
-GameFramework.connected.UserInfo.c = dummy();
+GameFramework.connected.UserInfo.c = t();
 T(function() {
 			GameFramework.connected.UserInfo.u("GameFramework.connected.UserInfo", null)
 		});
@@ -3840,7 +3840,7 @@ GameFramework.events.EventDispatcher.prototype = {
 		this.Hp = null
 	}
 };
-GameFramework.events.EventDispatcher.c = dummy();
+GameFramework.events.EventDispatcher.c = t();
 T(function() {
 			GameFramework.events.EventDispatcher.u("GameFramework.events.EventDispatcher", null,
 					System.Wl)
@@ -3936,7 +3936,7 @@ GameFramework.geom.Axes3.prototype = {
 		}
 	}
 };
-GameFramework.geom.Axes3.c = dummy();
+GameFramework.geom.Axes3.c = t();
 T(function() {
 			GameFramework.geom.Axes3.u("GameFramework.geom.Axes3", null)
 		});
@@ -4039,7 +4039,7 @@ GameFramework.geom.Coords3.prototype = {
 					* 3 + 3] = 1
 	}
 };
-GameFramework.geom.Coords3.c = dummy();
+GameFramework.geom.Coords3.c = t();
 T(function() {
 			GameFramework.geom.Coords3.u("GameFramework.geom.Coords3", null)
 		});
@@ -4112,7 +4112,7 @@ GameFramework.geom.Matrix.prototype = {
 				this.Da + this.Sb * b.x + this.Va * b.y)
 	}
 };
-GameFramework.geom.Matrix.c = dummy();
+GameFramework.geom.Matrix.c = t();
 T(function() {
 			GameFramework.geom.Matrix.u("GameFramework.geom.Matrix", null)
 		});
@@ -4266,7 +4266,7 @@ GameFramework.geom.Quat3.prototype = {
 		return Math.abs(this.yc - b.yc) <= c && this.Ob.JI(b.Ob, c)
 	}
 };
-GameFramework.geom.Quat3.c = dummy();
+GameFramework.geom.Quat3.c = t();
 T(function() {
 			GameFramework.geom.Quat3.u("GameFramework.geom.Quat3", null)
 		});
@@ -4290,7 +4290,7 @@ GameFramework.geom.TIntPoint.prototype = {
 		return Math.sqrt(this.x * this.x + this.y * this.y)
 	}
 };
-GameFramework.geom.TIntPoint.c = dummy();
+GameFramework.geom.TIntPoint.c = t();
 T(function() {
 			GameFramework.geom.TIntPoint.u("GameFramework.geom.TIntPoint", null)
 		});
@@ -4338,7 +4338,7 @@ GameFramework.geom.TPoint.prototype = {
 		this.y *= b
 	}
 };
-GameFramework.geom.TPoint.c = dummy();
+GameFramework.geom.TPoint.c = t();
 T(function() {
 			GameFramework.geom.TPoint.u("GameFramework.geom.TPoint", null)
 		});
@@ -4421,7 +4421,7 @@ GameFramework.geom.Vector3.prototype = {
 		return this.mn(b.yc).li(b.Kd).Yd(b.Mg)
 	}
 };
-GameFramework.geom.Vector3.c = dummy();
+GameFramework.geom.Vector3.c = t();
 T(function() {
 			GameFramework.geom.Vector3.u("GameFramework.geom.Vector3", null)
 		});
@@ -4447,7 +4447,7 @@ GameFramework.gfx.Camera.prototype = {
 			c.g1(b)
 		}
 	},
-	sv : dummy(),
+	sv : t(),
 	hR : x(null),
 	S5 : function(b) {
 		return b.dR(this.Ff)
@@ -4470,7 +4470,7 @@ GameFramework.gfx.Camera.prototype = {
 		return true
 	}
 };
-GameFramework.gfx.Camera.c = dummy();
+GameFramework.gfx.Camera.c = t();
 T(function() {
 			GameFramework.gfx.Camera.u("GameFramework.gfx.Camera", null)
 		});
@@ -4620,7 +4620,7 @@ GameFramework.gfx.TriVertex.prototype = {
 	Ob : 0,
 	color : 0
 };
-GameFramework.gfx.TriVertex.c = dummy();
+GameFramework.gfx.TriVertex.c = t();
 T(function() {
 			GameFramework.gfx.TriVertex.u("GameFramework.gfx.TriVertex", null)
 		});
@@ -4982,12 +4982,12 @@ GameFramework.gfx.Graphics.prototype = {
 	hc : function(b) {
 		return this.U.hc(b)
 	},
-	dt : dummy(),
-	bn : dummy(),
+	dt : t(),
+	bn : t(),
 	yD : x(null),
-	gz : dummy()
+	gz : t()
 };
-GameFramework.gfx.Graphics.c = dummy();
+GameFramework.gfx.Graphics.c = t();
 T(function() {
 			GameFramework.gfx.Graphics.u("GameFramework.gfx.Graphics", null)
 		});
@@ -5000,21 +5000,21 @@ GameFramework.gfx.Graphics3D.prototype = {
 	t : function() {
 		this.Uc.gz(this)
 	},
-	qL : dummy(),
-	vJ : dummy(),
-	mt : dummy(),
-	GA : dummy(),
-	IA : dummy(),
+	qL : t(),
+	vJ : t(),
+	mt : t(),
+	GA : t(),
+	IA : t(),
 	lw : x(false),
-	kF : dummy(),
-	mL : dummy(),
-	Oq : dummy(),
-	Nq : dummy(),
-	it : dummy(),
-	$m : dummy(),
-	BA : dummy()
+	kF : t(),
+	mL : t(),
+	Oq : t(),
+	Nq : t(),
+	it : t(),
+	$m : t(),
+	BA : t()
 };
-GameFramework.gfx.Graphics3D.c = dummy();
+GameFramework.gfx.Graphics3D.c = t();
 T(function() {
 			GameFramework.gfx.Graphics3D.u("GameFramework.gfx.Graphics3D", null, System.Wl)
 		});
@@ -5071,7 +5071,7 @@ GameFramework.gfx.OffsetDrawable.prototype = {
 		this.tp.Og(b, c, d + this.sf, f + this.Oe, g)
 	}
 };
-GameFramework.gfx.OffsetDrawable.c = dummy();
+GameFramework.gfx.OffsetDrawable.c = t();
 T(function() {
 			GameFramework.gfx.OffsetDrawable.u("GameFramework.gfx.OffsetDrawable", null,
 					GameFramework.gfx.WJ)
@@ -5118,7 +5118,7 @@ GameFramework.gfx.PerspectiveCamera.prototype = {
 		return c
 	}
 };
-GameFramework.gfx.PerspectiveCamera.c = dummy();
+GameFramework.gfx.PerspectiveCamera.c = t();
 T(function() {
 			GameFramework.gfx.PerspectiveCamera.u("GameFramework.gfx.PerspectiveCamera",
 					GameFramework.gfx.Camera)
@@ -5147,7 +5147,7 @@ GameFramework.gfx.TransformedDrawable.prototype = {
 		this.tp.Og(b, h, 0, 0, g)
 	}
 };
-GameFramework.gfx.TransformedDrawable.c = dummy();
+GameFramework.gfx.TransformedDrawable.c = t();
 T(function() {
 			GameFramework.gfx.TransformedDrawable.u("GameFramework.gfx.TransformedDrawable", null,
 					GameFramework.gfx.WJ)
@@ -5156,7 +5156,7 @@ U(function() {
 			GameFramework.gfx.TransformedDrawable.c()
 		});
 GameFramework.misc = Type.ci("GameFramework.misc");
-GameFramework.misc.Bezier = dummy();
+GameFramework.misc.Bezier = t();
 GameFramework.misc.Bezier.prototype = {
 	Yj : null,
 	zr : null,
@@ -5323,7 +5323,7 @@ GameFramework.misc.Bezier.prototype = {
 				+ this.wL(r, v, o, q, g, h, j, k)
 	}
 };
-GameFramework.misc.Bezier.c = dummy();
+GameFramework.misc.Bezier.c = t();
 T(function() {
 			GameFramework.misc.Bezier.u("GameFramework.misc.Bezier", null)
 		});
@@ -5464,33 +5464,33 @@ GameFramework.misc.BSpline.prototype = {
 		return this.eS(b, this.DI)
 	}
 };
-GameFramework.misc.BSpline.c = dummy();
+GameFramework.misc.BSpline.c = t();
 T(function() {
 			GameFramework.misc.BSpline.u("GameFramework.misc.BSpline", null)
 		});
 U(function() {
 			GameFramework.misc.BSpline.c()
 		});
-GameFramework.misc.CurveCacheRecord = dummy();
+GameFramework.misc.CurveCacheRecord = t();
 GameFramework.misc.CurveCacheRecord.prototype = {
 	dD : null,
 	VB : null,
 	A7 : null
 };
-GameFramework.misc.CurveCacheRecord.c = dummy();
+GameFramework.misc.CurveCacheRecord.c = t();
 T(function() {
 			GameFramework.misc.CurveCacheRecord.u("GameFramework.misc.CurveCacheRecord", null)
 		});
 U(function() {
 			GameFramework.misc.CurveCacheRecord.c()
 		});
-GameFramework.misc.CurveValDataPoint = dummy();
+GameFramework.misc.CurveValDataPoint = t();
 GameFramework.misc.CurveValDataPoint.prototype = {
 	w : 0,
 	v : 0,
 	fM : 0
 };
-GameFramework.misc.CurveValDataPoint.c = dummy();
+GameFramework.misc.CurveValDataPoint.c = t();
 T(function() {
 			GameFramework.misc.CurveValDataPoint.u("GameFramework.misc.CurveValDataPoint", null)
 		});
@@ -5504,7 +5504,7 @@ GameFramework.misc.DisposeProxy.prototype = {
 		this.GC.tt()
 	}
 };
-GameFramework.misc.DisposeProxy.c = dummy();
+GameFramework.misc.DisposeProxy.c = t();
 T(function() {
 			GameFramework.misc.DisposeProxy.u("GameFramework.misc.DisposeProxy", null,
 					System.Wl)
@@ -5519,7 +5519,7 @@ GameFramework.misc.DisposeProxyStatic.prototype = {
 		this.GC.tt()
 	}
 };
-GameFramework.misc.DisposeProxyStatic.c = dummy();
+GameFramework.misc.DisposeProxyStatic.c = t();
 T(function() {
 			GameFramework.misc.DisposeProxyStatic.u("GameFramework.misc.DisposeProxyStatic", null,
 					GameFramework.yla)
@@ -5531,7 +5531,7 @@ GameFramework.misc.JSONString = w("Za");
 GameFramework.misc.JSONString.prototype = {
 	Za : null
 };
-GameFramework.misc.JSONString.c = dummy();
+GameFramework.misc.JSONString.c = t();
 T(function() {
 			GameFramework.misc.JSONString.u("GameFramework.misc.JSONString", null)
 		});
@@ -5542,7 +5542,7 @@ GameFramework.misc.Key1 = function(b) {
 	E(GameFramework.misc.Key1, this, [b, 1])
 };
 GameFramework.misc.Key1.prototype = {};
-GameFramework.misc.Key1.c = dummy();
+GameFramework.misc.Key1.c = t();
 T(function() {
 			GameFramework.misc.Key1.u("GameFramework.misc.Key1", GameFramework.misc.KeyVal)
 		});
@@ -5557,7 +5557,7 @@ GameFramework.misc.KeyVal.prototype = {
 	gH : null,
 	oa : null
 };
-GameFramework.misc.KeyVal.c = dummy();
+GameFramework.misc.KeyVal.c = t();
 T(function() {
 			GameFramework.misc.KeyVal.u("GameFramework.misc.KeyVal", null)
 		});
@@ -5653,7 +5653,7 @@ GameFramework.misc.TMapSorter.prototype = {
 	v7 : null,
 	F7 : null
 };
-GameFramework.misc.TMapSorter.c = dummy();
+GameFramework.misc.TMapSorter.c = t();
 T(function() {
 			GameFramework.misc.TMapSorter.u("GameFramework.misc.TMapSorter", null)
 		});
@@ -5661,7 +5661,7 @@ U(function() {
 			GameFramework.misc.TMapSorter.c()
 		});
 GameFramework.resources = Type.ci("GameFramework.resources");
-GameFramework.resources.BaseRes = dummy();
+GameFramework.resources.BaseRes = t();
 GameFramework.resources.BaseRes.prototype = {
 	Fb : 0,
 	xa : null,
@@ -5694,14 +5694,14 @@ GameFramework.resources.BaseRes.prototype = {
 	DO : 0,
 	Nn : null
 };
-GameFramework.resources.BaseRes.c = dummy();
+GameFramework.resources.BaseRes.c = t();
 T(function() {
 			GameFramework.resources.BaseRes.u("GameFramework.resources.BaseRes", null)
 		});
 U(function() {
 			GameFramework.resources.BaseRes.c()
 		});
-GameFramework.resources.FontCharData = dummy();
+GameFramework.resources.FontCharData = t();
 GameFramework.resources.FontCharData.prototype = {
 	m7 : 0,
 	cY : 0,
@@ -5716,14 +5716,14 @@ GameFramework.resources.FontCharData.prototype = {
 	GX : 0,
 	bu : null
 };
-GameFramework.resources.FontCharData.c = dummy();
+GameFramework.resources.FontCharData.c = t();
 T(function() {
 			GameFramework.resources.FontCharData.u("GameFramework.resources.FontCharData", null)
 		});
 U(function() {
 			GameFramework.resources.FontCharData.c()
 		});
-GameFramework.resources.FontDrawCmd = dummy();
+GameFramework.resources.FontDrawCmd = t();
 GameFramework.resources.FontDrawCmd.prototype = {
 	$V : null,
 	hN : null,
@@ -5731,19 +5731,19 @@ GameFramework.resources.FontDrawCmd.prototype = {
 	Cy : 0,
 	n : 0
 };
-GameFramework.resources.FontDrawCmd.c = dummy();
+GameFramework.resources.FontDrawCmd.c = t();
 T(function() {
 			GameFramework.resources.FontDrawCmd.u("GameFramework.resources.FontDrawCmd", null)
 		});
 U(function() {
 			GameFramework.resources.FontDrawCmd.c()
 		});
-GameFramework.resources.FontDrawData = dummy();
+GameFramework.resources.FontDrawData = t();
 GameFramework.resources.FontDrawData.prototype = {
 	gN : 0,
 	OW : 0
 };
-GameFramework.resources.FontDrawData.c = dummy();
+GameFramework.resources.FontDrawData.c = t();
 T(function() {
 			GameFramework.resources.FontDrawData.u("GameFramework.resources.FontDrawData", null)
 		});
@@ -5797,7 +5797,7 @@ GameFramework.resources.FontLayer.prototype = {
 		this.cj = this.Tf.pop() | 0
 	}
 };
-GameFramework.resources.FontLayer.c = dummy();
+GameFramework.resources.FontLayer.c = t();
 T(function() {
 			GameFramework.resources.FontLayer.u("GameFramework.resources.FontLayer", null)
 		});
@@ -6256,10 +6256,10 @@ GameFramework.resources.ImageInst.prototype = {
 	JO : 1,
 	Jw : ha("pc"),
 	qg : w("pc"),
-	$o : dummy(),
-	Og : dummy()
+	$o : t(),
+	Og : t()
 };
-GameFramework.resources.ImageInst.c = dummy();
+GameFramework.resources.ImageInst.c = t();
 T(function() {
 			GameFramework.resources.ImageInst.u("GameFramework.resources.ImageInst", null,
 					GameFramework.gfx.WJ)
@@ -6304,8 +6304,8 @@ GameFramework.resources.ImageResource.prototype = {
 	DM : null,
 	Jw : ha("pc"),
 	qg : w("pc"),
-	t : dummy(),
-	Og : dummy(),
+	t : t(),
+	Og : t(),
 	vd : function() {
 		if (this.oO == null)
 			this.oO = new GameFramework.gfx.OffsetDrawable(this, this.sf, this.Oe);
@@ -6345,7 +6345,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.ImageResource.c()
 		});
-GameFramework.resources.MeshPiece = dummy();
+GameFramework.resources.MeshPiece = t();
 GameFramework.resources.MeshPiece.prototype = {
 	G8 : null,
 	tY : null,
@@ -6361,7 +6361,7 @@ GameFramework.resources.MeshPiece.prototype = {
 		this.Oa = b.xa != null ? GameFramework.BaseApp.M.vb.Gs(b.xa) : b.rd
 	}
 };
-GameFramework.resources.MeshPiece.c = dummy();
+GameFramework.resources.MeshPiece.c = t();
 T(function() {
 			GameFramework.resources.MeshPiece.u("GameFramework.resources.MeshPiece", null)
 		});
@@ -6448,7 +6448,7 @@ GameFramework.resources.MeshResource.prototype = {
 		return true
 	}
 };
-GameFramework.resources.MeshResource.c = dummy();
+GameFramework.resources.MeshResource.c = t();
 T(function() {
 			GameFramework.resources.MeshResource.u("GameFramework.resources.MeshResource",
 					GameFramework.events.EventDispatcher)
@@ -6456,13 +6456,13 @@ T(function() {
 U(function() {
 			GameFramework.resources.MeshResource.c()
 		});
-GameFramework.resources.PIValuePoint = dummy();
+GameFramework.resources.PIValuePoint = t();
 GameFramework.resources.PIValuePoint.prototype = {
 	Eb : 0,
 	oa : 0,
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PIValuePoint.c = dummy();
+GameFramework.resources.PIValuePoint.c = t();
 T(function() {
 			GameFramework.resources.PIValuePoint.u("GameFramework.resources.PIValuePoint", null,
 					GameFramework.ff)
@@ -6470,13 +6470,13 @@ T(function() {
 U(function() {
 			GameFramework.resources.PIValuePoint.c()
 		});
-GameFramework.resources.PIGeomDataEx = dummy();
+GameFramework.resources.PIGeomDataEx = t();
 GameFramework.resources.PIGeomDataEx.prototype = {
 	bs : 0,
 	S6 : null,
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PIGeomDataEx.c = dummy();
+GameFramework.resources.PIGeomDataEx.c = t();
 T(function() {
 			GameFramework.resources.PIGeomDataEx.u("GameFramework.resources.PIGeomDataEx", null,
 					GameFramework.ff)
@@ -6484,7 +6484,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.PIGeomDataEx.c()
 		});
-GameFramework.resources.PIValue = dummy();
+GameFramework.resources.PIValue = t();
 GameFramework.resources.PIValue.prototype = {
 	Kr : null,
 	dc : null,
@@ -6493,7 +6493,7 @@ GameFramework.resources.PIValue.prototype = {
 	Bm : 0,
 	MN : 0,
 	mH : 0.01,
-	t : dummy(),
+	t : t(),
 	r3 : function() {
 		var b = this.dc[0].Eb, c = this.dc[this.dc.length - 1].Eb;
 		this.Kr = [];
@@ -6618,13 +6618,13 @@ T(function() {
 U(function() {
 			GameFramework.resources.PIValue.c()
 		});
-GameFramework.resources.PIValuePoint2D = dummy();
+GameFramework.resources.PIValuePoint2D = t();
 GameFramework.resources.PIValuePoint2D.prototype = {
 	Eb : 0,
 	oa : null,
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PIValuePoint2D.c = dummy();
+GameFramework.resources.PIValuePoint2D.c = t();
 T(function() {
 			GameFramework.resources.PIValuePoint2D.u("GameFramework.resources.PIValuePoint2D", null,
 					GameFramework.ff)
@@ -6632,7 +6632,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.PIValuePoint2D.c()
 		});
-GameFramework.resources.PIValue2D = dummy();
+GameFramework.resources.PIValue2D = t();
 GameFramework.resources.PIValue2D.prototype = {
 	mj : null,
 	km : null,
@@ -6640,7 +6640,7 @@ GameFramework.resources.PIValue2D.prototype = {
 	co : null,
 	pX : 0,
 	rH : null,
-	t : dummy(),
+	t : t(),
 	G : function(b) {
 		if (this.Fx == b)
 			return this.co;
@@ -6673,7 +6673,7 @@ GameFramework.resources.PIValue2D.prototype = {
 		return this.rH = new GameFramework.geom.TPoint(0, 0)
 	}
 };
-GameFramework.resources.PIValue2D.c = dummy();
+GameFramework.resources.PIValue2D.c = t();
 T(function() {
 			GameFramework.resources.PIValue2D.u("GameFramework.resources.PIValue2D", null,
 					GameFramework.ff)
@@ -6681,13 +6681,13 @@ T(function() {
 U(function() {
 			GameFramework.resources.PIValue2D.c()
 		});
-GameFramework.resources.PIInterpolatorPoint = dummy();
+GameFramework.resources.PIInterpolatorPoint = t();
 GameFramework.resources.PIInterpolatorPoint.prototype = {
 	oa : 0,
 	Eb : 0,
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PIInterpolatorPoint.c = dummy();
+GameFramework.resources.PIInterpolatorPoint.c = t();
 T(function() {
 			GameFramework.resources.PIInterpolatorPoint.u("GameFramework.resources.PIInterpolatorPoint",
 					null, GameFramework.ff)
@@ -6700,7 +6700,7 @@ GameFramework.resources.PIInterpolator = function() {
 };
 GameFramework.resources.PIInterpolator.prototype = {
 	Zf : null,
-	t : dummy(),
+	t : t(),
 	G : function(b) {
 		if (this.Zf.length == 1)
 			return this.Zf[0].oa;
@@ -6719,7 +6719,7 @@ GameFramework.resources.PIInterpolator.prototype = {
 		return this.Zf.length == 0 ? 0 : this.Zf[b % this.Zf.length].oa
 	}
 };
-GameFramework.resources.PIInterpolator.c = dummy();
+GameFramework.resources.PIInterpolator.c = t();
 T(function() {
 			GameFramework.resources.PIInterpolator.u("GameFramework.resources.PIInterpolator", null,
 					GameFramework.ff)
@@ -6727,7 +6727,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.PIInterpolator.c()
 		});
-GameFramework.resources.PITextureChunk = dummy();
+GameFramework.resources.PITextureChunk = t();
 GameFramework.resources.PITextureChunk.prototype = {
 	Ki : null,
 	Oa : null,
@@ -6737,9 +6737,9 @@ GameFramework.resources.PITextureChunk.prototype = {
 	MC : 0,
 	NC : 0,
 	UC : 0,
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PITextureChunk.c = dummy();
+GameFramework.resources.PITextureChunk.c = t();
 T(function() {
 			GameFramework.resources.PITextureChunk.u("GameFramework.resources.PITextureChunk", null,
 					GameFramework.ff)
@@ -6757,13 +6757,13 @@ GameFramework.resources.PITexture.prototype = {
 	zi : null,
 	zk : 0,
 	O8 : null,
-	t : dummy(),
+	t : t(),
 	xq : function(b) {
 		b = b.target;
 		this.zi = b.xa != null ? GameFramework.BaseApp.M.vb.Gs(b.xa) : b.rd
 	}
 };
-GameFramework.resources.PITexture.c = dummy();
+GameFramework.resources.PITexture.c = t();
 T(function() {
 			GameFramework.resources.PITexture.u("GameFramework.resources.PITexture", null,
 					GameFramework.ff)
@@ -6771,7 +6771,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.PITexture.c()
 		});
-GameFramework.resources.PILifeValueSample = dummy();
+GameFramework.resources.PILifeValueSample = t();
 GameFramework.resources.PILifeValueSample.prototype = {
 	jy : 0,
 	ky : 0,
@@ -6780,9 +6780,9 @@ GameFramework.resources.PILifeValueSample.prototype = {
 	Au : 0,
 	mC : 0,
 	n : 0,
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PILifeValueSample.c = dummy();
+GameFramework.resources.PILifeValueSample.c = t();
 T(function() {
 			GameFramework.resources.PILifeValueSample.u("GameFramework.resources.PILifeValueSample",
 					null, GameFramework.ff)
@@ -6790,10 +6790,10 @@ T(function() {
 U(function() {
 			GameFramework.resources.PILifeValueSample.c()
 		});
-GameFramework.resources.PILifeValueTable = dummy();
+GameFramework.resources.PILifeValueTable = t();
 GameFramework.resources.PILifeValueTable.prototype = {
 	qf : null,
-	t : dummy()
+	t : t()
 };
 GameFramework.resources.PILifeValueTable.c = function() {
 	GameFramework.resources.PILifeValueTable.jn = 32;
@@ -6821,7 +6821,7 @@ GameFramework.resources.PILifeValueTable.Nd.c = function() {
 T(function() {
 			GameFramework.resources.PILifeValueTable.Nd.c()
 		});
-GameFramework.resources.PIParticleDef = dummy();
+GameFramework.resources.PIParticleDef = t();
 GameFramework.resources.PIParticleDef.prototype = {
 	fj : null,
 	Qb : null,
@@ -6862,7 +6862,7 @@ GameFramework.resources.PIParticleDef.prototype = {
 	XV : null,
 	n : null,
 	L : null,
-	t : dummy()
+	t : t()
 };
 GameFramework.resources.PIParticleDef.c = function() {
 	GameFramework.resources.PIParticleDef.cra = {}
@@ -6909,7 +6909,7 @@ GameFramework.resources.PIParticleDef.p.c = function() {
 T(function() {
 			GameFramework.resources.PIParticleDef.p.c()
 		});
-GameFramework.resources.PIEmitter = dummy();
+GameFramework.resources.PIEmitter = t();
 GameFramework.resources.PIEmitter.prototype = {
 	sb : null,
 	F : null,
@@ -6920,9 +6920,9 @@ GameFramework.resources.PIEmitter.prototype = {
 	vi : 0,
 	Cj : 0,
 	nl : 0,
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PIEmitter.c = dummy();
+GameFramework.resources.PIEmitter.c = t();
 T(function() {
 			GameFramework.resources.PIEmitter.u("GameFramework.resources.PIEmitter", null,
 					GameFramework.ff)
@@ -7028,9 +7028,9 @@ GameFramework.resources.PIParticleInstance.prototype = {
 	ul : null,
 	jf : 0,
 	Oa : null,
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PIParticleInstance.c = dummy();
+GameFramework.resources.PIParticleInstance.c = t();
 T(function() {
 			GameFramework.resources.PIParticleInstance.u("GameFramework.resources.PIParticleInstance",
 					null, GameFramework.ff)
@@ -7069,9 +7069,9 @@ GameFramework.resources.PIParticleDefInstance.prototype = {
 	Vg : function() {
 		this.ie = this.uO = this.xG = this.ku = 0
 	},
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PIParticleDefInstance.c = dummy();
+GameFramework.resources.PIParticleDefInstance.c = t();
 T(function() {
 			GameFramework.resources.PIParticleDefInstance.u(
 					"GameFramework.resources.PIParticleDefInstance", null,
@@ -7101,9 +7101,9 @@ GameFramework.resources.PIParticleGroup.prototype = {
 	YG : null,
 	SB : null,
 	RB : null,
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PIParticleGroup.c = dummy();
+GameFramework.resources.PIParticleGroup.c = t();
 T(function() {
 			GameFramework.resources.PIParticleGroup.u("GameFramework.resources.PIParticleGroup", null,
 					GameFramework.ff)
@@ -7121,7 +7121,7 @@ GameFramework.resources.PIEmitterBase.prototype = {
 		this.Wb.t()
 	}
 };
-GameFramework.resources.PIEmitterBase.c = dummy();
+GameFramework.resources.PIEmitterBase.c = t();
 T(function() {
 			GameFramework.resources.PIEmitterBase.u("GameFramework.resources.PIEmitterBase", null,
 					GameFramework.ff)
@@ -7141,7 +7141,7 @@ GameFramework.resources.PIFreeEmitterInstance.prototype = {
 		GameFramework.resources.PIParticleInstance.prototype.t.apply(this)
 	}
 };
-GameFramework.resources.PIFreeEmitterInstance.c = dummy();
+GameFramework.resources.PIFreeEmitterInstance.c = t();
 T(function() {
 			GameFramework.resources.PIFreeEmitterInstance.u(
 					"GameFramework.resources.PIFreeEmitterInstance",
@@ -7150,7 +7150,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.PIFreeEmitterInstance.c()
 		});
-GameFramework.resources.PIEmitterInstanceDef = dummy();
+GameFramework.resources.PIEmitterInstanceDef = t();
 GameFramework.resources.PIEmitterInstanceDef.prototype = {
 	sb : null,
 	SG : 0,
@@ -7167,9 +7167,9 @@ GameFramework.resources.PIEmitterInstanceDef.prototype = {
 	F : null,
 	Z : null,
 	Ln : 0,
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PIEmitterInstanceDef.c = dummy();
+GameFramework.resources.PIEmitterInstanceDef.c = t();
 T(function() {
 			GameFramework.resources.PIEmitterInstanceDef.u("GameFramework.resources.PIEmitterInstanceDef",
 					null, GameFramework.ff)
@@ -7243,7 +7243,7 @@ GameFramework.resources.PIEmitterInstance.prototype = {
 		GameFramework.resources.PIEmitterBase.prototype.t.apply(this)
 	}
 };
-GameFramework.resources.PIEmitterInstance.c = dummy();
+GameFramework.resources.PIEmitterInstance.c = t();
 T(function() {
 			GameFramework.resources.PIEmitterInstance.u("GameFramework.resources.PIEmitterInstance",
 					GameFramework.resources.PIEmitterBase)
@@ -7251,7 +7251,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.PIEmitterInstance.c()
 		});
-GameFramework.resources.PIDeflector = dummy();
+GameFramework.resources.PIDeflector = t();
 GameFramework.resources.PIDeflector.prototype = {
 	sb : null,
 	kG : 0,
@@ -7264,14 +7264,14 @@ GameFramework.resources.PIDeflector.prototype = {
 	Z : null,
 	ac : null
 };
-GameFramework.resources.PIDeflector.c = dummy();
+GameFramework.resources.PIDeflector.c = t();
 T(function() {
 			GameFramework.resources.PIDeflector.u("GameFramework.resources.PIDeflector", null)
 		});
 U(function() {
 			GameFramework.resources.PIDeflector.c()
 		});
-GameFramework.resources.PIBlocker = dummy();
+GameFramework.resources.PIBlocker = t();
 GameFramework.resources.PIBlocker.prototype = {
 	sb : null,
 	qa : null,
@@ -7279,7 +7279,7 @@ GameFramework.resources.PIBlocker.prototype = {
 	Hb : null,
 	Z : null
 };
-GameFramework.resources.PIBlocker.c = dummy();
+GameFramework.resources.PIBlocker.c = t();
 T(function() {
 			GameFramework.resources.PIBlocker.u("GameFramework.resources.PIBlocker", null)
 		});
@@ -7301,7 +7301,7 @@ GameFramework.resources.PIForce.prototype = {
 	z : null,
 	ac : null
 };
-GameFramework.resources.PIForce.c = dummy();
+GameFramework.resources.PIForce.c = t();
 T(function() {
 			GameFramework.resources.PIForce.u("GameFramework.resources.PIForce", null)
 		});
@@ -7320,9 +7320,9 @@ GameFramework.resources.PILayerDef.prototype = {
 	de : null,
 	qO : null,
 	Hb : null,
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PILayerDef.c = dummy();
+GameFramework.resources.PILayerDef.c = t();
 T(function() {
 			GameFramework.resources.PILayerDef.u("GameFramework.resources.PILayerDef", null,
 					GameFramework.ff)
@@ -7345,7 +7345,7 @@ GameFramework.resources.PILayer.prototype = {
 	n : 0,
 	Dn : null,
 	Pw : null,
-	t : dummy(),
+	t : t(),
 	tn : w("ec"),
 	a1 : function(b) {
 		return b < (this.mf.length | 0) ? this.mf[b] : null
@@ -7357,7 +7357,7 @@ GameFramework.resources.PILayer.prototype = {
 		return null
 	}
 };
-GameFramework.resources.PILayer.c = dummy();
+GameFramework.resources.PILayer.c = t();
 T(function() {
 			GameFramework.resources.PILayer.u("GameFramework.resources.PILayer", null,
 					GameFramework.ff)
@@ -7375,9 +7375,9 @@ GameFramework.resources.PIEffectDef.prototype = {
 	gh : null,
 	Kf : null,
 	KG : null,
-	t : dummy()
+	t : t()
 };
-GameFramework.resources.PIEffectDef.c = dummy();
+GameFramework.resources.PIEffectDef.c = t();
 T(function() {
 			GameFramework.resources.PIEffectDef.u("GameFramework.resources.PIEffectDef", null,
 					GameFramework.ff)
@@ -10117,12 +10117,12 @@ T(function() {
 U(function() {
 			GameFramework.resources.PIEffect.c()
 		});
-GameFramework.resources.PopAnimCalcObjectPosData = dummy();
+GameFramework.resources.PopAnimCalcObjectPosData = t();
 GameFramework.resources.PopAnimCalcObjectPosData.prototype = {
 	Na : null,
 	n : 0
 };
-GameFramework.resources.PopAnimCalcObjectPosData.c = dummy();
+GameFramework.resources.PopAnimCalcObjectPosData.c = t();
 T(function() {
 			GameFramework.resources.PopAnimCalcObjectPosData.u(
 					"GameFramework.resources.PopAnimCalcObjectPosData", null)
@@ -10843,7 +10843,7 @@ GameFramework.resources.RenderEffectPass.prototype = {
 		this.fY.UD(this.MX)
 	}
 };
-GameFramework.resources.RenderEffectPass.c = dummy();
+GameFramework.resources.RenderEffectPass.c = t();
 T(function() {
 			GameFramework.resources.RenderEffectPass.u("GameFramework.resources.RenderEffectPass", null,
 					System.Wl)
@@ -10866,7 +10866,7 @@ GameFramework.resources.RenderEffectRunHandle.prototype = {
 		this.NH.UD(this, b)
 	}
 };
-GameFramework.resources.RenderEffectRunHandle.c = dummy();
+GameFramework.resources.RenderEffectRunHandle.c = t();
 T(function() {
 			GameFramework.resources.RenderEffectRunHandle.u(
 					"GameFramework.resources.RenderEffectRunHandle", null,
@@ -10875,17 +10875,17 @@ T(function() {
 U(function() {
 			GameFramework.resources.RenderEffectRunHandle.c()
 		});
-GameFramework.resources.RenderEffect = dummy();
+GameFramework.resources.RenderEffect = t();
 GameFramework.resources.RenderEffect.prototype = {
-	pL : dummy(),
-	Qq : dummy(),
-	kt : dummy(),
+	pL : t(),
+	Qq : t(),
+	kt : t(),
 	xD : x(null),
-	fz : dummy(),
-	$p : dummy(),
-	UD : dummy()
+	fz : t(),
+	$p : t(),
+	UD : t()
 };
-GameFramework.resources.RenderEffect.c = dummy();
+GameFramework.resources.RenderEffect.c = t();
 T(function() {
 			GameFramework.resources.RenderEffect.u("GameFramework.resources.RenderEffect", null)
 		});
@@ -11240,7 +11240,7 @@ GameFramework.resources.ResourceStreamer.prototype = {
 		this.ld(b)
 	}
 };
-GameFramework.resources.ResourceStreamer.c = dummy();
+GameFramework.resources.ResourceStreamer.c = t();
 T(function() {
 			GameFramework.resources.ResourceStreamer.u("GameFramework.resources.ResourceStreamer",
 					GameFramework.events.EventDispatcher)
@@ -11251,18 +11251,18 @@ U(function() {
 GameFramework.resources.SoundInstance = w("i9");
 GameFramework.resources.SoundInstance.prototype = {
 	i9 : null,
-	fU : dummy(),
-	Rq : dummy(),
-	cU : dummy(),
-	Ug : dummy(),
+	fU : t(),
+	Rq : t(),
+	cU : t(),
+	Ug : t(),
 	Play : function() {
 		this.Ug(false, true)
 	},
-	Sq : dummy(),
-	t : dummy(),
-	ct : dummy()
+	Sq : t(),
+	t : t(),
+	ct : t()
 };
-GameFramework.resources.SoundInstance.c = dummy();
+GameFramework.resources.SoundInstance.c = t();
 T(function() {
 			GameFramework.resources.SoundInstance.u("GameFramework.resources.SoundInstance", null,
 					System.Wl)
@@ -11292,11 +11292,11 @@ T(function() {
 U(function() {
 			GameFramework.resources.SoundManager.c()
 		});
-GameFramework.resources.SoundResource = dummy();
+GameFramework.resources.SoundResource = t();
 GameFramework.resources.SoundResource.prototype = {
 	uC : 0
 };
-GameFramework.resources.SoundResource.c = dummy();
+GameFramework.resources.SoundResource.c = t();
 T(function() {
 			GameFramework.resources.SoundResource.u("GameFramework.resources.SoundResource", null)
 		});
@@ -11304,12 +11304,12 @@ U(function() {
 			GameFramework.resources.SoundResource.c()
 		});
 GameFramework.resources.popanim = Type.ci("GameFramework.resources.popanim");
-GameFramework.resources.popanim.PopAnimCommand = dummy();
+GameFramework.resources.popanim.PopAnimCommand = t();
 GameFramework.resources.popanim.PopAnimCommand.prototype = {
 	fW : null,
 	LX : null
 };
-GameFramework.resources.popanim.PopAnimCommand.c = dummy();
+GameFramework.resources.popanim.PopAnimCommand.c = t();
 T(function() {
 			GameFramework.resources.popanim.PopAnimCommand.u(
 					"GameFramework.resources.popanim.PopAnimCommand", null)
@@ -11325,7 +11325,7 @@ GameFramework.resources.popanim.PopAnimDef.prototype = {
 	Rr : null,
 	Gm : null
 };
-GameFramework.resources.popanim.PopAnimDef.c = dummy();
+GameFramework.resources.popanim.PopAnimDef.c = t();
 T(function() {
 			GameFramework.resources.popanim.PopAnimDef.u(
 					"GameFramework.resources.popanim.PopAnimDef", null)
@@ -11348,13 +11348,13 @@ T(function() {
 U(function() {
 			GameFramework.resources.popanim.PopAnimEvent.c()
 		});
-GameFramework.resources.popanim.PopAnimFrame = dummy();
+GameFramework.resources.popanim.PopAnimFrame = t();
 GameFramework.resources.popanim.PopAnimFrame.prototype = {
 	of : null,
 	Yt : false,
 	sB : null
 };
-GameFramework.resources.popanim.PopAnimFrame.c = dummy();
+GameFramework.resources.popanim.PopAnimFrame.c = t();
 T(function() {
 			GameFramework.resources.popanim.PopAnimFrame.u(
 					"GameFramework.resources.popanim.PopAnimFrame", null)
@@ -11381,7 +11381,7 @@ GameFramework.resources.popanim.PopAnimImage.prototype = {
 		this.bh[this.dH.indexOf(b.xa)] = b.rd
 	}
 };
-GameFramework.resources.popanim.PopAnimImage.c = dummy();
+GameFramework.resources.popanim.PopAnimImage.c = t();
 T(function() {
 			GameFramework.resources.popanim.PopAnimImage.u(
 					"GameFramework.resources.popanim.PopAnimImage", null)
@@ -11389,12 +11389,12 @@ T(function() {
 U(function() {
 			GameFramework.resources.popanim.PopAnimImage.c()
 		});
-GameFramework.resources.popanim.PopAnimObjectDef = dummy();
+GameFramework.resources.popanim.PopAnimObjectDef = t();
 GameFramework.resources.popanim.PopAnimObjectDef.prototype = {
 	sb : null,
 	CY : null
 };
-GameFramework.resources.popanim.PopAnimObjectDef.c = dummy();
+GameFramework.resources.popanim.PopAnimObjectDef.c = t();
 T(function() {
 			GameFramework.resources.popanim.PopAnimObjectDef.u(
 					"GameFramework.resources.popanim.PopAnimObjectDef", null)
@@ -11402,7 +11402,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.popanim.PopAnimObjectDef.c()
 		});
-GameFramework.resources.popanim.PopAnimObjectInst = dummy();
+GameFramework.resources.popanim.PopAnimObjectInst = t();
 GameFramework.resources.popanim.PopAnimObjectInst.prototype = {
 	sb : null,
 	Ji : null,
@@ -11413,7 +11413,7 @@ GameFramework.resources.popanim.PopAnimObjectInst.prototype = {
 	cj : 4294967295,
 	UX : null
 };
-GameFramework.resources.popanim.PopAnimObjectInst.c = dummy();
+GameFramework.resources.popanim.PopAnimObjectInst.c = t();
 T(function() {
 			GameFramework.resources.popanim.PopAnimObjectInst.u(
 					"GameFramework.resources.popanim.PopAnimObjectInst", null)
@@ -11491,7 +11491,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.popanim.PopAnimObjectPosData.c()
 		});
-GameFramework.resources.popanim.PopAnimParticleEffect = dummy();
+GameFramework.resources.popanim.PopAnimParticleEffect = t();
 GameFramework.resources.popanim.PopAnimParticleEffect.prototype = {
 	Ke : null,
 	sb : null,
@@ -11502,7 +11502,7 @@ GameFramework.resources.popanim.PopAnimParticleEffect.prototype = {
 	By : 0,
 	Cy : 0
 };
-GameFramework.resources.popanim.PopAnimParticleEffect.c = dummy();
+GameFramework.resources.popanim.PopAnimParticleEffect.c = t();
 T(function() {
 			GameFramework.resources.popanim.PopAnimParticleEffect.u(
 					"GameFramework.resources.popanim.PopAnimParticleEffect", null)
@@ -11510,7 +11510,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.popanim.PopAnimParticleEffect.c()
 		});
-GameFramework.resources.popanim.PopAnimSpriteDef = dummy();
+GameFramework.resources.popanim.PopAnimSpriteDef = t();
 GameFramework.resources.popanim.PopAnimSpriteDef.prototype = {
 	sb : null,
 	Wf : null,
@@ -11523,7 +11523,7 @@ GameFramework.resources.popanim.PopAnimSpriteDef.prototype = {
 		return b == "" ? 0 : this.kH[b] | 0
 	}
 };
-GameFramework.resources.popanim.PopAnimSpriteDef.c = dummy();
+GameFramework.resources.popanim.PopAnimSpriteDef.c = t();
 T(function() {
 			GameFramework.resources.popanim.PopAnimSpriteDef.u(
 					"GameFramework.resources.popanim.PopAnimSpriteDef", null)
@@ -11531,7 +11531,7 @@ T(function() {
 U(function() {
 			GameFramework.resources.popanim.PopAnimSpriteDef.c()
 		});
-GameFramework.resources.popanim.PopAnimSpriteInst = dummy();
+GameFramework.resources.popanim.PopAnimSpriteInst = t();
 GameFramework.resources.popanim.PopAnimSpriteInst.prototype = {
 	Qb : null,
 	ir : 0,
@@ -11568,7 +11568,7 @@ GameFramework.resources.popanim.PopAnimSpriteInst.prototype = {
 		this.Qb = this.ve = this.ga = this.$c = null
 	}
 };
-GameFramework.resources.popanim.PopAnimSpriteInst.c = dummy();
+GameFramework.resources.popanim.PopAnimSpriteInst.c = t();
 T(function() {
 			GameFramework.resources.popanim.PopAnimSpriteInst.u(
 					"GameFramework.resources.popanim.PopAnimSpriteInst", null,
@@ -11755,7 +11755,7 @@ Game.Checkbox.prototype = {
 		c && b.pb()
 	}
 };
-Game.Checkbox.c = dummy();
+Game.Checkbox.c = t();
 T(function() {
 			Game.Checkbox.u("Game.Checkbox", GameFramework.widgets.ClassicWidget)
 		});
@@ -11855,8 +11855,8 @@ GameFramework.widgets.ClassicWidget.prototype = {
 	Mq : function() {
 		this.Qb != null && this.Qb.pn(this)
 	},
-	ja : dummy(),
-	jq : dummy(),
+	ja : t(),
+	jq : t(),
 	Ok : function(b) {
 		var c = b.Eg, d = b.Tf.length;
 		this.ja(b);
@@ -11939,7 +11939,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 			f.Cw(b - f.w, c - f.v) && f.Wk(b - f.w, c - f.v)
 		}
 	},
-	ct : dummy(),
+	ct : t(),
 	an : function(b, c) {
 		return this.s != 0 && b >= 0 && c >= 0 && b < this.s && c < this.z
 	},
@@ -11954,7 +11954,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 		return false
 	}
 };
-GameFramework.widgets.ClassicWidget.c = dummy();
+GameFramework.widgets.ClassicWidget.c = t();
 T(function() {
 			GameFramework.widgets.ClassicWidget.u("GameFramework.widgets.ClassicWidget",
 					GameFramework.events.EventDispatcher)
@@ -12063,7 +12063,7 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 		this.Vh != null && this.Vh.Tk(b)
 	}
 };
-GameFramework.widgets.ClassicWidgetAppState.c = dummy();
+GameFramework.widgets.ClassicWidgetAppState.c = t();
 T(function() {
 			GameFramework.widgets.ClassicWidgetAppState.u("GameFramework.widgets.ClassicWidgetAppState",
 					GameFramework.events.EventDispatcher, GameFramework.iea)
@@ -12363,12 +12363,12 @@ T(function() {
 U(function() {
 			GameFramework.widgets.Dialog.c()
 		});
-GameFramework.widgets.WidthCheckEntry = dummy();
+GameFramework.widgets.WidthCheckEntry = t();
 GameFramework.widgets.WidthCheckEntry.prototype = {
 	QG : null,
 	s : 0
 };
-GameFramework.widgets.WidthCheckEntry.c = dummy();
+GameFramework.widgets.WidthCheckEntry.c = t();
 T(function() {
 			GameFramework.widgets.WidthCheckEntry.u("GameFramework.widgets.WidthCheckEntry", null)
 		});
@@ -12858,7 +12858,7 @@ Game.Slider.prototype = {
 		GameFramework.widgets.ClassicWidget.prototype.kn.apply(this)
 	}
 };
-Game.Slider.c = dummy();
+Game.Slider.c = t();
 T(function() {
 			Game.Slider.u("Game.Slider", GameFramework.widgets.ClassicWidget)
 		});
@@ -13298,7 +13298,7 @@ GameFramework.JSDataBufferData.prototype = {
 		return b | 0
 	}
 };
-GameFramework.JSDataBufferData.c = dummy();
+GameFramework.JSDataBufferData.c = t();
 T(function() {
 			GameFramework.JSDataBufferData.u("GameFramework.JSDataBufferData",
 					GameFramework.DataBufferData)
@@ -13479,7 +13479,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 		gl.disableVertexAttribArray(4)
 	}
 };
-GameFramework.gfx.JSGraphics.c = dummy();
+GameFramework.gfx.JSGraphics.c = t();
 T(function() {
 			GameFramework.gfx.JSGraphics.u("GameFramework.gfx.JSGraphics",
 					GameFramework.gfx.Graphics)
@@ -13605,7 +13605,7 @@ GameFramework.gfx.JSGraphics3D.prototype = {
 					.ld(f)
 	}
 };
-GameFramework.gfx.JSGraphics3D.c = dummy();
+GameFramework.gfx.JSGraphics3D.c = t();
 T(function() {
 			GameFramework.gfx.JSGraphics3D.u("GameFramework.gfx.JSGraphics3D",
 					GameFramework.gfx.Graphics3D)
@@ -13649,7 +13649,7 @@ GameFramework.resources.JSImageInst.prototype = {
 		}
 	}
 };
-GameFramework.resources.JSImageInst.c = dummy();
+GameFramework.resources.JSImageInst.c = t();
 T(function() {
 			GameFramework.resources.JSImageInst.u("GameFramework.resources.JSImageInst",
 					GameFramework.resources.ImageInst)
@@ -13719,7 +13719,7 @@ GameFramework.resources.JSImageResource.prototype = {
 		return g
 	}
 };
-GameFramework.resources.JSImageResource.c = dummy();
+GameFramework.resources.JSImageResource.c = t();
 T(function() {
 			GameFramework.resources.JSImageResource.u("GameFramework.resources.JSImageResource",
 					GameFramework.resources.ImageResource)
@@ -13738,7 +13738,7 @@ GameFramework.resources.JSMeshPiece.prototype = {
 	Gu : null,
 	CN : null
 };
-GameFramework.resources.JSMeshPiece.c = dummy();
+GameFramework.resources.JSMeshPiece.c = t();
 T(function() {
 			GameFramework.resources.JSMeshPiece.u("GameFramework.resources.JSMeshPiece",
 					GameFramework.resources.MeshPiece)
@@ -13806,7 +13806,7 @@ GameFramework.resources.JSMeshResource.prototype = {
 		return true
 	}
 };
-GameFramework.resources.JSMeshResource.c = dummy();
+GameFramework.resources.JSMeshResource.c = t();
 T(function() {
 			GameFramework.resources.JSMeshResource.u("GameFramework.resources.JSMeshResource",
 					GameFramework.resources.MeshResource)
@@ -13824,7 +13824,7 @@ GameFramework.resources.JSRenderEffectBlock.prototype = {
 	de : 0,
 	Dk : 0
 };
-GameFramework.resources.JSRenderEffectBlock.c = dummy();
+GameFramework.resources.JSRenderEffectBlock.c = t();
 T(function() {
 			GameFramework.resources.JSRenderEffectBlock.u("GameFramework.resources.JSRenderEffectBlock",
 					null)
@@ -13832,11 +13832,11 @@ T(function() {
 U(function() {
 			GameFramework.resources.JSRenderEffectBlock.c()
 		});
-GameFramework.resources.JSRenderEffectPass = dummy();
+GameFramework.resources.JSRenderEffectPass = t();
 GameFramework.resources.JSRenderEffectPass.prototype = {
 	RW : null
 };
-GameFramework.resources.JSRenderEffectPass.c = dummy();
+GameFramework.resources.JSRenderEffectPass.c = t();
 T(function() {
 			GameFramework.resources.JSRenderEffectPass.u("GameFramework.resources.JSRenderEffectPass",
 					null)
@@ -13850,7 +13850,7 @@ GameFramework.resources.JSRenderEffectTechnique = function() {
 GameFramework.resources.JSRenderEffectTechnique.prototype = {
 	vO : null
 };
-GameFramework.resources.JSRenderEffectTechnique.c = dummy();
+GameFramework.resources.JSRenderEffectTechnique.c = t();
 T(function() {
 			GameFramework.resources.JSRenderEffectTechnique.u(
 					"GameFramework.resources.JSRenderEffectTechnique", null)
@@ -13864,7 +13864,7 @@ GameFramework.resources.JSRenderEffectRunHandle = function(b) {
 GameFramework.resources.JSRenderEffectRunHandle.prototype = {
 	IY : null
 };
-GameFramework.resources.JSRenderEffectRunHandle.c = dummy();
+GameFramework.resources.JSRenderEffectRunHandle.c = t();
 T(function() {
 			GameFramework.resources.JSRenderEffectRunHandle.u(
 					"GameFramework.resources.JSRenderEffectRunHandle",
@@ -14017,7 +14017,7 @@ GameFramework.resources.JSRenderEffect.prototype = {
 		d.IY = this.bP[c];
 		return d
 	},
-	fz : dummy(),
+	fz : t(),
 	$p : function(b, c) {
 		var d = b.IY.vO[c];
 		qc = d.RW;
@@ -14032,7 +14032,7 @@ GameFramework.resources.JSRenderEffect.prototype = {
 		qc = nc
 	}
 };
-GameFramework.resources.JSRenderEffect.c = dummy();
+GameFramework.resources.JSRenderEffect.c = t();
 T(function() {
 			GameFramework.resources.JSRenderEffect.u("GameFramework.resources.JSRenderEffect",
 					GameFramework.resources.RenderEffect)
@@ -14133,7 +14133,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 		}
 	}
 };
-GameFramework.resources.JSResourceManager.c = dummy();
+GameFramework.resources.JSResourceManager.c = t();
 T(function() {
 			GameFramework.resources.JSResourceManager.u("GameFramework.resources.JSResourceManager",
 					GameFramework.resources.ResourceManager)
@@ -14188,7 +14188,7 @@ GameFramework.resources.JSSoundInstance.prototype = {
 		this.yu = null
 	}
 };
-GameFramework.resources.JSSoundInstance.c = dummy();
+GameFramework.resources.JSSoundInstance.c = t();
 T(function() {
 			GameFramework.resources.JSSoundInstance.u("GameFramework.resources.JSSoundInstance",
 					GameFramework.resources.SoundInstance)
@@ -14202,7 +14202,7 @@ GameFramework.resources.JSSoundResource = function() {
 GameFramework.resources.JSSoundResource.prototype = {
 	WW : null
 };
-GameFramework.resources.JSSoundResource.c = dummy();
+GameFramework.resources.JSSoundResource.c = t();
 T(function() {
 			GameFramework.resources.JSSoundResource.u("GameFramework.resources.JSSoundResource",
 					GameFramework.resources.SoundResource)
@@ -14271,7 +14271,7 @@ Game.Announcement.prototype = {
 		}
 	}
 };
-Game.Announcement.c = dummy();
+Game.Announcement.c = t();
 T(function() {
 			Game.Announcement.u("Game.Announcement", null)
 		});
@@ -14287,7 +14287,7 @@ Game.BackgroundLoader.prototype = {
 		GameFramework.BaseApp.M.nQ()
 	}
 };
-Game.BackgroundLoader.c = dummy();
+Game.BackgroundLoader.c = t();
 T(function() {
 			Game.BackgroundLoader.u("Game.BackgroundLoader", null)
 		});
@@ -14497,7 +14497,7 @@ Game.Bej3Button.prototype = {
 		this.m != 1 && b.Ab()
 	}
 };
-Game.Bej3Button.c = dummy();
+Game.Bej3Button.c = t();
 T(function() {
 			Game.Bej3Button.u("Game.Bej3Button", GameFramework.widgets.ButtonWidget)
 		});
@@ -14543,7 +14543,7 @@ Game.Bej3DialogButton.prototype = {
 		Game.BejApp.q.OX = -10
 	}
 };
-Game.Bej3DialogButton.c = dummy();
+Game.Bej3DialogButton.c = t();
 T(function() {
 			Game.Bej3DialogButton.u("Game.Bej3DialogButton", GameFramework.widgets.ButtonWidget)
 		});
@@ -14656,10 +14656,10 @@ Game.Bej3Dialog.prototype = {
 	Af : function(b, c) {
 		GameFramework.widgets.Dialog.prototype.Af.apply(this, [b, c])
 	},
-	MP : dummy(),
-	Mi : dummy()
+	MP : t(),
+	Mi : t()
 };
-Game.Bej3Dialog.c = dummy();
+Game.Bej3Dialog.c = t();
 T(function() {
 			Game.Bej3Dialog.u("Game.Bej3Dialog", GameFramework.widgets.Dialog)
 		});
@@ -14682,7 +14682,7 @@ Game.LoadingError.prototype = {
 	Z0 : ha("uW")
 };
 Game.LoadingError.prototype.GetDetails = Game.LoadingError.prototype.Z0;
-Game.LoadingError.c = dummy();
+Game.LoadingError.c = t();
 T(function() {
 			Game.LoadingError.u("Game.LoadingError", System.wJ)
 		});
@@ -14713,16 +14713,16 @@ Game.ScalingIconButton.prototype = {
 		}
 	}
 };
-Game.ScalingIconButton.c = dummy();
+Game.ScalingIconButton.c = t();
 T(function() {
 			Game.ScalingIconButton.u("Game.ScalingIconButton", Game.IconButton)
 		});
 U(function() {
 			Game.ScalingIconButton.c()
 		});
-Game.MusicInterface = dummy();
+Game.MusicInterface = t();
 Game.MusicInterface.prototype = {};
-Game.MusicInterface.c = dummy();
+Game.MusicInterface.c = t();
 T(function() {
 			Game.MusicInterface.u("Game.MusicInterface", null)
 		});
@@ -14735,7 +14735,7 @@ Game.ResourceCache = function() {
 Game.ResourceCache.prototype = {
 	c9 : null
 };
-Game.ResourceCache.c = dummy();
+Game.ResourceCache.c = t();
 T(function() {
 			Game.ResourceCache.u("Game.ResourceCache", null)
 		});
@@ -14784,7 +14784,7 @@ Game.TopWidget.prototype = {
 			}
 	}
 };
-Game.TopWidget.c = dummy();
+Game.TopWidget.c = t();
 T(function() {
 			Game.TopWidget.u("Game.TopWidget", GameFramework.widgets.ClassicWidget)
 		});
@@ -15372,14 +15372,14 @@ Game.SwapData.prototype = {
 	Gt : false,
 	fx : null
 };
-Game.SwapData.c = dummy();
+Game.SwapData.c = t();
 T(function() {
 			Game.SwapData.u("Game.SwapData", null)
 		});
 U(function() {
 			Game.SwapData.c()
 		});
-Game.MoveData = dummy();
+Game.MoveData = t();
 Game.MoveData.prototype = {
 	aa : 0,
 	UH : 0,
@@ -15388,14 +15388,14 @@ Game.MoveData.prototype = {
 	Pa : 0,
 	xe : null
 };
-Game.MoveData.c = dummy();
+Game.MoveData.c = t();
 T(function() {
 			Game.MoveData.u("Game.MoveData", null)
 		});
 U(function() {
 			Game.MoveData.c()
 		});
-Game.QueuedMove = dummy();
+Game.QueuedMove = t();
 Game.QueuedMove.prototype = {
 	aa : 0,
 	UH : 0,
@@ -15406,7 +15406,7 @@ Game.QueuedMove.prototype = {
 	Gt : null,
 	fx : null
 };
-Game.QueuedMove.c = dummy();
+Game.QueuedMove.c = t();
 T(function() {
 			Game.QueuedMove.u("Game.QueuedMove", null)
 		});
@@ -15431,13 +15431,13 @@ T(function() {
 U(function() {
 			Game.Lightning.c()
 		});
-Game.ElectrocutedCel = dummy();
+Game.ElectrocutedCel = t();
 Game.ElectrocutedCel.prototype = {
 	Ja : -1,
 	La : -1,
 	Th : 0
 };
-Game.ElectrocutedCel.c = dummy();
+Game.ElectrocutedCel.c = t();
 T(function() {
 			Game.ElectrocutedCel.u("Game.ElectrocutedCel", null)
 		});
@@ -15453,7 +15453,7 @@ Game.GridTileData.prototype = {
 	NV : 0,
 	ro : null
 };
-Game.GridTileData.c = dummy();
+Game.GridTileData.c = t();
 T(function() {
 			Game.GridTileData.u("Game.GridTileData", null)
 		});
@@ -15482,7 +15482,7 @@ Game.GridData.prototype = {
 		return this.Vr[d]
 	}
 };
-Game.GridData.c = dummy();
+Game.GridData.c = t();
 T(function() {
 			Game.GridData.u("Game.GridData", null)
 		});
@@ -15633,7 +15633,7 @@ Game.LightningZap.prototype = {
 		}
 	}
 };
-Game.LightningZap.c = dummy();
+Game.LightningZap.c = t();
 T(function() {
 			Game.LightningZap.u("Game.LightningZap", null)
 		});
@@ -15979,7 +15979,7 @@ Game.DistortionQuad.prototype = {
 	h$ : 0,
 	j$ : 0
 };
-Game.DistortionQuad.c = dummy();
+Game.DistortionQuad.c = t();
 T(function() {
 			Game.DistortionQuad.u("Game.DistortionQuad", null)
 		});
@@ -15995,30 +15995,30 @@ Game.MatchSet.prototype = {
 	Pa : 0,
 	FW : 0
 };
-Game.MatchSet.c = dummy();
+Game.MatchSet.c = t();
 T(function() {
 			Game.MatchSet.u("Game.MatchSet", null)
 		});
 U(function() {
 			Game.MatchSet.c()
 		});
-Game.StateInfo = dummy();
+Game.StateInfo = t();
 Game.StateInfo.prototype = {
 	aa : 0,
 	Z : 0,
 	lO : 0,
 	au : 0
 };
-Game.StateInfo.c = dummy();
+Game.StateInfo.c = t();
 T(function() {
 			Game.StateInfo.u("Game.StateInfo", null)
 		});
 U(function() {
 			Game.StateInfo.c()
 		});
-Game.Span = dummy();
+Game.Span = t();
 Game.Span.prototype = {};
-Game.Span.c = dummy();
+Game.Span.c = t();
 T(function() {
 			Game.Span.u("Game.Span", null)
 		});
@@ -16031,19 +16031,19 @@ Game.SpanRow = function() {
 Game.SpanRow.prototype = {
 	j9 : null
 };
-Game.SpanRow.c = dummy();
+Game.SpanRow.c = t();
 T(function() {
 			Game.SpanRow.u("Game.SpanRow", null)
 		});
 U(function() {
 			Game.SpanRow.c()
 		});
-Game.DeferredTutorial = dummy();
+Game.DeferredTutorial = t();
 Game.DeferredTutorial.prototype = {
 	wo : null,
 	lu : 0
 };
-Game.DeferredTutorial.c = dummy();
+Game.DeferredTutorial.c = t();
 T(function() {
 			Game.DeferredTutorial.u("Game.DeferredTutorial", null)
 		});
@@ -16076,21 +16076,21 @@ Game.PieceIter.prototype = {
 		return this.Tn < 0 ? null : this.e.e[this.e.e.g * this.iS() + this.IR()]
 	}
 };
-Game.PieceIter.c = dummy();
+Game.PieceIter.c = t();
 T(function() {
 			Game.PieceIter.u("Game.PieceIter", null)
 		});
 U(function() {
 			Game.PieceIter.c()
 		});
-Game.BarInstance = dummy();
+Game.BarInstance = t();
 Game.BarInstance.prototype = {
 	he : 0,
 	uf : 0,
 	L : 0,
 	Ic : 0
 };
-Game.BarInstance.c = dummy();
+Game.BarInstance.c = t();
 T(function() {
 			Game.BarInstance.u("Game.BarInstance", null)
 		});
@@ -16705,7 +16705,7 @@ Game.Board.prototype = {
 		b != null && b.Te();
 		this.xJ()
 	},
-	xJ : dummy(),
+	xJ : t(),
 	zL : function(b, c) {
 		if (!b.fI)
 			b.fI = true, this.EK(b), c
@@ -19662,7 +19662,7 @@ Game.Board.prototype = {
 	N5 : function() {
 		return Game.BejApp.q.uh == Game.DM.xf.VA ? Game.BejApp.q.jB >= 300 : this.Yp
 	},
-	HJ : dummy(),
+	HJ : t(),
 	iK : function() {
 		return this.xc.Hz() || Game.BejApp.q.te.Zd(Game.DM.mb.vn) != null
 	},
@@ -20943,7 +20943,7 @@ Game.Board.prototype = {
 		if (b == 32 && this.ah.x == -1 && (this.CF() || this.es) && !this.iK())
 			this.es = !this.es
 	},
-	Mi : dummy(),
+	Mi : t(),
 	nJ : function(b) {
 		b.kb(Game.Resources.FONT_SCORE);
 		Game.Resources.FONT_SCORE.Ia("GLOW", 2667577344);
@@ -21182,7 +21182,7 @@ Game.ClassicBoard.prototype = {
 		b.$A() && this.Iy()
 	}
 };
-Game.ClassicBoard.c = dummy();
+Game.ClassicBoard.c = t();
 T(function() {
 			Game.ClassicBoard.u("Game.ClassicBoard", Game.Board)
 		});
@@ -21278,7 +21278,7 @@ Game.ClassicEndLevelDialog.prototype = {
 		}
 	}
 };
-Game.ClassicEndLevelDialog.c = dummy();
+Game.ClassicEndLevelDialog.c = t();
 T(function() {
 			Game.ClassicEndLevelDialog.u("Game.ClassicEndLevelDialog", Game.EndLevelDialog)
 		});
@@ -21302,7 +21302,7 @@ Game.ColorCycle.prototype = {
 	L : 0,
 	aO : null,
 	lf : null,
-	t : dummy(),
+	t : t(),
 	o4 : w("$H"),
 	ca : function() {
 		if (this.$H != 0)
@@ -21591,7 +21591,7 @@ T(function() {
 U(function() {
 			Game.CrystalBall.c()
 		});
-Game.CurvedValTable = dummy();
+Game.CurvedValTable = t();
 Game.CurvedValTable.prototype = {};
 Game.CurvedValTable.c = function() {
 	Game.CurvedValTable.Board_cs_02_09_11__17_30_09_511 = "b+0,1,0.005,1,#### %n###   N<###     P~###";
@@ -21639,7 +21639,7 @@ Game.DeferredSound.prototype = {
 	FX : 0,
 	Mu : 0
 };
-Game.DeferredSound.c = dummy();
+Game.DeferredSound.c = t();
 T(function() {
 			Game.DeferredSound.u("Game.DeferredSound", null)
 		});
@@ -21930,11 +21930,11 @@ Game.Effect.prototype = {
 	ce : null,
 	hj : 0,
 	Nb : null,
-	t : dummy(),
-	ca : dummy(),
-	ja : dummy()
+	t : t(),
+	ca : t(),
+	ja : t()
 };
-Game.Effect.c = dummy();
+Game.Effect.c = t();
 T(function() {
 			Game.Effect.u("Game.Effect", null, GameFramework.ff)
 		});
@@ -22011,7 +22011,7 @@ Game.TextNotifyEffect.prototype = {
 			this.ce = true
 	}
 };
-Game.TextNotifyEffect.c = dummy();
+Game.TextNotifyEffect.c = t();
 T(function() {
 			Game.TextNotifyEffect.u("Game.TextNotifyEffect", Game.Effect)
 		});
@@ -22087,7 +22087,7 @@ Game.ParticleEffect.prototype = {
 		return this.mg.KJ(b)
 	}
 };
-Game.ParticleEffect.c = dummy();
+Game.ParticleEffect.c = t();
 T(function() {
 			Game.ParticleEffect.u("Game.ParticleEffect", Game.Effect)
 		});
@@ -22138,9 +22138,9 @@ Game.PopAnimEffect.prototype = {
 		this.Bk.n = GameFramework.gfx.Color.Jb(this.Nb.L);
 		this.Bk.ja(b)
 	},
-	Sq : dummy()
+	Sq : t()
 };
-Game.PopAnimEffect.c = dummy();
+Game.PopAnimEffect.c = t();
 T(function() {
 			Game.PopAnimEffect.u("Game.PopAnimEffect", Game.Effect)
 		});
@@ -22557,7 +22557,7 @@ Game.EffectsManager.prototype = {
 		this.Sh = Array.O(Game.Effect.da.Jh | 0, null)
 	}
 };
-Game.EffectsManager.c = dummy();
+Game.EffectsManager.c = t();
 T(function() {
 			Game.EffectsManager.u("Game.EffectsManager", GameFramework.widgets.ClassicWidget)
 		});
@@ -22582,21 +22582,21 @@ Game.Bej3EditWidget.prototype = {
 						&& b.pb())
 	}
 };
-Game.Bej3EditWidget.c = dummy();
+Game.Bej3EditWidget.c = t();
 T(function() {
 			Game.Bej3EditWidget.u("Game.Bej3EditWidget", GameFramework.widgets.EditWidget)
 		});
 U(function() {
 			Game.Bej3EditWidget.c()
 		});
-Game.GlobalMembersEndLevelDialog = dummy();
+Game.GlobalMembersEndLevelDialog = t();
 Game.GlobalMembersEndLevelDialog.HU = function(b) {
 	for (var c = "", d = 0; d < (b.length | 0); d++)
 		c += String.fromCharCode(b.charCodeAt(d)) + "~";
 	return c
 };
 Game.GlobalMembersEndLevelDialog.prototype = {};
-Game.GlobalMembersEndLevelDialog.c = dummy();
+Game.GlobalMembersEndLevelDialog.c = t();
 T(function() {
 			Game.GlobalMembersEndLevelDialog.u("Game.GlobalMembersEndLevelDialog", null)
 		});
@@ -22901,8 +22901,8 @@ Game.EndLevelDialog.prototype = {
 			}
 		}
 	},
-	oJ : dummy(),
-	pJ : dummy(),
+	oJ : t(),
+	pJ : t(),
 	P_ : function(b) {
 		b.dk(Game.Resources.IMAGE_GAMEOVER_SECTION_LABEL, 800, 385, 600,
 				Game.Resources.IMAGE_GAMEOVER_SECTION_LABEL.z, 0);
@@ -26235,14 +26235,14 @@ Game.GemOutlines.prototype = {
 	AR : null,
 	BR : null
 };
-Game.GemOutlines.c = dummy();
+Game.GemOutlines.c = t();
 T(function() {
 			Game.GemOutlines.u("Game.GemOutlines", null)
 		});
 U(function() {
 			Game.GemOutlines.c()
 		});
-Game.DM = dummy();
+Game.DM = t();
 Game.DM.prototype = {};
 Game.DM.c = function() {
 	Game.DM.sV = Array.O(5, 5, "Off", "Random moves", "Aggressive moves",
@@ -26507,7 +26507,7 @@ Game.DM.xf.c = function() {
 T(function() {
 			Game.DM.xf.c()
 		});
-Game.GlobalMembersHighScoreMgr = dummy();
+Game.GlobalMembersHighScoreMgr = t();
 Game.GlobalMembersHighScoreMgr.prototype = {};
 Game.GlobalMembersHighScoreMgr.c = function() {
 	Game.GlobalMembersHighScoreMgr.bea = 1;
@@ -26539,7 +26539,7 @@ Game.HighScoreEntry.prototype = {
 		return b
 	}
 };
-Game.HighScoreEntry.c = dummy();
+Game.HighScoreEntry.c = t();
 T(function() {
 			Game.HighScoreEntry.u("Game.HighScoreEntry", null)
 		});
@@ -26609,7 +26609,7 @@ Game.HighScoreMgr = function() {
 Game.HighScoreMgr.prototype = {
 	xp : null,
 	kO : null,
-	t : dummy(),
+	t : t(),
 	rF : function(b, c, d) {
 		return this.qq(b).rF(c, d) ? true : false
 	},
@@ -26770,7 +26770,7 @@ Game.HintDialog.prototype = {
 		return c
 	}
 };
-Game.HintDialog.c = dummy();
+Game.HintDialog.c = t();
 T(function() {
 			Game.HintDialog.u("Game.HintDialog", Game.Bej3Dialog)
 		});
@@ -26815,14 +26815,14 @@ Game.GemInfo.prototype = {
 		this.pk(h)
 	}
 };
-Game.GemInfo.c = dummy();
+Game.GemInfo.c = t();
 T(function() {
 			Game.GemInfo.u("Game.GemInfo", null)
 		});
 U(function() {
 			Game.GemInfo.c()
 		});
-Game.BoardInfo = dummy();
+Game.BoardInfo = t();
 Game.BoardInfo.prototype = {
 	Ff : null,
 	e : null,
@@ -26838,7 +26838,7 @@ Game.BoardInfo.prototype = {
 		this.pk(h)
 	}
 };
-Game.BoardInfo.c = dummy();
+Game.BoardInfo.c = t();
 T(function() {
 			Game.BoardInfo.u("Game.BoardInfo", null)
 		});
@@ -26855,7 +26855,7 @@ Game.HyperAnimKey.prototype = {
 	Pc : null,
 	m : null
 };
-Game.HyperAnimKey.c = dummy();
+Game.HyperAnimKey.c = t();
 T(function() {
 			Game.HyperAnimKey.u("Game.HyperAnimKey", null)
 		});
@@ -26967,7 +26967,7 @@ Game.HyperAnimSequence.prototype = {
 						this.xd[b + 1].Pc.ia, c))
 	}
 };
-Game.HyperAnimSequence.c = dummy();
+Game.HyperAnimSequence.c = t();
 T(function() {
 			Game.HyperAnimSequence.u("Game.HyperAnimSequence", null)
 		});
@@ -26990,7 +26990,7 @@ Game.HyperMaterial.prototype = {
 	fZ : null,
 	cZ : 0
 };
-Game.HyperMaterial.c = dummy();
+Game.HyperMaterial.c = t();
 T(function() {
 			Game.HyperMaterial.u("Game.HyperMaterial", null)
 		});
@@ -27861,7 +27861,7 @@ Game.HyperspaceFallback.prototype = {
 		}
 	}
 };
-Game.HyperspaceFallback.c = dummy();
+Game.HyperspaceFallback.c = t();
 T(function() {
 			Game.HyperspaceFallback.u("Game.HyperspaceFallback", Game.Hyperspace)
 		});
@@ -27880,7 +27880,7 @@ Game.IconButton.prototype = {
 		b.Bd(this.Oa, 0, 0, this.DW ? this.c8 : this.b8)
 	}
 };
-Game.IconButton.c = dummy();
+Game.IconButton.c = t();
 T(function() {
 			Game.IconButton.u("Game.IconButton", GameFramework.widgets.ClassicWidget)
 		});
@@ -27922,7 +27922,7 @@ Game.LoadingScreen.prototype = {
 		GameFramework.widgets.ClassicWidget.prototype.ca.apply(this)
 	}
 };
-Game.LoadingScreen.c = dummy();
+Game.LoadingScreen.c = t();
 T(function() {
 			Game.LoadingScreen.u("Game.LoadingScreen", GameFramework.widgets.ClassicWidget)
 		});
@@ -27939,7 +27939,7 @@ Game.PartnerLogo.prototype = {
 	HX : 0,
 	L : 0
 };
-Game.PartnerLogo.c = dummy();
+Game.PartnerLogo.c = t();
 T(function() {
 			Game.PartnerLogo.u("Game.PartnerLogo", null)
 		});
@@ -27957,7 +27957,7 @@ Game.CurvedAlphaButton.prototype = {
 		GameFramework.widgets.ButtonWidget.prototype.ca.apply(this)
 	}
 };
-Game.CurvedAlphaButton.c = dummy();
+Game.CurvedAlphaButton.c = t();
 T(function() {
 			Game.CurvedAlphaButton.u("Game.CurvedAlphaButton", GameFramework.widgets.ButtonWidget)
 		});
@@ -27974,7 +27974,7 @@ Game.FrameButton.prototype = {
 						- this.v)
 	}
 };
-Game.FrameButton.c = dummy();
+Game.FrameButton.c = t();
 T(function() {
 			Game.FrameButton.u("Game.FrameButton", GameFramework.widgets.ButtonWidget)
 		});
@@ -28029,7 +28029,7 @@ Game.TextButton.prototype = {
 		return Game.Bej3Button.prototype.Cw.apply(this, [b, c])
 	}
 };
-Game.TextButton.c = dummy();
+Game.TextButton.c = t();
 T(function() {
 			Game.TextButton.u("Game.TextButton", Game.Bej3Button)
 		});
@@ -28169,7 +28169,7 @@ Game.MainMenu.prototype = {
 										Game.BejApp.q.LP)))
 				: this.sS(b)
 	},
-	Vg : dummy(),
+	Vg : t(),
 	gQ : function() {
 		if (this.xH) {
 			if (!Game.BejApp.q.jC)
@@ -28219,7 +28219,7 @@ Game.MainMenu.prototype = {
 		this.Bc(b);
 		this.fd = b
 	},
-	JA : dummy(),
+	JA : t(),
 	ca : function() {
 		if (Game.BejApp.q.EN) {
 			this.RC != null && this.RC.dh & !this.RC.pl
@@ -28678,13 +28678,13 @@ Game.MainMenu.Pl.c = function() {
 T(function() {
 			Game.MainMenu.Pl.c()
 		});
-Game.MessagerMsg = dummy();
+Game.MessagerMsg = t();
 Game.MessagerMsg.prototype = {
 	wF : null,
 	Lv : 0,
 	AL : 0
 };
-Game.MessagerMsg.c = dummy();
+Game.MessagerMsg.c = t();
 T(function() {
 			Game.MessagerMsg.u("Game.MessagerMsg", null)
 		});
@@ -28761,7 +28761,7 @@ Game.Messager.prototype = {
 		}
 	}
 };
-Game.Messager.c = dummy();
+Game.Messager.c = t();
 T(function() {
 			Game.Messager.u("Game.Messager", null)
 		});
@@ -28858,7 +28858,7 @@ Game.Metrics.prototype = {
 			}
 	}
 };
-Game.Metrics.c = dummy();
+Game.Metrics.c = t();
 T(function() {
 			Game.Metrics.u("Game.Metrics", null)
 		});
@@ -29139,7 +29139,7 @@ Game.OptionsDialog.prototype = {
 		Game.Bej3Dialog.prototype.Af.apply(this, [b, c])
 	}
 };
-Game.OptionsDialog.c = dummy();
+Game.OptionsDialog.c = t();
 T(function() {
 			Game.OptionsDialog.u("Game.OptionsDialog", Game.Bej3Dialog)
 		});
@@ -29471,7 +29471,7 @@ Game.Piece.prototype = {
 		return (this.uc & 1 << (b | 0)) != 0
 	}
 };
-Game.Piece.c = dummy();
+Game.Piece.c = t();
 T(function() {
 			Game.Piece.u("Game.Piece", null, GameFramework.ff)
 		});
@@ -29613,7 +29613,7 @@ Game.Points.prototype = {
 	oa : 0,
 	YM : null,
 	ce : null,
-	t : dummy(),
+	t : t(),
 	ca : function() {
 		this.aa++;
 		var b = this.U.hc(this.Za) | 0;
@@ -29825,7 +29825,7 @@ Game.PointsManager.prototype = {
 			c[d].ja(b)
 	}
 };
-Game.PointsManager.c = dummy();
+Game.PointsManager.c = t();
 T(function() {
 			Game.PointsManager.u("Game.PointsManager", GameFramework.widgets.ClassicWidget)
 		});
@@ -29973,8 +29973,8 @@ T(function() {
 			Game.Profile.Zv.c()
 		});
 GameDll = Type.ci("GameDll");
-GameDll.Program = dummy();
-GameDll.Program.Pla = dummy();
+GameDll.Program = t();
+GameDll.Program.Pla = t();
 GameDll.Program.prototype = {};
 GameDll.Program.c = function() {
 	GameDll.Program.q = null
@@ -30115,7 +30115,7 @@ Game.RankBarWidget.prototype = {
 		GameFramework.widgets.ClassicWidget.prototype.Tk.apply(this, [b])
 	}
 };
-Game.RankBarWidget.c = dummy();
+Game.RankBarWidget.c = t();
 T(function() {
 			Game.RankBarWidget.u("Game.RankBarWidget", GameFramework.widgets.ClassicWidget)
 		});
@@ -30213,7 +30213,7 @@ Game.RankUpDialog.prototype = {
 		this.KC.ea("b30,1,0.028571,1,#         ~~")
 	}
 };
-Game.RankUpDialog.c = dummy();
+Game.RankUpDialog.c = t();
 T(function() {
 			Game.RankUpDialog.u("Game.RankUpDialog", Game.Bej3Dialog)
 		});
@@ -30397,7 +30397,7 @@ T(function() {
 U(function() {
 			Game.RecordsDialog.c()
 		});
-Game.Resources = dummy();
+Game.Resources = t();
 Game.Resources.prototype = {};
 Game.Resources.c = function() {
 	Game.Resources.tja = "IMAGE_GEMLIGHTING";
@@ -31807,7 +31807,7 @@ Game.QuasiRandom.prototype = {
 		return b < this.qH ? (this.bD = 0, true) : false
 	}
 };
-Game.QuasiRandom.c = dummy();
+Game.QuasiRandom.c = t();
 T(function() {
 			Game.QuasiRandom.u("Game.QuasiRandom", null)
 		});
@@ -32652,7 +32652,7 @@ Game.SpeedBoard.prototype = {
 		this.MQ(b)
 	}
 };
-Game.SpeedBoard.c = dummy();
+Game.SpeedBoard.c = t();
 T(function() {
 			Game.SpeedBoard.u("Game.SpeedBoard", Game.Board)
 		});
@@ -32675,7 +32675,7 @@ Game.ElectroBolt.prototype = {
 	Ci : null,
 	ko : 0
 };
-Game.ElectroBolt.c = dummy();
+Game.ElectroBolt.c = t();
 T(function() {
 			Game.ElectroBolt.u("Game.ElectroBolt", null)
 		});
@@ -32765,7 +32765,7 @@ Game.TimeBonusEffectTop.prototype = {
 		d != null && d.m.V() != 1 && b.Ab()
 	}
 };
-Game.TimeBonusEffectTop.c = dummy();
+Game.TimeBonusEffectTop.c = t();
 T(function() {
 			Game.TimeBonusEffectTop.u("Game.TimeBonusEffectTop", Game.Effect)
 		});
@@ -33293,9 +33293,9 @@ Game.SpeedCollectEffect.prototype = {
 				this.pg.L = this.jp.V()
 		}
 	},
-	ja : dummy()
+	ja : t()
 };
-Game.SpeedCollectEffect.c = dummy();
+Game.SpeedCollectEffect.c = t();
 T(function() {
 			Game.SpeedCollectEffect.u("Game.SpeedCollectEffect", Game.Effect)
 		});
@@ -33531,7 +33531,7 @@ Game.SpeedEndLevelDialog.prototype = {
 		}
 	}
 };
-Game.SpeedEndLevelDialog.c = dummy();
+Game.SpeedEndLevelDialog.c = t();
 T(function() {
 			Game.SpeedEndLevelDialog.u("Game.SpeedEndLevelDialog", Game.EndLevelDialog)
 		});
@@ -33575,7 +33575,7 @@ Game.SpreadCurve.prototype = {
 				| 0]
 	}
 };
-Game.SpreadCurve.c = dummy();
+Game.SpreadCurve.c = t();
 T(function() {
 			Game.SpreadCurve.u("Game.SpreadCurve", null)
 		});
@@ -33644,7 +33644,7 @@ Game.TooltipManager.prototype = {
 		this.oW = new GameFramework.geom.TPoint(f.x, f.y)
 	}
 };
-Game.TooltipManager.c = dummy();
+Game.TooltipManager.c = t();
 T(function() {
 			Game.TooltipManager.u("Game.TooltipManager", GameFramework.widgets.ClassicWidget)
 		});
@@ -33670,7 +33670,7 @@ Game.Tooltip.prototype = {
 	QG : null,
 	n : 0
 };
-Game.Tooltip.c = dummy();
+Game.Tooltip.c = t();
 T(function() {
 			Game.Tooltip.u("Game.Tooltip", null)
 		});
@@ -33899,7 +33899,7 @@ Game.TutorialStep.prototype = {
 			this.vl = Game.TutorialStep.nZ(b, this.vl, c, d, this.X7)
 	}
 };
-Game.TutorialStep.c = dummy();
+Game.TutorialStep.c = t();
 T(function() {
 			Game.TutorialStep.u("Game.TutorialStep", null)
 		});
@@ -34015,7 +34015,7 @@ Game.TutorialSequence.prototype = {
 		this.Cp != null && this.Cp.ja(b)
 	}
 };
-Game.TutorialSequence.c = dummy();
+Game.TutorialSequence.c = t();
 T(function() {
 			Game.TutorialSequence.u("Game.TutorialSequence", null)
 		});
@@ -34170,14 +34170,14 @@ T(function() {
 U(function() {
 			Game.TutorialMgr.c()
 		});
-Game.CheckMatrixInfo = dummy();
+Game.CheckMatrixInfo = t();
 Game.CheckMatrixInfo.prototype = {
 	VX : null,
 	Eg : 0,
 	dW : 0,
 	Uc : null
 };
-Game.CheckMatrixInfo.c = dummy();
+Game.CheckMatrixInfo.c = t();
 T(function() {
 			Game.CheckMatrixInfo.u("Game.CheckMatrixInfo", null)
 		});
@@ -34192,14 +34192,14 @@ Game.ColorTracker.prototype = {
 	R7 : null,
 	Q8 : 0
 };
-Game.ColorTracker.c = dummy();
+Game.ColorTracker.c = t();
 T(function() {
 			Game.ColorTracker.u("Game.ColorTracker", null)
 		});
 U(function() {
 			Game.ColorTracker.c()
 		});
-Game.BejUtil = dummy();
+Game.BejUtil = t();
 Game.BejUtil.c1 = function(b) {
 	switch (b) {
 		case Game.DM.Ha.wD :
@@ -34241,14 +34241,14 @@ Game.BejUtil.PR = function(b) {
 	return Game.Resources.IMAGE_GEMSSHADOW_WHITE
 };
 Game.BejUtil.prototype = {};
-Game.BejUtil.c = dummy();
+Game.BejUtil.c = t();
 T(function() {
 			Game.BejUtil.u("Game.BejUtil", null)
 		});
 U(function() {
 			Game.BejUtil.c()
 		});
-Game.GfxUtil = dummy();
+Game.GfxUtil = t();
 Game.GfxUtil.LR = function(b, c, d) {
 	if (b.hc(c) <= d)
 		return c;
@@ -34257,14 +34257,14 @@ Game.GfxUtil.LR = function(b, c, d) {
 	return c + "..."
 };
 Game.GfxUtil.prototype = {};
-Game.GfxUtil.c = dummy();
+Game.GfxUtil.c = t();
 T(function() {
 			Game.GfxUtil.u("Game.GfxUtil", null)
 		});
 U(function() {
 			Game.GfxUtil.c()
 		});
-Game.MathUtil = dummy();
+Game.MathUtil = t();
 Game.MathUtil.Saa = function(b) {
 	return Math.abs(b)
 };
@@ -34289,7 +34289,7 @@ T(function() {
 U(function() {
 			Game.MathUtil.c()
 		});
-Game.SoundUtil = dummy();
+Game.SoundUtil = t();
 Game.SoundUtil.Play = function(b) {
 	Game.SoundUtil.Ug(b, 0, 1)
 };
@@ -34313,7 +34313,7 @@ T(function() {
 U(function() {
 			Game.SoundUtil.c()
 		});
-Game.Util = dummy();
+Game.Util = t();
 Game.Util.Fc = function() {
 	return Game.Util.TF.Dd() | 0
 };
@@ -34562,7 +34562,7 @@ Game.Util.kq.c = function() {
 T(function() {
 			Game.Util.kq.c()
 		});
-Game.Version = dummy();
+Game.Version = t();
 Game.Version.getVersion = function() {
 	return Game.Version.ver
 };

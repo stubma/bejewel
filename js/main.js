@@ -140,6 +140,8 @@ function HandleException(e) {
         var aType = e.type ? e.type : "error";
         var aStack = e.stackStr ? e.stackStr : e.stack ? e.stack.replaceAll('\n', '').substring(0, 1024) : "";
         var aMessage = e.message;
+		alert(aMessage);
+		alert(aStack);
         if (e.GetDetails) {
             aMessage = e.GetDetails();
             aType = "loadingError";
