@@ -1068,7 +1068,7 @@ function Ca(b, c) {
 	}
 	return false
 }
-Type.Pqa = function(b) {
+Type.isClass = function(b) {
 	return b._isClass == true
 };
 Type.Rqa = function(b) {
