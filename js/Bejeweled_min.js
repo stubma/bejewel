@@ -907,29 +907,29 @@ Error.xqa = function(b, c, d) {
 	}
 	return b
 };
-ss.tg = window.tg ? window.tg : t();
-ss.tg.name = "Debug";
-if (!ss.tg.writeln)
-	ss.tg.writeln = function(b) {
+ss.Debug = window.tg ? window.tg : t();
+ss.Debug.name = "Debug";
+if (!ss.Debug.writeln)
+	ss.Debug.writeln = function(b) {
 		window.console ? window.console.ZL
 				? window.console.ZL(b)
 				: window.console.log && window.console.log(b) : window.opera
 				&& window.opera.postError && window.opera.postError(b)
 	};
-ss.tg.cV = function(b) {
-	ss.tg.writeln(b);
+ss.Debug.cV = function(b) {
+	ss.Debug.writeln(b);
 	eval("debugger;")
 };
-ss.tg.uqa = function(b, c) {
+ss.Debug.uqa = function(b, c) {
 	b
 			|| (c = "Assert failed: " + c, confirm(c
 					+ "\r\n\r\nBreak into debugger?")
-					&& ss.tg.cV(c))
+					&& ss.Debug.cV(c))
 };
-ss.tg.Fqa = function(b) {
-	ss.tg.cV(b)
+ss.Debug.Fqa = function(b) {
+	ss.Debug.cV(b)
 };
-ss.tg.LF = function(b, c, d, f, g) {
+ss.Debug.LF = function(b, c, d, f, g) {
 	if (c === null)
 		b.Wq(f + d + ": null");
 	else
@@ -956,31 +956,31 @@ ss.tg.LF = function(b, c, d, f, g) {
 				if (xa(Array, c)) {
 					b.Wq(f + d + ": {" + h + "}");
 					for (var d = c.length, k = 0; k < d; k++)
-						ss.tg.LF(b, c[k], "[" + k + "]", j, g)
+						ss.Debug.LF(b, c[k], "[" + k + "]", j, g)
 				} else if (c.tagName) {
 					b.Wq(f + d + ": <" + c.tagName + ">");
 					d = c.attributes;
 					for (k = 0; k < d.length; k++)
 						(f = d[k].nodeValue)
-								&& ss.tg.LF(b, f, d[k].nodeName, j, g)
+								&& ss.Debug.LF(b, f, d[k].nodeName, j, g)
 				} else
 					for (k in b.Wq(f + d + ": {" + h + "}"), c)
-						d = c[k], xa(Function, d) || ss.tg.LF(b, d, k, j, g);
+						d = c[k], xa(Function, d) || ss.Debug.LF(b, d, k, j, g);
 				g.remove(c)
 		}
 };
-ss.tg.sra = function(b, c) {
+ss.Debug.sra = function(b, c) {
 	if ((!c || !c.length) && b !== null)
 		c = Type.aM(b).name;
 	var d = new ss.StringBuilder;
-	ss.tg.LF(d, b, c, "", []);
-	ss.tg.f$(d.toString())
+	ss.Debug.LF(d, b, c, "", []);
+	ss.Debug.f$(d.toString())
 };
-ss.tg.f$ = function(b) {
+ss.Debug.f$ = function(b) {
 	if (window.r6)
 		window.r6.rra(b);
 	else {
-		ss.tg.writeln(b);
+		ss.Debug.writeln(b);
 		var c = document.getElementById("_traceTextBox");
 		if (c)
 			c.value = c.value + "\r\n" + b
