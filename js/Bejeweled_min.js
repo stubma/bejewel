@@ -1,4 +1,4 @@
-alert('eee');
+alert('fff');
 function ca(b) {
 	throw b;
 }
@@ -1045,9 +1045,9 @@ function E(b, c, d) {
 	d ? b.parent.apply(c, d) : b.parent.apply(c)
 }
 function xa(b, c) {
-	return ss.isNullUndef(c) ? false : b == Object || c instanceof b ? true : Ca(b, Type.aM(c))
+	return ss.isNullUndef(c) ? false : b == Object || c instanceof b ? true : isAncestor(b, Type.aM(c))
 }
-function Ca(b, c) {
+function isAncestor(b, c) {
 	if (b == Object || b == c)
 		return true;
 	if (b._isClass)
