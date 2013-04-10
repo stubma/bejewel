@@ -1,4 +1,4 @@
-alert('aaddf');
+alert('af');
 function ca(b) {
 	throw b;
 }
@@ -1010,7 +1010,7 @@ Type.ci = function(b) {
 	window.cB[b] = c;
 	return window.cB[b]
 };
-Type.prototype.u = function(name, parent, d) {
+Type.prototype.registerClass = function(name, parent, d) {
 	this.prototype.constructor = this;
 	this.name = name;
 	this.XU = true;
@@ -1115,7 +1115,7 @@ Type.parse = function(b) {
 	return Type.G6(b)
 };
 ss.Enum = dummy();
-ss.Enum.u("Enum");
+ss.Enum.registerClass("Enum");
 ss.Enum.parse = function(b, c) {
 	var d = b.prototype;
 	if (b.ZU) {
@@ -1156,7 +1156,7 @@ ss.Enum.toString = function(b) {
 	}
 };
 ss.Delegate = dummy();
-ss.Delegate.u("Delegate");
+ss.Delegate.registerClass("Delegate");
 ss.Delegate.V2 = dummy();
 ss.Delegate.TL = function(b, c, d) {
 	for (var f = 0; f < b.length; f += 2)
@@ -1223,7 +1223,7 @@ ss.CultureInfo = function(b, c, d) {
 	this.aZ = c;
 	this.kV = d
 };
-ss.CultureInfo.u("CultureInfo");
+ss.CultureInfo.registerClass("CultureInfo");
 ss.CultureInfo.fK = new ss.CultureInfo("en-US", {
 			era : "NaN",
 			gra : "-",
@@ -1298,7 +1298,7 @@ ss.ArrayEnumerator.prototype = {
 		return this.HF < this.bV.length
 	}
 };
-ss.ArrayEnumerator.u("ArrayEnumerator", null, ss.IEnumerator);
+ss.ArrayEnumerator.registerClass("ArrayEnumerator", null, ss.IEnumerator);
 ss.Wl = dummy();
 ss.Wl.prototype = {};
 Ba(ss.Wl, "IDisposable");
@@ -1322,9 +1322,9 @@ ss.StringBuilder.prototype = {
 		return this.WL.join(b || "")
 	}
 };
-ss.StringBuilder.u("StringBuilder");
+ss.StringBuilder.registerClass("StringBuilder");
 ss.EventArgs = dummy();
-ss.EventArgs.u("EventArgs");
+ss.EventArgs.registerClass("EventArgs");
 ss.EventArgs.a0 = new ss.EventArgs;
 if (!window.XMLHttpRequest)
 	window.XMLHttpRequest = function() {
@@ -1336,7 +1336,7 @@ if (!window.XMLHttpRequest)
 		return null
 	};
 ss.XmlDocumentParser = dummy();
-ss.XmlDocumentParser.u("XmlDocumentParser");
+ss.XmlDocumentParser.registerClass("XmlDocumentParser");
 ss.XmlDocumentParser.parse = function(b) {
 	if (window.DOMParser)
 		try {
@@ -1360,7 +1360,7 @@ ss.CancelEventArgs = function() {
 	this.oqa = false
 };
 ss.CancelEventArgs.prototype = {};
-ss.CancelEventArgs.u("CancelEventArgs", ss.EventArgs);
+ss.CancelEventArgs.registerClass("CancelEventArgs", ss.EventArgs);
 ss.DS = dummy();
 ss.DS.prototype = {};
 Ba(ss.DS, "INotifyPropertyChanged");
@@ -1369,7 +1369,7 @@ ss.PropertyChangedEventArgs = function(b) {
 	this.qqa = b
 };
 ss.PropertyChangedEventArgs.prototype = {};
-ss.PropertyChangedEventArgs.u("PropertyChangedEventArgs", ss.EventArgs);
+ss.PropertyChangedEventArgs.registerClass("PropertyChangedEventArgs", ss.EventArgs);
 ss.CS = dummy();
 ss.CS.prototype = {};
 Ba(ss.CS, "INotifyCollectionChanged");
@@ -1391,7 +1391,7 @@ ss.CollectionChangedEventArgs = function(b, c, d) {
 	this.HF = d || -1
 };
 ss.CollectionChangedEventArgs.prototype = {};
-ss.CollectionChangedEventArgs.u("CollectionChangedEventArgs", ss.EventArgs);
+ss.CollectionChangedEventArgs.registerClass("CollectionChangedEventArgs", ss.EventArgs);
 function Ha(b, c, d, f, g, h, j, k, l) {
 	var m = document.getElementById("ScratchCanvas").getContext("2d"), o = 256;
 	h && j && (o = 128);
@@ -2005,7 +2005,7 @@ GameFramework.JSONHelperData.prototype = {
 };
 GameFramework.JSONHelperData.c = dummy();
 T(function() {
-			GameFramework.JSONHelperData.u("GameFramework.JSONHelperData", null)
+			GameFramework.JSONHelperData.registerClass("GameFramework.JSONHelperData", null)
 		});
 U(function() {
 			GameFramework.JSONHelperData.c()
@@ -2021,7 +2021,7 @@ GameFramework.JSONFormatException.prototype = {
 };
 GameFramework.JSONFormatException.c = dummy();
 T(function() {
-			GameFramework.JSONFormatException.u("GameFramework.JSONFormatException", System.wJ)
+			GameFramework.JSONFormatException.registerClass("GameFramework.JSONFormatException", System.wJ)
 		});
 U(function() {
 			GameFramework.JSONFormatException.c()
@@ -2030,7 +2030,7 @@ GameFramework.Sprite = dummy();
 GameFramework.Sprite.prototype = {};
 GameFramework.Sprite.c = dummy();
 T(function() {
-			GameFramework.Sprite.u("GameFramework.Sprite", null)
+			GameFramework.Sprite.registerClass("GameFramework.Sprite", null)
 		});
 U(function() {
 			GameFramework.Sprite.c()
@@ -2243,7 +2243,7 @@ GameFramework.BaseApp.c = function() {
 	GameFramework.BaseApp.M = null
 };
 T(function() {
-			GameFramework.BaseApp.u("GameFramework.BaseApp", GameFramework.Sprite)
+			GameFramework.BaseApp.registerClass("GameFramework.BaseApp", GameFramework.Sprite)
 		});
 U(function() {
 			GameFramework.BaseApp.c()
@@ -2648,7 +2648,7 @@ GameFramework.CurvedVal.c = function() {
 	GameFramework.CurvedVal.pW = {}
 };
 T(function() {
-			GameFramework.CurvedVal.u("GameFramework.CurvedVal", null)
+			GameFramework.CurvedVal.registerClass("GameFramework.CurvedVal", null)
 		});
 U(function() {
 			GameFramework.CurvedVal.c()
@@ -2749,7 +2749,7 @@ GameFramework.DataBuffer.prototype = {
 };
 GameFramework.DataBuffer.c = dummy();
 T(function() {
-			GameFramework.DataBuffer.u("GameFramework.DataBuffer", null)
+			GameFramework.DataBuffer.registerClass("GameFramework.DataBuffer", null)
 		});
 U(function() {
 			GameFramework.DataBuffer.c()
@@ -2825,7 +2825,7 @@ GameFramework.DataBufferData.prototype = {
 };
 GameFramework.DataBufferData.c = dummy();
 T(function() {
-			GameFramework.DataBufferData.u("GameFramework.DataBufferData", null)
+			GameFramework.DataBufferData.registerClass("GameFramework.DataBufferData", null)
 		});
 U(function() {
 			GameFramework.DataBufferData.c()
@@ -2848,7 +2848,7 @@ GameFramework.Insets.prototype = {
 };
 GameFramework.Insets.c = dummy();
 T(function() {
-			GameFramework.Insets.u("GameFramework.Insets", null)
+			GameFramework.Insets.registerClass("GameFramework.Insets", null)
 		});
 U(function() {
 			GameFramework.Insets.c()
@@ -2958,7 +2958,7 @@ GameFramework.NoRename = function() {
 GameFramework.NoRename.prototype = {};
 GameFramework.NoRename.c = dummy();
 T(function() {
-			GameFramework.NoRename.u("GameFramework.NoRename", System.Zaa)
+			GameFramework.NoRename.registerClass("GameFramework.NoRename", System.Zaa)
 		});
 U(function() {
 			GameFramework.NoRename.c()
@@ -2998,7 +2998,7 @@ GameFramework.TArray.prototype = {
 };
 GameFramework.TArray.c = dummy();
 T(function() {
-			GameFramework.TArray.u("GameFramework.TArray", null)
+			GameFramework.TArray.registerClass("GameFramework.TArray", null)
 		});
 U(function() {
 			GameFramework.TArray.c()
@@ -3020,7 +3020,7 @@ GameFramework.TDictionary.prototype = {
 };
 GameFramework.TDictionary.c = dummy();
 T(function() {
-			GameFramework.TDictionary.u("GameFramework.TDictionary", null,
+			GameFramework.TDictionary.registerClass("GameFramework.TDictionary", null,
 					GameFramework.misc.ZJ)
 		});
 U(function() {
@@ -3048,7 +3048,7 @@ GameFramework.TDictionaryEnumerator.prototype = {
 };
 GameFramework.TDictionaryEnumerator.c = dummy();
 T(function() {
-			GameFramework.TDictionaryEnumerator.u("GameFramework.TDictionaryEnumerator", null)
+			GameFramework.TDictionaryEnumerator.registerClass("GameFramework.TDictionaryEnumerator", null)
 		});
 U(function() {
 			GameFramework.TDictionaryEnumerator.c()
@@ -3067,7 +3067,7 @@ GameFramework.TIntDictionary.prototype = {
 };
 GameFramework.TIntDictionary.c = dummy();
 T(function() {
-			GameFramework.TIntDictionary.u("GameFramework.TIntDictionary", null,
+			GameFramework.TIntDictionary.registerClass("GameFramework.TIntDictionary", null,
 					GameFramework.misc.ZJ)
 		});
 U(function() {
@@ -3092,7 +3092,7 @@ GameFramework.TMapKeyEnumerator.prototype = {
 };
 GameFramework.TMapKeyEnumerator.c = dummy();
 T(function() {
-			GameFramework.TMapKeyEnumerator.u("GameFramework.TMapKeyEnumerator", null)
+			GameFramework.TMapKeyEnumerator.registerClass("GameFramework.TMapKeyEnumerator", null)
 		});
 U(function() {
 			GameFramework.TMapKeyEnumerator.c()
@@ -3116,7 +3116,7 @@ GameFramework.TMapValueEnumerator.prototype = {
 };
 GameFramework.TMapValueEnumerator.c = dummy();
 T(function() {
-			GameFramework.TMapValueEnumerator.u("GameFramework.TMapValueEnumerator", null)
+			GameFramework.TMapValueEnumerator.registerClass("GameFramework.TMapValueEnumerator", null)
 		});
 U(function() {
 			GameFramework.TMapValueEnumerator.c()
@@ -3138,7 +3138,7 @@ GameFramework.TIntMap.prototype = {
 };
 GameFramework.TIntMap.c = dummy();
 T(function() {
-			GameFramework.TIntMap.u("GameFramework.TIntMap", null, GameFramework.misc.ZJ)
+			GameFramework.TIntMap.registerClass("GameFramework.TIntMap", null, GameFramework.misc.ZJ)
 		});
 U(function() {
 			GameFramework.TIntMap.c()
@@ -3179,7 +3179,7 @@ GameFramework.TIntRect.prototype = {
 };
 GameFramework.TIntRect.c = dummy();
 T(function() {
-			GameFramework.TIntRect.u("GameFramework.TIntRect", null)
+			GameFramework.TIntRect.registerClass("GameFramework.TIntRect", null)
 		});
 U(function() {
 			GameFramework.TIntRect.c()
@@ -3214,7 +3214,7 @@ GameFramework.TIntVector.prototype = {
 };
 GameFramework.TIntVector.c = dummy();
 T(function() {
-			GameFramework.TIntVector.u("GameFramework.TIntVector", null)
+			GameFramework.TIntVector.registerClass("GameFramework.TIntVector", null)
 		});
 U(function() {
 			GameFramework.TIntVector.c()
@@ -3239,7 +3239,7 @@ GameFramework.TMapEnumerator.prototype = {
 };
 GameFramework.TMapEnumerator.c = dummy();
 T(function() {
-			GameFramework.TMapEnumerator.u("GameFramework.TMapEnumerator", null)
+			GameFramework.TMapEnumerator.registerClass("GameFramework.TMapEnumerator", null)
 		});
 U(function() {
 			GameFramework.TMapEnumerator.c()
@@ -3261,7 +3261,7 @@ GameFramework.TMap.prototype = {
 };
 GameFramework.TMap.c = dummy();
 T(function() {
-			GameFramework.TMap.u("GameFramework.TMap", null, GameFramework.misc.ZJ)
+			GameFramework.TMap.registerClass("GameFramework.TMap", null, GameFramework.misc.ZJ)
 		});
 U(function() {
 			GameFramework.TMap.c()
@@ -3299,7 +3299,7 @@ GameFramework.TRect.prototype = {
 };
 GameFramework.TRect.c = dummy();
 T(function() {
-			GameFramework.TRect.u("GameFramework.TRect", null)
+			GameFramework.TRect.registerClass("GameFramework.TRect", null)
 		});
 U(function() {
 			GameFramework.TRect.c()
@@ -3355,7 +3355,7 @@ GameFramework.TVector.prototype = {
 };
 GameFramework.TVector.c = dummy();
 T(function() {
-			GameFramework.TVector.u("GameFramework.TVector", null)
+			GameFramework.TVector.registerClass("GameFramework.TVector", null)
 		});
 U(function() {
 			GameFramework.TVector.c()
@@ -3587,7 +3587,7 @@ GameFramework.Utils.c = function() {
 	GameFramework.Utils.wP = 0
 };
 T(function() {
-			GameFramework.Utils.u("GameFramework.Utils", null)
+			GameFramework.Utils.registerClass("GameFramework.Utils", null)
 		});
 U(function() {
 			GameFramework.Utils.c()
@@ -3614,7 +3614,7 @@ GameFramework.XMLParser.prototype = {
 };
 GameFramework.XMLParser.c = dummy();
 T(function() {
-			GameFramework.XMLParser.u("GameFramework.XMLParser", null)
+			GameFramework.XMLParser.registerClass("GameFramework.XMLParser", null)
 		});
 U(function() {
 			GameFramework.XMLParser.c()
@@ -3635,7 +3635,7 @@ GameFramework.XMLParserList.prototype = {
 };
 GameFramework.XMLParserList.c = dummy();
 T(function() {
-			GameFramework.XMLParserList.u("GameFramework.XMLParserList", null)
+			GameFramework.XMLParserList.registerClass("GameFramework.XMLParserList", null)
 		});
 U(function() {
 			GameFramework.XMLParserList.c()
@@ -3647,7 +3647,7 @@ GameFramework.ads.AdAPIEvent = function(b) {
 GameFramework.ads.AdAPIEvent.prototype = {};
 GameFramework.ads.AdAPIEvent.c = dummy();
 T(function() {
-			GameFramework.ads.AdAPIEvent.u("GameFramework.ads.AdAPIEvent",
+			GameFramework.ads.AdAPIEvent.registerClass("GameFramework.ads.AdAPIEvent",
 					GameFramework.events.Event)
 		});
 U(function() {
@@ -3683,7 +3683,7 @@ GameFramework.connected.ConnectedRequest.c = function() {
 	GameFramework.connected.ConnectedRequest.jY = 0
 };
 T(function() {
-			GameFramework.connected.ConnectedRequest.u(
+			GameFramework.connected.ConnectedRequest.registerClass(
 					"GameFramework.connected.ConnectedRequest",
 					GameFramework.events.EventDispatcher)
 		});
@@ -3707,7 +3707,7 @@ GameFramework.connected.Database.c = function() {
 	GameFramework.connected.Database.Aca = 64
 };
 T(function() {
-			GameFramework.connected.Database.u("GameFramework.connected.Database", null)
+			GameFramework.connected.Database.registerClass("GameFramework.connected.Database", null)
 		});
 U(function() {
 			GameFramework.connected.Database.c()
@@ -3718,7 +3718,7 @@ GameFramework.connected.Facebook = function() {
 GameFramework.connected.Facebook.prototype = {};
 GameFramework.connected.Facebook.c = dummy();
 T(function() {
-			GameFramework.connected.Facebook.u("GameFramework.connected.Facebook",
+			GameFramework.connected.Facebook.registerClass("GameFramework.connected.Facebook",
 					GameFramework.connected.SocialService)
 		});
 U(function() {
@@ -3767,7 +3767,7 @@ GameFramework.connected.HTTPService.prototype = {
 };
 GameFramework.connected.HTTPService.c = dummy();
 T(function() {
-			GameFramework.connected.HTTPService.u("GameFramework.connected.HTTPService",
+			GameFramework.connected.HTTPService.registerClass("GameFramework.connected.HTTPService",
 					null)
 		});
 U(function() {
@@ -3783,7 +3783,7 @@ GameFramework.connected.SocialService.prototype = {
 };
 GameFramework.connected.SocialService.c = dummy();
 T(function() {
-			GameFramework.connected.SocialService.u(
+			GameFramework.connected.SocialService.registerClass(
 					"GameFramework.connected.SocialService", null)
 		});
 U(function() {
@@ -3795,7 +3795,7 @@ GameFramework.connected.UserInfo.prototype = {
 };
 GameFramework.connected.UserInfo.c = dummy();
 T(function() {
-			GameFramework.connected.UserInfo.u("GameFramework.connected.UserInfo", null)
+			GameFramework.connected.UserInfo.registerClass("GameFramework.connected.UserInfo", null)
 		});
 U(function() {
 			GameFramework.connected.UserInfo.c()
@@ -3815,7 +3815,7 @@ GameFramework.events.Event.c = function() {
 	GameFramework.events.Event.Zba = "exitFrame"
 };
 T(function() {
-			GameFramework.events.Event.u("GameFramework.events.Event", null)
+			GameFramework.events.Event.registerClass("GameFramework.events.Event", null)
 		});
 U(function() {
 			GameFramework.events.Event.c()
@@ -3843,7 +3843,7 @@ GameFramework.events.EventDispatcher.prototype = {
 };
 GameFramework.events.EventDispatcher.c = dummy();
 T(function() {
-			GameFramework.events.EventDispatcher.u("GameFramework.events.EventDispatcher", null,
+			GameFramework.events.EventDispatcher.registerClass("GameFramework.events.EventDispatcher", null,
 					System.Wl)
 		});
 U(function() {
@@ -3857,7 +3857,7 @@ GameFramework.events.IOErrorEvent.c = function() {
 	GameFramework.events.IOErrorEvent.fk = "ioError"
 };
 T(function() {
-			GameFramework.events.IOErrorEvent.u("GameFramework.events.IOErrorEvent",
+			GameFramework.events.IOErrorEvent.registerClass("GameFramework.events.IOErrorEvent",
 					GameFramework.events.Event)
 		});
 U(function() {
@@ -3939,7 +3939,7 @@ GameFramework.geom.Axes3.prototype = {
 };
 GameFramework.geom.Axes3.c = dummy();
 T(function() {
-			GameFramework.geom.Axes3.u("GameFramework.geom.Axes3", null)
+			GameFramework.geom.Axes3.registerClass("GameFramework.geom.Axes3", null)
 		});
 U(function() {
 			GameFramework.geom.Axes3.c()
@@ -4042,7 +4042,7 @@ GameFramework.geom.Coords3.prototype = {
 };
 GameFramework.geom.Coords3.c = dummy();
 T(function() {
-			GameFramework.geom.Coords3.u("GameFramework.geom.Coords3", null)
+			GameFramework.geom.Coords3.registerClass("GameFramework.geom.Coords3", null)
 		});
 U(function() {
 			GameFramework.geom.Coords3.c()
@@ -4115,7 +4115,7 @@ GameFramework.geom.Matrix.prototype = {
 };
 GameFramework.geom.Matrix.c = dummy();
 T(function() {
-			GameFramework.geom.Matrix.u("GameFramework.geom.Matrix", null)
+			GameFramework.geom.Matrix.registerClass("GameFramework.geom.Matrix", null)
 		});
 U(function() {
 			GameFramework.geom.Matrix.c()
@@ -4168,7 +4168,7 @@ GameFramework.geom.Matrix3D.c = function() {
 	GameFramework.geom.Matrix3D.OF = Array.Sd(4, 4, null)
 };
 T(function() {
-			GameFramework.geom.Matrix3D.u("GameFramework.geom.Matrix3D", null)
+			GameFramework.geom.Matrix3D.registerClass("GameFramework.geom.Matrix3D", null)
 		});
 U(function() {
 			GameFramework.geom.Matrix3D.c()
@@ -4269,7 +4269,7 @@ GameFramework.geom.Quat3.prototype = {
 };
 GameFramework.geom.Quat3.c = dummy();
 T(function() {
-			GameFramework.geom.Quat3.u("GameFramework.geom.Quat3", null)
+			GameFramework.geom.Quat3.registerClass("GameFramework.geom.Quat3", null)
 		});
 U(function() {
 			GameFramework.geom.Quat3.c()
@@ -4293,7 +4293,7 @@ GameFramework.geom.TIntPoint.prototype = {
 };
 GameFramework.geom.TIntPoint.c = dummy();
 T(function() {
-			GameFramework.geom.TIntPoint.u("GameFramework.geom.TIntPoint", null)
+			GameFramework.geom.TIntPoint.registerClass("GameFramework.geom.TIntPoint", null)
 		});
 U(function() {
 			GameFramework.geom.TIntPoint.c()
@@ -4341,7 +4341,7 @@ GameFramework.geom.TPoint.prototype = {
 };
 GameFramework.geom.TPoint.c = dummy();
 T(function() {
-			GameFramework.geom.TPoint.u("GameFramework.geom.TPoint", null)
+			GameFramework.geom.TPoint.registerClass("GameFramework.geom.TPoint", null)
 		});
 U(function() {
 			GameFramework.geom.TPoint.c()
@@ -4424,7 +4424,7 @@ GameFramework.geom.Vector3.prototype = {
 };
 GameFramework.geom.Vector3.c = dummy();
 T(function() {
-			GameFramework.geom.Vector3.u("GameFramework.geom.Vector3", null)
+			GameFramework.geom.Vector3.registerClass("GameFramework.geom.Vector3", null)
 		});
 U(function() {
 			GameFramework.geom.Vector3.c()
@@ -4473,7 +4473,7 @@ GameFramework.gfx.Camera.prototype = {
 };
 GameFramework.gfx.Camera.c = dummy();
 T(function() {
-			GameFramework.gfx.Camera.u("GameFramework.gfx.Camera", null)
+			GameFramework.gfx.Camera.registerClass("GameFramework.gfx.Camera", null)
 		});
 U(function() {
 			GameFramework.gfx.Camera.c()
@@ -4587,7 +4587,7 @@ GameFramework.gfx.Color.c = function() {
 	GameFramework.gfx.Color.pi = GameFramework.gfx.Color.cm.Hc()
 };
 T(function() {
-			GameFramework.gfx.Color.u("GameFramework.gfx.Color", null)
+			GameFramework.gfx.Color.registerClass("GameFramework.gfx.Color", null)
 		});
 U(function() {
 			GameFramework.gfx.Color.c()
@@ -4623,7 +4623,7 @@ GameFramework.gfx.TriVertex.prototype = {
 };
 GameFramework.gfx.TriVertex.c = dummy();
 T(function() {
-			GameFramework.gfx.TriVertex.u("GameFramework.gfx.TriVertex", null)
+			GameFramework.gfx.TriVertex.registerClass("GameFramework.gfx.TriVertex", null)
 		});
 U(function() {
 			GameFramework.gfx.TriVertex.c()
@@ -4990,7 +4990,7 @@ GameFramework.gfx.Graphics.prototype = {
 };
 GameFramework.gfx.Graphics.c = dummy();
 T(function() {
-			GameFramework.gfx.Graphics.u("GameFramework.gfx.Graphics", null)
+			GameFramework.gfx.Graphics.registerClass("GameFramework.gfx.Graphics", null)
 		});
 U(function() {
 			GameFramework.gfx.Graphics.c()
@@ -5017,7 +5017,7 @@ GameFramework.gfx.Graphics3D.prototype = {
 };
 GameFramework.gfx.Graphics3D.c = dummy();
 T(function() {
-			GameFramework.gfx.Graphics3D.u("GameFramework.gfx.Graphics3D", null, System.Wl)
+			GameFramework.gfx.Graphics3D.registerClass("GameFramework.gfx.Graphics3D", null, System.Wl)
 		});
 U(function() {
 			GameFramework.gfx.Graphics3D.c()
@@ -5074,7 +5074,7 @@ GameFramework.gfx.OffsetDrawable.prototype = {
 };
 GameFramework.gfx.OffsetDrawable.c = dummy();
 T(function() {
-			GameFramework.gfx.OffsetDrawable.u("GameFramework.gfx.OffsetDrawable", null,
+			GameFramework.gfx.OffsetDrawable.registerClass("GameFramework.gfx.OffsetDrawable", null,
 					GameFramework.gfx.WJ)
 		});
 U(function() {
@@ -5121,7 +5121,7 @@ GameFramework.gfx.PerspectiveCamera.prototype = {
 };
 GameFramework.gfx.PerspectiveCamera.c = dummy();
 T(function() {
-			GameFramework.gfx.PerspectiveCamera.u("GameFramework.gfx.PerspectiveCamera",
+			GameFramework.gfx.PerspectiveCamera.registerClass("GameFramework.gfx.PerspectiveCamera",
 					GameFramework.gfx.Camera)
 		});
 U(function() {
@@ -5150,7 +5150,7 @@ GameFramework.gfx.TransformedDrawable.prototype = {
 };
 GameFramework.gfx.TransformedDrawable.c = dummy();
 T(function() {
-			GameFramework.gfx.TransformedDrawable.u("GameFramework.gfx.TransformedDrawable", null,
+			GameFramework.gfx.TransformedDrawable.registerClass("GameFramework.gfx.TransformedDrawable", null,
 					GameFramework.gfx.WJ)
 		});
 U(function() {
@@ -5326,7 +5326,7 @@ GameFramework.misc.Bezier.prototype = {
 };
 GameFramework.misc.Bezier.c = dummy();
 T(function() {
-			GameFramework.misc.Bezier.u("GameFramework.misc.Bezier", null)
+			GameFramework.misc.Bezier.registerClass("GameFramework.misc.Bezier", null)
 		});
 U(function() {
 			GameFramework.misc.Bezier.c()
@@ -5467,7 +5467,7 @@ GameFramework.misc.BSpline.prototype = {
 };
 GameFramework.misc.BSpline.c = dummy();
 T(function() {
-			GameFramework.misc.BSpline.u("GameFramework.misc.BSpline", null)
+			GameFramework.misc.BSpline.registerClass("GameFramework.misc.BSpline", null)
 		});
 U(function() {
 			GameFramework.misc.BSpline.c()
@@ -5480,7 +5480,7 @@ GameFramework.misc.CurveCacheRecord.prototype = {
 };
 GameFramework.misc.CurveCacheRecord.c = dummy();
 T(function() {
-			GameFramework.misc.CurveCacheRecord.u("GameFramework.misc.CurveCacheRecord", null)
+			GameFramework.misc.CurveCacheRecord.registerClass("GameFramework.misc.CurveCacheRecord", null)
 		});
 U(function() {
 			GameFramework.misc.CurveCacheRecord.c()
@@ -5493,7 +5493,7 @@ GameFramework.misc.CurveValDataPoint.prototype = {
 };
 GameFramework.misc.CurveValDataPoint.c = dummy();
 T(function() {
-			GameFramework.misc.CurveValDataPoint.u("GameFramework.misc.CurveValDataPoint", null)
+			GameFramework.misc.CurveValDataPoint.registerClass("GameFramework.misc.CurveValDataPoint", null)
 		});
 U(function() {
 			GameFramework.misc.CurveValDataPoint.c()
@@ -5507,7 +5507,7 @@ GameFramework.misc.DisposeProxy.prototype = {
 };
 GameFramework.misc.DisposeProxy.c = dummy();
 T(function() {
-			GameFramework.misc.DisposeProxy.u("GameFramework.misc.DisposeProxy", null,
+			GameFramework.misc.DisposeProxy.registerClass("GameFramework.misc.DisposeProxy", null,
 					System.Wl)
 		});
 U(function() {
@@ -5522,7 +5522,7 @@ GameFramework.misc.DisposeProxyStatic.prototype = {
 };
 GameFramework.misc.DisposeProxyStatic.c = dummy();
 T(function() {
-			GameFramework.misc.DisposeProxyStatic.u("GameFramework.misc.DisposeProxyStatic", null,
+			GameFramework.misc.DisposeProxyStatic.registerClass("GameFramework.misc.DisposeProxyStatic", null,
 					GameFramework.yla)
 		});
 U(function() {
@@ -5534,7 +5534,7 @@ GameFramework.misc.JSONString.prototype = {
 };
 GameFramework.misc.JSONString.c = dummy();
 T(function() {
-			GameFramework.misc.JSONString.u("GameFramework.misc.JSONString", null)
+			GameFramework.misc.JSONString.registerClass("GameFramework.misc.JSONString", null)
 		});
 U(function() {
 			GameFramework.misc.JSONString.c()
@@ -5545,7 +5545,7 @@ GameFramework.misc.Key1 = function(b) {
 GameFramework.misc.Key1.prototype = {};
 GameFramework.misc.Key1.c = dummy();
 T(function() {
-			GameFramework.misc.Key1.u("GameFramework.misc.Key1", GameFramework.misc.KeyVal)
+			GameFramework.misc.Key1.registerClass("GameFramework.misc.Key1", GameFramework.misc.KeyVal)
 		});
 U(function() {
 			GameFramework.misc.Key1.c()
@@ -5560,7 +5560,7 @@ GameFramework.misc.KeyVal.prototype = {
 };
 GameFramework.misc.KeyVal.c = dummy();
 T(function() {
-			GameFramework.misc.KeyVal.u("GameFramework.misc.KeyVal", null)
+			GameFramework.misc.KeyVal.registerClass("GameFramework.misc.KeyVal", null)
 		});
 U(function() {
 			GameFramework.misc.KeyVal.c()
@@ -5641,7 +5641,7 @@ GameFramework.misc.SexyMathHermite.c = function() {
 	GameFramework.misc.SexyMathHermite.fl = 4
 };
 T(function() {
-			GameFramework.misc.SexyMathHermite.u("GameFramework.misc.SexyMathHermite", null)
+			GameFramework.misc.SexyMathHermite.registerClass("GameFramework.misc.SexyMathHermite", null)
 		});
 U(function() {
 			GameFramework.misc.SexyMathHermite.c()
@@ -5656,7 +5656,7 @@ GameFramework.misc.TMapSorter.prototype = {
 };
 GameFramework.misc.TMapSorter.c = dummy();
 T(function() {
-			GameFramework.misc.TMapSorter.u("GameFramework.misc.TMapSorter", null)
+			GameFramework.misc.TMapSorter.registerClass("GameFramework.misc.TMapSorter", null)
 		});
 U(function() {
 			GameFramework.misc.TMapSorter.c()
@@ -5697,7 +5697,7 @@ GameFramework.resources.BaseRes.prototype = {
 };
 GameFramework.resources.BaseRes.c = dummy();
 T(function() {
-			GameFramework.resources.BaseRes.u("GameFramework.resources.BaseRes", null)
+			GameFramework.resources.BaseRes.registerClass("GameFramework.resources.BaseRes", null)
 		});
 U(function() {
 			GameFramework.resources.BaseRes.c()
@@ -5719,7 +5719,7 @@ GameFramework.resources.FontCharData.prototype = {
 };
 GameFramework.resources.FontCharData.c = dummy();
 T(function() {
-			GameFramework.resources.FontCharData.u("GameFramework.resources.FontCharData", null)
+			GameFramework.resources.FontCharData.registerClass("GameFramework.resources.FontCharData", null)
 		});
 U(function() {
 			GameFramework.resources.FontCharData.c()
@@ -5734,7 +5734,7 @@ GameFramework.resources.FontDrawCmd.prototype = {
 };
 GameFramework.resources.FontDrawCmd.c = dummy();
 T(function() {
-			GameFramework.resources.FontDrawCmd.u("GameFramework.resources.FontDrawCmd", null)
+			GameFramework.resources.FontDrawCmd.registerClass("GameFramework.resources.FontDrawCmd", null)
 		});
 U(function() {
 			GameFramework.resources.FontDrawCmd.c()
@@ -5746,7 +5746,7 @@ GameFramework.resources.FontDrawData.prototype = {
 };
 GameFramework.resources.FontDrawData.c = dummy();
 T(function() {
-			GameFramework.resources.FontDrawData.u("GameFramework.resources.FontDrawData", null)
+			GameFramework.resources.FontDrawData.registerClass("GameFramework.resources.FontDrawData", null)
 		});
 U(function() {
 			GameFramework.resources.FontDrawData.c()
@@ -5800,7 +5800,7 @@ GameFramework.resources.FontLayer.prototype = {
 };
 GameFramework.resources.FontLayer.c = dummy();
 T(function() {
-			GameFramework.resources.FontLayer.u("GameFramework.resources.FontLayer", null)
+			GameFramework.resources.FontLayer.registerClass("GameFramework.resources.FontLayer", null)
 		});
 U(function() {
 			GameFramework.resources.FontLayer.c()
@@ -6230,7 +6230,7 @@ GameFramework.resources.FontResource.c = function() {
 	GameFramework.resources.FontResource.zW = []
 };
 T(function() {
-			GameFramework.resources.FontResource.u("GameFramework.resources.FontResource", null)
+			GameFramework.resources.FontResource.registerClass("GameFramework.resources.FontResource", null)
 		});
 U(function() {
 			GameFramework.resources.FontResource.c()
@@ -6262,7 +6262,7 @@ GameFramework.resources.ImageInst.prototype = {
 };
 GameFramework.resources.ImageInst.c = dummy();
 T(function() {
-			GameFramework.resources.ImageInst.u("GameFramework.resources.ImageInst", null,
+			GameFramework.resources.ImageInst.registerClass("GameFramework.resources.ImageInst", null,
 					GameFramework.gfx.WJ)
 		});
 U(function() {
@@ -6340,7 +6340,7 @@ GameFramework.resources.ImageResource.c = function() {
 	GameFramework.resources.ImageResource.cX = 0
 };
 T(function() {
-			GameFramework.resources.ImageResource.u("GameFramework.resources.ImageResource", null,
+			GameFramework.resources.ImageResource.registerClass("GameFramework.resources.ImageResource", null,
 					GameFramework.gfx.WJ, GameFramework.ff)
 		});
 U(function() {
@@ -6364,7 +6364,7 @@ GameFramework.resources.MeshPiece.prototype = {
 };
 GameFramework.resources.MeshPiece.c = dummy();
 T(function() {
-			GameFramework.resources.MeshPiece.u("GameFramework.resources.MeshPiece", null)
+			GameFramework.resources.MeshPiece.registerClass("GameFramework.resources.MeshPiece", null)
 		});
 U(function() {
 			GameFramework.resources.MeshPiece.c()
@@ -6382,7 +6382,7 @@ GameFramework.resources.MeshEvent.c = function() {
 	GameFramework.resources.MeshEvent.hT = "mesh_postdrawset"
 };
 T(function() {
-			GameFramework.resources.MeshEvent.u("GameFramework.resources.MeshEvent",
+			GameFramework.resources.MeshEvent.registerClass("GameFramework.resources.MeshEvent",
 					GameFramework.events.Event)
 		});
 U(function() {
@@ -6451,7 +6451,7 @@ GameFramework.resources.MeshResource.prototype = {
 };
 GameFramework.resources.MeshResource.c = dummy();
 T(function() {
-			GameFramework.resources.MeshResource.u("GameFramework.resources.MeshResource",
+			GameFramework.resources.MeshResource.registerClass("GameFramework.resources.MeshResource",
 					GameFramework.events.EventDispatcher)
 		});
 U(function() {
@@ -6465,7 +6465,7 @@ GameFramework.resources.PIValuePoint.prototype = {
 };
 GameFramework.resources.PIValuePoint.c = dummy();
 T(function() {
-			GameFramework.resources.PIValuePoint.u("GameFramework.resources.PIValuePoint", null,
+			GameFramework.resources.PIValuePoint.registerClass("GameFramework.resources.PIValuePoint", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -6479,7 +6479,7 @@ GameFramework.resources.PIGeomDataEx.prototype = {
 };
 GameFramework.resources.PIGeomDataEx.c = dummy();
 T(function() {
-			GameFramework.resources.PIGeomDataEx.u("GameFramework.resources.PIGeomDataEx", null,
+			GameFramework.resources.PIGeomDataEx.registerClass("GameFramework.resources.PIGeomDataEx", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -6613,7 +6613,7 @@ GameFramework.resources.PIValue.c = function() {
 	GameFramework.resources.PIValue.Yv = 256
 };
 T(function() {
-			GameFramework.resources.PIValue.u("GameFramework.resources.PIValue", null,
+			GameFramework.resources.PIValue.registerClass("GameFramework.resources.PIValue", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -6627,7 +6627,7 @@ GameFramework.resources.PIValuePoint2D.prototype = {
 };
 GameFramework.resources.PIValuePoint2D.c = dummy();
 T(function() {
-			GameFramework.resources.PIValuePoint2D.u("GameFramework.resources.PIValuePoint2D", null,
+			GameFramework.resources.PIValuePoint2D.registerClass("GameFramework.resources.PIValuePoint2D", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -6676,7 +6676,7 @@ GameFramework.resources.PIValue2D.prototype = {
 };
 GameFramework.resources.PIValue2D.c = dummy();
 T(function() {
-			GameFramework.resources.PIValue2D.u("GameFramework.resources.PIValue2D", null,
+			GameFramework.resources.PIValue2D.registerClass("GameFramework.resources.PIValue2D", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -6690,7 +6690,7 @@ GameFramework.resources.PIInterpolatorPoint.prototype = {
 };
 GameFramework.resources.PIInterpolatorPoint.c = dummy();
 T(function() {
-			GameFramework.resources.PIInterpolatorPoint.u("GameFramework.resources.PIInterpolatorPoint",
+			GameFramework.resources.PIInterpolatorPoint.registerClass("GameFramework.resources.PIInterpolatorPoint",
 					null, GameFramework.ff)
 		});
 U(function() {
@@ -6722,7 +6722,7 @@ GameFramework.resources.PIInterpolator.prototype = {
 };
 GameFramework.resources.PIInterpolator.c = dummy();
 T(function() {
-			GameFramework.resources.PIInterpolator.u("GameFramework.resources.PIInterpolator", null,
+			GameFramework.resources.PIInterpolator.registerClass("GameFramework.resources.PIInterpolator", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -6742,7 +6742,7 @@ GameFramework.resources.PITextureChunk.prototype = {
 };
 GameFramework.resources.PITextureChunk.c = dummy();
 T(function() {
-			GameFramework.resources.PITextureChunk.u("GameFramework.resources.PITextureChunk", null,
+			GameFramework.resources.PITextureChunk.registerClass("GameFramework.resources.PITextureChunk", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -6766,7 +6766,7 @@ GameFramework.resources.PITexture.prototype = {
 };
 GameFramework.resources.PITexture.c = dummy();
 T(function() {
-			GameFramework.resources.PITexture.u("GameFramework.resources.PITexture", null,
+			GameFramework.resources.PITexture.registerClass("GameFramework.resources.PITexture", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -6785,7 +6785,7 @@ GameFramework.resources.PILifeValueSample.prototype = {
 };
 GameFramework.resources.PILifeValueSample.c = dummy();
 T(function() {
-			GameFramework.resources.PILifeValueSample.u("GameFramework.resources.PILifeValueSample",
+			GameFramework.resources.PILifeValueSample.registerClass("GameFramework.resources.PILifeValueSample",
 					null, GameFramework.ff)
 		});
 U(function() {
@@ -6801,7 +6801,7 @@ GameFramework.resources.PILifeValueTable.c = function() {
 	GameFramework.resources.PILifeValueTable.Uo = 26
 };
 T(function() {
-			GameFramework.resources.PILifeValueTable.u("GameFramework.resources.PILifeValueTable", null,
+			GameFramework.resources.PILifeValueTable.registerClass("GameFramework.resources.PILifeValueTable", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -6869,7 +6869,7 @@ GameFramework.resources.PIParticleDef.c = function() {
 	GameFramework.resources.PIParticleDef.cra = {}
 };
 T(function() {
-			GameFramework.resources.PIParticleDef.u("GameFramework.resources.PIParticleDef", null,
+			GameFramework.resources.PIParticleDef.registerClass("GameFramework.resources.PIParticleDef", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -6925,7 +6925,7 @@ GameFramework.resources.PIEmitter.prototype = {
 };
 GameFramework.resources.PIEmitter.c = dummy();
 T(function() {
-			GameFramework.resources.PIEmitter.u("GameFramework.resources.PIEmitter", null,
+			GameFramework.resources.PIEmitter.registerClass("GameFramework.resources.PIEmitter", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -7033,7 +7033,7 @@ GameFramework.resources.PIParticleInstance.prototype = {
 };
 GameFramework.resources.PIParticleInstance.c = dummy();
 T(function() {
-			GameFramework.resources.PIParticleInstance.u("GameFramework.resources.PIParticleInstance",
+			GameFramework.resources.PIParticleInstance.registerClass("GameFramework.resources.PIParticleInstance",
 					null, GameFramework.ff)
 		});
 U(function() {
@@ -7074,7 +7074,7 @@ GameFramework.resources.PIParticleDefInstance.prototype = {
 };
 GameFramework.resources.PIParticleDefInstance.c = dummy();
 T(function() {
-			GameFramework.resources.PIParticleDefInstance.u(
+			GameFramework.resources.PIParticleDefInstance.registerClass(
 					"GameFramework.resources.PIParticleDefInstance", null,
 					GameFramework.ff)
 		});
@@ -7106,7 +7106,7 @@ GameFramework.resources.PIParticleGroup.prototype = {
 };
 GameFramework.resources.PIParticleGroup.c = dummy();
 T(function() {
-			GameFramework.resources.PIParticleGroup.u("GameFramework.resources.PIParticleGroup", null,
+			GameFramework.resources.PIParticleGroup.registerClass("GameFramework.resources.PIParticleGroup", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -7124,7 +7124,7 @@ GameFramework.resources.PIEmitterBase.prototype = {
 };
 GameFramework.resources.PIEmitterBase.c = dummy();
 T(function() {
-			GameFramework.resources.PIEmitterBase.u("GameFramework.resources.PIEmitterBase", null,
+			GameFramework.resources.PIEmitterBase.registerClass("GameFramework.resources.PIEmitterBase", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -7144,7 +7144,7 @@ GameFramework.resources.PIFreeEmitterInstance.prototype = {
 };
 GameFramework.resources.PIFreeEmitterInstance.c = dummy();
 T(function() {
-			GameFramework.resources.PIFreeEmitterInstance.u(
+			GameFramework.resources.PIFreeEmitterInstance.registerClass(
 					"GameFramework.resources.PIFreeEmitterInstance",
 					GameFramework.resources.PIParticleInstance)
 		});
@@ -7172,7 +7172,7 @@ GameFramework.resources.PIEmitterInstanceDef.prototype = {
 };
 GameFramework.resources.PIEmitterInstanceDef.c = dummy();
 T(function() {
-			GameFramework.resources.PIEmitterInstanceDef.u("GameFramework.resources.PIEmitterInstanceDef",
+			GameFramework.resources.PIEmitterInstanceDef.registerClass("GameFramework.resources.PIEmitterInstanceDef",
 					null, GameFramework.ff)
 		});
 U(function() {
@@ -7246,7 +7246,7 @@ GameFramework.resources.PIEmitterInstance.prototype = {
 };
 GameFramework.resources.PIEmitterInstance.c = dummy();
 T(function() {
-			GameFramework.resources.PIEmitterInstance.u("GameFramework.resources.PIEmitterInstance",
+			GameFramework.resources.PIEmitterInstance.registerClass("GameFramework.resources.PIEmitterInstance",
 					GameFramework.resources.PIEmitterBase)
 		});
 U(function() {
@@ -7267,7 +7267,7 @@ GameFramework.resources.PIDeflector.prototype = {
 };
 GameFramework.resources.PIDeflector.c = dummy();
 T(function() {
-			GameFramework.resources.PIDeflector.u("GameFramework.resources.PIDeflector", null)
+			GameFramework.resources.PIDeflector.registerClass("GameFramework.resources.PIDeflector", null)
 		});
 U(function() {
 			GameFramework.resources.PIDeflector.c()
@@ -7282,7 +7282,7 @@ GameFramework.resources.PIBlocker.prototype = {
 };
 GameFramework.resources.PIBlocker.c = dummy();
 T(function() {
-			GameFramework.resources.PIBlocker.u("GameFramework.resources.PIBlocker", null)
+			GameFramework.resources.PIBlocker.registerClass("GameFramework.resources.PIBlocker", null)
 		});
 U(function() {
 			GameFramework.resources.PIBlocker.c()
@@ -7304,7 +7304,7 @@ GameFramework.resources.PIForce.prototype = {
 };
 GameFramework.resources.PIForce.c = dummy();
 T(function() {
-			GameFramework.resources.PIForce.u("GameFramework.resources.PIForce", null)
+			GameFramework.resources.PIForce.registerClass("GameFramework.resources.PIForce", null)
 		});
 U(function() {
 			GameFramework.resources.PIForce.c()
@@ -7325,7 +7325,7 @@ GameFramework.resources.PILayerDef.prototype = {
 };
 GameFramework.resources.PILayerDef.c = dummy();
 T(function() {
-			GameFramework.resources.PILayerDef.u("GameFramework.resources.PILayerDef", null,
+			GameFramework.resources.PILayerDef.registerClass("GameFramework.resources.PILayerDef", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -7360,7 +7360,7 @@ GameFramework.resources.PILayer.prototype = {
 };
 GameFramework.resources.PILayer.c = dummy();
 T(function() {
-			GameFramework.resources.PILayer.u("GameFramework.resources.PILayer", null,
+			GameFramework.resources.PILayer.registerClass("GameFramework.resources.PILayer", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -7380,7 +7380,7 @@ GameFramework.resources.PIEffectDef.prototype = {
 };
 GameFramework.resources.PIEffectDef.c = dummy();
 T(function() {
-			GameFramework.resources.PIEffectDef.u("GameFramework.resources.PIEffectDef", null,
+			GameFramework.resources.PIEffectDef.registerClass("GameFramework.resources.PIEffectDef", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -10112,7 +10112,7 @@ GameFramework.resources.PIEffect.c = function() {
 	GameFramework.resources.PIEffect.sh = -1
 };
 T(function() {
-			GameFramework.resources.PIEffect.u("GameFramework.resources.PIEffect", null,
+			GameFramework.resources.PIEffect.registerClass("GameFramework.resources.PIEffect", null,
 					GameFramework.ff)
 		});
 U(function() {
@@ -10125,7 +10125,7 @@ GameFramework.resources.PopAnimCalcObjectPosData.prototype = {
 };
 GameFramework.resources.PopAnimCalcObjectPosData.c = dummy();
 T(function() {
-			GameFramework.resources.PopAnimCalcObjectPosData.u(
+			GameFramework.resources.PopAnimCalcObjectPosData.registerClass(
 					"GameFramework.resources.PopAnimCalcObjectPosData", null)
 		});
 U(function() {
@@ -10827,7 +10827,7 @@ GameFramework.resources.PopAnimResource.c = function() {
 	GameFramework.resources.PopAnimResource.F2 = 1024
 };
 T(function() {
-			GameFramework.resources.PopAnimResource.u("GameFramework.resources.PopAnimResource",
+			GameFramework.resources.PopAnimResource.registerClass("GameFramework.resources.PopAnimResource",
 					GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
@@ -10846,7 +10846,7 @@ GameFramework.resources.RenderEffectPass.prototype = {
 };
 GameFramework.resources.RenderEffectPass.c = dummy();
 T(function() {
-			GameFramework.resources.RenderEffectPass.u("GameFramework.resources.RenderEffectPass", null,
+			GameFramework.resources.RenderEffectPass.registerClass("GameFramework.resources.RenderEffectPass", null,
 					System.Wl)
 		});
 U(function() {
@@ -10869,7 +10869,7 @@ GameFramework.resources.RenderEffectRunHandle.prototype = {
 };
 GameFramework.resources.RenderEffectRunHandle.c = dummy();
 T(function() {
-			GameFramework.resources.RenderEffectRunHandle.u(
+			GameFramework.resources.RenderEffectRunHandle.registerClass(
 					"GameFramework.resources.RenderEffectRunHandle", null,
 					System.Wl)
 		});
@@ -10888,7 +10888,7 @@ GameFramework.resources.RenderEffect.prototype = {
 };
 GameFramework.resources.RenderEffect.c = dummy();
 T(function() {
-			GameFramework.resources.RenderEffect.u("GameFramework.resources.RenderEffect", null)
+			GameFramework.resources.RenderEffect.registerClass("GameFramework.resources.RenderEffect", null)
 		});
 U(function() {
 			GameFramework.resources.RenderEffect.c()
@@ -11212,7 +11212,7 @@ GameFramework.resources.ResourceManager.c = function() {
 	GameFramework.resources.ResourceManager.yT = 9
 };
 T(function() {
-			GameFramework.resources.ResourceManager.u("GameFramework.resources.ResourceManager", null)
+			GameFramework.resources.ResourceManager.registerClass("GameFramework.resources.ResourceManager", null)
 		});
 U(function() {
 			GameFramework.resources.ResourceManager.c()
@@ -11243,7 +11243,7 @@ GameFramework.resources.ResourceStreamer.prototype = {
 };
 GameFramework.resources.ResourceStreamer.c = dummy();
 T(function() {
-			GameFramework.resources.ResourceStreamer.u("GameFramework.resources.ResourceStreamer",
+			GameFramework.resources.ResourceStreamer.registerClass("GameFramework.resources.ResourceStreamer",
 					GameFramework.events.EventDispatcher)
 		});
 U(function() {
@@ -11265,7 +11265,7 @@ GameFramework.resources.SoundInstance.prototype = {
 };
 GameFramework.resources.SoundInstance.c = dummy();
 T(function() {
-			GameFramework.resources.SoundInstance.u("GameFramework.resources.SoundInstance", null,
+			GameFramework.resources.SoundInstance.registerClass("GameFramework.resources.SoundInstance", null,
 					System.Wl)
 		});
 U(function() {
@@ -11287,7 +11287,7 @@ GameFramework.resources.SoundManager.c = function() {
 };
 T(function() {
 			GameFramework.resources.SoundManager
-					.u("GameFramework.resources.SoundManager",
+					.registerClass("GameFramework.resources.SoundManager",
 							GameFramework.events.EventDispatcher)
 		});
 U(function() {
@@ -11299,7 +11299,7 @@ GameFramework.resources.SoundResource.prototype = {
 };
 GameFramework.resources.SoundResource.c = dummy();
 T(function() {
-			GameFramework.resources.SoundResource.u("GameFramework.resources.SoundResource", null)
+			GameFramework.resources.SoundResource.registerClass("GameFramework.resources.SoundResource", null)
 		});
 U(function() {
 			GameFramework.resources.SoundResource.c()
@@ -11312,7 +11312,7 @@ GameFramework.resources.popanim.PopAnimCommand.prototype = {
 };
 GameFramework.resources.popanim.PopAnimCommand.c = dummy();
 T(function() {
-			GameFramework.resources.popanim.PopAnimCommand.u(
+			GameFramework.resources.popanim.PopAnimCommand.registerClass(
 					"GameFramework.resources.popanim.PopAnimCommand", null)
 		});
 U(function() {
@@ -11328,7 +11328,7 @@ GameFramework.resources.popanim.PopAnimDef.prototype = {
 };
 GameFramework.resources.popanim.PopAnimDef.c = dummy();
 T(function() {
-			GameFramework.resources.popanim.PopAnimDef.u(
+			GameFramework.resources.popanim.PopAnimDef.registerClass(
 					"GameFramework.resources.popanim.PopAnimDef", null)
 		});
 U(function() {
@@ -11342,7 +11342,7 @@ GameFramework.resources.popanim.PopAnimEvent.c = function() {
 	GameFramework.resources.popanim.PopAnimEvent.i4 = "popanim.stopped"
 };
 T(function() {
-			GameFramework.resources.popanim.PopAnimEvent.u(
+			GameFramework.resources.popanim.PopAnimEvent.registerClass(
 					"GameFramework.resources.popanim.PopAnimEvent",
 					GameFramework.events.Event)
 		});
@@ -11357,7 +11357,7 @@ GameFramework.resources.popanim.PopAnimFrame.prototype = {
 };
 GameFramework.resources.popanim.PopAnimFrame.c = dummy();
 T(function() {
-			GameFramework.resources.popanim.PopAnimFrame.u(
+			GameFramework.resources.popanim.PopAnimFrame.registerClass(
 					"GameFramework.resources.popanim.PopAnimFrame", null)
 		});
 U(function() {
@@ -11384,7 +11384,7 @@ GameFramework.resources.popanim.PopAnimImage.prototype = {
 };
 GameFramework.resources.popanim.PopAnimImage.c = dummy();
 T(function() {
-			GameFramework.resources.popanim.PopAnimImage.u(
+			GameFramework.resources.popanim.PopAnimImage.registerClass(
 					"GameFramework.resources.popanim.PopAnimImage", null)
 		});
 U(function() {
@@ -11397,7 +11397,7 @@ GameFramework.resources.popanim.PopAnimObjectDef.prototype = {
 };
 GameFramework.resources.popanim.PopAnimObjectDef.c = dummy();
 T(function() {
-			GameFramework.resources.popanim.PopAnimObjectDef.u(
+			GameFramework.resources.popanim.PopAnimObjectDef.registerClass(
 					"GameFramework.resources.popanim.PopAnimObjectDef", null)
 		});
 U(function() {
@@ -11416,7 +11416,7 @@ GameFramework.resources.popanim.PopAnimObjectInst.prototype = {
 };
 GameFramework.resources.popanim.PopAnimObjectInst.c = dummy();
 T(function() {
-			GameFramework.resources.popanim.PopAnimObjectInst.u(
+			GameFramework.resources.popanim.PopAnimObjectInst.registerClass(
 					"GameFramework.resources.popanim.PopAnimObjectInst", null)
 		});
 U(function() {
@@ -11443,7 +11443,7 @@ GameFramework.resources.popanim.PopAnimObjectPos.c = function() {
 	GameFramework.resources.popanim.PopAnimObjectPos.GN = 0
 };
 T(function() {
-			GameFramework.resources.popanim.PopAnimObjectPos.u(
+			GameFramework.resources.popanim.PopAnimObjectPos.registerClass(
 					"GameFramework.resources.popanim.PopAnimObjectPos", null)
 		});
 U(function() {
@@ -11486,7 +11486,7 @@ GameFramework.resources.popanim.PopAnimObjectPosData.c = function() {
 	GameFramework.resources.popanim.PopAnimObjectPosData.GN = 0
 };
 T(function() {
-			GameFramework.resources.popanim.PopAnimObjectPosData.u(
+			GameFramework.resources.popanim.PopAnimObjectPosData.registerClass(
 					"GameFramework.resources.popanim.PopAnimObjectPosData", null)
 		});
 U(function() {
@@ -11505,7 +11505,7 @@ GameFramework.resources.popanim.PopAnimParticleEffect.prototype = {
 };
 GameFramework.resources.popanim.PopAnimParticleEffect.c = dummy();
 T(function() {
-			GameFramework.resources.popanim.PopAnimParticleEffect.u(
+			GameFramework.resources.popanim.PopAnimParticleEffect.registerClass(
 					"GameFramework.resources.popanim.PopAnimParticleEffect", null)
 		});
 U(function() {
@@ -11526,7 +11526,7 @@ GameFramework.resources.popanim.PopAnimSpriteDef.prototype = {
 };
 GameFramework.resources.popanim.PopAnimSpriteDef.c = dummy();
 T(function() {
-			GameFramework.resources.popanim.PopAnimSpriteDef.u(
+			GameFramework.resources.popanim.PopAnimSpriteDef.registerClass(
 					"GameFramework.resources.popanim.PopAnimSpriteDef", null)
 		});
 U(function() {
@@ -11571,7 +11571,7 @@ GameFramework.resources.popanim.PopAnimSpriteInst.prototype = {
 };
 GameFramework.resources.popanim.PopAnimSpriteInst.c = dummy();
 T(function() {
-			GameFramework.resources.popanim.PopAnimSpriteInst.u(
+			GameFramework.resources.popanim.PopAnimSpriteInst.registerClass(
 					"GameFramework.resources.popanim.PopAnimSpriteInst", null,
 					System.Wl)
 		});
@@ -11691,7 +11691,7 @@ GameFramework.widgets.ButtonWidget.c = function() {
 	GameFramework.widgets.ButtonWidget.DD = 1
 };
 T(function() {
-			GameFramework.widgets.ButtonWidget.u("GameFramework.widgets.ButtonWidget",
+			GameFramework.widgets.ButtonWidget.registerClass("GameFramework.widgets.ButtonWidget",
 					GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
@@ -11758,7 +11758,7 @@ Game.Checkbox.prototype = {
 };
 Game.Checkbox.c = dummy();
 T(function() {
-			Game.Checkbox.u("Game.Checkbox", GameFramework.widgets.ClassicWidget)
+			Game.Checkbox.registerClass("Game.Checkbox", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.Checkbox.c()
@@ -11957,7 +11957,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 };
 GameFramework.widgets.ClassicWidget.c = dummy();
 T(function() {
-			GameFramework.widgets.ClassicWidget.u("GameFramework.widgets.ClassicWidget",
+			GameFramework.widgets.ClassicWidget.registerClass("GameFramework.widgets.ClassicWidget",
 					GameFramework.events.EventDispatcher)
 		});
 U(function() {
@@ -12066,7 +12066,7 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 };
 GameFramework.widgets.ClassicWidgetAppState.c = dummy();
 T(function() {
-			GameFramework.widgets.ClassicWidgetAppState.u("GameFramework.widgets.ClassicWidgetAppState",
+			GameFramework.widgets.ClassicWidgetAppState.registerClass("GameFramework.widgets.ClassicWidgetAppState",
 					GameFramework.events.EventDispatcher, GameFramework.iea)
 		});
 U(function() {
@@ -12087,7 +12087,7 @@ GameFramework.widgets.DialogEvent.c = function() {
 	GameFramework.widgets.DialogEvent.CLOSED = "closed"
 };
 T(function() {
-			GameFramework.widgets.DialogEvent.u("GameFramework.widgets.DialogEvent",
+			GameFramework.widgets.DialogEvent.registerClass("GameFramework.widgets.DialogEvent",
 					GameFramework.events.Event)
 		});
 U(function() {
@@ -12358,7 +12358,7 @@ GameFramework.widgets.Dialog.c = function() {
 	GameFramework.widgets.Dialog.lea = 1E3
 };
 T(function() {
-			GameFramework.widgets.Dialog.u("GameFramework.widgets.Dialog",
+			GameFramework.widgets.Dialog.registerClass("GameFramework.widgets.Dialog",
 					GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
@@ -12371,7 +12371,7 @@ GameFramework.widgets.WidthCheckEntry.prototype = {
 };
 GameFramework.widgets.WidthCheckEntry.c = dummy();
 T(function() {
-			GameFramework.widgets.WidthCheckEntry.u("GameFramework.widgets.WidthCheckEntry", null)
+			GameFramework.widgets.WidthCheckEntry.registerClass("GameFramework.widgets.WidthCheckEntry", null)
 		});
 U(function() {
 			GameFramework.widgets.WidthCheckEntry.c()
@@ -12746,7 +12746,7 @@ GameFramework.widgets.EditWidget.c = function() {
 	GameFramework.widgets.EditWidget.SP = 4
 };
 T(function() {
-			GameFramework.widgets.EditWidget.u("GameFramework.widgets.EditWidget",
+			GameFramework.widgets.EditWidget.registerClass("GameFramework.widgets.EditWidget",
 					GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
@@ -12861,7 +12861,7 @@ Game.Slider.prototype = {
 };
 Game.Slider.c = dummy();
 T(function() {
-			Game.Slider.u("Game.Slider", GameFramework.widgets.ClassicWidget)
+			Game.Slider.registerClass("Game.Slider", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.Slider.c()
@@ -12891,7 +12891,7 @@ GameFramework.widgets.WidgetEvent.c = function() {
 	GameFramework.widgets.WidgetEvent.kK = "key_char"
 };
 T(function() {
-			GameFramework.widgets.WidgetEvent.u("GameFramework.widgets.WidgetEvent",
+			GameFramework.widgets.WidgetEvent.registerClass("GameFramework.widgets.WidgetEvent",
 					GameFramework.events.Event)
 		});
 U(function() {
@@ -13250,7 +13250,7 @@ GameFramework.JSBaseApp.c = function() {
 	GameFramework.JSBaseApp.Cx = null
 };
 T(function() {
-			GameFramework.JSBaseApp.u("GameFramework.JSBaseApp", GameFramework.BaseApp)
+			GameFramework.JSBaseApp.registerClass("GameFramework.JSBaseApp", GameFramework.BaseApp)
 		});
 U(function() {
 			GameFramework.JSBaseApp.c()
@@ -13301,7 +13301,7 @@ GameFramework.JSDataBufferData.prototype = {
 };
 GameFramework.JSDataBufferData.c = dummy();
 T(function() {
-			GameFramework.JSDataBufferData.u("GameFramework.JSDataBufferData",
+			GameFramework.JSDataBufferData.registerClass("GameFramework.JSDataBufferData",
 					GameFramework.DataBufferData)
 		});
 U(function() {
@@ -13482,7 +13482,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 };
 GameFramework.gfx.JSGraphics.c = dummy();
 T(function() {
-			GameFramework.gfx.JSGraphics.u("GameFramework.gfx.JSGraphics",
+			GameFramework.gfx.JSGraphics.registerClass("GameFramework.gfx.JSGraphics",
 					GameFramework.gfx.Graphics)
 		});
 U(function() {
@@ -13608,7 +13608,7 @@ GameFramework.gfx.JSGraphics3D.prototype = {
 };
 GameFramework.gfx.JSGraphics3D.c = dummy();
 T(function() {
-			GameFramework.gfx.JSGraphics3D.u("GameFramework.gfx.JSGraphics3D",
+			GameFramework.gfx.JSGraphics3D.registerClass("GameFramework.gfx.JSGraphics3D",
 					GameFramework.gfx.Graphics3D)
 		});
 U(function() {
@@ -13652,7 +13652,7 @@ GameFramework.resources.JSImageInst.prototype = {
 };
 GameFramework.resources.JSImageInst.c = dummy();
 T(function() {
-			GameFramework.resources.JSImageInst.u("GameFramework.resources.JSImageInst",
+			GameFramework.resources.JSImageInst.registerClass("GameFramework.resources.JSImageInst",
 					GameFramework.resources.ImageInst)
 		});
 U(function() {
@@ -13722,7 +13722,7 @@ GameFramework.resources.JSImageResource.prototype = {
 };
 GameFramework.resources.JSImageResource.c = dummy();
 T(function() {
-			GameFramework.resources.JSImageResource.u("GameFramework.resources.JSImageResource",
+			GameFramework.resources.JSImageResource.registerClass("GameFramework.resources.JSImageResource",
 					GameFramework.resources.ImageResource)
 		});
 U(function() {
@@ -13741,7 +13741,7 @@ GameFramework.resources.JSMeshPiece.prototype = {
 };
 GameFramework.resources.JSMeshPiece.c = dummy();
 T(function() {
-			GameFramework.resources.JSMeshPiece.u("GameFramework.resources.JSMeshPiece",
+			GameFramework.resources.JSMeshPiece.registerClass("GameFramework.resources.JSMeshPiece",
 					GameFramework.resources.MeshPiece)
 		});
 U(function() {
@@ -13809,7 +13809,7 @@ GameFramework.resources.JSMeshResource.prototype = {
 };
 GameFramework.resources.JSMeshResource.c = dummy();
 T(function() {
-			GameFramework.resources.JSMeshResource.u("GameFramework.resources.JSMeshResource",
+			GameFramework.resources.JSMeshResource.registerClass("GameFramework.resources.JSMeshResource",
 					GameFramework.resources.MeshResource)
 		});
 U(function() {
@@ -13827,7 +13827,7 @@ GameFramework.resources.JSRenderEffectBlock.prototype = {
 };
 GameFramework.resources.JSRenderEffectBlock.c = dummy();
 T(function() {
-			GameFramework.resources.JSRenderEffectBlock.u("GameFramework.resources.JSRenderEffectBlock",
+			GameFramework.resources.JSRenderEffectBlock.registerClass("GameFramework.resources.JSRenderEffectBlock",
 					null)
 		});
 U(function() {
@@ -13839,7 +13839,7 @@ GameFramework.resources.JSRenderEffectPass.prototype = {
 };
 GameFramework.resources.JSRenderEffectPass.c = dummy();
 T(function() {
-			GameFramework.resources.JSRenderEffectPass.u("GameFramework.resources.JSRenderEffectPass",
+			GameFramework.resources.JSRenderEffectPass.registerClass("GameFramework.resources.JSRenderEffectPass",
 					null)
 		});
 U(function() {
@@ -13853,7 +13853,7 @@ GameFramework.resources.JSRenderEffectTechnique.prototype = {
 };
 GameFramework.resources.JSRenderEffectTechnique.c = dummy();
 T(function() {
-			GameFramework.resources.JSRenderEffectTechnique.u(
+			GameFramework.resources.JSRenderEffectTechnique.registerClass(
 					"GameFramework.resources.JSRenderEffectTechnique", null)
 		});
 U(function() {
@@ -13867,7 +13867,7 @@ GameFramework.resources.JSRenderEffectRunHandle.prototype = {
 };
 GameFramework.resources.JSRenderEffectRunHandle.c = dummy();
 T(function() {
-			GameFramework.resources.JSRenderEffectRunHandle.u(
+			GameFramework.resources.JSRenderEffectRunHandle.registerClass(
 					"GameFramework.resources.JSRenderEffectRunHandle",
 					GameFramework.resources.RenderEffectRunHandle)
 		});
@@ -14035,7 +14035,7 @@ GameFramework.resources.JSRenderEffect.prototype = {
 };
 GameFramework.resources.JSRenderEffect.c = dummy();
 T(function() {
-			GameFramework.resources.JSRenderEffect.u("GameFramework.resources.JSRenderEffect",
+			GameFramework.resources.JSRenderEffect.registerClass("GameFramework.resources.JSRenderEffect",
 					GameFramework.resources.RenderEffect)
 		});
 U(function() {
@@ -14136,7 +14136,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 };
 GameFramework.resources.JSResourceManager.c = dummy();
 T(function() {
-			GameFramework.resources.JSResourceManager.u("GameFramework.resources.JSResourceManager",
+			GameFramework.resources.JSResourceManager.registerClass("GameFramework.resources.JSResourceManager",
 					GameFramework.resources.ResourceManager)
 		});
 U(function() {
@@ -14191,7 +14191,7 @@ GameFramework.resources.JSSoundInstance.prototype = {
 };
 GameFramework.resources.JSSoundInstance.c = dummy();
 T(function() {
-			GameFramework.resources.JSSoundInstance.u("GameFramework.resources.JSSoundInstance",
+			GameFramework.resources.JSSoundInstance.registerClass("GameFramework.resources.JSSoundInstance",
 					GameFramework.resources.SoundInstance)
 		});
 U(function() {
@@ -14205,7 +14205,7 @@ GameFramework.resources.JSSoundResource.prototype = {
 };
 GameFramework.resources.JSSoundResource.c = dummy();
 T(function() {
-			GameFramework.resources.JSSoundResource.u("GameFramework.resources.JSSoundResource",
+			GameFramework.resources.JSSoundResource.registerClass("GameFramework.resources.JSSoundResource",
 					GameFramework.resources.SoundResource)
 		});
 U(function() {
@@ -14274,7 +14274,7 @@ Game.Announcement.prototype = {
 };
 Game.Announcement.c = dummy();
 T(function() {
-			Game.Announcement.u("Game.Announcement", null)
+			Game.Announcement.registerClass("Game.Announcement", null)
 		});
 U(function() {
 			Game.Announcement.c()
@@ -14290,7 +14290,7 @@ Game.BackgroundLoader.prototype = {
 };
 Game.BackgroundLoader.c = dummy();
 T(function() {
-			Game.BackgroundLoader.u("Game.BackgroundLoader", null)
+			Game.BackgroundLoader.registerClass("Game.BackgroundLoader", null)
 		});
 U(function() {
 			Game.BackgroundLoader.c()
@@ -14482,7 +14482,7 @@ Game.Background.c = function() {
 	Game.Background.iC = Array.O(Game.Background.lm.length, null)
 };
 T(function() {
-			Game.Background.u("Game.Background", GameFramework.widgets.ClassicWidget)
+			Game.Background.registerClass("Game.Background", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.Background.c()
@@ -14500,7 +14500,7 @@ Game.Bej3Button.prototype = {
 };
 Game.Bej3Button.c = dummy();
 T(function() {
-			Game.Bej3Button.u("Game.Bej3Button", GameFramework.widgets.ButtonWidget)
+			Game.Bej3Button.registerClass("Game.Bej3Button", GameFramework.widgets.ButtonWidget)
 		});
 U(function() {
 			Game.Bej3Button.c()
@@ -14546,7 +14546,7 @@ Game.Bej3DialogButton.prototype = {
 };
 Game.Bej3DialogButton.c = dummy();
 T(function() {
-			Game.Bej3DialogButton.u("Game.Bej3DialogButton", GameFramework.widgets.ButtonWidget)
+			Game.Bej3DialogButton.registerClass("Game.Bej3DialogButton", GameFramework.widgets.ButtonWidget)
 		});
 U(function() {
 			Game.Bej3DialogButton.c()
@@ -14662,7 +14662,7 @@ Game.Bej3Dialog.prototype = {
 };
 Game.Bej3Dialog.c = dummy();
 T(function() {
-			Game.Bej3Dialog.u("Game.Bej3Dialog", GameFramework.widgets.Dialog)
+			Game.Bej3Dialog.registerClass("Game.Bej3Dialog", GameFramework.widgets.Dialog)
 		});
 U(function() {
 			Game.Bej3Dialog.c()
@@ -14685,7 +14685,7 @@ Game.LoadingError.prototype = {
 Game.LoadingError.prototype.GetDetails = Game.LoadingError.prototype.Z0;
 Game.LoadingError.c = dummy();
 T(function() {
-			Game.LoadingError.u("Game.LoadingError", System.wJ)
+			Game.LoadingError.registerClass("Game.LoadingError", System.wJ)
 		});
 U(function() {
 			Game.LoadingError.c()
@@ -14716,7 +14716,7 @@ Game.ScalingIconButton.prototype = {
 };
 Game.ScalingIconButton.c = dummy();
 T(function() {
-			Game.ScalingIconButton.u("Game.ScalingIconButton", Game.IconButton)
+			Game.ScalingIconButton.registerClass("Game.ScalingIconButton", Game.IconButton)
 		});
 U(function() {
 			Game.ScalingIconButton.c()
@@ -14725,7 +14725,7 @@ Game.MusicInterface = dummy();
 Game.MusicInterface.prototype = {};
 Game.MusicInterface.c = dummy();
 T(function() {
-			Game.MusicInterface.u("Game.MusicInterface", null)
+			Game.MusicInterface.registerClass("Game.MusicInterface", null)
 		});
 U(function() {
 			Game.MusicInterface.c()
@@ -14738,7 +14738,7 @@ Game.ResourceCache.prototype = {
 };
 Game.ResourceCache.c = dummy();
 T(function() {
-			Game.ResourceCache.u("Game.ResourceCache", null)
+			Game.ResourceCache.registerClass("Game.ResourceCache", null)
 		});
 U(function() {
 			Game.ResourceCache.c()
@@ -14787,7 +14787,7 @@ Game.TopWidget.prototype = {
 };
 Game.TopWidget.c = dummy();
 T(function() {
-			Game.TopWidget.u("Game.TopWidget", GameFramework.widgets.ClassicWidget)
+			Game.TopWidget.registerClass("Game.TopWidget", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.TopWidget.c()
@@ -15349,7 +15349,7 @@ Game.BejApp.c = function() {
 	Game.BejApp.q = null
 };
 T(function() {
-			Game.BejApp.u("Game.BejApp", GameFramework.JSBaseApp)
+			Game.BejApp.registerClass("Game.BejApp", GameFramework.JSBaseApp)
 		});
 U(function() {
 			Game.BejApp.c()
@@ -15375,7 +15375,7 @@ Game.SwapData.prototype = {
 };
 Game.SwapData.c = dummy();
 T(function() {
-			Game.SwapData.u("Game.SwapData", null)
+			Game.SwapData.registerClass("Game.SwapData", null)
 		});
 U(function() {
 			Game.SwapData.c()
@@ -15391,7 +15391,7 @@ Game.MoveData.prototype = {
 };
 Game.MoveData.c = dummy();
 T(function() {
-			Game.MoveData.u("Game.MoveData", null)
+			Game.MoveData.registerClass("Game.MoveData", null)
 		});
 U(function() {
 			Game.MoveData.c()
@@ -15409,7 +15409,7 @@ Game.QueuedMove.prototype = {
 };
 Game.QueuedMove.c = dummy();
 T(function() {
-			Game.QueuedMove.u("Game.QueuedMove", null)
+			Game.QueuedMove.registerClass("Game.QueuedMove", null)
 		});
 U(function() {
 			Game.QueuedMove.c()
@@ -15427,7 +15427,7 @@ Game.Lightning.c = function() {
 	Game.Lightning.M2 = 8
 };
 T(function() {
-			Game.Lightning.u("Game.Lightning", null)
+			Game.Lightning.registerClass("Game.Lightning", null)
 		});
 U(function() {
 			Game.Lightning.c()
@@ -15440,7 +15440,7 @@ Game.ElectrocutedCel.prototype = {
 };
 Game.ElectrocutedCel.c = dummy();
 T(function() {
-			Game.ElectrocutedCel.u("Game.ElectrocutedCel", null)
+			Game.ElectrocutedCel.registerClass("Game.ElectrocutedCel", null)
 		});
 U(function() {
 			Game.ElectrocutedCel.c()
@@ -15456,7 +15456,7 @@ Game.GridTileData.prototype = {
 };
 Game.GridTileData.c = dummy();
 T(function() {
-			Game.GridTileData.u("Game.GridTileData", null)
+			Game.GridTileData.registerClass("Game.GridTileData", null)
 		});
 U(function() {
 			Game.GridTileData.c()
@@ -15485,7 +15485,7 @@ Game.GridData.prototype = {
 };
 Game.GridData.c = dummy();
 T(function() {
-			Game.GridData.u("Game.GridData", null)
+			Game.GridData.registerClass("Game.GridData", null)
 		});
 U(function() {
 			Game.GridData.c()
@@ -15636,7 +15636,7 @@ Game.LightningZap.prototype = {
 };
 Game.LightningZap.c = dummy();
 T(function() {
-			Game.LightningZap.u("Game.LightningZap", null)
+			Game.LightningZap.registerClass("Game.LightningZap", null)
 		});
 U(function() {
 			Game.LightningZap.c()
@@ -15949,7 +15949,7 @@ Game.LightningStorm.c = function() {
 	Game.LightningStorm.hk = 8
 };
 T(function() {
-			Game.LightningStorm.u("Game.LightningStorm", null)
+			Game.LightningStorm.registerClass("Game.LightningStorm", null)
 		});
 U(function() {
 			Game.LightningStorm.c()
@@ -15982,7 +15982,7 @@ Game.DistortionQuad.prototype = {
 };
 Game.DistortionQuad.c = dummy();
 T(function() {
-			Game.DistortionQuad.u("Game.DistortionQuad", null)
+			Game.DistortionQuad.registerClass("Game.DistortionQuad", null)
 		});
 U(function() {
 			Game.DistortionQuad.c()
@@ -15998,7 +15998,7 @@ Game.MatchSet.prototype = {
 };
 Game.MatchSet.c = dummy();
 T(function() {
-			Game.MatchSet.u("Game.MatchSet", null)
+			Game.MatchSet.registerClass("Game.MatchSet", null)
 		});
 U(function() {
 			Game.MatchSet.c()
@@ -16012,7 +16012,7 @@ Game.StateInfo.prototype = {
 };
 Game.StateInfo.c = dummy();
 T(function() {
-			Game.StateInfo.u("Game.StateInfo", null)
+			Game.StateInfo.registerClass("Game.StateInfo", null)
 		});
 U(function() {
 			Game.StateInfo.c()
@@ -16021,7 +16021,7 @@ Game.Span = dummy();
 Game.Span.prototype = {};
 Game.Span.c = dummy();
 T(function() {
-			Game.Span.u("Game.Span", null)
+			Game.Span.registerClass("Game.Span", null)
 		});
 U(function() {
 			Game.Span.c()
@@ -16034,7 +16034,7 @@ Game.SpanRow.prototype = {
 };
 Game.SpanRow.c = dummy();
 T(function() {
-			Game.SpanRow.u("Game.SpanRow", null)
+			Game.SpanRow.registerClass("Game.SpanRow", null)
 		});
 U(function() {
 			Game.SpanRow.c()
@@ -16046,7 +16046,7 @@ Game.DeferredTutorial.prototype = {
 };
 Game.DeferredTutorial.c = dummy();
 T(function() {
-			Game.DeferredTutorial.u("Game.DeferredTutorial", null)
+			Game.DeferredTutorial.registerClass("Game.DeferredTutorial", null)
 		});
 U(function() {
 			Game.DeferredTutorial.c()
@@ -16079,7 +16079,7 @@ Game.PieceIter.prototype = {
 };
 Game.PieceIter.c = dummy();
 T(function() {
-			Game.PieceIter.u("Game.PieceIter", null)
+			Game.PieceIter.registerClass("Game.PieceIter", null)
 		});
 U(function() {
 			Game.PieceIter.c()
@@ -16093,7 +16093,7 @@ Game.BarInstance.prototype = {
 };
 Game.BarInstance.c = dummy();
 T(function() {
-			Game.BarInstance.u("Game.BarInstance", null)
+			Game.BarInstance.registerClass("Game.BarInstance", null)
 		});
 U(function() {
 			Game.BarInstance.c()
@@ -20987,7 +20987,7 @@ Game.Board.c = function() {
 	Game.Board.Rn = Array.O(9, null)
 };
 T(function() {
-			Game.Board.u("Game.Board", GameFramework.widgets.ClassicWidget)
+			Game.Board.registerClass("Game.Board", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.Board.c()
@@ -21185,7 +21185,7 @@ Game.ClassicBoard.prototype = {
 };
 Game.ClassicBoard.c = dummy();
 T(function() {
-			Game.ClassicBoard.u("Game.ClassicBoard", Game.Board)
+			Game.ClassicBoard.registerClass("Game.ClassicBoard", Game.Board)
 		});
 U(function() {
 			Game.ClassicBoard.c()
@@ -21281,7 +21281,7 @@ Game.ClassicEndLevelDialog.prototype = {
 };
 Game.ClassicEndLevelDialog.c = dummy();
 T(function() {
-			Game.ClassicEndLevelDialog.u("Game.ClassicEndLevelDialog", Game.EndLevelDialog)
+			Game.ClassicEndLevelDialog.registerClass("Game.ClassicEndLevelDialog", Game.EndLevelDialog)
 		});
 U(function() {
 			Game.ClassicEndLevelDialog.c()
@@ -21348,7 +21348,7 @@ Game.ColorCycle.c = function() {
 			4278190335, 4294902015)
 };
 T(function() {
-			Game.ColorCycle.u("Game.ColorCycle", null)
+			Game.ColorCycle.registerClass("Game.ColorCycle", null)
 		});
 U(function() {
 			Game.ColorCycle.c()
@@ -21587,7 +21587,7 @@ Game.CrystalBall.c = function() {
 	Game.CrystalBall.Yk = 30
 };
 T(function() {
-			Game.CrystalBall.u("Game.CrystalBall", GameFramework.widgets.ButtonWidget)
+			Game.CrystalBall.registerClass("Game.CrystalBall", GameFramework.widgets.ButtonWidget)
 		});
 U(function() {
 			Game.CrystalBall.c()
@@ -21625,7 +21625,7 @@ Game.CurvedValTable.c = function() {
 	Game.CurvedValTable.TutorialMgr_cs_11_14_11__19_18_09_946 = "b;0,1,0.01,0.1,~###         ~#B}2"
 };
 T(function() {
-			Game.CurvedValTable.u("Game.CurvedValTable", null)
+			Game.CurvedValTable.registerClass("Game.CurvedValTable", null)
 		});
 U(function() {
 			Game.CurvedValTable.c()
@@ -21642,7 +21642,7 @@ Game.DeferredSound.prototype = {
 };
 Game.DeferredSound.c = dummy();
 T(function() {
-			Game.DeferredSound.u("Game.DeferredSound", null)
+			Game.DeferredSound.registerClass("Game.DeferredSound", null)
 		});
 U(function() {
 			Game.DeferredSound.c()
@@ -21752,7 +21752,7 @@ Game.DialogMgr.c = function() {
 	Game.DialogMgr.te = null
 };
 T(function() {
-			Game.DialogMgr.u("Game.DialogMgr", GameFramework.widgets.ClassicWidget)
+			Game.DialogMgr.registerClass("Game.DialogMgr", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.DialogMgr.c()
@@ -21937,7 +21937,7 @@ Game.Effect.prototype = {
 };
 Game.Effect.c = dummy();
 T(function() {
-			Game.Effect.u("Game.Effect", null, GameFramework.ff)
+			Game.Effect.registerClass("Game.Effect", null, GameFramework.ff)
 		});
 U(function() {
 			Game.Effect.c()
@@ -22014,7 +22014,7 @@ Game.TextNotifyEffect.prototype = {
 };
 Game.TextNotifyEffect.c = dummy();
 T(function() {
-			Game.TextNotifyEffect.u("Game.TextNotifyEffect", Game.Effect)
+			Game.TextNotifyEffect.registerClass("Game.TextNotifyEffect", Game.Effect)
 		});
 U(function() {
 			Game.TextNotifyEffect.c()
@@ -22090,7 +22090,7 @@ Game.ParticleEffect.prototype = {
 };
 Game.ParticleEffect.c = dummy();
 T(function() {
-			Game.ParticleEffect.u("Game.ParticleEffect", Game.Effect)
+			Game.ParticleEffect.registerClass("Game.ParticleEffect", Game.Effect)
 		});
 U(function() {
 			Game.ParticleEffect.c()
@@ -22143,7 +22143,7 @@ Game.PopAnimEffect.prototype = {
 };
 Game.PopAnimEffect.c = dummy();
 T(function() {
-			Game.PopAnimEffect.u("Game.PopAnimEffect", Game.Effect)
+			Game.PopAnimEffect.registerClass("Game.PopAnimEffect", Game.Effect)
 		});
 U(function() {
 			Game.PopAnimEffect.c()
@@ -22560,7 +22560,7 @@ Game.EffectsManager.prototype = {
 };
 Game.EffectsManager.c = dummy();
 T(function() {
-			Game.EffectsManager.u("Game.EffectsManager", GameFramework.widgets.ClassicWidget)
+			Game.EffectsManager.registerClass("Game.EffectsManager", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.EffectsManager.c()
@@ -22585,7 +22585,7 @@ Game.Bej3EditWidget.prototype = {
 };
 Game.Bej3EditWidget.c = dummy();
 T(function() {
-			Game.Bej3EditWidget.u("Game.Bej3EditWidget", GameFramework.widgets.EditWidget)
+			Game.Bej3EditWidget.registerClass("Game.Bej3EditWidget", GameFramework.widgets.EditWidget)
 		});
 U(function() {
 			Game.Bej3EditWidget.c()
@@ -22599,7 +22599,7 @@ Game.GlobalMembersEndLevelDialog.HU = function(b) {
 Game.GlobalMembersEndLevelDialog.prototype = {};
 Game.GlobalMembersEndLevelDialog.c = dummy();
 T(function() {
-			Game.GlobalMembersEndLevelDialog.u("Game.GlobalMembersEndLevelDialog", null)
+			Game.GlobalMembersEndLevelDialog.registerClass("Game.GlobalMembersEndLevelDialog", null)
 		});
 U(function() {
 			Game.GlobalMembersEndLevelDialog.c()
@@ -23022,7 +23022,7 @@ Game.EndLevelDialog.c = function() {
 	Game.EndLevelDialog.HE = 5
 };
 T(function() {
-			Game.EndLevelDialog.u("Game.EndLevelDialog", Game.Bej3Dialog, GameFramework.widgets.$ba)
+			Game.EndLevelDialog.registerClass("Game.EndLevelDialog", Game.Bej3Dialog, GameFramework.widgets.$ba)
 		});
 U(function() {
 			Game.EndLevelDialog.c()
@@ -26238,7 +26238,7 @@ Game.GemOutlines.prototype = {
 };
 Game.GemOutlines.c = dummy();
 T(function() {
-			Game.GemOutlines.u("Game.GemOutlines", null)
+			Game.GemOutlines.registerClass("Game.GemOutlines", null)
 		});
 U(function() {
 			Game.GemOutlines.c()
@@ -26366,7 +26366,7 @@ Game.DM.c = function() {
 			"Elder Bejewelian")
 };
 T(function() {
-			Game.DM.u("Game.DM", null)
+			Game.DM.registerClass("Game.DM", null)
 		});
 U(function() {
 			Game.DM.c()
@@ -26516,7 +26516,7 @@ Game.GlobalMembersHighScoreMgr.c = function() {
 	Game.GlobalMembersHighScoreMgr.aea = 3118982137
 };
 T(function() {
-			Game.GlobalMembersHighScoreMgr.u("Game.GlobalMembersHighScoreMgr", null)
+			Game.GlobalMembersHighScoreMgr.registerClass("Game.GlobalMembersHighScoreMgr", null)
 		});
 U(function() {
 			Game.GlobalMembersHighScoreMgr.c()
@@ -26542,7 +26542,7 @@ Game.HighScoreEntry.prototype = {
 };
 Game.HighScoreEntry.c = dummy();
 T(function() {
-			Game.HighScoreEntry.u("Game.HighScoreEntry", null)
+			Game.HighScoreEntry.registerClass("Game.HighScoreEntry", null)
 		});
 U(function() {
 			Game.HighScoreEntry.c()
@@ -26598,7 +26598,7 @@ Game.HighScoreTable.c = function() {
 	Game.HighScoreTable.$da = 4374255
 };
 T(function() {
-			Game.HighScoreTable.u("Game.HighScoreTable", null)
+			Game.HighScoreTable.registerClass("Game.HighScoreTable", null)
 		});
 U(function() {
 			Game.HighScoreTable.c()
@@ -26671,7 +26671,7 @@ Game.HighScoreMgr.c = function() {
 	Game.HighScoreMgr.VERSION = 1
 };
 T(function() {
-			Game.HighScoreMgr.u("Game.HighScoreMgr", null)
+			Game.HighScoreMgr.registerClass("Game.HighScoreMgr", null)
 		});
 U(function() {
 			Game.HighScoreMgr.c()
@@ -26773,7 +26773,7 @@ Game.HintDialog.prototype = {
 };
 Game.HintDialog.c = dummy();
 T(function() {
-			Game.HintDialog.u("Game.HintDialog", Game.Bej3Dialog)
+			Game.HintDialog.registerClass("Game.HintDialog", Game.Bej3Dialog)
 		});
 U(function() {
 			Game.HintDialog.c()
@@ -26818,7 +26818,7 @@ Game.GemInfo.prototype = {
 };
 Game.GemInfo.c = dummy();
 T(function() {
-			Game.GemInfo.u("Game.GemInfo", null)
+			Game.GemInfo.registerClass("Game.GemInfo", null)
 		});
 U(function() {
 			Game.GemInfo.c()
@@ -26841,7 +26841,7 @@ Game.BoardInfo.prototype = {
 };
 Game.BoardInfo.c = dummy();
 T(function() {
-			Game.BoardInfo.u("Game.BoardInfo", null)
+			Game.BoardInfo.registerClass("Game.BoardInfo", null)
 		});
 U(function() {
 			Game.BoardInfo.c()
@@ -26858,7 +26858,7 @@ Game.HyperAnimKey.prototype = {
 };
 Game.HyperAnimKey.c = dummy();
 T(function() {
-			Game.HyperAnimKey.u("Game.HyperAnimKey", null)
+			Game.HyperAnimKey.registerClass("Game.HyperAnimKey", null)
 		});
 U(function() {
 			Game.HyperAnimKey.c()
@@ -26970,7 +26970,7 @@ Game.HyperAnimSequence.prototype = {
 };
 Game.HyperAnimSequence.c = dummy();
 T(function() {
-			Game.HyperAnimSequence.u("Game.HyperAnimSequence", null)
+			Game.HyperAnimSequence.registerClass("Game.HyperAnimSequence", null)
 		});
 U(function() {
 			Game.HyperAnimSequence.c()
@@ -26993,7 +26993,7 @@ Game.HyperMaterial.prototype = {
 };
 Game.HyperMaterial.c = dummy();
 T(function() {
-			Game.HyperMaterial.u("Game.HyperMaterial", null)
+			Game.HyperMaterial.registerClass("Game.HyperMaterial", null)
 		});
 U(function() {
 			Game.HyperMaterial.c()
@@ -27008,7 +27008,7 @@ Game.Hyperspace.c = function() {
 	Game.Hyperspace.Nla = 4
 };
 T(function() {
-			Game.Hyperspace.u("Game.Hyperspace", GameFramework.widgets.ClassicWidget)
+			Game.Hyperspace.registerClass("Game.Hyperspace", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.Hyperspace.c()
@@ -27754,7 +27754,7 @@ Game.HyperspaceUltra.c = function() {
 	Game.HyperspaceUltra.Z9 = Array.O(4, 4, 1, 1, 1, 1)
 };
 T(function() {
-			Game.HyperspaceUltra.u("Game.HyperspaceUltra", Game.Hyperspace)
+			Game.HyperspaceUltra.registerClass("Game.HyperspaceUltra", Game.Hyperspace)
 		});
 U(function() {
 			Game.HyperspaceUltra.c()
@@ -27864,7 +27864,7 @@ Game.HyperspaceFallback.prototype = {
 };
 Game.HyperspaceFallback.c = dummy();
 T(function() {
-			Game.HyperspaceFallback.u("Game.HyperspaceFallback", Game.Hyperspace)
+			Game.HyperspaceFallback.registerClass("Game.HyperspaceFallback", Game.Hyperspace)
 		});
 U(function() {
 			Game.HyperspaceFallback.c()
@@ -27883,7 +27883,7 @@ Game.IconButton.prototype = {
 };
 Game.IconButton.c = dummy();
 T(function() {
-			Game.IconButton.u("Game.IconButton", GameFramework.widgets.ClassicWidget)
+			Game.IconButton.registerClass("Game.IconButton", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.IconButton.c()
@@ -27925,7 +27925,7 @@ Game.LoadingScreen.prototype = {
 };
 Game.LoadingScreen.c = dummy();
 T(function() {
-			Game.LoadingScreen.u("Game.LoadingScreen", GameFramework.widgets.ClassicWidget)
+			Game.LoadingScreen.registerClass("Game.LoadingScreen", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.LoadingScreen.c()
@@ -27942,7 +27942,7 @@ Game.PartnerLogo.prototype = {
 };
 Game.PartnerLogo.c = dummy();
 T(function() {
-			Game.PartnerLogo.u("Game.PartnerLogo", null)
+			Game.PartnerLogo.registerClass("Game.PartnerLogo", null)
 		});
 U(function() {
 			Game.PartnerLogo.c()
@@ -27960,7 +27960,7 @@ Game.CurvedAlphaButton.prototype = {
 };
 Game.CurvedAlphaButton.c = dummy();
 T(function() {
-			Game.CurvedAlphaButton.u("Game.CurvedAlphaButton", GameFramework.widgets.ButtonWidget)
+			Game.CurvedAlphaButton.registerClass("Game.CurvedAlphaButton", GameFramework.widgets.ButtonWidget)
 		});
 U(function() {
 			Game.CurvedAlphaButton.c()
@@ -27977,7 +27977,7 @@ Game.FrameButton.prototype = {
 };
 Game.FrameButton.c = dummy();
 T(function() {
-			Game.FrameButton.u("Game.FrameButton", GameFramework.widgets.ButtonWidget)
+			Game.FrameButton.registerClass("Game.FrameButton", GameFramework.widgets.ButtonWidget)
 		});
 U(function() {
 			Game.FrameButton.c()
@@ -28032,7 +28032,7 @@ Game.TextButton.prototype = {
 };
 Game.TextButton.c = dummy();
 T(function() {
-			Game.TextButton.u("Game.TextButton", Game.Bej3Button)
+			Game.TextButton.registerClass("Game.TextButton", Game.Bej3Button)
 		});
 U(function() {
 			Game.TextButton.c()
@@ -28654,7 +28654,7 @@ Game.MainMenu.c = function() {
 	Game.MainMenu.Ov = 50
 };
 T(function() {
-			Game.MainMenu.u("Game.MainMenu", GameFramework.widgets.ClassicWidget)
+			Game.MainMenu.registerClass("Game.MainMenu", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.MainMenu.c()
@@ -28687,7 +28687,7 @@ Game.MessagerMsg.prototype = {
 };
 Game.MessagerMsg.c = dummy();
 T(function() {
-			Game.MessagerMsg.u("Game.MessagerMsg", null)
+			Game.MessagerMsg.registerClass("Game.MessagerMsg", null)
 		});
 U(function() {
 			Game.MessagerMsg.c()
@@ -28764,7 +28764,7 @@ Game.Messager.prototype = {
 };
 Game.Messager.c = dummy();
 T(function() {
-			Game.Messager.u("Game.Messager", null)
+			Game.Messager.registerClass("Game.Messager", null)
 		});
 U(function() {
 			Game.Messager.c()
@@ -28861,7 +28861,7 @@ Game.Metrics.prototype = {
 };
 Game.Metrics.c = dummy();
 T(function() {
-			Game.Metrics.u("Game.Metrics", null)
+			Game.Metrics.registerClass("Game.Metrics", null)
 		});
 U(function() {
 			Game.Metrics.c()
@@ -28938,7 +28938,7 @@ Game.MTRand.c = function() {
 	Game.MTRand.Iw = 0
 };
 T(function() {
-			Game.MTRand.u("Game.MTRand", null)
+			Game.MTRand.registerClass("Game.MTRand", null)
 		});
 U(function() {
 			Game.MTRand.c()
@@ -29142,7 +29142,7 @@ Game.OptionsDialog.prototype = {
 };
 Game.OptionsDialog.c = dummy();
 T(function() {
-			Game.OptionsDialog.u("Game.OptionsDialog", Game.Bej3Dialog)
+			Game.OptionsDialog.registerClass("Game.OptionsDialog", Game.Bej3Dialog)
 		});
 U(function() {
 			Game.OptionsDialog.c()
@@ -29474,7 +29474,7 @@ Game.Piece.prototype = {
 };
 Game.Piece.c = dummy();
 T(function() {
-			Game.Piece.u("Game.Piece", null, GameFramework.ff)
+			Game.Piece.registerClass("Game.Piece", null, GameFramework.ff)
 		});
 U(function() {
 			Game.Piece.c()
@@ -29702,7 +29702,7 @@ Game.Points.c = function() {
 	Game.Points.Tz = 5
 };
 T(function() {
-			Game.Points.u("Game.Points", null)
+			Game.Points.registerClass("Game.Points", null)
 		});
 U(function() {
 			Game.Points.c()
@@ -29828,7 +29828,7 @@ Game.PointsManager.prototype = {
 };
 Game.PointsManager.c = dummy();
 T(function() {
-			Game.PointsManager.u("Game.PointsManager", GameFramework.widgets.ClassicWidget)
+			Game.PointsManager.registerClass("Game.PointsManager", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.PointsManager.c()
@@ -29958,7 +29958,7 @@ Game.Profile.c = function() {
 	Game.Profile.VERSION = 1
 };
 T(function() {
-			Game.Profile.u("Game.Profile", null)
+			Game.Profile.registerClass("Game.Profile", null)
 		});
 U(function() {
 			Game.Profile.c()
@@ -29981,7 +29981,7 @@ GameDll.Program.c = function() {
 	GameDll.Program.q = null
 };
 T(function() {
-			GameDll.Program.u("GameDll.Program", null)
+			GameDll.Program.registerClass("GameDll.Program", null)
 		});
 U(function() {
 			GameDll.Program.c()
@@ -30118,7 +30118,7 @@ Game.RankBarWidget.prototype = {
 };
 Game.RankBarWidget.c = dummy();
 T(function() {
-			Game.RankBarWidget.u("Game.RankBarWidget", GameFramework.widgets.ClassicWidget)
+			Game.RankBarWidget.registerClass("Game.RankBarWidget", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.RankBarWidget.c()
@@ -30216,7 +30216,7 @@ Game.RankUpDialog.prototype = {
 };
 Game.RankUpDialog.c = dummy();
 T(function() {
-			Game.RankUpDialog.u("Game.RankUpDialog", Game.Bej3Dialog)
+			Game.RankUpDialog.registerClass("Game.RankUpDialog", Game.Bej3Dialog)
 		});
 U(function() {
 			Game.RankUpDialog.c()
@@ -30393,7 +30393,7 @@ Game.RecordsDialog.c = function() {
 			4294902015, 4294940928, 4278229503)
 };
 T(function() {
-			Game.RecordsDialog.u("Game.RecordsDialog", Game.Bej3Dialog)
+			Game.RecordsDialog.registerClass("Game.RecordsDialog", Game.Bej3Dialog)
 		});
 U(function() {
 			Game.RecordsDialog.c()
@@ -31775,7 +31775,7 @@ Game.Resources.c = function() {
 	Game.Resources.IMAGE_TEX_YELLOW_G = null
 };
 T(function() {
-			Game.Resources.u("Game.Resources", null, GameFramework.resources.xla)
+			Game.Resources.registerClass("Game.Resources", null, GameFramework.resources.xla)
 		});
 U(function() {
 			Game.Resources.c()
@@ -31810,7 +31810,7 @@ Game.QuasiRandom.prototype = {
 };
 Game.QuasiRandom.c = dummy();
 T(function() {
-			Game.QuasiRandom.u("Game.QuasiRandom", null)
+			Game.QuasiRandom.registerClass("Game.QuasiRandom", null)
 		});
 U(function() {
 			Game.QuasiRandom.c()
@@ -32655,7 +32655,7 @@ Game.SpeedBoard.prototype = {
 };
 Game.SpeedBoard.c = dummy();
 T(function() {
-			Game.SpeedBoard.u("Game.SpeedBoard", Game.Board)
+			Game.SpeedBoard.registerClass("Game.SpeedBoard", Game.Board)
 		});
 U(function() {
 			Game.SpeedBoard.c()
@@ -32678,7 +32678,7 @@ Game.ElectroBolt.prototype = {
 };
 Game.ElectroBolt.c = dummy();
 T(function() {
-			Game.ElectroBolt.u("Game.ElectroBolt", null)
+			Game.ElectroBolt.registerClass("Game.ElectroBolt", null)
 		});
 U(function() {
 			Game.ElectroBolt.c()
@@ -32768,7 +32768,7 @@ Game.TimeBonusEffectTop.prototype = {
 };
 Game.TimeBonusEffectTop.c = dummy();
 T(function() {
-			Game.TimeBonusEffectTop.u("Game.TimeBonusEffectTop", Game.Effect)
+			Game.TimeBonusEffectTop.registerClass("Game.TimeBonusEffectTop", Game.Effect)
 		});
 U(function() {
 			Game.TimeBonusEffectTop.c()
@@ -33175,7 +33175,7 @@ Game.TimeBonusEffect.c = function() {
 	Game.TimeBonusEffect.na = null
 };
 T(function() {
-			Game.TimeBonusEffect.u("Game.TimeBonusEffect", Game.Effect)
+			Game.TimeBonusEffect.registerClass("Game.TimeBonusEffect", Game.Effect)
 		});
 U(function() {
 			Game.TimeBonusEffect.c()
@@ -33298,7 +33298,7 @@ Game.SpeedCollectEffect.prototype = {
 };
 Game.SpeedCollectEffect.c = dummy();
 T(function() {
-			Game.SpeedCollectEffect.u("Game.SpeedCollectEffect", Game.Effect)
+			Game.SpeedCollectEffect.registerClass("Game.SpeedCollectEffect", Game.Effect)
 		});
 U(function() {
 			Game.SpeedCollectEffect.c()
@@ -33439,7 +33439,7 @@ Game.LightningBarFillEffect.c = function() {
 	Game.LightningBarFillEffect.Xk = 8
 };
 T(function() {
-			Game.LightningBarFillEffect.u("Game.LightningBarFillEffect", Game.Effect)
+			Game.LightningBarFillEffect.registerClass("Game.LightningBarFillEffect", Game.Effect)
 		});
 U(function() {
 			Game.LightningBarFillEffect.c()
@@ -33534,7 +33534,7 @@ Game.SpeedEndLevelDialog.prototype = {
 };
 Game.SpeedEndLevelDialog.c = dummy();
 T(function() {
-			Game.SpeedEndLevelDialog.u("Game.SpeedEndLevelDialog", Game.EndLevelDialog)
+			Game.SpeedEndLevelDialog.registerClass("Game.SpeedEndLevelDialog", Game.EndLevelDialog)
 		});
 U(function() {
 			Game.SpeedEndLevelDialog.c()
@@ -33578,7 +33578,7 @@ Game.SpreadCurve.prototype = {
 };
 Game.SpreadCurve.c = dummy();
 T(function() {
-			Game.SpreadCurve.u("Game.SpreadCurve", null)
+			Game.SpreadCurve.registerClass("Game.SpreadCurve", null)
 		});
 U(function() {
 			Game.SpreadCurve.c()
@@ -33647,7 +33647,7 @@ Game.TooltipManager.prototype = {
 };
 Game.TooltipManager.c = dummy();
 T(function() {
-			Game.TooltipManager.u("Game.TooltipManager", GameFramework.widgets.ClassicWidget)
+			Game.TooltipManager.registerClass("Game.TooltipManager", GameFramework.widgets.ClassicWidget)
 		});
 U(function() {
 			Game.TooltipManager.c()
@@ -33673,7 +33673,7 @@ Game.Tooltip.prototype = {
 };
 Game.Tooltip.c = dummy();
 T(function() {
-			Game.Tooltip.u("Game.Tooltip", null)
+			Game.Tooltip.registerClass("Game.Tooltip", null)
 		});
 U(function() {
 			Game.Tooltip.c()
@@ -33902,7 +33902,7 @@ Game.TutorialStep.prototype = {
 };
 Game.TutorialStep.c = dummy();
 T(function() {
-			Game.TutorialStep.u("Game.TutorialStep", null)
+			Game.TutorialStep.registerClass("Game.TutorialStep", null)
 		});
 U(function() {
 			Game.TutorialStep.c()
@@ -34018,7 +34018,7 @@ Game.TutorialSequence.prototype = {
 };
 Game.TutorialSequence.c = dummy();
 T(function() {
-			Game.TutorialSequence.u("Game.TutorialSequence", null)
+			Game.TutorialSequence.registerClass("Game.TutorialSequence", null)
 		});
 U(function() {
 			Game.TutorialSequence.c()
@@ -34166,7 +34166,7 @@ Game.TutorialMgr.c = function() {
 	Game.TutorialMgr.K0 = null
 };
 T(function() {
-			Game.TutorialMgr.u("Game.TutorialMgr", null)
+			Game.TutorialMgr.registerClass("Game.TutorialMgr", null)
 		});
 U(function() {
 			Game.TutorialMgr.c()
@@ -34180,7 +34180,7 @@ Game.CheckMatrixInfo.prototype = {
 };
 Game.CheckMatrixInfo.c = dummy();
 T(function() {
-			Game.CheckMatrixInfo.u("Game.CheckMatrixInfo", null)
+			Game.CheckMatrixInfo.registerClass("Game.CheckMatrixInfo", null)
 		});
 U(function() {
 			Game.CheckMatrixInfo.c()
@@ -34195,7 +34195,7 @@ Game.ColorTracker.prototype = {
 };
 Game.ColorTracker.c = dummy();
 T(function() {
-			Game.ColorTracker.u("Game.ColorTracker", null)
+			Game.ColorTracker.registerClass("Game.ColorTracker", null)
 		});
 U(function() {
 			Game.ColorTracker.c()
@@ -34244,7 +34244,7 @@ Game.BejUtil.PR = function(b) {
 Game.BejUtil.prototype = {};
 Game.BejUtil.c = dummy();
 T(function() {
-			Game.BejUtil.u("Game.BejUtil", null)
+			Game.BejUtil.registerClass("Game.BejUtil", null)
 		});
 U(function() {
 			Game.BejUtil.c()
@@ -34260,7 +34260,7 @@ Game.GfxUtil.LR = function(b, c, d) {
 Game.GfxUtil.prototype = {};
 Game.GfxUtil.c = dummy();
 T(function() {
-			Game.GfxUtil.u("Game.GfxUtil", null)
+			Game.GfxUtil.registerClass("Game.GfxUtil", null)
 		});
 U(function() {
 			Game.GfxUtil.c()
@@ -34285,7 +34285,7 @@ Game.MathUtil.c = function() {
 	Game.MathUtil.Yba = 1.0E-6
 };
 T(function() {
-			Game.MathUtil.u("Game.MathUtil", null)
+			Game.MathUtil.registerClass("Game.MathUtil", null)
 		});
 U(function() {
 			Game.MathUtil.c()
@@ -34309,7 +34309,7 @@ Game.SoundUtil.c = function() {
 	Game.SoundUtil.bra = null
 };
 T(function() {
-			Game.SoundUtil.u("Game.SoundUtil", null)
+			Game.SoundUtil.registerClass("Game.SoundUtil", null)
 		});
 U(function() {
 			Game.SoundUtil.c()
@@ -34549,7 +34549,7 @@ Game.Util.c = function() {
 	Game.Util.TF = new Game.MTRand
 };
 T(function() {
-			Game.Util.u("Game.Util", null)
+			Game.Util.registerClass("Game.Util", null)
 		});
 U(function() {
 			Game.Util.c()
@@ -34572,7 +34572,7 @@ Game.Version.c = function() {
 	Game.Version.ver = "0.9.12.9490"
 };
 T(function() {
-			Game.Version.u("Game.Version", null)
+			Game.Version.registerClass("Game.Version", null)
 		});
 U(function() {
 			Game.Version.c()
