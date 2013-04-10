@@ -1373,12 +1373,12 @@ ss.PropertyChangedEventArgs.registerClass("PropertyChangedEventArgs", ss.EventAr
 ss.INotifyCollectionChanged = dummy();
 ss.INotifyCollectionChanged.prototype = {};
 Ba(ss.INotifyCollectionChanged, "INotifyCollectionChanged");
-ss.pQ = dummy();
-ss.pQ.prototype = {
+ss.CollectionChangedAction = dummy();
+ss.CollectionChangedAction.prototype = {
 	add : 0,
 	remove : 1
 };
-var Da = ss.pQ, Ea;
+var Da = ss.CollectionChangedAction, Ea;
 for (Ea in Da.prototype)
 	Da[Ea] = Da.prototype[Ea];
 Da.name = "CollectionChangedAction";
