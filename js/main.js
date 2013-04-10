@@ -227,4 +227,4 @@ aLeftPillar.onload = ResizeElements;
 var aLeftPillarBot = document.getElementById('leftPillarBot');
 aLeftPillarBot.onload = ResizeElements;
 
-alert('df7');
+alert('0f7');
