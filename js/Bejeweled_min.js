@@ -14934,13 +14934,13 @@ Game.BejApp.prototype = {
 	j3 : function() {
 		this.mi(Game.Resources.SOUND_BUTTON_RELEASE)
 	},
-	SetDebugMode : function() {
+	setDebugMode : function() {
 		this.hr = true
 	},
 	GetArtRes : get("aj"),
 	SetArtRes : set("aj"),
 	SetPathPrefix : set("pathPrefix"),
-    SetMetricsURL : function(b) {
+    setMetricsURL : function(b) {
 		this.Jp.iL(b)
 	},
     SetThrottlingURL : function(b) {
@@ -15333,11 +15333,11 @@ Game.BejApp.prototype = {
 		return true
 	}
 };
-Game.BejApp.prototype.SetDebugMode = Game.BejApp.prototype.SetDebugMode;
+Game.BejApp.prototype.setDebugMode = Game.BejApp.prototype.setDebugMode;
 Game.BejApp.prototype.GetArtRes = Game.BejApp.prototype.GetArtRes;
 Game.BejApp.prototype.SetArtRes = Game.BejApp.prototype.SetArtRes;
 Game.BejApp.prototype.SetPathPrefix = Game.BejApp.prototype.SetPathPrefix;
-Game.BejApp.prototype.SetMetricsURL = Game.BejApp.prototype.SetMetricsURL;
+Game.BejApp.prototype.setMetricsURL = Game.BejApp.prototype.setMetricsURL;
 Game.BejApp.prototype.SetThrottlingURL = Game.BejApp.prototype.SetThrottlingURL;
 Game.BejApp.prototype.SetUserAgent = Game.BejApp.prototype.SetUserAgent;
 Game.BejApp.prototype.SetUserId = Game.BejApp.prototype.SetUserId;

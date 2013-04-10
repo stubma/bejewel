@@ -36,7 +36,7 @@
       <file leaf-file-name="Bejeweled_min.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1977" column="11" selection-start="48885" selection-end="48885" vertical-scroll-proportion="-1.1454545">
+            <state line="15336" column="31" selection-start="442717" selection-end="442726" vertical-scroll-proportion="-2.2363636">
               <folding />
             </state>
           </provider>
@@ -45,7 +45,7 @@
       <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="229" column="10" selection-start="7932" selection-end="7932" vertical-scroll-proportion="0.89528793">
+            <state line="229" column="11" selection-start="7933" selection-end="7933" vertical-scroll-proportion="0.9324324">
               <folding />
             </state>
           </provider>
@@ -500,14 +500,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1977" column="11" selection-start="48885" selection-end="48885" vertical-scroll-proportion="-1.1454545">
+        <state line="15336" column="31" selection-start="442717" selection-end="442726" vertical-scroll-proportion="-2.2363636">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="229" column="10" selection-start="7932" selection-end="7932" vertical-scroll-proportion="0.89528793">
+        <state line="229" column="11" selection-start="7933" selection-end="7933" vertical-scroll-proportion="0.9324324">
           <folding />
         </state>
       </provider>

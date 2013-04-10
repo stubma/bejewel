@@ -207,9 +207,9 @@ gApp = new Game.BejApp();
 JFSExt_SetRequiresBinaryHack(false);
 
 // gApp.SetThrottlingURL("http://gats.popcap.com/bejeweled-html5.json?t=" + (new Date().getTime()));
-// gApp.SetMetricsURL("http://stats.popcap.com");
+// gApp.setMetricsURL("http://stats.popcap.com");
 gApp.SetThrottlingURL("http://localhost/~maruojie/bejewel/properties/jew.conf");
-gApp.SetMetricsURL("http://localhost/~maruojie");
+gApp.setMetricsURL("http://localhost/~maruojie");
 
 gApp.SetExceptionCallback(HandleException);
 
@@ -227,4 +227,4 @@ aLeftPillar.onload = ResizeElements;
 var aLeftPillarBot = document.getElementById('leftPillarBot');
 aLeftPillarBot.onload = ResizeElements;
 
-alert('dfd');
+alert('dfdd');
