@@ -1,4 +1,4 @@
-alert('fddf');
+alert('df');
 function ca(b) {
 	throw b;
 }
@@ -2111,7 +2111,7 @@ GameFramework.BaseApp.prototype = {
 				this.Nt = this.Is(this.po, "ExecutionUserId");
 			if (this.Nt == null) {
 				this.Nt = "";
-				for (var b = GameFramework.Utils.Ec() * 1E9 | 0; b != 0;)
+				for (var b = GameFramework.Utils.randZeroOne() * 1E9 | 0; b != 0;)
 					this.Nt += "ABCDEFGHJIJKLMNOPQRSTUVWXYZ".substr(b % 27, 1), b = b
 							/ 27 | 0;
 				this.lt(this.po, "ExecutionUserId", this.Nt)
@@ -3394,7 +3394,7 @@ GameFramework.Utils.ei = function(b) {
 GameFramework.Utils.Tna = ga();
 GameFramework.Utils.rqa = ga();
 GameFramework.Utils.bootTimea = ga();
-GameFramework.Utils.Ec = function() {
+GameFramework.Utils.randZeroOne = function() {
 	return Math.random()
 };
 GameFramework.Utils.P = function() {
@@ -7646,7 +7646,7 @@ GameFramework.resources.PIEffect.prototype = {
 		return GameFramework.Utils.P()
 	},
 	Ec : function() {
-		return GameFramework.Utils.Ec()
+		return GameFramework.Utils.randZeroOne()
 	},
 	MJ : function() {
 		return GameFramework.Utils.Sk() % 2 == 0 ? 1 : -1
@@ -18158,7 +18158,7 @@ Game.Board.prototype = {
 		return this.uR(b, false)
 	},
 	uR : function(b, c) {
-		for (var d = GameFramework.Utils.P() >= 0, f = GameFramework.Utils.Ec() * 10
+		for (var d = GameFramework.Utils.P() >= 0, f = GameFramework.Utils.randZeroOne() * 10
 				| 0, g = 0; g < 2; g++) {
 			for (var h = f; h >= 0; h--)
 				if (this.Bs(b, h, true, true, d, null, c))
@@ -19575,15 +19575,14 @@ Game.Board.prototype = {
 			this.Jg.L = this.Yc();
 			if (this.yl) {
 				if (b = Math
-						.max(0.1, this.od[Game.DM.T.LE | 0] / (this.Me / 60)), GameFramework.Utils
-						.Ec() < 0.01
+						.max(0.1, this.od[Game.DM.T.LE | 0] / (this.Me / 60)), GameFramework.Utils.randZeroOne() < 0.01
 						&& this.SN == 0
 						&& this.aa >= 50
 						|| GameFramework.BaseApp.M.ml >= 45
-						&& GameFramework.Utils.Ec() < 0.0030 * b
+						&& GameFramework.Utils.randZeroOne() < 0.0030 * b
 						&& !this.cI
 						|| GameFramework.BaseApp.M.ml >= 45
-						&& GameFramework.Utils.Ec() < 6.0E-4 * b)
+						&& GameFramework.Utils.randZeroOne() < 6.0E-4 * b)
 					this.Fu.ea("b+-200,1500,0.006667,1,#0zN         ~~W7v"), this.cI = true, this.SN = this.aa
 			} else
 				this.cI = false;
@@ -19787,8 +19786,7 @@ Game.Board.prototype = {
 			this.fd.ec = this.we.D() == 0 && this.m.D() >= 0.8;
 			this.L.D();
 			if (this.aa % 20 == 0 && this.aa != c || this.Cn.length < 3)
-				b = new Game.BarInstance, b.he = GameFramework.Utils.Ec(), b.uf = GameFramework.Utils
-						.Ec(), b.L = 0, b.Ic = 0.018 + GameFramework.Utils.Ec()
+				b = new Game.BarInstance, b.he = GameFramework.Utils.randZeroOne(), b.uf = GameFramework.Utils.randZeroOne(), b.L = 0, b.Ic = 0.018 + GameFramework.Utils.randZeroOne()
 						* 0.0030, this.Cn.push(b);
 			for (b = 0; b < this.Cn.length; b++)
 				c = this.Cn[b], c.L += c.Ic, c.L >= 1
@@ -29364,7 +29362,7 @@ Game.Piece.prototype = {
 		if (this.Y(Game.Piece.K.Be)) {
 			for (var b = 0; b < 4; b++) {
 				var c;
-				if (!(Game.BejApp.q.vp != 1 && GameFramework.Utils.Ec() > 0.4
+				if (!(Game.BejApp.q.vp != 1 && GameFramework.Utils.randZeroOne() > 0.4
 						+ Game.BejApp.q.vp * 0.6)) {
 					var d = Game.Util.Fc() % 5 != 0;
 					if (d || GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f) {
@@ -32807,14 +32805,14 @@ Game.TimeBonusEffect.prototype = {
 		c = 0;
 		b != null && (c = Math.min(19, 20 * b.eh | 0) | 0);
 		var d = Game.BejApp.q.vp != 1
-				&& GameFramework.Utils.Ec() > 0.5 + Game.BejApp.q.vp * 0.5, f = Math
+				&& GameFramework.Utils.randZeroOne() > 0.5 + Game.BejApp.q.vp * 0.5, f = Math
 				.min(4, this.Tm - 1)
 				/ 4;
 		if (!Game.BejApp.q.$f
-				&& GameFramework.Utils.Ec() < 0.025 * Math.min(5, this.Tm - 1)
+				&& GameFramework.Utils.randZeroOne() < 0.025 * Math.min(5, this.Tm - 1)
 				&& !d) {
 			var g = this.Nb.wf(Game.Effect.da.cz), h = GameFramework.Utils.P() * Math.PI, j = Game.Piece
-					.Es(h, this.Kj, c), k = 0.35 + GameFramework.Utils.Ec() * 0.1;
+					.Es(h, this.Kj, c), k = 0.35 + GameFramework.Utils.randZeroOne() * 0.1;
 			g.L = 1;
 			g.m = 1;
 			g.Ag = 0;
@@ -32831,14 +32829,14 @@ Game.TimeBonusEffect.prototype = {
 			this.Nb.e.Jg.Gc(g)
 		}
 		Game.BejApp.q.$f && (f *= 0.25);
-		g = GameFramework.Utils.Ec() < 0.15 * f;
+		g = GameFramework.Utils.randZeroOne() < 0.15 * f;
 		g |= (this.sm.length | 0) < Math.min(3, this.Tm * 2 - 1);
 		d && (g = false);
 		if (g) {
 			d = new Game.ElectroBolt;
 			d.Lj = false;
-			d.ll = !d.Lj && GameFramework.Utils.Ec() < 0.02;
-			Game.BejApp.q.$f && (d.ll |= !d.Lj && GameFramework.Utils.Ec() < 0.1);
+			d.ll = !d.Lj && GameFramework.Utils.randZeroOne() < 0.02;
+			Game.BejApp.q.$f && (d.ll |= !d.Lj && GameFramework.Utils.randZeroOne() < 0.1);
 			if (d.Lj)
 				d.$g = Math.abs(GameFramework.Utils.P()) * Math.PI * 2, g = this.Nb.e
 						.rq(	this.w + Game.Board.bb / 2 + Math.cos(d.$g)
@@ -32880,53 +32878,53 @@ Game.TimeBonusEffect.prototype = {
 				if (g.Lj)
 					Math.abs(g.lg[j]) >= 25
 							? g.Ci[j] *= -0.65
-							: GameFramework.Utils.Ec() < 0.2
+							: GameFramework.Utils.randZeroOne() < 0.2
 									? g.lg[j] = GameFramework.Utils.P() * 15
-									: GameFramework.Utils.Ec() < 0.05
+									: GameFramework.Utils.randZeroOne() < 0.05
 											? g.Ci[j] += GameFramework.Utils.P()
 													* 1.5
-											: GameFramework.Utils.Ec() < 0.05
+											: GameFramework.Utils.randZeroOne() < 0.05
 													&& (g.Ci[j] = GameFramework.Utils
 															.P()
 															* 1.5);
 				else if (g.ll)
 					Math.abs(g.lg[j]) >= 25
 							? g.Ci[j] *= -0.65
-							: GameFramework.Utils.Ec() < 0.2
+							: GameFramework.Utils.randZeroOne() < 0.2
 									? g.lg[j] = GameFramework.Utils.P() * 15
-									: GameFramework.Utils.Ec() < 0.1
+									: GameFramework.Utils.randZeroOne() < 0.1
 											? g.Ci[j] += GameFramework.Utils.P()
 													* 1.5
-											: GameFramework.Utils.Ec() < 0.1
+											: GameFramework.Utils.randZeroOne() < 0.1
 													&& (g.Ci[j] = GameFramework.Utils
 															.P()
 															* 1.5);
 				else {
-					g.lg[j] <= 0 ? (g.lg[j] = 0, g.Ci[j] = GameFramework.Utils.Ec()
-							* 0.1) : GameFramework.Utils.Ec() < 0.05
+					g.lg[j] <= 0 ? (g.lg[j] = 0, g.Ci[j] = GameFramework.Utils.randZeroOne()
+							* 0.1) : GameFramework.Utils.randZeroOne() < 0.05
 							? g.Ci[j] = (4 - g.lg[j]) * 0.1
 									+ GameFramework.Utils.P() * 1
-							: GameFramework.Utils.Ec() < 0.025
-									? g.lg[j] = GameFramework.Utils.Ec() * 18
-									: GameFramework.Utils.Ec() < 0.04
+							: GameFramework.Utils.randZeroOne() < 0.025
+									? g.lg[j] = GameFramework.Utils.randZeroOne() * 18
+									: GameFramework.Utils.randZeroOne() < 0.04
 											&& (g.Ci[j] += GameFramework.Utils.P()
 													* 2.5);
-					if (GameFramework.Utils.Ec() < 0.1) {
+					if (GameFramework.Utils.randZeroOne() < 0.1) {
 						var l = k = 0;
 						j - 1 >= 0 && (k = g.lg[j - 1]);
 						j + 1 < g.ko && (l = g.lg[j + 1]);
 						g.lg[j] = (g.lg[j] + k + l) / 3
 					}
-					GameFramework.Utils.Ec() < 0.2
+					GameFramework.Utils.randZeroOne() < 0.2
 							&& (k = j + GameFramework.Utils.Sk() % 3 - 1, k >= 0
 									&& k < g.ko
 									&& (g.Ci[j] += (g.lg[k] - g.lg[j]) * 0.2));
-					GameFramework.Utils.Ec() < 0.1
+					GameFramework.Utils.randZeroOne() < 0.1
 							&& (l = k = 0, j - 1 >= 0 && (k = g.Ci[j - 1]), j
 									+ 1 < g.ko
 									&& (l = g.Ci[j + 1]), g.Ci[j] = (k + l) / 2)
 				}
-				if (g.lg[j] > 18 || f <= 0 && GameFramework.Utils.Ec() < 0.0075)
+				if (g.lg[j] > 18 || f <= 0 && GameFramework.Utils.randZeroOne() < 0.0075)
 					h = true
 			}
 			if (g.Lj) {
@@ -32947,11 +32945,11 @@ Game.TimeBonusEffect.prototype = {
 							&& (h = true)
 				} else
 					h = true;
-				GameFramework.Utils.Ec() < 0.0010 && (h = true)
+				GameFramework.Utils.randZeroOne() < 0.0010 && (h = true)
 			} else
-				g.ll ? (GameFramework.Utils.Ec() < 0.0010 && (h = true), Math.abs(g.$g
+				g.ll ? (GameFramework.Utils.randZeroOne() < 0.0010 && (h = true), Math.abs(g.$g
 						- g.Lh) >= Math.PI * 2
-						&& (h = true)) : GameFramework.Utils.Ec() < 0.0050 && (h = true);
+						&& (h = true)) : GameFramework.Utils.randZeroOne() < 0.0050 && (h = true);
 			h && (C(this.sm, d), d--)
 		}
 		if (GameFramework.Utils.Sk() % 25 == 0) {
