@@ -396,7 +396,7 @@ window.ss = {
 	ss.W5()
 })();
 Object.name = "Object";
-Object.Vq = null;
+Object.parent = null;
 Object.Lqa = function(b) {
 	var c = 0, d;
 	for (d in b)
@@ -600,7 +600,7 @@ if (!String.prototype.trim)
 		return this.replace(/^\s*/, "")
 	};
 Array.name = "Array";
-Array.GF = [ss.XJ];
+Array.GF = [ss.IEnumerable];
 Array.O = function(b, c) {
 	for (var d = Array(b), f = 2; f < arguments.length; f++)
 		d[f - 2] = arguments[f];
@@ -1009,12 +1009,12 @@ Type.ci = function(b) {
 	window.cB[b] = c;
 	return window.cB[b]
 };
-Type.prototype.u = function(b, c, d) {
+Type.prototype.u = function(name, parent, d) {
 	this.prototype.constructor = this;
-	this.name = b;
+	this.name = name;
 	this.XU = true;
-	this.Vq = c || Object;
-	if (c)
+	this.parent = parent || Object;
+	if (parent)
 		this.FF = true;
 	if (d) {
 		this.GF = [];
@@ -1028,7 +1028,7 @@ function Ba(b, c) {
 }
 Type.prototype.xP = function() {
 	if (this.FF) {
-		var b = this.Vq;
+		var b = this.parent;
 		b.FF && b.xP();
 		for (var c in b.prototype) {
 			var d = b.prototype[c];
@@ -1041,7 +1041,7 @@ if (!Type.prototype.T9)
 	Type.prototype.T9 = Type.prototype.xP;
 function E(b, c, d) {
 	b.FF && b.xP();
-	d ? b.Vq.apply(c, d) : b.Vq.apply(c)
+	d ? b.parent.apply(c, d) : b.parent.apply(c)
 }
 function xa(b, c) {
 	return ss.isNullUndef(c) ? false : b == Object || c instanceof b ? true : Ca(b, Type.aM(c))
@@ -1050,19 +1050,19 @@ function Ca(b, c) {
 	if (b == Object || b == c)
 		return true;
 	if (b.XU)
-		for (var d = c.Vq; d;) {
+		for (var d = c.parent; d;) {
 			if (b == d)
 				return true;
-			d = d.Vq
+			d = d.parent
 		}
 	else if (b.$U) {
 		var f = c.GF;
 		if (f && f.contains(b))
 			return true;
-		for (d = c.Vq; d;) {
+		for (d = c.parent; d;) {
 			if ((f = d.GF) && f.contains(b))
 				return true;
-			d = d.Vq
+			d = d.parent
 		}
 	}
 	return false
@@ -1270,20 +1270,20 @@ ss.CultureInfo.fK = new ss.CultureInfo("en-US", {
 			X9 : "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec,".split(",")
 		});
 ss.CultureInfo.yQ = ss.CultureInfo.fK;
-ss.Md = t();
-ss.Md.prototype = {
+ss.IEnumerator = t();
+ss.IEnumerator.prototype = {
 	oe : null,
 	ye : null
 };
-ss.Md.Pd = function(b) {
+ss.IEnumerator.Pd = function(b) {
 	return b ? b.Pd ? b.Pd() : new ss.ArrayEnumerator(b) : null
 };
-Ba(ss.Md, "IEnumerator");
-ss.XJ = t();
-ss.XJ.prototype = {
+Ba(ss.IEnumerator, "IEnumerator");
+ss.IEnumerable = t();
+ss.IEnumerable.prototype = {
 	Pd : null
 };
-Ba(ss.XJ, "IEnumerable");
+Ba(ss.IEnumerable, "IEnumerable");
 ss.ArrayEnumerator = function(b) {
 	this.bV = b;
 	this.HF = -1
@@ -1297,7 +1297,7 @@ ss.ArrayEnumerator.prototype = {
 		return this.HF < this.bV.length
 	}
 };
-ss.ArrayEnumerator.u("ArrayEnumerator", null, ss.Md);
+ss.ArrayEnumerator.u("ArrayEnumerator", null, ss.IEnumerator);
 ss.Wl = t();
 ss.Wl.prototype = {};
 Ba(ss.Wl, "IDisposable");
@@ -2165,7 +2165,7 @@ GameFramework.BaseApp.prototype = {
 		this.Ck.push(b)
 	},
 	q1 : function(b) {
-		for (var c = ss.Md.Pd(this.Ck); c.ye();) {
+		for (var c = ss.IEnumerator.Pd(this.Ck); c.ye();) {
 			var d = c.oe();
 			if (d.xa == b)
 				return d
@@ -2173,7 +2173,7 @@ GameFramework.BaseApp.prototype = {
 		return null
 	},
 	zS : function(b) {
-		for (var c = ss.Md.Pd(this.Ck); c.ye();)
+		for (var c = ss.IEnumerator.Pd(this.Ck); c.ye();)
 			if (c.oe().xa == b)
 				return true;
 		return false
@@ -2183,7 +2183,7 @@ GameFramework.BaseApp.prototype = {
 		$c(this.Ck, 0, 0, b)
 	},
 	hS : function() {
-		for (var b = 0, c = ss.Md.Pd(this.Ck); c.ye();) {
+		for (var b = 0, c = ss.IEnumerator.Pd(this.Ck); c.ye();) {
 			var d = c.oe();
 			d.Or == 0 && d.xa != null && d.vc != null && !startsWith(d.vc, "!") && b++
 		}
@@ -3326,7 +3326,7 @@ GameFramework.TVector.prototype = {
 		this.He.Yd(b)
 	},
 	gi : function() {
-		for (var b = [], c = ss.Md.Pd(this.He); c.ye();) {
+		for (var b = [], c = ss.IEnumerator.Pd(this.He); c.ye();) {
 			var d = c.oe();
 			b.He.Yd(d)
 		}
@@ -3413,7 +3413,7 @@ GameFramework.Utils.zla = function(b) {
 	return false
 };
 GameFramework.Utils.Bla = function(b) {
-	for (b = ss.Md.Pd(b); b.ye();)
+	for (b = ss.IEnumerator.Pd(b); b.ye();)
 		return b.oe(), true;
 	return false
 };
@@ -3833,7 +3833,7 @@ GameFramework.events.EventDispatcher.prototype = {
 	},
 	ld : function(b) {
 		if (this.Hp != null && (b.target = this, this.Hp.hasOwnProperty(b.type)))
-			for (var c = ss.Md.Pd(this.Hp[b.type]); c.ye();)
+			for (var c = ss.IEnumerator.Pd(this.Hp[b.type]); c.ye();)
 				c.oe().tt(b)
 	},
 	t : function() {
@@ -5839,12 +5839,12 @@ GameFramework.resources.FontResource.prototype = {
 		b.m = this.m;
 		b.jN = this.jN;
 		b.WF = this.WF;
-		for (var c = ss.Md.Pd(this.Ll); c.ye();) {
+		for (var c = ss.IEnumerator.Pd(this.Ll); c.ye();) {
 			var d = c.oe();
 			b.Ll.push(d)
 		}
 		b.em = [];
-		for (c = ss.Md.Pd(this.lx); c.ye();)
+		for (c = ss.IEnumerator.Pd(this.lx); c.ye();)
 			d = c.oe(), b.em.push(d);
 		b.Kw = this.Kw;
 		return b
@@ -5949,7 +5949,7 @@ GameFramework.resources.FontResource.prototype = {
 	},
 	n1 : function() {
 		this.$o();
-		for (var b = 0, c = ss.Md.Pd(this.em); c.ye();) {
+		for (var b = 0, c = ss.IEnumerator.Pd(this.em); c.ye();) {
 			var d = c.oe(), f = d.Hn[65];
 			f != null && f.MH > 0 && (b = Math.min(b, d.lo + f.Oe - this.Mh))
 		}
@@ -5957,7 +5957,7 @@ GameFramework.resources.FontResource.prototype = {
 	},
 	bS : function() {
 		this.$o();
-		for (var b = 0, c = ss.Md.Pd(this.em); c.ye();) {
+		for (var b = 0, c = ss.IEnumerator.Pd(this.em); c.ye();) {
 			var d = c.oe(), f = d.Hn[65];
 			f != null && (b = Math.max(b, d.lo + f.Oe - this.Mh + f.MH))
 		}
@@ -5965,7 +5965,7 @@ GameFramework.resources.FontResource.prototype = {
 	},
 	ZZ : function(b, c) {
 		this.$o();
-		for (var d = 0, f = 0, g = 0, h = ss.Md.Pd(this.em); h.ye();) {
+		for (var d = 0, f = 0, g = 0, h = ss.IEnumerator.Pd(this.em); h.ye();) {
 			var j = h.oe(), k = f, l = j.Hn[b];
 			if (l != null) {
 				var m;
@@ -5999,7 +5999,7 @@ GameFramework.resources.FontResource.prototype = {
 				}
 			var j = 0;
 			g < b.length - 1 && (j = GameFramework.Utils.hi(b, g + 1));
-			for (var k = 0, l = ss.Md.Pd(this.em); l.ye();) {
+			for (var k = 0, l = ss.IEnumerator.Pd(this.em); l.ye();) {
 				var m = l.oe(), o = f, q = m.Hn[h];
 				if (q != null) {
 					var r;
@@ -6038,10 +6038,10 @@ GameFramework.resources.FontResource.prototype = {
 	M0 : function() {
 		this.em = [];
 		this.gj = this.z = this.hl = this.Mh = 0;
-		for (var b = true, c = ss.Md.Pd(this.lx); c.ye();) {
-			for (var d = c.oe(), f = true, g = ss.Md.Pd(d.KO); g.ye();)
+		for (var b = true, c = ss.IEnumerator.Pd(this.lx); c.ye();) {
+			for (var d = c.oe(), f = true, g = ss.IEnumerator.Pd(d.KO); g.ye();)
 				this.Ll.indexOf(g.oe()) == -1 && (f = false);
-			for (g = ss.Md.Pd(d.aN); g.ye();)
+			for (g = ss.IEnumerator.Pd(d.aN); g.ye();)
 				this.Ll.indexOf(g.oe()) != -1 && (f = false);
 			this.WF && (f = true);
 			if (f) {
@@ -6118,7 +6118,7 @@ GameFramework.resources.FontResource.prototype = {
 			for (var g = {}, h = [], j = 0, k = 0, l = 0; l < c.length; l++) {
 				var m = GameFramework.Utils.hi(c, l), o = 0;
 				l < c.length - 1 && (o = GameFramework.Utils.hi(c, l + 1));
-				for (var q = 0, r = ss.Md.Pd(this.em); r.ye();) {
+				for (var q = 0, r = ss.IEnumerator.Pd(this.em); r.ye();) {
 					var v = r.oe(), u = k, y = v.Hn[m];
 					if (y != null) {
 						var z = (v.UV + y.GX << 16) + j, A;
@@ -6187,7 +6187,7 @@ GameFramework.resources.FontResource.prototype = {
 				q = 0;
 				m < c.length - 1 && (q = GameFramework.Utils.hi(c, m + 1));
 				r = 0;
-				for (v = ss.Md.Pd(this.em); v.ye();) {
+				for (v = ss.IEnumerator.Pd(this.em); v.ye();) {
 					u = v.oe();
 					y = h;
 					z = u.Hn[o];
@@ -10512,7 +10512,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 			}
 			h.of = [];
 			k = 0;
-			for (j = ss.Md.Pd(d); j.ye();) {
+			for (j = ss.IEnumerator.Pd(d); j.ye();) {
 				l = j.oe();
 				if (l != null) {
 					if (h.of.push(l), l.Ya.Wx != 0)
@@ -11784,7 +11784,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 	ON : 0,
 	UK : function(b) {
 		b === UNDEF && (b = true);
-		for (var c = ss.Md.Pd(this.cf); c.ye();) {
+		for (var c = ss.IEnumerator.Pd(this.cf); c.ye();) {
 			var d = c.oe();
 			b && d.UK();
 			d.Qb = null;
@@ -11801,7 +11801,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 			this.wd = null
 		}
 		this.Qb = null;
-		for (var b = ss.Md.Pd(this.cf); b.ye();)
+		for (var b = ss.IEnumerator.Pd(this.cf); b.ye();)
 			b.oe().t();
 		this.cf.clear();
 		GameFramework.events.EventDispatcher.prototype.t.apply(this)
@@ -11862,7 +11862,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 		this.ja(b);
 		S(c == b.Eg, "Matrix stack error - pops don't match pushes");
 		S(d == b.Tf.length, "Color stack error - pops don't match pushes");
-		for (var f = ss.Md.Pd(this.cf); f.ye();) {
+		for (var f = ss.IEnumerator.Pd(this.cf); f.ye();) {
 			var g = f.oe();
 			if (g.ec)
 				b.gc(g.w, g.v), g.NN = b.sa.Ca, g.ON = b.sa.Da, g.Ok(b), b.Ab();
@@ -11946,7 +11946,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 	Cw : function(b, c) {
 		if (this.Vn || this.dh)
 			return true;
-		for (var d = ss.Md.Pd(this.cf); d.ye();) {
+		for (var d = ss.IEnumerator.Pd(this.cf); d.ye();) {
 			var f = d.oe();
 			if (f.Cw(b - f.w, c - f.v))
 				return true
@@ -13071,7 +13071,7 @@ GameFramework.JSBaseApp.prototype = {
 	},
 	lT : function(b, c) {
 		b.sb = c.nodeName;
-		for (var d = ss.Md.Pd(c.attributes); d.ye();) {
+		for (var d = ss.IEnumerator.Pd(c.attributes); d.ye();) {
 			var f = d.oe(), g = b;
 			if (g.er == null)
 				g.er = {}, g.OV = [];
@@ -13080,7 +13080,7 @@ GameFramework.JSBaseApp.prototype = {
 			g.er[h] = j;
 			g.OV.push(h)
 		}
-		for (d = ss.Md.Pd(c.childNodes); d.ye();)
+		for (d = ss.IEnumerator.Pd(c.childNodes); d.ye();)
 			if (f = d.oe(), f.nodeType === 1) {
 				g = b;
 				h = f.nodeName;
@@ -26638,7 +26638,7 @@ Game.HighScoreMgr.prototype = {
 			b = new Game.HighScoreTable;
 			b.bO = this;
 			this.xp[aName] = b;
-			for (var d = 0, f = ss.Md.Pd(c[aName]); f.ye();) {
+			for (var d = 0, f = ss.IEnumerator.Pd(c[aName]); f.ye();) {
 				var g = f.oe(), h = new Game.HighScoreEntry;
 				h.sb = g.Name;
 				h.Hl = g.Score | 0;
@@ -29915,7 +29915,7 @@ Game.Profile.prototype = {
 				if (c.hasOwnProperty("Stats")) {
 					for (var d = c.Stats, b = b = 0; b < (Game.DM.T.Zc | 0); b++)
 						this.xe[b] = 0;
-					for (var b = 0, f = ss.Md.Pd(d); f.ye();) {
+					for (var b = 0, f = ss.IEnumerator.Pd(d); f.ye();) {
 						var g = f.oe();
 						this.xe[b++] = g
 					}
