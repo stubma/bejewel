@@ -2080,7 +2080,7 @@ GameFramework.BaseApp.prototype = {
 	z : 0,
 	lH : 0,
 	dC : 0,
-	aj : 0,
+	artRes : 0,
 	m : 1,
 	Di : 0,
 	Ig : 0,
@@ -4645,7 +4645,7 @@ GameFramework.gfx.Graphics = function() {
 	this.lC = [];
 	this.sa = new GameFramework.geom.Matrix;
 	this.Eg = 0;
-	this.m = GameFramework.BaseApp.M.aj / GameFramework.BaseApp.M.z
+	this.m = GameFramework.BaseApp.M.artRes / GameFramework.BaseApp.M.z
 };
 GameFramework.gfx.Graphics.QU = function(b, c, d, f, g, h, j, k, l) {
 	var m;
@@ -6420,10 +6420,10 @@ GameFramework.resources.MeshResource.prototype = {
 					o != null
 							&& (o = GameFramework.Utils.qF(o), o = o.substr(0, o
 											.indexOf(String.fromCharCode(46))), m = GameFramework.BaseApp.M.vb
-									.al("images/" + GameFramework.BaseApp.M.aj
+									.al("images/" + GameFramework.BaseApp.M.artRes
 											+ "/tex/" + o), m == null
 									&& (m = GameFramework.BaseApp.M.vb.al("images/"
-											+ GameFramework.BaseApp.M.aj
+											+ GameFramework.BaseApp.M.artRes
 											+ "/NonResize/" + o)), o = GameFramework.BaseApp.M.vb
 									.sw(m), o.Ra(GameFramework.events.Event.hh, ss.Delegate
 											.create(l, l.xq)), o.Ra(
@@ -10960,9 +10960,9 @@ GameFramework.resources.ResourceManager.prototype = {
 				var g = d.$c;
 				if (g != null) {
 					if (d.er.hasOwnProperty("res"))
-						if (d = GameFramework.Utils.Hc(d.Pb("res").Gb()), GameFramework.BaseApp.M.aj == 0)
-							GameFramework.BaseApp.M.aj = d;
-						else if (GameFramework.BaseApp.M.aj != d)
+						if (d = GameFramework.Utils.Hc(d.Pb("res").Gb()), GameFramework.BaseApp.M.artRes == 0)
+							GameFramework.BaseApp.M.artRes = d;
+						else if (GameFramework.BaseApp.M.artRes != d)
 							continue;
 					for (d = 0; d < g.tQ(); d++) {
 						var h = g.VR(d), j = h.Gb(), k = new GameFramework.resources.BaseRes;
@@ -14811,7 +14811,7 @@ Game.BejApp = function() {
 	this.lH = 1600;
 	this.dC = 1200;
 	this.Di = 1024;
-	this.aj = this.Ig = 768;
+	this.artRes = this.Ig = 768;
 	this.m = this.Ig / this.dC;
 	this.Ka = new Game.Profile;
 	this.C8 = new Game.MusicInterface;
@@ -14937,8 +14937,8 @@ Game.BejApp.prototype = {
 	setDebugMode : function() {
 		this.hr = true
 	},
-	getArtRes : get("aj"),
-	setArtRes : set("aj"),
+	getArtRes : get("artRes"),
+	setArtRes : set("artRes"),
 	setPathPrefix : set("pathPrefix"),
     setMetricsURL : function(b) {
 		this.Jp.iL(b)
@@ -14961,9 +14961,9 @@ Game.BejApp.prototype = {
 		this.po = "Bejeweled";
 		kc = false;
 		Game.Util.TF.gF(GameFramework.Utils.Sk() | 0);
-		var b = this.aj, c = this.Is(this.po, "ArtRes");
+		var b = this.artRes, c = this.Is(this.po, "ArtRes");
 		if (c != null)
-			this.aj = GameFramework.Utils.Hc(c);
+			this.artRes = GameFramework.Utils.Hc(c);
 		GameFramework.JSBaseApp.prototype.Ub.apply(this);
 		this.sY = GameFramework.Utils.eJ();
 		if (this.userId == null)
@@ -14983,7 +14983,7 @@ Game.BejApp.prototype = {
 			this.BG.v9 = "http://10.1.244.102/query_engine.php";
 		this.tw("startup", [new GameFramework.misc.KeyVal("DefaultArtRes", b),
 						new GameFramework.misc.KeyVal("WebGL", this.kc()),
-						new GameFramework.misc.KeyVal("ArtRes", this.aj),
+						new GameFramework.misc.KeyVal("ArtRes", this.artRes),
 						new GameFramework.misc.KeyVal("PlatformInfo", this.userAgent)]);
 		this.Nh = new GameFramework.widgets.ClassicWidgetAppState;
 		this.Nh.Uc = this.Uc;
@@ -20884,7 +20884,7 @@ Game.Board.prototype = {
 			else if (b == 61)
 				sb = GameFramework.BaseApp.M.vo = 1;
 			else if (b == 82)
-				Game.BejApp.q.$I(GameFramework.BaseApp.M.aj == 768 ? 480 : 768);
+				Game.BejApp.q.$I(GameFramework.BaseApp.M.artRes == 768 ? 480 : 768);
 			else if (b == 93)
 				for (c = 0; c < 500; c++)
 					this.ca();
@@ -28103,7 +28103,7 @@ Game.MainMenu.prototype = {
 		b.v = b.wb.Oe;
 		b.s = b.wb.s;
 		b.z = b.wb.z;
-		Game.BejApp.q.aj == 768
+		Game.BejApp.q.artRes == 768
 				? (b.io = 0, b.Sj = b.wb, b.Rj = 1, b.rm = b.wb, b.On = 1)
 				: (b.io = 2, b.pl = true);
 		b.Ra(GameFramework.widgets.WidgetEvent.Ld, ss.Delegate.create(this, this.R3));
@@ -28115,7 +28115,7 @@ Game.MainMenu.prototype = {
 		b.v = b.wb.Oe;
 		b.s = b.wb.s;
 		b.z = b.wb.z;
-		Game.BejApp.q.aj == 480
+		Game.BejApp.q.artRes == 480
 				? (b.io = 0, b.Sj = b.wb, b.Rj = 1, b.rm = b.wb, b.On = 1)
 				: (b.io = 2, b.pl = true);
 		b.Ra(GameFramework.widgets.WidgetEvent.Ld, ss.Delegate.create(this, this.y1));
