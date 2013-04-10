@@ -1,4 +1,4 @@
-alert('333');
+alert('eee');
 function ca(b) {
 	throw b;
 }
@@ -1023,9 +1023,9 @@ Type.prototype.registerClass = function(name, parent, d) {
 			d = arguments[f], this.GF.add(d)
 	}
 };
-function Ba(clazz, name) {
-	clazz.name = name;
-	clazz.$U = true
+function registerInterface(intf, name) {
+	intf.name = name;
+	intf.$U = true
 }
 Type.prototype.xP = function() {
 	if (this.needCopyParent) {
@@ -1279,12 +1279,12 @@ ss.IEnumerator.prototype = {
 ss.IEnumerator.Pd = function(b) {
 	return b ? b.Pd ? b.Pd() : new ss.ArrayEnumerator(b) : null
 };
-Ba(ss.IEnumerator, "IEnumerator");
+registerInterface(ss.IEnumerator, "IEnumerator");
 ss.IEnumerable = dummy();
 ss.IEnumerable.prototype = {
 	Pd : null
 };
-Ba(ss.IEnumerable, "IEnumerable");
+registerInterface(ss.IEnumerable, "IEnumerable");
 ss.ArrayEnumerator = function(b) {
 	this.bV = b;
 	this.HF = -1
@@ -1301,7 +1301,7 @@ ss.ArrayEnumerator.prototype = {
 ss.ArrayEnumerator.registerClass("ArrayEnumerator", null, ss.IEnumerator);
 ss.IDisposable = dummy();
 ss.IDisposable.prototype = {};
-Ba(ss.IDisposable, "IDisposable");
+registerInterface(ss.IDisposable, "IDisposable");
 ss.StringBuilder = function(b) {
 	this.WL = ss.isNullUndef(b) ? [] : [b]
 };
@@ -1363,7 +1363,7 @@ ss.CancelEventArgs.prototype = {};
 ss.CancelEventArgs.registerClass("CancelEventArgs", ss.EventArgs);
 ss.INotifyPropertyChanged = dummy();
 ss.INotifyPropertyChanged.prototype = {};
-Ba(ss.INotifyPropertyChanged, "INotifyPropertyChanged");
+registerInterface(ss.INotifyPropertyChanged, "INotifyPropertyChanged");
 ss.PropertyChangedEventArgs = function(b) {
 	E(ss.PropertyChangedEventArgs, this);
 	this.qqa = b
@@ -1372,7 +1372,7 @@ ss.PropertyChangedEventArgs.prototype = {};
 ss.PropertyChangedEventArgs.registerClass("PropertyChangedEventArgs", ss.EventArgs);
 ss.INotifyCollectionChanged = dummy();
 ss.INotifyCollectionChanged.prototype = {};
-Ba(ss.INotifyCollectionChanged, "INotifyCollectionChanged");
+registerInterface(ss.INotifyCollectionChanged, "INotifyCollectionChanged");
 ss.CollectionChangedAction = dummy();
 ss.CollectionChangedAction.prototype = {
 	add : 0,
