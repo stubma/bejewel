@@ -1025,7 +1025,7 @@ Type.prototype.registerClass = function(name, parent, d) {
 };
 function registerInterface(intf, name) {
 	intf.name = name;
-	intf.$U = true
+	intf._isIntf = true
 }
 Type.prototype.xP = function() {
 	if (this.needCopyParent) {
@@ -1056,7 +1056,7 @@ function Ca(b, c) {
 				return true;
 			d = d.parent
 		}
-	else if (b.$U) {
+	else if (b._isIntf) {
 		var f = c.GF;
 		if (f && f.contains(b))
 			return true;
@@ -1077,8 +1077,8 @@ Type.Rqa = function(b) {
 Type.Sqa = function(b) {
 	return b.YU == true && b.ZU == true
 };
-Type.Tqa = function(b) {
-	return b.$U == true
+Type.isInterface = function(b) {
+	return b._isIntf == true
 };
 Type.Vqa = function(b) {
 	return b.V5 == true
