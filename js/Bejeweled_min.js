@@ -1,3 +1,4 @@
+alert('aaddf');
 function ca(b) {
 	throw b;
 }
@@ -16,7 +17,7 @@ function set(b) {
 		this[b] = c
 	}
 }
-function ha(b) {
+function get(b) {
 	return function() {
 		return this[b]
 	}
@@ -2444,7 +2445,7 @@ GameFramework.CurvedVal.prototype = {
 		this.Ye = 0;
 		this.xl = true
 	},
-	wE : ha("xl"),
+	wE : get("xl"),
 	dQ : function() {
 		this.LC != null && GameFramework.CurvedVal.lW != this.ZV
 				&& this.jT(GameFramework.CurvedVal.T8[this.LC])
@@ -3604,7 +3605,7 @@ GameFramework.XMLParser.prototype = {
 	SE : function(b) {
 		GameFramework.BaseApp.M.SE(this, b)
 	},
-	Gb : ha("sb"),
+	Gb : get("sb"),
 	Pb : function(b) {
 		return this.er == null ? new GameFramework.XMLParserList : this.er[b] == null
 				? new GameFramework.XMLParserList
@@ -6254,7 +6255,7 @@ GameFramework.resources.ImageInst.prototype = {
 	YC : false,
 	IO : 1,
 	JO : 1,
-	Jw : ha("pc"),
+	Jw : get("pc"),
 	qg : set("pc"),
 	$o : dummy(),
 	Og : dummy()
@@ -6302,7 +6303,7 @@ GameFramework.resources.ImageResource.prototype = {
 	Oe : 0,
 	oO : null,
 	DM : null,
-	Jw : ha("pc"),
+	Jw : get("pc"),
 	qg : set("pc"),
 	t : dummy(),
 	Og : dummy(),
@@ -12915,7 +12916,7 @@ GameFramework.JSBaseApp.prototype = {
 	NB : null,
 	RN : 0,
 	YW : false,
-	kc : ha("useGL"),
+	kc : get("useGL"),
 	Ub : function() {
 		GameFramework.BaseApp.prototype.Ub.apply(this);
 		this.vb = this.fu = new GameFramework.resources.JSResourceManager
@@ -14679,7 +14680,7 @@ Game.LoadingError = function(b) {
 };
 Game.LoadingError.prototype = {
 	uW : null,
-	Z0 : ha("uW")
+	Z0 : get("uW")
 };
 Game.LoadingError.prototype.GetDetails = Game.LoadingError.prototype.Z0;
 Game.LoadingError.c = dummy();
@@ -14932,7 +14933,7 @@ Game.BejApp.prototype = {
 	SetDebugMode : function() {
 		this.hr = true
 	},
-	GetArtRes : ha("aj"),
+	GetArtRes : get("aj"),
 	SetArtRes : set("aj"),
 	SetPathPrefix : set("pathPrefix"),
     SetMetricsURL : function(b) {
@@ -14943,9 +14944,9 @@ Game.BejApp.prototype = {
 	},
 	SetUserAgent : set("UY"),
 	SetUserId : set("zo"),
-	GetUserId : ha("zo"),
+	GetUserId : get("zo"),
 	SetUseGL : set("useGL"),
-	isUseGL : ha("useGL"),
+	isUseGL : get("useGL"),
     SetBkgImagePath : function(b, c) {
 		Game.Background.cL(b, c)
 	},
@@ -16934,7 +16935,7 @@ Game.Board.prototype = {
 	rv : function() {
 		return 2500 + this.Bl * 750
 	},
-	vz : ha("Br"),
+	vz : get("Br"),
 	PK : function() {
 		var b = false, c = [];
 		do {
@@ -17332,7 +17333,7 @@ Game.Board.prototype = {
 		}
 		return -1
 	},
-	Cd : ha("tM"),
+	Cd : get("tM"),
 	Se : function() {
 		return this.Ef + (Game.Board.bb * this.$b / 2 | 0)
 	},
@@ -17495,7 +17496,7 @@ Game.Board.prototype = {
 		}
 		return c
 	},
-	YI : ha("yl"),
+	YI : get("yl"),
 	Hh : function() {
 		var b = this.zf();
 		return b == 0 ? -1 : Math.min(b * 60, Math.max(0, b * 60
@@ -34086,7 +34087,7 @@ Game.TutorialMgr.prototype = {
 	HA : function(b) {
 		this.Ka.Zj = b
 	},
-	ki : ha("Oh"),
+	ki : get("Oh"),
 	oL : function(b) {
 		this.Oh = b;
 		if (this.Oh != null)
