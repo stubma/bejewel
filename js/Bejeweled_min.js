@@ -1,4 +1,4 @@
-alert('af');
+alert('a3f');
 function ca(b) {
 	throw b;
 }
@@ -1016,7 +1016,7 @@ Type.prototype.registerClass = function(name, parent, d) {
 	this.XU = true;
 	this.parent = parent || Object;
 	if (parent)
-		this.FF = true;
+		this.needCopyParent = true;
 	if (d) {
 		this.GF = [];
 		for (var f = 2; f < arguments.length; f++)
@@ -1028,20 +1028,20 @@ function Ba(b, c) {
 	b.$U = true
 }
 Type.prototype.xP = function() {
-	if (this.FF) {
+	if (this.needCopyParent) {
 		var b = this.parent;
-		b.FF && b.xP();
+		b.needCopyParent && b.xP();
 		for (var c in b.prototype) {
 			var d = b.prototype[c];
 			this.prototype[c] || (this.prototype[c] = d)
 		}
-		delete this.FF
+		delete this.needCopyParent
 	}
 };
 if (!Type.prototype.T9)
 	Type.prototype.T9 = Type.prototype.xP;
 function E(b, c, d) {
-	b.FF && b.xP();
+	b.needCopyParent && b.xP();
 	d ? b.parent.apply(c, d) : b.parent.apply(c)
 }
 function xa(b, c) {
