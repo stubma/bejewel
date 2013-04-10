@@ -931,40 +931,40 @@ ss.Debug.Fqa = function(b) {
 };
 ss.Debug.LF = function(b, c, d, f, g) {
 	if (c === null)
-		b.Wq(f + d + ": null");
+		b.appendln(f + d + ": null");
 	else
 		switch (typeof c) {
 			case "undefined" :
-				b.Wq(f + d + ": undefined");
+				b.appendln(f + d + ": undefined");
 				break;
 			case "number" :
 			case "string" :
 			case "boolean" :
-				b.Wq(f + d + ": " + c);
+				b.appendln(f + d + ": " + c);
 				break;
 			default :
 				if (xa(Date, c) || xa(RegExp, c)) {
-					b.Wq(f + d + ": " + c);
+					b.appendln(f + d + ": " + c);
 					break
 				}
 				if (g.contains(c)) {
-					b.Wq(f + d + ": ...");
+					b.appendln(f + d + ": ...");
 					break
 				}
 				g.add(c);
 				var h = Type.aM(c).qi, j = f + "  ";
 				if (xa(Array, c)) {
-					b.Wq(f + d + ": {" + h + "}");
+					b.appendln(f + d + ": {" + h + "}");
 					for (var d = c.length, k = 0; k < d; k++)
 						ss.Debug.LF(b, c[k], "[" + k + "]", j, g)
 				} else if (c.tagName) {
-					b.Wq(f + d + ": <" + c.tagName + ">");
+					b.appendln(f + d + ": <" + c.tagName + ">");
 					d = c.attributes;
 					for (k = 0; k < d.length; k++)
 						(f = d[k].nodeValue)
 								&& ss.Debug.LF(b, f, d[k].nodeName, j, g)
 				} else
-					for (k in b.Wq(f + d + ": {" + h + "}"), c)
+					for (k in b.appendln(f + d + ": {" + h + "}"), c)
 						d = c[k], xa(Function, d) || ss.Debug.LF(b, d, k, j, g);
 				g.remove(c)
 		}
@@ -1309,7 +1309,7 @@ ss.StringBuilder.prototype = {
 		ss.isNullUndef(b) || this.buf.add(b);
 		return this
 	},
-	Wq : function(b) {
+	appendln : function(b) {
 		this.append(b);
 		this.append("\r\n");
 		return this
