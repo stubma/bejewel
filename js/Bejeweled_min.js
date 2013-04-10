@@ -952,7 +952,7 @@ ss.Debug.LF = function(b, c, d, f, g) {
 					break
 				}
 				g.add(c);
-				var h = Type.aM(c).qi, j = f + "  ";
+				var h = Type.getClass(c).qi, j = f + "  ";
 				if (xa(Array, c)) {
 					b.appendln(f + d + ": {" + h + "}");
 					for (var d = c.length, k = 0; k < d; k++)
@@ -971,7 +971,7 @@ ss.Debug.LF = function(b, c, d, f, g) {
 };
 ss.Debug.sra = function(b, c) {
 	if ((!c || !c.length) && b !== null)
-		c = Type.aM(b).qi;
+		c = Type.getClass(b).qi;
 	var d = new ss.StringBuilder;
 	ss.Debug.LF(d, b, c, "", []);
 	ss.Debug.f$(d.toString())
@@ -1044,7 +1044,7 @@ function E(b, c, d) {
 	d ? b.parent.apply(c, d) : b.parent.apply(c)
 }
 function xa(b, c) {
-	return ss.isNullUndef(c) ? false : b == Object || c instanceof b ? true : isAncestor(b, Type.aM(c))
+	return ss.isNullUndef(c) ? false : b == Object || c instanceof b ? true : isAncestor(b, Type.getClass(c))
 }
 function isAncestor(type, clazz) {
 	if (type == Object || type == clazz)
@@ -1091,7 +1091,7 @@ Type.di = function(b, c) {
 Type.vf = function(b, c) {
 	return xa(c, b)
 };
-Type.aM = function(b) {
+Type.getClass = function(b) {
 	var c = null;
 	try {
 		c = b.constructor
@@ -1561,6 +1561,7 @@ function Za(b, c, d) {
 	var f = d.indexOf(".utf8") != -1, ajax = new XMLHttpRequest;
 	ajax.overrideMimeType || !requiresBinaryHack || f ? ajax.open("GET", d, true) : ajax.open("GET",
 			"file_getter.php?path=" + d, true);
+    console.log(d);
 	ajax.onreadystatechange = function() {
 		if (ajax.readyState == 4)
 			ajax.status != 200 ? b.tk = true : curApp.KZ(c, ajax.responseText)
