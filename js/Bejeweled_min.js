@@ -1,4 +1,4 @@
-alert('fff');
+alert('fddf');
 function ca(b) {
 	throw b;
 }
@@ -1047,21 +1047,21 @@ function E(b, c, d) {
 function xa(b, c) {
 	return ss.isNullUndef(c) ? false : b == Object || c instanceof b ? true : isAncestor(b, Type.aM(c))
 }
-function isAncestor(b, c) {
-	if (b == Object || b == c)
+function isAncestor(type, clazz) {
+	if (type == Object || type == clazz)
 		return true;
-	if (b._isClass)
-		for (var d = c.parent; d;) {
-			if (b == d)
+	if (type._isClass)
+		for (var d = clazz.parent; d;) {
+			if (type == d)
 				return true;
 			d = d.parent
 		}
-	else if (b._isIntf) {
-		var f = c.GF;
-		if (f && f.contains(b))
+	else if (type._isIntf) {
+		var f = clazz.GF;
+		if (f && f.contains(type))
 			return true;
-		for (d = c.parent; d;) {
-			if ((f = d.GF) && f.contains(b))
+		for (d = clazz.parent; d;) {
+			if ((f = d.GF) && f.contains(type))
 				return true;
 			d = d.parent
 		}
