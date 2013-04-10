@@ -77,12 +77,12 @@ function ResizeElements() {
     }
 
 
-    var aCanvasHeight = Math.min(gApp.GetArtRes(), (anInnerHeight - 40));
+    var aCanvasHeight = Math.min(gApp.getArtRes(), (anInnerHeight - 40));
 
     aGameCanvas.height = aCanvasHeight;
     aGameCanvas.width = aGameCanvas.height * 4 / 3;
 
-    gApp.SizeChanged(aGameCanvas.width, aGameCanvas.height);
+    gApp.onSizeChanged(aGameCanvas.width, aGameCanvas.height);
 
     var aCanvasLeft = ((anInnerWidth - aGameCanvas.width) / 2) | 0;
 
@@ -159,16 +159,16 @@ function Startup() {
 
     var aUserId = getCookie('user_id');
     if (aUserId != null)
-        gApp.SetUserId(aUserId);
-    gApp.SetUserAgent(navigator.userAgent);
+        gApp.setUserId(aUserId);
+    gApp.setUserAgent(navigator.userAgent);
     if (window.location.href.indexOf('debug') != -1) {
-        gApp.SetDebugMode(true);
+        gApp.setDebugMode(true);
         //gReThrowException = true;
     }
     if (window.location.href.indexOf('nogl') != -1)
-        gApp.SetUseGL(false);
+        gApp.setUseGL(false);
     else
-        gApp.SetUseGL(true);
+        gApp.setUseGL(true);
     if (HTML5Supported()) {
         JSFExt_Init(gApp, document.getElementById('GameCanvas'));
     }
@@ -179,16 +179,16 @@ function Startup() {
             window['JSFExt_MinInit'](gApp);
     }
     if (!wantsHighRes())
-        gApp.SetArtRes(480);
+        gApp.setArtRes(480);
     if (!gApp.isUseGL())
-        gApp.SetPathPrefix('../html5canvas/');
-    gApp.Init();
+        gApp.setPathPrefix('../html5canvas/');
+    gApp.init();
 
     if (HTML5Supported()) {
-        gApp.StartLoad();
+        gApp.startLoad();
     }
     else {
-        gApp.SubmitStandardMetricsDict("startup_failed", null, false);
+        gApp.submitStandardMetricsDict("startup_failed", null, false);
     }
 
     ResizeElements();
@@ -206,12 +206,12 @@ JS_Init();
 gApp = new Game.BejApp();
 JFSExt_SetRequiresBinaryHack(false);
 
-// gApp.SetThrottlingURL("http://gats.popcap.com/bejeweled-html5.json?t=" + (new Date().getTime()));
+// gApp.setThrottlingURL("http://gats.popcap.com/bejeweled-html5.json?t=" + (new Date().getTime()));
 // gApp.setMetricsURL("http://stats.popcap.com");
-gApp.SetThrottlingURL("http://localhost/~maruojie/bejewel/properties/jew.conf");
+gApp.setThrottlingURL("http://localhost/~maruojie/bejewel/properties/jew.conf");
 gApp.setMetricsURL("http://localhost/~maruojie");
 
-gApp.SetExceptionCallback(HandleException);
+gApp.setExceptionCallback(HandleException);
 
 if ((!/Chrome/.test(navigator.userAgent)) || (chrome.app.isInstalled)) {
     Startup();
@@ -227,4 +227,4 @@ aLeftPillar.onload = ResizeElements;
 var aLeftPillarBot = document.getElementById('leftPillarBot');
 aLeftPillarBot.onload = ResizeElements;
 
-alert('dfdd7');
+alert('df7');

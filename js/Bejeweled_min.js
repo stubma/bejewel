@@ -2242,7 +2242,7 @@ GameFramework.BaseApp.prototype = {
 	},
 	FL : dummy()
 };
-GameFramework.BaseApp.prototype.SetExceptionCallback = GameFramework.BaseApp.prototype.l4;
+GameFramework.BaseApp.prototype.setExceptionCallback = GameFramework.BaseApp.prototype.l4;
 GameFramework.BaseApp.c = function() {
 	GameFramework.BaseApp.M = null
 };
@@ -14937,27 +14937,27 @@ Game.BejApp.prototype = {
 	setDebugMode : function() {
 		this.hr = true
 	},
-	GetArtRes : get("aj"),
-	SetArtRes : set("aj"),
-	SetPathPrefix : set("pathPrefix"),
+	getArtRes : get("aj"),
+	setArtRes : set("aj"),
+	setPathPrefix : set("pathPrefix"),
     setMetricsURL : function(b) {
 		this.Jp.iL(b)
 	},
-    SetThrottlingURL : function(b) {
+    setThrottlingURL : function(b) {
 		this.Jp.nL(b)
 	},
-	SetUserAgent : set("UY"),
-	SetUserId : set("zo"),
-	GetUserId : get("zo"),
-	SetUseGL : set("useGL"),
+	setUserAgent : set("UY"),
+	setUserId : set("zo"),
+	getUserId : get("zo"),
+	setUseGL : set("useGL"),
 	isUseGL : get("useGL"),
-    SetBkgImagePath : function(b, c) {
+    setBkgImagePath : function(b, c) {
 		Game.Background.cL(b, c)
 	},
-    SizeChanged : function(b, c) {
+    onSizeChanged : function(b, c) {
 		GameFramework.JSBaseApp.prototype.KA.apply(this, [b, c])
 	},
-    Init : function() {
+    init : function() {
 		this.po = "Bejeweled";
 		kc = false;
 		Game.Util.TF.gF(GameFramework.Utils.Sk() | 0);
@@ -14994,7 +14994,7 @@ Game.BejApp.prototype = {
 		this.uk.$D("Classic", 6E4, 1E4);
 		this.uk.$D("Lightning", 1E5, 5E4)
 	},
-	StartLoad : function() {
+	startLoad : function() {
 		this.fe.w = ((this.Di - (1600 * this.Ig / 1200 | 0)) / 2 | 0) / this.m;
 		this.w = -this.fe.w | 0;
 		this.ix = this.s + this.fe.w * 2;
@@ -15018,7 +15018,7 @@ Game.BejApp.prototype = {
 		this.vb.g3(b.target.rd);
 		this.I4()
 	},
-	SubmitStandardMetricsDict : function(b, c, d, f) {
+	submitStandardMetricsDict : function(b, c, d, f) {
 		c === UNDEF && (c = null);
 		d === UNDEF && (d = false);
 		f === UNDEF && (f = null);
