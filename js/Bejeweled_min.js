@@ -15333,22 +15333,6 @@ Game.BejApp.prototype = {
 		return true
 	}
 };
-Game.BejApp.prototype.setDebugMode = Game.BejApp.prototype.setDebugMode;
-Game.BejApp.prototype.GetArtRes = Game.BejApp.prototype.GetArtRes;
-Game.BejApp.prototype.SetArtRes = Game.BejApp.prototype.SetArtRes;
-Game.BejApp.prototype.SetPathPrefix = Game.BejApp.prototype.SetPathPrefix;
-Game.BejApp.prototype.setMetricsURL = Game.BejApp.prototype.setMetricsURL;
-Game.BejApp.prototype.SetThrottlingURL = Game.BejApp.prototype.SetThrottlingURL;
-Game.BejApp.prototype.SetUserAgent = Game.BejApp.prototype.SetUserAgent;
-Game.BejApp.prototype.SetUserId = Game.BejApp.prototype.SetUserId;
-Game.BejApp.prototype.GetUserId = Game.BejApp.prototype.GetUserId;
-Game.BejApp.prototype.SetUseGL = Game.BejApp.prototype.SetUseGL;
-Game.BejApp.prototype.isUseGL = Game.BejApp.prototype.isUseGL;
-Game.BejApp.prototype.SetBkgImagePath = Game.BejApp.prototype.SetBkgImagePath;
-Game.BejApp.prototype.SizeChanged = Game.BejApp.prototype.SizeChanged;
-Game.BejApp.prototype.Init = Game.BejApp.prototype.Init;
-Game.BejApp.prototype.StartLoad = Game.BejApp.prototype.StartLoad;
-Game.BejApp.prototype.SubmitStandardMetricsDict = Game.BejApp.prototype.SubmitStandardMetricsDict;
 Game.BejApp.c = function() {
 	Game.BejApp.q = null
 };
