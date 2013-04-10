@@ -1370,9 +1370,9 @@ ss.PropertyChangedEventArgs = function(b) {
 };
 ss.PropertyChangedEventArgs.prototype = {};
 ss.PropertyChangedEventArgs.registerClass("PropertyChangedEventArgs", ss.EventArgs);
-ss.CS = dummy();
-ss.CS.prototype = {};
-Ba(ss.CS, "INotifyCollectionChanged");
+ss.INotifyCollectionChanged = dummy();
+ss.INotifyCollectionChanged.prototype = {};
+Ba(ss.INotifyCollectionChanged, "INotifyCollectionChanged");
 ss.pQ = dummy();
 ss.pQ.prototype = {
 	add : 0,
