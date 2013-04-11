@@ -2145,7 +2145,7 @@ GameFramework.BaseApp = function() {
 	this.tB = [];
 	this.xX = [];
 	callSuperConstructor(GameFramework.BaseApp, this);
-	GameFramework.BaseApp.M = this;
+	GameFramework.BaseApp.instance = this;
 	this.ZH = new GameFramework.resources.SoundManager;
 	this.vb = new GameFramework.resources.ResourceManager;
 	this.w9 = "./"
@@ -2339,7 +2339,7 @@ GameFramework.BaseApp.prototype = {
 };
 GameFramework.BaseApp.prototype.setExceptionCallback = GameFramework.BaseApp.prototype.l4;
 GameFramework.BaseApp.initClass = function() {
-	GameFramework.BaseApp.M = null
+	GameFramework.BaseApp.instance = null
 };
 addClassEntry(function() {
 			GameFramework.BaseApp.registerClass("GameFramework.BaseApp", GameFramework.Sprite)
@@ -2411,7 +2411,7 @@ GameFramework.CurvedVal.prototype = {
 	},
 	me : function(b, c) {
 		this.LC = null;
-		this.zx = this.wt != null ? this.wt.aa : GameFramework.BaseApp.M.aa;
+		this.zx = this.wt != null ? this.wt.aa : GameFramework.BaseApp.instance.aa;
 		this.Vm = false;
 		this.hu = c;
 		this.Lr = GameFramework.CurvedVal.HK;
@@ -2649,8 +2649,8 @@ GameFramework.CurvedVal.prototype = {
 						&& (b = this.cc
 								+ ((this.wt != null
 										? this.wt.aa
-										: GameFramework.BaseApp.M.aa) - this.zx)
-								* this.Ye * GameFramework.BaseApp.M.Le / 10, b = this.Nj == GameFramework.CurvedVal.Uz
+										: GameFramework.BaseApp.instance.aa) - this.zx)
+								* this.Ye * GameFramework.BaseApp.instance.Le / 10, b = this.Nj == GameFramework.CurvedVal.Uz
 								|| this.Nj == GameFramework.CurvedVal.Vo
 								? (b - this.cc) % (this.Oc - this.cc) + this.cc
 								: Math.min(b, this.Oc));
@@ -2665,7 +2665,7 @@ GameFramework.CurvedVal.prototype = {
 		this.Vm = false;
 		this.IH = b;
 		this.xt && c
-				&& (this.zx -= (b - this.Xh) * 1E3 / GameFramework.BaseApp.M.Le | 0);
+				&& (this.zx -= (b - this.Xh) * 1E3 / GameFramework.BaseApp.instance.Le | 0);
 		this.Xh = b;
 		return !this.bQ() ? !this.Vm ? (this.Vm = true, false) : this.XC : true
 	},
@@ -2676,7 +2676,7 @@ GameFramework.CurvedVal.prototype = {
 		return !this.bQ() ? !this.Vm ? (this.Vm = true, false) : this.XC : true
 	},
 	$a : function() {
-		return this.Ye == 0 ? false : this.rE(this.Ye * GameFramework.BaseApp.M.Le / 10)
+		return this.Ye == 0 ? false : this.rE(this.Ye * GameFramework.BaseApp.instance.Le / 10)
 	},
 	aJ : function(b) {
 		var c = this.Xh, d = this.IH;
@@ -2753,7 +2753,7 @@ addClassInitEntry(function() {
 			GameFramework.CurvedVal.initClass()
 		});
 GameFramework.DataBuffer = function() {
-	this.nd = GameFramework.BaseApp.M.uQ()
+	this.nd = GameFramework.BaseApp.instance.uQ()
 };
 GameFramework.DataBuffer.prototype = {
 	nd : null,
@@ -3702,7 +3702,7 @@ GameFramework.XMLParser.prototype = {
 	sb : null,
 	Qb : null,
 	SE : function(b) {
-		GameFramework.BaseApp.M.SE(this, b)
+		GameFramework.BaseApp.instance.SE(this, b)
 	},
 	Gb : get("sb"),
 	Pb : function(b) {
@@ -3850,14 +3850,14 @@ GameFramework.connected.HTTPService.fqa = function(b) {
 };
 GameFramework.connected.HTTPService.prototype = {
 	n3 : function(b, c) {
-		var d = GameFramework.BaseApp.M.vQ();
+		var d = GameFramework.BaseApp.instance.vQ();
 		d.OC = GameFramework.connected.ConnectedRequest.xT;
 		d.OH = b;
 		d.lY = c;
 		return d
 	},
 	sz : function(b) {
-		var c = GameFramework.BaseApp.M.vQ();
+		var c = GameFramework.BaseApp.instance.vQ();
 		c.OC = GameFramework.connected.ConnectedRequest.wT;
 		c.OH = b;
 		return c
@@ -4740,7 +4740,7 @@ GameFramework.gfx.Graphics = function() {
 	this.lC = [];
 	this.sa = new GameFramework.geom.Matrix;
 	this.Eg = 0;
-	this.m = GameFramework.BaseApp.M.artRes / GameFramework.BaseApp.M.z
+	this.m = GameFramework.BaseApp.instance.artRes / GameFramework.BaseApp.instance.z
 };
 GameFramework.gfx.Graphics.QU = function(b, c, d, f, g, h, j, k, l) {
 	var m;
@@ -4948,7 +4948,7 @@ GameFramework.gfx.Graphics.prototype = {
 				j[2].jd = g;
 				b = j;
 				for (g = 0; g < b.length; g++)
-					k = b[g], GameFramework.BaseApp.M.kc()
+					k = b[g], GameFramework.BaseApp.instance.kc()
 							? k.Mf = GameFramework.resources.De.ik
 							: (k.Mf = GameFramework.resources.De.ms, k.YC = true), k.$o();
 				this.xM[h] = j
@@ -5005,7 +5005,7 @@ GameFramework.gfx.Graphics.prototype = {
 			k[8].ge = m;
 			b = k;
 			for (h = 0; h < b.length; h++)
-				l = b[h], GameFramework.BaseApp.M.kc()
+				l = b[h], GameFramework.BaseApp.instance.kc()
 						? l.Mf = GameFramework.resources.De.ik
 						: (l.Mf = GameFramework.resources.De.ms, l.YC = true), l.$o();
 			this.BN[j] = k
@@ -5880,7 +5880,7 @@ GameFramework.resources.FontLayer.prototype = {
 	Hn : null,
 	xq : function(b) {
 		b = b.target;
-		this.Oa = b.xa != null ? GameFramework.BaseApp.M.vb.Gs(b.xa) : b.rd;
+		this.Oa = b.xa != null ? GameFramework.BaseApp.instance.vb.Gs(b.xa) : b.rd;
 		for ($enum1 in this.Hn)
 			b = this.Hn[$enum1], b.bu = this.Oa.dv(b.cY, b.dY, b.bY, b.MH)
 	},
@@ -6010,10 +6010,10 @@ GameFramework.resources.FontResource.prototype = {
 			j = b.H();
 			j = b.lk(j);
 			j = GameFramework.Utils.qF(j);
-			k = GameFramework.BaseApp.M.vb.al(j);
-			j = k != null ? GameFramework.BaseApp.M.vb.sw(k) : GameFramework.BaseApp.M.vb
+			k = GameFramework.BaseApp.instance.vb.al(j);
+			j = k != null ? GameFramework.BaseApp.instance.vb.sw(k) : GameFramework.BaseApp.instance.vb
 					.vU(j);
-			GameFramework.BaseApp.M.vb.gw(j);
+			GameFramework.BaseApp.instance.vb.gw(j);
 			j.Ra(GameFramework.events.Event.hh, ss.Delegate.create(h, h.xq));
 			c != null
 					&& (c.Uj++, j.Ra(GameFramework.events.Event.hh, ss.Delegate.create(c,
@@ -6083,7 +6083,7 @@ GameFramework.resources.FontResource.prototype = {
 		return g
 	},
 	HD : function(b, c) {
-		return this.ZZ(b, c) / GameFramework.BaseApp.M.Uc.m
+		return this.ZZ(b, c) / GameFramework.BaseApp.instance.Uc.m
 	},
 	M4 : function(b, c) {
 		c === UNDEF && (c = true);
@@ -6120,20 +6120,20 @@ GameFramework.resources.FontResource.prototype = {
 	},
 	hc : function(b, c) {
 		c === UNDEF && (c = true);
-		return this.M4(b, c) / GameFramework.BaseApp.M.Uc.m
+		return this.M4(b, c) / GameFramework.BaseApp.instance.Uc.m
 	},
 	Rl : function() {
-		return this.Mh / GameFramework.BaseApp.M.Uc.m
+		return this.Mh / GameFramework.BaseApp.instance.Uc.m
 	},
 	DR : function() {
-		return this.hl / GameFramework.BaseApp.M.Uc.m
+		return this.hl / GameFramework.BaseApp.instance.Uc.m
 	},
 	Sl : function() {
 		this.$o();
-		return this.z / GameFramework.BaseApp.M.Uc.m
+		return this.z / GameFramework.BaseApp.instance.Uc.m
 	},
 	wz : function() {
-		return (this.z + this.gj) / GameFramework.BaseApp.M.Uc.m
+		return (this.z + this.gj) / GameFramework.BaseApp.instance.Uc.m
 	},
 	M0 : function() {
 		this.em = [];
@@ -6254,7 +6254,7 @@ GameFramework.resources.FontResource.prototype = {
 				j.translate(d, f);
 				j.concat(b.sa);
 				f = d = 0;
-				k = 1 / GameFramework.BaseApp.M.Uc.m;
+				k = 1 / GameFramework.BaseApp.instance.Uc.m;
 				for (l = 0; l < h.length; l++) {
 					q = g[h[l]];
 					m = q.$V;
@@ -6277,7 +6277,7 @@ GameFramework.resources.FontResource.prototype = {
 		} else {
 			h = g = 0;
 			j = 4294967295;
-			k = 1 / GameFramework.BaseApp.M.Uc.m;
+			k = 1 / GameFramework.BaseApp.instance.Uc.m;
 			l = b.Nr;
 			l.th();
 			l.translate(d, f);
@@ -6458,7 +6458,7 @@ GameFramework.resources.MeshPiece.prototype = {
 	Oa : null,
 	xq : function(b) {
 		b = b.target;
-		this.Oa = b.xa != null ? GameFramework.BaseApp.M.vb.Gs(b.xa) : b.rd
+		this.Oa = b.xa != null ? GameFramework.BaseApp.instance.vb.Gs(b.xa) : b.rd
 	}
 };
 GameFramework.resources.MeshPiece.initClass = dummy();
@@ -6514,18 +6514,18 @@ GameFramework.resources.MeshResource.prototype = {
 					}
 					o != null
 							&& (o = GameFramework.Utils.qF(o), o = o.substr(0, o
-											.indexOf(String.fromCharCode(46))), m = GameFramework.BaseApp.M.vb
-									.al("images/" + GameFramework.BaseApp.M.artRes
+											.indexOf(String.fromCharCode(46))), m = GameFramework.BaseApp.instance.vb
+									.al("images/" + GameFramework.BaseApp.instance.artRes
 											+ "/tex/" + o), m == null
-									&& (m = GameFramework.BaseApp.M.vb.al("images/"
-											+ GameFramework.BaseApp.M.artRes
-											+ "/NonResize/" + o)), o = GameFramework.BaseApp.M.vb
+									&& (m = GameFramework.BaseApp.instance.vb.al("images/"
+											+ GameFramework.BaseApp.instance.artRes
+											+ "/NonResize/" + o)), o = GameFramework.BaseApp.instance.vb
 									.sw(m), o.Ra(GameFramework.events.Event.hh, ss.Delegate
 											.create(l, l.xq)), o.Ra(
 									GameFramework.events.Event.hh, ss.Delegate.create(c,
 											c.Sy)), o.Ra(
 									GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(c,
-											c.ps)), c.Uj++, GameFramework.BaseApp.M.vb
+											c.ps)), c.Uj++, GameFramework.BaseApp.instance.vb
 									.gw(o));
 					b.Ga();
 					o = b.H() | 0;
@@ -6860,7 +6860,7 @@ GameFramework.resources.PITexture.prototype = {
 	t : dummy(),
 	xq : function(b) {
 		b = b.target;
-		this.zi = b.xa != null ? GameFramework.BaseApp.M.vb.Gs(b.xa) : b.rd
+		this.zi = b.xa != null ? GameFramework.BaseApp.instance.vb.Gs(b.xa) : b.rd
 	}
 };
 GameFramework.resources.PITexture.initClass = dummy();
@@ -7499,7 +7499,7 @@ GameFramework.resources.PIEffect = function() {
 	this.LM = false;
 	this.UM = true;
 	this.tm = false;
-	this.Le = GameFramework.BaseApp.M.Le;
+	this.Le = GameFramework.BaseApp.instance.Le;
 	this.Le < 10 && (this.Le *= 2);
 	this.ga = new GameFramework.resources.PIEffectDef
 };
@@ -7730,9 +7730,9 @@ GameFramework.resources.PIEffect.prototype = {
 	e1 : function(b, c, d) {
 		b = c.indexOf(String.fromCharCode(124));
 		return b != -1
-				? (c = GameFramework.BaseApp.M.vb.sw(c.substr(b + 1)), c.Ra(
+				? (c = GameFramework.BaseApp.instance.vb.sw(c.substr(b + 1)), c.Ra(
 						GameFramework.events.Event.hh, ss.Delegate.create(d, d.Sy)), c.Ra(
-						GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(d, d.ps)), d.Uj++, GameFramework.BaseApp.M.vb
+						GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(d, d.ps)), d.Uj++, GameFramework.BaseApp.instance.vb
 						.gw(c), c)
 				: null
 	},
@@ -9695,7 +9695,7 @@ GameFramework.resources.PIEffect.prototype = {
 	},
 	ca : function() {
 		if (this.up == null
-				&& (this.aa++, !(this.Le == GameFramework.BaseApp.M.Le * 2 && this.aa
+				&& (this.aa++, !(this.Le == GameFramework.BaseApp.instance.Le * 2 && this.aa
 						% 2 == 0))) {
 			var b = this.A == 0;
 			if (b && this.Sr != null)
@@ -10295,7 +10295,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 				var g = b.$c[f.Ya.Ne].Ji;
 				if (g != null)
 					for (var h = 0; h < f.Ya.Wx; h++)
-						this.cK(g, f, 1E3 / GameFramework.BaseApp.M.Le / b.ga.kp)
+						this.cK(g, f, 1E3 / GameFramework.BaseApp.instance.Le / b.ga.kp)
 			}
 		}
 		if (c.sB != null)
@@ -10345,7 +10345,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 					if (this.Px != null) {
 						g = this.Px;
 						for (h = 0; h < g.length; h++) {
-							f.Ke = GameFramework.BaseApp.M.vb.m1(g[h]
+							f.Ke = GameFramework.BaseApp.instance.vb.m1(g[h]
 									+ f.sb.toUpperCase());
 							if (f.Ke == null)
 								break;
@@ -10657,11 +10657,11 @@ GameFramework.resources.PopAnimResource.prototype = {
 				g.Na = null;
 			var j = h.indexOf(String.fromCharCode(124));
 			j != -1
-					? (h = h.substr(j + 1), g.dH.push(h), h = GameFramework.BaseApp.M.vb
+					? (h = h.substr(j + 1), g.dH.push(h), h = GameFramework.BaseApp.instance.vb
 							.sw(h), h.Ra(GameFramework.events.Event.hh, ss.Delegate.create(
 									g, g.xq)), h.Ra(GameFramework.events.Event.hh,
 							ss.Delegate.create(c, c.Sy)), h.Ra(
-							GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(c, c.ps)), c.Uj++, GameFramework.BaseApp.M.vb
+							GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(c, c.ps)), c.Uj++, GameFramework.BaseApp.instance.vb
 							.gw(h))
 					: g.dH.push(h);
 			this.cu.push(g)
@@ -10791,7 +10791,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 		var f = b.A | 0, g = b.ga.Wf[f];
 		if (!g.Yt) {
 			c = c != null ? c.Ya.vo : 1;
-			b.A += d * (b.ga.kp / (1E3 / GameFramework.BaseApp.M.Le)) / c;
+			b.A += d * (b.ga.kp / (1E3 / GameFramework.BaseApp.instance.Le)) / c;
 			if (b == this.Kc)
 				if (b.ga.Wf[b.ga.Wf.length - 1].Yt) {
 					if ((b.A | 0) >= b.ga.Jk + b.ga.Ym)
@@ -11055,9 +11055,9 @@ GameFramework.resources.ResourceManager.prototype = {
 				var g = d.$c;
 				if (g != null) {
 					if (d.er.hasOwnProperty("res"))
-						if (d = GameFramework.Utils.Hc(d.Pb("res").Gb()), GameFramework.BaseApp.M.artRes == 0)
-							GameFramework.BaseApp.M.artRes = d;
-						else if (GameFramework.BaseApp.M.artRes != d)
+						if (d = GameFramework.Utils.Hc(d.Pb("res").Gb()), GameFramework.BaseApp.instance.artRes == 0)
+							GameFramework.BaseApp.instance.artRes = d;
+						else if (GameFramework.BaseApp.instance.artRes != d)
 							continue;
 					for (d = 0; d < g.tQ(); d++) {
 						var h = g.VR(d), j = h.Gb(), k = new GameFramework.resources.BaseRes;
@@ -11148,7 +11148,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		return b == null ? null : b.xa
 	},
 	gw : function(b) {
-		GameFramework.BaseApp.M.gw(b)
+		GameFramework.BaseApp.instance.gw(b)
 	},
 	b5 : function(b) {
 		b = this.dy[b];
@@ -11175,7 +11175,7 @@ GameFramework.resources.ResourceManager.prototype = {
 			var d = b[$enum3];
 			d.Qb != null
 					&& this.bh[d.Qb] == null
-					&& !GameFramework.BaseApp.M.zS(d.Qb)
+					&& !GameFramework.BaseApp.instance.zS(d.Qb)
 					&& this.sw(d.Qb).Ra(GameFramework.events.IOErrorEvent.fk,
 							ss.Delegate.create(c, c.ps));
 			if (!(d.Fb == GameFramework.resources.ResourceManager.zT || d.hX)) {
@@ -11192,11 +11192,11 @@ GameFramework.resources.ResourceManager.prototype = {
 				g.Uj = 1;
 				g.Ra(GameFramework.events.Event.hh, ss.Delegate.create(c, c.Sy));
 				g.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(c, c.ps));
-				GameFramework.BaseApp.M.Su(g);
+				GameFramework.BaseApp.instance.Su(g);
 				c.Uj++
 			}
 		}
-		GameFramework.BaseApp.M.Su(c);
+		GameFramework.BaseApp.instance.Su(c);
 		return c
 	},
 	J4 : function(b) {
@@ -11204,7 +11204,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		c.vc = b;
 		c.resType = GameFramework.resources.ResourceManager.A3;
 		c.Uj = 1;
-		GameFramework.BaseApp.M.Su(c);
+		GameFramework.BaseApp.instance.Su(c);
 		return c
 	},
 	H4 : function(b) {
@@ -11213,17 +11213,17 @@ GameFramework.resources.ResourceManager.prototype = {
 		b.Jj != null && (c.vc += b.Jj[0]);
 		c.resType = GameFramework.resources.ResourceManager.yT;
 		c.Uj = 1;
-		GameFramework.BaseApp.M.Su(c);
+		GameFramework.BaseApp.instance.Su(c);
 		return c
 	},
 	sw : function(b) {
-		var c = GameFramework.BaseApp.M.q1(b);
+		var c = GameFramework.BaseApp.instance.q1(b);
 		if (c != null)
 			return c;
 		var c = new GameFramework.resources.ResourceStreamer, d = this.Nm[b];
 		d.Qb != null
 				&& this.bh[d.Qb] == null
-				&& !GameFramework.BaseApp.M.zS(d.Qb)
+				&& !GameFramework.BaseApp.instance.zS(d.Qb)
 				&& this.sw(d.Qb).Ra(GameFramework.events.IOErrorEvent.fk,
 						ss.Delegate.create(c, c.ps));
 		c.xa = b;
@@ -11234,7 +11234,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		c.vc = GameFramework.Utils.qF(c.vc);
 		c.resType = GameFramework.resources.ResourceManager.sA;
 		c.Uj = 1;
-		GameFramework.BaseApp.M.Su(c);
+		GameFramework.BaseApp.instance.Su(c);
 		return c
 	},
 	vU : function(b) {
@@ -11242,7 +11242,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		c.vc = b;
 		c.resType = GameFramework.resources.ResourceManager.sA;
 		c.Uj = 1;
-		GameFramework.BaseApp.M.Su(c);
+		GameFramework.BaseApp.instance.Su(c);
 		return c
 	},
 	dp : function(b, c) {
@@ -11742,7 +11742,7 @@ GameFramework.widgets.ButtonWidget.prototype = {
 						: this.jX == 1 && (d = this.s - this.U.hc(this.Id)), this.U
 						.n1(), this.U.bS(), f = this.z / 2 + this.U.Sl() / 2
 						+ this.LN);
-		var g = 1 / GameFramework.BaseApp.M.m;
+		var g = 1 / GameFramework.BaseApp.instance.m;
 		this.wb == null
 				&& this.rm == null
 				|| (c
@@ -12107,8 +12107,8 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 		if (!this.no) {
 			this.Uc.Vg();
 			var b = 1;
-			this.Uc.m != GameFramework.BaseApp.M.m
-					&& (b = GameFramework.BaseApp.M.m / this.Uc.m);
+			this.Uc.m != GameFramework.BaseApp.instance.m
+					&& (b = GameFramework.BaseApp.instance.m / this.Uc.m);
 			b != 1 && this.Uc.nc(b + 1.0E-8, b + 1.0E-8, 0, 0);
 			this.Uc.gc(this.fe.w, this.fe.v);
 			this.fe.Ok(this.Uc);
@@ -12146,20 +12146,20 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 		this.iH[b | 0] = false;
 		var c = new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.NS);
 		c.hH = b;
-		GameFramework.BaseApp.M.ld(c);
+		GameFramework.BaseApp.instance.ld(c);
 		this.Vh != null && this.Vh.Pz(b)
 	},
 	Aq : function(b) {
 		this.iH[b | 0] = true;
 		var c = new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.MS);
 		c.hH = b;
-		GameFramework.BaseApp.M.ld(c);
+		GameFramework.BaseApp.instance.ld(c);
 		this.Vh != null && this.Vh.Aq(b)
 	},
 	Tk : function(b) {
 		var c = new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.kK);
 		c.KN = b;
-		GameFramework.BaseApp.M.ld(c);
+		GameFramework.BaseApp.instance.ld(c);
 		this.Vh != null && this.Vh.Tk(b)
 	}
 };
@@ -12392,10 +12392,10 @@ GameFramework.widgets.Dialog.prototype = {
 		GameFramework.widgets.ClassicWidget.prototype.ln.apply(this, [b, c]);
 		if (this.ql) {
 			var d = this.w + b - this.Kt, f = this.v + c - this.Lt;
-			d < -8 ? d = -8 : d + this.s > GameFramework.BaseApp.M.s + 8
-					&& (d = GameFramework.BaseApp.M.s - this.s + 8);
-			f < -8 ? f = -8 : f + this.z > GameFramework.BaseApp.M.z + 8
-					&& (f = GameFramework.BaseApp.M.z - this.z + 8);
+			d < -8 ? d = -8 : d + this.s > GameFramework.BaseApp.instance.s + 8
+					&& (d = GameFramework.BaseApp.instance.s - this.s + 8);
+			f < -8 ? f = -8 : f + this.z > GameFramework.BaseApp.instance.z + 8
+					&& (f = GameFramework.BaseApp.instance.z - this.z + 8);
 			this.Kt = this.w + b - d;
 			this.Lt = this.v + c - f;
 			if (this.Kt < 8)
@@ -13124,9 +13124,9 @@ GameFramework.JSBaseApp.prototype = {
 							ss.Delegate.create(this, this.KT), "text") : $.get(
 							this.pathPrefix + stream.vc, null, ss.Delegate.create(this, this.KT)), h.nY = stream, this.tN[h
 							.toString()] = stream, stream.rd = h;
-			if (stream.OM && !GameFramework.BaseApp.M.vb.YO)
+			if (stream.OM && !GameFramework.BaseApp.instance.vb.YO)
 				stream.OM(), stream.OM = null;
-			if (stream.tk || stream.Or == stream.Uj && !GameFramework.BaseApp.M.vb.YO)
+			if (stream.tk || stream.Or == stream.Uj && !GameFramework.BaseApp.instance.vb.YO)
 				stream.tk
 						? stream.ld(new GameFramework.events.Event(GameFramework.events.IOErrorEvent.fk))
 						: (this.fu.JT(stream), stream
@@ -14218,10 +14218,10 @@ GameFramework.resources.JSResourceManager.prototype = {
 							: (c.sO = true, c.vh = b.vh, c.Sm = c.ym.width, c.Rm = c.ym.height, c.Hg = c.ym.width
 									/ c.ui, c.Gg = c.ym.height / c.qo, c.In = b.In, c.Bn = b.Bn);
 				if (b.Kb == null)
-					c.s = c.Hg / GameFramework.BaseApp.M.Uc.m | 0, c.z = c.Gg
-							/ GameFramework.BaseApp.M.Uc.m | 0;
-				c.FV = c.Hg / GameFramework.BaseApp.M.Uc.m;
-				c.cM = c.Gg / GameFramework.BaseApp.M.Uc.m;
+					c.s = c.Hg / GameFramework.BaseApp.instance.Uc.m | 0, c.z = c.Gg
+							/ GameFramework.BaseApp.instance.Uc.m | 0;
+				c.FV = c.Hg / GameFramework.BaseApp.instance.Uc.m;
+				c.cM = c.Gg / GameFramework.BaseApp.instance.Uc.m;
 				b.rd = c;
 				b.xa != null && (this.dp(b.xa, c), this.bh[b.xa] = c)
 			}
@@ -14259,7 +14259,7 @@ GameFramework.resources.JSSoundInstance.prototype = {
 		this.GT()
 	},
 	GT : function() {
-		var b = this.Mu * GameFramework.BaseApp.M.ZH.WG[this.QO];
+		var b = this.Mu * GameFramework.BaseApp.instance.ZH.WG[this.QO];
 		this.yu && this.yu.setVolume(b * 100)
 	},
 	Rq : function(b) {
@@ -14268,7 +14268,7 @@ GameFramework.resources.JSSoundInstance.prototype = {
 	},
 	Ug : function(b) {
 		var c;
-		var d = this.JN.WW, f = this.Mu * GameFramework.BaseApp.M.ZH.WG[this.QO], g = this.KX, h = this.JN.uC;
+		var d = this.JN.WW, f = this.Mu * GameFramework.BaseApp.instance.ZH.WG[this.QO], g = this.KX, h = this.JN.uC;
 		if (d != null)
 			(c = soundManager.getSoundById(d)) || (c = d), d = {
 				volume : f * 100,
@@ -14386,7 +14386,7 @@ Game.BackgroundLoader.prototype = {
 	JZ : function(b) {
 		Game.Background.iC[this.Tn] = Type.getInstanceOrNull(b.target.rd, GameFramework.resources.ImageResource);
 		Game.Background.Ax[this.Tn] = true;
-		GameFramework.BaseApp.M.nQ()
+		GameFramework.BaseApp.instance.nQ()
 	}
 };
 Game.BackgroundLoader.initClass = dummy();
@@ -14409,8 +14409,8 @@ Game.Background = function() {
 };
 Game.Background.pU = function(b) {
 	if (!Game.Background.Ax[b]) {
-		var c = new Game.BackgroundLoader(b), b = Game.Background.lm[b] != null ? GameFramework.BaseApp.M.vb
-				.dl(Game.Background.lm[b]) : GameFramework.BaseApp.M.vb.vU(Game.Background.eN[b]);
+		var c = new Game.BackgroundLoader(b), b = Game.Background.lm[b] != null ? GameFramework.BaseApp.instance.vb
+				.dl(Game.Background.lm[b]) : GameFramework.BaseApp.instance.vb.vU(Game.Background.eN[b]);
 		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(c, c.JZ));
 		return b
 	}
@@ -14424,7 +14424,7 @@ Game.Background.cL = function(b, c) {
 Game.Background.KP = function(b) {
 	Game.Background.Ax[b]
 			&& (Game.Background.lm[b] != null
-					? GameFramework.BaseApp.M.vb.b5(Game.Background.lm[b])
+					? GameFramework.BaseApp.instance.vb.b5(Game.Background.lm[b])
 					: (Game.Background.iC[b].t(), Game.Background.iC[b] = null), Game.Background.Ax[b] = false)
 };
 Game.Background.prototype = {
@@ -14453,10 +14453,9 @@ Game.Background.prototype = {
 			this.Lw = false;
 			if (Game.Background.iC[b] != null)
 				this.Oa = Game.Background.iC[b];
-			else if (this.Oa = GameFramework.BaseApp.M.vb.Gs(Game.Background.eN[b]), GameFramework.BaseApp.M
-					.kc()
+			else if (this.Oa = GameFramework.BaseApp.instance.vb.Gs(Game.Background.eN[b]), GameFramework.BaseApp.instance.kc()
 					&& !Game.BejApp.q.$f)
-				this.hf = GameFramework.BaseApp.M.vb.o1(Game.Background.RX[b]), this.hf.Px = [], this.hf.Px
+				this.hf = GameFramework.BaseApp.instance.vb.o1(Game.Background.RX[b]), this.hf.Px = [], this.hf.Px
 						.push("PIEFFECT_BACKGROUNDS_");
 			return true
 		}
@@ -14854,13 +14853,12 @@ Game.TopWidget.prototype = {
 	f2 : function() {
 		this.xl = true;
 		this.ag.Ub(Game.Resources.FONT_FLAREGOTHIC16);
-		GameFramework.BaseApp.M
-				.Ra(GameFramework.widgets.WidgetEvent.kK, ss.Delegate.create(this, this.E1))
+		GameFramework.BaseApp.instance.Ra(GameFramework.widgets.WidgetEvent.kK, ss.Delegate.create(this, this.E1))
 	},
 	E1 : function(b) {
 		this.xl
 				&& b.KN == 86
-				&& (b = "", b += GameFramework.BaseApp.M.kc()
+				&& (b = "", b += GameFramework.BaseApp.instance.kc()
 						? "(HTML5 WebGL)"
 						: "(HTML5 Canvas)", this.ag.Ip.length == 0
 						&& this.ag.ls(String.Mb("Version {0} " + b, Game.Version
@@ -15666,7 +15664,7 @@ Game.LightningZap.prototype = {
 		b.Bd(c, 0, c.cM, (this.nf + 0) % c.Em);
 		b.Ab();
 		b.pb();
-		if (GameFramework.BaseApp.M.kc()) {
+		if (GameFramework.BaseApp.instance.kc()) {
 			c = this.Z[0].length | 0;
 			f = b.gc(this.e.Ef, this.e.Cd());
 			try {
@@ -15910,7 +15908,7 @@ Game.LightningStorm.prototype = {
 						if (o == 0 || o == Game.LightningStorm.hk - 1)
 							r.x = v | 0, r.y = q | 0, u.x = v | 0, u.y = q | 0;
 						else {
-							var y = GameFramework.BaseApp.M.kc() ? 32 : 26;
+							var y = GameFramework.BaseApp.instance.kc() ? 32 : 26;
 							r.x = v + GameFramework.Utils.P() * y | 0;
 							r.y = q + GameFramework.Utils.P() * y | 0;
 							u.x = v + GameFramework.Utils.P() * y | 0;
@@ -15931,7 +15929,7 @@ Game.LightningStorm.prototype = {
 		for (var c = 0; c < (this.Fp.length | 0); c++) {
 			var d = this.Fp[c], f = Math.min((1 - d.Zh) * 8, 1) * this.e.Yc(), g = GameFramework.gfx.Color
 					.Jb(f);
-			if (GameFramework.BaseApp.M.kc()) {
+			if (GameFramework.BaseApp.instance.kc()) {
 				for (var h = Array.Sd((Game.LightningStorm.hk - 1) * 2 - 2, 3, null), j = 0, k = 0; k < Game.LightningStorm.hk
 						- 1; k++) {
 					var l = d.Z[d.Z.g * k + 0], m = d.Z[d.Z.g * k + 1], o = d.Z[d.Z.g
@@ -16965,7 +16963,7 @@ Game.Board.prototype = {
 	DQ : function(b) {
 		var c = Array.O(7, "", Game.Resources.b4, Game.Resources.Z3, Game.Resources.X3, Game.Resources.c4,
 				Game.Resources.a4, Game.Resources.d4, Game.Resources.Y3);
-		Game.SoundUtil.$v(GameFramework.BaseApp.M.vb.mE(c[b]));
+		Game.SoundUtil.$v(GameFramework.BaseApp.instance.vb.mE(c[b]));
 		this.ax = b;
 		this.ax > 0
 				&& (this.$w.ea("b+0,1,0.005714,1,#### 0~r2d        q#G_h"), this.sG
@@ -17320,7 +17318,7 @@ Game.Board.prototype = {
 		c.jt(true);
 		c.lr = true;
 		for (var f = 0; f < 7; f++)
-			d = c.fn(f + 1), f == (b | 0) && GameFramework.BaseApp.M.kc()
+			d = c.fn(f + 1), f == (b | 0) && GameFramework.BaseApp.instance.kc()
 					&& !Game.BejApp.q.$f ? d.tn(true) : d.tn(false);
 		d = c.fn((b | 0) + 1);
 		b = d.MR("Glow");
@@ -17334,7 +17332,7 @@ Game.Board.prototype = {
 		c.lr = true;
 		c.nr = true;
 		for (var f = 0; f < 7; f++)
-			d = c.fn(f + 1), f == (b | 0) && GameFramework.BaseApp.M.kc()
+			d = c.fn(f + 1), f == (b | 0) && GameFramework.BaseApp.instance.kc()
 					&& !Game.BejApp.q.$f ? d.tn(true) : d.tn(false);
 		c.KJ("Top").tn(false);
 		d = c.fn((b | 0) + 1);
@@ -17357,7 +17355,7 @@ Game.Board.prototype = {
 		this.ob.Gc(c)
 	},
 	qU : function(b) {
-		if (GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f) {
+		if (GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f) {
 			var c = new Game.ParticleEffect(Game.Resources.PIEFFECT_HYPERCUBE);
 			c.qd = b.xa;
 			c.jt(true);
@@ -17859,8 +17857,7 @@ Game.Board.prototype = {
 											if (!q) {
 												h = false;
 												if (v.Th == 0)
-													if (f.Rp.push(v.xa), v.Th = 0.0167, !GameFramework.BaseApp.M
-															.kc()
+													if (f.Rp.push(v.xa), v.Th = 0.0167, !GameFramework.BaseApp.instance.kc()
 															|| Game.BejApp.q.$f)
 														for (q = 0; q < 5; q++)
 															u = this.ob
@@ -18012,7 +18009,7 @@ Game.Board.prototype = {
 						+ (Game.Board.ab / 2 | 0), r = false, k = 0.013 * (k - b) | 0, l = 0.013
 						* (l - c) | 0;
 				if (h[h.g * j + 0] != 0 || h[h.g * j + 1] != 0) {
-					if (GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f) {
+					if (GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f) {
 						for (var v = 0; v < 14; v++) {
 							var u = this.ob.wf(Game.Effect.da.cp), y = GameFramework.Utils
 									.P()
@@ -18157,7 +18154,7 @@ Game.Board.prototype = {
 					* (h - d);
 			j == 0 && (k *= 2);
 			k == 0 && (j *= 2);
-			if (GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f)
+			if (GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f)
 				for (var l = 0; l < 14; l++) {
 					var m = this.ob.wf(Game.Effect.da.cp), o = GameFramework.Utils.P()
 							* Game.MathUtil.PI, q = 0 + 2
@@ -18210,7 +18207,7 @@ Game.Board.prototype = {
 						* (3 * Math.abs(GameFramework.Utils.P()) + 1), l.Ic = -0.0025
 						* (2 * Math.abs(GameFramework.Utils.P()) + 4), this.ob
 						.Gc(l);
-			if (GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f) {
+			if (GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f) {
 				for (c = 0; c < 14; c++)
 					d = this.ob.wf(Game.Effect.da.cp), g = c * Game.MathUtil.PI * 2 / 20, l = 0.5
 							+ 5.75 * Math.abs(GameFramework.Utils.P()), d.Nc = (l
@@ -18813,9 +18810,9 @@ Game.Board.prototype = {
 			lb > 6 && (lb = 6);
 			b && this.ng > 0 ? this.Ch > 0.01 ? Game.SoundUtil.Ug(
 					Game.Resources.SOUND_FLAMESPEED1, kb, 1) : Game.SoundUtil.Ug(
-					GameFramework.BaseApp.M.vb.mE("SOUND_SPEEDMATCH"
+					GameFramework.BaseApp.instance.vb.mE("SOUND_SPEEDMATCH"
 							+ (Math.min(9, this.ng + 1) | 0)), kb, 1) : Game.SoundUtil
-					.Ug(GameFramework.BaseApp.M.vb.mE("SOUND_COMBO_" + (lb + 1)), kb,
+					.Ug(GameFramework.BaseApp.instance.vb.mE("SOUND_COMBO_" + (lb + 1)), kb,
 							1);
 			for (var Yb = 0; Yb < z.length; ++Yb)
 				this.fg(Game.DM.T.AD, 1, z[Yb])
@@ -19663,10 +19660,10 @@ Game.Board.prototype = {
 						.max(0.1, this.od[Game.DM.T.LE | 0] / (this.Me / 60)), GameFramework.Utils.randZeroOne() < 0.01
 						&& this.SN == 0
 						&& this.aa >= 50
-						|| GameFramework.BaseApp.M.ml >= 45
+						|| GameFramework.BaseApp.instance.ml >= 45
 						&& GameFramework.Utils.randZeroOne() < 0.0030 * b
 						&& !this.cI
-						|| GameFramework.BaseApp.M.ml >= 45
+						|| GameFramework.BaseApp.instance.ml >= 45
 						&& GameFramework.Utils.randZeroOne() < 6.0E-4 * b)
 					this.Fu.ea("b+-200,1500,0.006667,1,#0zN         ~~W7v"), this.cI = true, this.SN = this.aa
 			} else
@@ -19683,7 +19680,7 @@ Game.Board.prototype = {
 				b.Tw = false;
 				b.cx = false;
 				Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_LEVELCOMPLETE);
-				GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f
+				GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f
 						? (this.Jf = new Game.HyperspaceUltra(this), Game.BejApp.q.nx.Bc(this.Jf))
 						: (this.Jf = new Game.HyperspaceFallback(this), b = this.Qb, this.Mq(), b
 								.Bc(this.Jf), b.Bc(this), this.wd.oi(this));
@@ -19704,8 +19701,7 @@ Game.Board.prototype = {
 			this.gy > 0 && this.gy--;
 			this.TH > 0 && this.TH--;
 			if (this.rl == null)
-				this.rl = GameFramework.BaseApp.M
-						.yz(Game.Resources.SOUND_SPEEDBOARD_FLAMELOOP), this.rl != null
+				this.rl = GameFramework.BaseApp.instance.yz(Game.Resources.SOUND_SPEEDBOARD_FLAMELOOP), this.rl != null
 						&& (this.rl.Rq(0), this.rl.Ug(true, false));
 			this.rl != null
 					&& this.rl.Rq(Math.max(this.PG.V(), Math.max(0, 1
@@ -19839,11 +19835,11 @@ Game.Board.prototype = {
 				if (d != null)
 					d.L = this.L.D()
 			}
-			GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f ? GameFramework.BaseApp.M.vb
-					.nT(this.Jf == null || this.Jf.aa < 96) : GameFramework.BaseApp.M.vb
+			GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f ? GameFramework.BaseApp.instance.vb
+					.nT(this.Jf == null || this.Jf.aa < 96) : GameFramework.BaseApp.instance.vb
 					.nT(this.Jf == null);
 			if (this.Ge != null)
-				this.Ge.ec = !Game.BejApp.q.Bi.JS() || !GameFramework.BaseApp.M.kc();
+				this.Ge.ec = !Game.BejApp.q.Bi.JS() || !GameFramework.BaseApp.instance.kc();
 			this.Bw = 0.95 * this.Bw + (1 - 0.95) * 1;
 			if (Math.abs(this.Bw - 1) < 0.01)
 				this.Bw = 1;
@@ -19884,19 +19880,19 @@ Game.Board.prototype = {
 						&& Game.BejApp.q.te.se.length == 0;
 			if (this.aa % 60 == 0) {
 				this.qD(Game.DM.T.jR, 1);
-				this.qD(Game.DM.T.kR, GameFramework.BaseApp.M.ml);
-				this.rK(Game.DM.T.iR, GameFramework.BaseApp.M.ml);
-				if (GameFramework.BaseApp.M.ml < this.Cl[Game.DM.T.As | 0]
+				this.qD(Game.DM.T.kR, GameFramework.BaseApp.instance.ml);
+				this.rK(Game.DM.T.iR, GameFramework.BaseApp.instance.ml);
+				if (GameFramework.BaseApp.instance.ml < this.Cl[Game.DM.T.As | 0]
 						|| this.Cl[Game.DM.T.As | 0] == 0)
-					this.Cl[Game.DM.T.As | 0] = GameFramework.BaseApp.M.ml;
-				if (GameFramework.BaseApp.M.ml < this.od[Game.DM.T.As | 0]
+					this.Cl[Game.DM.T.As | 0] = GameFramework.BaseApp.instance.ml;
+				if (GameFramework.BaseApp.instance.ml < this.od[Game.DM.T.As | 0]
 						|| this.od[Game.DM.T.As | 0] == 0)
-					this.od[Game.DM.T.As | 0] = GameFramework.BaseApp.M.ml
+					this.od[Game.DM.T.As | 0] = GameFramework.BaseApp.instance.ml
 			}
 		}
 	},
 	K_ : function(b, c) {
-		if (GameFramework.BaseApp.M.kc()
+		if (GameFramework.BaseApp.instance.kc()
 				&& !(c.n == Game.DM.Ha.sc || c.m.D() != 1 || c.eh != 0 || this
 						.Yc() != 1)) {
 			if (this.ob.Sh[Game.Effect.da.Yl | 0] != null) {
@@ -20131,7 +20127,7 @@ Game.Board.prototype = {
 			b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_FRAME_BACK.Ee(), this.Se(), this
 							.Cd()
 							+ 1054);
-			var f = this.qv(), g = !GameFramework.BaseApp.M.kc();
+			var f = this.qv(), g = !GameFramework.BaseApp.instance.kc();
 			f.s = f.s * this.Mj | 0;
 			var h = b.mh(f.w), j = b.mh(f.w + f.s) - h;
 			if (!g) {
@@ -20208,7 +20204,7 @@ Game.Board.prototype = {
 		}
 	},
 	G_ : function(b) {
-		if (GameFramework.BaseApp.M.kc()) {
+		if (GameFramework.BaseApp.instance.kc()) {
 			var c = this.Ef + -95, d;
 			if (this.MB.D() > 0) {
 				var f = GameFramework.gfx.Color.ta(96, 96, 255);
@@ -20261,12 +20257,12 @@ Game.Board.prototype = {
 		}
 	},
 	F_ : function(b) {
-		if (this.$w.D() != 0 && this.ax != -1 && GameFramework.BaseApp.M.kc()) {
+		if (this.$w.D() != 0 && this.ax != -1 && GameFramework.BaseApp.instance.kc()) {
 			var c = Array.O(7, "", Game.Resources.a2, Game.Resources.Y1, Game.Resources.W1, Game.Resources.b2,
 					Game.Resources.Z1, Game.Resources.c2, Game.Resources.X1);
 			b.Q(GameFramework.gfx.Color.Jb(this.$w.D() * this.Yc()));
 			b.nc(this.sG.D(), this.sG.D(), this.Se(), 450);
-			b.Ba(GameFramework.BaseApp.M.vb.Gs(c[this.ax]).Ee(), this.Se(), 450);
+			b.Ba(GameFramework.BaseApp.instance.vb.Gs(c[this.ax]).Ee(), this.Se(), 450);
 			b.Ab();
 			b.pb()
 		}
@@ -20350,7 +20346,7 @@ Game.Board.prototype = {
 		this.TQ(b, false);
 		this.V_(b);
 		!Game.BejApp.q.$f
-				&& GameFramework.BaseApp.M.kc()
+				&& GameFramework.BaseApp.instance.kc()
 				&& (this.Pm[0] != null && this.Pm[0].ja(b), this.Pm[1] != null
 						&& this.Pm[1].ja(b));
 		this.nm > 0
@@ -20370,7 +20366,7 @@ Game.Board.prototype = {
 		this.zj.length > 0 && this.zj[0].ja(b);
 		Game.BejApp.q.hr
 				&& (b.kb(Game.Resources.FONT_DEFAULT), b.zb(GameFramework.Utils
-								.wj(GameFramework.BaseApp.M.ml), 1585, 1185, 0, 1));
+								.wj(GameFramework.BaseApp.instance.ml), 1585, 1185, 0, 1));
 		this.NU() && this.WQ(b);
 		this.xc.ja(b);
 		if (this.xc.Hz() && this.m.D() == 1) {
@@ -20577,7 +20573,7 @@ Game.Board.prototype = {
 							m = 1;
 							o > 0 && (m = (j - q) / o);
 							if (this.Ch > 0)
-								if (!GameFramework.BaseApp.M.kc()
+								if (!GameFramework.BaseApp.instance.kc()
 										&& Game.Resources.FONT_SPEED_SCORE_ORANGE != null) {
 									b.kb(Game.Resources.FONT_SPEED_SCORE_ORANGE);
 									if (h.length > 0) {
@@ -20975,13 +20971,13 @@ Game.Board.prototype = {
 				else if (b == 64)
 					c.n = Game.DM.Ha.Ve, c.cl(Game.Piece.K.rn), c.fr = false, this.rw(c);
 			if (b == 45)
-				GameFramework.BaseApp.M.vo *= 0.75, sb *= 0.75;
+				GameFramework.BaseApp.instance.vo *= 0.75, sb *= 0.75;
 			else if (b == 43)
-				GameFramework.BaseApp.M.vo /= 0.75, sb /= 0.75;
+				GameFramework.BaseApp.instance.vo /= 0.75, sb /= 0.75;
 			else if (b == 61)
-				sb = GameFramework.BaseApp.M.vo = 1;
+				sb = GameFramework.BaseApp.instance.vo = 1;
 			else if (b == 82)
-				Game.BejApp.q.$I(GameFramework.BaseApp.M.artRes == 768 ? 480 : 768);
+				Game.BejApp.q.$I(GameFramework.BaseApp.instance.artRes == 768 ? 480 : 768);
 			else if (b == 93)
 				for (c = 0; c < 500; c++)
 					this.ca();
@@ -21528,7 +21524,7 @@ Game.CrystalBall.prototype = {
 			b.jg(c);
 			c = this.m.V();
 			this.eg > 0 && (c *= 0.00255 / this.eg);
-			var d = Game.BejApp.q.e == null || !Game.BejApp.q.$f && GameFramework.BaseApp.M.kc(), f = b
+			var d = Game.BejApp.q.e == null || !Game.BejApp.q.$f && GameFramework.BaseApp.instance.kc(), f = b
 					.gc(this.s / 2, this.z / 2);
 			try {
 				!this.Hx
@@ -21790,8 +21786,8 @@ Game.DialogMgr.prototype = {
 		if (this.Ht.D() != 0) {
 			var c = b.Q(GameFramework.gfx.Color.st(0, this.Ht.D() * 0.65));
 			try {
-				b.fc(GameFramework.BaseApp.M.w, GameFramework.BaseApp.M.v,
-						GameFramework.BaseApp.M.ix, GameFramework.BaseApp.M.hx)
+				b.fc(GameFramework.BaseApp.instance.w, GameFramework.BaseApp.instance.v,
+						GameFramework.BaseApp.instance.ix, GameFramework.BaseApp.instance.hx)
 			} finally {
 				c.t()
 			}
@@ -21866,7 +21862,7 @@ Game.Effect = function(b) {
 		case Game.Effect.da.cp :
 			this.Oa = Game.Resources.IMAGE_FX_STEAM;
 			this.yi = -0.00835;
-			if (GameFramework.BaseApp.M.kc())
+			if (GameFramework.BaseApp.instance.kc())
 				this.Hb = GameFramework.Utils.P() * 3.141593, this.Qh = GameFramework.Utils
 						.P()
 						* 0.0668;
@@ -22256,8 +22252,8 @@ Game.EffectsManager.prototype = {
 	ca : function() {
 		GameFramework.widgets.ClassicWidget.prototype.ca.apply(this);
 		if (!(this.e != null && this.e.En == 1)) {
-			this.s = GameFramework.BaseApp.M.s;
-			this.z = GameFramework.BaseApp.M.z;
+			this.s = GameFramework.BaseApp.instance.s;
+			this.z = GameFramework.BaseApp.instance.z;
 			for (var b = this.Sh, c = 0; c < b.length; c++) {
 				var d = b[c];
 				if (d != null)
@@ -22540,7 +22536,7 @@ Game.EffectsManager.prototype = {
 										b.Ml.Ca = k.w - k.Oa.s / 2 * k.m;
 										b.Ml.Da = k.v - k.Oa.z / 2 * k.m;
 										b.jg(b.Ml);
-										GameFramework.BaseApp.M.kc()
+										GameFramework.BaseApp.instance.kc()
 												? (m *= 0.8, k.Oa.pc = true)
 												: (m = Math.min(1, 1.5 * m), k.Oa.pc = false);
 										b.Q(GameFramework.gfx.Color.st(k.n, m));
@@ -22651,7 +22647,7 @@ addClassInitEntry(function() {
 Game.Bej3EditWidget = function() {
 	callSuperConstructor(Game.Bej3EditWidget, this);
 	this.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
-	GameFramework.BaseApp.M.kc()
+	GameFramework.BaseApp.instance.kc()
 			|| (this.pe[GameFramework.widgets.EditWidget.CD] = 4285554768, this.pe[GameFramework.widgets.EditWidget.TI] = 4278190080, this.pe[GameFramework.widgets.EditWidget.SP] = 4294967295)
 };
 Game.Bej3EditWidget.prototype = {
@@ -22951,7 +22947,7 @@ Game.EndLevelDialog.prototype = {
 					- (b.hc(f) | 0), h = -1;
 			if (this.zc[d].vk || d == -1) {
 				Game.Resources.FONT_GAMEOVER_DIALOG.Ia("GLOW", 0);
-				if (GameFramework.BaseApp.M.kc()) {
+				if (GameFramework.BaseApp.instance.kc()) {
 					Game.Resources.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 1090519039);
 					var j = this.aa % 45 / 45;
 					j > 0.5 && (j = 1 - j);
@@ -22969,7 +22965,7 @@ Game.EndLevelDialog.prototype = {
 				this.Vd.Jx = g
 			} else
 				Game.Resources.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 4294967295), Game.Resources.FONT_GAMEOVER_DIALOG
-						.Ia("GLOW", 0), c && !GameFramework.BaseApp.M.kc()
+						.Ia("GLOW", 0), c && !GameFramework.BaseApp.instance.kc()
 						? Game.Resources.FONT_GAMEOVER_DIALOG.Ia("MAIN", 3372220415)
 						: (h = 4294953816, Game.Resources.FONT_GAMEOVER_DIALOG.Ia(
 								"MAIN", -1));
@@ -26711,11 +26707,11 @@ Game.HighScoreMgr.prototype = {
 		this.qq(b).$D(c, d, f, g)
 	},
 	x2 : function() {
-		var b = GameFramework.BaseApp.M.Is(GameFramework.BaseApp.M.po, "HighScores");
+		var b = GameFramework.BaseApp.instance.Is(GameFramework.BaseApp.instance.po, "HighScores");
 		if (b == null)
 			return false;
 		var c = {};
-		GameFramework.BaseApp.M.ND(b, c);
+		GameFramework.BaseApp.instance.ND(b, c);
 		c.hasOwnProperty("_VERSION") && delete c._VERSION;
 		this.xp = {};
 		for (aName in c) {
@@ -26745,8 +26741,8 @@ Game.HighScoreMgr.prototype = {
 						new GameFramework.misc.KeyVal("Time", g.Eb)))
 			}
 		}
-		GameFramework.BaseApp.M.lt(GameFramework.BaseApp.M.po, "HighScores",
-				GameFramework.BaseApp.M.rj(b));
+		GameFramework.BaseApp.instance.lt(GameFramework.BaseApp.instance.po, "HighScores",
+				GameFramework.BaseApp.instance.rj(b));
 		return true
 	}
 };
@@ -27127,7 +27123,7 @@ Game.HyperspaceUltra = function(b) {
 	callSuperConstructor(Game.HyperspaceUltra, this);
 	this.ae = Game.BejApp.q.AN[0];
 	this.ae.Vg();
-	this.si.Ub(this.OR(), GameFramework.BaseApp.M.s / GameFramework.BaseApp.M.z, 100, this
+	this.si.Ub(this.OR(), GameFramework.BaseApp.instance.s / GameFramework.BaseApp.instance.z, 100, this
 					.rS());
 	this.kf.Ub(b, this.ae);
 	for (var c = 0; c < Game.Board.Zk; c++)
@@ -27221,7 +27217,7 @@ Game.HyperspaceUltra.prototype = {
 		this.B5()
 	},
 	ja : function(b) {
-		if (GameFramework.BaseApp.M.kc()) {
+		if (GameFramework.BaseApp.instance.kc()) {
 			Game.HyperspaceUltra.nb = b.yD();
 			switch (this.Bb) {
 				case Game.HyperspaceUltra.ya.un :
@@ -27308,7 +27304,7 @@ Game.HyperspaceUltra.prototype = {
 							this.Wh[this.Wh.g * b + c].Pn = true;
 					break;
 				case Game.HyperspaceUltra.ya.en :
-					GameFramework.BaseApp.M.mi(Game.Resources.SOUND_HYPERSPACE);
+					GameFramework.BaseApp.instance.mi(Game.Resources.SOUND_HYPERSPACE);
 					this.kf.e.Zb(Game.Hyperspace.Zb.AS);
 					this.Ju = 0;
 					this.kB.ea("b+1,8,0.004762,1,####     l#Pr]'#*NA    1}dR)");
@@ -27331,7 +27327,7 @@ Game.HyperspaceUltra.prototype = {
 					this.kf.e.Zb(Game.Hyperspace.Zb.ak);
 					this.wu.ea("b+0.8,2.4,0.008333,1,#.ov         ~~###");
 					Game.Resources.POPANIM_ANIMS_BOARDSHATTER.Play("shatter");
-					GameFramework.BaseApp.M.mi(Game.Resources.SOUND_HYPERSPACE_SHATTER_1);
+					GameFramework.BaseApp.instance.mi(Game.Resources.SOUND_HYPERSPACE_SHATTER_1);
 					break;
 				case Game.HyperspaceUltra.ya.fw :
 					this.kf.e.Zb(Game.Hyperspace.Zb.AK);
@@ -27378,7 +27374,7 @@ Game.HyperspaceUltra.prototype = {
 		this.ae.T4()
 	},
 	k5 : function() {
-		this.si.Ub(this.OR(), GameFramework.BaseApp.M.s / GameFramework.BaseApp.M.z, 100,
+		this.si.Ub(this.OR(), GameFramework.BaseApp.instance.s / GameFramework.BaseApp.instance.z, 100,
 				this.rS());
 		var b = 0;
 		switch (this.Bb) {
@@ -27449,7 +27445,7 @@ Game.HyperspaceUltra.prototype = {
 					m = Game.Resources.PIEFFECT_GEM_LANDING_FX;
 					l = l[this.nN % l.length];
 					if (this.ae.Rk() > 270 && this.ie - this.oN > 2)
-						GameFramework.BaseApp.M.mi(l), this.oN = this.ie | 0, this.nN++;
+						GameFramework.BaseApp.instance.mi(l), this.oN = this.ie | 0, this.nN++;
 					m = new Game.ParticleEffect(m);
 					g >= 0
 							&& g <= (Game.DM.Ha.sc | 0)
@@ -27538,9 +27534,9 @@ Game.HyperspaceUltra.prototype = {
 		}
 	},
 	B5 : function() {
-		this.ae.Rk() == 68 ? GameFramework.BaseApp.M.FK(
+		this.ae.Rk() == 68 ? GameFramework.BaseApp.instance.FK(
 				Game.Resources.SOUND_HYPERSPACE_SHATTER_2, 0.5, 0) : this.ae.Rk() == 76
-				&& GameFramework.BaseApp.M.FK(Game.Resources.SOUND_HYPERSPACE_SHATTER_2, 0.5,
+				&& GameFramework.BaseApp.instance.FK(Game.Resources.SOUND_HYPERSPACE_SHATTER_2, 0.5,
 						0)
 	},
 	Zy : function(b) {
@@ -27806,7 +27802,7 @@ Game.HyperspaceUltra.prototype = {
 		}
 	},
 	OR : function() {
-		return 19.9 * (GameFramework.BaseApp.M.s / GameFramework.BaseApp.M.z)
+		return 19.9 * (GameFramework.BaseApp.instance.s / GameFramework.BaseApp.instance.z)
 	}
 };
 Game.HyperspaceUltra.initClass = function() {
@@ -27997,9 +27993,9 @@ Game.LoadingScreen.prototype = {
 			for (var d = 0; d < (this.aa / 80 | 0) % 4; d++)
 				c += ".";
 			b.Cc(c, 800 - b.hc("Loading") / 2, 600);
-			b.zb("(" + GameFramework.BaseApp.M.Ck.length + " resources left)", 800,
+			b.zb("(" + GameFramework.BaseApp.instance.Ck.length + " resources left)", 800,
 					650, 0, 0);
-			b.zb(GameFramework.Utils.wj(GameFramework.BaseApp.M.ml), 1585, 1185, 0, 1)
+			b.zb(GameFramework.Utils.wj(GameFramework.BaseApp.instance.ml), 1585, 1185, 0, 1)
 		}
 	},
 	ca : function() {
@@ -28361,8 +28357,8 @@ Game.MainMenu.prototype = {
 										&& !this.Kg.wg()
 										&& this.Mp
 												.ea("b;0,1,0.025,1,####         ~~###");
-						this.aH = Math.max(GameFramework.BaseApp.M.hS(), this.aH) | 0;
-						b = (this.aH - GameFramework.BaseApp.M.hS()) / this.aH;
+						this.aH = Math.max(GameFramework.BaseApp.instance.hS(), this.aH) | 0;
+						b = (this.aH - GameFramework.BaseApp.instance.hS()) / this.aH;
 						Game.BejApp.q.jC && (b = 1);
 						this.Mn += Math.min(Math.max(0, b - this.Mn), Math.max(
 										0.02, (b - this.Mn) * 0.02));
@@ -28497,8 +28493,8 @@ Game.MainMenu.prototype = {
 					if (this.Xp.D() < 1) {
 						c = b.Q(GameFramework.gfx.Color.Ma(0, 0, 0, 255 * c | 0));
 						try {
-							b.fc(GameFramework.BaseApp.M.w, GameFramework.BaseApp.M.v,
-									GameFramework.BaseApp.M.ix, GameFramework.BaseApp.M.hx)
+							b.fc(GameFramework.BaseApp.instance.w, GameFramework.BaseApp.instance.v,
+									GameFramework.BaseApp.instance.ix, GameFramework.BaseApp.instance.hx)
 						} finally {
 							c.t()
 						}
@@ -28508,7 +28504,7 @@ Game.MainMenu.prototype = {
 						c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255
 										* this.Xp.V() | 0));
 						try {
-							b.Ba(Game.Resources.IMAGE_TITLE, GameFramework.BaseApp.M.w, 0)
+							b.Ba(Game.Resources.IMAGE_TITLE, GameFramework.BaseApp.instance.w, 0)
 						} finally {
 							c.t()
 						}
@@ -28703,7 +28699,7 @@ Game.MainMenu.prototype = {
 			var d = b.Qb;
 			d != null && (d.pn(b), d.Bc(b));
 			c != null
-					? GameFramework.BaseApp.M.kc()
+					? GameFramework.BaseApp.instance.kc()
 							? (c.L.ea("b;0,1,0.01,1,####  Z####       F~###"), c.m
 									.ea("b;1,5,0.01,1,~pF[         ~####"), b.Oa = c.Ge
 									.ER(true, false), b.$B = new GameFramework.TIntRect(0,
@@ -28873,13 +28869,13 @@ Game.Metrics.prototype = {
 	vH : null,
 	Kx : null,
 	Ub : function() {
-		var b = GameFramework.BaseApp.M.Is("Global", "SamplingProbRoll");
+		var b = GameFramework.BaseApp.instance.Is("Global", "SamplingProbRoll");
 		if (b != null)
 			this.SC = GameFramework.Utils.fp(b)
 	},
 	n4 : function(b) {
 		this.SC = b;
-		GameFramework.BaseApp.M.lt("Global", "SamplingProbRoll", String.Mb("{0}",
+		GameFramework.BaseApp.instance.lt("Global", "SamplingProbRoll", String.Mb("{0}",
 						this.SC))
 	},
 	N4 : function(b, c, d, f) {
@@ -28896,12 +28892,11 @@ Game.Metrics.prototype = {
 		if (Type.isInstance(c, GameFramework.TVector))
 			for (g = 0; g < c.length; g++)
 				b.push(c[g]);
-		d ? (this.ca(), this.YT(b, f != null ? f : this.vH), GameFramework.BaseApp.M
-				.FL()) : this.xC.push(b)
+		d ? (this.ca(), this.YT(b, f != null ? f : this.vH), GameFramework.BaseApp.instance.FL()) : this.xC.push(b)
 	},
 	nL : function(b) {
-		GameFramework.BaseApp.M.tr == null && GameFramework.BaseApp.M.fJ();
-		GameFramework.BaseApp.M.tr.sz(b).Ra(GameFramework.events.Event.hh,
+		GameFramework.BaseApp.instance.tr == null && GameFramework.BaseApp.instance.fJ();
+		GameFramework.BaseApp.instance.tr.sz(b).Ra(GameFramework.events.Event.hh,
 				ss.Delegate.create(this, this.v1));
 		this.mY = true
 	},
@@ -28909,7 +28904,7 @@ Game.Metrics.prototype = {
 		b = b.target.Fi;
 		try {
 			var c = {};
-			GameFramework.BaseApp.M.ND(b, c);
+			GameFramework.BaseApp.instance.ND(b, c);
 			for (aStatsGroup in c) {
 				var d = c[aStatsGroup], f = GameFramework.Utils.fp(d.value);
 				this.l8 && d.hasOwnProperty("admin") && (f = d.admin ? 1 : 0);
@@ -28925,9 +28920,9 @@ Game.Metrics.prototype = {
 	},
 	YT : function(b, c) {
 		if (this.vH != null) {
-			GameFramework.BaseApp.M.tr == null && GameFramework.BaseApp.M.fJ();
-			var d = GameFramework.BaseApp.M.rj(b);
-			GameFramework.BaseApp.M.tr.n3(c, d)
+			GameFramework.BaseApp.instance.tr == null && GameFramework.BaseApp.instance.fJ();
+			var d = GameFramework.BaseApp.instance.rj(b);
+			GameFramework.BaseApp.instance.tr.n3(c, d)
 		}
 	},
 	ca : function() {
@@ -29164,7 +29159,7 @@ Game.OptionsDialog.prototype = {
 				: this.Un = new GameFramework.Insets(120, 300, this.s - 120, this.z
 								- 200);
 		this.qr = 80;
-		var b = this.Un.Vj - 510, c = this.Un.Um - 40, d = GameFramework.BaseApp.M.Uc;
+		var b = this.Un.Vj - 510, c = this.Un.Um - 40, d = GameFramework.BaseApp.instance.Uc;
 		this.wm.Lb(d.mh(b), d.uv(c), 510, Game.Resources.IMAGE_DIALOG_SLIDERHANDLE.z);
 		this.Er.Lb(d.mh(b), d.uv(c + this.qr), 510,
 				Game.Resources.IMAGE_DIALOG_SLIDERHANDLE.z);
@@ -29450,7 +29445,7 @@ Game.Piece.prototype = {
 				if (!(Game.BejApp.q.vp != 1 && GameFramework.Utils.randZeroOne() > 0.4
 						+ Game.BejApp.q.vp * 0.6)) {
 					var d = Game.Util.Fc() % 5 != 0;
-					if (d || GameFramework.BaseApp.M.kc() && !Game.BejApp.q.$f) {
+					if (d || GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f) {
 						var f;
 						if (d) {
 							f = Game.Util.Fc() % 32 == 0 ? this.e.ob : this.e.Jg;
@@ -29947,7 +29942,7 @@ Game.Profile.prototype = {
 		this.Km = "";
 		this.vk = true;
 		this.s8 = this.uc = this.I8 = this.H8 = this.K8 = this.J8 = this.El = this.Qj = 0;
-		this.vt = GameFramework.BaseApp.M.kc();
+		this.vt = GameFramework.BaseApp.instance.kc();
 		this.r8 = false;
 		this.Fr = this.tu = 0.5;
 		var b;
@@ -29973,15 +29968,14 @@ Game.Profile.prototype = {
 		for (var c = [], d = this.xe, f = 0; f < d.length; f++)
 			c.push(d[f]);
 		b.Stats = c;
-		GameFramework.BaseApp.M.lt(GameFramework.BaseApp.M.po, "Profile", GameFramework.BaseApp.M
-						.rj(b))
+		GameFramework.BaseApp.instance.lt(GameFramework.BaseApp.instance.po, "Profile", GameFramework.BaseApp.instance.rj(b))
 	},
 	A2 : function() {
 		try {
-			var b = GameFramework.BaseApp.M.Is(GameFramework.BaseApp.M.po, "Profile");
+			var b = GameFramework.BaseApp.instance.Is(GameFramework.BaseApp.instance.po, "Profile");
 			if (b != null) {
 				var c = {};
-				GameFramework.BaseApp.M.ND(b, c);
+				GameFramework.BaseApp.instance.ND(b, c);
 				if (c.hasOwnProperty("OfflineRank"))
 					this.Qj = c.OfflineRank | 0;
 				if (c.hasOwnProperty("OfflineRankPoints"))
@@ -32536,8 +32530,7 @@ Game.SpeedBoard.prototype = {
 			this.Iu = 0
 	},
 	kJ : function(b) {
-		var c = this.qv(), d = Math.pow(this.Rf(), 4), f = !GameFramework.BaseApp.M
-				.kc();
+		var c = this.qv(), d = Math.pow(this.Rf(), 4), f = !GameFramework.BaseApp.instance.kc();
 		c.s = this.Mj * c.s + this.UN | 0;
 		var g = b.mh(c.w), h = b.mh(c.w + c.s) - g;
 		if (!f) {
@@ -33417,7 +33410,7 @@ Game.LightningBarFillEffect.prototype = {
 	},
 	ja : function(b) {
 		var c = Math.min((1 - this.Zh) * 8, 1) * this.Nb.e.Yc() * 255 | 0;
-		if (GameFramework.BaseApp.M.kc()) {
+		if (GameFramework.BaseApp.instance.kc()) {
 			for (var d = Array.Sd((Game.LightningBarFillEffect.Xk - 1) * 2, 3, null), f = 0; f < (Game.LightningBarFillEffect.Xk - 1)
 					* 2; f++)
 				d[d.g * f + 0] = new GameFramework.gfx.TriVertex, d[d.g * f + 1] = new GameFramework.gfx.TriVertex, d[d.g
@@ -33860,15 +33853,15 @@ Game.TutorialStep.prototype = {
 									? (Game.TutorialMgr.az(b, new GameFramework.TRect(62,
 													240, 360, 500),
 											new GameFramework.TRect(0, 0, 450,
-													GameFramework.BaseApp.M.z)), Game.TutorialMgr
+													GameFramework.BaseApp.instance.z)), Game.TutorialMgr
 											.az(
 													b,
 													this.vl,
 													new GameFramework.TRect(450,
 															0,
-															GameFramework.BaseApp.M.s
+															GameFramework.BaseApp.instance.s
 																	- 450,
-															GameFramework.BaseApp.M.z)))
+															GameFramework.BaseApp.instance.z)))
 									: this.Il == Game.TutorialStep.Qg.BL
 											&& (this.Bb == Game.TutorialStep.Td.DJ || this.Bb == Game.TutorialStep.Td.lz)
 											? (Game.TutorialMgr
@@ -33881,16 +33874,16 @@ Game.TutorialStep.prototype = {
 																	0,
 																	0,
 																	450,
-																	GameFramework.BaseApp.M.z)), Game.TutorialMgr
+																	GameFramework.BaseApp.instance.z)), Game.TutorialMgr
 													.az(
 															b,
 															this.vl,
 															new GameFramework.TRect(
 																	450,
 																	0,
-																	GameFramework.BaseApp.M.s
+																	GameFramework.BaseApp.instance.s
 																			- 450,
-																	GameFramework.BaseApp.M.z)))
+																	GameFramework.BaseApp.instance.z)))
 											: Game.TutorialMgr.az(b, this.vl))
 		} finally {
 			c.t()
@@ -34120,9 +34113,9 @@ Game.TutorialMgr.M_ = function(b, c) {
 						.mh(c.w + c.s)
 						- g, b.mh(c.v + c.z) - h);
 		d == null
-				&& (d = new GameFramework.TRect(GameFramework.BaseApp.M.w,
-						GameFramework.BaseApp.M.v, GameFramework.BaseApp.M.ix,
-						GameFramework.BaseApp.M.hx));
+				&& (d = new GameFramework.TRect(GameFramework.BaseApp.instance.w,
+						GameFramework.BaseApp.instance.v, GameFramework.BaseApp.instance.ix,
+						GameFramework.BaseApp.instance.hx));
 		b.fc(d.w, d.v, c.w - d.w, d.z);
 		b.fc(c.w, d.v, c.s, c.v);
 		b.fc(c.w, c.v + c.z, c.s, d.z - (c.v + c.z));
@@ -34143,9 +34136,9 @@ Game.TutorialMgr.M_ = function(b, c) {
 Game.TutorialMgr.az = function(b, c, d) {
 	d === UNDEF && (d = null);
 	d == null
-			&& (d = new GameFramework.TRect(GameFramework.BaseApp.M.w,
-					GameFramework.BaseApp.M.v, GameFramework.BaseApp.M.ix,
-					GameFramework.BaseApp.M.hx));
+			&& (d = new GameFramework.TRect(GameFramework.BaseApp.instance.w,
+					GameFramework.BaseApp.instance.v, GameFramework.BaseApp.instance.ix,
+					GameFramework.BaseApp.instance.hx));
 	var f = b.Q(3221225472);
 	try {
 		var g = b.mh(c.w), h = b.mh(c.v), c = new GameFramework.TRect(g, h, b
@@ -34378,7 +34371,7 @@ Game.SoundUtil.Play = function(b) {
 	Game.SoundUtil.Ug(b, 0, 1)
 };
 Game.SoundUtil.Ug = function(b, c, d) {
-	GameFramework.BaseApp.M.FK(b, d, c)
+	GameFramework.BaseApp.instance.FK(b, d, c)
 };
 Game.SoundUtil.$v = function(b) {
 	Game.SoundUtil.m3(b)
