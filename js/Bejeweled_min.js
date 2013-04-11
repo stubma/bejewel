@@ -1520,24 +1520,28 @@ function Oa(b, c, d) {
 		}, f.src = c;
 	return f
 }
+
+// schedule game main loop
+// use requestAnimation first, if not, use timer
 var Pa, requestAnimationFrame;
 if (typeof webkitRequestAnimationFrame == "function")
 	requestAnimationFrame = webkitRequestAnimationFrame;
 else if (typeof window.G9 == "function")
 	requestAnimationFrame = window.G9;
 requestAnimationFrame ? requestAnimationFrame(drawFrame) : setInterval("JSFExt_Timer()", 16);
+
 var curApp, gl = null, context = null;
 function Ja(b) {
 	if (gl != null) {
-		var c = gl.createTexture();
-		gl.bindTexture(gl.TEXTURE_2D, c);
+		var tex = gl.createTexture();
+		gl.bindTexture(gl.TEXTURE_2D, tex);
 		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, b);
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
 		gl.bindTexture(gl.TEXTURE_2D, null);
-		return c
+		return tex;
 	}
 }
 function Wa(data) {
@@ -1553,10 +1557,13 @@ function Wa(data) {
 		return tex;
 	}
 }
+
+// set binary hack or not
 var requiresBinaryHack = false;
 window.JFSExt_SetRequiresBinaryHack = function(b) {
 	requiresBinaryHack = b
 };
+
 function Ya(b, c) {
 	var ajax = new XMLHttpRequest;
 	ajax.overrideMimeType || !requiresBinaryHack ? ajax.open("GET", c, true) : ajax.open("GET",
