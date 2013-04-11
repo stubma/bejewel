@@ -946,7 +946,7 @@ ss.Debug.LF = function(b, c, d, f, g) {
 				b.appendln(f + d + ": " + c);
 				break;
 			default :
-				if (xa(Date, c) || xa(RegExp, c)) {
+				if (isInstance(Date, c) || isInstance(RegExp, c)) {
 					b.appendln(f + d + ": " + c);
 					break
 				}
@@ -956,7 +956,7 @@ ss.Debug.LF = function(b, c, d, f, g) {
 				}
 				g.add(c);
 				var h = Type.getClass(c).qi, j = f + "  ";
-				if (xa(Array, c)) {
+				if (isInstance(Array, c)) {
 					b.appendln(f + d + ": {" + h + "}");
 					for (var d = c.length, k = 0; k < d; k++)
 						ss.Debug.LF(b, c[k], "[" + k + "]", j, g)
@@ -968,7 +968,7 @@ ss.Debug.LF = function(b, c, d, f, g) {
 								&& ss.Debug.LF(b, f, d[k].nodeName, j, g)
 				} else
 					for (k in b.appendln(f + d + ": {" + h + "}"), c)
-						d = c[k], xa(Function, d) || ss.Debug.LF(b, d, k, j, g);
+						d = c[k], isInstance(Function, d) || ss.Debug.LF(b, d, k, j, g);
 				g.remove(c)
 		}
 };
@@ -1051,9 +1051,12 @@ function callSuperConstructor(clazz, instance, params) {
 	params ? clazz.parent.apply(instance, params) : clazz.parent.apply(instance)
 }
 
-function xa(b, c) {
-	return ss.isNullUndef(c) ? false : b == Object || c instanceof b ? true : isAncestor(b, Type.getClass(c))
+// whether an object is an instance of a class
+function isInstance(clazz, obj) {
+	return ss.isNullUndef(obj) ? false : clazz == Object || obj instanceof clazz ? true : isAncestor(clazz, Type.getClass(obj))
 }
+
+// whether first class is ancestor of second class, same is also true
 function isAncestor(type, clazz) {
 	if (type == Object || type == clazz)
 		return true;
@@ -1091,13 +1094,13 @@ Type.Vqa = function(b) {
 	return b.V5 == true
 };
 Type.j6 = function(b) {
-	return xa(String, b)
+	return isInstance(String, b)
 };
 Type.di = function(b, c) {
-	return xa(c, b) ? b : null
+	return isInstance(c, b) ? b : null
 };
 Type.vf = function(b, c) {
-	return xa(c, b)
+	return isInstance(c, b)
 };
 Type.getClass = function(b) {
 	var c = null;
