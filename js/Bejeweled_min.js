@@ -1673,7 +1673,7 @@ ab.g6(Math.random(), document.documentElement.clientWidth,
 
 // main loop of game
 var vertexBO, vertexBuffer, vbLen = 0, colorBO, colorBuffer, cbLen = 0, lastFrameTime = (new Date).getTime(), delta = 0;
-var speedFactor = 1, ub, vb;
+var speedFactor = 1, exitWhenError = true, ub, vb;
 function drawFrame() {
 	var now = (new Date).getTime();
 	delta += (now - lastFrameTime) * speedFactor;
@@ -1681,10 +1681,14 @@ function drawFrame() {
 	delta >= 500 && (delta = 500);
 	if (curApp != null && !curApp.EW) {
 		for (var b = 0, c = false; delta >= curApp.Le;) {
-			try {
-				curApp.ca()
-			} catch (d) {
-				curApp.SJ(d)
+			if (exitWhenError) {
+				try {
+					curApp.ca()
+				} catch (d) {
+					curApp.SJ(d)
+				}
+			} else {
+				curApp.ca();
 			}
 
 			delta -= curApp.Le;
@@ -1698,10 +1702,14 @@ function drawFrame() {
 							.colorMask(1, 1, 1, 1), gl.clear(gl.COLOR_BUFFER_BIT), gl
 							.colorMask(1, 1, 1, 0), curTex = null);
 			context = document.getElementById("GameCanvas").getContext("2d");
-			try {
-				curApp.ja()
-			} catch (f) {
-				curApp.SJ(f)
+			if (exitWhenError) {
+				try {
+					curApp.ja()
+				} catch (f) {
+					curApp.SJ(f)
+				}
+			} else {
+				curApp.ja();
 			}
 
 			// flush to make them to screen
