@@ -1844,15 +1844,37 @@ function Qc(b, c, d, f) {
 }
 var xb, Rc;
 function $b() {
-	if (K > 0 && vertexBuffer != UNDEF)
-		activeProgram != program && (program = activeProgram, gl.useProgram(program)), gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer), gl
-				.bufferData(gl.ARRAY_BUFFER, J, gl.STREAM_DRAW), vertexBuffer.components = 4, vertexBuffer.vertexCount = K
-				/ 4, gl.vertexAttribPointer(program.ATTR_POSITION, vertexBuffer.components, gl.FLOAT, false, 0, 0), gl
-				.bindBuffer(gl.ARRAY_BUFFER, ob), gl.bufferData(gl.ARRAY_BUFFER,
-				L, gl.STREAM_DRAW), ob.components = 4, ob.vertexCount = N / 4, gl
-				.vertexAttribPointer(program.ATTR_COLOR, ob.components, gl.FLOAT, false, 0, 0), pc != Rc
-				&& (gl.uniform1f(program.UNIFORM_WRITEDEPTH, pc), Rc = pc), gl.drawArrays(gl.TRIANGLES,
-				0, vertexBuffer.vertexCount), N = K = 0
+	if (K > 0 && vertexBuffer != UNDEF) {
+		// use current program
+		if(activeProgram != program) {
+			program = activeProgram;
+			gl.useProgram(program);
+		}
+
+		// bind vertex buffer
+		gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+		gl.bufferData(gl.ARRAY_BUFFER, J, gl.STREAM_DRAW);
+		vertexBuffer.components = 4;
+		vertexBuffer.vertexCount = K / 4;
+		gl.vertexAttribPointer(program.ATTR_POSITION, vertexBuffer.components, gl.FLOAT, false, 0, 0);
+
+		// bind color buffer
+		gl.bindBuffer(gl.ARRAY_BUFFER, ob);
+		gl.bufferData(gl.ARRAY_BUFFER, L, gl.STREAM_DRAW);
+		ob.components = 4;
+		ob.vertexCount = N / 4;
+		gl.vertexAttribPointer(program.ATTR_COLOR, ob.components, gl.FLOAT, false, 0, 0);
+
+		// ensure depth is right
+		if(pc != Rc) {
+			gl.uniform1f(program.UNIFORM_WRITEDEPTH, pc);
+			Rc = pc;
+		}
+
+		// draw and clear counter
+		gl.drawArrays(gl.TRIANGLES, 0, vertexBuffer.vertexCount);
+		N = K = 0;
+	}
 }
 var Sc;
 function Tc(b, c, d, f, g, h, j, k, l, m, o, q, r, v, u) {
