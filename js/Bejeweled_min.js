@@ -1099,8 +1099,8 @@ Type.isString = function(b) {
 Type.di = function(b, c) {
 	return isInstance(c, b) ? b : null
 };
-Type.isInstance = function(b, c) {
-	return isInstance(c, b)
+Type.isInstance = function(obj, clazz) {
+	return isInstance(clazz, obj)
 };
 Type.getClass = function(b) {
 	var c = null;
