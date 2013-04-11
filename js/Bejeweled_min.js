@@ -1529,18 +1529,17 @@ function Ja(b) {
 		return c
 	}
 }
-function Wa(b) {
+function Wa(data) {
 	if (gl != null) {
-		var c = gl.createTexture();
-		gl.bindTexture(gl.TEXTURE_2D, c);
-		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE,
-				b);
+		var tex = gl.createTexture();
+		gl.bindTexture(gl.TEXTURE_2D, tex);
+		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, data);
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
 		gl.bindTexture(gl.TEXTURE_2D, null);
-		return c
+		return tex;
 	}
 }
 var requiresBinaryHack = false;
@@ -1767,8 +1766,9 @@ function loadShader(id) {
 	return shader
 }
 
+// load primary shader program from html
 var primaryProgram, pc = 1, program, activeProgram;
-function rc() {
+function loadPrimaryProgram() {
 	var fsh = loadShader("shader-fs"), vsh = loadShader("shader-vs");
 	program = gl.createProgram();
 	gl.attachShader(program, vsh);
@@ -1785,6 +1785,7 @@ function rc() {
 	program.UNIFORM_WRITEDEPTH = gl.getUniformLocation(program, "writeDepth");
 	activeProgram = primaryProgram = program
 }
+
 function sc(b, c) {
 	if (b == GameFramework.gfx.Graphics3D.Dc.fi)
 		return c;
@@ -1882,20 +1883,30 @@ function Tc(b, c, d, f, g, h, j, k, l, m, o, q, r, v, u) {
 	for (i = 0; i < 6; i++)
 		L[N++] = b[0], L[N++] = b[1], L[N++] = b[2], L[N++] = b[3]
 }
+
+// reload page when webgl context is lost
 function onWebGLContextLost() {
 	TRACE && ss.Debug.writeln("onWebGLContextLost");
 	window.location.href = window.location.href;
 }
+
+// reload page when webgl context is reloaded
 function onWebGLContextRestored() {
 	TRACE && ss.Debug.writeln("onWebGLContextRestored");
 	window.location.href = window.location.href;
 }
+
 function Vc() {
 	document.webkitHidden ? curApp.bL(true) : curApp.bL(false)
 }
+
+// global init
 var wb = false;
 window.JSFExt_Init = function(app, canvas) {
+	// save app reference
 	curApp = app;
+
+	// if use webgl, get gl context and install canvas listener
 	if (app.useGL) {
 		var config = {
 			alpha : true,
@@ -1913,14 +1924,29 @@ window.JSFExt_Init = function(app, canvas) {
 		if (gl == null)
 			app.useGL = false;
 	}
-	if (app.useGL)
-		gl.vra = canvas.width, gl.ura = canvas.height, gl.clearColor(0, 0.5, 0, 1), gl
-				.enable(gl.BLEND), gl.activeTexture(gl.TEXTURE0), nb = gl
-				.createBuffer(), J = new Float32Array(4096), ob = gl
-				.createBuffer(), L = new Float32Array(4096), gl.createBuffer(), gl
-				.createBuffer(), gl.createBuffer(), gl.createBuffer(), rc(), gl
-				.uniform1i(program.UNIFORM_TEXTURE, 0), gl.blendFunc(gl.SRC_ALPHA,
-				gl.ONE_MINUS_SRC_ALPHA), config = new Uint8Array([255, 255, 255, 255]), Pa = Wa(config);
+
+	// setup default gl state
+	if (app.useGL) {
+		gl.surfaceWidth = canvas.width;
+		gl.surfaceHeight = canvas.height;
+		gl.clearColor(0, 0.5, 0, 1);
+		gl.enable(gl.BLEND);
+		gl.activeTexture(gl.TEXTURE0);
+		nb = gl.createBuffer();
+		J = new Float32Array(4096);
+		ob = gl.createBuffer();
+		L = new Float32Array(4096);
+		gl.createBuffer();
+		gl.createBuffer();
+		gl.createBuffer();
+		gl.createBuffer();
+		loadPrimaryProgram();
+		gl.uniform1i(program.UNIFORM_TEXTURE, 0);
+		gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+		config = new Uint8Array([255, 255, 255, 255]);
+		Pa = Wa(config);
+	}
+
 	document.onkeypress = ac;
 	document.onkeydown = bc;
 	document.onkeyup = cc;
