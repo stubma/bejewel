@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bejeweled_min.js" afterPath="$PROJECT_DIR$/js/Bejeweled_min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
-    </list>
+    <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="" />
     <ignored path="bejewel.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365264647261" ignored="false" />
     <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365336645136" ignored="false" />
     <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365612474829" ignored="false" />
     <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365408132098" ignored="false" />
-    <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365609298907" ignored="false" />
+    <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365646287390" ignored="false" />
     <file path="/fragment.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365571509530" ignored="false" />
     <file path="/main.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365597722418" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,7 +33,7 @@
       <file leaf-file-name="Bejeweled_min.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1749" column="48" selection-start="42407" selection-end="42407" vertical-scroll-proportion="0.06534653">
+            <state line="1754" column="48" selection-start="42551" selection-end="42551" vertical-scroll-proportion="0.023183925">
               <folding />
             </state>
           </provider>
@@ -83,8 +80,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1920" />
-    <option name="height" value="1102" />
+    <option name="width" value="1440" />
+    <option name="height" value="806" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -202,12 +199,12 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig" serverName="bejewel" serverId="1023d2e0-dc51-460f-a38a-56af74d77352">
     <servers>
-      <server id="3d1b4129-d0b0-41a7-9d36-b570f0ce44d7">
+      <server id="1023d2e0-dc51-460f-a38a-56af74d77352">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="~maruojie/bejewel" />
@@ -317,13 +314,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1102" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1440" height="806" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23352662" sideWeight="0.6107724" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23288637" sideWeight="0.6107724" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38922763" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978156" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -464,25 +461,17 @@
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="17" selection-start="1461" selection-end="1461" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="93" column="17" selection-start="1461" selection-end="1461" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery-1.7.1.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="774" column="271" selection-start="37987" selection-end="37988" vertical-scroll-proportion="0.33267328">
-          <folding>
-            <marker date="1365503598000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="774" column="271" selection-start="37987" selection-end="37988" vertical-scroll-proportion="0.33267328" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="274" column="0" selection-start="6735" selection-end="6735" vertical-scroll-proportion="-1.0765027">
-          <folding />
-        </state>
+        <state line="274" column="0" selection-start="6735" selection-end="6735" vertical-scroll-proportion="-1.0765027" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
@@ -494,7 +483,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1749" column="48" selection-start="42407" selection-end="42407" vertical-scroll-proportion="0.06534653">
+        <state line="1754" column="48" selection-start="42551" selection-end="42551" vertical-scroll-proportion="0.023183925">
           <folding />
         </state>
       </provider>
