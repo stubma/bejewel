@@ -1,4 +1,4 @@
 bejewel
 =======
 
-heihei
+--allow-file-access-from-files
