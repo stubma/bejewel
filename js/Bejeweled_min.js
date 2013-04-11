@@ -1,6 +1,9 @@
 // log flag
 var TRACE = true;
 
+// Debug with file:// url
+var LOCAL_DEBUG = true;
+
 function throwError(b) {
 	throw b;
 }
@@ -1588,7 +1591,7 @@ function Za(b, c, d) {
     TRACE && ss.Debug.writeln(d);
 	ajax.onreadystatechange = function() {
 		if (ajax.readyState == 4)
-			ajax.status != 200 ? b.tk = true : curApp.KZ(c, ajax.responseText)
+			(ajax.status != 200 && !LOCAL_DEBUG) ? b.tk = true : curApp.KZ(c, ajax.responseText)
 	};
 	ajax.overrideMimeType && !f
 			&& ajax.overrideMimeType("text/plain;charset=x-user-defined");
