@@ -426,7 +426,7 @@ Boolean.parse = function(b) {
 Number.qi = "Number";
 Number.parse = function(b) {
 	return !b || !b.length ? 0 : b.indexOf(".") >= 0 || b.indexOf("e") >= 0
-			|| na(b, "f") || na(b, "F") ? parseFloat(b) : parseInt(b, 10)
+			|| endsWith(b, "f") || endsWith(b, "F") ? parseFloat(b) : parseInt(b, 10)
 };
 Number.prototype.Mb = function(b) {
 	if (b == "0.0")
@@ -544,10 +544,13 @@ String.concat = function() {
 			? arguments[0] + arguments[1]
 			: Array.prototype.join.call(arguments, "")
 };
-function na(b, c) {
+
+// is a string ends with another string
+function endsWith(b, c) {
 	return !c.length ? true : c.length > b.length ? false : b.substr(b.length
 			- c.length) == c
 }
+
 String.Eqa = function(b, c, d) {
 	return String.k6(b, c, d) == 0
 };
@@ -3589,7 +3592,7 @@ GameFramework.Utils.Tpa = function(b, c) {
 			j = d.substr(f + 2, g - f - 2);
 			j == ":00" && h.length == 1 && (h = "0" + h);
 			startsWith(j, ":0.")
-					&& na(j, "#")
+					&& endsWith(j, "#")
 					&& (j = h.length - h.indexOf(String.fromCharCode(46))
 							- (j.length - 2), j > 0
 							&& (h = h.substr(0, h.length - j)));
@@ -11137,7 +11140,7 @@ GameFramework.resources.ResourceManager.prototype = {
 										+ 1);
 							k.Jj.push(h)
 						}
-						if (j == "File" && na(k.vc, ".p3d"))
+						if (j == "File" && endsWith(k.vc, ".p3d"))
 							k.Fb = GameFramework.resources.ResourceManager.POP3D;
 						this.Nm[k.xa] = k;
 						this.xO[k.vc] = k;
