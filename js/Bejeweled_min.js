@@ -1753,7 +1753,7 @@ function loadShader(id) {
 	if (!shader)
 		return null;
 	for (var src = "", child = shader.firstChild; child;)
-		child.nodeType == 3 && (src += child.textContent), child = child.nextSibling;
+		child.nodeType == Node.TEXT_NODE && (src += child.textContent), child = child.nextSibling;
 	if (shader.type == "x-shader/x-fragment")
 		shader = gl.createShader(gl.FRAGMENT_SHADER);
 	else if (shader.type == "x-shader/x-vertex")
@@ -1883,8 +1883,13 @@ function Tc(b, c, d, f, g, h, j, k, l, m, o, q, r, v, u) {
 	for (i = 0; i < 6; i++)
 		L[N++] = b[0], L[N++] = b[1], L[N++] = b[2], L[N++] = b[3]
 }
-function Uc() {
-	window.location.href = window.location.href
+function onWebGLContextLost() {
+	TRACE && ss.Debug.writeln("onWebGLContextLost");
+	window.location.href = window.location.href;
+}
+function onWebGLContextRestored() {
+	TRACE && ss.Debug.writeln("onWebGLContextRestored");
+	window.location.href = window.location.href;
 }
 function Vc() {
 	document.webkitHidden ? curApp.bL(true) : curApp.bL(false)
@@ -1901,14 +1906,13 @@ window.JSFExt_Init = function(app, canvas) {
 			premultipliedAlpha : false
 		};
 		try {
-			gl = canvas.getContext("experimental-webgl", config), canvas.addEventListener(
-					"webglcontextlost", function() {
-						Uc()
-					}, false), canvas.addEventListener("webglcontextrestored", Uc, false)
+			gl = canvas.getContext("experimental-webgl", config);
+			canvas.addEventListener("webglcontextlost", onWebGLContextLost, false);
+			canvas.addEventListener("webglcontextrestored", onWebGLContextRestored, false);
 		} catch (f) {
 		}
 		if (gl == null)
-			app.useGL = false
+			app.useGL = false;
 	}
 	if (app.useGL)
 		gl.vra = canvas.width, gl.ura = canvas.height, gl.clearColor(0, 0.5, 0, 1), gl
