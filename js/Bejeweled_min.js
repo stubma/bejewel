@@ -1778,7 +1778,7 @@ function loadShader(id) {
 }
 
 // load primary shader program from html
-var primaryProgram, pc = 1, program, activeProgram;
+var primaryProgram, writeDepth = 1, program, activeProgram;
 function loadPrimaryProgram() {
 	var fsh = loadShader("shader-fs"), vsh = loadShader("shader-vs");
 	program = gl.createProgram();
@@ -1842,7 +1842,7 @@ function Qc(b, c, d, f) {
 	b = Pc(b);
 	b != null && gl.uniform4f(b, c, d, f, 1)
 }
-var xb, Rc;
+var xb, curDepth;
 function $b() {
 	if (K > 0 && vertexBO != UNDEF) {
 		// use current program
@@ -1866,9 +1866,9 @@ function $b() {
 		gl.vertexAttribPointer(program.ATTR_COLOR, colorBO.components, gl.FLOAT, false, 0, 0);
 
 		// ensure depth is right
-		if(pc != Rc) {
-			gl.uniform1f(program.UNIFORM_WRITEDEPTH, pc);
-			Rc = pc;
+		if(writeDepth != curDepth) {
+			gl.uniform1f(program.UNIFORM_WRITEDEPTH, writeDepth);
+			curDepth = writeDepth;
 		}
 
 		// draw and clear counter
@@ -13545,7 +13545,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 		gl.disable(gl.CULL_FACE);
 		gl.disable(gl.DEPTH_TEST);
 		xb = Sc = false;
-		pc = 1;
+		writeDepth = 1;
 		gl.disableVertexAttribArray(2);
 		gl.disableVertexAttribArray(3);
 		gl.disableVertexAttribArray(4)
@@ -13575,7 +13575,7 @@ GameFramework.gfx.JSGraphics3D.prototype = {
 	qP : null,
 	qL : function(b) {
 		b === UNDEF && (b = 0);
-		pc = b;
+		writeDepth = b;
 		activeProgram = primaryProgram;
 		xb = false
 	},
