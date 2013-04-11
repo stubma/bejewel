@@ -604,10 +604,12 @@ String.prototype.replaceAll = function(b, c) {
 };
 if (!String.prototype.trim) {
 	String.prototype.trim = function() {
-		return this.b$().c$()
-	}, String.prototype.b$ = function() {
+		return this.trimTail().trimHead();
+	},
+    String.prototype.trimTail = function() {
 		return this.replace(/\s*$/, "")
-	}, String.prototype.c$ = function() {
+	},
+    String.prototype.trimHead = function() {
 		return this.replace(/^\s*/, "")
 	};
 }
