@@ -1767,13 +1767,12 @@ function loadShader(id) {
 	return shader
 }
 
-var nc, oc, pc = 1, O, qc;
+var nc, pc = 1, O, qc;
 function rc() {
-	var b = loadShader("shader-fs"), c = loadShader("shader-vs");
-	oc = c;
+	var fsh = loadShader("shader-fs"), vsh = loadShader("shader-vs");
 	O = gl.createProgram();
-	gl.attachShader(O, c);
-	gl.attachShader(O, b);
+	gl.attachShader(O, vsh);
+	gl.attachShader(O, fsh);
 	gl.linkProgram(O);
 	gl.getProgramParameter(O, gl.LINK_STATUS)
 			|| throwError(Error("Could not initialise shaders"));
