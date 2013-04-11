@@ -1,7 +1,7 @@
 // log flag
 var TRACE = true;
 
-function ca(b) {
+function throwError(b) {
 	throw b;
 }
 var UNDEF = void 0;
@@ -1140,7 +1140,7 @@ ss.Enum.parse = function(b, c) {
 		for (var m in d)
 			if (m === c)
 				return d[m];
-	ca("Invalid Enumeration Value")
+	throwError("Invalid Enumeration Value")
 };
 ss.Enum.toString = function(b) {
 	var c = this.prototype;
@@ -1148,12 +1148,12 @@ ss.Enum.toString = function(b) {
 		for (var d in c)
 			if (c[d] === b)
 				return d;
-		ca("Invalid Enumeration Value")
+		throwError("Invalid Enumeration Value")
 	} else {
 		var f = [];
 		for (d in c)
 			c[d] & b && (f.length && f.add(" | "), f.add(d));
-		f.length || ca("Invalid Enumeration Value");
+		f.length || throwError("Invalid Enumeration Value");
 		return f.join("")
 	}
 };
@@ -1763,7 +1763,7 @@ function loadShader(id) {
 	gl.shaderSource(shader, src);
 	gl.compileShader(shader);
 	gl.getShaderParameter(shader, gl.COMPILE_STATUS)
-			|| ca(Error("Shader compilation error: " + gl.getShaderInfoLog(shader)));
+			|| throwError(Error("Shader compilation error: " + gl.getShaderInfoLog(shader)));
 	return shader
 }
 
@@ -1776,7 +1776,7 @@ function rc() {
 	gl.attachShader(O, b);
 	gl.linkProgram(O);
 	gl.getProgramParameter(O, gl.LINK_STATUS)
-			|| ca(Error("Could not initialise shaders"));
+			|| throwError(Error("Could not initialise shaders"));
 	gl.useProgram(O);
 	O.Ey = gl.getAttribLocation(O, "aPosition");
 	gl.enableVertexAttribArray(O.Ey);
@@ -1984,7 +1984,7 @@ function S(b, c) {
 		c == null && (c = "Assertion failed");
 		var d = new Xc(c);
 		d.pra = arguments.callee.caller.qi;
-		ca(d)
+		throwError(d)
 	}
 }
 
@@ -2137,7 +2137,7 @@ GameFramework.BaseApp.prototype = {
 	l4 : set("$M"),
 	SJ : function(b) {
 		this.EW = true;
-		this.$M != null ? this.$M.tt(b) || ca(b) : ca(b)
+		this.$M != null ? this.$M.tt(b) || throwError(b) : throwError(b)
 	},
 	wQ : dummy(),
 	Ub : function() {
@@ -13051,7 +13051,7 @@ GameFramework.JSBaseApp.prototype = {
 			f == this.Ck.length - 1 && b && (f = -1, b = false)
 		}
 		c && !d && !this.YW && GameFramework.Utils.bootTime() - this.RN >= 3E4
-				&& ca(new System.wJ("Sound loading stalled"));
+				&& throwError(new System.wJ("Sound loading stalled"));
 		this.FL()
 	},
 	ja : function() {
@@ -13180,7 +13180,7 @@ GameFramework.JSBaseApp.prototype = {
 				}
 			}
 		} catch (r) {
-			ca(new GameFramework.JSONFormatException(r, d))
+			throwError(new GameFramework.JSONFormatException(r, d))
 		}
 	},
 	ND : function(b, c) {
@@ -13257,7 +13257,7 @@ GameFramework.JSBaseApp.prototype = {
 			c += "}";
 			return c.toString()
 		}
-		ca(new System.wJ("Invalid JSON data format"))
+		throwError(new System.wJ("Invalid JSON data format"))
 	},
 	yz : function(b) {
 		return new GameFramework.resources.JSSoundInstance(b)
@@ -13971,17 +13971,17 @@ GameFramework.resources.JSRenderEffect.prototype = {
 								? (l = gl.createShader(gl.VERTEX_SHADER), gl
 										.shaderSource(l, k), gl.compileShader(l), gl
 										.getShaderParameter(l, gl.COMPILE_STATUS)
-										|| ca(Error("Vertex shader compilation error: "
+										|| throwError(Error("Vertex shader compilation error: "
 												+ gl.getShaderInfoLog(l))))
 								: l = oc, k = gl.createShader(gl.FRAGMENT_SHADER), gl
 								.shaderSource(k, o), gl.compileShader(k), gl
 								.getShaderParameter(k, gl.COMPILE_STATUS)
-								|| ca(Error("Pixel shader compilation error: "
+								|| throwError(Error("Pixel shader compilation error: "
 										+ gl.getShaderInfoLog(k))), o = gl
 								.createProgram(), gl.attachShader(o, l), gl
 								.attachShader(o, k), gl.linkProgram(o), gl
 								.getProgramParameter(o, gl.LINK_STATUS)
-								|| ca(Error("Shader getProgramParameter error: "
+								|| throwError(Error("Shader getProgramParameter error: "
 										+ gl.getShaderInfoLog(o))), o.Ey = gl
 								.getAttribLocation(o, "position"), o.Hw = gl
 								.getAttribLocation(o, "color"), o.sP = gl
@@ -15068,7 +15068,7 @@ Game.BejApp.prototype = {
 									&& (c = "Failed to load group '" + b.sN
 											+ "'"));
 			this.tk = true;
-			ca(new Game.LoadingError(c))
+			throwError(new Game.LoadingError(c))
 		}
 	},
 	I4 : function() {
