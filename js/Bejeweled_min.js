@@ -1670,7 +1670,7 @@ ab.g6(Math.random(), document.documentElement.clientWidth,
 		document.documentElement.clientHeight, window.screenX
 				? window.screenX
 				: 0, window.screenY ? window.screenY : 0);
-var vertexBO, vertexBuffer, K = 0, colorBO, colorBuffer, N = 0, lastFrameTime = (new Date).getTime(), delta = 0, rb = 0.2, speedFactor = 1, tb = true, ub, vb;
+var vertexBO, vertexBuffer, vbLen = 0, colorBO, colorBuffer, cbLen = 0, lastFrameTime = (new Date).getTime(), delta = 0, rb = 0.2, speedFactor = 1, tb = true, ub, vb;
 function drawFrame() {
 	var now = (new Date).getTime();
 	delta += (now - lastFrameTime) * speedFactor;
@@ -1844,7 +1844,7 @@ function Qc(b, c, d, f) {
 }
 var xb, curDepth;
 function $b() {
-	if (K > 0 && vertexBO != UNDEF) {
+	if (vbLen > 0 && vertexBO != UNDEF) {
 		// use current program
 		if(activeProgram != program) {
 			program = activeProgram;
@@ -1855,14 +1855,14 @@ function $b() {
 		gl.bindBuffer(gl.ARRAY_BUFFER, vertexBO);
 		gl.bufferData(gl.ARRAY_BUFFER, vertexBuffer, gl.STREAM_DRAW);
 		vertexBO.components = 4;
-		vertexBO.vertexCount = K / 4;
+		vertexBO.vertexCount = vbLen / 4;
 		gl.vertexAttribPointer(program.ATTR_POSITION, vertexBO.components, gl.FLOAT, false, 0, 0);
 
 		// bind color buffer
 		gl.bindBuffer(gl.ARRAY_BUFFER, colorBO);
 		gl.bufferData(gl.ARRAY_BUFFER, colorBuffer, gl.STREAM_DRAW);
 		colorBO.components = 4;
-		colorBO.vertexCount = N / 4;
+		colorBO.vertexCount = cbLen / 4;
 		gl.vertexAttribPointer(program.ATTR_COLOR, colorBO.components, gl.FLOAT, false, 0, 0);
 
 		// ensure depth is right
@@ -1873,12 +1873,12 @@ function $b() {
 
 		// draw and clear counter
 		gl.drawArrays(gl.TRIANGLES, 0, vertexBO.vertexCount);
-		N = K = 0;
+		cbLen = vbLen = 0;
 	}
 }
 var Sc;
 function Tc(b, c, d, f, g, h, j, k, l, m, o, q, r, v, u) {
-	K > 1E3 && $b();
+	vbLen > 1E3 && $b();
 	if (xb != b || Sc != v)
 		$b(), gl.bindTexture(gl.TEXTURE_2D, b), xb = b;
 	Sc != v
@@ -1889,32 +1889,32 @@ function Tc(b, c, d, f, g, h, j, k, l, m, o, q, r, v, u) {
 	l /= r;
 	q = m / q;
 	r = o / r;
-	vertexBuffer[K++] = (c + h * o) / curApp.Di;
-	vertexBuffer[K++] = (d + j * o) / curApp.Ig;
-	vertexBuffer[K++] = k;
-	vertexBuffer[K++] = l + r;
-	vertexBuffer[K++] = c / curApp.Di;
-	vertexBuffer[K++] = d / curApp.Ig;
-	vertexBuffer[K++] = k;
-	vertexBuffer[K++] = l;
-	vertexBuffer[K++] = (c + f * m + h * o) / curApp.Di;
-	vertexBuffer[K++] = (d + g * m + j * o) / curApp.Ig;
-	vertexBuffer[K++] = k + q;
-	vertexBuffer[K++] = l + r;
-	vertexBuffer[K++] = c / curApp.Di;
-	vertexBuffer[K++] = d / curApp.Ig;
-	vertexBuffer[K++] = k;
-	vertexBuffer[K++] = l;
-	vertexBuffer[K++] = (c + f * m + h * o) / curApp.Di;
-	vertexBuffer[K++] = (d + g * m + j * o) / curApp.Ig;
-	vertexBuffer[K++] = k + q;
-	vertexBuffer[K++] = l + r;
-	vertexBuffer[K++] = (c + f * m) / curApp.Di;
-	vertexBuffer[K++] = (d + g * m) / curApp.Ig;
-	vertexBuffer[K++] = k + q;
-	vertexBuffer[K++] = l;
+	vertexBuffer[vbLen++] = (c + h * o) / curApp.Di;
+	vertexBuffer[vbLen++] = (d + j * o) / curApp.Ig;
+	vertexBuffer[vbLen++] = k;
+	vertexBuffer[vbLen++] = l + r;
+	vertexBuffer[vbLen++] = c / curApp.Di;
+	vertexBuffer[vbLen++] = d / curApp.Ig;
+	vertexBuffer[vbLen++] = k;
+	vertexBuffer[vbLen++] = l;
+	vertexBuffer[vbLen++] = (c + f * m + h * o) / curApp.Di;
+	vertexBuffer[vbLen++] = (d + g * m + j * o) / curApp.Ig;
+	vertexBuffer[vbLen++] = k + q;
+	vertexBuffer[vbLen++] = l + r;
+	vertexBuffer[vbLen++] = c / curApp.Di;
+	vertexBuffer[vbLen++] = d / curApp.Ig;
+	vertexBuffer[vbLen++] = k;
+	vertexBuffer[vbLen++] = l;
+	vertexBuffer[vbLen++] = (c + f * m + h * o) / curApp.Di;
+	vertexBuffer[vbLen++] = (d + g * m + j * o) / curApp.Ig;
+	vertexBuffer[vbLen++] = k + q;
+	vertexBuffer[vbLen++] = l + r;
+	vertexBuffer[vbLen++] = (c + f * m) / curApp.Di;
+	vertexBuffer[vbLen++] = (d + g * m) / curApp.Ig;
+	vertexBuffer[vbLen++] = k + q;
+	vertexBuffer[vbLen++] = l;
 	for (i = 0; i < 6; i++)
-		colorBuffer[N++] = b[0], colorBuffer[N++] = b[1], colorBuffer[N++] = b[2], colorBuffer[N++] = b[3]
+		colorBuffer[cbLen++] = b[0], colorBuffer[cbLen++] = b[1], colorBuffer[cbLen++] = b[2], colorBuffer[cbLen++] = b[3]
 }
 
 // reload page when webgl context is lost
@@ -13436,26 +13436,26 @@ GameFramework.gfx.JSGraphics.prototype = {
 					* this.m;
 			if (GameFramework.JSBaseApp.Cx.useGL) {
 				var l = this.n, m = Pa;
-				K > 1E3 && $b();
+				vbLen > 1E3 && $b();
 				if (xb != m || Sc != false)
 					$b(), gl.bindTexture(gl.TEXTURE_2D, m), xb = m;
 				Sc != false
 						&& (gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA), Sc = false);
 				l = [(l >> 16 & 255) / 255, (l >> 8 & 255) / 255,
 						(l & 255) / 255, (l >> 24 & 255) / 255];
-				vertexBuffer[K++] = d / curApp.Di;
-				vertexBuffer[K++] = f / curApp.Ig;
-				vertexBuffer[K++] = 0;
-				vertexBuffer[K++] = 0;
-				vertexBuffer[K++] = g / curApp.Di;
-				vertexBuffer[K++] = h / curApp.Ig;
-				vertexBuffer[K++] = 0;
-				vertexBuffer[K++] = 0;
-				vertexBuffer[K++] = j / curApp.Di;
-				vertexBuffer[K++] = k / curApp.Ig;
-				vertexBuffer[K++] = 0;
-				for (i = vertexBuffer[K++] = 0; i < 3; i++)
-					colorBuffer[N++] = l[0], colorBuffer[N++] = l[1], colorBuffer[N++] = l[2], colorBuffer[N++] = l[3]
+				vertexBuffer[vbLen++] = d / curApp.Di;
+				vertexBuffer[vbLen++] = f / curApp.Ig;
+				vertexBuffer[vbLen++] = 0;
+				vertexBuffer[vbLen++] = 0;
+				vertexBuffer[vbLen++] = g / curApp.Di;
+				vertexBuffer[vbLen++] = h / curApp.Ig;
+				vertexBuffer[vbLen++] = 0;
+				vertexBuffer[vbLen++] = 0;
+				vertexBuffer[vbLen++] = j / curApp.Di;
+				vertexBuffer[vbLen++] = k / curApp.Ig;
+				vertexBuffer[vbLen++] = 0;
+				for (i = vertexBuffer[vbLen++] = 0; i < 3; i++)
+					colorBuffer[cbLen++] = l[0], colorBuffer[cbLen++] = l[1], colorBuffer[cbLen++] = l[2], colorBuffer[cbLen++] = l[3]
 			} else
 				l = this.JR(), m = document.getElementById("GameCanvas")
 						.getContext("2d"), m.fillStyle = l, m.setTransform(1,
@@ -13488,7 +13488,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 						* 3 + 1].color, z = (c[d * 3 + 2].Ng * b.Hg + b.Vp)
 						/ b.Sm, A = (c[d * 3 + 2].Ob * b.Gg + b.Wp) / b.Rm, B = c[d
 						* 3 + 2].color, G = b.pc;
-				K > 1E3 && $b();
+				vbLen > 1E3 && $b();
 				if (xb != m || Sc != G)
 					$b(), gl.bindTexture(gl.TEXTURE_2D, m), xb = m;
 				Sc != G
@@ -13501,30 +13501,30 @@ GameFramework.gfx.JSGraphics.prototype = {
 						(y & 255) / 255, (y >> 24 & 255) / 255];
 				r = B == r ? m : [(B >> 16 & 255) / 255, (B >> 8 & 255) / 255,
 						(B & 255) / 255, (B >> 24 & 255) / 255];
-				vertexBuffer[K++] = f / curApp.Di;
-				vertexBuffer[K++] = g / curApp.Ig;
-				vertexBuffer[K++] = o;
-				vertexBuffer[K++] = q;
-				vertexBuffer[K++] = h / curApp.Di;
-				vertexBuffer[K++] = j / curApp.Ig;
-				vertexBuffer[K++] = v;
-				vertexBuffer[K++] = u;
-				vertexBuffer[K++] = k / curApp.Di;
-				vertexBuffer[K++] = l / curApp.Ig;
-				vertexBuffer[K++] = z;
-				vertexBuffer[K++] = A;
-				colorBuffer[N++] = m[0];
-				colorBuffer[N++] = m[1];
-				colorBuffer[N++] = m[2];
-				colorBuffer[N++] = m[3];
-				colorBuffer[N++] = y[0];
-				colorBuffer[N++] = y[1];
-				colorBuffer[N++] = y[2];
-				colorBuffer[N++] = y[3];
-				colorBuffer[N++] = r[0];
-				colorBuffer[N++] = r[1];
-				colorBuffer[N++] = r[2];
-				colorBuffer[N++] = r[3]
+				vertexBuffer[vbLen++] = f / curApp.Di;
+				vertexBuffer[vbLen++] = g / curApp.Ig;
+				vertexBuffer[vbLen++] = o;
+				vertexBuffer[vbLen++] = q;
+				vertexBuffer[vbLen++] = h / curApp.Di;
+				vertexBuffer[vbLen++] = j / curApp.Ig;
+				vertexBuffer[vbLen++] = v;
+				vertexBuffer[vbLen++] = u;
+				vertexBuffer[vbLen++] = k / curApp.Di;
+				vertexBuffer[vbLen++] = l / curApp.Ig;
+				vertexBuffer[vbLen++] = z;
+				vertexBuffer[vbLen++] = A;
+				colorBuffer[cbLen++] = m[0];
+				colorBuffer[cbLen++] = m[1];
+				colorBuffer[cbLen++] = m[2];
+				colorBuffer[cbLen++] = m[3];
+				colorBuffer[cbLen++] = y[0];
+				colorBuffer[cbLen++] = y[1];
+				colorBuffer[cbLen++] = y[2];
+				colorBuffer[cbLen++] = y[3];
+				colorBuffer[cbLen++] = r[0];
+				colorBuffer[cbLen++] = r[1];
+				colorBuffer[cbLen++] = r[2];
+				colorBuffer[cbLen++] = r[3]
 			}
 		}
 	},
