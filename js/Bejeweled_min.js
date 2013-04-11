@@ -531,28 +531,34 @@ Number.prototype.JF = function(b, c) {
 Math.truncate = function(b) {
 	return b >= 0 ? Math.floor(b) : Math.ceil(b)
 };
+
+// is a string ends with another string
+function endsWith(b, c) {
+    return !c.length ? true : c.length > b.length ? false : b.substr(b.length
+        - c.length) == c
+}
+
+// is a string starts with another string
+function startsWith(b, c) {
+    return !c.length ? true : c.length > b.length ? false : b.substr(0, c.length) == c
+}
+
+// String class
 String.qi = "String";
-String.a0 = "";
-String.k6 = function(b, c, d) {
-	d && (b && (b = b.toUpperCase()), c && (c = c.toUpperCase()));
-	b = b || "";
-	c = c || "";
-	return b == c ? 0 : b < c ? -1 : 1
+String.EMPTY = "";
+String.compare = function(s1, s2, ignoreCase) {
+	ignoreCase && (s1 && (s1 = s1.toUpperCase()), s2 && (s2 = s2.toUpperCase()));
+	s1 = s1 || "";
+	s2 = s2 || "";
+	return s1 == s2 ? 0 : s1 < s2 ? -1 : 1
 };
 String.concat = function() {
 	return arguments.length === 2
 			? arguments[0] + arguments[1]
 			: Array.prototype.join.call(arguments, "")
 };
-
-// is a string ends with another string
-function endsWith(b, c) {
-	return !c.length ? true : c.length > b.length ? false : b.substr(b.length
-			- c.length) == c
-}
-
-String.Eqa = function(b, c, d) {
-	return String.k6(b, c, d) == 0
+String.equals = function(s1, s2, ignoreCase) {
+	return String.compare(s1, s2, ignoreCase) == 0
 };
 String.dV = function(b, c, d) {
 	if (!String.dB)
@@ -572,35 +578,31 @@ String.dV = function(b, c, d) {
 String.Mb = function(b) {
 	return String.dV(b, arguments, false)
 };
-String.x6 = function(b, c) {
-	for (var d = b, f = 1; f < c; f++)
-		d += b;
-	return d
+String.duplicate = function(s, times) {
+	for (var ret = s, f = 1; f < times; f++)
+		ret += s;
+	return ret;
 };
-String.prototype.VF = function(b, c) {
-	return !c ? this : !b ? c + this : this.substr(0, b) + c + this.substr(b)
+String.prototype.insertAt = function(index, s) {
+	return !s ? this : !index ? s + this : this.substr(0, index) + s + this.substr(index)
 };
-String.T6 = function(b) {
+String.isEmpty = function(b) {
 	return !b || !b.length
 };
 String.DV = function(b) {
 	return String.dV(b, arguments, true)
 };
 function va(b, c, d) {
-	return b.length < c ? String.x6(d || " ", c - b.length) + b : b
+	return b.length < c ? String.duplicate(d || " ", c - b.length) + b : b
 }
-String.prototype.remove = function(b, c) {
-	return !c || b + c > this.length ? this.substr(0, b) : this.substr(0, b)
-			+ this.substr(b + c)
+String.prototype.remove = function(start, len) {
+	return !len || start + len > this.length ? this.substr(0, start) : this.substr(0, start)
+			+ this.substr(start + len)
 };
-String.prototype.vP = function(b, c) {
+String.prototype.replaceAll = function(b, c) {
 	return this.split(b).join(c || "")
 };
-String.prototype.replaceAll = String.prototype.vP;
-function startsWith(b, c) {
-	return !c.length ? true : c.length > b.length ? false : b.substr(0, c.length) == c
-}
-if (!String.prototype.trim)
+if (!String.prototype.trim) {
 	String.prototype.trim = function() {
 		return this.b$().c$()
 	}, String.prototype.b$ = function() {
@@ -608,6 +610,9 @@ if (!String.prototype.trim)
 	}, String.prototype.c$ = function() {
 		return this.replace(/^\s*/, "")
 	};
+}
+
+// Array class
 Array.qi = "Array";
 Array.interfaces = [ss.IEnumerable];
 Array.O = function(b, c) {
@@ -678,7 +683,7 @@ Array.prototype.index = function(b, c) {
 	for (var d = this.length, f = {}, g = 0; g < d; g++)
 		if (g in this) {
 			var h = b.call(c, this[g], g);
-			String.T6(h) || (f[h] = this[g])
+			String.isEmpty(h) || (f[h] = this[g])
 		}
 	return f
 };
@@ -1321,6 +1326,8 @@ ss.ArrayEnumerator.registerClass("ArrayEnumerator", null, ss.IEnumerator);
 ss.IDisposable = dummy();
 ss.IDisposable.prototype = {};
 registerInterface(ss.IDisposable, "IDisposable");
+
+// StringBuilder
 ss.StringBuilder = function(b) {
 	this.buf = ss.isNullUndef(b) ? [] : [b]
 };
@@ -1342,9 +1349,11 @@ ss.StringBuilder.prototype = {
 	}
 };
 ss.StringBuilder.registerClass("StringBuilder");
+
+// EventArgs
 ss.EventArgs = dummy();
 ss.EventArgs.registerClass("EventArgs");
-ss.EventArgs.a0 = new ss.EventArgs;
+ss.EventArgs.EMPTY = new ss.EventArgs;
 if (!window.XMLHttpRequest)
 	window.XMLHttpRequest = function() {
 		for (var b = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"], c = 0; c < b.length; c++)
@@ -3539,7 +3548,7 @@ GameFramework.Utils.Fs = function(b, c) {
 	return b.charCodeAt(c)
 };
 GameFramework.Utils.qF = function(b) {
-	return b.vP(String.fromCharCode(92), String.fromCharCode(47))
+	return b.replaceAll(String.fromCharCode(92), String.fromCharCode(47))
 };
 GameFramework.Utils.jK = function(b) {
 	return b == " " || b == "\t" || b == "\r" || b == "\n"
@@ -14051,8 +14060,8 @@ GameFramework.resources.JSRenderEffect.prototype = {
 				l = this.BT(l);
 				o = this.BT(m);
 				l != null
-						&& (l = l.VF(l.indexOf("attribute vec3 position"),
-								"attribute vec3 normal;\n"), l = l.vP(
+						&& (l = l.insertAt(l.indexOf("attribute vec3 position"),
+								"attribute vec3 normal;\n"), l = l.replaceAll(
 								"vec3(gl_Normal)", "normal"));
 				m = j;
 				k = l;
