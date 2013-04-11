@@ -1670,7 +1670,7 @@ ab.g6(Math.random(), document.documentElement.clientWidth,
 		document.documentElement.clientHeight, window.screenX
 				? window.screenX
 				: 0, window.screenY ? window.screenY : 0);
-var nb, J, K = 0, ob, L, N = 0, lastFrameTime = (new Date).getTime(), delta = 0, rb = 0.2, speedFactor = 1, tb = true, ub, vb;
+var vertexBuffer, J, K = 0, ob, L, N = 0, lastFrameTime = (new Date).getTime(), delta = 0, rb = 0.2, speedFactor = 1, tb = true, ub, vb;
 function drawFrame() {
 	var now = (new Date).getTime();
 	delta += (now - lastFrameTime) * speedFactor;
@@ -1844,15 +1844,15 @@ function Qc(b, c, d, f) {
 }
 var xb, Rc;
 function $b() {
-	if (K > 0 && nb != UNDEF)
-		activeProgram != program && (program = activeProgram, gl.useProgram(program)), gl.bindBuffer(gl.ARRAY_BUFFER, nb), gl
-				.bufferData(gl.ARRAY_BUFFER, J, gl.STREAM_DRAW), nb.bM = 4, nb.$Y = K
-				/ 4, gl.vertexAttribPointer(program.ATTR_POSITION, nb.bM, gl.FLOAT, false, 0, 0), gl
+	if (K > 0 && vertexBuffer != UNDEF)
+		activeProgram != program && (program = activeProgram, gl.useProgram(program)), gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer), gl
+				.bufferData(gl.ARRAY_BUFFER, J, gl.STREAM_DRAW), vertexBuffer.components = 4, vertexBuffer.vertexCount = K
+				/ 4, gl.vertexAttribPointer(program.ATTR_POSITION, vertexBuffer.components, gl.FLOAT, false, 0, 0), gl
 				.bindBuffer(gl.ARRAY_BUFFER, ob), gl.bufferData(gl.ARRAY_BUFFER,
-				L, gl.STREAM_DRAW), ob.bM = 4, ob.$Y = N / 4, gl
-				.vertexAttribPointer(program.ATTR_COLOR, ob.bM, gl.FLOAT, false, 0, 0), pc != Rc
+				L, gl.STREAM_DRAW), ob.components = 4, ob.vertexCount = N / 4, gl
+				.vertexAttribPointer(program.ATTR_COLOR, ob.components, gl.FLOAT, false, 0, 0), pc != Rc
 				&& (gl.uniform1f(program.UNIFORM_WRITEDEPTH, pc), Rc = pc), gl.drawArrays(gl.TRIANGLES,
-				0, nb.$Y), N = K = 0
+				0, vertexBuffer.vertexCount), N = K = 0
 }
 var Sc;
 function Tc(b, c, d, f, g, h, j, k, l, m, o, q, r, v, u) {
@@ -1943,7 +1943,7 @@ window.JSFExt_Init = function(app, canvas) {
 		gl.clearColor(0, 0.5, 0, 1);
 		gl.enable(gl.BLEND);
 		gl.activeTexture(gl.TEXTURE0);
-		nb = gl.createBuffer();
+		vertexBuffer = gl.createBuffer();
 		J = new Float32Array(4096);
 		ob = gl.createBuffer();
 		L = new Float32Array(4096);
