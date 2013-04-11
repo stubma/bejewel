@@ -1777,12 +1777,12 @@ function rc() {
 	gl.getProgramParameter(program, gl.LINK_STATUS)
 			|| throwError(Error("Could not initialise shaders"));
 	gl.useProgram(program);
-	program.Ey = gl.getAttribLocation(program, "aPosition");
-	gl.enableVertexAttribArray(program.Ey);
-	program.Hw = gl.getAttribLocation(program, "aVertexColor");
-	gl.enableVertexAttribArray(program.Hw);
-	program.U9 = gl.getUniformLocation(program, "sTexture");
-	program.e$ = gl.getUniformLocation(program, "writeDepth");
+	program.ATTR_POSITION = gl.getAttribLocation(program, "aPosition");
+	gl.enableVertexAttribArray(program.ATTR_POSITION);
+	program.ATTR_COLOR = gl.getAttribLocation(program, "aVertexColor");
+	gl.enableVertexAttribArray(program.ATTR_COLOR);
+	program.UNIFORM_TEXTURE = gl.getUniformLocation(program, "sTexture");
+	program.UNIFORM_WRITEDEPTH = gl.getUniformLocation(program, "writeDepth");
 	activeProgram = primaryProgram = program
 }
 function sc(b, c) {
@@ -1813,12 +1813,12 @@ function sc(b, c) {
 }
 function Oc() {
 	activeProgram != program
-			&& (program = activeProgram, gl.useProgram(program), program.Ey != -1
-					&& gl.enableVertexAttribArray(program.Ey), program.Hw != -1
-					&& gl.enableVertexAttribArray(program.Hw), program.sP != -1
-					&& gl.enableVertexAttribArray(program.sP), program.zP != -1
-					&& gl.enableVertexAttribArray(program.zP), program.AP != -1
-					&& gl.enableVertexAttribArray(program.AP))
+			&& (program = activeProgram, gl.useProgram(program), program.ATTR_POSITION != -1
+					&& gl.enableVertexAttribArray(program.ATTR_POSITION), program.ATTR_COLOR != -1
+					&& gl.enableVertexAttribArray(program.ATTR_COLOR), program.ATTR_NORMAL != -1
+					&& gl.enableVertexAttribArray(program.ATTR_NORMAL), program.ATTR_TEXCOORD0 != -1
+					&& gl.enableVertexAttribArray(program.ATTR_TEXCOORD0), program.ATTR_TEXCOORD1 != -1
+					&& gl.enableVertexAttribArray(program.ATTR_TEXCOORD1))
 }
 function Pc(b) {
 	Oc();
@@ -1835,11 +1835,11 @@ function $b() {
 	if (K > 0 && nb != UNDEF)
 		activeProgram != program && (program = activeProgram, gl.useProgram(program)), gl.bindBuffer(gl.ARRAY_BUFFER, nb), gl
 				.bufferData(gl.ARRAY_BUFFER, J, gl.STREAM_DRAW), nb.bM = 4, nb.$Y = K
-				/ 4, gl.vertexAttribPointer(program.Ey, nb.bM, gl.FLOAT, false, 0, 0), gl
+				/ 4, gl.vertexAttribPointer(program.ATTR_POSITION, nb.bM, gl.FLOAT, false, 0, 0), gl
 				.bindBuffer(gl.ARRAY_BUFFER, ob), gl.bufferData(gl.ARRAY_BUFFER,
 				L, gl.STREAM_DRAW), ob.bM = 4, ob.$Y = N / 4, gl
-				.vertexAttribPointer(program.Hw, ob.bM, gl.FLOAT, false, 0, 0), pc != Rc
-				&& (gl.uniform1f(program.e$, pc), Rc = pc), gl.drawArrays(gl.TRIANGLES,
+				.vertexAttribPointer(program.ATTR_COLOR, ob.bM, gl.FLOAT, false, 0, 0), pc != Rc
+				&& (gl.uniform1f(program.UNIFORM_WRITEDEPTH, pc), Rc = pc), gl.drawArrays(gl.TRIANGLES,
 				0, nb.$Y), N = K = 0
 }
 var Sc;
@@ -1919,7 +1919,7 @@ window.JSFExt_Init = function(app, canvas) {
 				.createBuffer(), J = new Float32Array(4096), ob = gl
 				.createBuffer(), L = new Float32Array(4096), gl.createBuffer(), gl
 				.createBuffer(), gl.createBuffer(), gl.createBuffer(), rc(), gl
-				.uniform1i(program.U9, 0), gl.blendFunc(gl.SRC_ALPHA,
+				.uniform1i(program.UNIFORM_TEXTURE, 0), gl.blendFunc(gl.SRC_ALPHA,
 				gl.ONE_MINUS_SRC_ALPHA), config = new Uint8Array([255, 255, 255, 255]), Pa = Wa(config);
 	document.onkeypress = ac;
 	document.onkeydown = bc;
@@ -13592,31 +13592,31 @@ GameFramework.gfx.JSGraphics3D.prototype = {
 	BA : function(b) {
 		var c = this.oP, d = this.mP, f = this.CO;
 		Oc();
-		program.gZ != null && gl.uniformMatrix4fv(program.gZ, false, c.X);
-		program.BP != null && gl.uniformMatrix4fv(program.BP, false, d.X);
-		program.BP != null && gl.uniformMatrix4fv(program.R9, false, f.X);
-		if (program.hZ != null) {
+		program.UNIFORM_WORLDMATRIX != null && gl.uniformMatrix4fv(program.UNIFORM_WORLDMATRIX, false, c.X);
+		program.UNIFORM_VIEWMATRIX != null && gl.uniformMatrix4fv(program.UNIFORM_VIEWMATRIX, false, d.X);
+		program.UNIFORM_PROJECTIONMATRIX != null && gl.uniformMatrix4fv(program.UNIFORM_PROJECTIONMATRIX, false, f.X);
+		if (program.UNIFORM_WORLDVIEWPROJECTIONMATRIX != null) {
 			var g = new GameFramework.geom.Matrix3D;
 			g.Ni(f);
 			g.Tu(d);
 			g.Tu(c);
-			gl.uniformMatrix4fv(program.hZ, false, g.X)
+			gl.uniformMatrix4fv(program.UNIFORM_WORLDVIEWPROJECTIONMATRIX, false, g.X)
 		}
-		program.xU != null && gl.uniform1i(program.xU, 0);
-		program.yU != null && gl.uniform1i(program.yU, 1);
+		program.UNIFORM_TEXTURE0 != null && gl.uniform1i(program.UNIFORM_TEXTURE0, 0);
+		program.UNIFORM_TEXTURE1 != null && gl.uniform1i(program.UNIFORM_TEXTURE1, 1);
 		for (c = 0; c < b.ee.length; c++)
 			d = b.ee[c], this.lw(0, d.Oa), f = new GameFramework.resources.popanim.PopAnimEvent(GameFramework.resources.MeshEvent.iT), b
 					.ld(f), d.js != null
 					&& (gl.bindBuffer(gl.ARRAY_BUFFER, d.YY), gl
-							.vertexAttribPointer(program.Ey, 3, gl.FLOAT, false, 0, 0)), d.rp != null
+							.vertexAttribPointer(program.ATTR_POSITION, 3, gl.FLOAT, false, 0, 0)), d.rp != null
 					&& (gl.bindBuffer(gl.ARRAY_BUFFER, d.bW), gl
-							.vertexAttribPointer(program.Hw, 4, gl.FLOAT, false, 0, 0)), d.Gr != null
+							.vertexAttribPointer(program.ATTR_COLOR, 4, gl.FLOAT, false, 0, 0)), d.Gr != null
 					&& (gl.bindBuffer(gl.ARRAY_BUFFER, d.DX), gl
-							.vertexAttribPointer(program.sP, 3, gl.FLOAT, false, 0, 0)), d.Tr != null
+							.vertexAttribPointer(program.ATTR_NORMAL, 3, gl.FLOAT, false, 0, 0)), d.Tr != null
 					&& (gl.bindBuffer(gl.ARRAY_BUFFER, d.JY), gl
-							.vertexAttribPointer(program.zP, 2, gl.FLOAT, false, 0, 0)), d.Gu != null
+							.vertexAttribPointer(program.ATTR_TEXCOORD0, 2, gl.FLOAT, false, 0, 0)), d.Gu != null
 					&& (gl.bindBuffer(gl.ARRAY_BUFFER, d.KY), gl
-							.vertexAttribPointer(program.AP, 2, gl.FLOAT, false, 0, 0)), gl
+							.vertexAttribPointer(program.ATTR_TEXCOORD1, 2, gl.FLOAT, false, 0, 0)), gl
 					.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, d.bX), gl.drawElements(
 					gl.TRIANGLES, d.yx, gl.UNSIGNED_SHORT, 0), f = new GameFramework.resources.popanim.PopAnimEvent(GameFramework.resources.MeshEvent.hT), b
 					.ld(f)
@@ -13981,17 +13981,17 @@ GameFramework.resources.JSRenderEffect.prototype = {
 								.attachShader(o, k), gl.linkProgram(o), gl
 								.getProgramParameter(o, gl.LINK_STATUS)
 								|| throwError(Error("Shader getProgramParameter error: "
-										+ gl.getShaderInfoLog(o))), o.Ey = gl
-								.getAttribLocation(o, "position"), o.Hw = gl
-								.getAttribLocation(o, "color"), o.sP = gl
-								.getAttribLocation(o, "normal"), o.zP = gl
-								.getAttribLocation(o, "texcoord0"), o.AP = gl
-								.getAttribLocation(o, "texcoord1"), o.gZ = gl
-								.getUniformLocation(o, "world"), o.BP = gl
-								.getUniformLocation(o, "view"), o.R9 = gl
-								.getUniformLocation(o, "projection"), o.hZ = gl
-								.getUniformLocation(o, "worldViewProj"), o.xU = gl
-								.getUniformLocation(o, "Tex0"), o.yU = gl
+										+ gl.getShaderInfoLog(o))), o.ATTR_POSITION = gl
+								.getAttribLocation(o, "position"), o.ATTR_COLOR = gl
+								.getAttribLocation(o, "color"), o.ATTR_NORMAL = gl
+								.getAttribLocation(o, "normal"), o.ATTR_TEXCOORD0 = gl
+								.getAttribLocation(o, "texcoord0"), o.ATTR_TEXCOORD1 = gl
+								.getAttribLocation(o, "texcoord1"), o.UNIFORM_WORLDMATRIX = gl
+								.getUniformLocation(o, "world"), o.UNIFORM_VIEWMATRIX = gl
+								.getUniformLocation(o, "view"), o.UNIFORM_PROJECTIONMATRIX = gl
+								.getUniformLocation(o, "projection"), o.UNIFORM_WORLDVIEWPROJECTIONMATRIX = gl
+								.getUniformLocation(o, "worldViewProj"), o.UNIFORM_TEXTURE0 = gl
+								.getUniformLocation(o, "Tex0"), o.UNIFORM_TEXTURE1 = gl
 								.getUniformLocation(o, "Tex1"), l = o);
 				m.RW = l;
 				c.vO.push(j)
