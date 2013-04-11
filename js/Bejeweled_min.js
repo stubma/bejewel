@@ -13001,7 +13001,7 @@ GameFramework.JSBaseApp = function() {
 	this.tN = {};
 	this.NB = {};
 	callSuperConstructor(GameFramework.JSBaseApp, this);
-	GameFramework.JSBaseApp.Cx = this;
+	GameFramework.JSBaseApp.instance = this;
 	this.RN = GameFramework.Utils.bootTime()
 };
 GameFramework.JSBaseApp.prototype = {
@@ -13348,7 +13348,7 @@ GameFramework.JSBaseApp.prototype = {
 	}
 };
 GameFramework.JSBaseApp.initClass = function() {
-	GameFramework.JSBaseApp.Cx = null
+	GameFramework.JSBaseApp.instance = null
 };
 addClassEntry(function() {
 			GameFramework.JSBaseApp.registerClass("GameFramework.JSBaseApp", GameFramework.BaseApp)
@@ -13424,7 +13424,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 	},
 	fc : function(b, c, d, f) {
 		var g = this.JR();
-		if (GameFramework.JSBaseApp.Cx.useGL) {
+		if (GameFramework.JSBaseApp.instance.useGL) {
 			var g = (b * this.sa.Ua + this.sa.Ca) * this.m | 0, h = (c
 					* this.sa.Va + this.sa.Da)
 					* this.m | 0, b = ((b + d) * this.sa.Ua + this.sa.Ca)
@@ -13464,7 +13464,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 					* this.m, k = (this.sa.Da + this.sa.ub * b[b.g * c + 4] + this.sa.Va
 					* b[b.g * c + 5])
 					* this.m;
-			if (GameFramework.JSBaseApp.Cx.useGL) {
+			if (GameFramework.JSBaseApp.instance.useGL) {
 				var l = this.n, m = Pa;
 				vbLen > 1E3 && flushBuffer();
 				if (curTex != m || Sc != false)
@@ -13508,7 +13508,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 					* this.m, l = (this.sa.Da + this.sa.ub * c[c.g * d + 2].x + this.sa.Va
 					* c[c.g * d + 2].y)
 					* this.m;
-			if (GameFramework.JSBaseApp.Cx.useGL) {
+			if (GameFramework.JSBaseApp.instance.useGL) {
 				var m = b.vh, o = (c[d * 3 + 0].Ng * b.Hg + b.Vp) / b.Sm, q = (c[d
 						* 3 + 0].Ob
 						* b.Gg + b.Wp)
@@ -13740,7 +13740,7 @@ GameFramework.resources.JSImageInst.prototype = {
 				h.Ca = c;
 				h.Da = d
 			}
-			GameFramework.JSBaseApp.Cx.useGL
+			GameFramework.JSBaseApp.instance.useGL
 					? Tc(this.jj.vh, h.Ca, h.Da, h.Ua, h.Sb, h.ub, h.Va,
 							this.he + this.jj.Vp, this.uf + this.jj.Wp,
 							this.jd, this.ge, this.jj.Sm, this.jj.Rm, this.pc,
@@ -13793,7 +13793,7 @@ GameFramework.resources.JSImageResource.prototype = {
 			l.Ca = c;
 			l.Da = d
 		}
-		GameFramework.JSBaseApp.Cx.useGL ? Tc(this.vh, l.Ca, l.Da, l.Ua, l.Sb, l.ub,
+		GameFramework.JSBaseApp.instance.useGL ? Tc(this.vh, l.Ca, l.Da, l.Ua, l.Sb, l.ub,
 				l.Va, h * j + this.Vp, g * k + this.Wp, j, k, this.Sm, this.Rm,
 				this.pc, b.n) : lc(this.ym, (b.n >>> 24) / 255, this.pc, l.Ua,
 				l.Sb, l.ub, l.Va, l.Ca, l.Da, this.Vp + h * j, this.Wp + g * k,
