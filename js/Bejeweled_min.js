@@ -1093,7 +1093,7 @@ Type.isInterface = function(b) {
 Type.Vqa = function(b) {
 	return b.V5 == true
 };
-Type.j6 = function(b) {
+Type.isString = function(b) {
 	return isInstance(String, b)
 };
 Type.di = function(b, c) {
@@ -13155,7 +13155,7 @@ GameFramework.JSBaseApp.prototype = {
 	},
 	SE : function(b, c) {
 		var d;
-		d = Type.j6(c) ? ss.XmlDocumentParser.parse(c) : c;
+		d = Type.isString(c) ? ss.XmlDocumentParser.parse(c) : c;
 		this.lT(b, d.documentElement)
 	},
 	LS : function(b) {
