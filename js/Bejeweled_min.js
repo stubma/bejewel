@@ -474,14 +474,14 @@ Number.prototype.JF = function(b, c) {
 		case "d" :
 		case "D" :
 			f = parseInt(Math.abs(this)).toString();
-			g != -1 && (f = va(f, g, "0"));
+			g != -1 && (f = prefixIfShorter(f, g, "0"));
 			this < 0 && (f = "-" + f);
 			break;
 		case "x" :
 		case "X" :
 			f = parseInt(Math.abs(this)).toString(16);
 			h == "X" && (f = f.toUpperCase());
-			g != -1 && (f = va(f, g, "0"));
+			g != -1 && (f = prefixIfShorter(f, g, "0"));
 			break;
 		case "e" :
 		case "E" :
@@ -543,6 +543,11 @@ function startsWith(b, c) {
     return !c.length ? true : c.length > b.length ? false : b.substr(0, c.length) == c
 }
 
+// if string length is less than a value, then prefix the string with a char
+function prefixIfShorter(s, requiredLen, prefix) {
+    return s.length < requiredLen ? String.duplicate(prefix || " ", requiredLen - s.length) + s : s
+}
+
 // String class
 String.qi = "String";
 String.EMPTY = "";
@@ -586,15 +591,12 @@ String.duplicate = function(s, times) {
 String.prototype.insertAt = function(index, s) {
 	return !s ? this : !index ? s + this : this.substr(0, index) + s + this.substr(index)
 };
-String.isEmpty = function(b) {
-	return !b || !b.length
+String.isEmpty = function(s) {
+	return !s || !s.length
 };
 String.DV = function(b) {
 	return String.dV(b, arguments, true)
 };
-function va(b, c, d) {
-	return b.length < c ? String.duplicate(d || " ", c - b.length) + b : b
-}
 String.prototype.remove = function(start, len) {
 	return !len || start + len > this.length ? this.substr(0, start) : this.substr(0, start)
 			+ this.substr(start + len)
@@ -821,7 +823,7 @@ Date.prototype.JF = function(b, c) {
 				k = d.W9[date.getDay()];
 				break;
 			case "dd" :
-				k = va(date.getDate().toString(), 2, "0");
+				k = prefixIfShorter(date.getDate().toString(), 2, "0");
 				break;
 			case "d" :
 				k = date.getDate();
@@ -833,7 +835,7 @@ Date.prototype.JF = function(b, c) {
 				k = d.X9[date.getMonth()];
 				break;
 			case "MM" :
-				k = va((date.getMonth() + 1).toString(), 2, "0");
+				k = prefixIfShorter((date.getMonth() + 1).toString(), 2, "0");
 				break;
 			case "M" :
 				k = date.getMonth() + 1;
@@ -842,7 +844,7 @@ Date.prototype.JF = function(b, c) {
 				k = date.getFullYear();
 				break;
 			case "yy" :
-				k = va((date.getFullYear() % 100).toString(), 2, "0");
+				k = prefixIfShorter((date.getFullYear() % 100).toString(), 2, "0");
 				break;
 			case "y" :
 				k = date.getFullYear() % 100;
@@ -850,22 +852,22 @@ Date.prototype.JF = function(b, c) {
 			case "h" :
 			case "hh" :
 				(k = date.getHours() % 12) ? f == "hh"
-						&& (k = va(k.toString(), 2, "0")) : k = "12";
+						&& (k = prefixIfShorter(k.toString(), 2, "0")) : k = "12";
 				break;
 			case "HH" :
-				k = va(date.getHours().toString(), 2, "0");
+				k = prefixIfShorter(date.getHours().toString(), 2, "0");
 				break;
 			case "H" :
 				k = date.getHours();
 				break;
 			case "mm" :
-				k = va(date.getMinutes().toString(), 2, "0");
+				k = prefixIfShorter(date.getMinutes().toString(), 2, "0");
 				break;
 			case "m" :
 				k = date.getMinutes();
 				break;
 			case "ss" :
-				k = va(date.getSeconds().toString(), 2, "0");
+				k = prefixIfShorter(date.getSeconds().toString(), 2, "0");
 				break;
 			case "s" :
 				k = date.getSeconds();
@@ -876,13 +878,13 @@ Date.prototype.JF = function(b, c) {
 				f == "t" && (k = k.charAt(0));
 				break;
 			case "fff" :
-				k = va(date.getMilliseconds().toString(), 3, "0");
+				k = prefixIfShorter(date.getMilliseconds().toString(), 3, "0");
 				break;
 			case "ff" :
-				k = va(date.getMilliseconds().toString(), 3).substr(0, 2);
+				k = prefixIfShorter(date.getMilliseconds().toString(), 3).substr(0, 2);
 				break;
 			case "f" :
-				k = va(date.getMilliseconds().toString(), 3).charAt(0);
+				k = prefixIfShorter(date.getMilliseconds().toString(), 3).charAt(0);
 				break;
 			case "z" :
 				k = date.getTimezoneOffset() / 60;
@@ -891,9 +893,9 @@ Date.prototype.JF = function(b, c) {
 			case "zz" :
 			case "zzz" :
 				k = date.getTimezoneOffset() / 60, k = (k >= 0 ? "-" : "+")
-						+ va(Math.floor(Math.abs(k)).toString(), 2, "0"), f == "zzz"
+						+ prefixIfShorter(Math.floor(Math.abs(k)).toString(), 2, "0"), f == "zzz"
 						&& (k += d.a$
-								+ va(	Math.abs(date.getTimezoneOffset() % 60)
+								+ prefixIfShorter(Math.abs(date.getTimezoneOffset() % 60)
 												.toString(), 2, "0"))
 		}
 		h.append(k)
