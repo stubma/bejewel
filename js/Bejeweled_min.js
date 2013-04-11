@@ -1670,7 +1670,7 @@ ab.g6(Math.random(), document.documentElement.clientWidth,
 		document.documentElement.clientHeight, window.screenX
 				? window.screenX
 				: 0, window.screenY ? window.screenY : 0);
-var vertexBuffer, J, K = 0, ob, L, N = 0, lastFrameTime = (new Date).getTime(), delta = 0, rb = 0.2, speedFactor = 1, tb = true, ub, vb;
+var vertexBuffer, J, K = 0, colorBuffer, L, N = 0, lastFrameTime = (new Date).getTime(), delta = 0, rb = 0.2, speedFactor = 1, tb = true, ub, vb;
 function drawFrame() {
 	var now = (new Date).getTime();
 	delta += (now - lastFrameTime) * speedFactor;
@@ -1859,11 +1859,11 @@ function $b() {
 		gl.vertexAttribPointer(program.ATTR_POSITION, vertexBuffer.components, gl.FLOAT, false, 0, 0);
 
 		// bind color buffer
-		gl.bindBuffer(gl.ARRAY_BUFFER, ob);
+		gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
 		gl.bufferData(gl.ARRAY_BUFFER, L, gl.STREAM_DRAW);
-		ob.components = 4;
-		ob.vertexCount = N / 4;
-		gl.vertexAttribPointer(program.ATTR_COLOR, ob.components, gl.FLOAT, false, 0, 0);
+		colorBuffer.components = 4;
+		colorBuffer.vertexCount = N / 4;
+		gl.vertexAttribPointer(program.ATTR_COLOR, colorBuffer.components, gl.FLOAT, false, 0, 0);
 
 		// ensure depth is right
 		if(pc != Rc) {
@@ -1967,7 +1967,7 @@ window.JSFExt_Init = function(app, canvas) {
 		gl.activeTexture(gl.TEXTURE0);
 		vertexBuffer = gl.createBuffer();
 		J = new Float32Array(4096);
-		ob = gl.createBuffer();
+		colorBuffer = gl.createBuffer();
 		L = new Float32Array(4096);
 		gl.createBuffer();
 		gl.createBuffer();
