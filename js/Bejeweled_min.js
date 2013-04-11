@@ -2,6 +2,7 @@
 var TRACE = true;
 
 // Debug with file:// url
+// chrome need add --allow-file-access-from-files option
 var LOCAL_DEBUG = true;
 
 function throwError(b) {
