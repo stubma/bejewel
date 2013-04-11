@@ -1029,10 +1029,14 @@ function registerInterface(intf, name) {
 	intf.qi = name;
 	intf._isIntf = true
 }
-Type.prototype.xP = function() {
+
+// copy all var in ancestor's prototypes to this class
+// that is copy inheritance, which can implement multiple inheritance
+// but instanceof operator can not know super class
+Type.prototype.inheritCopy = function() {
 	if (this.needCopyParent) {
 		var b = this.parent;
-		b.needCopyParent && b.xP();
+		b.needCopyParent && b.inheritCopy();
 		for (var c in b.prototype) {
 			var d = b.prototype[c];
 			this.prototype[c] || (this.prototype[c] = d)
@@ -1040,12 +1044,13 @@ Type.prototype.xP = function() {
 		delete this.needCopyParent
 	}
 };
-if (!Type.prototype.T9)
-	Type.prototype.T9 = Type.prototype.xP;
-function E(b, c, d) {
-	b.needCopyParent && b.xP();
+
+// invoke constructor of b's parent
+function callSuperConstructor(b, c, d) {
+	b.needCopyParent && b.inheritCopy();
 	d ? b.parent.apply(c, d) : b.parent.apply(c)
 }
+
 function xa(b, c) {
 	return ss.isNullUndef(c) ? false : b == Object || c instanceof b ? true : isAncestor(b, Type.getClass(c))
 }
@@ -1358,7 +1363,7 @@ ss.XmlDocumentParser.parse = function(b) {
 	return null
 };
 ss.CancelEventArgs = function() {
-	E(ss.CancelEventArgs, this);
+	callSuperConstructor(ss.CancelEventArgs, this);
 	this.oqa = false
 };
 ss.CancelEventArgs.prototype = {};
@@ -1367,7 +1372,7 @@ ss.INotifyPropertyChanged = dummy();
 ss.INotifyPropertyChanged.prototype = {};
 registerInterface(ss.INotifyPropertyChanged, "INotifyPropertyChanged");
 ss.PropertyChangedEventArgs = function(b) {
-	E(ss.PropertyChangedEventArgs, this);
+	callSuperConstructor(ss.PropertyChangedEventArgs, this);
 	this.qqa = b
 };
 ss.PropertyChangedEventArgs.prototype = {};
@@ -1387,7 +1392,7 @@ Da.qi = "CollectionChangedAction";
 Da.YU = true;
 Da.toString = ss.Enum.toString;
 ss.CollectionChangedEventArgs = function(b, c, d) {
-	E(ss.CollectionChangedEventArgs, this);
+	callSuperConstructor(ss.CollectionChangedEventArgs, this);
 	this.mqa = b;
 	this.pqa = c || null;
 	this.HF = d || -1
@@ -2051,7 +2056,7 @@ addClassInitEntry(function() {
 			GameFramework.JSONHelperData.initClass()
 		});
 GameFramework.JSONFormatException = function(b, c) {
-	E(GameFramework.JSONFormatException, this, [b.H6() + " at line " + c.hC]);
+	callSuperConstructor(GameFramework.JSONFormatException, this, [b.H6() + " at line " + c.hC]);
 	this.h8 = b;
 	this.hC = c.hC
 };
@@ -2085,7 +2090,7 @@ GameFramework.BaseApp = function() {
 	this.Ck = [];
 	this.tB = [];
 	this.xX = [];
-	E(GameFramework.BaseApp, this);
+	callSuperConstructor(GameFramework.BaseApp, this);
 	GameFramework.BaseApp.M = this;
 	this.ZH = new GameFramework.resources.SoundManager;
 	this.vb = new GameFramework.resources.ResourceManager;
@@ -2993,7 +2998,7 @@ addClassEntry(function() {
 			GameFramework.la.initClass()
 		});
 GameFramework.NoRename = function() {
-	E(GameFramework.NoRename, this)
+	callSuperConstructor(GameFramework.NoRename, this)
 };
 GameFramework.NoRename.prototype = {};
 GameFramework.NoRename.initClass = dummy();
@@ -3682,7 +3687,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.ads = Type.ci("GameFramework.ads");
 GameFramework.ads.AdAPIEvent = function(b) {
-	E(GameFramework.ads.AdAPIEvent, this, [b])
+	callSuperConstructor(GameFramework.ads.AdAPIEvent, this, [b])
 };
 GameFramework.ads.AdAPIEvent.prototype = {};
 GameFramework.ads.AdAPIEvent.initClass = dummy();
@@ -3695,7 +3700,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.connected = Type.ci("GameFramework.connected");
 GameFramework.connected.ConnectedRequest = function() {
-	E(GameFramework.connected.ConnectedRequest, this);
+	callSuperConstructor(GameFramework.connected.ConnectedRequest, this);
 	GameFramework.connected.ConnectedRequest.jY++;
 	this.kY = GameFramework.connected.ConnectedRequest.jY
 };
@@ -3753,7 +3758,7 @@ addClassInitEntry(function() {
 			GameFramework.connected.Database.initClass()
 		});
 GameFramework.connected.Facebook = function() {
-	E(GameFramework.connected.Facebook, this)
+	callSuperConstructor(GameFramework.connected.Facebook, this)
 };
 GameFramework.connected.Facebook.prototype = {};
 GameFramework.connected.Facebook.initClass = dummy();
@@ -3890,7 +3895,7 @@ addClassInitEntry(function() {
 			GameFramework.events.EventDispatcher.initClass()
 		});
 GameFramework.events.IOErrorEvent = function(b) {
-	E(GameFramework.events.IOErrorEvent, this, [b])
+	callSuperConstructor(GameFramework.events.IOErrorEvent, this, [b])
 };
 GameFramework.events.IOErrorEvent.prototype = {};
 GameFramework.events.IOErrorEvent.initClass = function() {
@@ -5125,7 +5130,7 @@ GameFramework.gfx.PerspectiveCamera = function(b, c, d, f) {
 	c === UNDEF && (c = 0);
 	d === UNDEF && (d = 1);
 	f === UNDEF && (f = 1E4);
-	E(GameFramework.gfx.PerspectiveCamera, this);
+	callSuperConstructor(GameFramework.gfx.PerspectiveCamera, this);
 	b == 0 ? (this.Fl = new GameFramework.geom.Vector3(0, 0, 0), this.KH = 0) : this
 			.Ub(b, c, d, f)
 };
@@ -5580,7 +5585,7 @@ addClassInitEntry(function() {
 			GameFramework.misc.JSONString.initClass()
 		});
 GameFramework.misc.Key1 = function(b) {
-	E(GameFramework.misc.Key1, this, [b, 1])
+	callSuperConstructor(GameFramework.misc.Key1, this, [b, 1])
 };
 GameFramework.misc.Key1.prototype = {};
 GameFramework.misc.Key1.initClass = dummy();
@@ -6410,7 +6415,7 @@ addClassInitEntry(function() {
 			GameFramework.resources.MeshPiece.initClass()
 		});
 GameFramework.resources.MeshEvent = function(b) {
-	E(GameFramework.resources.MeshEvent, this, [b])
+	callSuperConstructor(GameFramework.resources.MeshEvent, this, [b])
 };
 GameFramework.resources.MeshEvent.prototype = {
 	tY : null
@@ -6430,7 +6435,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources.MeshResource = function() {
 	this.ee = [];
-	E(GameFramework.resources.MeshResource, this)
+	callSuperConstructor(GameFramework.resources.MeshResource, this)
 };
 GameFramework.resources.MeshResource.prototype = {
 	ee : null,
@@ -7172,7 +7177,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources.PIFreeEmitterInstance = function() {
 	this.kg = new GameFramework.resources.PIEmitterBase;
-	E(GameFramework.resources.PIFreeEmitterInstance, this);
+	callSuperConstructor(GameFramework.resources.PIFreeEmitterInstance, this);
 	this.kg.Wb.bf = true
 };
 GameFramework.resources.PIFreeEmitterInstance.prototype = {
@@ -7259,7 +7264,7 @@ GameFramework.resources.PIEmitterInstance = function() {
 	this.$h = new GameFramework.resources.PIParticleGroup;
 	this.Na = new GameFramework.geom.Matrix;
 	this.de = new GameFramework.geom.TPoint;
-	E(GameFramework.resources.PIEmitterInstance, this);
+	callSuperConstructor(GameFramework.resources.PIEmitterInstance, this);
 	this.Co = false;
 	this.Ou = true;
 	this.$h.Ac = true;
@@ -10176,7 +10181,7 @@ GameFramework.resources.PopAnimResource = function() {
 	this.Mx = Array.O(3, 0, 0, 1, 2);
 	this.Ah = null;
 	this.D9 = new GameFramework.geom.TPoint(0, 0);
-	E(GameFramework.resources.PopAnimResource, this);
+	callSuperConstructor(GameFramework.resources.PopAnimResource, this);
 	this.yk = false
 };
 GameFramework.resources.PopAnimResource.prototype = {
@@ -11259,7 +11264,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources.ResourceStreamer = function() {
 	this.MG = null;
-	E(GameFramework.resources.ResourceStreamer, this)
+	callSuperConstructor(GameFramework.resources.ResourceStreamer, this)
 };
 GameFramework.resources.ResourceStreamer.prototype = {
 	sN : null,
@@ -11313,7 +11318,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources.SoundManager = function() {
 	this.WG = Array.O(7, 7, 1, 1, 1, 1, 1, 1, 1);
-	E(GameFramework.resources.SoundManager, this)
+	callSuperConstructor(GameFramework.resources.SoundManager, this)
 };
 GameFramework.resources.SoundManager.prototype = {
 	WG : null,
@@ -11375,7 +11380,7 @@ addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimDef.initClass()
 		});
 GameFramework.resources.popanim.PopAnimEvent = function(b) {
-	E(GameFramework.resources.popanim.PopAnimEvent, this, [b])
+	callSuperConstructor(GameFramework.resources.popanim.PopAnimEvent, this, [b])
 };
 GameFramework.resources.popanim.PopAnimEvent.prototype = {};
 GameFramework.resources.popanim.PopAnimEvent.initClass = function() {
@@ -11623,7 +11628,7 @@ GameFramework.widgets.ButtonWidget = function(b) {
 	b === UNDEF && (b = 0);
 	this.pe = Array.O(2, null, 4294967295, 4294967295);
 	this.wM = this.RM = this.rm = this.Sj = this.ZB = this.wb = this.U = null;
-	E(GameFramework.widgets.ButtonWidget, this);
+	callSuperConstructor(GameFramework.widgets.ButtonWidget, this);
 	this.xa = b
 };
 GameFramework.widgets.ButtonWidget.prototype = {
@@ -11741,7 +11746,7 @@ Game = Type.ci("Game");
 Game.Checkbox = function(b, c) {
 	this.EM = new GameFramework.TRect(0, 0, 0, 0);
 	this.x9 = new GameFramework.TRect(0, 0, 0, 0);
-	E(Game.Checkbox, this);
+	callSuperConstructor(Game.Checkbox, this);
 	this.hD = b;
 	this.qG = c;
 	this.ti = false;
@@ -11805,7 +11810,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.widgets.ClassicWidget = function() {
 	this.cf = [];
-	E(GameFramework.widgets.ClassicWidget, this)
+	callSuperConstructor(GameFramework.widgets.ClassicWidget, this)
 };
 GameFramework.widgets.ClassicWidget.prototype = {
 	cf : null,
@@ -12008,7 +12013,7 @@ GameFramework.widgets.ClassicWidgetAppState = function() {
 	this.Vh = this.Al = null;
 	this.zB = [];
 	this.iH = Array.O(GameFramework.la.VZ | 0, null);
-	E(GameFramework.widgets.ClassicWidgetAppState, this);
+	callSuperConstructor(GameFramework.widgets.ClassicWidgetAppState, this);
 	this.fe.wd = this
 };
 GameFramework.widgets.ClassicWidgetAppState.prototype = {
@@ -12113,7 +12118,7 @@ addClassInitEntry(function() {
 			GameFramework.widgets.ClassicWidgetAppState.initClass()
 		});
 GameFramework.widgets.DialogEvent = function(b, c) {
-	E(GameFramework.widgets.DialogEvent, this, [b]);
+	callSuperConstructor(GameFramework.widgets.DialogEvent, this, [b]);
 	this.E7 = c
 };
 GameFramework.widgets.DialogEvent.prototype = {
@@ -12138,7 +12143,7 @@ GameFramework.widgets.Dialog = function(b, c, d, f, g, h, j) {
 			4294967295, 4294967295);
 	this.Df = new GameFramework.Insets;
 	this.Fd = new GameFramework.Insets;
-	E(GameFramework.widgets.Dialog, this);
+	callSuperConstructor(GameFramework.widgets.Dialog, this);
 	this.Fi = 2147483647;
 	this.gr = b;
 	this.zl = this.EY = false;
@@ -12420,7 +12425,7 @@ GameFramework.widgets.EditWidget = function() {
 	this.BI = [];
 	this.pe = Array.O(5, null, 4294967295, 4278190080, 4278190080, 4278190080,
 			4294967295);
-	E(GameFramework.widgets.EditWidget, this);
+	callSuperConstructor(GameFramework.widgets.EditWidget, this);
 	this.U = null;
 	this.uN = false;
 	this.xr = this.bc = -1;
@@ -12796,7 +12801,7 @@ Game.Slider = function(b, c) {
 	b === UNDEF && (b = null);
 	c === UNDEF && (c = null);
 	this.p9 = null;
-	E(Game.Slider, this);
+	callSuperConstructor(Game.Slider, this);
 	this.as = b;
 	this.Dh = c;
 	this.as != null
@@ -12907,7 +12912,7 @@ addClassInitEntry(function() {
 			Game.Slider.initClass()
 		});
 GameFramework.widgets.WidgetEvent = function(b) {
-	E(GameFramework.widgets.WidgetEvent, this, [b])
+	callSuperConstructor(GameFramework.widgets.WidgetEvent, this, [b])
 };
 GameFramework.widgets.WidgetEvent.prototype = {
 	w : 0,
@@ -12941,7 +12946,7 @@ GameFramework = Type.ci("GameFramework");
 GameFramework.JSBaseApp = function() {
 	this.tN = {};
 	this.NB = {};
-	E(GameFramework.JSBaseApp, this);
+	callSuperConstructor(GameFramework.JSBaseApp, this);
 	GameFramework.JSBaseApp.Cx = this;
 	this.RN = GameFramework.Utils.bootTime()
 };
@@ -13298,7 +13303,7 @@ addClassInitEntry(function() {
 			GameFramework.JSBaseApp.initClass()
 		});
 GameFramework.JSDataBufferData = function() {
-	E(GameFramework.JSDataBufferData, this)
+	callSuperConstructor(GameFramework.JSDataBufferData, this)
 };
 GameFramework.JSDataBufferData.prototype = {
 	Ya : null,
@@ -13351,7 +13356,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.gfx = Type.ci("GameFramework.gfx");
 GameFramework.gfx.JSGraphics = function(b, c) {
-	E(GameFramework.gfx.JSGraphics, this, [b, c])
+	callSuperConstructor(GameFramework.gfx.JSGraphics, this, [b, c])
 };
 GameFramework.gfx.JSGraphics.prototype = {
 	Am : 0,
@@ -13536,7 +13541,7 @@ GameFramework.gfx.JSGraphics3D = function(b) {
 	this.CO = new GameFramework.geom.Matrix3D;
 	this.pP = Array.O(3, 3, false, false, false);
 	this.qP = Array.O(3, 3, false, false, false);
-	E(GameFramework.gfx.JSGraphics3D, this, [b])
+	callSuperConstructor(GameFramework.gfx.JSGraphics3D, this, [b])
 };
 GameFramework.gfx.JSGraphics3D.prototype = {
 	mP : null,
@@ -13658,7 +13663,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources = Type.ci("GameFramework.resources");
 GameFramework.resources.JSImageInst = function(b) {
-	E(GameFramework.resources.JSImageInst, this, [b])
+	callSuperConstructor(GameFramework.resources.JSImageInst, this, [b])
 };
 GameFramework.resources.JSImageInst.prototype = {
 	Og : function(b, c, d, f) {
@@ -13701,7 +13706,7 @@ addClassInitEntry(function() {
 			GameFramework.resources.JSImageInst.initClass()
 		});
 GameFramework.resources.JSImageResource = function() {
-	E(GameFramework.resources.JSImageResource, this)
+	callSuperConstructor(GameFramework.resources.JSImageResource, this)
 };
 GameFramework.resources.JSImageResource.prototype = {
 	ym : null,
@@ -13771,7 +13776,7 @@ addClassInitEntry(function() {
 			GameFramework.resources.JSImageResource.initClass()
 		});
 GameFramework.resources.JSMeshPiece = function() {
-	E(GameFramework.resources.JSMeshPiece, this)
+	callSuperConstructor(GameFramework.resources.JSMeshPiece, this)
 };
 GameFramework.resources.JSMeshPiece.prototype = {
 	js : null,
@@ -13790,7 +13795,7 @@ addClassInitEntry(function() {
 			GameFramework.resources.JSMeshPiece.initClass()
 		});
 GameFramework.resources.JSMeshResource = function() {
-	E(GameFramework.resources.JSMeshResource, this)
+	callSuperConstructor(GameFramework.resources.JSMeshResource, this)
 };
 GameFramework.resources.JSMeshResource.prototype = {
 	BE : function(b, c) {
@@ -13902,7 +13907,7 @@ addClassInitEntry(function() {
 			GameFramework.resources.JSRenderEffectTechnique.initClass()
 		});
 GameFramework.resources.JSRenderEffectRunHandle = function(b) {
-	E(GameFramework.resources.JSRenderEffectRunHandle, this, [b])
+	callSuperConstructor(GameFramework.resources.JSRenderEffectRunHandle, this, [b])
 };
 GameFramework.resources.JSRenderEffectRunHandle.prototype = {
 	IY : null
@@ -13919,7 +13924,7 @@ addClassInitEntry(function() {
 GameFramework.resources.JSRenderEffect = function() {
 	this.ro = {};
 	this.bP = {};
-	E(GameFramework.resources.JSRenderEffect, this)
+	callSuperConstructor(GameFramework.resources.JSRenderEffect, this)
 };
 GameFramework.resources.JSRenderEffect.prototype = {
 	yd : null,
@@ -14084,7 +14089,7 @@ addClassInitEntry(function() {
 			GameFramework.resources.JSRenderEffect.initClass()
 		});
 GameFramework.resources.JSResourceManager = function() {
-	E(GameFramework.resources.JSResourceManager, this)
+	callSuperConstructor(GameFramework.resources.JSResourceManager, this)
 };
 GameFramework.resources.JSResourceManager.prototype = {
 	dp : function(b, c) {
@@ -14185,7 +14190,7 @@ addClassInitEntry(function() {
 			GameFramework.resources.JSResourceManager.initClass()
 		});
 GameFramework.resources.JSSoundInstance = function(b) {
-	E(GameFramework.resources.JSSoundInstance, this, [b]);
+	callSuperConstructor(GameFramework.resources.JSSoundInstance, this, [b]);
 	this.JN = b
 };
 GameFramework.resources.JSSoundInstance.prototype = {
@@ -14240,7 +14245,7 @@ addClassInitEntry(function() {
 			GameFramework.resources.JSSoundInstance.initClass()
 		});
 GameFramework.resources.JSSoundResource = function() {
-	E(GameFramework.resources.JSSoundResource, this)
+	callSuperConstructor(GameFramework.resources.JSSoundResource, this)
 };
 GameFramework.resources.JSSoundResource.prototype = {
 	WW : null
@@ -14342,7 +14347,7 @@ Game.Background = function() {
 	this.qI = new GameFramework.CurvedVal;
 	this.yp = new GameFramework.CurvedVal;
 	this.JW = new GameFramework.CurvedVal;
-	E(Game.Background, this);
+	callSuperConstructor(Game.Background, this);
 	this.Hk = false;
 	this.yp.Aa(1);
 	this.CX = true;
@@ -14530,7 +14535,7 @@ addClassInitEntry(function() {
 			Game.Background.initClass()
 		});
 Game.Bej3Button = function(b) {
-	E(Game.Bej3Button, this, [b])
+	callSuperConstructor(Game.Bej3Button, this, [b])
 };
 Game.Bej3Button.prototype = {
 	m : 1,
@@ -14548,7 +14553,7 @@ addClassInitEntry(function() {
 			Game.Bej3Button.initClass()
 		});
 Game.Bej3DialogButton = function(b) {
-	E(Game.Bej3DialogButton, this, [b]);
+	callSuperConstructor(Game.Bej3DialogButton, this, [b]);
 	this.L = 1;
 	this.kb(Game.Resources.FONT_DIALOG_BUTTONS);
 	this.wb = Game.Resources.IMAGE_DIALOG_BUTTON;
@@ -14597,7 +14602,7 @@ Game.Bej3Dialog = function(b, c, d, f, g, h, j, k) {
 	this.m = new GameFramework.CurvedVal;
 	this.L = new GameFramework.CurvedVal;
 	this.B8 = [];
-	E(Game.Bej3Dialog, this, [b, c, f, g, h, j, k]);
+	callSuperConstructor(Game.Bej3Dialog, this, [b, c, f, g, h, j, k]);
 	this.PM = d;
 	this.Pt = -1;
 	this.YV = this.zl = false;
@@ -14717,7 +14722,7 @@ addClassEntry(function() {
 			Game.Bej3Dialog.gg.initClass()
 		});
 Game.LoadingError = function(b) {
-	E(Game.LoadingError, this, [b]);
+	callSuperConstructor(Game.LoadingError, this, [b]);
 	this.uW = b
 };
 Game.LoadingError.prototype = {
@@ -14733,7 +14738,7 @@ addClassInitEntry(function() {
 			Game.LoadingError.initClass()
 		});
 Game.ScalingIconButton = function() {
-	E(Game.ScalingIconButton, this)
+	callSuperConstructor(Game.ScalingIconButton, this)
 };
 Game.ScalingIconButton.prototype = {
 	aX : null,
@@ -14787,7 +14792,7 @@ addClassInitEntry(function() {
 		});
 Game.TopWidget = function() {
 	this.ag = new Game.Messager;
-	E(Game.TopWidget, this)
+	callSuperConstructor(Game.TopWidget, this)
 };
 Game.TopWidget.prototype = {
 	ag : null,
@@ -14843,7 +14848,7 @@ Game.BejApp = function() {
 	this.Sn = [];
 	this.Jp = new Game.Metrics;
 	this.by = [];
-	E(Game.BejApp, this);
+	callSuperConstructor(Game.BejApp, this);
 	S(Game.BejApp.q == null);
 	this.Le = 1E3 / 60;
 	this.lH = 1600;
@@ -16191,7 +16196,7 @@ Game.Board = function() {
 	this.I7 = [];
 	this.zj = [];
 	this.EL = Array.O(6, 0, 3, 6, 12, 20, 30, 45);
-	E(Game.Board, this);
+	callSuperConstructor(Game.Board, this);
 	this.Ef = Game.Util.aK(Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD) + this.is;
 	this.tM = Game.Util.bK(Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD) - 60;
 	this.OO = false;
@@ -21050,7 +21055,7 @@ addClassEntry(function() {
 			Game.Board.Pi.initClass()
 		});
 Game.ClassicBoard = function(b) {
-	E(Game.ClassicBoard, this, [b]);
+	callSuperConstructor(Game.ClassicBoard, this, [b]);
 	this.Ef = Game.Util.aK(Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC)
 			+ this.is;
 	this.tM = Game.Util.bK(Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC) - 60
@@ -21215,7 +21220,7 @@ addClassInitEntry(function() {
 			Game.ClassicBoard.initClass()
 		});
 Game.ClassicEndLevelDialog = function(b) {
-	E(Game.ClassicEndLevelDialog, this, [b]);
+	callSuperConstructor(Game.ClassicEndLevelDialog, this, [b]);
 	this.n7 = b;
 	this.U2(-40);
 	this.Gl.v += 30
@@ -21393,7 +21398,7 @@ Game.CrystalBall = function(b, c) {
 	this.HG = Array.O(Game.CrystalBall.Yk + 1, null);
 	this.YH = Array.O(Game.CrystalBall.Yk + 1, null);
 	this.uG = Array.O(Game.CrystalBall.Yk + 1, null);
-	E(Game.CrystalBall, this, [c]);
+	callSuperConstructor(Game.CrystalBall, this, [c]);
 	this.Pt = -1;
 	this.m.Aa(0.17);
 	this.eg = 0;
@@ -21675,7 +21680,7 @@ Game.DialogMgr = function() {
 	this.se = [];
 	this.BB = {};
 	this.Ht = GameFramework.CurvedVal.qs(0);
-	E(Game.DialogMgr, this);
+	callSuperConstructor(Game.DialogMgr, this);
 	S(Game.DialogMgr.te == null);
 	Game.DialogMgr.te = this
 };
@@ -22009,7 +22014,7 @@ addClassEntry(function() {
 			Game.Effect.K.initClass()
 		});
 Game.TextNotifyEffect = function() {
-	E(Game.TextNotifyEffect, this, [Game.Effect.da.Py]);
+	callSuperConstructor(Game.TextNotifyEffect, this, [Game.Effect.da.Py]);
 	this.aa = 0;
 	this.ZM = 200;
 	this.U = Game.Resources.FONT_HUGE;
@@ -22044,7 +22049,7 @@ addClassInitEntry(function() {
 			Game.TextNotifyEffect.initClass()
 		});
 Game.ParticleEffect = function(b) {
-	E(Game.ParticleEffect, this, [Game.Effect.da.PI]);
+	callSuperConstructor(Game.ParticleEffect, this, [Game.Effect.da.PI]);
 	this.mg = b.gi();
 	this.lr = false;
 	this.Ic = 0;
@@ -22120,7 +22125,7 @@ addClassInitEntry(function() {
 			Game.ParticleEffect.initClass()
 		});
 Game.PopAnimEffect = function(b) {
-	E(Game.PopAnimEffect, this, [Game.Effect.da.BK]);
+	callSuperConstructor(Game.PopAnimEffect, this, [Game.Effect.da.BK]);
 	this.Bk = b.gi();
 	this.Ic = 0;
 	this.yW = true
@@ -22174,7 +22179,7 @@ addClassInitEntry(function() {
 		});
 Game.EffectsManager = function(b) {
 	this.Sh = Array.O(Game.Effect.da.Jh | 0, null);
-	E(Game.EffectsManager, this);
+	callSuperConstructor(Game.EffectsManager, this);
 	this.e = b;
 	this.G7 = this.c7 = false;
 	this.L = 1;
@@ -22590,7 +22595,7 @@ addClassInitEntry(function() {
 			Game.EffectsManager.initClass()
 		});
 Game.Bej3EditWidget = function() {
-	E(Game.Bej3EditWidget, this);
+	callSuperConstructor(Game.Bej3EditWidget, this);
 	this.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 	GameFramework.BaseApp.M.kc()
 			|| (this.pe[GameFramework.widgets.EditWidget.CD] = 4285554768, this.pe[GameFramework.widgets.EditWidget.TI] = 4278190080, this.pe[GameFramework.widgets.EditWidget.SP] = 4294967295)
@@ -22637,7 +22642,7 @@ Game.EndLevelDialog = function(b) {
 	this.Jd = new GameFramework.CurvedVal;
 	this.ho = new GameFramework.CurvedVal;
 	this.E8 = new GameFramework.CurvedVal;
-	E(Game.EndLevelDialog, this, [null, null, Game.DM.mb.uJ, true, "", "", "", 0]);
+	callSuperConstructor(Game.EndLevelDialog, this, [null, null, Game.DM.mb.uJ, true, "", "", "", 0]);
 	this.e = b;
 	this.e.Qd.length = this.e.Qd.length;
 	for (b = 0; b < this.e.Qd.length; ++b) {
@@ -26705,7 +26710,7 @@ Game.HintDialog = function(b, c, d, f, g) {
 	g === UNDEF && (g = true);
 	this.Lp = GameFramework.CurvedVal.qs(0);
 	this.wo = Game.DM.Xa.NONE;
-	E(Game.HintDialog, this, [
+	callSuperConstructor(Game.HintDialog, this, [
 					f
 							? Game.Resources.IMAGE_DIALOG_BACKGROUND
 							: Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG,
@@ -27023,7 +27028,7 @@ addClassInitEntry(function() {
 			Game.HyperMaterial.initClass()
 		});
 Game.Hyperspace = function() {
-	E(Game.Hyperspace, this)
+	callSuperConstructor(Game.Hyperspace, this)
 };
 Game.Hyperspace.prototype = {
 	Yc : x(1)
@@ -27065,7 +27070,7 @@ Game.HyperspaceUltra = function(b) {
 	this.oY = new GameFramework.CurvedVal;
 	this.Qp = new GameFramework.CurvedVal;
 	this.np = new GameFramework.geom.Vector3;
-	E(Game.HyperspaceUltra, this);
+	callSuperConstructor(Game.HyperspaceUltra, this);
 	this.ae = Game.BejApp.q.AN[0];
 	this.ae.Vg();
 	this.si.Ub(this.OR(), GameFramework.BaseApp.M.s / GameFramework.BaseApp.M.z, 100, this
@@ -27808,7 +27813,7 @@ Game.HyperspaceFallback = function(b) {
 	this.fP = new GameFramework.CurvedVal;
 	this.oM = new GameFramework.CurvedVal;
 	this.AO = new GameFramework.CurvedVal;
-	E(Game.HyperspaceFallback, this);
+	callSuperConstructor(Game.HyperspaceFallback, this);
 	this.e = this.e = b;
 	this.KB = new Game.CrystalBall("", 0);
 	this.ty = new Game.CrystalBall("", 0);
@@ -27894,7 +27899,7 @@ addClassInitEntry(function() {
 			Game.HyperspaceFallback.initClass()
 		});
 Game.IconButton = function() {
-	E(Game.IconButton, this)
+	callSuperConstructor(Game.IconButton, this)
 };
 Game.IconButton.prototype = {
 	Oa : null,
@@ -27913,7 +27918,7 @@ addClassInitEntry(function() {
 			Game.IconButton.initClass()
 		});
 Game.LoadingScreen = function(b) {
-	E(Game.LoadingScreen, this);
+	callSuperConstructor(Game.LoadingScreen, this);
 	this.M = b
 };
 Game.LoadingScreen.prototype = {
@@ -27973,7 +27978,7 @@ addClassInitEntry(function() {
 		});
 Game.CurvedAlphaButton = function() {
 	this.eM = GameFramework.CurvedVal.qs(1);
-	E(Game.CurvedAlphaButton, this)
+	callSuperConstructor(Game.CurvedAlphaButton, this)
 };
 Game.CurvedAlphaButton.prototype = {
 	eM : null,
@@ -27990,7 +27995,7 @@ addClassInitEntry(function() {
 			Game.CurvedAlphaButton.initClass()
 		});
 Game.FrameButton = function() {
-	E(Game.FrameButton, this)
+	callSuperConstructor(Game.FrameButton, this)
 };
 Game.FrameButton.prototype = {
 	ja : function(b) {
@@ -28008,7 +28013,7 @@ addClassInitEntry(function() {
 		});
 Game.TextButton = function(b, c) {
 	this.LO = new GameFramework.CurvedVal;
-	E(Game.TextButton, this, [c]);
+	callSuperConstructor(Game.TextButton, this, [c]);
 	this.U = Game.Resources.FONT_MENU_BTN;
 	this.LO.Aa(1);
 	this.Re = b;
@@ -28082,7 +28087,7 @@ Game.MainMenu = function() {
 	this.ru = GameFramework.CurvedVal.qs(0);
 	this.Vt = GameFramework.CurvedVal.qs(0);
 	this.Z_ = new GameFramework.CurvedVal("b;0,1,0.01,5,####  ,####K~###      ^~###m####");
-	E(Game.MainMenu, this);
+	callSuperConstructor(Game.MainMenu, this);
 	Game.BejApp.q.Ka.A2();
 	this.xH = true;
 	this.lB.Aa(0);
@@ -28968,7 +28973,7 @@ addClassInitEntry(function() {
 			Game.MTRand.initClass()
 		});
 Game.OptionsDialog = function(b) {
-	E(Game.OptionsDialog, this, [Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG,
+	callSuperConstructor(Game.OptionsDialog, this, [Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG,
 					Game.Resources.IMAGE_DIALOG_BUTTON, Game.DM.mb.bA, true, "", "", "",
 					GameFramework.widgets.Dialog.Zp]);
 	this.tI = !Game.BejApp.q.$f && Game.BejApp.q.kc() || !Game.BejApp.q.Ka.vt;
@@ -29747,7 +29752,7 @@ Game.PointsManager = function() {
 					255, 0, 255), new GameFramework.gfx.Color(0, 255, 255, 255),
 			new GameFramework.gfx.Color(0, 0, 255, 255), new GameFramework.gfx.Color(255,
 					0, 255, 255));
-	E(Game.PointsManager, this);
+	callSuperConstructor(Game.PointsManager, this);
 	this.yk = false;
 	this.N8 = 1
 };
@@ -30012,7 +30017,7 @@ addClassInitEntry(function() {
 		});
 Game.RankBarWidget = function(b, c, d, f) {
 	this.$x = new GameFramework.CurvedVal;
-	E(Game.RankBarWidget, this);
+	callSuperConstructor(Game.RankBarWidget, this);
 	this.e = c;
 	this.FO = d;
 	this.AW = f;
@@ -30149,7 +30154,7 @@ addClassInitEntry(function() {
 		});
 Game.RankUpDialog = function(b) {
 	this.KC = new GameFramework.CurvedVal;
-	E(Game.RankUpDialog, this, [null, Game.Resources.IMAGE_DIALOG_BUTTON, Game.DM.mb.w3, true,
+	callSuperConstructor(Game.RankUpDialog, this, [null, Game.Resources.IMAGE_DIALOG_BUTTON, Game.DM.mb.w3, true,
 					"RANK UP", "", "", GameFramework.widgets.Dialog.Zp]);
 	this.e = b;
 	this.Fd.Um = 17;
@@ -30249,7 +30254,7 @@ Game.RecordsDialog = function(b) {
 	b === UNDEF && (b = false);
 	this.UO = [];
 	this.FM = [];
-	E(Game.RecordsDialog, this, [Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG,
+	callSuperConstructor(Game.RecordsDialog, this, [Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG,
 					Game.Resources.IMAGE_DIALOG_BUTTON, Game.DM.mb.vT, true, "", "", "",
 					GameFramework.widgets.Dialog.Zp]);
 	this.LB = b;
@@ -31846,7 +31851,7 @@ Game.SpeedBoard = function(b) {
 	this.rG = new GameFramework.CurvedVal;
 	this.jI = new GameFramework.CurvedVal;
 	this.$n = new GameFramework.CurvedVal;
-	E(Game.SpeedBoard, this, [b]);
+	callSuperConstructor(Game.SpeedBoard, this, [b]);
 	this.OO = true;
 	this.Ux = new GameFramework.geom.TPoint(0, 50);
 	this.yo = Game.Board.Pi.Dw;
@@ -32710,7 +32715,7 @@ addClassInitEntry(function() {
 Game.TimeBonusEffectTop = function(b) {
 	this.Aj = new GameFramework.CurvedVal;
 	this.Lm = new GameFramework.CurvedVal;
-	E(Game.TimeBonusEffectTop, this, [Game.Effect.da.yL]);
+	callSuperConstructor(Game.TimeBonusEffectTop, this, [Game.Effect.da.yL]);
 	this.qd = b.xa;
 	this.Kj = b.n;
 	this.Tm = b.qe;
@@ -32800,7 +32805,7 @@ addClassInitEntry(function() {
 Game.TimeBonusEffect = function(b) {
 	this.Aj = new GameFramework.CurvedVal;
 	this.Lm = new GameFramework.CurvedVal;
-	E(Game.TimeBonusEffect, this, [Game.Effect.da.Yg]);
+	callSuperConstructor(Game.TimeBonusEffect, this, [Game.Effect.da.Yg]);
 	this.sm = [];
 	this.qd = b.xa;
 	this.Kj = b.n;
@@ -33212,7 +33217,7 @@ Game.SpeedCollectEffect = function(b, c, d, f, g) {
 	this.Lg = new GameFramework.geom.TIntPoint;
 	this.qy = new GameFramework.geom.TIntPoint;
 	this.co = new GameFramework.geom.TIntPoint;
-	E(Game.SpeedCollectEffect, this, [Game.Effect.da.Py]);
+	callSuperConstructor(Game.SpeedCollectEffect, this, [Game.Effect.da.Py]);
 	this.MY = f;
 	this.e = b;
 	this.w = c.x;
@@ -33329,7 +33334,7 @@ addClassInitEntry(function() {
 		});
 Game.LightningBarFillEffect = function() {
 	this.Z = Array.Sd(Game.LightningBarFillEffect.Xk, 2, null);
-	E(Game.LightningBarFillEffect, this, [Game.Effect.da.Py]);
+	callSuperConstructor(Game.LightningBarFillEffect, this, [Game.Effect.da.Py]);
 	for (var b = this.Zh = 0; b < Game.LightningBarFillEffect.Xk; ++b)
 		for (var c = 0; c < 2; ++c)
 			this.Z[this.Z.g * b + c] = new GameFramework.geom.TPoint
@@ -33469,7 +33474,7 @@ addClassInitEntry(function() {
 			Game.LightningBarFillEffect.initClass()
 		});
 Game.SpeedEndLevelDialog = function(b) {
-	E(Game.SpeedEndLevelDialog, this, [b]);
+	callSuperConstructor(Game.SpeedEndLevelDialog, this, [b]);
 	this.BY = b;
 	this.$r = this.BY.$r
 };
@@ -33612,7 +33617,7 @@ Game.TooltipManager = function() {
 	this.uy = [];
 	this.L = new GameFramework.CurvedVal;
 	this.MV = new GameFramework.CurvedVal;
-	E(Game.TooltipManager, this);
+	callSuperConstructor(Game.TooltipManager, this);
 	this.L.ea("b+0,1,0.01,1,####         ~~###");
 	this.MV.Aa(-16)
 };
