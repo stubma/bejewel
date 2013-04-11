@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="" />
+    <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bejeweled_min.js" afterPath="$PROJECT_DIR$/js/Bejeweled_min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="bejewel.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365264647261" ignored="false" />
     <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365648807624" ignored="false" />
-    <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365665976328" ignored="false" />
+    <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365671807619" ignored="false" />
     <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365408132098" ignored="false" />
     <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365646287390" ignored="false" />
     <file path="/fragment.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365649094461" ignored="false" />
@@ -33,7 +36,16 @@
       <file leaf-file-name="Bejeweled_min.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15113" column="41" selection-start="441152" selection-end="441152" vertical-scroll-proportion="0.8841808">
+            <state line="13095" column="4" selection-start="376171" selection-end="376171" vertical-scroll-proportion="0.37846154">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resources.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/properties/resources.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1179" column="30" selection-start="305178" selection-end="305197" vertical-scroll-proportion="-10.538462">
               <folding />
             </state>
           </provider>
@@ -51,7 +63,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="190" column="18" selection-start="6894" selection-end="6894" vertical-scroll-proportion="-2.7818182">
+            <state line="190" column="20" selection-start="6896" selection-end="6896" vertical-scroll-proportion="-2.7818182">
               <folding />
             </state>
           </provider>
@@ -331,7 +343,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23239437" sideWeight="0.6119186" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3880814" sideWeight="0.9971831" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3880814" sideWeight="0.9971831" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978156" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -407,10 +419,22 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/Bejeweled_min.js</url>
+          <line>27982</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/Bejeweled_min.js</url>
+          <line>11068</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="89" />
+      <option name="time" value="95" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -447,11 +471,6 @@
     <entry file="http://127.0.0.1/~maruojie/bejewel/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/properties/resources.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1188" column="22" selection-start="307005" selection-end="307017" vertical-scroll-proportion="0.02688172" />
       </provider>
     </entry>
     <entry file="http://127.0.0.1/~maruojie/bejewel/js/main.js">
@@ -494,14 +513,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="190" column="18" selection-start="6894" selection-end="6894" vertical-scroll-proportion="-2.7818182">
+        <state line="190" column="20" selection-start="6896" selection-end="6896" vertical-scroll-proportion="-2.7818182">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/properties/resources.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1179" column="30" selection-start="305178" selection-end="305197" vertical-scroll-proportion="-10.538462">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15113" column="41" selection-start="441152" selection-end="441152" vertical-scroll-proportion="0.8841808">
+        <state line="13095" column="4" selection-start="376171" selection-end="376171" vertical-scroll-proportion="0.37846154">
           <folding />
         </state>
       </provider>
