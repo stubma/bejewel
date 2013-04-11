@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bejeweled_min.js" afterPath="$PROJECT_DIR$/js/Bejeweled_min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bejewel.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365264647261" ignored="false" />
-    <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365648807624" ignored="false" />
-    <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365671807619" ignored="false" />
+    <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365690627267" ignored="false" />
+    <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365681347481" ignored="false" />
     <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365408132098" ignored="false" />
-    <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365646287390" ignored="false" />
-    <file path="/fragment.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365649094461" ignored="false" />
+    <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365675307726" ignored="false" />
+    <file path="/fragment.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365684814483" ignored="false" />
     <file path="/main.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365670021547" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,10 +33,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Bejeweled_min.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Bejeweled_min.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13095" column="4" selection-start="376171" selection-end="376171" vertical-scroll-proportion="0.37846154">
+            <state line="1629" column="1" selection-start="39938" selection-end="39938" vertical-scroll-proportion="-3.0727272">
               <folding />
             </state>
           </provider>
@@ -45,17 +45,84 @@
       <file leaf-file-name="resources.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/properties/resources.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1179" column="30" selection-start="305178" selection-end="305197" vertical-scroll-proportion="-10.538462">
+            <state line="1179" column="30" selection-start="305178" selection-end="305197" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="330" column="70" selection-start="8795" selection-end="8795" vertical-scroll-proportion="4.0">
-              <folding />
+            <state line="349" column="48" selection-start="9337" selection-end="9337" vertical-scroll-proportion="0.67332125">
+              <folding>
+                <element signature="n#style#0;n#img#0;n#a#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery-1.9.1.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/jquery-1.9.1.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="95" column="26" selection-start="2730" selection-end="2730" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="soundmanager2.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/soundmanager2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="39" selection-start="1178" selection-end="1178" vertical-scroll-proportion="-1.8545455">
+              <folding>
+                <marker date="1365690509000" expanded="true" signature="355:481" placeholder="/*...*/" />
+                <marker date="1365690509000" expanded="true" signature="475:567" placeholder="/*...*/" />
+                <marker date="1365690509000" expanded="true" signature="17445:17474" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="18884:18982" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="21228:21675" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="23949:23967" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="27168:27724" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="29173:29233" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="35816:35882" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="39255:40048" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="40623:40656" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="41327:41463" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="44102:44349" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="44759:44917" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="50954:52325" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="51006:51252" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="57374:57933" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="59144:59560" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="60935:61142" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="61746:61871" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="62965:63158" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="66618:67482" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="72710:72778" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="77388:81795" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="81314:81631" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="81397:81576" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="82857:82922" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="86990:86999" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="87480:87517" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="87528:87575" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="88071:88125" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="89867:89904" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="92644:93406" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="94303:94482" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="94357:94443" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="102498:102529" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="103938:104089" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="109406:109416" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="111502:111763" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="111790:112304" placeholder="{...}" />
+                <marker date="1365690509000" expanded="true" signature="114011:114053" placeholder="/** SoundManager public interfaces ...*/" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,7 +130,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="190" column="20" selection-start="6896" selection-end="6896" vertical-scroll-proportion="-2.7818182">
+            <state line="219" column="52" selection-start="0" selection-end="8082" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -90,20 +157,21 @@
         <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/jquery-1.7.1.min.js" />
         <option value="$PROJECT_DIR$/js/ga.js" />
-        <option value="$PROJECT_DIR$/js/soundmanager2.js" />
         <option value="127.0.0.1/~maruojie/bejewel/js/main.js" />
         <option value="127.0.0.1/~maruojie/bejewel/js/Bejeweled_min.js" />
-        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/Bejeweled_min.js" />
+        <option value="$PROJECT_DIR$/js/jquery-1.7.1.min.js" />
+        <option value="$PROJECT_DIR$/js/soundmanager2.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-3" />
     <option name="y" value="22" />
-    <option name="width" value="1443" />
-    <option name="height" value="806" />
+    <option name="width" value="1920" />
+    <option name="height" value="1102" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -171,6 +239,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -205,7 +274,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,12 +289,12 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
-  <component name="PublishConfig" serverName="bejewel" serverId="1023d2e0-dc51-460f-a38a-56af74d77352">
+  <component name="PublishConfig" serverName="bejewel" serverId="3d1b4129-d0b0-41a7-9d36-b570f0ce44d7">
     <servers>
-      <server id="1023d2e0-dc51-460f-a38a-56af74d77352">
+      <server id="3d1b4129-d0b0-41a7-9d36-b570f0ce44d7">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="~maruojie/bejewel" />
@@ -336,14 +404,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="22" width="1443" height="806" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1920" height="1102" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32825205" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23239437" sideWeight="0.6119186" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3880814" sideWeight="0.9971831" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23194517" sideWeight="0.6128049" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3871951" sideWeight="0.9971831" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978156" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -352,7 +421,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32848838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.60901165" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32994187" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -419,43 +487,16 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/Bejeweled_min.js</url>
-          <line>27982</line>
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/Bejeweled_min.js</url>
-          <line>11068</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="95" />
+      <option name="time" value="99" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/img/pillars_left_top.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/AJAX.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="25" selection-start="1372" selection-end="1372" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMCore.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="243" column="33" selection-start="4913" selection-end="4927" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/soundmanager2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3303" column="14" selection-start="84831" selection-end="84831" vertical-scroll-proportion="0.7191977" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
@@ -483,13 +524,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/jquery-1.7.1.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="774" column="271" selection-start="37987" selection-end="37988" vertical-scroll-proportion="0.33267328">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="880" column="9" selection-start="13727" selection-end="13727" vertical-scroll-proportion="0.0">
@@ -499,36 +533,104 @@
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1660" column="9" selection-start="29226" selection-end="29226" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="330" column="70" selection-start="8795" selection-end="8795" vertical-scroll-proportion="4.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="190" column="20" selection-start="6896" selection-end="6896" vertical-scroll-proportion="-2.7818182">
-          <folding />
-        </state>
+        <state line="1660" column="9" selection-start="29226" selection-end="29226" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/properties/resources.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1179" column="30" selection-start="305178" selection-end="305197" vertical-scroll-proportion="-10.538462">
+        <state line="1179" column="30" selection-start="305178" selection-end="305197" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="27" selection-start="44" selection-end="44" vertical-scroll-proportion="0.07826087">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13095" column="4" selection-start="376171" selection-end="376171" vertical-scroll-proportion="0.37846154">
+        <state line="1629" column="1" selection-start="39938" selection-end="39938" vertical-scroll-proportion="-3.0727272">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="219" column="52" selection-start="0" selection-end="8082" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/soundmanager2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="39" selection-start="1178" selection-end="1178" vertical-scroll-proportion="-1.8545455">
+          <folding>
+            <marker date="1365690509000" expanded="true" signature="355:481" placeholder="/*...*/" />
+            <marker date="1365690509000" expanded="true" signature="475:567" placeholder="/*...*/" />
+            <marker date="1365690509000" expanded="true" signature="17445:17474" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="18884:18982" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="21228:21675" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="23949:23967" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="27168:27724" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="29173:29233" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="35816:35882" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="39255:40048" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="40623:40656" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="41327:41463" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="44102:44349" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="44759:44917" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="50954:52325" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="51006:51252" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="57374:57933" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="59144:59560" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="60935:61142" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="61746:61871" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="62965:63158" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="66618:67482" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="72710:72778" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="77388:81795" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="81314:81631" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="81397:81576" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="82857:82922" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="86990:86999" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="87480:87517" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="87528:87575" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="88071:88125" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="89867:89904" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="92644:93406" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="94303:94482" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="94357:94443" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="102498:102529" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="103938:104089" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="109406:109416" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="111502:111763" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="111790:112304" placeholder="{...}" />
+            <marker date="1365690509000" expanded="true" signature="114011:114053" placeholder="/** SoundManager public interfaces ...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery-1.9.1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="26" selection-start="2730" selection-end="2730" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="349" column="48" selection-start="9337" selection-end="9337" vertical-scroll-proportion="0.67332125">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
