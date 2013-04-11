@@ -218,8 +218,7 @@ gApp.setExceptionCallback(HandleException);
 
 if ((!/Chrome/.test(navigator.userAgent)) || (chrome.app.isInstalled)) {
     Startup();
-}
-else {
+} else {
     gCWSPrompt = true;
     ResizeElements();
 }
