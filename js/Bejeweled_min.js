@@ -1673,7 +1673,7 @@ ab.g6(Math.random(), document.documentElement.clientWidth,
 
 // main loop of game
 var vertexBO, vertexBuffer, vbLen = 0, colorBO, colorBuffer, cbLen = 0, lastFrameTime = (new Date).getTime(), delta = 0;
-var rb = 0.2, speedFactor = 1, tb = true, ub, vb;
+var speedFactor = 1, tb = true, ub, vb;
 function drawFrame() {
 	var now = (new Date).getTime();
 	delta += (now - lastFrameTime) * speedFactor;
@@ -1696,8 +1696,7 @@ function drawFrame() {
 		}
 		if (c && wb) {
 			gl
-					&& (ub && (gl.viewport(0, 0, ub, vb), vb = ub = 0), rb > 0.5
-							&& (rb = 0), gl.clearColor(0, 0, 0.1, 1), gl
+					&& (ub && (gl.viewport(0, 0, ub, vb), vb = ub = 0), gl.clearColor(0, 0, 0.1, 1), gl
 							.colorMask(1, 1, 1, 1), gl.clear(gl.COLOR_BUFFER_BIT), gl
 							.colorMask(1, 1, 1, 0), curTex = null);
 			context = document.getElementById("GameCanvas").getContext("2d");
