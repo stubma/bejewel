@@ -1670,7 +1670,10 @@ ab.g6(Math.random(), document.documentElement.clientWidth,
 		document.documentElement.clientHeight, window.screenX
 				? window.screenX
 				: 0, window.screenY ? window.screenY : 0);
-var vertexBO, vertexBuffer, vbLen = 0, colorBO, colorBuffer, cbLen = 0, lastFrameTime = (new Date).getTime(), delta = 0, rb = 0.2, speedFactor = 1, tb = true, ub, vb;
+
+// main loop of game
+var vertexBO, vertexBuffer, vbLen = 0, colorBO, colorBuffer, cbLen = 0, lastFrameTime = (new Date).getTime(), delta = 0;
+var rb = 0.2, speedFactor = 1, tb = true, ub, vb;
 function drawFrame() {
 	var now = (new Date).getTime();
 	delta += (now - lastFrameTime) * speedFactor;
@@ -1696,7 +1699,7 @@ function drawFrame() {
 					&& (ub && (gl.viewport(0, 0, ub, vb), vb = ub = 0), rb > 0.5
 							&& (rb = 0), gl.clearColor(0, 0, 0.1, 1), gl
 							.colorMask(1, 1, 1, 1), gl.clear(gl.COLOR_BUFFER_BIT), gl
-							.colorMask(1, 1, 1, 0), xb = null);
+							.colorMask(1, 1, 1, 0), curTex = null);
 			context = document.getElementById("GameCanvas").getContext("2d");
 			if (tb)
 				try {
@@ -1706,13 +1709,18 @@ function drawFrame() {
 				}
 			else
 				curApp.ja();
-			$b();
+
+			// flush to make them to screen
+			flushBuffer();
 			gl && (gl.colorMask(1, 1, 1, 1), gl.flush())
 		}
 	}
 	requestAnimationFrame && requestAnimationFrame(drawFrame)
 }
+
+// if requestAnimation is not available, drawFrame will be scheduled by timer
 window.JSFExt_Timer = drawFrame;
+
 function ac(b) {
 	b.which ? curApp.Bb.Tk(b.which) : curApp.Bb.Tk(b.keyCode)
 }
@@ -1842,8 +1850,10 @@ function Qc(b, c, d, f) {
 	b = Pc(b);
 	b != null && gl.uniform4f(b, c, d, f, 1)
 }
-var xb, curDepth;
-function $b() {
+
+// draw current buffer
+var curTex, curDepth;
+function flushBuffer() {
 	if (vbLen > 0 && vertexBO != UNDEF) {
 		// use current program
 		if(activeProgram != program) {
@@ -1876,11 +1886,12 @@ function $b() {
 		cbLen = vbLen = 0;
 	}
 }
+
 var Sc;
 function Tc(b, c, d, f, g, h, j, k, l, m, o, q, r, v, u) {
-	vbLen > 1E3 && $b();
-	if (xb != b || Sc != v)
-		$b(), gl.bindTexture(gl.TEXTURE_2D, b), xb = b;
+	vbLen > 1E3 && flushBuffer();
+	if (curTex != b || Sc != v)
+		flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, b), curTex = b;
 	Sc != v
 			&& (gl.blendFunc(gl.SRC_ALPHA, v ? gl.ONE : gl.ONE_MINUS_SRC_ALPHA), Sc = v);
 	b = [(u >> 16 & 255) / 255, (u >> 8 & 255) / 255, (u & 255) / 255,
@@ -13436,9 +13447,9 @@ GameFramework.gfx.JSGraphics.prototype = {
 					* this.m;
 			if (GameFramework.JSBaseApp.Cx.useGL) {
 				var l = this.n, m = Pa;
-				vbLen > 1E3 && $b();
-				if (xb != m || Sc != false)
-					$b(), gl.bindTexture(gl.TEXTURE_2D, m), xb = m;
+				vbLen > 1E3 && flushBuffer();
+				if (curTex != m || Sc != false)
+					flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, m), curTex = m;
 				Sc != false
 						&& (gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA), Sc = false);
 				l = [(l >> 16 & 255) / 255, (l >> 8 & 255) / 255,
@@ -13488,9 +13499,9 @@ GameFramework.gfx.JSGraphics.prototype = {
 						* 3 + 1].color, z = (c[d * 3 + 2].Ng * b.Hg + b.Vp)
 						/ b.Sm, A = (c[d * 3 + 2].Ob * b.Gg + b.Wp) / b.Rm, B = c[d
 						* 3 + 2].color, G = b.pc;
-				vbLen > 1E3 && $b();
-				if (xb != m || Sc != G)
-					$b(), gl.bindTexture(gl.TEXTURE_2D, m), xb = m;
+				vbLen > 1E3 && flushBuffer();
+				if (curTex != m || Sc != G)
+					flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, m), curTex = m;
 				Sc != G
 						&& (gl.blendFunc(gl.SRC_ALPHA, G
 										? gl.ONE
@@ -13532,7 +13543,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 		b === UNDEF && (b = null);
 		c === UNDEF && (c = null);
 		d === UNDEF && (d = null);
-		$b();
+		flushBuffer();
 		var f = new GameFramework.gfx.JSGraphics3D(this);
 		b != null && f.mt(b);
 		c != null && f.mt(c);
@@ -13544,7 +13555,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 		gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 		gl.disable(gl.CULL_FACE);
 		gl.disable(gl.DEPTH_TEST);
-		xb = Sc = false;
+		curTex = Sc = false;
 		writeDepth = 1;
 		gl.disableVertexAttribArray(2);
 		gl.disableVertexAttribArray(3);
@@ -13577,10 +13588,10 @@ GameFramework.gfx.JSGraphics3D.prototype = {
 		b === UNDEF && (b = 0);
 		writeDepth = b;
 		activeProgram = primaryProgram;
-		xb = false
+		curTex = false
 	},
 	vJ : function() {
-		$b()
+		flushBuffer()
 	},
 	mt : function(b) {
 		this.mP.Ni(b)
