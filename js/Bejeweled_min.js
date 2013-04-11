@@ -1575,6 +1575,7 @@ function Ya(b, c) {
 	var ajax = new XMLHttpRequest;
 	ajax.overrideMimeType || !requiresBinaryHack ? ajax.open("GET", c, true) : ajax.open("GET",
 			"file_getter.php?path=" + c, true);
+	TRACE && ss.Debug.writeln(d);
 	ajax.onreadystatechange = function() {
 		if (ajax.readyState == 4)
 			ajax.status != 200 ? b.tk = true : curApp.nk(ajax.responseText, b)
@@ -1584,14 +1585,14 @@ function Ya(b, c) {
 	ajax.send();
 	return ajax
 }
-function Za(b, c, d) {
+function Za(b, path, d) {
 	var f = d.indexOf(".utf8") != -1, ajax = new XMLHttpRequest;
 	ajax.overrideMimeType || !requiresBinaryHack || f ? ajax.open("GET", d, true) : ajax.open("GET",
 			"file_getter.php?path=" + d, true);
     TRACE && ss.Debug.writeln(d);
 	ajax.onreadystatechange = function() {
 		if (ajax.readyState == 4)
-			(ajax.status != 200 && !LOCAL_DEBUG) ? b.tk = true : curApp.KZ(c, ajax.responseText)
+			(ajax.status != 200 && !LOCAL_DEBUG) ? b.tk = true : curApp.KZ(path, ajax.responseText)
 	};
 	ajax.overrideMimeType && !f
 			&& ajax.overrideMimeType("text/plain;charset=x-user-defined");
@@ -2140,7 +2141,7 @@ addClassInitEntry(function() {
 GameFramework.BaseApp = function() {
 	this.u7 = {};
 	this.Bb = null;
-	this.GG = new GameFramework.events.EventDispatcher;
+	this.eventDispatcher = new GameFramework.events.EventDispatcher;
 	this.XM = Array.O(100, 0);
 	this.K7 = [];
 	this.M7 = {};
@@ -2169,7 +2170,7 @@ GameFramework.BaseApp.prototype = {
 	AY : null,
 	BG : null,
 	tr : null,
-	GG : null,
+	eventDispatcher : null,
 	w : 0,
 	v : 0,
 	ix : 0,
@@ -2199,13 +2200,13 @@ GameFramework.BaseApp.prototype = {
 	TV : false,
 	kc : x(false),
 	Ra : function(b, c) {
-		this.GG.Ra(b, c)
+		this.eventDispatcher.Ra(b, c)
 	},
 	xS : function(b) {
-		return this.GG.xS(b)
+		return this.eventDispatcher.xS(b)
 	},
 	ld : function(b) {
-		this.GG.ld(b)
+		this.eventDispatcher.ld(b)
 	},
 	O0 : function() {
 		if (this.bN == null) {
@@ -3910,11 +3911,11 @@ GameFramework.events.Event.prototype = {
 	target : null
 };
 GameFramework.events.Event.initClass = function() {
-	GameFramework.events.Event.kba = "cancel";
-	GameFramework.events.Event.lba = "change";
-	GameFramework.events.Event.hh = "complete";
-	GameFramework.events.Event.Wba = "enterFrame";
-	GameFramework.events.Event.Zba = "exitFrame"
+	GameFramework.events.Event.CANCEL = "cancel";
+	GameFramework.events.Event.CHANGE = "change";
+	GameFramework.events.Event.COMPLETE = "complete";
+	GameFramework.events.Event.ENTER_FRAME = "enterFrame";
+	GameFramework.events.Event.EXIT_FRAME = "exitFrame"
 };
 addClassEntry(function() {
 			GameFramework.events.Event.registerClass("GameFramework.events.Event", null)
@@ -6017,9 +6018,9 @@ GameFramework.resources.FontResource.prototype = {
 			j = k != null ? GameFramework.BaseApp.instance.vb.sw(k) : GameFramework.BaseApp.instance.vb
 					.vU(j);
 			GameFramework.BaseApp.instance.vb.gw(j);
-			j.Ra(GameFramework.events.Event.hh, ss.Delegate.create(h, h.xq));
+			j.Ra(GameFramework.events.Event.COMPLETE, ss.Delegate.create(h, h.xq));
 			c != null
-					&& (c.Uj++, j.Ra(GameFramework.events.Event.hh, ss.Delegate.create(c,
+					&& (c.Uj++, j.Ra(GameFramework.events.Event.COMPLETE, ss.Delegate.create(c,
 									c.Sy)), j.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate
 									.create(c, c.ps)));
 			h.WM = b.H();
@@ -6523,9 +6524,9 @@ GameFramework.resources.MeshResource.prototype = {
 									&& (m = GameFramework.BaseApp.instance.vb.al("images/"
 											+ GameFramework.BaseApp.instance.artRes
 											+ "/NonResize/" + o)), o = GameFramework.BaseApp.instance.vb
-									.sw(m), o.Ra(GameFramework.events.Event.hh, ss.Delegate
+									.sw(m), o.Ra(GameFramework.events.Event.COMPLETE, ss.Delegate
 											.create(l, l.xq)), o.Ra(
-									GameFramework.events.Event.hh, ss.Delegate.create(c,
+									GameFramework.events.Event.COMPLETE, ss.Delegate.create(c,
 											c.Sy)), o.Ra(
 									GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(c,
 											c.ps)), c.Uj++, GameFramework.BaseApp.instance.vb
@@ -7734,7 +7735,7 @@ GameFramework.resources.PIEffect.prototype = {
 		b = c.indexOf(String.fromCharCode(124));
 		return b != -1
 				? (c = GameFramework.BaseApp.instance.vb.sw(c.substr(b + 1)), c.Ra(
-						GameFramework.events.Event.hh, ss.Delegate.create(d, d.Sy)), c.Ra(
+						GameFramework.events.Event.COMPLETE, ss.Delegate.create(d, d.Sy)), c.Ra(
 						GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(d, d.ps)), d.Uj++, GameFramework.BaseApp.instance.vb
 						.gw(c), c)
 				: null
@@ -8266,7 +8267,7 @@ GameFramework.resources.PIEffect.prototype = {
 				this.C.Ga();
 				g.O8 = this.C.oc();
 				var j = this.ni(), k = this.e1(g.sb, j, c), j = k.Kb;
-				k.Ra(GameFramework.events.Event.hh, ss.Delegate.create(g, g.xq));
+				k.Ra(GameFramework.events.Event.COMPLETE, ss.Delegate.create(g, g.xq));
 				for (k = 0; k < h; k++) {
 					var l = new GameFramework.resources.PITextureChunk;
 					l.Ki = g;
@@ -10661,8 +10662,8 @@ GameFramework.resources.PopAnimResource.prototype = {
 			var j = h.indexOf(String.fromCharCode(124));
 			j != -1
 					? (h = h.substr(j + 1), g.dH.push(h), h = GameFramework.BaseApp.instance.vb
-							.sw(h), h.Ra(GameFramework.events.Event.hh, ss.Delegate.create(
-									g, g.xq)), h.Ra(GameFramework.events.Event.hh,
+							.sw(h), h.Ra(GameFramework.events.Event.COMPLETE, ss.Delegate.create(
+									g, g.xq)), h.Ra(GameFramework.events.Event.COMPLETE,
 							ss.Delegate.create(c, c.Sy)), h.Ra(
 							GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(c, c.ps)), c.Uj++, GameFramework.BaseApp.instance.vb
 							.gw(h))
@@ -11193,7 +11194,7 @@ GameFramework.resources.ResourceManager.prototype = {
 				g.vc = f;
 				g.Kb = d;
 				g.Uj = 1;
-				g.Ra(GameFramework.events.Event.hh, ss.Delegate.create(c, c.Sy));
+				g.Ra(GameFramework.events.Event.COMPLETE, ss.Delegate.create(c, c.Sy));
 				g.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(c, c.ps));
 				GameFramework.BaseApp.instance.Su(g);
 				c.Uj++
@@ -13059,7 +13060,7 @@ GameFramework.JSBaseApp.prototype = {
 									c.Fi = b
 								}, "text");
 				if (c.Fi != null)
-					c.ld(new GameFramework.events.Event(GameFramework.events.Event.hh)), c.fX = true
+					c.ld(new GameFramework.events.Event(GameFramework.events.Event.COMPLETE)), c.fX = true
 			}
 			c.fX && (C(this.tB, b), b--)
 		}
@@ -13133,7 +13134,7 @@ GameFramework.JSBaseApp.prototype = {
 				stream.tk
 						? stream.ld(new GameFramework.events.Event(GameFramework.events.IOErrorEvent.fk))
 						: (this.fu.JT(stream), stream
-								.ld(new GameFramework.events.Event(GameFramework.events.Event.hh))), C(
+								.ld(new GameFramework.events.Event(GameFramework.events.Event.COMPLETE))), C(
 						this.Ck, f), f--, b = true;
 			f == this.Ck.length - 1 && b && (f = -1, b = false)
 		}
@@ -14414,7 +14415,7 @@ Game.Background.pU = function(b) {
 	if (!Game.Background.Ax[b]) {
 		var c = new Game.BackgroundLoader(b), b = Game.Background.lm[b] != null ? GameFramework.BaseApp.instance.vb
 				.dl(Game.Background.lm[b]) : GameFramework.BaseApp.instance.vb.vU(Game.Background.eN[b]);
-		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(c, c.JZ));
+		b.Ra(GameFramework.events.Event.COMPLETE, ss.Delegate.create(c, c.JZ));
 		return b
 	}
 	return null
@@ -15109,7 +15110,7 @@ Game.BejApp.prototype = {
 					.Bc(this.Bi), this.Bi.ca(), this.Nh.oi(this.Bi), this.hP = new Game.TooltipManager, this.fe
 					.Bc(this.hP);
 		var b = this.vb.J4("properties/resources.xml");
-		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.M3));
+		b.Ra(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.M3));
 		b.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(this, this.Rz))
 	},
 	M3 : function(b) {
@@ -15158,13 +15159,13 @@ Game.BejApp.prototype = {
 	},
 	I4 : function() {
 		this.FN = this.vb.dl("Init");
-		this.FN.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.dK));
+		this.FN.Ra(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.dK));
 		this.FN.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(this, this.Rz))
 	},
 	dl : function(b) {
 		b = this.vb.dl(b);
 		this.Ut++;
-		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.pK));
+		b.Ra(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.pK));
 		b.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(this, this.Rz))
 	},
 	$K : function() {
@@ -15179,7 +15180,7 @@ Game.BejApp.prototype = {
 		this.Bi.dK();
 		var b = Game.Background.pU(0);
 		this.Ut++;
-		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.pK));
+		b.Ra(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.pK));
 		b.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(this, this.Rz));
 		this.dl("Gameplay");
 		this.dl("Fonts");
@@ -15190,7 +15191,7 @@ Game.BejApp.prototype = {
 		this.dl("MainMenu");
 		b = this.vb.H4(Game.Resources.z3);
 		this.Ut++;
-		b.Ra(GameFramework.events.Event.hh, ss.Delegate.create(this, this.R1));
+		b.Ra(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.R1));
 		b.Ra(GameFramework.events.IOErrorEvent.fk, ss.Delegate.create(this, this.Rz))
 	},
 	R1 : function(b) {
@@ -28899,7 +28900,7 @@ Game.Metrics.prototype = {
 	},
 	nL : function(b) {
 		GameFramework.BaseApp.instance.tr == null && GameFramework.BaseApp.instance.fJ();
-		GameFramework.BaseApp.instance.tr.sz(b).Ra(GameFramework.events.Event.hh,
+		GameFramework.BaseApp.instance.tr.sz(b).Ra(GameFramework.events.Event.COMPLETE,
 				ss.Delegate.create(this, this.v1));
 		this.mY = true
 	},
