@@ -1906,13 +1906,13 @@ function flushBuffer() {
 	}
 }
 
-var Sc;
-function Tc(b, c, d, f, g, h, j, k, l, m, o, q, r, v, u) {
+var curAdditive;
+function Tc(b, c, d, f, g, h, j, k, l, m, o, q, r, additive, u) {
 	vbLen > 1E3 && flushBuffer();
-	if (curTex != b || Sc != v)
+	if (curTex != b || curAdditive != additive)
 		flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, b), curTex = b;
-	Sc != v
-			&& (gl.blendFunc(gl.SRC_ALPHA, v ? gl.ONE : gl.ONE_MINUS_SRC_ALPHA), Sc = v);
+	curAdditive != additive
+			&& (gl.blendFunc(gl.SRC_ALPHA, additive ? gl.ONE : gl.ONE_MINUS_SRC_ALPHA), curAdditive = additive);
 	b = [(u >> 16 & 255) / 255, (u >> 8 & 255) / 255, (u & 255) / 255,
 			(u >> 24 & 255) / 255];
 	k /= q;
@@ -13467,10 +13467,10 @@ GameFramework.gfx.JSGraphics.prototype = {
 			if (GameFramework.JSBaseApp.instance.useGL) {
 				var l = this.n, m = Pa;
 				vbLen > 1E3 && flushBuffer();
-				if (curTex != m || Sc != false)
+				if (curTex != m || curAdditive != false)
 					flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, m), curTex = m;
-				Sc != false
-						&& (gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA), Sc = false);
+				curAdditive != false
+						&& (gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA), curAdditive = false);
 				l = [(l >> 16 & 255) / 255, (l >> 8 & 255) / 255,
 						(l & 255) / 255, (l >> 24 & 255) / 255];
 				vertexBuffer[vbLen++] = d / curApp.Di;
@@ -13519,12 +13519,12 @@ GameFramework.gfx.JSGraphics.prototype = {
 						/ b.Sm, A = (c[d * 3 + 2].Ob * b.Gg + b.Wp) / b.Rm, B = c[d
 						* 3 + 2].color, G = b.pc;
 				vbLen > 1E3 && flushBuffer();
-				if (curTex != m || Sc != G)
+				if (curTex != m || curAdditive != G)
 					flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, m), curTex = m;
-				Sc != G
+				curAdditive != G
 						&& (gl.blendFunc(gl.SRC_ALPHA, G
 										? gl.ONE
-										: gl.ONE_MINUS_SRC_ALPHA), Sc = G);
+										: gl.ONE_MINUS_SRC_ALPHA), curAdditive = G);
 				m = [(r >> 16 & 255) / 255, (r >> 8 & 255) / 255,
 						(r & 255) / 255, (r >> 24 & 255) / 255];
 				y = y == r ? m : [(y >> 16 & 255) / 255, (y >> 8 & 255) / 255,
@@ -13574,7 +13574,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 		gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 		gl.disable(gl.CULL_FACE);
 		gl.disable(gl.DEPTH_TEST);
-		curTex = Sc = false;
+		curTex = curAdditive = false;
 		writeDepth = 1;
 		gl.disableVertexAttribArray(2);
 		gl.disableVertexAttribArray(3);
@@ -13646,7 +13646,7 @@ GameFramework.gfx.JSGraphics3D.prototype = {
 		var d, f;
 		d = sc(b, gl.SRC_ALPHA);
 		f = sc(c, gl.ONE_MINUS_SRC_ALPHA);
-		Sc = d == gl.SRC_ALPHA && f == gl.ONE_MINUS_SRC_ALPHA
+		curAdditive = d == gl.SRC_ALPHA && f == gl.ONE_MINUS_SRC_ALPHA
 				? false
 				: d == gl.SRC_ALPHA && f == gl.ONE ? true : UNDEF;
 		gl.blendFunc(d, f)
