@@ -1096,7 +1096,7 @@ Type.Vqa = function(b) {
 Type.isString = function(b) {
 	return isInstance(String, b)
 };
-Type.di = function(b, c) {
+Type.getInstanceOrNull = function(b, c) {
 	return isInstance(c, b) ? b : null
 };
 Type.isInstance = function(obj, clazz) {
@@ -5631,17 +5631,17 @@ GameFramework.misc.SexyMathHermite.prototype = {
 			this.HN = true
 		}
 		for (var c = this.ee.length, d = 0; d < c; d++) {
-			var f = Type.di(this.Z[d + 1], Array);
+			var f = Type.getInstanceOrNull(this.Z[d + 1], Array);
 			if (b < f[0])
-				return this.h0(b, d, Type.di(this.ee[d], Array))
+				return this.h0(b, d, Type.getInstanceOrNull(this.ee[d], Array))
 		}
-		return Type.di(this.Z[this.Z.length - 1], Array)[1]
+		return Type.getInstanceOrNull(this.Z[this.Z.length - 1], Array)[1]
 	},
 	j_ : function(b, c) {
 		var d = Array.O(GameFramework.misc.SexyMathHermite.fl * GameFramework.misc.SexyMathHermite.fl, null), f = Array
 				.O(GameFramework.misc.SexyMathHermite.fl, null), g;
 		for (g = 0; g <= 1; g++) {
-			var h = Type.di(this.Z[b + g], Array), j = 2 * g;
+			var h = Type.getInstanceOrNull(this.Z[b + g], Array), j = 2 * g;
 			f[j] = h[0];
 			f[j + 1] = h[0];
 			d[j] = h[1];
@@ -5662,8 +5662,8 @@ GameFramework.misc.SexyMathHermite.prototype = {
 	},
 	h0 : function(b, c, d) {
 		var f = Array.O(2, null);
-		f[0] = b - Type.di(this.Z[c + 0], Array)[0];
-		f[1] = b - Type.di(this.Z[c + 1], Array)[0];
+		f[0] = b - Type.getInstanceOrNull(this.Z[c + 0], Array)[0];
+		f[1] = b - Type.getInstanceOrNull(this.Z[c + 1], Array)[0];
 		for (var b = 1, c = d[0], g = 1; g < GameFramework.misc.SexyMathHermite.fl; g++)
 			b *= f[(g - 1) / 2 | 0], c += b * d[g];
 		return c
@@ -5678,7 +5678,7 @@ GameFramework.misc.SexyMathHermite.prototype = {
 		for (c = 0; c < b; c++)
 			this.ee.push(Array.O(4, null));
 		for (c = 0; c < b; c++)
-			this.j_(c, Type.di(this.ee[c], Array));
+			this.j_(c, Type.getInstanceOrNull(this.ee[c], Array));
 		return true
 	},
 	Kk : function(b, c, d) {
@@ -11195,7 +11195,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		return c
 	},
 	dp : function(b, c) {
-		this.Nm[b].Nn = Type.di(c, System.Wl)
+		this.Nm[b].Nn = Type.getInstanceOrNull(c, System.Wl)
 	},
 	ET : function(b, c) {
 		var d = this.Nm[b];
@@ -11285,7 +11285,7 @@ GameFramework.resources.ResourceStreamer.prototype = {
 		this.Or++
 	},
 	ps : function(b) {
-		this.MG = Type.di(b.target, GameFramework.resources.ResourceStreamer);
+		this.MG = Type.getInstanceOrNull(b.target, GameFramework.resources.ResourceStreamer);
 		this.ld(b)
 	}
 };
@@ -13279,7 +13279,7 @@ GameFramework.JSBaseApp.prototype = {
 			}
 			return c.toString()
 		}
-		if (Type.di(b, Object) != null) {
+		if (Type.getInstanceOrNull(b, Object) != null) {
 			c = "";
 			d = 0;
 			c += "{";
@@ -14333,7 +14333,7 @@ Game.BackgroundLoader = set("Tn");
 Game.BackgroundLoader.prototype = {
 	Tn : 0,
 	JZ : function(b) {
-		Game.Background.iC[this.Tn] = Type.di(b.target.rd, GameFramework.resources.ImageResource);
+		Game.Background.iC[this.Tn] = Type.getInstanceOrNull(b.target.rd, GameFramework.resources.ImageResource);
 		Game.Background.Ax[this.Tn] = true;
 		GameFramework.BaseApp.M.nQ()
 	}
@@ -14974,7 +14974,7 @@ Game.BejApp.prototype = {
 		this.mi(b)
 	},
 	k3 : function(b) {
-		b = Type.di(b.target, GameFramework.widgets.ButtonWidget);
+		b = Type.getInstanceOrNull(b.target, GameFramework.widgets.ButtonWidget);
 		b != null && b.pl || this.mi(Game.Resources.SOUND_BUTTON_PRESS)
 	},
 	j3 : function() {
@@ -15091,7 +15091,7 @@ Game.BejApp.prototype = {
 	},
 	Rz : function(b) {
 		if (!this.tk) {
-			for (var c = "Loading failed", b = Type.di(b.target,
+			for (var c = "Loading failed", b = Type.getInstanceOrNull(b.target,
 					GameFramework.resources.ResourceStreamer); b.MG != null;)
 				b = b.MG;
 			b != null
@@ -21714,13 +21714,13 @@ Game.DialogMgr.prototype = {
 		S(d == b.Tf.length, "Color stack error - pops don't match pushes");
 		var f;
 		for (f = this.cf.length - 1; f >= 0; --f) {
-			var g = Type.di(this.cf[f], Game.Bej3Dialog);
+			var g = Type.getInstanceOrNull(this.cf[f], Game.Bej3Dialog);
 			if (g == null || !g.zl)
 				break
 		}
 		f < 0 && (f = 0);
 		for (g = 0; g < this.cf.length; ++g) {
-			var h = Type.di(this.cf[g], GameFramework.widgets.ClassicWidget);
+			var h = Type.getInstanceOrNull(this.cf[g], GameFramework.widgets.ClassicWidget);
 			if (h.ec) {
 				g == f && this.pV(b);
 				var j = b.gc(h.w, h.v);
@@ -34541,13 +34541,13 @@ Game.Util.x4 = function(b, c, d) {
 				f = b.length;
 			switch (d) {
 				case Game.Util.kq.S4 :
-					Type.di(c, GameFramework.TVector).push(b.substr(g, f - g));
+					Type.getInstanceOrNull(c, GameFramework.TVector).push(b.substr(g, f - g));
 					break;
 				case Game.Util.kq.vw :
 					c.push(GameFramework.Utils.Hc(b.substr(g, f - g)));
 					break;
 				case Game.Util.kq.R4 :
-					Type.di(c, GameFramework.TVector).push(GameFramework.Utils.fp(b
+					Type.getInstanceOrNull(c, GameFramework.TVector).push(GameFramework.Utils.fp(b
 							.substr(g, f - g)))
 			}
 			++h;
