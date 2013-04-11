@@ -144,7 +144,7 @@ function HandleException(e) {
             aMessage = e.GetDetails();
             aType = "loadingError";
         }
-        gApp.SubmitStandardMetricsDict("error", { "Type": aType, "Message": aMessage, "Stack": aStack }, true, "http://errors.stats.popcap.com");
+        gApp.submitStandardMetricsDict("error", { "Type": aType, "Message": aMessage, "Stack": aStack }, true, "http://errors.stats.popcap.com");
         gAlreadyFailed = true;
     }
     return !gReThrowException;
@@ -227,4 +227,4 @@ aLeftPillar.onload = ResizeElements;
 var aLeftPillarBot = document.getElementById('leftPillarBot');
 aLeftPillarBot.onload = ResizeElements;
 
-alert('09dd7');
+alert('ddd7');
