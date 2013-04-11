@@ -1138,6 +1138,7 @@ Type.parse = function(b) {
 	return Type.eval(b)
 };
 
+// Enum
 ss.Enum = dummy();
 ss.Enum.registerClass("Enum");
 ss.Enum.parse = function(b, c) {
@@ -1179,6 +1180,8 @@ ss.Enum.toString = function(b) {
 		return f.join("")
 	}
 };
+
+// Delegate
 ss.Delegate = dummy();
 ss.Delegate.registerClass("Delegate");
 ss.Delegate.V2 = dummy();
@@ -1242,6 +1245,8 @@ ss.Delegate.vqa = function(b) {
 	if (ss.Delegate[b])
 		ss.Delegate[b] = Delegate.V2
 };
+
+// CultureInfo
 ss.CultureInfo = function(b, c, d) {
 	this.qi = b;
 	this.aZ = c;
@@ -1295,6 +1300,8 @@ ss.CultureInfo.fK = new ss.CultureInfo("en-US", {
 			X9 : "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec,".split(",")
 		});
 ss.CultureInfo.yQ = ss.CultureInfo.fK;
+
+// IEnumerator
 ss.IEnumerator = dummy();
 ss.IEnumerator.prototype = {
 	oe : null,
@@ -1304,11 +1311,15 @@ ss.IEnumerator.Pd = function(b) {
 	return b ? b.Pd ? b.Pd() : new ss.ArrayEnumerator(b) : null
 };
 registerInterface(ss.IEnumerator, "IEnumerator");
+
+// IEnumerable
 ss.IEnumerable = dummy();
 ss.IEnumerable.prototype = {
 	Pd : null
 };
 registerInterface(ss.IEnumerable, "IEnumerable");
+
+// ArrayEnumerator
 ss.ArrayEnumerator = function(b) {
 	this.bV = b;
 	this.HF = -1
@@ -1323,6 +1334,8 @@ ss.ArrayEnumerator.prototype = {
 	}
 };
 ss.ArrayEnumerator.registerClass("ArrayEnumerator", null, ss.IEnumerator);
+
+// IDisposable
 ss.IDisposable = dummy();
 ss.IDisposable.prototype = {};
 registerInterface(ss.IDisposable, "IDisposable");
