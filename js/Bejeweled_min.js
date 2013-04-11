@@ -1530,7 +1530,9 @@ else if (typeof window.G9 == "function")
 	requestAnimationFrame = window.G9;
 requestAnimationFrame ? requestAnimationFrame(drawFrame) : setInterval("JSFExt_Timer()", 16);
 
+// app, gl and context
 var curApp, gl = null, context = null;
+
 function Ja(b) {
 	if (gl != null) {
 		var tex = gl.createTexture();
@@ -1544,7 +1546,9 @@ function Ja(b) {
 		return tex;
 	}
 }
-function Wa(data) {
+
+// create a texture which only 1x1 size
+function createOnePixelTexture(data) {
 	if (gl != null) {
 		var tex = gl.createTexture();
 		gl.bindTexture(gl.TEXTURE_2D, tex);
@@ -1730,18 +1734,24 @@ function drawFrame() {
 // if requestAnimation is not available, drawFrame will be scheduled by timer
 window.JSFExt_Timer = drawFrame;
 
-function ac(b) {
+// key press event
+function onKeyPress(b) {
 	b.which ? curApp.Bb.Tk(b.which) : curApp.Bb.Tk(b.keyCode)
 }
-function bc(b) {
+
+// key down event
+function onKeyDown(b) {
 	curApp.Bb.Aq(b.which);
 	b = b || window.event;
 	if (b.keyCode == 8)
 		return false
 }
-function cc(b) {
+
+// key up event
+function onKeyUp(b) {
 	curApp.Bb.Pz(b.which)
 }
+
 function dc(b) {
 	b.offsetX || b.offsetX == 0
 			? (b.MF = b.offsetX, b.NF = b.offsetY)
@@ -1993,12 +2003,12 @@ window.JSFExt_Init = function(app, canvas) {
 		gl.uniform1i(program.UNIFORM_TEXTURE, 0);
 		gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 		config = new Uint8Array([255, 255, 255, 255]);
-		Pa = Wa(config);
+		Pa = createOnePixelTexture(config);
 	}
 
-	document.onkeypress = ac;
-	document.onkeydown = bc;
-	document.onkeyup = cc;
+	document.onkeypress = onKeyPress;
+	document.onkeydown = onKeyDown;
+	document.onkeyup = onKeyUp;
 	canvas.addEventListener("mousedown", onMouseDown, false);
 	canvas.addEventListener("mouseup", gc, false);
 	canvas.addEventListener("mousemove", ec, false);
