@@ -1099,7 +1099,7 @@ Type.isString = function(b) {
 Type.di = function(b, c) {
 	return isInstance(c, b) ? b : null
 };
-Type.vf = function(b, c) {
+Type.isInstance = function(b, c) {
 	return isInstance(c, b)
 };
 Type.getClass = function(b) {
@@ -3528,9 +3528,9 @@ GameFramework.Utils.Tpa = function(b, c) {
 				if (d.charCodeAt(g) == 125)
 					break;
 			var h = "?", j = arguments[d.charCodeAt(f + 1) - 48 + 1];
-			Type.vf(j, Number) ? h = "" + (j | 0) : Type.vf(j, Number) ? h = ""
-					+ (j | 0) : Type.vf(j, Number) ? h = "" + j : Type.vf(j,
-					Number) ? h = "" + j : Type.vf(j, String) && (h = j);
+			Type.isInstance(j, Number) ? h = "" + (j | 0) : Type.isInstance(j, Number) ? h = ""
+					+ (j | 0) : Type.isInstance(j, Number) ? h = "" + j : Type.isInstance(j,
+					Number) ? h = "" + j : Type.isInstance(j, String) && (h = j);
 			j = d.substr(f + 2, g - f - 2);
 			j == ":00" && h.length == 1 && (h = "0" + h);
 			startsWith(j, ":0.")
@@ -13182,7 +13182,7 @@ GameFramework.JSBaseApp.prototype = {
 					if (o == 92)
 						g = true;
 					else if (o == 34 && !g)
-						j = !j, k == null && Type.vf(c, Object)
+						j = !j, k == null && Type.isInstance(c, Object)
 								? f == -1 ? f = d.Jl : (k = this.LS(b.substr(f,
 										d.Jl - f - 1)), f = -1)
 								: f == -1
@@ -13228,17 +13228,17 @@ GameFramework.JSBaseApp.prototype = {
 	rj : function(b) {
 		if (b == null)
 			return "null";
-		if (Type.vf(b, Number) && b == (b | 0))
+		if (Type.isInstance(b, Number) && b == (b | 0))
 			return GameFramework.Utils.wj(b | 0);
-		if (Type.vf(b, Number))
+		if (Type.isInstance(b, Number))
 			return String.Mb("{0:f}", b);
-		if (Type.vf(b, Number))
+		if (Type.isInstance(b, Number))
 			return String.Mb("{0:f}", b);
-		if (Type.vf(b, Boolean))
+		if (Type.isInstance(b, Boolean))
 			return b ? "true" : "false";
-		if (Type.vf(b, GameFramework.misc.JSONString))
+		if (Type.isInstance(b, GameFramework.misc.JSONString))
 			return b.Za;
-		if (Type.vf(b, String)) {
+		if (Type.isInstance(b, String)) {
 			for (var c = 0; c < b.length; c++) {
 				var d = b.charCodeAt(c);
 				d == 8 && (b = b.substr(0, c) + "\\b" + b.substr(c + 1));
@@ -13251,7 +13251,7 @@ GameFramework.JSBaseApp.prototype = {
 			}
 			return '"' + b + '"'
 		}
-		if (Type.vf(b, GameFramework.TArray)) {
+		if (Type.isInstance(b, GameFramework.TArray)) {
 			c = "";
 			c += "[";
 			for (d = 0; d < b.length; d++)
@@ -13259,11 +13259,11 @@ GameFramework.JSBaseApp.prototype = {
 			c += "]";
 			return c.toString()
 		}
-		if (Type.vf(b, GameFramework.misc.KeyVal))
+		if (Type.isInstance(b, GameFramework.misc.KeyVal))
 			return c = "", c += "{", c += this.rj(b.gH), c += ":", c += this
 					.rj(b.oa), c += "}", c.toString();
-		if (Type.vf(b, Array)) {
-			if (b.length > 0 && Type.vf(b[0], GameFramework.misc.KeyVal)) {
+		if (Type.isInstance(b, Array)) {
+			if (b.length > 0 && Type.isInstance(b[0], GameFramework.misc.KeyVal)) {
 				c = "";
 				c += "{";
 				for (d = 0; d < b.length; d++)
@@ -13284,7 +13284,7 @@ GameFramework.JSBaseApp.prototype = {
 			d = 0;
 			c += "{";
 			for (aKey in b)
-				d != 0 && (c += ","), c += Type.vf(aKey, Number) ? this
+				d != 0 && (c += ","), c += Type.isInstance(aKey, Number) ? this
 						.rj(System.sQ.bqa(aKey | 0)) : this.rj(aKey), c += ":", c += this
 						.rj(b[aKey]), d++;
 			c += "}";
@@ -14074,8 +14074,8 @@ GameFramework.resources.JSRenderEffect.prototype = {
 		activeProgram = d.RW;
 		this.yB = d;
 		for (aName in this.ro)
-			d = this.ro[aName], Type.vf(d, Number) ? this.$T(aName, d) : Type
-					.vf(d, GameFramework.geom.Vector3) ? this.iU(aName, d) : this.ZT(
+			d = this.ro[aName], Type.isInstance(d, Number) ? this.$T(aName, d) : 
+				Type.isInstance(d, GameFramework.geom.Vector3) ? this.iU(aName, d) : this.ZT(
 					aName, d)
 	},
 	UD : function() {
@@ -14968,7 +14968,7 @@ Game.BejApp.prototype = {
 	},
 	LP : function(b) {
 		b = b.target;
-		Type.vf(b.Qb, GameFramework.widgets.Dialog) ? b.Qb.Te() : b.Qb.Qb.pn(b.Qb)
+		Type.isInstance(b.Qb, GameFramework.widgets.Dialog) ? b.Qb.Te() : b.Qb.Qb.pn(b.Qb)
 	},
 	$v : function(b) {
 		this.mi(b)
@@ -21750,7 +21750,7 @@ Game.DialogMgr.prototype = {
 		GameFramework.widgets.ClassicWidget.prototype.ca.apply(this);
 		this.Ht.D() != 0
 				&& this.Ht.Js() != 0
-				&& (this.se.length == 0 || Type.vf(this.se[this.se.length - 1],
+				&& (this.se.length == 0 || Type.isInstance(this.se[this.se.length - 1],
 						Game.Bej3Dialog)
 						&& (!this.se[this.se.length - 1].gs
 								|| this.se.length == 1
@@ -21767,7 +21767,7 @@ Game.DialogMgr.prototype = {
 			b.Lb((this.s - d) / 2, this.z / 5, d, b.Qo(d))
 		}
 		b.gs
-				&& (this.se.length == 0 || Type.vf(this.se[this.se.length - 1],
+				&& (this.se.length == 0 || Type.isInstance(this.se[this.se.length - 1],
 						Game.Bej3Dialog)
 						&& (!this.se[this.se.length - 1].gs || this.se[this.se.length
 								- 1].zl))
@@ -28839,10 +28839,10 @@ Game.Metrics.prototype = {
 		b = [new GameFramework.misc.KeyVal("MetricsType", b),
 				new GameFramework.misc.KeyVal("MetricsVersion", "v1.0"),
 				new GameFramework.misc.KeyVal("SamplingProb", g)];
-		if (Type.vf(c, Array))
+		if (Type.isInstance(c, Array))
 			for (g = 0; g < c.length; g++)
 				b.push(c[g]);
-		if (Type.vf(c, GameFramework.TVector))
+		if (Type.isInstance(c, GameFramework.TVector))
 			for (g = 0; g < c.length; g++)
 				b.push(c[g]);
 		d ? (this.ca(), this.YT(b, f != null ? f : this.vH), GameFramework.BaseApp.M
