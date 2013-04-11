@@ -12,7 +12,7 @@ function throwError(b) {
 	throw b;
 }
 
-function ga() {
+function dynamicGet() {
 	return function(b) {
 		return b
 	}
@@ -31,7 +31,7 @@ function get(b) {
 		return this[b]
 	}
 }
-function x(b) {
+function staticGet(b) {
 	return function() {
 		return b
 	}
@@ -2231,7 +2231,7 @@ GameFramework.BaseApp.prototype = {
 	xX : null,
 	$M : null,
 	TV : false,
-	kc : x(false),
+	kc : staticGet(false),
 	Ra : function(b, c) {
 		this.eventDispatcher.Ra(b, c)
 	},
@@ -2361,8 +2361,8 @@ GameFramework.BaseApp.prototype = {
 	},
 	SE : dummy(),
 	ND : dummy(),
-	rj : x(""),
-	Is : x(null),
+	rj : staticGet(""),
+	Is : staticGet(null),
 	lt : dummy(),
 	TS : function(b, c) {
 		this.xX.push(this.rj(Array.O(3, null, new GameFramework.misc.KeyVal("Event", b),
@@ -2906,8 +2906,8 @@ GameFramework.DataBufferData.prototype = {
 	Fo : set("oo"),
 	Ss : dummy(),
 	yq : dummy(),
-	AU : x(null),
-	eb : x(0),
+	AU : staticGet(null),
+	eb : staticGet(0),
 	AT : function() {
 		return this.eb()
 	},
@@ -2919,8 +2919,8 @@ GameFramework.DataBufferData.prototype = {
 		var b = this.eb(), c = this.eb();
 		return b | c << 8 | 0
 	},
-	fa : x(0),
-	Zl : x(0),
+	fa : staticGet(0),
+	Zl : staticGet(0),
 	oc : function() {
 		return this.eb() != 0
 	},
@@ -2936,7 +2936,7 @@ GameFramework.DataBufferData.prototype = {
 	DT : function(b) {
 		return GameFramework.Utils.L4(this.lk(b))
 	},
-	BU : x(""),
+	BU : staticGet(""),
 	yn : dummy(),
 	RU : function(b) {
 		for (var c = 0; c < b.length; c++)
@@ -3527,9 +3527,9 @@ GameFramework.Utils.ei = function(b) {
 		c = "," + b.substr(b.length - 3, 3) + c, b = b.substr(0, b.length - 3);
 	return b + c
 };
-GameFramework.Utils.Tna = ga();
-GameFramework.Utils.rqa = ga();
-GameFramework.Utils.bootTimea = ga();
+GameFramework.Utils.Tna = dynamicGet();
+GameFramework.Utils.rqa = dynamicGet();
+GameFramework.Utils.bootTimea = dynamicGet();
 GameFramework.Utils.randZeroOne = function() {
 	return Math.random()
 };
@@ -3554,14 +3554,14 @@ GameFramework.Utils.Bla = function(b) {
 		return b.oe(), true;
 	return false
 };
-GameFramework.Utils.gqa = x("");
-GameFramework.Utils.L4 = x("");
-GameFramework.Utils.iba = x("");
-GameFramework.Utils.jba = x("");
+GameFramework.Utils.gqa = staticGet("");
+GameFramework.Utils.L4 = staticGet("");
+GameFramework.Utils.iba = staticGet("");
+GameFramework.Utils.jba = staticGet("");
 GameFramework.Utils.K4 = function(b) {
 	return String.fromCharCode(b | 0)
 };
-GameFramework.Utils.aE = ga();
+GameFramework.Utils.aE = dynamicGet();
 GameFramework.Utils.hi = function(b, c) {
 	return b.charCodeAt(c)
 };
@@ -3696,9 +3696,9 @@ GameFramework.Utils.Dq = function(b, c, d) {
 			| (b & 16711680) * f + (c & 16711680) * d >>> 8 & 16711680
 			| ((b >>> 24 & 255) * f + (c >>> 24 & 255) * d & 65280) << 16
 };
-GameFramework.Utils.Cla = x(false);
-GameFramework.Utils.Zda = x(0);
-GameFramework.Utils.Yda = x(0);
+GameFramework.Utils.Cla = staticGet(false);
+GameFramework.Utils.Zda = staticGet(0);
+GameFramework.Utils.Yda = staticGet(0);
 GameFramework.Utils.eJ = function() {
 	for (var b = "", c = 0; c < 36; c++)
 		if ("xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".charCodeAt(c) == 120
@@ -3914,7 +3914,7 @@ GameFramework.connected.SocialService = function() {
 };
 GameFramework.connected.SocialService.prototype = {
 	Q7 : null,
-	Ub : x(null),
+	Ub : staticGet(null),
 	ca : dummy()
 };
 GameFramework.connected.SocialService.initClass = dummy();
@@ -4585,7 +4585,7 @@ GameFramework.gfx.Camera.prototype = {
 		}
 	},
 	sv : dummy(),
-	hR : x(null),
+	hR : staticGet(null),
 	S5 : function(b) {
 		return b.dR(this.Ff)
 	},
@@ -5121,7 +5121,7 @@ GameFramework.gfx.Graphics.prototype = {
 	},
 	dt : dummy(),
 	bn : dummy(),
-	yD : x(null),
+	yD : staticGet(null),
 	gz : dummy()
 };
 GameFramework.gfx.Graphics.initClass = dummy();
@@ -5142,7 +5142,7 @@ GameFramework.gfx.Graphics3D.prototype = {
 	mt : dummy(),
 	GA : dummy(),
 	IA : dummy(),
-	lw : x(false),
+	lw : staticGet(false),
 	kF : dummy(),
 	mL : dummy(),
 	Oq : dummy(),
@@ -11017,7 +11017,7 @@ GameFramework.resources.RenderEffect.prototype = {
 	pL : dummy(),
 	Qq : dummy(),
 	kt : dummy(),
-	xD : x(null),
+	xD : staticGet(null),
 	fz : dummy(),
 	$p : dummy(),
 	UD : dummy()
@@ -16688,7 +16688,7 @@ Game.Board.prototype = {
 			this.yH.push(b), this.yH.push(b);
 		this.ag = Game.BejApp.q.ag
 	},
-	ki : x(null),
+	ki : staticGet(null),
 	t : function() {
 		this.zj.clear();
 		this.qc.clear();
@@ -16710,8 +16710,8 @@ Game.Board.prototype = {
 	sZ : function() {
 		return this.Bl != 0 && this.og == 0
 	},
-	II : x(false),
-	HP : x(true),
+	II : staticGet(false),
+	HP : staticGet(true),
 	tZ : function() {
 		return this.m.V() != 1 || this.Yc() != 1 ? false : this.dh && this.yl
 				&& this.Yc() == 1 ? true : false
@@ -16748,11 +16748,11 @@ Game.Board.prototype = {
 		return (Game.BejApp.q.Zd(Game.DM.mb.vn) == null || !Game.BejApp.q.Zd(Game.DM.mb.vn).Bx)
 				&& this.VG == 0 && this.qc.length == 0
 	},
-	zf : x(0),
+	zf : staticGet(0),
 	zz : function() {
 		return this.Se()
 	},
-	UR : x(15),
+	UR : staticGet(15),
 	CF : function() {
 		return this.zf() != 0
 	},
@@ -16765,11 +16765,11 @@ Game.Board.prototype = {
 	fE : function() {
 		return this.ly.V()
 	},
-	pq : x(1),
+	pq : staticGet(1),
 	kE : function() {
 		return this.pq()
 	},
-	nS : x(""),
+	nS : staticGet(""),
 	Iy : function() {
 		this.L.D() > 0 && this.L.ea("b;0,1,0.02,1,~###         ~#EAC");
 		this.m.ea("b;1,1.2,0.02,1,####         ~~^bn");
@@ -16796,7 +16796,7 @@ Game.Board.prototype = {
 						&& (this.Mq(), b.Bc(this.Ge), b.Bc(this))
 		}
 	},
-	dE : x("GameType"),
+	dE : staticGet("GameType"),
 	NE : function() {
 		this.xc != null && this.xc.Te();
 		this.xc = new Game.TutorialMgr(this);
@@ -17606,9 +17606,9 @@ Game.Board.prototype = {
 				(b.v | 0) + (Game.Board.ab / 2 | 0), (c.w | 0)
 						+ (Game.Board.bb / 2 | 0), (c.v | 0) + (Game.Board.ab / 2 | 0))
 	},
-	PU : x(false),
-	$Q : x(false),
-	oT : x(true),
+	PU : staticGet(false),
+	$Q : staticGet(false),
+	oT : staticGet(true),
 	W2 : function(b) {
 		for (var c = 0, d = this.e, f = 0; f < d.length; f++) {
 			var g = d[f];
@@ -20421,7 +20421,7 @@ Game.Board.prototype = {
 		}
 		this.xc.M5() && this.ob.ja(b)
 	},
-	NU : x(true),
+	NU : staticGet(true),
 	ja : function(b) {
 		if (!(this.to.D() >= 1 && this.pf > 0)) {
 			this.we.D() != 0 ? this.we.D() : this.to.D();
@@ -21148,7 +21148,7 @@ Game.ClassicBoard = function(b) {
 	this.tM = Game.Util.bK(Game.Resources.IMAGE_BOARD_MARKER_CHECKERBOARD_CLASSIC) - 60
 };
 Game.ClassicBoard.prototype = {
-	dE : x("Classic"),
+	dE : staticGet("Classic"),
 	Ub : function() {
 		Game.Board.prototype.Ub.apply(this);
 		var b = new GameFramework.CurvedVal;
@@ -21291,7 +21291,7 @@ Game.ClassicBoard.prototype = {
 	pq : function() {
 		return 1 + this.Bl * 1
 	},
-	kE : x(1),
+	kE : staticGet(1),
 	Wz : function(b) {
 		Game.Board.prototype.Wz.apply(this, [b])
 	},
@@ -27118,7 +27118,7 @@ Game.Hyperspace = function() {
 	callSuperConstructor(Game.Hyperspace, this)
 };
 Game.Hyperspace.prototype = {
-	Yc : x(1)
+	Yc : staticGet(1)
 };
 Game.Hyperspace.initClass = function() {
 	Game.Hyperspace.Nla = 4
@@ -32005,9 +32005,9 @@ Game.SpeedBoard.prototype = {
 		this.Wr = null;
 		Game.Board.prototype.t.apply(this)
 	},
-	dE : x("Speed"),
-	II : x(true),
-	UR : x(5),
+	dE : staticGet("Speed"),
+	II : staticGet(true),
+	UR : staticGet(5),
 	Ub : function() {
 		Game.Board.prototype.Ub.apply(this);
 		this.yF("unpowered", 0);
@@ -32146,7 +32146,7 @@ Game.SpeedBoard.prototype = {
 	Wz : function(b) {
 		Game.Board.prototype.Wz.apply(this, [b])
 	},
-	Cd : x(130),
+	Cd : staticGet(130),
 	mS : function(b, c, d) {
 		if (Game.Board.prototype.mS.apply(this, [b, c, d]))
 			return true;
@@ -32219,7 +32219,7 @@ Game.SpeedBoard.prototype = {
 				| 0;
 		return Math.min(this.uH, b) | 0
 	},
-	zf : x(60),
+	zf : staticGet(60),
 	rv : function() {
 		return this.DC + this.XF * this.Qm
 	},
@@ -32238,7 +32238,7 @@ Game.SpeedBoard.prototype = {
 	nS : function() {
 		return Game.Board.prototype.nS.apply(this)
 	},
-	pq : x(5),
+	pq : staticGet(5),
 	kE : function() {
 		return 85E3 / 15E3
 	},
@@ -32752,7 +32752,7 @@ Game.SpeedBoard.prototype = {
 			c.t()
 		}
 	},
-	NU : x(false),
+	NU : staticGet(false),
 	jq : function(b) {
 		this.I_(b);
 		this.Wr.ja(b);
