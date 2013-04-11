@@ -569,19 +569,19 @@ String._format = function(pattern, args, localize) {
 	if (!String.dB)
 		String.dB = /(\{[^\}^\{]+\})/g;
 	return pattern.replace(String.dB, function(b, g) {
-				var h = args[parseInt(g.substr(1)) + 1];
-				if (ss.isNullUndef(h))
+				var arg = args[parseInt(g.substr(1)) + 1];
+				if (ss.isNullUndef(arg))
 					return "";
-				if (h.format) {
-					var j = null, k = g.indexOf(":");
-					k > 0 && (j = g.substring(k + 1, g.length - 1));
-					return localize ? h.localizedFormat(j) : h.format(j)
+				if (arg.format) {
+					var argPattern = null, colon = g.indexOf(":");
+					colon > 0 && (argPattern = g.substring(colon + 1, g.length - 1));
+					return localize ? arg.localizedFormat(argPattern) : arg.format(argPattern)
 				} else
-					return localize ? h.toLocaleString() : h.toString()
+					return localize ? arg.toLocaleString() : arg.toString()
 			})
 };
-String.format = function(b) {
-	return String._format(b, arguments, false)
+String.format = function(pattern) {
+	return String._format(pattern, arguments, false)
 };
 String.duplicate = function(s, times) {
 	for (var ret = s, f = 1; f < times; f++)
