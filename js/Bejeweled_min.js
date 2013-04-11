@@ -1045,10 +1045,10 @@ Type.prototype.inheritCopy = function() {
 	}
 };
 
-// invoke constructor of b's parent
-function callSuperConstructor(b, c, d) {
-	b.needCopyParent && b.inheritCopy();
-	d ? b.parent.apply(c, d) : b.parent.apply(c)
+// invoke constructor of parent class
+function callSuperConstructor(clazz, instance, params) {
+	clazz.needCopyParent && clazz.inheritCopy();
+	params ? clazz.parent.apply(instance, params) : clazz.parent.apply(instance)
 }
 
 function xa(b, c) {
