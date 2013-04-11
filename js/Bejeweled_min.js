@@ -1969,10 +1969,6 @@ window.JSFExt_Init = function(app, canvas) {
 		J = new Float32Array(4096);
 		colorBuffer = gl.createBuffer();
 		L = new Float32Array(4096);
-		gl.createBuffer();
-		gl.createBuffer();
-		gl.createBuffer();
-		gl.createBuffer();
 		loadPrimaryProgram();
 		gl.uniform1i(program.UNIFORM_TEXTURE, 0);
 		gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
