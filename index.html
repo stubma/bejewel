@@ -317,7 +317,7 @@
 
 <script id="shader-fs" type="x-shader/x-fragment">
     #ifdef GL_ES
-    precision highp float;
+    precision mediump float;
     #endif
 
     varying vec2 vTexCoord;
@@ -326,16 +326,11 @@
     uniform sampler2D sTexture;
 
     void main(void) {
-        vec4 texColor;
-        texColor = texture2D(sTexture, vTexCoord) * vColor;//vec4(0.1, 0.0, 0.0, 1.0);
-        //texColor = texture2D(sTexture, vTexCoord) * vec4(0.0, 0.0, 0.0, 1.0);
-        //texColor.a *= 0.5;
-        gl_FragColor = texColor;
+        gl_FragColor = texture2D(sTexture, vTexCoord) * vColor;
     }
 </script>
 <script id="shader-vs" type="x-shader/x-vertex">
     attribute vec4 aPosition;
-    attribute vec2 aTexCoord;
     attribute vec4 aVertexColor;
 
     varying vec2 vTexCoord;
