@@ -428,7 +428,7 @@ Number.parse = function(b) {
 	return !b || !b.length ? 0 : b.indexOf(".") >= 0 || b.indexOf("e") >= 0
 			|| endsWith(b, "f") || endsWith(b, "F") ? parseFloat(b) : parseInt(b, 10)
 };
-Number.prototype.Mb = function(b) {
+Number.prototype.format = function(b) {
 	if (b == "0.0")
 		return this.toFixed(1);
 	if (b == "0.00")
@@ -442,7 +442,7 @@ Number.prototype.Mb = function(b) {
 			: b.length == 2 ? "0" + b : b) : ss.isNullUndef(b) || b.length == 0
 			|| b == "i" ? this.toString() : this.JF(b, false)
 };
-Number.prototype.DV = function(b) {
+Number.prototype.localizedFormat = function(b) {
 	return ss.isNullUndef(b) || b.length == 0 || b == "i" ? this.toLocaleString() : this
 			.JF(b, true)
 };
@@ -512,7 +512,7 @@ Number.prototype.JF = function(b, c) {
 					&& (g = f.indexOf("."), f = f.substr(0, g) + d.YL
 							+ f.substr(g + 1));
 			f = Number.RL(f, d.n6, d.YL, d.m6);
-			f = this < 0 ? String.Mb(d.o6, f) : String.Mb(d.p6, f);
+			f = this < 0 ? String.format(d.o6, f) : String.format(d.p6, f);
 			break;
 		case "p" :
 		case "P" :
@@ -524,7 +524,7 @@ Number.prototype.JF = function(b, c) {
 					&& (g = f.indexOf("."), f = f.substr(0, g) + d.uP
 							+ f.substr(g + 1));
 			f = Number.RL(f, d.N9, d.uP, d.M9);
-			f = this < 0 ? String.Mb(d.O9, f) : String.Mb(d.P9, f)
+			f = this < 0 ? String.format(d.O9, f) : String.format(d.P9, f)
 	}
 	return f
 };
@@ -565,23 +565,23 @@ String.concat = function() {
 String.equals = function(s1, s2, ignoreCase) {
 	return String.compare(s1, s2, ignoreCase) == 0
 };
-String.dV = function(b, c, d) {
+String._format = function(pattern, args, localize) {
 	if (!String.dB)
 		String.dB = /(\{[^\}^\{]+\})/g;
-	return b.replace(String.dB, function(b, g) {
-				var h = c[parseInt(g.substr(1)) + 1];
+	return pattern.replace(String.dB, function(b, g) {
+				var h = args[parseInt(g.substr(1)) + 1];
 				if (ss.isNullUndef(h))
 					return "";
-				if (h.Mb) {
+				if (h.format) {
 					var j = null, k = g.indexOf(":");
 					k > 0 && (j = g.substring(k + 1, g.length - 1));
-					return d ? h.DV(j) : h.Mb(j)
+					return localize ? h.localizedFormat(j) : h.format(j)
 				} else
-					return d ? h.toLocaleString() : h.toString()
+					return localize ? h.toLocaleString() : h.toString()
 			})
 };
-String.Mb = function(b) {
-	return String.dV(b, arguments, false)
+String.format = function(b) {
+	return String._format(b, arguments, false)
 };
 String.duplicate = function(s, times) {
 	for (var ret = s, f = 1; f < times; f++)
@@ -594,8 +594,8 @@ String.prototype.insertAt = function(index, s) {
 String.isEmpty = function(s) {
 	return !s || !s.length
 };
-String.DV = function(b) {
-	return String.dV(b, arguments, true)
+String.localizedFormat = function(pattern) {
+	return String._format(pattern, arguments, true)
 };
 String.prototype.remove = function(start, len) {
 	return !len || start + len > this.length ? this.substr(0, start) : this.substr(0, start)
@@ -753,7 +753,7 @@ Date.Nqa = function() {
 Date.Qqa = function(b) {
 	return b === null || b.valueOf() === 0
 };
-Date.prototype.Mb = function(b) {
+Date.prototype.format = function(b) {
 	return ss.isNullUndef(b) || b.length == 0 || b == "i" ? this.toString() : b == "id"
 			? this.toDateString()
 			: b == "it" ? this.toTimeString() : this.JF(b, false)
@@ -13315,9 +13315,9 @@ GameFramework.JSBaseApp.prototype = {
 		if (Type.isInstance(b, Number) && b == (b | 0))
 			return GameFramework.Utils.wj(b | 0);
 		if (Type.isInstance(b, Number))
-			return String.Mb("{0:f}", b);
+			return String.format("{0:f}", b);
 		if (Type.isInstance(b, Number))
-			return String.Mb("{0:f}", b);
+			return String.format("{0:f}", b);
 		if (Type.isInstance(b, Boolean))
 			return b ? "true" : "false";
 		if (Type.isInstance(b, GameFramework.misc.JSONString))
@@ -14894,7 +14894,7 @@ Game.TopWidget.prototype = {
 				&& (b = "", b += GameFramework.BaseApp.instance.kc()
 						? "(HTML5 WebGL)"
 						: "(HTML5 Canvas)", this.ag.Ip.length == 0
-						&& this.ag.ls(String.Mb("Version {0} " + b, Game.Version
+						&& this.ag.ls(String.format("Version {0} " + b, Game.Version
 										.sz())))
 	},
 	ca : function() {
@@ -14908,10 +14908,10 @@ Game.TopWidget.prototype = {
 				c == 0 && (b.Q(4278190080), b.gc(-1, -1));
 				b.kb(Game.Resources.FONT_FLAREGOTHIC16);
 				Game.BejApp.q.uh != Game.DM.xf.jk
-						&& b.Cc(String.Mb("Autoplay: {0} -- {1}",
+						&& b.Cc(String.format("Autoplay: {0} -- {1}",
 										Game.DM.sV[Game.BejApp.q.uh | 0], Game.Util
 												.U4()), 8, 22);
-				var d = String.Mb("v{0}", Game.Version.getVersion()), d = "DEBUG " + d;
+				var d = String.format("v{0}", Game.Version.getVersion()), d = "DEBUG " + d;
 				b.zb(d, Game.BejApp.q.s - 4, 22, 0, 1);
 				c == 0 && (b.pb(), b.Ab())
 			}
@@ -16805,7 +16805,7 @@ Game.Board.prototype = {
 		this.Nw = this.Mw = -1;
 		var b = this.p1();
 		b != 0
-				&& (this.Of.gF(b), String.Mb("Tutorial Seed Override: {0}\r\n",
+				&& (this.Of.gF(b), String.format("Tutorial Seed Override: {0}\r\n",
 						b));
 		for (b = 0; b < (Game.DM.T.Zc | 0); b++)
 			this.od[b] = 0;
@@ -17153,7 +17153,7 @@ Game.Board.prototype = {
 					c = b.Tl(), c.Y(Game.Piece.K.Be) && c.c_();
 				break;
 			case Game.Hyperspace.Zb.Cs :
-				this.Jf.Mq(), this.Jf = null, b = new Game.Announcement(this, String.Mb(
+				this.Jf.Mq(), this.Jf = null, b = new Game.Announcement(this, String.format(
 								"LEVEL {0}", this.Bl + 1)), b.L
 						.ea("b+0,1,0.004,1,#### F####  (~###    +~###  M####"), b.m
 						.ea("b+0,2,0.004,1,#### D####  ,P}}}    +P###  K####"), b.xx
@@ -20569,12 +20569,12 @@ Game.Board.prototype = {
 									.Jb(this.$C.V()));
 					Game.Resources.FONT_SPEED_TEXT.Ia("OUTLINE", GameFramework.gfx.Color.Uu);
 					b.kb(Game.Resources.FONT_SPEED_TEXT);
-					b.jh(	String.Mb("{0} MATCH CHAIN", this.ng == 0
+					b.jh(	String.format("{0} MATCH CHAIN", this.ng == 0
 											? this.aI
 											: this.ng), 244, 120);
 					if (this.Up.D() > 0 || this.ng > 0) {
 						b.kb(Game.Resources.FONT_SPEED_SCORE);
-						var f = String.Mb("SPEED +{0}", Math
+						var f = String.format("SPEED +{0}", Math
 										.min(200, ((this.ng == 0
 														? this.aI
 														: this.ng) + 1)
@@ -20786,7 +20786,7 @@ Game.Board.prototype = {
 				this.jO = c | 0;
 				var d = this.bE((b | 0) - this.Ef), f = this.lE((c | 0)
 						- this.Cd());
-				String.Mb("{0},{1}", d, f);
+				String.format("{0},{1}", d, f);
 				if (!this.vE(d, f)) {
 					var g = this.Ro(), h = this.rq(b | 0, c | 0);
 					if (g != h) {
@@ -20962,8 +20962,8 @@ Game.Board.prototype = {
 				this.ob.Gc(d)
 			} else if (b == 65)
 				Game.BejApp.q.uh = ((Game.BejApp.q.uh | 0) + 1) % (Game.DM.xf.Zc | 0), this.ag
-						.ls(String.Mb("Autoplay: {0}", Game.DM.sV[Game.BejApp.q.uh
-										| 0])), this.ag.ls(String.Mb(
+						.ls(String.format("Autoplay: {0}", Game.DM.sV[Game.BejApp.q.uh
+										| 0])), this.ag.ls(String.format(
 						"Ticks elapsed u:{0},g:{1}", this.aa, this.Me));
 			else if (b == 33) {
 				this.ag.ls("Reset tutorial sequence");
@@ -21034,10 +21034,10 @@ Game.Board.prototype = {
 			} else
 				b == 77 ? (this.$S(null), this.OD(false)) : b == 90 ? (this.Ge != null
 						&& this.Ge.Mq(), this.JA(-1), this.wd.oi(this), this.ag
-						.ls(String.Mb("Background changed to idx: {0}\n",
+						.ls(String.format("Background changed to idx: {0}\n",
 								this.dG))) : b == 88
 						&& (this.Ge != null && this.Ge.Mq(), this.JA(1), this.wd
-								.oi(this), this.ag.ls(String.Mb(
+								.oi(this), this.ag.ls(String.format(
 								"Background changed to idx: {0}\n", this.dG)));
 			if (b == 112)
 				this.oj(800, 600, 100);
@@ -21321,7 +21321,7 @@ Game.ClassicEndLevelDialog.prototype = {
 		b.zb(GameFramework.Utils.ei(this.od[Game.DM.T.vD | 0]), 760, 523, -1, 1);
 		b.zb(GameFramework.Utils.ei(this.od[Game.DM.T.uD | 0]), 760, 571, -1, 1);
 		var c = this.od[Game.DM.T.aF | 0] / 10 | 0;
-		b.zb(String.Mb("{0}:{1:00}", c / 60 | 0, c % 60), 760, 619, -1, 1)
+		b.zb(String.format("{0}:{1:00}", c / 60 | 0, c % 60), 760, 619, -1, 1)
 	},
 	mJ : function(b, c, d) {
 		var f = b.gc(c, d - 90);
@@ -22965,9 +22965,9 @@ Game.EndLevelDialog.prototype = {
 		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 		Game.Resources.FONT_GAMEOVER_DIALOG.Ia("GLOW", 0);
 		Game.Resources.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 0);
-		b.zb(String.Mb("x {0:d}", this.od[Game.DM.T.kv | 0]), 400, 900, -1, -1);
-		b.zb(String.Mb("x {0:d}", this.od[Game.DM.T.Kv | 0]), 780, 900, -1, -1);
-		b.zb(String.Mb("x {0:d}", this.od[Game.DM.T.Cz | 0]), 1150, 900, -1, -1);
+		b.zb(String.format("x {0:d}", this.od[Game.DM.T.kv | 0]), 400, 900, -1, -1);
+		b.zb(String.format("x {0:d}", this.od[Game.DM.T.Kv | 0]), 780, 900, -1, -1);
+		b.zb(String.format("x {0:d}", this.od[Game.DM.T.Cz | 0]), 1150, 900, -1, -1);
 		Game.Resources.FONT_GAMEOVER_DIALOG.ib("OUTLINE");
 		Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW")
 	},
@@ -23004,7 +23004,7 @@ Game.EndLevelDialog.prototype = {
 								"MAIN", -1));
 			h = b.Q(h);
 			try {
-				b.zb(String.Mb("{0:d}.", d + 1), 830, 455 + 45 * d, 1, -1), b
+				b.zb(String.format("{0:d}.", d + 1), 830, 455 + 45 * d, 1, -1), b
 						.zb(Game.GfxUtil.LR(b, this.zc[d].sb, g), 880, 455 + 45 * d,
 								-1, -1), b.zb(f, 1370, 455 + 45 * d, -1, 1), Game.Resources.FONT_GAMEOVER_DIALOG
 						.ib("OUTLINE"), Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW"), Game.Resources.FONT_GAMEOVER_DIALOG
@@ -28908,7 +28908,7 @@ Game.Metrics.prototype = {
 	},
 	n4 : function(b) {
 		this.SC = b;
-		GameFramework.BaseApp.instance.lt("Global", "SamplingProbRoll", String.Mb("{0}",
+		GameFramework.BaseApp.instance.lt("Global", "SamplingProbRoll", String.format("{0}",
 						this.SC))
 	},
 	N4 : function(b, c, d, f) {
@@ -30164,10 +30164,10 @@ Game.RankBarWidget.prototype = {
 				}
 			}
 			this.AW
-					&& (b.zb(String.Mb("Rank: {0:d}", d + 1), 170, 95, -1, -1), this.e != null
+					&& (b.zb(String.format("Rank: {0:d}", d + 1), 170, 95, -1, -1), this.e != null
 							? (b.zb(c.JC[Math.min(d | 0, (c.JC.length | 0) - 1)
 											| 0], this.s / 2 + 40, 95, -1, 0), b
-									.zb(	String.Mb("{0}k to go",
+									.zb(	String.format("{0}k to go",
 													GameFramework.Utils.ei(this
 															.OJ()
 															| 0)), this.s - 40,
@@ -30388,10 +30388,10 @@ Game.RecordsDialog.prototype = {
 					&& (f = Game.BejApp.q.Ka.xe[(Game.DM.T.IK | 0) + g], d = g);
 		d > -1 && (c = Game.RecordsDialog.t7[d]);
 		f = Game.BejApp.q.Ka.xe[Game.DM.T.aF | 0] / 10 | 0;
-		f < 60 ? (g = String.Mb("{0} second", f), f != 1
+		f < 60 ? (g = String.format("{0} second", f), f != 1
 				&& (g += String.fromCharCode(115))) : f < 3600 ? (f = f / 60
-				| 0, g = String.Mb("{0} minute", f), f != 1
-				&& (g += String.fromCharCode(115))) : g = String.Mb(
+				| 0, g = String.format("{0} minute", f), f != 1
+				&& (g += String.fromCharCode(115))) : g = String.format(
 				"{0:0.0} hours", f / 3600);
 		f = Array.O(4, "", "All-Time Best Move:", "Total Time Played:",
 				"Gems Matched:", "Favorite Gem Color:");
@@ -30477,7 +30477,7 @@ Game.RecordsDialog.prototype = {
 			try {
 				if (d[c].sb != null) {
 					var g = Game.GlobalMembersEndLevelDialog.HU(GameFramework.Utils.ei(d[c].Hl));
-					b.zb(String.Mb("{0:d}.", c + 1), 30, 70 + 45 * c, 1, -1);
+					b.zb(String.format("{0:d}.", c + 1), 30, 70 + 45 * c, 1, -1);
 					b.zb(Game.GfxUtil.LR(b, d[c].sb, 455 - (b.hc(g) | 0)), 80, 70
 									+ 45 * c, -1, -1);
 					b.zb(g, 570, 70 + 45 * c, -1, 1)
@@ -32178,7 +32178,7 @@ Game.SpeedBoard.prototype = {
 			(Math.max(0, this.ri - 60) | 0) > 0
 					&& this.oj(b.Ad() | 0, b.Rd() | 0, b.qe * 50, Game.DM.Yi[b.n
 									| 0], b.Lf, true, true, b.Pa, false, Game.Board.je.sn);
-			c = String.Mb("+{0:d} sec", b.qe);
+			c = String.format("+{0:d} sec", b.qe);
 			c = new Game.Points(Game.BejApp.q, Game.Resources.FONT_DIALOG_HEADER, c, b.Ad() | 0,
 					b.Rd() | 0, 1, 0, Game.DM.Yi[b.n | 0], -1);
 			c.jr = 1.5;
@@ -32470,7 +32470,7 @@ Game.SpeedBoard.prototype = {
 		this.Bj.zd = b;
 		this.Bj.bg = Math.min(1, this.ri / 60);
 		this.yF(String
-						.Mb("pulse{0:d}", Math.min(5, (this.ri * 5 / 60 | 0)
+						.format("pulse{0:d}", Math.min(5, (this.ri * 5 / 60 | 0)
 												+ 1)), 12);
 		if (this.Bj.V() == 0)
 			b = new Game.ParticleEffect(Game.Resources.PIEFFECT_LIGHTNING_STEAMPULSE), b.w = 245, b.v = 255, b.Ak = true, this.ob
@@ -32672,7 +32672,7 @@ Game.SpeedBoard.prototype = {
 								* this.rG.V() | 0));
 				Game.Resources.FONT_SCORE.Ia("GLOW", 2667577344);
 				var j = this.Bj.V() * 60 + 0.5 | 0;
-				b.zb(String.Mb("+{0:d}:{1:00}", j / 60 | 0, j % 60), 186, 442,
+				b.zb(String.format("+{0:d}:{1:00}", j / 60 | 0, j % 60), 186, 442,
 						0, 0);
 				Game.Resources.FONT_SCORE.ib("GLOW")
 			} finally {
@@ -33571,11 +33571,11 @@ Game.SpeedEndLevelDialog.prototype = {
 		b.zb("Total Time", 230, 619, -1, -1)
 	},
 	pJ : function(b) {
-		b.zb(String.Mb("x{0}", this.Nf), 765, 475, -1, 1);
+		b.zb(String.format("x{0}", this.Nf), 765, 475, -1, 1);
 		b.zb(GameFramework.Utils.ei(this.od[Game.DM.T.vD | 0]), 765, 523, -1, 1);
 		b.zb(GameFramework.Utils.ei(this.od[Game.DM.T.uD | 0]), 765, 571, -1, 1);
 		var c = 60 + this.$r;
-		b.zb(String.Mb("{0}:{1:00}", c / 60 | 0, c % 60), 765, 619, -1, 1)
+		b.zb(String.format("{0}:{1:00}", c / 60 | 0, c % 60), 765, 619, -1, 1)
 	},
 	ja : function(b) {
 		Game.EndLevelDialog.prototype.ja.apply(this, [b]);
@@ -33595,10 +33595,10 @@ Game.SpeedEndLevelDialog.prototype = {
 		}
 		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG_SMALL);
 		Game.Resources.FONT_GAMEOVER_DIALOG_SMALL.Ia("OUTLINE", 255868960);
-		b.Cc(String.Mb("FLAME x{0}", this.od[Game.DM.T.kv | 0]), 276, 723);
-		b.Cc(String.Mb("STAR x{0}", this.od[Game.DM.T.Kv | 0]), 467, 723);
-		b.Cc(String.Mb("HYPER x{0}", this.od[Game.DM.T.Cz | 0]), 645, 723);
-		b.Cc(String.Mb("TIME +{0}:{1:00}", this.$r / 60 | 0, this.$r % 60),
+		b.Cc(String.format("FLAME x{0}", this.od[Game.DM.T.kv | 0]), 276, 723);
+		b.Cc(String.format("STAR x{0}", this.od[Game.DM.T.Kv | 0]), 467, 723);
+		b.Cc(String.format("HYPER x{0}", this.od[Game.DM.T.Cz | 0]), 645, 723);
+		b.Cc(String.format("TIME +{0}:{1:00}", this.$r / 60 | 0, this.$r % 60),
 				830, 723);
 		b.Cc("SPEED", 1005, 723);
 		b.Cc("SPECIAL", 1130, 723);
@@ -33618,7 +33618,7 @@ Game.SpeedEndLevelDialog.prototype = {
 		h = b.Q(4291866768);
 		try {
 			for (j = 0; j < 5; j++)
-				b.zb(String.Mb("{0}k", (j + 1) * d / 1E3 | 0), 330, 975 + j
+				b.zb(String.format("{0}k", (j + 1) * d / 1E3 | 0), 330, 975 + j
 								* -46, -1, 1)
 		} finally {
 			h.t()
@@ -33634,7 +33634,7 @@ Game.SpeedEndLevelDialog.prototype = {
 				k > 0
 						&& (k = Math.max(k, 10) | 0, b.dk(l[j], f + 10, 1005
 										- k, g - 20, k, 0));
-				b.jh(	h == (this.Qd.length | 0) - 1 ? "Last" : String.Mb(
+				b.jh(	h == (this.Qd.length | 0) - 1 ? "Last" : String.format(
 								"x{0}", h + 1), f + (g / 2 | 0), 1043)
 			}
 			f += g
@@ -34601,11 +34601,11 @@ Game.Util.U4 = function() {
 	var b = Game.Board.QY, b = b / 60 | 0, c = b % 60, b = b / 60 | 0, d = b % 60, f = (b
 			/ 60 | 0)
 			% 24, b = (b / 60 | 0) / 24 | 0;
-	return b > 0 ? String.Mb("{0} days {1:00} hours {2:00} min {3:00} sec", b,
-			f, d, c) : f > 0 ? String.Mb("{0:00} hours {1:00} min {2:00} sec",
+	return b > 0 ? String.format("{0} days {1:00} hours {2:00} min {3:00} sec", b,
+			f, d, c) : f > 0 ? String.format("{0:00} hours {1:00} min {2:00} sec",
 			f, d, c) : d > 0
-			? String.Mb("{0:00} min {1:00} sec", d, c)
-			: String.Mb("{0:00} sec", c)
+			? String.format("{0:00} min {1:00} sec", d, c)
+			: String.format("{0:00} sec", c)
 };
 Game.Util.Rpa = function(b, c, d) {
 	Game.Util.x4(b, c, d)
