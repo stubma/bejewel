@@ -5,10 +5,13 @@ var TRACE = true;
 // chrome need add --allow-file-access-from-files option
 var LOCAL_DEBUG = true;
 
+// undefined normalized
+var UNDEF = void 0;
+
 function throwError(b) {
 	throw b;
 }
-var UNDEF = void 0;
+
 function ga() {
 	return function(b) {
 		return b
