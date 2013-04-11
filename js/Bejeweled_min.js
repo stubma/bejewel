@@ -1078,6 +1078,8 @@ function isAncestor(type, clazz) {
 	}
 	return false
 }
+
+// Function class methods
 Type.isClass = function(b) {
 	return b._isClass == true
 };
@@ -1112,18 +1114,19 @@ Type.getClass = function(b) {
 		c = Object;
 	return c
 };
-Type.G6 = function(b) {
+Type.eval = function(b) {
 	if (!b)
 		return null;
-	if (!Type.QL)
-		Type.QL = {};
-	var c = Type.QL[b];
-	c || (c = eval(b), Type.QL[b] = c);
+	if (!Type.evalCache)
+		Type.evalCache = {};
+	var c = Type.evalCache[b];
+	c || (c = eval(b), Type.evalCache[b] = c);
 	return c
 };
 Type.parse = function(b) {
-	return Type.G6(b)
+	return Type.eval(b)
 };
+
 ss.Enum = dummy();
 ss.Enum.registerClass("Enum");
 ss.Enum.parse = function(b, c) {
