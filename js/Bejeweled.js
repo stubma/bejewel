@@ -4771,7 +4771,7 @@ addClassInitEntry(function() {
 			GameFramework.gfx.TriVertex.initClass()
 		});
 GameFramework.gfx.Graphics = function() {
-	this.Tf = [];
+	this.colorStack = [];
 	this.Yx = [];
 	this.Ct = [];
 	this.Ml = new GameFramework.geom.Matrix;
@@ -4840,7 +4840,7 @@ GameFramework.gfx.Graphics.prototype = {
 	matrixStack : null,
 	matrix : null,
 	topIndex : 0,
-	Tf : null,
+	colorStack : null,
 	Yx : null,
 	Ct : null,
 	n : 4294967295,
@@ -4866,14 +4866,14 @@ GameFramework.gfx.Graphics.prototype = {
 		this.topIndex = 0;
 		this.matrix.identity();
 		this.U = null;
-		this.Tf.clear()
+		this.colorStack.clear()
 	},
 	Q : function(b) {
 		b === UNDEF && (b = 4294967295);
 		return this.Ie != null
 				? this.o3((this.n >>> 24 | 0) & 255, (this.n >>> 16 | 0) & 255,
 						(this.n >>> 8 | 0) & 255, (this.n >>> 0 | 0) & 255)
-				: (this.Tf.push(this.n), this.n = this.n == 4294967295
+				: (this.colorStack.push(this.n), this.n = this.n == 4294967295
 						? b
 						: ((this.n >>> 24 & 255) * (b >>> 24 & 255) / 255 | 0) << 24
 								| ((this.n >>> 16 & 255) * (b >>> 16 & 255)
@@ -4896,10 +4896,10 @@ GameFramework.gfx.Graphics.prototype = {
 								* (this.n >>> 8 | 0) & 255)
 								/ 255 | 0, this.Ie[3] = (b[3] * (this.n | 0) & 255)
 								/ 255 | 0)
-				: this.Tf.length == 0
-						|| this.Tf[this.Tf.length - 1] == 4294967295
+				: this.colorStack.length == 0
+						|| this.colorStack[this.colorStack.length - 1] == 4294967295
 						? this.n = b
-						: (this.n = this.Tf[this.Tf.length - 1], this.n = ((this.n >>> 24 & 255)
+						: (this.n = this.colorStack[this.colorStack.length - 1], this.n = ((this.n >>> 24 & 255)
 								* (b >>> 24 & 255) / 255 | 0) << 24
 								| ((this.n >>> 16 & 255) * (b >>> 16 & 255)
 										/ 255 | 0) << 16
@@ -4920,7 +4920,7 @@ GameFramework.gfx.Graphics.prototype = {
 	pb : function() {
 		this.Ie != null
 				? this.Ie = this.Ct.length == 0 ? null : this.Ct.pop()
-				: (this.n = this.Tf.pop(), this.Yx.pop())
+				: (this.n = this.colorStack.pop(), this.Yx.pop())
 	},
 	translate : function(b, c) {
 		var d = this.matrixStack[this.topIndex++] = this.matrix;
@@ -5919,7 +5919,7 @@ GameFramework.resources.FontLayer.prototype = {
 	gj : 0,
 	UV : 0,
 	Oa : null,
-	Tf : null,
+	colorStack : null,
 	Hn : null,
 	xq : function(b) {
 		b = b.target;
@@ -5928,16 +5928,16 @@ GameFramework.resources.FontLayer.prototype = {
 			b = this.Hn[$enum1], b.bu = this.Oa.dv(b.cY, b.dY, b.bY, b.MH)
 	},
 	Q : function(b) {
-		if (this.Tf == null)
-			this.Tf = [];
-		this.Tf.push(this.cj);
+		if (this.colorStack == null)
+			this.colorStack = [];
+		this.colorStack.push(this.cj);
 		this.cj = ((this.cj >>> 24 & 255) * (b >>> 24 & 255) / 255 | 0) << 24
 				| ((this.cj >>> 16 & 255) * (b >>> 16 & 255) / 255 | 0) << 16
 				| ((this.cj >>> 8 & 255) * (b >>> 8 & 255) / 255 | 0) << 8
 				| ((this.cj >>> 0 & 255) * (b >>> 0 & 255) / 255 | 0) << 0
 	},
 	pb : function() {
-		this.cj = this.Tf.pop() | 0
+		this.cj = this.colorStack.pop() | 0
 	}
 };
 GameFramework.resources.FontLayer.initClass = dummy();
@@ -12001,16 +12001,16 @@ GameFramework.widgets.ClassicWidget.prototype = {
 	draw : dummy(),
 	jq : dummy(),
 	visit : function(b) {
-		var c = b.topIndex, d = b.Tf.length;
+		var c = b.topIndex, d = b.colorStack.length;
 		this.draw(b);
 		S(c == b.topIndex, "Matrix stack error - pops don't match pushes");
-		S(d == b.Tf.length, "Color stack error - pops don't match pushes");
+		S(d == b.colorStack.length, "Color stack error - pops don't match pushes");
 		for (var f = ss.IEnumerator.enumerate(this.cf); f.hasNext();) {
 			var g = f.next();
 			if (g.ec)
 				b.translate(g.w, g.v), g.NN = b.matrix.tx, g.ON = b.matrix.ty, g.visit(b), b.popMatrix();
 			S(c == b.topIndex, "Matrix stack error - pops don't match pushes");
-			S(d == b.Tf.length, "Color stack error - pops don't match pushes")
+			S(d == b.colorStack.length, "Color stack error - pops don't match pushes")
 		}
 	},
 	nh : function(b, c) {
@@ -21817,10 +21817,10 @@ Game.DialogMgr.prototype = {
 	},
 	visit : function(b) {
 		this.wd.ZD();
-		var c = b.topIndex, d = b.Tf.length;
+		var c = b.topIndex, d = b.colorStack.length;
 		this.draw(b);
 		S(c == b.topIndex, "Matrix stack error - pops don't match pushes");
-		S(d == b.Tf.length, "Color stack error - pops don't match pushes");
+		S(d == b.colorStack.length, "Color stack error - pops don't match pushes");
 		var f;
 		for (f = this.cf.length - 1; f >= 0; --f) {
 			var g = Type.getInstanceOrNull(this.cf[f], Game.Bej3Dialog);
@@ -21840,7 +21840,7 @@ Game.DialogMgr.prototype = {
 				}
 			}
 			S(c == b.topIndex, "Matrix stack error - pops don't match pushes");
-			S(d == b.Tf.length, "Color stack error - pops don't match pushes")
+			S(d == b.colorStack.length, "Color stack error - pops don't match pushes")
 		}
 		this.cf.length == 0 && this.pV(b)
 	},
@@ -34606,7 +34606,7 @@ Game.Util.x4 = function(b, c, d) {
 Game.Util.tba = function(b) {
 	var c = new Game.CheckMatrixInfo;
 	c.topIndex = b.topIndex;
-	c.dW = b.Tf.length;
+	c.dW = b.colorStack.length;
 	c.graphics = b;
 	c.VX = new GameFramework.misc.DisposeProxy(ss.Delegate.create(this, Game.Util.$Z));
 	Game.Util.mp.push(c);
@@ -34619,7 +34619,7 @@ Game.Util.$Z = function() {
 			"CheckGraphicsState MATRIX calls not aligned (check push/pop calls)");
 	S(
 			Game.Util.mp[Game.Util.mp.length - 1].dW == Game.Util.mp[Game.Util.mp.length
-					- 1].graphics.Tf.length,
+					- 1].graphics.colorStack.length,
 			"CheckGraphicsState COLOR calls not aligned (check push/pop calls)")
 };
 Game.Util.prototype = {};
