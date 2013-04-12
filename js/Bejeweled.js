@@ -1728,23 +1728,23 @@ function drawFrame() {
 	lastFrameTime = now;
 	delta >= 500 && (delta = 500);
 	if (curApp != null && !curApp.EW) {
-		for (var b = 0, c = false; delta >= curApp.frameInterval;) {
+		for (var frames = 0, atLeastOneFrame = false; delta >= curApp.frameInterval;) {
 			if (exitWhenError) {
 				try {
 					curApp.ca()
 				} catch (d) {
-					curApp.SJ(d)
+					curApp.onException(d)
 				}
 			} else {
 				curApp.ca();
 			}
 
 			delta -= curApp.frameInterval;
-			if (++b >= 50)
+			if (++frames >= 50)
 				break;
-			c = true
+			atLeastOneFrame = true
 		}
-		if (c && wb) {
+		if (atLeastOneFrame && jsfInited) {
 			gl
 					&& (ub && (gl.viewport(0, 0, ub, vb), vb = ub = 0), gl.clearColor(0, 0, 0.1, 1), gl
 							.colorMask(1, 1, 1, 1), gl.clear(gl.COLOR_BUFFER_BIT), gl
@@ -1754,7 +1754,7 @@ function drawFrame() {
 				try {
 					curApp.ja()
 				} catch (f) {
-					curApp.SJ(f)
+					curApp.onException(f)
 				}
 			} else {
 				curApp.ja();
@@ -1794,7 +1794,7 @@ function dc(b) {
 			? (b.MF = b.offsetX, b.NF = b.offsetY)
 			: (b.MF = b.layerX, b.NF = b.layerY)
 }
-function ec(b) {
+function onMouseMove(b) {
 	dc(b);
 	curApp.Bb.ln(b.MF / curApp.m, b.NF / curApp.m)
 }
@@ -1802,7 +1802,7 @@ function onMouseDown(b) {
 	dc(b);
 	curApp.Bb.Af(b.MF / curApp.m, b.NF / curApp.m)
 }
-function gc(b) {
+function onMouseUp(b) {
 	dc(b);
 	curApp.Bb.Wk(b.MF / curApp.m, b.NF / curApp.m)
 }
@@ -1996,12 +1996,13 @@ function onWebGLContextRestored() {
 	window.location.href = window.location.href;
 }
 
-function Vc() {
+// when surface is not visible
+function onWebkitVisibilityChanged() {
 	document.webkitHidden ? curApp.bL(true) : curApp.bL(false)
 }
 
 // global init for webgl and event handlers
-var wb = false;
+var jsfInited = false;
 window.JSFExt_Init = function(app, canvas) {
 	// if use webgl, get gl context and install canvas listener
 	if (app.useGL) {
@@ -2044,12 +2045,12 @@ window.JSFExt_Init = function(app, canvas) {
 	document.onkeydown = onKeyDown;
 	document.onkeyup = onKeyUp;
 	canvas.addEventListener("mousedown", onMouseDown, false);
-	canvas.addEventListener("mouseup", gc, false);
-	canvas.addEventListener("mousemove", ec, false);
-	document.addEventListener("webkitvisibilitychange", Vc, false);
+	canvas.addEventListener("mouseup", onMouseUp, false);
+	canvas.addEventListener("mousemove", onMouseMove, false);
+	document.addEventListener("webkitvisibilitychange", onWebkitVisibilityChanged, false);
 	window.addEventListener("touchmove", function(b) {
 				b.preventDefault();
-				ec(b)
+				onMouseMove(b)
 			}, false);
 	window.addEventListener("touchstart", function(b) {
 				b.preventDefault();
@@ -2057,15 +2058,15 @@ window.JSFExt_Init = function(app, canvas) {
 			}, false);
 	window.addEventListener("touchend", function(b) {
 				b.preventDefault();
-				gc(b)
+				onMouseUp(b)
 			}, false);
-	wb = true
+	jsfInited = true
 };
 
 // sound manager lifecycle methods
 window.JSFExt_SoundManagerReady = dummy();
 window.JSFExt_SoundError = function() {
-	curApp.SJ(Error("SoundManager2 error"))
+	curApp.onException(Error("SoundManager2 error"))
 };
 
 function Wc(b, c) {
@@ -2229,7 +2230,7 @@ GameFramework.BaseApp.prototype = {
 	Ck : null,
 	tB : null,
 	xX : null,
-	$M : null,
+	exceptionCallback : null,
 	TV : false,
 	kc : staticGet(false),
 	Ra : function(b, c) {
@@ -2255,10 +2256,10 @@ GameFramework.BaseApp.prototype = {
 			this.bN = this.Nt + GameFramework.Utils.wj(0)
 		}
 	},
-	l4 : set("$M"),
-	SJ : function(b) {
+	setExceptionCallback : set("exceptionCallback"),
+	onException : function(b) {
 		this.EW = true;
-		this.$M != null ? this.$M.tt(b) || throwError(b) : throwError(b)
+		this.exceptionCallback != null ? this.exceptionCallback.tt(b) || throwError(b) : throwError(b)
 	},
 	wQ : dummy(),
 	Ub : function() {
@@ -2374,7 +2375,6 @@ GameFramework.BaseApp.prototype = {
 	},
 	FL : dummy()
 };
-GameFramework.BaseApp.prototype.setExceptionCallback = GameFramework.BaseApp.prototype.l4;
 GameFramework.BaseApp.initClass = function() {
 	GameFramework.BaseApp.instance = null
 };
