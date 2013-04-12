@@ -2270,7 +2270,7 @@ GameFramework.BaseApp.prototype = {
 		this.EW = true;
 		this.exceptionCallback != null ? this.exceptionCallback.tt(b) || throwError(b) : throwError(b)
 	},
-	wQ : dummy(),
+	createGraphics : dummy(),
 	Ub : function() {
 		this.lH == 0
 				? (this.lH = this.s, this.dC = this.z)
@@ -2282,7 +2282,7 @@ GameFramework.BaseApp.prototype = {
 								"ProdName", this.appName), new GameFramework.misc.KeyVal(
 								"Version", this.nj), new GameFramework.misc.KeyVal(
 								"ExecutionId", this.bN)));
-		this.wQ();
+		this.createGraphics();
 		this.fJ()
 	},
 	KA : function(b, c) {
@@ -13077,7 +13077,7 @@ GameFramework.JSBaseApp.prototype = {
 	uQ : function() {
 		return new GameFramework.JSDataBufferData
 	},
-	wQ : function() {
+	createGraphics : function() {
 		this.graphics = this.m8 = new GameFramework.gfx.JSGraphics(this.Di, this.Ig)
 	},
 	getItem : function(ns, key) {
