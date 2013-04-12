@@ -1716,7 +1716,7 @@ ab.g6(Math.random(), document.documentElement.clientWidth,
 
 // main loop of game
 var vertexBO, vertexBuffer, vbLen = 0, colorBO, colorBuffer, cbLen = 0, lastFrameTime = (new Date).getTime(), delta = 0;
-var speedFactor = 1, exitWhenError = true, ub, vb;
+var speedFactor = 1, exitWhenError = true, ub, resManager;
 function drawFrame() {
 	var now = (new Date).getTime();
 	delta += (now - lastFrameTime) * speedFactor;
@@ -1741,7 +1741,7 @@ function drawFrame() {
 		}
 		if (atLeastOneFrame && jsfInited) {
 			gl
-					&& (ub && (gl.viewport(0, 0, ub, vb), vb = ub = 0), gl.clearColor(0, 0, 0.1, 1), gl
+					&& (ub && (gl.viewport(0, 0, ub, resManager), resManager = ub = 0), gl.clearColor(0, 0, 0.1, 1), gl
 							.colorMask(1, 1, 1, 1), gl.clear(gl.COLOR_BUFFER_BIT), gl
 							.colorMask(1, 1, 1, 0), curTex = null);
 			context = document.getElementById("GameCanvas").getContext("2d");
@@ -2194,7 +2194,7 @@ GameFramework.BaseApp = function() {
 	callSuperConstructor(GameFramework.BaseApp, this);
 	GameFramework.BaseApp.instance = this;
 	this.ZH = new GameFramework.resources.SoundManager;
-	this.vb = new GameFramework.resources.ResourceManager;
+	this.resManager = new GameFramework.resources.ResourceManager;
 	this.w9 = "./"
 };
 GameFramework.BaseApp.prototype = {
@@ -2202,7 +2202,7 @@ GameFramework.BaseApp.prototype = {
 	Mu : 1,
 	Bb : null,
 	ZH : null,
-	vb : null,
+	resManager : null,
 	userId : null,
 	Nt : null,
 	bN : null,
@@ -5923,7 +5923,7 @@ GameFramework.resources.FontLayer.prototype = {
 	Hn : null,
 	xq : function(b) {
 		b = b.target;
-		this.Oa = b.xa != null ? GameFramework.BaseApp.instance.vb.Gs(b.xa) : b.rd;
+		this.Oa = b.xa != null ? GameFramework.BaseApp.instance.resManager.Gs(b.xa) : b.rd;
 		for ($enum1 in this.Hn)
 			b = this.Hn[$enum1], b.bu = this.Oa.dv(b.cY, b.dY, b.bY, b.MH)
 	},
@@ -6053,10 +6053,10 @@ GameFramework.resources.FontResource.prototype = {
 			j = b.H();
 			j = b.lk(j);
 			j = GameFramework.Utils.qF(j);
-			k = GameFramework.BaseApp.instance.vb.al(j);
-			j = k != null ? GameFramework.BaseApp.instance.vb.sw(k) : GameFramework.BaseApp.instance.vb
+			k = GameFramework.BaseApp.instance.resManager.al(j);
+			j = k != null ? GameFramework.BaseApp.instance.resManager.sw(k) : GameFramework.BaseApp.instance.resManager
 					.vU(j);
-			GameFramework.BaseApp.instance.vb.gw(j);
+			GameFramework.BaseApp.instance.resManager.gw(j);
 			j.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(h, h.xq));
 			c != null
 					&& (c.Uj++, j.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(c,
@@ -6501,7 +6501,7 @@ GameFramework.resources.MeshPiece.prototype = {
 	Oa : null,
 	xq : function(b) {
 		b = b.target;
-		this.Oa = b.xa != null ? GameFramework.BaseApp.instance.vb.Gs(b.xa) : b.rd
+		this.Oa = b.xa != null ? GameFramework.BaseApp.instance.resManager.Gs(b.xa) : b.rd
 	}
 };
 GameFramework.resources.MeshPiece.initClass = dummy();
@@ -6557,18 +6557,18 @@ GameFramework.resources.MeshResource.prototype = {
 					}
 					o != null
 							&& (o = GameFramework.Utils.qF(o), o = o.substr(0, o
-											.indexOf(String.fromCharCode(46))), m = GameFramework.BaseApp.instance.vb
+											.indexOf(String.fromCharCode(46))), m = GameFramework.BaseApp.instance.resManager
 									.al("images/" + GameFramework.BaseApp.instance.artRes
 											+ "/tex/" + o), m == null
-									&& (m = GameFramework.BaseApp.instance.vb.al("images/"
+									&& (m = GameFramework.BaseApp.instance.resManager.al("images/"
 											+ GameFramework.BaseApp.instance.artRes
-											+ "/NonResize/" + o)), o = GameFramework.BaseApp.instance.vb
+											+ "/NonResize/" + o)), o = GameFramework.BaseApp.instance.resManager
 									.sw(m), o.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate
 											.create(l, l.xq)), o.addEventHandler(
 									GameFramework.events.Event.COMPLETE, ss.Delegate.create(c,
 											c.Sy)), o.addEventHandler(
 									GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(c,
-											c.ps)), c.Uj++, GameFramework.BaseApp.instance.vb
+											c.ps)), c.Uj++, GameFramework.BaseApp.instance.resManager
 									.gw(o));
 					b.Ga();
 					o = b.H() | 0;
@@ -6903,7 +6903,7 @@ GameFramework.resources.PITexture.prototype = {
 	t : dummy(),
 	xq : function(b) {
 		b = b.target;
-		this.zi = b.xa != null ? GameFramework.BaseApp.instance.vb.Gs(b.xa) : b.rd
+		this.zi = b.xa != null ? GameFramework.BaseApp.instance.resManager.Gs(b.xa) : b.rd
 	}
 };
 GameFramework.resources.PITexture.initClass = dummy();
@@ -7773,9 +7773,9 @@ GameFramework.resources.PIEffect.prototype = {
 	e1 : function(b, c, d) {
 		b = c.indexOf(String.fromCharCode(124));
 		return b != -1
-				? (c = GameFramework.BaseApp.instance.vb.sw(c.substr(b + 1)), c.addEventHandler(
+				? (c = GameFramework.BaseApp.instance.resManager.sw(c.substr(b + 1)), c.addEventHandler(
 						GameFramework.events.Event.COMPLETE, ss.Delegate.create(d, d.Sy)), c.addEventHandler(
-						GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(d, d.ps)), d.Uj++, GameFramework.BaseApp.instance.vb
+						GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(d, d.ps)), d.Uj++, GameFramework.BaseApp.instance.resManager
 						.gw(c), c)
 				: null
 	},
@@ -10388,7 +10388,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 					if (this.Px != null) {
 						g = this.Px;
 						for (h = 0; h < g.length; h++) {
-							f.Ke = GameFramework.BaseApp.instance.vb.m1(g[h]
+							f.Ke = GameFramework.BaseApp.instance.resManager.m1(g[h]
 									+ f.sb.toUpperCase());
 							if (f.Ke == null)
 								break;
@@ -10700,11 +10700,11 @@ GameFramework.resources.PopAnimResource.prototype = {
 				g.Na = null;
 			var j = h.indexOf(String.fromCharCode(124));
 			j != -1
-					? (h = h.substr(j + 1), g.dH.push(h), h = GameFramework.BaseApp.instance.vb
+					? (h = h.substr(j + 1), g.dH.push(h), h = GameFramework.BaseApp.instance.resManager
 							.sw(h), h.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(
 									g, g.xq)), h.addEventHandler(GameFramework.events.Event.COMPLETE,
 							ss.Delegate.create(c, c.Sy)), h.addEventHandler(
-							GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(c, c.ps)), c.Uj++, GameFramework.BaseApp.instance.vb
+							GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(c, c.ps)), c.Uj++, GameFramework.BaseApp.instance.resManager
 							.gw(h))
 					: g.dH.push(h);
 			this.cu.push(g)
@@ -13048,7 +13048,7 @@ GameFramework.JSBaseApp = function() {
 	this.RN = GameFramework.Utils.bootTime()
 };
 GameFramework.JSBaseApp.prototype = {
-	fu : null,
+	jsResManager : null,
 	m8 : null,
 	tN : null,
 	useGL : true,
@@ -13061,7 +13061,7 @@ GameFramework.JSBaseApp.prototype = {
 	isUseGL : get("useGL"),
 	Ub : function() {
 		GameFramework.BaseApp.prototype.Ub.apply(this);
-		this.vb = this.fu = new GameFramework.resources.JSResourceManager
+		this.resManager = this.jsResManager = new GameFramework.resources.JSResourceManager
 	},
 	nQ : function() {
 		qb = 0
@@ -13069,7 +13069,7 @@ GameFramework.JSBaseApp.prototype = {
 	KA : function(b, c) {
 		GameFramework.BaseApp.prototype.KA.apply(this, [b, c]);
 		ub = b;
-		vb = c
+		resManager = c
 	},
 	uQ : function() {
 		return new GameFramework.JSDataBufferData
@@ -13115,7 +13115,7 @@ GameFramework.JSBaseApp.prototype = {
 					: stream.resType != GameFramework.resources.ResourceManager.zT && (d = true);
 			if (stream.rd == null && stream.vc != null)
 				if (stream.resType === GameFramework.resources.ResourceManager.IMAGE)
-					stream.Kb != null && stream.Kb.Qb != null ? this.vb.Gs(stream.Kb.Qb) != null
+					stream.Kb != null && stream.Kb.Qb != null ? this.resManager.Gs(stream.Kb.Qb) != null
 							&& stream.Or != stream.Uj && stream.Or++ : stream.rd = stream.Kb != null
 							&& stream.Kb.gX ? Oa(stream, stream.vc ? this.pathPrefix + stream.vc : null, stream.Rx
 									? this.pathPrefix + stream.Rx
@@ -13125,7 +13125,7 @@ GameFramework.JSBaseApp.prototype = {
 					var h = stream.vc;
 					h.indexOf(".") === -1 && (h += stream.Kb.Jj[0]);
 					stream.rd = Wc(stream, h);
-					this.vb.JT(stream)
+					this.resManager.JT(stream)
 				} else if (stream.resType === GameFramework.resources.ResourceManager.FONT
 						|| stream.resType === GameFramework.resources.ResourceManager.POPANIM
 						|| stream.resType === GameFramework.resources.ResourceManager.PIEFFECT
@@ -13133,8 +13133,8 @@ GameFramework.JSBaseApp.prototype = {
 						|| stream.resType === GameFramework.resources.ResourceManager.RENDEREFFECT
 						|| stream.resType === GameFramework.resources.ResourceManager.yT)
 					if (startsWith(stream.vc, "!ref:"))
-						h = this.vb.b1(stream.vc.substr(5)), h != null && stream.Or != stream.Uj
-								&& (this.vb.ET(stream.xa, h.gi()), stream.Or++);
+						h = this.resManager.b1(stream.vc.substr(5)), h != null && stream.Or != stream.Uj
+								&& (this.resManager.ET(stream.xa, h.gi()), stream.Or++);
 					else if (h = null, h = stream.vc.indexOf("@"), h != -1) {
                         // search : and -, h will be filename, j, k is start and end codepoint
 						var j = stream.vc.indexOf(":", h);
@@ -13167,12 +13167,12 @@ GameFramework.JSBaseApp.prototype = {
 							ss.Delegate.create(this, this.KT), "text") : $.get(
 							this.pathPrefix + stream.vc, null, ss.Delegate.create(this, this.KT)), h.nY = stream, this.tN[h
 							.toString()] = stream, stream.rd = h;
-			if (stream.OM && !GameFramework.BaseApp.instance.vb.YO)
+			if (stream.OM && !GameFramework.BaseApp.instance.resManager.YO)
 				stream.OM(), stream.OM = null;
-			if (stream.tk || stream.Or == stream.Uj && !GameFramework.BaseApp.instance.vb.YO)
+			if (stream.tk || stream.Or == stream.Uj && !GameFramework.BaseApp.instance.resManager.YO)
 				stream.tk
 						? stream.dispatchEvent(new GameFramework.events.Event(GameFramework.events.IOErrorEvent.IO_ERROR))
-						: (this.fu.JT(stream), stream
+						: (this.jsResManager.JT(stream), stream
 								.dispatchEvent(new GameFramework.events.Event(GameFramework.events.Event.COMPLETE))), C(
 						this.Ck, f), f--, b = true;
 			f == this.Ck.length - 1 && b && (f = -1, b = false)
@@ -13194,16 +13194,16 @@ GameFramework.JSBaseApp.prototype = {
 			var d = new GameFramework.DataBuffer;
 			d.nd.Ya = c.rd;
 			c.rd = d;
-			this.fu.c3(c)
+			this.jsResManager.c3(c)
 		}
 		if (c.resType == GameFramework.resources.ResourceManager.POPANIM)
-			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.fu.e3(c);
+			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.jsResManager.e3(c);
 		if (c.resType == GameFramework.resources.ResourceManager.PIEFFECT)
-			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.fu.d3(c);
+			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.jsResManager.d3(c);
 		if (c.resType == GameFramework.resources.ResourceManager.POP3D)
-			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.fu.kT(c);
+			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.jsResManager.kT(c);
 		if (c.resType == GameFramework.resources.ResourceManager.RENDEREFFECT)
-			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.fu.f3(c);
+			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.jsResManager.f3(c);
 		c.Or++
 	},
 	KT : function(b, c, d) {
@@ -14452,8 +14452,8 @@ Game.Background = function() {
 };
 Game.Background.pU = function(b) {
 	if (!Game.Background.Ax[b]) {
-		var c = new Game.BackgroundLoader(b), b = Game.Background.lm[b] != null ? GameFramework.BaseApp.instance.vb
-				.dl(Game.Background.lm[b]) : GameFramework.BaseApp.instance.vb.vU(Game.Background.eN[b]);
+		var c = new Game.BackgroundLoader(b), b = Game.Background.lm[b] != null ? GameFramework.BaseApp.instance.resManager
+				.dl(Game.Background.lm[b]) : GameFramework.BaseApp.instance.resManager.vU(Game.Background.eN[b]);
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(c, c.JZ));
 		return b
 	}
@@ -14467,7 +14467,7 @@ Game.Background.cL = function(b, c) {
 Game.Background.KP = function(b) {
 	Game.Background.Ax[b]
 			&& (Game.Background.lm[b] != null
-					? GameFramework.BaseApp.instance.vb.b5(Game.Background.lm[b])
+					? GameFramework.BaseApp.instance.resManager.b5(Game.Background.lm[b])
 					: (Game.Background.iC[b].t(), Game.Background.iC[b] = null), Game.Background.Ax[b] = false)
 };
 Game.Background.prototype = {
@@ -14496,9 +14496,9 @@ Game.Background.prototype = {
 			this.Lw = false;
 			if (Game.Background.iC[b] != null)
 				this.Oa = Game.Background.iC[b];
-			else if (this.Oa = GameFramework.BaseApp.instance.vb.Gs(Game.Background.eN[b]), GameFramework.BaseApp.instance.isUseGL()
+			else if (this.Oa = GameFramework.BaseApp.instance.resManager.Gs(Game.Background.eN[b]), GameFramework.BaseApp.instance.isUseGL()
 					&& !Game.BejApp.instance.$f)
-				this.hf = GameFramework.BaseApp.instance.vb.o1(Game.Background.RX[b]), this.hf.Px = [], this.hf.Px
+				this.hf = GameFramework.BaseApp.instance.resManager.o1(Game.Background.RX[b]), this.hf.Px = [], this.hf.Px
 						.push("PIEFFECT_BACKGROUNDS_");
 			return true
 		}
@@ -15167,12 +15167,12 @@ Game.BejApp.prototype = {
 			this.Bi = new Game.MainMenu, this.Bi.s = 1600, this.Bi.z = 1200, this.nx
 					.Bc(this.Bi), this.Bi.update(), this.Nh.oi(this.Bi), this.hP = new Game.TooltipManager, this.fe
 					.Bc(this.hP);
-		var b = this.vb.J4("properties/resources.xml");
+		var b = this.resManager.J4("properties/resources.xml");
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.M3));
 		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.Rz))
 	},
 	M3 : function(b) {
-		this.vb.g3(b.target.rd);
+		this.resManager.g3(b.target.rd);
 		this.I4()
 	},
 	submitStandardMetricsDict : function(b, c, d, f) {
@@ -15216,12 +15216,12 @@ Game.BejApp.prototype = {
 		}
 	},
 	I4 : function() {
-		this.FN = this.vb.dl("Init");
+		this.FN = this.resManager.dl("Init");
 		this.FN.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.dK));
 		this.FN.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.Rz))
 	},
 	dl : function(b) {
-		b = this.vb.dl(b);
+		b = this.resManager.dl(b);
 		this.Ut++;
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.pK));
 		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.Rz))
@@ -15247,7 +15247,7 @@ Game.BejApp.prototype = {
 		this.dl("Board");
 		this.dl("Additive");
 		this.dl("MainMenu");
-		b = this.vb.H4(Game.Resources.z3);
+		b = this.resManager.H4(Game.Resources.z3);
 		this.Ut++;
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.R1));
 		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.Rz))
@@ -15278,18 +15278,18 @@ Game.BejApp.prototype = {
 					.Ia("OUTLINE", GameFramework.gfx.Color.Ma(255, 255, 255, 255)), Game.Resources.FONT_DIALOG_HEADER
 					.Ia("GLOW", GameFramework.gfx.Color.Ma(255, 255, 255, 128)), Game.Resources.IMAGE_BOARD_TIMER.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_BOARD_TIMER_RED.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_BOARD_TIMER_GOLD.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_LIGHTNING_TIMER_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_LIGHTNING_TIMER_RED_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.Resources.FONT_TIMER_LARGE
 					.dU(GameFramework.resources.De.ik), Game.Resources.FONT_TIMER_SMALL
-					.dU(GameFramework.resources.De.ik), this.Sn.push(this.vb.Po(this.vb
-					.al("3d/gemRed.p3d"))), this.Sn.push(this.vb.Po(this.vb
-					.al("3d/gemWhite.p3d"))), this.Sn.push(this.vb.Po(this.vb
-					.al("3d/gemGreen.p3d"))), this.Sn.push(this.vb.Po(this.vb
-					.al("3d/gemYellow.p3d"))), this.Sn.push(this.vb.Po(this.vb
-					.al("3d/gemPurple.p3d"))), this.Sn.push(this.vb.Po(this.vb
-					.al("3d/gemOrange.p3d"))), this.Sn.push(this.vb.Po(this.vb
-					.al("3d/gemBlue.p3d"))), this.AI = this.vb.Po(this.vb
+					.dU(GameFramework.resources.De.ik), this.Sn.push(this.resManager.Po(this.resManager
+					.al("3d/gemRed.p3d"))), this.Sn.push(this.resManager.Po(this.resManager
+					.al("3d/gemWhite.p3d"))), this.Sn.push(this.resManager.Po(this.resManager
+					.al("3d/gemGreen.p3d"))), this.Sn.push(this.resManager.Po(this.resManager
+					.al("3d/gemYellow.p3d"))), this.Sn.push(this.resManager.Po(this.resManager
+					.al("3d/gemPurple.p3d"))), this.Sn.push(this.resManager.Po(this.resManager
+					.al("3d/gemOrange.p3d"))), this.Sn.push(this.resManager.Po(this.resManager
+					.al("3d/gemBlue.p3d"))), this.AI = this.resManager.Po(this.resManager
 					.al("3d/warptube.p3d")), this.AI.addEventHandler(GameFramework.resources.MeshEvent.iT,
 					ss.Delegate.create(Game.HyperspaceUltra, Game.HyperspaceUltra.T1)), this.AI.addEventHandler(
-					GameFramework.resources.MeshEvent.hT, ss.Delegate.create(Game.HyperspaceUltra, Game.HyperspaceUltra.S1)), this.XY = this.vb
-					.Po(this.vb.al("3d/warptube_cap.p3d"))
+					GameFramework.resources.MeshEvent.hT, ss.Delegate.create(Game.HyperspaceUltra, Game.HyperspaceUltra.S1)), this.XY = this.resManager
+					.Po(this.resManager.al("3d/warptube_cap.p3d"))
 	},
 	gq : function(b, c, d, f, g) {
 		if (g === UNDEF)
@@ -15348,7 +15348,7 @@ Game.BejApp.prototype = {
 			this.Oj.Sq(), this.Oj = null;
 		this.TV && (b = 0);
 		if (this.Oj == null && this.wI != null && b > 0) {
-			var c = this.vb.mE(this.wI);
+			var c = this.resManager.mE(this.wI);
 			if (c != null)
 				this.Oj = this.yz(c), this.Oj != null
 						&& (this.Oj.fU(1), this.Oj.Rq(b), this.Oj
@@ -17025,7 +17025,7 @@ Game.Board.prototype = {
 	DQ : function(b) {
 		var c = Array.O(7, "", Game.Resources.b4, Game.Resources.Z3, Game.Resources.X3, Game.Resources.c4,
 				Game.Resources.a4, Game.Resources.d4, Game.Resources.Y3);
-		Game.SoundUtil.$v(GameFramework.BaseApp.instance.vb.mE(c[b]));
+		Game.SoundUtil.$v(GameFramework.BaseApp.instance.resManager.mE(c[b]));
 		this.ax = b;
 		this.ax > 0
 				&& (this.$w.ea("b+0,1,0.005714,1,#### 0~r2d        q#G_h"), this.sG
@@ -18872,9 +18872,9 @@ Game.Board.prototype = {
 			lb > 6 && (lb = 6);
 			b && this.ng > 0 ? this.Ch > 0.01 ? Game.SoundUtil.Ug(
 					Game.Resources.SOUND_FLAMESPEED1, kb, 1) : Game.SoundUtil.Ug(
-					GameFramework.BaseApp.instance.vb.mE("SOUND_SPEEDMATCH"
+					GameFramework.BaseApp.instance.resManager.mE("SOUND_SPEEDMATCH"
 							+ (Math.min(9, this.ng + 1) | 0)), kb, 1) : Game.SoundUtil
-					.Ug(GameFramework.BaseApp.instance.vb.mE("SOUND_COMBO_" + (lb + 1)), kb,
+					.Ug(GameFramework.BaseApp.instance.resManager.mE("SOUND_COMBO_" + (lb + 1)), kb,
 							1);
 			for (var Yb = 0; Yb < z.length; ++Yb)
 				this.fg(Game.DM.T.AD, 1, z[Yb])
@@ -19897,8 +19897,8 @@ Game.Board.prototype = {
 				if (d != null)
 					d.L = this.L.D()
 			}
-			GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f ? GameFramework.BaseApp.instance.vb
-					.nT(this.Jf == null || this.Jf.aa < 96) : GameFramework.BaseApp.instance.vb
+			GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f ? GameFramework.BaseApp.instance.resManager
+					.nT(this.Jf == null || this.Jf.aa < 96) : GameFramework.BaseApp.instance.resManager
 					.nT(this.Jf == null);
 			if (this.Ge != null)
 				this.Ge.ec = !Game.BejApp.instance.Bi.JS() || !GameFramework.BaseApp.instance.isUseGL();
@@ -20324,7 +20324,7 @@ Game.Board.prototype = {
 					Game.Resources.Z1, Game.Resources.c2, Game.Resources.X1);
 			b.Q(GameFramework.gfx.Color.Jb(this.$w.D() * this.Yc()));
 			b.nc(this.sG.D(), this.sG.D(), this.Se(), 450);
-			b.Ba(GameFramework.BaseApp.instance.vb.Gs(c[this.ax]).Ee(), this.Se(), 450);
+			b.Ba(GameFramework.BaseApp.instance.resManager.Gs(c[this.ax]).Ee(), this.Se(), 450);
 			b.Ab();
 			b.pb()
 		}
