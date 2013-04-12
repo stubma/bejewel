@@ -2526,17 +2526,17 @@ GameFramework.CurvedVal.prototype = {
 		f = b.indexOf(String.fromCharCode(44), c) | 0;
 		if (f == -1)
 			this.eu = true;
-		else if (this.zd = c = GameFramework.Utils.fp(b.substr(c, f - c)), c = f
+		else if (this.zd = c = GameFramework.Utils.toNumber(b.substr(c, f - c)), c = f
 				+ 1, f = b.indexOf(String.fromCharCode(44), c), f != -1
-				&& (this.bg = c = GameFramework.Utils.fp(b.substr(c, f - c)), c = f
+				&& (this.bg = c = GameFramework.Utils.toNumber(b.substr(c, f - c)), c = f
 						+ 1, f = b.indexOf(String.fromCharCode(44), c), f != -1)) {
-			this.Ye = c = GameFramework.Utils.fp(b.substr(c, f - c));
+			this.Ye = c = GameFramework.Utils.toNumber(b.substr(c, f - c));
 			c = f + 1;
 			if (d >= 1) {
 				f = b.indexOf(String.fromCharCode(44), c);
 				if (f == -1)
 					return;
-				this.Oc = c = GameFramework.Utils.fp(b.substr(c, f - c));
+				this.Oc = c = GameFramework.Utils.toNumber(b.substr(c, f - c));
 				c = f + 1
 			}
 			d = b.substr(c);
@@ -3509,10 +3509,7 @@ GameFramework.Utils = dummy();
 GameFramework.Utils.toInt = function(b) {
 	return b | 0
 };
-GameFramework.Utils.aqa = function(b) {
-	return Number(b)
-};
-GameFramework.Utils.fp = function(b) {
+GameFramework.Utils.toNumber = function(b) {
 	return Number(b)
 };
 GameFramework.Utils.Zpa = function(b) {
@@ -10368,9 +10365,9 @@ GameFramework.resources.PopAnimResource.prototype = {
 								l = l.remove(o);
 							o = l.toLowerCase();
 							if (o.substr(0, 2) == "x=")
-								f.By = GameFramework.Utils.fp(l.substr(2));
+								f.By = GameFramework.Utils.toNumber(l.substr(2));
 							else if (o.substr(0, 2) == "y=")
-								f.Cy = GameFramework.Utils.fp(l.substr(2));
+								f.Cy = GameFramework.Utils.toNumber(l.substr(2));
 							else if (o == "attachemitter")
 								f.iB = true;
 							else if (o == "once")
@@ -28877,7 +28874,7 @@ Game.Metrics.prototype = {
 	Ub : function() {
 		var b = GameFramework.BaseApp.instance.getItem("Global", "SamplingProbRoll");
 		if (b != null)
-			this.SC = GameFramework.Utils.fp(b)
+			this.SC = GameFramework.Utils.toNumber(b)
 	},
 	n4 : function(b) {
 		this.SC = b;
@@ -28912,7 +28909,7 @@ Game.Metrics.prototype = {
 			var c = {};
 			GameFramework.BaseApp.instance.ND(b, c);
 			for (aStatsGroup in c) {
-				var d = c[aStatsGroup], f = GameFramework.Utils.fp(d.value);
+				var d = c[aStatsGroup], f = GameFramework.Utils.toNumber(d.value);
 				this.l8 && d.hasOwnProperty("admin") && (f = d.admin ? 1 : 0);
 				this.Kx[aStatsGroup] = f;
 				this.VW = true
@@ -34597,7 +34594,7 @@ Game.Util.x4 = function(b, c, d) {
 					c.push(GameFramework.Utils.toInt(b.substr(g, f - g)));
 					break;
 				case Game.Util.kq.R4 :
-					Type.getInstanceOrNull(c, GameFramework.TVector).push(GameFramework.Utils.fp(b
+					Type.getInstanceOrNull(c, GameFramework.TVector).push(GameFramework.Utils.toNumber(b
 							.substr(g, f - g)))
 			}
 			++h;
