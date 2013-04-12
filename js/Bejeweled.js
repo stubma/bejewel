@@ -2206,7 +2206,7 @@ GameFramework.BaseApp.prototype = {
 	userId : null,
 	Nt : null,
 	bN : null,
-	po : "PopCapGame",
+	appName : "PopCapGame",
 	nj : "",
 	w9 : null,
 	graphics : null,
@@ -2254,13 +2254,13 @@ GameFramework.BaseApp.prototype = {
 	O0 : function() {
 		if (this.bN == null) {
 			if (this.Nt == null)
-				this.Nt = this.getItem(this.po, "ExecutionUserId");
+				this.Nt = this.getItem(this.appName, "ExecutionUserId");
 			if (this.Nt == null) {
 				this.Nt = "";
 				for (var b = GameFramework.Utils.randZeroOne() * 1E9 | 0; b != 0;)
 					this.Nt += "ABCDEFGHJIJKLMNOPQRSTUVWXYZ".substr(b % 27, 1), b = b
 							/ 27 | 0;
-				this.setItem(this.po, "ExecutionUserId", this.Nt)
+				this.setItem(this.appName, "ExecutionUserId", this.Nt)
 			}
 			this.bN = this.Nt + GameFramework.Utils.wj(0)
 		}
@@ -2279,7 +2279,7 @@ GameFramework.BaseApp.prototype = {
 		this.hx = this.z;
 		this.O0();
 		GameFramework.Utils.TS("Init", Array.O(3, null, new GameFramework.misc.KeyVal(
-								"ProdName", this.po), new GameFramework.misc.KeyVal(
+								"ProdName", this.appName), new GameFramework.misc.KeyVal(
 								"Version", this.nj), new GameFramework.misc.KeyVal(
 								"ExecutionId", this.bN)));
 		this.wQ();
@@ -15098,10 +15098,10 @@ Game.BejApp.prototype = {
 		GameFramework.JSBaseApp.prototype.KA.apply(this, [b, c])
 	},
     init : function() {
-		this.po = "Bejeweled";
+		this.appName = "Bejeweled";
 		kc = false;
 		Game.Util.TF.gF(GameFramework.Utils.randZeroMax() | 0);
-		var b = this.artRes, c = this.getItem(this.po, "ArtRes");
+		var b = this.artRes, c = this.getItem(this.appName, "ArtRes");
 		if (c != null)
 			this.artRes = GameFramework.Utils.Hc(c);
 		GameFramework.JSBaseApp.prototype.Ub.apply(this);
@@ -15244,7 +15244,7 @@ Game.BejApp.prototype = {
 		this.pK(b)
 	},
 	$I : function(b) {
-		this.setItem(this.po, "ArtRes", GameFramework.Utils.wj(b));
+		this.setItem(this.appName, "ArtRes", GameFramework.Utils.wj(b));
 		window.location.reload()
 	},
 	pK : function() {
@@ -26752,7 +26752,7 @@ Game.HighScoreMgr.prototype = {
 		this.qq(b).$D(c, d, f, g)
 	},
 	x2 : function() {
-		var b = GameFramework.BaseApp.instance.getItem(GameFramework.BaseApp.instance.po, "HighScores");
+		var b = GameFramework.BaseApp.instance.getItem(GameFramework.BaseApp.instance.appName, "HighScores");
 		if (b == null)
 			return false;
 		var c = {};
@@ -26786,7 +26786,7 @@ Game.HighScoreMgr.prototype = {
 						new GameFramework.misc.KeyVal("Time", g.Eb)))
 			}
 		}
-		GameFramework.BaseApp.instance.setItem(GameFramework.BaseApp.instance.po, "HighScores",
+		GameFramework.BaseApp.instance.setItem(GameFramework.BaseApp.instance.appName, "HighScores",
 				GameFramework.BaseApp.instance.rj(b));
 		return true
 	}
@@ -29954,11 +29954,11 @@ Game.Profile.prototype = {
 		for (var c = [], d = this.xe, f = 0; f < d.length; f++)
 			c.push(d[f]);
 		b.Stats = c;
-		GameFramework.BaseApp.instance.setItem(GameFramework.BaseApp.instance.po, "Profile", GameFramework.BaseApp.instance.rj(b))
+		GameFramework.BaseApp.instance.setItem(GameFramework.BaseApp.instance.appName, "Profile", GameFramework.BaseApp.instance.rj(b))
 	},
 	A2 : function() {
 		try {
-			var b = GameFramework.BaseApp.instance.getItem(GameFramework.BaseApp.instance.po, "Profile");
+			var b = GameFramework.BaseApp.instance.getItem(GameFramework.BaseApp.instance.appName, "Profile");
 			if (b != null) {
 				var c = {};
 				GameFramework.BaseApp.instance.ND(b, c);
