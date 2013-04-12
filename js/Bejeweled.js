@@ -5904,7 +5904,7 @@ GameFramework.resources.FontLayer.prototype = {
 	aN : null,
 	Xn : null,
 	o7 : 0,
-	cj : 0,
+	color : 0,
 	WM : 0,
 	Ir : 0,
 	lo : 0,
@@ -5930,14 +5930,14 @@ GameFramework.resources.FontLayer.prototype = {
 	Q : function(b) {
 		if (this.colorStack == null)
 			this.colorStack = [];
-		this.colorStack.push(this.cj);
-		this.cj = ((this.cj >>> 24 & 255) * (b >>> 24 & 255) / 255 | 0) << 24
-				| ((this.cj >>> 16 & 255) * (b >>> 16 & 255) / 255 | 0) << 16
-				| ((this.cj >>> 8 & 255) * (b >>> 8 & 255) / 255 | 0) << 8
-				| ((this.cj >>> 0 & 255) * (b >>> 0 & 255) / 255 | 0) << 0
+		this.colorStack.push(this.color);
+		this.color = ((this.color >>> 24 & 255) * (b >>> 24 & 255) / 255 | 0) << 24
+				| ((this.color >>> 16 & 255) * (b >>> 16 & 255) / 255 | 0) << 16
+				| ((this.color >>> 8 & 255) * (b >>> 8 & 255) / 255 | 0) << 8
+				| ((this.color >>> 0 & 255) * (b >>> 0 & 255) / 255 | 0) << 0
 	},
 	pb : function() {
-		this.cj = this.colorStack.pop() | 0
+		this.color = this.colorStack.pop() | 0
 	}
 };
 GameFramework.resources.FontLayer.initClass = dummy();
@@ -6044,7 +6044,7 @@ GameFramework.resources.FontResource.prototype = {
 			k = b.H() | 0;
 			d = b.H() | 0;
 			l = b.H() | 0;
-			h.cj = l << 24 | j << 16 | k << 8 | d;
+			h.color = l << 24 | j << 16 | k << 8 | d;
 			j = b.H() | 0;
 			k = b.H() | 0;
 			d = b.H() | 0;
@@ -6301,8 +6301,8 @@ GameFramework.resources.FontResource.prototype = {
 				for (l = 0; l < h.length; l++) {
 					q = g[h[l]];
 					m = q.$V;
-					if (q.hN.cj != c)
-						c != 4294967295 && b.pb(), c = q.hN.cj, c != 4294967295
+					if (q.hN.color != c)
+						c != 4294967295 && b.pb(), c = q.hN.color, c != 4294967295
 								&& b.Q(c);
 					o = q.By * k - d;
 					q = q.Cy * k - f;
@@ -6337,8 +6337,8 @@ GameFramework.resources.FontResource.prototype = {
 					if (z != null) {
 						B = y + u.Ir + z.sf;
 						A = -(u.Mh - u.lo - z.Oe);
-						if (u.cj != j)
-							j != 4294967295 && b.pb(), j = u.cj, j != 4294967295
+						if (u.color != j)
+							j != 4294967295 && b.pb(), j = u.color, j != 4294967295
 									&& b.Q(j);
 						B = B * k - d;
 						A = A * k - f;
@@ -10424,7 +10424,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 		if (c.Fm != null)
 			for (var d = 0; d < (c.Fm.length | 0); d++) {
 				var f = c.Fm[d], g = new GameFramework.resources.popanim.PopAnimObjectInst;
-				g.cj = 4294967295;
+				g.color = 4294967295;
 				g.sb = f.sb;
 				g.dX = false;
 				f = f.CY;
@@ -10909,7 +10909,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 								&& (m = k.zg(), m.scale(this.Qn, this.Qn), k
 										.concat(m)), k.concat(this.Na))
 						: (k = k.zg(), k.concat(d));
-				l = GameFramework.gfx.Color.mn(GameFramework.gfx.Color.mn(l, f), v.cj);
+				l = GameFramework.gfx.Color.mn(GameFramework.gfx.Color.mn(l, f), v.color);
 				if ((l & 4278190080) != 0)
 					if (r.Ya.wk)
 						m = c.$c[r.Ya.Ne].Ji, this.XQ(b, m, k, l, r.Ya.Cg || g,
@@ -11553,7 +11553,7 @@ GameFramework.resources.popanim.PopAnimObjectInst.prototype = {
 	h7 : 0,
 	dX : null,
 	Na : null,
-	cj : 4294967295,
+	color : 4294967295,
 	UX : null
 };
 GameFramework.resources.popanim.PopAnimObjectInst.initClass = dummy();
