@@ -1722,7 +1722,7 @@ function drawFrame() {
 	delta += (now - lastFrameTime) * speedFactor;
 	lastFrameTime = now;
 	delta >= 500 && (delta = 500);
-	if (curApp != null && !curApp.EW) {
+	if (curApp != null && !curApp.oops) {
 		for (var frames = 0, atLeastOneFrame = false; delta >= curApp.frameInterval;) {
 			if (exitWhenError) {
 				try {
@@ -2267,7 +2267,7 @@ GameFramework.BaseApp.prototype = {
 	},
 	setExceptionCallback : set("exceptionCallback"),
 	onException : function(b) {
-		this.EW = true;
+		this.oops = true;
 		this.exceptionCallback != null ? this.exceptionCallback.tt(b) || throwError(b) : throwError(b)
 	},
 	createGraphics : dummy(),
