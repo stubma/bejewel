@@ -1728,7 +1728,7 @@ function drawFrame() {
 	lastFrameTime = now;
 	delta >= 500 && (delta = 500);
 	if (curApp != null && !curApp.EW) {
-		for (var b = 0, c = false; delta >= curApp.Le;) {
+		for (var b = 0, c = false; delta >= curApp.frameInterval;) {
 			if (exitWhenError) {
 				try {
 					curApp.ca()
@@ -1739,7 +1739,7 @@ function drawFrame() {
 				curApp.ca();
 			}
 
-			delta -= curApp.Le;
+			delta -= curApp.frameInterval;
 			if (++b >= 50)
 				break;
 			c = true
@@ -2687,7 +2687,7 @@ GameFramework.CurvedVal.prototype = {
 								+ ((this.wt != null
 										? this.wt.aa
 										: GameFramework.BaseApp.instance.aa) - this.zx)
-								* this.Ye * GameFramework.BaseApp.instance.Le / 10, b = this.Nj == GameFramework.CurvedVal.Uz
+								* this.Ye * GameFramework.BaseApp.instance.frameInterval / 10, b = this.Nj == GameFramework.CurvedVal.Uz
 								|| this.Nj == GameFramework.CurvedVal.Vo
 								? (b - this.cc) % (this.Oc - this.cc) + this.cc
 								: Math.min(b, this.Oc));
@@ -2702,7 +2702,7 @@ GameFramework.CurvedVal.prototype = {
 		this.Vm = false;
 		this.IH = b;
 		this.xt && c
-				&& (this.zx -= (b - this.Xh) * 1E3 / GameFramework.BaseApp.instance.Le | 0);
+				&& (this.zx -= (b - this.Xh) * 1E3 / GameFramework.BaseApp.instance.frameInterval | 0);
 		this.Xh = b;
 		return !this.bQ() ? !this.Vm ? (this.Vm = true, false) : this.XC : true
 	},
@@ -2713,7 +2713,7 @@ GameFramework.CurvedVal.prototype = {
 		return !this.bQ() ? !this.Vm ? (this.Vm = true, false) : this.XC : true
 	},
 	$a : function() {
-		return this.Ye == 0 ? false : this.rE(this.Ye * GameFramework.BaseApp.instance.Le / 10)
+		return this.Ye == 0 ? false : this.rE(this.Ye * GameFramework.BaseApp.instance.frameInterval / 10)
 	},
 	aJ : function(b) {
 		var c = this.Xh, d = this.IH;
@@ -7536,8 +7536,8 @@ GameFramework.resources.PIEffect = function() {
 	this.LM = false;
 	this.UM = true;
 	this.tm = false;
-	this.Le = GameFramework.BaseApp.instance.Le;
-	this.Le < 10 && (this.Le *= 2);
+	this.frameInterval = GameFramework.BaseApp.instance.frameInterval;
+	this.frameInterval < 10 && (this.frameInterval *= 2);
 	this.ga = new GameFramework.resources.PIEffectDef
 };
 GameFramework.resources.PIEffect.jqa = function(b, c) {
@@ -7708,7 +7708,7 @@ GameFramework.resources.PIEffect.prototype = {
 		this.dj = b.dj;
 		if (this.dj != null)
 			this.dj = this.dj.zg();
-		this.Le = b.Le;
+		this.frameInterval = b.frameInterval;
 		this.aa = this.A = this.HW = 0;
 		this.J7 = this.Xt = this.U7 = this.vr = false;
 		this.nH = this.wB = this.xB = 0;
@@ -8107,7 +8107,7 @@ GameFramework.resources.PIEffect.prototype = {
 		d.Cr = b.fa();
 		d.Dr = b.fa();
 		d.bi = b.fa();
-		var f = d.Cr / (1 / (1E3 / this.Le / this.Fe));
+		var f = d.Cr / (1 / (1E3 / this.frameInterval / this.Fe));
 		d.bd = d.Dr * 2147483647 | 0;
 		d.Dl = 2147483647 / f | 0;
 		if (d.bd < 0)
@@ -8846,7 +8846,7 @@ GameFramework.resources.PIEffect.prototype = {
 		b.Ln != 0 && c.rotate(b.Ln)
 	},
 	HL : function(b, c, d, f, g, h, j) {
-		var k = d.Wa, l = 1E3 / this.Le / this.Fe, m = 0;
+		var k = d.Wa, l = 1E3 / this.frameInterval / this.Fe, m = 0;
 		if (j != null)
 			m = j.Dr;
 		if (f != null)
@@ -9123,7 +9123,7 @@ GameFramework.resources.PIEffect.prototype = {
 		c.t()
 	},
 	x5 : function(b, c, d) {
-		for (var f = 1E3 / this.Le / this.Fe, g = d.pd, h = b.xk, j = c.Wa; g != null;) {
+		for (var f = 1E3 / this.frameInterval / this.Fe, g = d.pd, h = b.xk, j = c.Wa; g != null;) {
 			var k = g.gd, l = g.Uf, m = g.Jc, o = g.ie == 0;
 			g.ie += 1 / f;
 			var q;
@@ -9351,7 +9351,7 @@ GameFramework.resources.PIEffect.prototype = {
 		}
 	},
 	y5 : function(b, c, d) {
-		for (var f = 1E3 / this.Le / this.Fe, g = d.pd, h = b.xk, j = c.Wa; g != null;) {
+		for (var f = 1E3 / this.frameInterval / this.Fe, g = d.pd, h = b.xk, j = c.Wa; g != null;) {
 			var k = g.gd, l = g.Uf, m = g.Jc, o = g.ie == 0;
 			g.ie += 1 / f;
 			var q;
@@ -9584,7 +9584,7 @@ GameFramework.resources.PIEffect.prototype = {
 		else if (d.Ac)
 			this.x5(b, c, d);
 		else {
-			var f = 1E3 / this.Le / this.Fe, g = (1 + (this.Vf - 100) * 5.0E-4)
+			var f = 1E3 / this.frameInterval / this.Fe, g = (1 + (this.Vf - 100) * 5.0E-4)
 					/ f, h = -GameFramework.resources.PIEffect.Rc(1 / f), j = d.pd, k = b.xk, l = null, m = null, o = null, q = k.xi.length > 0
 					&& k.Rh.length > 0, r = d.SB, v = false, u = 0, y = 0, z = 0, A = 0, B = 0, G = 0;
 			if (!c.Co)
@@ -9732,7 +9732,7 @@ GameFramework.resources.PIEffect.prototype = {
 	},
 	ca : function() {
 		if (this.up == null
-				&& (this.aa++, !(this.Le == GameFramework.BaseApp.instance.Le * 2 && this.aa
+				&& (this.aa++, !(this.frameInterval == GameFramework.BaseApp.instance.frameInterval * 2 && this.aa
 						% 2 == 0))) {
 			var b = this.A == 0;
 			if (b && this.Sr != null)
@@ -9741,7 +9741,7 @@ GameFramework.resources.PIEffect.prototype = {
 				for (var c = true; this.A < this.IB || c;) {
 					c = false;
 					this.xB = this.wB = 0;
-					var d = 1E3 / this.Le / this.Fe, f = this.A | 0;
+					var d = 1E3 / this.frameInterval / this.Fe, f = this.A | 0;
 					this.A += b ? 1.0E-4 : this.Vf / d;
 					this.vr = f != (this.A | 0);
 					for (b = 0; b < (this.ga.Kf.length | 0); b++) {
@@ -9979,7 +9979,7 @@ GameFramework.resources.PIEffect.prototype = {
 				}
 			} else if (f.RB) {
 				if (!g) {
-					g = 1E3 / this.Le / this.Fe;
+					g = 1E3 / this.frameInterval / this.Fe;
 					q = f.pd;
 					if (q != null)
 						l = q.Im, m = q.Uf, o = d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ep
@@ -10172,7 +10172,7 @@ GameFramework.resources.PIEffect.prototype = {
 					if (j != 0 || this.UW)
 						if (g.Ac)
 							for (var k = 0; k < (g.ej.length | 0); k++) {
-								var l = 1E3 / this.Le / this.Fe, m = this.ga.Hf[g.ej[k]], o = (1 + (this.Vf - 100)
+								var l = 1E3 / this.frameInterval / this.Fe, m = this.ga.Hf[g.ej[k]], o = (1 + (this.Vf - 100)
 										* 5.0E-4)
 										/ l, l = -GameFramework.resources.PIEffect.Rc(1 / l);
 								m.vi = m.F[GameFramework.resources.PIEmitter.p.Ed | 0]
@@ -10187,7 +10187,7 @@ GameFramework.resources.PIEffect.prototype = {
 									this.RQ(b, c, h, m.kg.Wb, j == 0), m = m.gd
 							}
 						else
-							k = this.ga.Hf[g.um], m = h, l = 1E3 / this.Le
+							k = this.ga.Hf[g.um], m = h, l = 1E3 / this.frameInterval
 									/ this.Fe, o = (1 + (this.Vf - 100)
 									* 5.0E-4)
 									/ l, l = -GameFramework.resources.PIEffect.Rc(1 / l), k.vi = m.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ed
@@ -10332,7 +10332,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 				var g = b.$c[f.Ya.Ne].Ji;
 				if (g != null)
 					for (var h = 0; h < f.Ya.Wx; h++)
-						this.cK(g, f, 1E3 / GameFramework.BaseApp.instance.Le / b.ga.kp)
+						this.cK(g, f, 1E3 / GameFramework.BaseApp.instance.frameInterval / b.ga.kp)
 			}
 		}
 		if (c.sB != null)
@@ -10828,7 +10828,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 		var f = b.A | 0, g = b.ga.Wf[f];
 		if (!g.Yt) {
 			c = c != null ? c.Ya.vo : 1;
-			b.A += d * (b.ga.kp / (1E3 / GameFramework.BaseApp.instance.Le)) / c;
+			b.A += d * (b.ga.kp / (1E3 / GameFramework.BaseApp.instance.frameInterval)) / c;
 			if (b == this.Kc)
 				if (b.ga.Wf[b.ga.Wf.length - 1].Yt) {
 					if ((b.A | 0) >= b.ga.Jk + b.ga.Ym)
@@ -14939,7 +14939,7 @@ Game.BejApp = function() {
 	this.by = [];
 	callSuperConstructor(Game.BejApp, this);
 	S(Game.BejApp.q == null);
-	this.Le = 1E3 / 60;
+	this.frameInterval = 1E3 / 60;
 	this.lH = 1600;
 	this.dC = 1200;
 	this.Di = 1024;
