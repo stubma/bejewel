@@ -2262,7 +2262,7 @@ GameFramework.BaseApp.prototype = {
 							/ 27 | 0;
 				this.setItem(this.appName, "ExecutionUserId", this.Nt)
 			}
-			this.bN = this.Nt + GameFramework.Utils.wj(0)
+			this.bN = this.Nt + GameFramework.Utils.toStr(0)
 		}
 	},
 	setExceptionCallback : set("exceptionCallback"),
@@ -3528,11 +3528,11 @@ GameFramework.Utils.rba = function(b) {
 GameFramework.Utils.W4 = function(b) {
 	return b.toUpperCase()
 };
-GameFramework.Utils.wj = function(b) {
+GameFramework.Utils.toStr = function(b) {
 	return b.toString()
 };
 GameFramework.Utils.ei = function(b) {
-	for (var c = "", b = GameFramework.Utils.wj(b); b.length > 3;)
+	for (var c = "", b = GameFramework.Utils.toStr(b); b.length > 3;)
 		c = "," + b.substr(b.length - 3, 3) + c, b = b.substr(0, b.length - 3);
 	return b + c
 };
@@ -13326,7 +13326,7 @@ GameFramework.JSBaseApp.prototype = {
 		if (b == null)
 			return "null";
 		if (Type.isInstance(b, Number) && b == (b | 0))
-			return GameFramework.Utils.wj(b | 0);
+			return GameFramework.Utils.toStr(b | 0);
 		if (Type.isInstance(b, Number))
 			return String.format("{0:f}", b);
 		if (Type.isInstance(b, Number))
@@ -15244,7 +15244,7 @@ Game.BejApp.prototype = {
 		this.pK(b)
 	},
 	$I : function(b) {
-		this.setItem(this.appName, "ArtRes", GameFramework.Utils.wj(b));
+		this.setItem(this.appName, "ArtRes", GameFramework.Utils.toStr(b));
 		window.location.reload()
 	},
 	pK : function() {
@@ -20064,10 +20064,10 @@ Game.Board.prototype = {
 									+ (Game.Board.ab / 2 | 0));
 			this.yY
 					&& (b.Q(GameFramework.gfx.Color.pi), b.kb(Game.Resources.FONT_HUMANST19), c.Pa != -1
-							&& b.Cc(GameFramework.Utils.wj(c.Pa), c.$d() + 10, c
+							&& b.Cc(GameFramework.Utils.toStr(c.Pa), c.$d() + 10, c
 											.dd()
 											+ 20), c.qe != 0
-							&& b.Cc(GameFramework.Utils.wj(c.qe), c.$d() + 80, c
+							&& b.Cc(GameFramework.Utils.toStr(c.qe), c.$d() + 80, c
 											.dd()
 											+ 20), b.pb());
 			b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * h | 0));
@@ -20372,7 +20372,7 @@ Game.Board.prototype = {
 				Game.Resources.FONT_MULTIPLIER.Ia("GLOW", GameFramework.gfx.Color.Ma(255, 0,
 								160, 128));
 				b.kb(Game.Resources.FONT_MULTIPLIER);
-				h = "x" + GameFramework.Utils.wj(this.Nf);
+				h = "x" + GameFramework.Utils.toStr(this.Nf);
 				d = b.Q(GameFramework.gfx.Color.Jb(this.kh()));
 				try {
 					b.Cc(h, 241 - Game.Resources.FONT_MULTIPLIER.hc(h) * 0.5
@@ -20529,7 +20529,7 @@ Game.Board.prototype = {
 							.zz(), d.v + d.z / 2), f = 0.22 + this.Zr.D() * 1, g = GameFramework.Utils
 					.wj(((c + 59) / 60 | 0) % 60);
 			g.length == 1 && (g = "0" + g);
-			g = GameFramework.Utils.wj(((c + 59) / 60 | 0) / 60 | 0) + ":" + g;
+			g = GameFramework.Utils.toStr(((c + 59) / 60 | 0) / 60 | 0) + ":" + g;
 			if (this.Zr.D() > 0) {
 				b.kb(Game.Resources.FONT_TIMER_LARGE);
 				c = b.nc(f, f, d.x, d.y);
@@ -29826,7 +29826,7 @@ Game.PointsManager.prototype = {
 						break
 					}
 				}
-			m = GameFramework.Utils.wj(o);
+			m = GameFramework.Utils.toStr(o);
 			var o = Math.max(0, Math.min(1, (k - 50) / 1E3)), q = Math.max(0,
 					Math.min(1, (l - 50) / 1E3)), r = 0.6 + Math.min(1, o * 2)
 					* 0.4, c = Math.max(c, 120) | 0;
