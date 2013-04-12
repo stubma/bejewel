@@ -4781,7 +4781,7 @@ GameFramework.gfx.Graphics = function() {
 	this.cG = new GameFramework.misc.DisposeProxyStatic(ss.Delegate.create(this, this.popMatrix));
 	this.mM = new GameFramework.misc.DisposeProxyStatic(ss.Delegate.create(this, this.pb));
 	this.lC = [];
-	this.sa = new GameFramework.geom.Matrix;
+	this.matrix = new GameFramework.geom.Matrix;
 	this.Eg = 0;
 	this.m = GameFramework.BaseApp.instance.artRes / GameFramework.BaseApp.instance.z
 };
@@ -4838,7 +4838,7 @@ GameFramework.gfx.Graphics.$0 = function(b, c, d, f, g) {
 };
 GameFramework.gfx.Graphics.prototype = {
 	lC : null,
-	sa : null,
+	matrix : null,
 	Eg : 0,
 	Tf : null,
 	Yx : null,
@@ -4854,17 +4854,17 @@ GameFramework.gfx.Graphics.prototype = {
 	xM : null,
 	BN : null,
 	mh : function(b) {
-		var c = this.sa.a * this.m;
+		var c = this.matrix.a * this.m;
 		return (b * c | 0) / c + 1.0E-5
 	},
 	uv : function(b) {
-		var c = this.sa.d * this.m;
+		var c = this.matrix.d * this.m;
 		return (b * c | 0) / c + 1.0E-5
 	},
 	Vg : function() {
 		this.n = 4294967295;
 		this.Eg = 0;
-		this.sa.identity();
+		this.matrix.identity();
 		this.U = null;
 		this.Tf.clear()
 	},
@@ -4923,35 +4923,35 @@ GameFramework.gfx.Graphics.prototype = {
 				: (this.n = this.Tf.pop(), this.Yx.pop())
 	},
 	translate : function(b, c) {
-		var d = this.lC[this.Eg++] = this.sa;
-		this.sa = new GameFramework.geom.Matrix;
-		this.sa.translate(b, c);
-		this.sa.concat(d);
+		var d = this.lC[this.Eg++] = this.matrix;
+		this.matrix = new GameFramework.geom.Matrix;
+		this.matrix.translate(b, c);
+		this.matrix.concat(d);
 		return this.cG
 	},
 	nc : function(b, c, d, f) {
-		var g = this.lC[this.Eg++] = this.sa;
-		this.sa = new GameFramework.geom.Matrix;
-		this.sa.translate(-d, -f);
-		this.sa.scale(b, c);
-		this.sa.translate(d, f);
-		this.Eg != 1 && this.sa.concat(g);
+		var g = this.lC[this.Eg++] = this.matrix;
+		this.matrix = new GameFramework.geom.Matrix;
+		this.matrix.translate(-d, -f);
+		this.matrix.scale(b, c);
+		this.matrix.translate(d, f);
+		this.Eg != 1 && this.matrix.concat(g);
 		return this.cG
 	},
 	jg : function(b) {
-		var c = this.lC[this.Eg++] = this.sa;
+		var c = this.lC[this.Eg++] = this.matrix;
 		this.Nr == null
-				? this.sa = b.zg()
+				? this.matrix = b.zg()
 				: (b == this.Ml
-						? (this.sa = this.Ml, this.Ml = this.Nr)
-						: (this.sa = this.Nr, this.sa.a = b.a, this.sa.b = b.b, this.sa.c = b.c, this.sa.d = b.d, this.sa.tx = b.tx, this.sa.ty = b.ty), this.Nr = null);
-		this.Eg != 1 && this.sa.concat(c);
+						? (this.matrix = this.Ml, this.Ml = this.Nr)
+						: (this.matrix = this.Nr, this.matrix.a = b.a, this.matrix.b = b.b, this.matrix.c = b.c, this.matrix.d = b.d, this.matrix.tx = b.tx, this.matrix.ty = b.ty), this.Nr = null);
+		this.Eg != 1 && this.matrix.concat(c);
 		return this.cG
 	},
 	popMatrix : function() {
-		this.Nr = this.sa;
+		this.Nr = this.matrix;
 		this.Eg--;
-		this.sa = this.lC[this.Eg]
+		this.matrix = this.lC[this.Eg]
 	},
 	Bd : function(b, c, d, f) {
 		if (this.Ie != null) {
@@ -4961,19 +4961,19 @@ GameFramework.gfx.Graphics.prototype = {
 					.min(l, 255)
 					| 0;
 			this.n = r << 24 | m << 16 | q << 8 | o | 0;
-			b.Og(this, this.sa, c, d, f);
+			b.Og(this, this.matrix, c, d, f);
 			h = (h * l - m * r) / 255 | 0;
 			j = (j * l - o * r) / 255 | 0;
 			k = (k * l - q * r) / 255 | 0;
 			if (h != 0 || j != 0 || k != 0)
 				this.n = -16777216 | h << 16 | k << 8 | j | 0, k = b.Jw(), b
-						.qg(true), b.Og(this, this.sa, c, d, f), b.qg(k);
+						.qg(true), b.Og(this, this.matrix, c, d, f), b.qg(k);
 			this.n = g
 		} else
-			b.Og(this, this.sa, c, d, f)
+			b.Og(this, this.matrix, c, d, f)
 	},
 	Ba : function(b, c, d) {
-		this.Ie != null ? this.Bd(b, c, d, 0) : b.Og(this, this.sa, c, d, 0)
+		this.Ie != null ? this.Bd(b, c, d, 0) : b.Og(this, this.matrix, c, d, 0)
 	},
 	jJ : function(b, c, d, f, g) {
 		if (f == b.s)
@@ -5088,7 +5088,7 @@ GameFramework.gfx.Graphics.prototype = {
 		g.ty = c;
 		g.a = d;
 		g.d = f;
-		g.concat(this.sa)
+		g.concat(this.matrix)
 	},
 	kb : set("U"),
 	jh : function(b, c, d) {
@@ -5271,11 +5271,11 @@ addClassInitEntry(function() {
 		});
 GameFramework.gfx.TransformedDrawable = function(b, c) {
 	this.tp = b;
-	this.sa = c
+	this.matrix = c
 };
 GameFramework.gfx.TransformedDrawable.prototype = {
 	tp : null,
-	sa : null,
+	matrix : null,
 	Jw : function() {
 		return this.tp.Jw()
 	},
@@ -5283,7 +5283,7 @@ GameFramework.gfx.TransformedDrawable.prototype = {
 		this.tp.qg(b)
 	},
 	Og : function(b, c, d, f, g) {
-		var h = this.sa.zg();
+		var h = this.matrix.zg();
 		h.tx += d;
 		h.ty += f;
 		h.concat(c);
@@ -6295,7 +6295,7 @@ GameFramework.resources.FontResource.prototype = {
 				j = b.Ml;
 				j.identity();
 				j.translate(d, f);
-				j.concat(b.sa);
+				j.concat(b.matrix);
 				f = d = 0;
 				k = 1 / GameFramework.BaseApp.instance.graphics.m;
 				for (l = 0; l < h.length; l++) {
@@ -6324,7 +6324,7 @@ GameFramework.resources.FontResource.prototype = {
 			l = b.Nr;
 			l.identity();
 			l.translate(d, f);
-			l.concat(b.sa);
+			l.concat(b.matrix);
 			for (m = f = d = 0; m < c.length; m++) {
 				o = GameFramework.Utils.hi(c, m);
 				q = 0;
@@ -10208,7 +10208,7 @@ GameFramework.resources.PIEffect.prototype = {
 	draw : function(b) {
 		var c = this.za;
 		b.jg(this.za);
-		this.za = b.sa;
+		this.za = b.matrix;
 		this.Xt = this.za.b != 0 || this.za.c != 0;
 		for (var d = this.nH = 0; d < (this.ga.Kf.length | 0); d++) {
 			var f = this.xh[d];
@@ -12008,7 +12008,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 		for (var f = ss.IEnumerator.enumerate(this.cf); f.hasNext();) {
 			var g = f.next();
 			if (g.ec)
-				b.translate(g.w, g.v), g.NN = b.sa.tx, g.ON = b.sa.ty, g.visit(b), b.popMatrix();
+				b.translate(g.w, g.v), g.NN = b.matrix.tx, g.ON = b.matrix.ty, g.visit(b), b.popMatrix();
 			S(c == b.Eg, "Matrix stack error - pops don't match pushes");
 			S(d == b.Tf.length, "Color stack error - pops don't match pushes")
 		}
@@ -12136,8 +12136,8 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 	},
 	ZD : function() {
 		for (var b = 0; b < this.zB.length; b++) {
-			var c = this.zB[b], d = this.graphics.translate(c.NN - this.graphics.sa.tx, c.ON
-							- this.graphics.sa.ty);
+			var c = this.zB[b], d = this.graphics.translate(c.NN - this.graphics.matrix.tx, c.ON
+							- this.graphics.matrix.ty);
 			try {
 				c.jq(this.graphics)
 			} finally {
@@ -13468,43 +13468,43 @@ GameFramework.gfx.JSGraphics.prototype = {
 	fc : function(b, c, d, f) {
 		var g = this.JR();
 		if (GameFramework.JSBaseApp.instance.useGL) {
-			var g = (b * this.sa.a + this.sa.tx) * this.m | 0, h = (c
-					* this.sa.d + this.sa.ty)
-					* this.m | 0, b = ((b + d) * this.sa.a + this.sa.tx)
-					* this.m | 0, c = ((c + f) * this.sa.d + this.sa.ty)
+			var g = (b * this.matrix.a + this.matrix.tx) * this.m | 0, h = (c
+					* this.matrix.d + this.matrix.ty)
+					* this.m | 0, b = ((b + d) * this.matrix.a + this.matrix.tx)
+					* this.m | 0, c = ((c + f) * this.matrix.d + this.matrix.ty)
 					* this.m | 0;
 			drawTexture(Pa, g, h, 1, 0, 0, 1, 0, 0, b - g, c - h, 1, 1, false, this.n)
 		} else {
 			var context = document.getElementById("GameCanvas").getContext("2d");
 			context.fillStyle = g;
 			jc = context.globalAlpha = 1;
-			if (this.sa.b == 0 && this.sa.c == 0) {
-				var k = this.m * this.sa.a, l = this.m * this.sa.d, g = this.sa.tx
-						* this.m + b * k | 0, h = this.sa.ty * this.m + c * l
-						| 0, b = this.sa.tx * this.m + (b + d) * k | 0, c = this.sa.ty
+			if (this.matrix.b == 0 && this.matrix.c == 0) {
+				var k = this.m * this.matrix.a, l = this.m * this.matrix.d, g = this.matrix.tx
+						* this.m + b * k | 0, h = this.matrix.ty * this.m + c * l
+						| 0, b = this.matrix.tx * this.m + (b + d) * k | 0, c = this.matrix.ty
 						* this.m + (c + f) * l | 0;
 				context.setTransform(1, 0, 0, 1, 0, 0);
 				context.fillRect(g, h, b - g, c - h);
 				hc = false
 			} else
 				g = new GameFramework.geom.Matrix, g.identity(), g.tx = b, g.ty = c, g.a = d, g.d = f, g
-						.concat(this.sa), context.setTransform(g.a, g.b, g.c,
+						.concat(this.matrix), context.setTransform(g.a, g.b, g.c,
 						g.d, g.tx, g.ty), context.fillRect(0, 0, 1, 1), hc = true
 		}
 	},
 	dt : function(b) {
 		for (var c = 0; c < (b.length / 2 | 0) - 2; c++) {
-			var d = (this.sa.tx + this.sa.a * b[b.g * c + 0] + this.sa.c
+			var d = (this.matrix.tx + this.matrix.a * b[b.g * c + 0] + this.matrix.c
 					* b[b.g * c + 1])
-					* this.m, f = (this.sa.ty + this.sa.c * b[b.g * c + 0] + this.sa.d
+					* this.m, f = (this.matrix.ty + this.matrix.c * b[b.g * c + 0] + this.matrix.d
 					* b[b.g * c + 1])
-					* this.m, g = (this.sa.tx + this.sa.a * b[b.g * c + 2] + this.sa.c
+					* this.m, g = (this.matrix.tx + this.matrix.a * b[b.g * c + 2] + this.matrix.c
 					* b[b.g * c + 3])
-					* this.m, h = (this.sa.ty + this.sa.c * b[b.g * c + 2] + this.sa.d
+					* this.m, h = (this.matrix.ty + this.matrix.c * b[b.g * c + 2] + this.matrix.d
 					* b[b.g * c + 3])
-					* this.m, j = (this.sa.tx + this.sa.a * b[b.g * c + 4] + this.sa.c
+					* this.m, j = (this.matrix.tx + this.matrix.a * b[b.g * c + 4] + this.matrix.c
 					* b[b.g * c + 5])
-					* this.m, k = (this.sa.ty + this.sa.c * b[b.g * c + 4] + this.sa.d
+					* this.m, k = (this.matrix.ty + this.matrix.c * b[b.g * c + 4] + this.matrix.d
 					* b[b.g * c + 5])
 					* this.m;
 			if (GameFramework.JSBaseApp.instance.useGL) {
@@ -13538,17 +13538,17 @@ GameFramework.gfx.JSGraphics.prototype = {
 	},
 	bn : function(b, c) {
 		for (var d = 0; d < (c.length / 3 | 0); d++) {
-			var f = (this.sa.tx + this.sa.a * c[c.g * d + 0].x + this.sa.c
+			var f = (this.matrix.tx + this.matrix.a * c[c.g * d + 0].x + this.matrix.c
 					* c[c.g * d + 0].y)
-					* this.m, g = (this.sa.ty + this.sa.c * c[c.g * d + 0].x + this.sa.d
+					* this.m, g = (this.matrix.ty + this.matrix.c * c[c.g * d + 0].x + this.matrix.d
 					* c[c.g * d + 0].y)
-					* this.m, h = (this.sa.tx + this.sa.a * c[c.g * d + 1].x + this.sa.c
+					* this.m, h = (this.matrix.tx + this.matrix.a * c[c.g * d + 1].x + this.matrix.c
 					* c[c.g * d + 1].y)
-					* this.m, j = (this.sa.ty + this.sa.c * c[c.g * d + 1].x + this.sa.d
+					* this.m, j = (this.matrix.ty + this.matrix.c * c[c.g * d + 1].x + this.matrix.d
 					* c[c.g * d + 1].y)
-					* this.m, k = (this.sa.tx + this.sa.a * c[c.g * d + 2].x + this.sa.c
+					* this.m, k = (this.matrix.tx + this.matrix.a * c[c.g * d + 2].x + this.matrix.c
 					* c[c.g * d + 2].y)
-					* this.m, l = (this.sa.ty + this.sa.c * c[c.g * d + 2].x + this.sa.d
+					* this.m, l = (this.matrix.ty + this.matrix.c * c[c.g * d + 2].x + this.matrix.d
 					* c[c.g * d + 2].y)
 					* this.m;
 			if (GameFramework.JSBaseApp.instance.useGL) {
@@ -18525,21 +18525,21 @@ Game.Board.prototype = {
 							ya.FW = 0;
 							for (var ra = false, Cb = X; Cb <= aa; Cb++)
 								for (var Db = ia; Db <= fa; Db++) {
-									var sa = this.e[this.e.g * Cb + Db];
-									if (sa != null) {
-										l.indexOf(sa) != -1 && (ra = true);
+									var matrix = this.e[this.e.g * Cb + Db];
+									if (matrix != null) {
+										l.indexOf(matrix) != -1 && (ra = true);
 										for (var wc = 0, xc = false, bb = Array.Sd(
 												4, 2, 0, -1, 0, 1, 0, 0, -1, 0,
 												1), Sa = 0; Sa < 4; Sa++)
 											for (var cb = 1; cb < 8; cb++) {
-												var db = this.ji(sa.La
+												var db = this.ji(matrix.La
 																+ bb[bb.g * Sa
 																		+ 0]
-																* cb, sa.Ja
+																* cb, matrix.Ja
 																+ bb[bb.g * Sa
 																		+ 1]
 																* cb);
-												if (db != null && db.n == sa.n) {
+												if (db != null && db.n == matrix.n) {
 													var yc = !db.ed && db.Ik;
 													(Sa / 2 | 0) != P
 															? (wc++, yc
@@ -18549,12 +18549,12 @@ Game.Board.prototype = {
 													break
 											}
 										wc >= 2 && xc && (popMatrix = true);
-										(sa.n | 0) == da
-												&& (sa.py == this.aa
+										(matrix.n | 0) == da
+												&& (matrix.py == this.aa
 														&& (zb = true), ya.ee
-														.push(sa));
-										ea = Math.max(ea, sa.Pa) | 0;
-										Bb = Math.max(Bb, sa.eC) | 0
+														.push(matrix));
+										ea = Math.max(ea, matrix.Pa) | 0;
+										Bb = Math.max(Bb, matrix.eC) | 0
 									}
 								}
 							ea == -1 && (ea = Bb);
@@ -20795,8 +20795,8 @@ Game.Board.prototype = {
 			this.zQ();
 			c && b.nc(this.m.D(), this.m.D(), 800, 600);
 			this.gx
-					&& (b.sa.tx += this.Ir, b.sa.ty += this.lo, GameFramework.widgets.ClassicWidget.prototype.visit
-							.apply(this, [b]), b.sa.tx -= this.Ir, b.sa.ty -= this.lo);
+					&& (b.matrix.tx += this.Ir, b.matrix.ty += this.lo, GameFramework.widgets.ClassicWidget.prototype.visit
+							.apply(this, [b]), b.matrix.tx -= this.Ir, b.matrix.ty -= this.lo);
 			c && b.popMatrix()
 		}
 	},
@@ -21834,7 +21834,7 @@ Game.DialogMgr.prototype = {
 				g == f && this.pV(b);
 				var j = b.translate(h.w, h.v);
 				try {
-					h.NN = b.sa.tx, h.ON = b.sa.ty, h.visit(b)
+					h.NN = b.matrix.tx, h.ON = b.matrix.ty, h.visit(b)
 				} finally {
 					j.t()
 				}
