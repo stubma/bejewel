@@ -2254,13 +2254,13 @@ GameFramework.BaseApp.prototype = {
 	O0 : function() {
 		if (this.bN == null) {
 			if (this.Nt == null)
-				this.Nt = this.Is(this.po, "ExecutionUserId");
+				this.Nt = this.getItem(this.po, "ExecutionUserId");
 			if (this.Nt == null) {
 				this.Nt = "";
 				for (var b = GameFramework.Utils.randZeroOne() * 1E9 | 0; b != 0;)
 					this.Nt += "ABCDEFGHJIJKLMNOPQRSTUVWXYZ".substr(b % 27, 1), b = b
 							/ 27 | 0;
-				this.lt(this.po, "ExecutionUserId", this.Nt)
+				this.setItem(this.po, "ExecutionUserId", this.Nt)
 			}
 			this.bN = this.Nt + GameFramework.Utils.wj(0)
 		}
@@ -2372,8 +2372,8 @@ GameFramework.BaseApp.prototype = {
 	SE : dummy(),
 	ND : dummy(),
 	rj : staticGet(""),
-	Is : staticGet(null),
-	lt : dummy(),
+	getItem : staticGet(null),
+	setItem : dummy(),
 	TS : function(b, c) {
 		this.xX.push(this.rj(Array.O(3, null, new GameFramework.misc.KeyVal("Event", b),
 				new GameFramework.misc.KeyVal("Time", 0), new GameFramework.misc.KeyVal(
@@ -13080,11 +13080,11 @@ GameFramework.JSBaseApp.prototype = {
 	wQ : function() {
 		this.graphics = this.m8 = new GameFramework.gfx.JSGraphics(this.Di, this.Ig)
 	},
-	Is : function(b, c) {
-		return localStorage.getItem(b + "/" + c)
+	getItem : function(ns, key) {
+		return localStorage.getItem(ns + "/" + key)
 	},
-	lt : function(b, c, d) {
-		localStorage.setItem(b + "/" + c, d)
+	setItem : function(ns, key, value) {
+		localStorage.setItem(ns + "/" + key, value)
 	},
 	FL : function() {
 		for (var b = 0; b < this.tB.length; b++) {
@@ -15101,16 +15101,16 @@ Game.BejApp.prototype = {
 		this.po = "Bejeweled";
 		kc = false;
 		Game.Util.TF.gF(GameFramework.Utils.randZeroMax() | 0);
-		var b = this.artRes, c = this.Is(this.po, "ArtRes");
+		var b = this.artRes, c = this.getItem(this.po, "ArtRes");
 		if (c != null)
 			this.artRes = GameFramework.Utils.Hc(c);
 		GameFramework.JSBaseApp.prototype.Ub.apply(this);
 		this.sY = GameFramework.Utils.eJ();
 		if (this.userId == null)
-			this.userId = this.Is("Global", "UserId");
+			this.userId = this.getItem("Global", "UserId");
 		if (this.userId == null)
 			this.userId = GameFramework.Utils.eJ(), this
-					.lt("Global", "UserId", this.userId);
+					.setItem("Global", "UserId", this.userId);
 		if (!this.eH)
 			this.Jp.Ub(), this.eH = true;
 		for (var d = c = 0; d < this.userId.length; d++)
@@ -15244,7 +15244,7 @@ Game.BejApp.prototype = {
 		this.pK(b)
 	},
 	$I : function(b) {
-		this.lt(this.po, "ArtRes", GameFramework.Utils.wj(b));
+		this.setItem(this.po, "ArtRes", GameFramework.Utils.wj(b));
 		window.location.reload()
 	},
 	pK : function() {
@@ -26752,7 +26752,7 @@ Game.HighScoreMgr.prototype = {
 		this.qq(b).$D(c, d, f, g)
 	},
 	x2 : function() {
-		var b = GameFramework.BaseApp.instance.Is(GameFramework.BaseApp.instance.po, "HighScores");
+		var b = GameFramework.BaseApp.instance.getItem(GameFramework.BaseApp.instance.po, "HighScores");
 		if (b == null)
 			return false;
 		var c = {};
@@ -26786,7 +26786,7 @@ Game.HighScoreMgr.prototype = {
 						new GameFramework.misc.KeyVal("Time", g.Eb)))
 			}
 		}
-		GameFramework.BaseApp.instance.lt(GameFramework.BaseApp.instance.po, "HighScores",
+		GameFramework.BaseApp.instance.setItem(GameFramework.BaseApp.instance.po, "HighScores",
 				GameFramework.BaseApp.instance.rj(b));
 		return true
 	}
@@ -28855,13 +28855,13 @@ Game.Metrics.prototype = {
 	vH : null,
 	Kx : null,
 	Ub : function() {
-		var b = GameFramework.BaseApp.instance.Is("Global", "SamplingProbRoll");
+		var b = GameFramework.BaseApp.instance.getItem("Global", "SamplingProbRoll");
 		if (b != null)
 			this.SC = GameFramework.Utils.fp(b)
 	},
 	n4 : function(b) {
 		this.SC = b;
-		GameFramework.BaseApp.instance.lt("Global", "SamplingProbRoll", String.format("{0}",
+		GameFramework.BaseApp.instance.setItem("Global", "SamplingProbRoll", String.format("{0}",
 						this.SC))
 	},
 	N4 : function(b, c, d, f) {
@@ -29954,11 +29954,11 @@ Game.Profile.prototype = {
 		for (var c = [], d = this.xe, f = 0; f < d.length; f++)
 			c.push(d[f]);
 		b.Stats = c;
-		GameFramework.BaseApp.instance.lt(GameFramework.BaseApp.instance.po, "Profile", GameFramework.BaseApp.instance.rj(b))
+		GameFramework.BaseApp.instance.setItem(GameFramework.BaseApp.instance.po, "Profile", GameFramework.BaseApp.instance.rj(b))
 	},
 	A2 : function() {
 		try {
-			var b = GameFramework.BaseApp.instance.Is(GameFramework.BaseApp.instance.po, "Profile");
+			var b = GameFramework.BaseApp.instance.getItem(GameFramework.BaseApp.instance.po, "Profile");
 			if (b != null) {
 				var c = {};
 				GameFramework.BaseApp.instance.ND(b, c);
