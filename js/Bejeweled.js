@@ -14500,7 +14500,7 @@ Game.Background.prototype = {
 			if (Game.Background.iC[b] != null)
 				this.Oa = Game.Background.iC[b];
 			else if (this.Oa = GameFramework.BaseApp.instance.vb.Gs(Game.Background.eN[b]), GameFramework.BaseApp.instance.isUseGL()
-					&& !Game.BejApp.q.$f)
+					&& !Game.BejApp.instance.$f)
 				this.hf = GameFramework.BaseApp.instance.vb.o1(Game.Background.RX[b]), this.hf.Px = [], this.hf.Px
 						.push("PIEFFECT_BACKGROUNDS_");
 			return true
@@ -14559,15 +14559,15 @@ Game.Background.prototype = {
 	update : function() {
 		GameFramework.widgets.ClassicWidget.prototype.update.apply(this);
 		var b = this.Hk;
-		this.Hk = Game.BejApp.q.Ka.vt && Game.BejApp.q.isUseGL();
+		this.Hk = Game.BejApp.instance.Ka.vt && Game.BejApp.instance.isUseGL();
 		b != this.Hk && this.Hk && this.hf == null && this.CU(this.Dt);
-		if (this.xI != -1 && Game.BejApp.q.e != null && Game.BejApp.q.e.Jf == null && this.Hk
-				&& Game.BejApp.q.e.we.D() == 0)
+		if (this.xI != -1 && Game.BejApp.instance.e != null && Game.BejApp.instance.e.Jf == null && this.Hk
+				&& Game.BejApp.instance.e.we.D() == 0)
 			Game.Background.pU(this.xI), this.xI = -1;
-		if (this.xy != -1 && Game.BejApp.q.e != null && Game.BejApp.q.e.Jf == null && this.Hk
-				&& Game.BejApp.q.e.we.D() == 0)
+		if (this.xy != -1 && Game.BejApp.instance.e != null && Game.BejApp.instance.e.Jf == null && this.Hk
+				&& Game.BejApp.instance.e.we.D() == 0)
 			Game.Background.KP(this.xy), this.xy = -1;
-		Game.BejApp.q.isUseGL() && this.Hk && this.oy == 1 && (this.ec || this.Qb == null)
+		Game.BejApp.instance.isUseGL() && this.Hk && this.oy == 1 && (this.ec || this.Qb == null)
 				&& this.oy++;
 		if (this.hf != null)
 			if (this.Hk) {
@@ -14675,19 +14675,19 @@ Game.Bej3DialogButton.prototype = {
 		this.dh
 				&& this.gP != null
 				&& this.gP.length > 0
-				&& Game.BejApp.q.hP
+				&& Game.BejApp.instance.hP
 						.J3(this, this.t9, "^FFAACC^" + this.gP,
 								new GameFramework.geom.TPoint(this.w + this.s / 2,
 										this.v + 0), 400, Game.Tooltip.Wc.CP, 10)
 	},
 	Ys : function() {
 		GameFramework.widgets.ButtonWidget.prototype.Ys.apply(this);
-		Game.BejApp.q.mi(Game.Resources.SOUND_BUTTON_MOUSEOVER)
+		Game.BejApp.instance.mi(Game.Resources.SOUND_BUTTON_MOUSEOVER)
 	},
 	kn : function() {
 		GameFramework.widgets.ButtonWidget.prototype.kn.apply(this);
-		Game.BejApp.q.mi(Game.Resources.SOUND_BUTTON_MOUSELEAVE);
-		Game.BejApp.q.OX = -10
+		Game.BejApp.instance.mi(Game.Resources.SOUND_BUTTON_MOUSELEAVE);
+		Game.BejApp.instance.OX = -10
 	}
 };
 Game.Bej3DialogButton.initClass = dummy();
@@ -14753,7 +14753,7 @@ Game.Bej3Dialog.prototype = {
 		this.MO = this.z / 2;
 		this.L.$a();
 		!this.m.$a() && this.m.Lr != GameFramework.CurvedVal.uT
-				&& (this.m.V() == 0 ? Game.BejApp.q.te.PS(this.PM) : this.m.V())
+				&& (this.m.V() == 0 ? Game.BejApp.instance.te.PS(this.PM) : this.m.V())
 	},
 	Te : function() {
 		if (!this.zl) {
@@ -14769,7 +14769,7 @@ Game.Bej3Dialog.prototype = {
 	},
 	eq : function(b) {
 		var c = new Game.Bej3Button(0);
-		Game.BejApp.q.Hy(c);
+		Game.BejApp.instance.Hy(c);
 		this.rQ(c, b);
 		c.U = Game.Resources.FONT_DIALOG_BUTTONS;
 		c.LN = -4;
@@ -14786,7 +14786,7 @@ Game.Bej3Dialog.prototype = {
 		b.Lb(0, 0, c, d.z);
 		b.kb(Game.Resources.FONT_DIALOG_BUTTONS);
 		this.Bc(b);
-		Game.BejApp.q.Hy(b);
+		Game.BejApp.instance.Hy(b);
 		b.addEventHandler(GameFramework.widgets.WidgetEvent.Ld, ss.Delegate.create(this, this.Mi));
 		b.addEventHandler(GameFramework.widgets.WidgetEvent.Fq, ss.Delegate.create(this, this.MP));
 		return b
@@ -14916,16 +14916,16 @@ Game.TopWidget.prototype = {
 	draw : function(b) {
 		if (this.xl
 				&& (GameFramework.widgets.ClassicWidget.prototype.draw.apply(this, [b]), this.ag
-						.draw(b, 10, Game.BejApp.q.z + 20), Game.BejApp.q.hr))
+						.draw(b, 10, Game.BejApp.instance.z + 20), Game.BejApp.instance.hr))
 			for (var c = 0; c < 2; ++c) {
 				c == 0 && (b.Q(4278190080), b.translate(-1, -1));
 				b.kb(Game.Resources.FONT_FLAREGOTHIC16);
-				Game.BejApp.q.uh != Game.DM.xf.jk
+				Game.BejApp.instance.uh != Game.DM.xf.jk
 						&& b.Cc(String.format("Autoplay: {0} -- {1}",
-										Game.DM.sV[Game.BejApp.q.uh | 0], Game.Util
+										Game.DM.sV[Game.BejApp.instance.uh | 0], Game.Util
 												.U4()), 8, 22);
 				var d = String.format("v{0}", Game.Version.getVersion()), d = "DEBUG " + d;
-				b.zb(d, Game.BejApp.q.s - 4, 22, 0, 1);
+				b.zb(d, Game.BejApp.instance.s - 4, 22, 0, 1);
 				c == 0 && (b.pb(), b.Ab())
 			}
 	}
@@ -14947,7 +14947,7 @@ Game.BejApp = function() {
 	this.Jp = new Game.Metrics;
 	this.by = [];
 	callSuperConstructor(Game.BejApp, this);
-	S(Game.BejApp.q == null);
+	S(Game.BejApp.instance == null);
 	this.frameInterval = 1E3 / 60;
 	this.lH = 1600;
 	this.dC = 1200;
@@ -14958,7 +14958,7 @@ Game.BejApp = function() {
 	this.C8 = new Game.MusicInterface;
 	this.V8 = new Game.ResourceCache;
 	this.uk = new Game.HighScoreMgr;
-	Game.BejApp.q = this
+	Game.BejApp.instance = this
 };
 Game.BejApp = Game.BejApp;
 Game.BejApp.Vna = function(b) {
@@ -15346,7 +15346,7 @@ Game.BejApp.prototype = {
 		this.Bi.l3();
 		var b = new GameFramework.CurvedVal;
 		b.vj("BejApp_cs_11_21_11__05_46_54_679");
-		Game.BejApp.q.kA(Game.Resources.QT, b)
+		Game.BejApp.instance.kA(Game.Resources.QT, b)
 	},
 	y_ : function() {
 		this.oV(new Game.ClassicBoard(this))
@@ -15474,7 +15474,7 @@ Game.BejApp.prototype = {
 	}
 };
 Game.BejApp.initClass = function() {
-	Game.BejApp.q = null
+	Game.BejApp.instance = null
 };
 addClassEntry(function() {
 			Game.BejApp.registerClass("Game.BejApp", GameFramework.JSBaseApp)
@@ -16694,7 +16694,7 @@ Game.Board.prototype = {
 		this.g2();
 		for (b = 0; b < 7; b++)
 			this.yH.push(b), this.yH.push(b);
-		this.ag = Game.BejApp.q.ag
+		this.ag = Game.BejApp.instance.ag
 	},
 	ki : staticGet(null),
 	t : function() {
@@ -16748,12 +16748,12 @@ Game.Board.prototype = {
 	},
 	uE : function() {
 		return this.ay > 0 || this.Eh || this.qc.length > 0
-				|| Game.BejApp.q.Zd(Game.DM.mb.bA) != null || this.xc.O5()
-				|| Game.BejApp.q.Zd(Game.DM.mb.vn) != null
-				&& Game.BejApp.q.Zd(Game.DM.mb.vn).Bx
+				|| Game.BejApp.instance.Zd(Game.DM.mb.bA) != null || this.xc.O5()
+				|| Game.BejApp.instance.Zd(Game.DM.mb.vn) != null
+				&& Game.BejApp.instance.Zd(Game.DM.mb.vn).Bx
 	},
 	YZ : function() {
-		return (Game.BejApp.q.Zd(Game.DM.mb.vn) == null || !Game.BejApp.q.Zd(Game.DM.mb.vn).Bx)
+		return (Game.BejApp.instance.Zd(Game.DM.mb.vn) == null || !Game.BejApp.instance.Zd(Game.DM.mb.vn).Bx)
 				&& this.VG == 0 && this.qc.length == 0
 	},
 	zf : staticGet(0),
@@ -16783,14 +16783,14 @@ Game.Board.prototype = {
 		this.m.ea("b;1,1.2,0.02,1,####         ~~^bn");
 		this.rl != null && this.rl.t();
 		this.rl = null;
-		Game.BejApp.q.mi(Game.Resources.SOUND_BACKTOMAIN);
+		Game.BejApp.instance.mi(Game.Resources.SOUND_BACKTOMAIN);
 		this.jH = true;
 		this.xc.Te();
-		Game.BejApp.q.Iy();
+		Game.BejApp.instance.Iy();
 		this.Ge != null && this.Ge.Mq()
 	},
 	gp : function(b) {
-		return Game.BejApp.q.uh != Game.DM.xf.jk ? false : !this.Ez(b) && this.og == 0
+		return Game.BejApp.instance.uh != Game.DM.xf.jk ? false : !this.Ez(b) && this.og == 0
 				&& !this.Eh
 	},
 	JA : function(b) {
@@ -16810,7 +16810,7 @@ Game.Board.prototype = {
 		this.xc = new Game.TutorialMgr(this);
 		this.xc.oL(this.ki());
 		this.TG = GameFramework.Utils.eJ();
-		Game.BejApp.q
+		Game.BejApp.instance
 				.tw("game_started", [new GameFramework.misc.KeyVal("GameId", this.TG)]);
 		this.es = false;
 		this.Bo = 0;
@@ -16824,13 +16824,13 @@ Game.Board.prototype = {
 		this.Yp = false;
 		this.dG = -1;
 		this.JA(1);
-		Game.BejApp.q.Nh.oi(this);
+		Game.BejApp.instance.Nh.oi(this);
 		this.hW = this.Wt = false;
 		this.sR(false);
 		this.ay = 0;
 		this.Tt = 25;
 		this.gy = 0;
-		b = Game.BejApp.q.te.Zd(Game.DM.mb.uJ);
+		b = Game.BejApp.instance.te.Zd(Game.DM.mb.uJ);
 		b != null && b.Te();
 		this.xJ()
 	},
@@ -16888,8 +16888,8 @@ Game.Board.prototype = {
 		this.Cl[b | 0] += c;
 		this.Cl[b | 0] < 0 && (this.Cl[b | 0] = 2147483647);
 		f
-				&& (Game.BejApp.q.Ka.xe[b | 0] += c, Game.BejApp.q.Ka.xe[b | 0] < 0
-						&& (Game.BejApp.q.Ka.xe[b | 0] = 2147483647));
+				&& (Game.BejApp.instance.Ka.xe[b | 0] += c, Game.BejApp.instance.Ka.xe[b | 0] < 0
+						&& (Game.BejApp.instance.Ka.xe[b | 0] = 2147483647));
 		if (d != -1)
 			for (f = 0; f < (this.rf.length | 0); f++)
 				this.rf[f].Pa == d && (this.rf[f].xe[b | 0] += c)
@@ -16900,7 +16900,7 @@ Game.Board.prototype = {
 	aT : function(b, c, d) {
 		this.od[b | 0] = Math.max(this.od[b | 0], c) | 0;
 		this.Cl[b | 0] = Math.max(this.Cl[b | 0], c) | 0;
-		Game.BejApp.q.Ka.xe[b | 0] = Math.max(Game.BejApp.q.Ka.xe[b | 0], c) | 0;
+		Game.BejApp.instance.Ka.xe[b | 0] = Math.max(Game.BejApp.instance.Ka.xe[b | 0], c) | 0;
 		if (d != -1)
 			for (var f = 0; f < (this.rf.length | 0); f++)
 				this.rf[f].Pa == d
@@ -16945,9 +16945,9 @@ Game.Board.prototype = {
 			d += this.Qd[this.Qd.length - 1][Game.Board.je.cF | 0], g += this.Qd[this.Qd.length
 					- 1][Game.Board.je.GE | 0];
 		c = [
-				new GameFramework.misc.KeyVal("IsSlow", Game.BejApp.q.$f),
-				new GameFramework.misc.KeyVal("MusicVolume", Game.BejApp.q.Ka.Fr),
-				new GameFramework.misc.KeyVal("SfxVolume", Game.BejApp.q.Ka.tu),
+				new GameFramework.misc.KeyVal("IsSlow", Game.BejApp.instance.$f),
+				new GameFramework.misc.KeyVal("MusicVolume", Game.BejApp.instance.Ka.Fr),
+				new GameFramework.misc.KeyVal("SfxVolume", Game.BejApp.instance.Ka.tu),
 				new GameFramework.misc.KeyVal("GameId", this.TG),
 				new GameFramework.misc.KeyVal("GameMode", this.dE()),
 				new GameFramework.misc.KeyVal("GameTimePlayed", c[Game.DM.T.aF | 0]
@@ -16977,10 +16977,10 @@ Game.Board.prototype = {
 				new GameFramework.misc.KeyVal("NumMovesClick", c[Game.DM.T.wK | 0]),
 				new GameFramework.misc.KeyVal("NumGoodMoves", c[Game.DM.T.vK | 0]),
 				new GameFramework.misc.KeyVal("NumMatches", c[Game.DM.T.qK | 0]),
-				new GameFramework.misc.KeyVal("TotalXP", Game.BejApp.q.Ka.El),
-				new GameFramework.misc.KeyVal("PlayerRank", Game.BejApp.q.Ka.Qj),
+				new GameFramework.misc.KeyVal("TotalXP", Game.BejApp.instance.Ka.El),
+				new GameFramework.misc.KeyVal("PlayerRank", Game.BejApp.instance.Ka.Qj),
 				new GameFramework.misc.KeyVal("HintsUsed", c[Game.DM.T.tS | 0])];
-		Game.BejApp.q.tw("gameplay", c)
+		Game.BejApp.instance.tw("gameplay", c)
 	},
 	p5 : function() {
 		if (this.Ft.length != 0)
@@ -17364,7 +17364,7 @@ Game.Board.prototype = {
 		c.lr = true;
 		for (var f = 0; f < 7; f++)
 			d = c.fn(f + 1), f == (b | 0) && GameFramework.BaseApp.instance.isUseGL()
-					&& !Game.BejApp.q.$f ? d.tn(true) : d.tn(false);
+					&& !Game.BejApp.instance.$f ? d.tn(true) : d.tn(false);
 		d = c.fn((b | 0) + 1);
 		b = d.MR("Glow");
 		b != null && b.tn(false);
@@ -17378,7 +17378,7 @@ Game.Board.prototype = {
 		c.nr = true;
 		for (var f = 0; f < 7; f++)
 			d = c.fn(f + 1), f == (b | 0) && GameFramework.BaseApp.instance.isUseGL()
-					&& !Game.BejApp.q.$f ? d.tn(true) : d.tn(false);
+					&& !Game.BejApp.instance.$f ? d.tn(true) : d.tn(false);
 		c.KJ("Top").tn(false);
 		d = c.fn((b | 0) + 1);
 		b = d.MR("Stars");
@@ -17400,7 +17400,7 @@ Game.Board.prototype = {
 		this.ob.Gc(c)
 	},
 	qU : function(b) {
-		if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f) {
+		if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f) {
 			var c = new Game.ParticleEffect(Game.Resources.PIEFFECT_HYPERCUBE);
 			c.qd = b.xa;
 			c.jt(true);
@@ -17903,7 +17903,7 @@ Game.Board.prototype = {
 												h = false;
 												if (v.Th == 0)
 													if (f.Rp.push(v.xa), v.Th = 0.0167, !GameFramework.BaseApp.instance.isUseGL()
-															|| Game.BejApp.q.$f)
+															|| Game.BejApp.instance.$f)
 														for (q = 0; q < 5; q++)
 															u = this.ob
 																	.wf(Game.Effect.da.EA), u.w = o
@@ -18054,7 +18054,7 @@ Game.Board.prototype = {
 						+ (Game.Board.ab / 2 | 0), r = false, k = 0.013 * (k - b) | 0, l = 0.013
 						* (l - c) | 0;
 				if (h[h.g * j + 0] != 0 || h[h.g * j + 1] != 0) {
-					if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f) {
+					if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f) {
 						for (var v = 0; v < 14; v++) {
 							var u = this.ob.wf(Game.Effect.da.cp), y = GameFramework.Utils
 									.P()
@@ -18199,7 +18199,7 @@ Game.Board.prototype = {
 					* (h - d);
 			j == 0 && (k *= 2);
 			k == 0 && (j *= 2);
-			if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f)
+			if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f)
 				for (var l = 0; l < 14; l++) {
 					var m = this.ob.wf(Game.Effect.da.cp), o = GameFramework.Utils.P()
 							* Game.MathUtil.PI, q = 0 + 2
@@ -18252,7 +18252,7 @@ Game.Board.prototype = {
 						* (3 * Math.abs(GameFramework.Utils.P()) + 1), l.Ic = -0.0025
 						* (2 * Math.abs(GameFramework.Utils.P()) + 4), this.ob
 						.Gc(l);
-			if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f) {
+			if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f) {
 				for (c = 0; c < 14; c++)
 					d = this.ob.wf(Game.Effect.da.cp), g = c * Game.MathUtil.PI * 2 / 20, l = 0.5
 							+ 5.75 * Math.abs(GameFramework.Utils.P()), d.Nc = (l
@@ -18907,7 +18907,7 @@ Game.Board.prototype = {
 	Wz : function() {
 		Game.SoundUtil.Play(Game.Resources.SOUND_BUTTON_RELEASE);
 		var b = new Game.OptionsDialog(true);
-		Game.BejApp.q.te.Ho(b);
+		Game.BejApp.instance.te.Ho(b);
 		b.w = this.Se() - b.s / 2;
 		b.v = 200;
 		b.addEventHandler(GameFramework.widgets.DialogEvent.CLOSED, ss.Delegate.create(this, this.L6))
@@ -18919,13 +18919,13 @@ Game.Board.prototype = {
 			this.lD = true;
 		!this.xc.Ka.Zj
 				&& this.iK()
-				&& (this.xc.Te(), b = Game.BejApp.q.te.Zd(Game.DM.mb.vn), b != null
+				&& (this.xc.Te(), b = Game.BejApp.instance.te.Zd(Game.DM.mb.vn), b != null
 						&& b.Te())
 	},
 	L3 : function() {
 		Game.SoundUtil.Play(Game.Resources.SOUND_BUTTON_RELEASE);
 		if (!this.xc.Hz() && this.pf == 0) {
-			var b = Game.BejApp.q.gq("RESET",
+			var b = Game.BejApp.instance.gq("RESET",
 					"Abandon the current game and start over?", "",
 					GameFramework.widgets.Dialog.Io, Game.DM.mb.JK);
 			b.Lb(this.Se() - 425, 350, 850, b.Qo(850));
@@ -19078,7 +19078,7 @@ Game.Board.prototype = {
 		}
 	},
 	C5 : function() {
-		if (Game.BejApp.q.Zd(Game.DM.mb.vn) != null || this.qc.length != 0)
+		if (Game.BejApp.instance.Zd(Game.DM.mb.vn) != null || this.qc.length != 0)
 			this.Dx = this.au;
 		var b = (this.au - this.Dx) * 1.67 | 0, c = b / Game.DM.RT, d = (b + Math
 				.min(this.Ex, Game.DM.RT))
@@ -19197,15 +19197,15 @@ Game.Board.prototype = {
 				&& c
 				&& d
 				&& (d = Game.DM.F6[b | 0], d != null
-						&& Game.BejApp.q.tw("tutorial_cleared", [
+						&& Game.BejApp.instance.tw("tutorial_cleared", [
 										new GameFramework.misc.KeyVal("GameId",
 												this.TG),
 										new GameFramework.misc.KeyVal("TutorialType",
 												d),
 										new GameFramework.misc.KeyVal(
 												"TutorialsEnabled",
-												Game.BejApp.q.Ka.Zj)]));
-		Game.BejApp.q.Ka.Cf(b | 0, c)
+												Game.BejApp.instance.Ka.Zj)]));
+		Game.BejApp.instance.Ka.Cf(b | 0, c)
 	},
 	PD : function(b, c) {
 		var d = new Game.DeferredTutorial;
@@ -19215,7 +19215,7 @@ Game.Board.prototype = {
 		this.Cf(b, true, false)
 	},
 	fQ : function() {
-		if (!(Game.BejApp.q.Zd(Game.DM.mb.vn) != null || Game.BejApp.q.Zd(Game.DM.mb.QJ) != null))
+		if (!(Game.BejApp.instance.Zd(Game.DM.mb.vn) != null || Game.BejApp.instance.Zd(Game.DM.mb.QJ) != null))
 			if (this.Ar != 0 || this.pf != 0 || !this.xc.Ka.Zj)
 				this.wi.clear();
 			else
@@ -19255,7 +19255,7 @@ Game.Board.prototype = {
 						}
 						c = new Game.HintDialog(c, d, true);
 						c.wo = b.wo;
-						Game.BejApp.q.te.Ho(c);
+						Game.BejApp.instance.te.Ho(c);
 						c.addEventHandler(GameFramework.widgets.DialogEvent.CLOSED, ss.Delegate.create(this,
 										this.D1));
 						c.Pt = 1;
@@ -19405,7 +19405,7 @@ Game.Board.prototype = {
 	},
 	t5 : function() {
 		if (this.yl && this.En == 0 && this.os()
-				&& Game.BejApp.q.te.Zd(Game.DM.mb.vn) == null
+				&& Game.BejApp.instance.te.Zd(Game.DM.mb.vn) == null
 				&& (!this.xc.Hz() || this.xc.HP()))
 			this.pH++, this.fs++, this.fs == (this.Nw != -1 ? this.Nw : this
 					.UR())
@@ -19725,8 +19725,8 @@ Game.Board.prototype = {
 				b.Tw = false;
 				b.cx = false;
 				Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_LEVELCOMPLETE);
-				GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f
-						? (this.Jf = new Game.HyperspaceUltra(this), Game.BejApp.q.nx.Bc(this.Jf))
+				GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f
+						? (this.Jf = new Game.HyperspaceUltra(this), Game.BejApp.instance.nx.Bc(this.Jf))
 						: (this.Jf = new Game.HyperspaceFallback(this), b = this.Qb, this.Mq(), b
 								.Bc(this.Jf), b.Bc(this), this.wd.oi(this));
 				this.Jf.Lb(-160, 0, 1920, 1200);
@@ -19752,30 +19752,30 @@ Game.Board.prototype = {
 					&& this.rl.Rq(Math.max(this.PG.V(), Math.max(0, 1
 											- (1 - this.Ch) * 2.5))
 							* this.L.V() * this.Yc());
-			if (Game.BejApp.q.uh == Game.DM.xf.VA)
+			if (Game.BejApp.instance.uh == Game.DM.xf.VA)
 				if (this.Hs() < 0.95)
-					this.Br = Math.max(this.Br, this.rv() * 0.95 | 0) | 0, Game.BejApp.q.jB = 0;
+					this.Br = Math.max(this.Br, this.rv() * 0.95 | 0) | 0, Game.BejApp.instance.jB = 0;
 				else if (this.Hs() >= 1
-						&& (Game.BejApp.q.jB = Math.max(0, Game.BejApp.q.jB + 1) | 0, Game.BejApp.q.jB == 1))
+						&& (Game.BejApp.instance.jB = Math.max(0, Game.BejApp.instance.jB + 1) | 0, Game.BejApp.instance.jB == 1))
 					for (b = 0; b < 3; ++b)
 						c = this.ji(Game.Util.Fc() % this.wc, Game.Util.Fc()
 										% this.$b), c != null && this.Iz(c)
 								&& this.VJ(c);
 			if (!this.N5()
-					&& Game.BejApp.q.uh != Game.DM.xf.jk
+					&& Game.BejApp.instance.uh != Game.DM.xf.jk
 					&& this.os()
 					&& (this.tE() && Game.Util.Fc() % 40 == 0
-							|| Game.BejApp.q.uh == Game.DM.xf.T2
-							|| Game.BejApp.q.uh == Game.DM.xf.dT
-							|| Game.BejApp.q.uh == Game.DM.xf.VA || Game.Util.Fc() % 60 == 0)) {
+							|| Game.BejApp.instance.uh == Game.DM.xf.T2
+							|| Game.BejApp.instance.uh == Game.DM.xf.dT
+							|| Game.BejApp.instance.uh == Game.DM.xf.VA || Game.Util.Fc() % 60 == 0)) {
 				b = false;
 				if (Game.Util.Fc() % 8 < 8
-						&& (b = true, c = Array.O(4, 0), Game.BejApp.q.uh == Game.DM.xf.VA
+						&& (b = true, c = Array.O(4, 0), Game.BejApp.instance.uh == Game.DM.xf.VA
 								&& this.uR(c, true) || this.tR(c)))
 					d = this.e[this.e.g * c[1] + c[0]], this.jw(this.e[this.e.g
 									* c[3] + c[2]], d.La, d.Ja, false, true);
-				if (!b || Game.BejApp.q.uh == Game.DM.xf.dT && this.aa % 1 == 0
-						|| Game.BejApp.q.uh == Game.DM.xf.VA && this.aa % 40 == 0)
+				if (!b || Game.BejApp.instance.uh == Game.DM.xf.dT && this.aa % 1 == 0
+						|| Game.BejApp.instance.uh == Game.DM.xf.VA && this.aa % 40 == 0)
 					b = this.e[this.e.g * (Game.Util.Fc() % this.wc)
 							+ Game.Util.Fc() % this.$b], b != null
 							&& (c = Array.Sd(4, 2, 0, -1, 0, 1, 0, 0, -1, 0, 1), d = Game.Util
@@ -19786,17 +19786,17 @@ Game.Board.prototype = {
 		}
 	},
 	N5 : function() {
-		return Game.BejApp.q.uh == Game.DM.xf.VA ? Game.BejApp.q.jB >= 300 : this.Yp
+		return Game.BejApp.instance.uh == Game.DM.xf.VA ? Game.BejApp.instance.jB >= 300 : this.Yp
 	},
 	HJ : dummy(),
 	iK : function() {
-		return this.xc.Hz() || Game.BejApp.q.te.Zd(Game.DM.mb.vn) != null
+		return this.xc.Hz() || Game.BejApp.instance.te.Zd(Game.DM.mb.vn) != null
 	},
 	KQ : function() {
 		for (var b = 0; b < 2; b++)
 			this.Pm[b] != null
 					&& (this.Pm[b].update(), this.Pm[b].Ts() || (this.Pm[b] = null));
-		if (Game.BejApp.q.te.Zd(Game.DM.mb.uJ) == null) {
+		if (Game.BejApp.instance.te.Zd(Game.DM.mb.uJ) == null) {
 			for (var b = this.e, c = 0; c < b.length; c++) {
 				var d = b[c];
 				if (d != null)
@@ -19805,9 +19805,9 @@ Game.Board.prototype = {
 			this.yl = this.tE();
 			this.Jg.update();
 			this.L.D() == 1 && this.m.D() == 1 && this.aa >= 200 && this.E5();
-			if ((this.es || Game.BejApp.q.Zd(Game.DM.mb.q3) != null && this.Yr.V() == 1
-					|| Game.BejApp.q.Zd(Game.DM.mb.bA) != null
-					|| Game.BejApp.q.Zd(Game.DM.mb.FE) != null || Game.BejApp.q
+			if ((this.es || Game.BejApp.instance.Zd(Game.DM.mb.q3) != null && this.Yr.V() == 1
+					|| Game.BejApp.instance.Zd(Game.DM.mb.bA) != null
+					|| Game.BejApp.instance.Zd(Game.DM.mb.FE) != null || Game.BejApp.instance
 					.Zd(Game.DM.mb.JK) != null)
 					&& this.CF()) {
 				this.En = Math.min(1, this.En + 0.035);
@@ -19818,10 +19818,10 @@ Game.Board.prototype = {
 			} else if (this.m.D() == 1)
 				this.En = Math.max(0, this.En - 0.075), this.Bo = Math.max(0,
 						this.Bo - 0.075);
-			if (!(Game.BejApp.q.Zd(Game.DM.mb.QJ) != null || Game.BejApp.q.Zd(Game.DM.mb.bA) != null))
+			if (!(Game.BejApp.instance.Zd(Game.DM.mb.QJ) != null || Game.BejApp.instance.Zd(Game.DM.mb.bA) != null))
 				if (this.aD > 0) {
 					if (this.aD == 10
-							&& (this.fQ(), Game.BejApp.q.Zd(Game.DM.mb.QJ) != null))
+							&& (this.fQ(), Game.BejApp.instance.Zd(Game.DM.mb.QJ) != null))
 						return;
 					--this.aD
 				} else {
@@ -19873,18 +19873,18 @@ Game.Board.prototype = {
 	},
 	update : function() {
 		if (!this.l5()) {
-			Game.BejApp.q.te.Zd(Game.DM.mb.bA) == null
-					&& Game.BejApp.q.te.Zd(Game.DM.mb.JK) == null && this.xc.update();
+			Game.BejApp.instance.te.Zd(Game.DM.mb.bA) == null
+					&& Game.BejApp.instance.te.Zd(Game.DM.mb.JK) == null && this.xc.update();
 			for (var b = Array.O(3, null, this.Ib, this.fd, this.hd), c = 0; c < b.length; c++) {
 				var d = b[c];
 				if (d != null)
 					d.L = this.L.D()
 			}
-			GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f ? GameFramework.BaseApp.instance.vb
+			GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f ? GameFramework.BaseApp.instance.vb
 					.nT(this.Jf == null || this.Jf.aa < 96) : GameFramework.BaseApp.instance.vb
 					.nT(this.Jf == null);
 			if (this.Ge != null)
-				this.Ge.ec = !Game.BejApp.q.Bi.JS() || !GameFramework.BaseApp.instance.isUseGL();
+				this.Ge.ec = !Game.BejApp.instance.Bi.JS() || !GameFramework.BaseApp.instance.isUseGL();
 			this.Bw = 0.95 * this.Bw + (1 - 0.95) * 1;
 			if (Math.abs(this.Bw - 1) < 0.01)
 				this.Bw = 1;
@@ -19897,7 +19897,7 @@ Game.Board.prototype = {
 				this.KQ();
 			this.Jg.L = this.Yc();
 			this.ob.L = this.Yc();
-			if (Game.BejApp.q.Zd(Game.DM.mb.mZ) != null) {
+			if (Game.BejApp.instance.Zd(Game.DM.mb.mZ) != null) {
 				this.AX = true;
 				if (this.pf > 0)
 					this.pf = 400;
@@ -19922,7 +19922,7 @@ Game.Board.prototype = {
 			if (this.Ge != null)
 				this.Ge.Hk = (this.Jf == null || this.m.D() == 1)
 						&& this.kh() == 1 && this.m.D() == 1 && this.Wt
-						&& Game.BejApp.q.te.se.length == 0;
+						&& Game.BejApp.instance.te.se.length == 0;
 			if (this.aa % 60 == 0) {
 				this.qD(Game.DM.T.jR, 1);
 				this.qD(Game.DM.T.kR, GameFramework.BaseApp.instance.ml);
@@ -20021,7 +20021,7 @@ Game.Board.prototype = {
 		}
 	},
 	N_ : function(b, c) {
-		var d = (Game.BejApp.q.aa / 3 | 0) % 60;
+		var d = (Game.BejApp.instance.aa / 3 | 0) % 60;
 		b.Q(GameFramework.gfx.Color.Jb(this.Yc()));
 		b.Bd(Game.Resources.IMAGE_HYPERCUBE_FRAME.vd(), c.$d() - 16, c.dd() - 16, d);
 		kc = true;
@@ -20390,7 +20390,7 @@ Game.Board.prototype = {
 	jq : function(b) {
 		this.TQ(b, false);
 		this.V_(b);
-		!Game.BejApp.q.$f
+		!Game.BejApp.instance.$f
 				&& GameFramework.BaseApp.instance.isUseGL()
 				&& (this.Pm[0] != null && this.Pm[0].draw(b), this.Pm[1] != null
 						&& this.Pm[1].draw(b));
@@ -20409,7 +20409,7 @@ Game.Board.prototype = {
 		this.F_(b);
 		this.TQ(b, true);
 		this.zj.length > 0 && this.zj[0].draw(b);
-		Game.BejApp.q.hr
+		Game.BejApp.instance.hr
 				&& (b.kb(Game.Resources.FONT_DEFAULT), b.zb(GameFramework.Utils
 								.wj(GameFramework.BaseApp.instance.ml), 1585, 1185, 0, 1));
 		this.NU() && this.WQ(b);
@@ -20811,7 +20811,7 @@ Game.Board.prototype = {
 							if (g != null) {
 								if (this.qc.length == 0
 										&& !this.jw(g, f, d, false, true, false, false))
-									if (g.ij = false, g.Gi.Aa(0), Game.BejApp.q.Ka.xe[Game.DM.T.vK
+									if (g.ij = false, g.Gi.Aa(0), Game.BejApp.instance.Ka.xe[Game.DM.T.vK
 											| 0] < 3)
 										Game.SoundUtil.Play(Game.Resources.SOUND_BADMOVE);
 									else if (h != null)
@@ -20951,7 +20951,7 @@ Game.Board.prototype = {
 	},
 	Tk : function(b) {
 		GameFramework.widgets.ClassicWidget.prototype.Tk.apply(this, [b]);
-		if (Game.BejApp.q.hr) {
+		if (Game.BejApp.instance.hr) {
 			var c = this.rq(this.ao | 0, this.bo | 0);
 			if (b == 116)
 				this.ag != null && this.ag.ls("tutorial reset"), this.xc.hU(0), this.xc
@@ -20973,8 +20973,8 @@ Game.Board.prototype = {
 				d.m = 1;
 				this.ob.Gc(d)
 			} else if (b == 65)
-				Game.BejApp.q.uh = ((Game.BejApp.q.uh | 0) + 1) % (Game.DM.xf.Zc | 0), this.ag
-						.ls(String.format("Autoplay: {0}", Game.DM.sV[Game.BejApp.q.uh
+				Game.BejApp.instance.uh = ((Game.BejApp.instance.uh | 0) + 1) % (Game.DM.xf.Zc | 0), this.ag
+						.ls(String.format("Autoplay: {0}", Game.DM.sV[Game.BejApp.instance.uh
 										| 0])), this.ag.ls(String.format(
 						"Ticks elapsed u:{0},g:{1}", this.aa, this.Me));
 			else if (b == 33) {
@@ -21022,7 +21022,7 @@ Game.Board.prototype = {
 			else if (b == 61)
 				sb = GameFramework.BaseApp.instance.vo = 1;
 			else if (b == 82)
-				Game.BejApp.q.$I(GameFramework.BaseApp.instance.artRes == 768 ? 480 : 768);
+				Game.BejApp.instance.$I(GameFramework.BaseApp.instance.artRes == 768 ? 480 : 768);
 			else if (b == 93)
 				for (c = 0; c < 500; c++)
 					this.update();
@@ -21058,12 +21058,12 @@ Game.Board.prototype = {
 			else if (b == 114) {
 				this.ag.HI("RESET STATS", 4294927974);
 				for (c = 0; c < (Game.DM.T.Zc | 0); c++)
-					Game.BejApp.q.Ka.xe[c] = 0
+					Game.BejApp.instance.Ka.xe[c] = 0
 			} else if (b == 82)
-				this.ag.HI("RESET PROFILE", 4294927974), Game.BejApp.q.Ka = new Game.Profile;
+				this.ag.HI("RESET PROFILE", 4294927974), Game.BejApp.instance.Ka = new Game.Profile;
 			else if (b == 72)
-				this.ag.HI("RESET HIGH SCORES", 4294927974), Game.BejApp.q.uk = new Game.HighScoreMgr, Game.BejApp.q
-						.FS(), Game.BejApp.q.uk.gt()
+				this.ag.HI("RESET HIGH SCORES", 4294927974), Game.BejApp.instance.uk = new Game.HighScoreMgr, Game.BejApp.instance
+						.FS(), Game.BejApp.instance.uk.gt()
 		}
 		if (b == 32 && this.ah.x == -1 && (this.CF() || this.es) && !this.iK())
 			this.es = !this.es
@@ -21161,18 +21161,18 @@ Game.ClassicBoard.prototype = {
 		Game.Board.prototype.Ub.apply(this);
 		var b = new GameFramework.CurvedVal;
 		b.vj("ClassicBoard_cs_11_21_11__05_39_07_684");
-		Game.BejApp.q.kA(Game.Resources.U3, b)
+		Game.BejApp.instance.kA(Game.Resources.U3, b)
 	},
 	GJ : function() {
 		new Game.Announcement(this, "NO MORE\nMOVES");
 		Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_NOMOREMOVES)
 	},
 	HJ : function() {
-		Game.BejApp.q.uk.qq("Classic").rF(Game.BejApp.q.Ka.Km, this.Z) && Game.BejApp.q.$K(false);
+		Game.BejApp.instance.uk.qq("Classic").rF(Game.BejApp.instance.Ka.Km, this.Z) && Game.BejApp.instance.$K(false);
 		var b = new Game.ClassicEndLevelDialog(this);
-		Game.BejApp.q.te.Ho(b);
+		Game.BejApp.instance.te.Ho(b);
 		b.eU("Classic");
-		Game.BejApp.q.Ka.OL()
+		Game.BejApp.instance.Ka.OL()
 	},
 	xJ : function() {
 		if (this.xc.ki() != null) {
@@ -21569,7 +21569,7 @@ Game.CrystalBall.prototype = {
 			b.jg(c);
 			c = this.m.V();
 			this.eg > 0 && (c *= 0.00255 / this.eg);
-			var d = Game.BejApp.q.e == null || !Game.BejApp.q.$f && GameFramework.BaseApp.instance.isUseGL(), f = b
+			var d = Game.BejApp.instance.e == null || !Game.BejApp.instance.$f && GameFramework.BaseApp.instance.isUseGL(), f = b
 					.translate(this.s / 2, this.z / 2);
 			try {
 				!this.Hx
@@ -21651,7 +21651,7 @@ Game.CrystalBall.prototype = {
 								G[z * 2] = u[u.g * (z % Game.CrystalBall.Yk) + y], G[z
 										* 2 + 1] = u[u.g * (z % Game.CrystalBall.Yk) + y
 										+ 1];
-							if (Game.BejApp.q.isUseGL()) {
+							if (Game.BejApp.instance.isUseGL()) {
 								var A = z = 0, D = Game.CrystalBall.Yk * 2, F = Array
 										.Sd(D, 3, null);
 								F[F.g * z + 0] = G[A++];
@@ -22779,7 +22779,7 @@ Game.EndLevelDialog = function(b) {
 	this.Gl = new Game.RankBarWidget(1195, this.e, null, true);
 	this.Gl.nh(200, 240);
 	this.Bc(this.Gl);
-	Game.BejApp.q.Nh.oi(this.Gl)
+	Game.BejApp.instance.Nh.oi(this.Gl)
 };
 Game.EndLevelDialog.prototype = {
 	e : null,
@@ -22832,8 +22832,8 @@ Game.EndLevelDialog.prototype = {
 		if (this.VC != "") {
 			if (this.Vd == null)
 				this.Vd = new Game.Bej3EditWidget, this.Vd.V9(0), this.Vd.gU(
-						Game.BejApp.q.Ka.Km, false), this.Vd.addEventHandler(GameFramework.widgets.WidgetEvent.aR,
-						ss.Delegate.create(this, this.M6)), Game.BejApp.q.Nh.oi(this.Vd), this
+						Game.BejApp.instance.Ka.Km, false), this.Vd.addEventHandler(GameFramework.widgets.WidgetEvent.aR,
+						ss.Delegate.create(this, this.M6)), Game.BejApp.instance.Nh.oi(this.Vd), this
 						.Bc(this.Vd), this.Vd.sI = this;
 			if (this.Yf == null)
 				this.Yf = this.ME(Game.EndLevelDialog.ug.$L | 0, 280,
@@ -22853,7 +22853,7 @@ Game.EndLevelDialog.prototype = {
 		Game.Bej3Dialog.prototype.Te.apply(this)
 	},
 	u4 : function() {
-		var b = Game.BejApp.q.gq("INVALID NAME", "Please enter a valid name.", "OK",
+		var b = Game.BejApp.instance.gq("INVALID NAME", "Please enter a valid name.", "OK",
 				GameFramework.widgets.Dialog.Zp, Game.DM.mb.DU), c = b.Qo(850);
 		b.Lb(this.w + this.s / 2 - 425, this.v + this.z / 2 - c / 2, 850, c)
 	},
@@ -22868,14 +22868,14 @@ Game.EndLevelDialog.prototype = {
 				? this.u4()
 				: (Game.Bej3Dialog.prototype.Mi.apply(this, [b]), b.target == this.We[Game.EndLevelDialog.ug.PF
 						| 0]
-						? (b = Game.BejApp.q.e, b != null && (this.Te(), b.Iy()))
+						? (b = Game.BejApp.instance.e, b != null && (this.Te(), b.Iy()))
 						: b.target == this.We[Game.EndLevelDialog.ug.QF | 0]
-								? (b = Game.BejApp.q.e, b != null
-										&& (this.Te(), b.Ub(), b.NE(), Game.BejApp.q.Nh
+								? (b = Game.BejApp.instance.e, b != null
+										&& (this.Te(), b.Ub(), b.NE(), Game.BejApp.instance.Nh
 												.oi(b)))
 								: b.target == this.We[Game.EndLevelDialog.ug.qV | 0]
 										? (this.m
-												.ea("b;0,1,0.01,0.25,~t4G         ~O###"), b = new Game.RecordsDialog(true), Game.BejApp.q.te
+												.ea("b;0,1,0.01,0.25,~t4G         ~O###"), b = new Game.RecordsDialog(true), Game.BejApp.instance.te
 												.Ho(b), b.addEventHandler(
 												GameFramework.widgets.DialogEvent.CLOSED,
 												ss.Delegate.create(this, this.P6)))
@@ -22890,17 +22890,17 @@ Game.EndLevelDialog.prototype = {
 			var b = GameFramework.Utils.uU(this.Vd.Za);
 			b.length == 0 && (b = "Player");
 			this.Jd.ea("b;0,1,0.01,0.3,~###         ~#>>l");
-			var c = Game.BejApp.q.Ka.Km;
+			var c = Game.BejApp.instance.Ka.Km;
 			this.Vd.gU(b, true);
 			this.JU();
 			if (c != b) {
-				Game.BejApp.q.Ka.Km = b;
-				for (var b = Game.BejApp.q.uk.qq(this.VC), d = 0; d < Game.HighScoreTable.Ql; ++d) {
+				Game.BejApp.instance.Ka.Km = b;
+				for (var b = Game.BejApp.instance.uk.qq(this.VC), d = 0; d < Game.HighScoreTable.Ql; ++d) {
 					var f = b.zc[d];
 					if (f.sb == c && f.Hl == this.Z)
-						f.sb = Game.BejApp.q.Ka.Km
+						f.sb = Game.BejApp.instance.Ka.Km
 				}
-				Game.BejApp.q.$K(true)
+				Game.BejApp.instance.$K(true)
 			}
 		}
 	},
@@ -22909,12 +22909,12 @@ Game.EndLevelDialog.prototype = {
 	},
 	P6 : function() {
 		this.m.ea("b+0,1,0.01,0.25,P+1x         ~~###");
-		this.Vd != null && this.Jd.D() > 0 && Game.BejApp.q.Nh.oi(this.Vd)
+		this.Vd != null && this.Jd.D() > 0 && Game.BejApp.instance.Nh.oi(this.Vd)
 	},
 	update : function() {
-		if (Game.BejApp.q.Zd(Game.DM.mb.EU) == null
+		if (Game.BejApp.instance.Zd(Game.DM.mb.EU) == null
 				&& (Game.Bej3Dialog.prototype.update.apply(this), this.Jd.D() > 0
-						&& this.Vd != null && this.JU(), this.uB.$a(), Game.BejApp.q.uh != Game.DM.xf.jk
+						&& this.Vd != null && this.JU(), this.uB.$a(), Game.BejApp.instance.uh != Game.DM.xf.jk
 						&& !this.m.wg() && this.m.V() == 1 && this.aa >= 300)) {
 			var b = this.We[Game.EndLevelDialog.ug.QF | 0], c = new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.Ld);
 			c.w = b.w;
@@ -22923,7 +22923,7 @@ Game.EndLevelDialog.prototype = {
 		}
 	},
 	JU : function() {
-		for (var b = Game.BejApp.q.uk.qq(this.VC), c = 0; c < this.zc.length; ++c) {
+		for (var b = Game.BejApp.instance.uk.qq(this.VC), c = 0; c < this.zc.length; ++c) {
 			var d = this.zc[c];
 			if (d.vk) {
 				d.sb = GameFramework.Utils.uU(this.Vd.Za);
@@ -22956,7 +22956,7 @@ Game.EndLevelDialog.prototype = {
 	},
 	eU : function(b) {
 		this.VC = b;
-		for (var b = Game.BejApp.q.uk.qq(this.VC), c = 0; c < b.zc.length; ++c)
+		for (var b = Game.BejApp.instance.uk.qq(this.VC), c = 0; c < b.zc.length; ++c)
 			c < Game.EndLevelDialog.HE && this.zc.push(b.zc[c].ID());
 		for (var c = false, d = 0; d < Game.HighScoreTable.Ql; ++d) {
 			var f = b.zc[d];
@@ -27166,7 +27166,7 @@ Game.HyperspaceUltra = function(b) {
 	this.Qp = new GameFramework.CurvedVal;
 	this.np = new GameFramework.geom.Vector3;
 	callSuperConstructor(Game.HyperspaceUltra, this);
-	this.ae = Game.BejApp.q.AN[0];
+	this.ae = Game.BejApp.instance.AN[0];
 	this.ae.Vg();
 	this.si.Ub(this.OR(), GameFramework.BaseApp.instance.s / GameFramework.BaseApp.instance.z, 100, this
 					.rS());
@@ -27297,7 +27297,7 @@ Game.HyperspaceUltra.prototype = {
 					if (this.ae.Rk() < 120)
 						b.gz(Game.HyperspaceUltra.nb), this.LQ(b), Game.HyperspaceUltra.nb = b.yD();
 					else if (this.ae.Rk() >= 170)
-						Game.BejApp.q.e.gx = true;
+						Game.BejApp.instance.e.gx = true;
 					this.hq(b);
 					break;
 				case Game.HyperspaceUltra.ya.Bq :
@@ -27627,7 +27627,7 @@ Game.HyperspaceUltra.prototype = {
 			Game.HyperspaceUltra.nb.IA(h);
 			var j = c.$p(0);
 			try {
-				Game.HyperspaceUltra.nb.BA(Game.BejApp.q.AI)
+				Game.HyperspaceUltra.nb.BA(Game.BejApp.instance.AI)
 			} finally {
 				j.t()
 			}
@@ -27657,7 +27657,7 @@ Game.HyperspaceUltra.prototype = {
 				Game.HyperspaceUltra.nb.IA(g);
 				var h = c.$p(0);
 				try {
-					Game.HyperspaceUltra.nb.BA(Game.BejApp.q.XY)
+					Game.HyperspaceUltra.nb.BA(Game.BejApp.instance.XY)
 				} finally {
 					h.t()
 				}
@@ -27720,7 +27720,7 @@ Game.HyperspaceUltra.prototype = {
 						f.Qq("diffuseMaterialColor", Game.HyperspaceUltra.FI[o].mV);
 						f.Qq("specularMaterialColor", Game.HyperspaceUltra.FI[o].fZ);
 						f.kt("specularPower", Game.HyperspaceUltra.FI[o].cZ);
-						Game.HyperspaceUltra.nb.BA(Game.BejApp.q.Sn[o])
+						Game.HyperspaceUltra.nb.BA(Game.BejApp.instance.Sn[o])
 					}
 				}
 			}
@@ -27745,7 +27745,7 @@ Game.HyperspaceUltra.prototype = {
 						B.Ls(v);
 						c.push(k);
 						Game.HyperspaceUltra.nb.IA(v);
-						Game.HyperspaceUltra.nb.BA(Game.BejApp.q.Sn[A])
+						Game.HyperspaceUltra.nb.BA(Game.BejApp.instance.Sn[A])
 					}
 					if (A == (Game.DM.Ha.sc | 0) || z.Sf.length > 0) {
 						l = f = false;
@@ -27940,7 +27940,7 @@ Game.HyperspaceFallback.prototype = {
 	update : function() {
 		Game.Hyperspace.prototype.update.apply(this);
 		this.aa == 2 && this.e.Zb(Game.Hyperspace.Zb.Pv);
-		this.aa == 100 && Game.BejApp.q.mi(Game.Resources.SOUND_NEXTLEVEL);
+		this.aa == 100 && Game.BejApp.instance.mi(Game.Resources.SOUND_NEXTLEVEL);
 		this.sl.$a() || this.e.Zb(Game.Hyperspace.Zb.Cs);
 		this.aa == 180
 				&& (this.e.we.Aa(0), this.e.PK(), this.e.Zb(Game.Hyperspace.Zb.AK));
@@ -28034,7 +28034,7 @@ Game.LoadingScreen.prototype = {
 		} else if (this.XW) {
 			b.kb(Game.Resources.FONT_DEFAULT);
 			c = "Loading";
-			Game.BejApp.q.gW && Game.BejApp.q.Ut == 1 && (c = "Connecting");
+			Game.BejApp.instance.gW && Game.BejApp.instance.Ut == 1 && (c = "Connecting");
 			for (var d = 0; d < (this.aa / 80 | 0) % 4; d++)
 				c += ".";
 			b.Cc(c, 800 - b.hc("Loading") / 2, 600);
@@ -28183,7 +28183,7 @@ Game.MainMenu = function() {
 	this.Vt = GameFramework.CurvedVal.qs(0);
 	this.Z_ = new GameFramework.CurvedVal("b;0,1,0.01,5,####  ,####K~###      ^~###m####");
 	callSuperConstructor(Game.MainMenu, this);
-	Game.BejApp.q.Ka.A2();
+	Game.BejApp.instance.Ka.A2();
 	this.xH = true;
 	this.lB.Aa(0);
 	this.PW.ea("b;0,1,0.00125,1,~### Q~###        O####");
@@ -28241,7 +28241,7 @@ Game.MainMenu.prototype = {
 		b.v = b.wb.Oe;
 		b.s = b.wb.s;
 		b.z = b.wb.z;
-		Game.BejApp.q.artRes == 768
+		Game.BejApp.instance.artRes == 768
 				? (b.io = 0, b.Sj = b.wb, b.Rj = 1, b.rm = b.wb, b.On = 1)
 				: (b.io = 2, b.pl = true);
 		b.addEventHandler(GameFramework.widgets.WidgetEvent.Ld, ss.Delegate.create(this, this.R3));
@@ -28253,7 +28253,7 @@ Game.MainMenu.prototype = {
 		b.v = b.wb.Oe;
 		b.s = b.wb.s;
 		b.z = b.wb.z;
-		Game.BejApp.q.artRes == 480
+		Game.BejApp.instance.artRes == 480
 				? (b.io = 0, b.Sj = b.wb, b.Rj = 1, b.rm = b.wb, b.On = 1)
 				: (b.io = 2, b.pl = true);
 		b.addEventHandler(GameFramework.widgets.WidgetEvent.Ld, ss.Delegate.create(this, this.y1));
@@ -28262,42 +28262,42 @@ Game.MainMenu.prototype = {
 	},
 	F1 : function() {
 		var b = new Game.OptionsDialog(false);
-		Game.BejApp.q.te.Ho(b)
+		Game.BejApp.instance.te.Ho(b)
 	},
 	NT : function() {
-		Game.BejApp.q.$I(480)
+		Game.BejApp.instance.$I(480)
 	},
 	R3 : function(b) {
 		this.ue
-				? (b = Game.BejApp.q
+				? (b = Game.BejApp.instance
 						.gq(
 								"SWITCH RESOLUTION",
 								"Are you sure you want to switch to Standard Definition?\n\nThis will reload the game.",
 								null, GameFramework.widgets.Dialog.Io), b.tb.addEventHandler(
 						GameFramework.widgets.WidgetEvent.Ld, ss.Delegate.create(this, this.NT)), b.Fg
-						.addEventHandler(GameFramework.widgets.WidgetEvent.Ld, ss.Delegate.create(Game.BejApp.q,
-										Game.BejApp.q.LP)))
+						.addEventHandler(GameFramework.widgets.WidgetEvent.Ld, ss.Delegate.create(Game.BejApp.instance,
+										Game.BejApp.instance.LP)))
 				: this.NT(b)
 	},
 	sS : function() {
-		Game.BejApp.q.$I(768)
+		Game.BejApp.instance.$I(768)
 	},
 	y1 : function(b) {
 		this.ue
-				? (b = Game.BejApp.q
+				? (b = Game.BejApp.instance
 						.gq(
 								"SWITCH RESOLUTION",
 								"Are you sure you want to switch to High Definition?\n\nThis will reload the game.",
 								null, GameFramework.widgets.Dialog.Io), b.tb.addEventHandler(
 						GameFramework.widgets.WidgetEvent.Ld, ss.Delegate.create(this, this.sS)), b.Fg
-						.addEventHandler(GameFramework.widgets.WidgetEvent.Ld, ss.Delegate.create(Game.BejApp.q,
-										Game.BejApp.q.LP)))
+						.addEventHandler(GameFramework.widgets.WidgetEvent.Ld, ss.Delegate.create(Game.BejApp.instance,
+										Game.BejApp.instance.LP)))
 				: this.sS(b)
 	},
 	Vg : dummy(),
 	gQ : function() {
 		if (this.xH) {
-			if (!Game.BejApp.q.jC)
+			if (!Game.BejApp.instance.jC)
 				return true
 		} else
 			return false;
@@ -28333,7 +28333,7 @@ Game.MainMenu.prototype = {
 		b.z = b.wb.z;
 		b.U = Game.Resources.FONT_FLAREGOTHICBOLD42;
 		b.Id = "MENU";
-		Game.BejApp.q.Hy(b);
+		Game.BejApp.instance.Hy(b);
 		b.LN = -10;
 		b.io = 0;
 		b.Sj = b.wb;
@@ -28346,7 +28346,7 @@ Game.MainMenu.prototype = {
 	},
 	JA : dummy(),
 	update : function() {
-		if (Game.BejApp.q.EN) {
+		if (Game.BejApp.instance.EN) {
 			this.RC != null && this.RC.dh & !this.RC.pl
 					? this.ru.Js() != 1
 							&& this.ru.To("MainMenu_cs_11_29_11__14_35_51_418")
@@ -28358,10 +28358,10 @@ Game.MainMenu.prototype = {
 					: this.Vt.Js() != 0
 							&& this.Vt.To("MainMenu_cs_11_29_11__14_37_36_539");
 			this.gQ();
-			this.ec = Game.BejApp.q.e == null || !Game.BejApp.q.e.ec || Game.BejApp.q.e.L.V() < 1
-					&& Game.BejApp.q.e.Jf == null;
-			if (!this.JS() && this.ec && Game.BejApp.q.e != null)
-				Game.BejApp.q.e.Mq(), Game.BejApp.q.e.t(), Game.BejApp.q.e = null;
+			this.ec = Game.BejApp.instance.e == null || !Game.BejApp.instance.e.ec || Game.BejApp.instance.e.L.V() < 1
+					&& Game.BejApp.instance.e.Jf == null;
+			if (!this.JS() && this.ec && Game.BejApp.instance.e != null)
+				Game.BejApp.instance.e.Mq(), Game.BejApp.instance.e.t(), Game.BejApp.instance.e = null;
 			this.or = this.ec;
 			if (this.ue)
 				this.ad.ec = this.or, this.Pe.ec = this.or, this.Tj.ec = this.or;
@@ -28378,10 +28378,10 @@ Game.MainMenu.prototype = {
 				} else {
 					this.vC = Math.max(0, this.vC - 0.05);
 					if (this.ue && this.Kg.V() == 0 && !this.dN)
-						this.oZ(), this.dN = true, Game.BejApp.q.Ka.Km.length == 0
-								? Game.BejApp.q
+						this.oZ(), this.dN = true, Game.BejApp.instance.Ka.Km.length == 0
+								? Game.BejApp.instance
 										.$v(Game.Resources.SOUND_VOICE_WELCOMETOBEJEWELED)
-								: Game.BejApp.q.$v(Game.Resources.SOUND_VOICE_WELCOMEBACK);
+								: Game.BejApp.instance.$v(Game.Resources.SOUND_VOICE_WELCOMEBACK);
 					this.ue && this.Kg.V();
 					if (this.ad != null && this.ad.Tc.V() == 1)
 						this.ad.m.Aa(0.17), this.ad.Tc.Aa(0), this.ec = false;
@@ -28391,7 +28391,7 @@ Game.MainMenu.prototype = {
 						this.Tj != null
 								&& this.Tj.nh(this.s / 2 - this.Tj.s / 2,
 										this.z / 2 + 250);
-						Game.BejApp.q.Ka.Km.length == 0
+						Game.BejApp.instance.Ka.Km.length == 0
 								? !this.Mp.wg()
 										&& this.Mp.V() > 0
 										&& this.Mp
@@ -28404,13 +28404,13 @@ Game.MainMenu.prototype = {
 												.ea("b;0,1,0.025,1,####         ~~###");
 						this.aH = Math.max(GameFramework.BaseApp.instance.hS(), this.aH) | 0;
 						b = (this.aH - GameFramework.BaseApp.instance.hS()) / this.aH;
-						Game.BejApp.q.jC && (b = 1);
+						Game.BejApp.instance.jC && (b = 1);
 						this.Mn += Math.min(Math.max(0, b - this.Mn), Math.max(
 										0.02, (b - this.Mn) * 0.02));
 						if (!this.xH && !this.ue && this.Mn >= 0.995
-								&& Game.BejApp.q.jC) {
-							Game.BejApp.q.Hy(this.RC);
-							Game.BejApp.q.Hy(this.PB);
+								&& Game.BejApp.instance.jC) {
+							Game.BejApp.instance.Hy(this.RC);
+							Game.BejApp.instance.Hy(this.PB);
 							this.lI.hF("b;0,1,0.005,1,~###   R~###      N####");
 							this.nM
 									.ea("b;0,1,0.0025,1,~###b~###         ?####");
@@ -28421,7 +28421,7 @@ Game.MainMenu.prototype = {
 							this.JM.ea("b;0,1,0.006667,1,####         ~~###");
 							this.Xp
 									.ea("b;0,1,0.001429,1,#########  3~###       n~###");
-							Game.BejApp.q.Ka.Km.length > 0
+							Game.BejApp.instance.Ka.Km.length > 0
 									&& this.Mp
 											.ea("b;0,1,0.001429,1,####       s#### Q~###Z~###");
 							this.ad.m
@@ -28443,7 +28443,7 @@ Game.MainMenu.prototype = {
 										.ea("b;0,1,0.005,1,####         ~~###");
 						this.Kg.Dz() && this.IT();
 						if (this.ue) {
-							var b = Game.BejApp.q.s / Game.BejApp.q.z, c = 38.5 * b;
+							var b = Game.BejApp.instance.s / Game.BejApp.instance.z, c = 38.5 * b;
 							this.xd.Ub(c, b, 0.1, 1E3);
 							this.xd.DE(new GameFramework.geom.Vector3(0, 0, 0.25),
 									new GameFramework.geom.Vector3(0, 10, 2.35),
@@ -28522,7 +28522,7 @@ Game.MainMenu.prototype = {
 					c.t()
 				}
 			}
-			if (Game.BejApp.q.EN)
+			if (Game.BejApp.instance.EN)
 				if (this.Qx.length > 0) {
 					var c = this.Qx[0], d = b.Q(GameFramework.gfx.Color.Ma(255, 255,
 							255, c.L));
@@ -28577,7 +28577,7 @@ Game.MainMenu.prototype = {
 								.Ma(255, 255, 255, 255 * c | 0));
 						try {
 							d = "Loading";
-							Game.BejApp.q.gW && Game.BejApp.q.Ut == 1
+							Game.BejApp.instance.gW && Game.BejApp.instance.Ut == 1
 									&& (d = "Connecting");
 							for (var f = 0; f < (this.aa / 80 | 0) % 4; f++)
 								d += ".";
@@ -28589,7 +28589,7 @@ Game.MainMenu.prototype = {
 					}
 					b.U.ib("OUTLINE");
 					b.U.ib("GLOW");
-					if (Game.BejApp.q.isUseGL() && this.Gx.V() > 0) {
+					if (Game.BejApp.instance.isUseGL() && this.Gx.V() > 0) {
 						for (var c = Array.Sd((Game.MainMenu.Ov - 1) * 2, 3, null), d = 0, f = (Math
 								.sin(this.aa * 0.03)
 								* 0.125 + 0.75)
@@ -28621,7 +28621,7 @@ Game.MainMenu.prototype = {
 						}
 						b.bn(Game.Resources.IMAGE_LOADER_WHITEDOT, c)
 					}
-					if (Game.BejApp.q.mI.length != 0 && Game.BejApp.q.kI > 0) {
+					if (Game.BejApp.instance.mI.length != 0 && Game.BejApp.instance.kI > 0) {
 						c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255
 										* this.lI.V()
 										* Math.max(0, Math.min(1, this.Mn * 2
@@ -28630,8 +28630,8 @@ Game.MainMenu.prototype = {
 							b.kb(Game.Resources.FONT_LOADER_TIP), b.U.Ia("GLOW",
 									GameFramework.gfx.Color.Ma(64, 0, 32, 128)), b.U
 									.Ia("OUTLINE", 0), b.jh(
-									Game.BejApp.q.mI[(Game.BejApp.q.kI - 1)
-											% Game.BejApp.q.mI.length], this.s / 2,
+									Game.BejApp.instance.mI[(Game.BejApp.instance.kI - 1)
+											% Game.BejApp.instance.mI.length], this.s / 2,
 									1165), b.U.ib("OUTLINE"), b.U.ib("GLOW")
 						} finally {
 							c.t()
@@ -28689,7 +28689,7 @@ Game.MainMenu.prototype = {
 		return this.ad != null && this.ad.m.wg() || this.Pe != null && this.Pe.m.wg()
 	},
 	RZ : function() {
-		this.ue && this.ec && Game.BejApp.q.mi(Game.Resources.SOUND_BUTTON_MOUSEOVER)
+		this.ue && this.ec && Game.BejApp.instance.mi(Game.Resources.SOUND_BUTTON_MOUSEOVER)
 	},
 	Mi : function(b) {
 		if (this.ue && this.ec) {
@@ -28699,17 +28699,17 @@ Game.MainMenu.prototype = {
 				++c
 			}
 			if (!(c >= (Game.MainMenu.gg.Zc | 0)) && !this.ad.m.wg()
-					&& !(this.Pe.m.wg() || Game.BejApp.q.Zd(Game.DM.mb.vT) != null))
+					&& !(this.Pe.m.wg() || Game.BejApp.instance.Zd(Game.DM.mb.vT) != null))
 				switch (c) {
 					case Game.MainMenu.gg.bJ | 0 :
 						this.WC = Game.MainMenu.Pl.iQ;
-						Game.BejApp.q.Ka.Cf(Game.DM.Xa.RE | 0);
-						Game.BejApp.q.y_();
+						Game.BejApp.instance.Ka.Cf(Game.DM.Xa.RE | 0);
+						Game.BejApp.instance.y_();
 						this.CQ(this.ad);
 						break;
 					case Game.MainMenu.gg.tL | 0 :
-						Game.BejApp.q.Ka != null && !Game.BejApp.q.Ka.Ez(Game.DM.Xa.RE | 0)
-								? Game.BejApp.q
+						Game.BejApp.instance.Ka != null && !Game.BejApp.instance.Ka.Ez(Game.DM.Xa.RE | 0)
+								? Game.BejApp.instance
 										.gq(
 												"SPEED MODE",
 												"New to Bejeweled?\nTry Classic Mode first.\n\nPlay Speed Mode?",
@@ -28720,25 +28720,25 @@ Game.MainMenu.prototype = {
 								: this.IQ();
 						break;
 					case Game.MainMenu.gg.SK | 0 :
-						b = new Game.RecordsDialog, Game.BejApp.q.mi(Game.Resources.SOUND_MENUSPIN), Game.BejApp.q.te
+						b = new Game.RecordsDialog, Game.BejApp.instance.mi(Game.Resources.SOUND_MENUSPIN), Game.BejApp.instance.te
 								.Ho(b)
 				}
 		}
 	},
 	O6 : function(b) {
-		Game.BejApp.q.Ka.Cf(Game.DM.Xa.RE | 0);
+		Game.BejApp.instance.Ka.Cf(Game.DM.Xa.RE | 0);
 		b.$A() && this.IQ()
 	},
 	IQ : function() {
 		var b = this.Pe;
 		this.WC = Game.MainMenu.Pl.nU;
-		Game.BejApp.q.z_();
+		Game.BejApp.instance.z_();
 		this.CQ(b)
 	},
 	CQ : function(b) {
 		if (b != null) {
-			var c = Game.BejApp.q.e;
-			Game.BejApp.q.mi(Game.Resources.SOUND_CLICKFLYIN);
+			var c = Game.BejApp.instance.e;
+			Game.BejApp.instance.mi(Game.Resources.SOUND_CLICKFLYIN);
 			b.Tc.ea("b;0,1,0.01,1,####         ~~###");
 			b.m.ea("b;0.17,0.88,0.01,1,####         ~~Q(j");
 			var d = b.Qb;
@@ -29070,12 +29070,12 @@ Game.OptionsDialog = function(b) {
 	callSuperConstructor(Game.OptionsDialog, this, [Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG,
 					Game.Resources.IMAGE_DIALOG_BUTTON, Game.DM.mb.bA, true, "", "", "",
 					GameFramework.widgets.Dialog.Zp]);
-	this.tI = !Game.BejApp.q.$f && Game.BejApp.q.isUseGL() || !Game.BejApp.q.Ka.vt;
+	this.tI = !Game.BejApp.instance.$f && Game.BejApp.instance.isUseGL() || !Game.BejApp.instance.Ka.vt;
 	b = (this.Wn = b) ? 740 : 850;
 	this.tI || (b -= 94);
 	this.Fd = new GameFramework.Insets(128, 20, 128, 88);
 	this.Lb(350, this.Wn ? 250 : 180, 900, b);
-	Game.BejApp.q.Nh.oi(this);
+	Game.BejApp.instance.Nh.oi(this);
 	this.tb.Id = "OK";
 	this.tb.addEventHandler(GameFramework.widgets.WidgetEvent.Ld, ss.Delegate.create(this, this.J1));
 	this.hd = this.eq(Game.Resources.IMAGE_DIALOG_BUTTON);
@@ -29131,7 +29131,7 @@ Game.OptionsDialog.prototype = {
 		if (b.target == this.zm)
 			window.ShowHelp();
 		else if (b.target == this.Ow)
-			b = Game.BejApp.q.gq("MAIN MENU",
+			b = Game.BejApp.instance.gq("MAIN MENU",
 					"Abandon the current game and go to main menu?", "",
 					GameFramework.widgets.Dialog.Io, Game.DM.mb.FE), b.Lb(this.w + this.s
 							/ 2 - 425, 350, 850, b.Qo(850)), b.addEventHandler(
@@ -29141,7 +29141,7 @@ Game.OptionsDialog.prototype = {
 	},
 	Te : function() {
 		Game.Bej3Dialog.prototype.Te.apply(this);
-		Game.BejApp.q.e != null && Game.BejApp.q.Nh.oi(Game.BejApp.q.e)
+		Game.BejApp.instance.e != null && Game.BejApp.instance.Nh.oi(Game.BejApp.instance.e)
 	},
 	AV : function(b) {
 		if (b.$A())
@@ -29149,21 +29149,21 @@ Game.OptionsDialog.prototype = {
 	},
 	I1 : function(b) {
 		b.target == this.wm
-				&& (Game.BejApp.q.lL(this.wm.af), Game.BejApp.q.mi(Game.Resources.SOUND_COMBO_2))
+				&& (Game.BejApp.instance.lL(this.wm.af), Game.BejApp.instance.mi(Game.Resources.SOUND_COMBO_2))
 	},
 	vS : function(b) {
-		b.target == this.wm ? Game.BejApp.q.lL(this.wm.af) : b.target == this.Er
-				&& Game.BejApp.q.bU(this.Er.af)
+		b.target == this.wm ? Game.BejApp.instance.lL(this.wm.af) : b.target == this.Er
+				&& Game.BejApp.instance.bU(this.Er.af)
 	},
 	H1 : function() {
 		var b;
 		b = this.Wn
-				? Game.BejApp.q
+				? Game.BejApp.instance
 						.gq(
 								"SHOW TUTORIAL?",
 								"This will end your current game and start the tutorial. Continue?",
 								"", GameFramework.widgets.Dialog.Io, Game.DM.mb.FE)
-				: Game.BejApp.q.gq("RESET TUTORIALS",
+				: Game.BejApp.instance.gq("RESET TUTORIALS",
 						"This will reset all hints\nand tutorials.\nContinue?",
 						"", GameFramework.widgets.Dialog.Io, Game.DM.mb.FE);
 		b.Lb(this.w + this.s / 2 - 425, 350, 850, b.Qo(850));
@@ -29171,18 +29171,18 @@ Game.OptionsDialog.prototype = {
 	},
 	gt : function() {
 		this.vZ();
-		Game.BejApp.q.Ka.OL()
+		Game.BejApp.instance.Ka.OL()
 	},
 	J1 : function() {
 		this.gt()
 	},
 	Q6 : function(b) {
 		if (b.$A())
-			Game.BejApp.q.Ka.Wm &= 1 << (Game.DM.Xa.RE | 0), Game.BejApp.q.Ka.Zj = true, this.cs.ti = true, this.Fi = Game.OptionsDialog.cn.QS
+			Game.BejApp.instance.Ka.Wm &= 1 << (Game.DM.Xa.RE | 0), Game.BejApp.instance.Ka.Zj = true, this.cs.ti = true, this.Fi = Game.OptionsDialog.cn.QS
 					| 0, this.gt(), this.Wn && this.Te()
 	},
 	G5 : function() {
-		var b = Game.BejApp.q.Ka;
+		var b = Game.BejApp.instance.Ka;
 		this.Er.lF(b.Fr);
 		this.wm.lF(b.tu);
 		if (this.lp != null)
@@ -29190,7 +29190,7 @@ Game.OptionsDialog.prototype = {
 		this.cs.ti = b.Zj
 	},
 	vZ : function() {
-		var b = Game.BejApp.q.Ka;
+		var b = Game.BejApp.instance.Ka;
 		if (this.lp != null)
 			b.vt = this.lp.ti;
 		b.Zj = this.cs.ti;
@@ -29301,7 +29301,7 @@ Game.Piece.NR = function(b) {
 };
 Game.Piece.iE = function(b, c, d) {
 	b = b * 1792 + c * 256 + d;
-	return b < 12544 ? Game.BejApp.q.pN.AR[b] : Game.BejApp.q.pN.BR[b - 12544]
+	return b < 12544 ? Game.BejApp.instance.pN.AR[b] : Game.BejApp.instance.pN.BR[b - 12544]
 };
 Game.Piece.Es = function(b, c, d) {
 	for (; b >= 6.283186;)
@@ -29487,10 +29487,10 @@ Game.Piece.prototype = {
 		if (this.Y(Game.Piece.K.Be)) {
 			for (var b = 0; b < 4; b++) {
 				var c;
-				if (!(Game.BejApp.q.vp != 1 && GameFramework.Utils.randZeroOne() > 0.4
-						+ Game.BejApp.q.vp * 0.6)) {
+				if (!(Game.BejApp.instance.vp != 1 && GameFramework.Utils.randZeroOne() > 0.4
+						+ Game.BejApp.instance.vp * 0.6)) {
 					var d = Game.Util.Fc() % 5 != 0;
-					if (d || GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f) {
+					if (d || GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f) {
 						var f;
 						if (d) {
 							f = Game.Util.Fc() % 32 == 0 ? this.e.ob : this.e.Jg;
@@ -29539,7 +29539,7 @@ Game.Piece.prototype = {
 									/ 2 * 1.67, c.Vb = (c.Vb + k) / 2 * 1.67;
 						d = this.$d();
 						f == this.e.ob && (d += this.e.we.V());
-						if (Game.BejApp.q.$f || !Game.BejApp.q.isUseGL())
+						if (Game.BejApp.instance.$f || !Game.BejApp.instance.isUseGL())
 							h *= 0.8, c.m *= 2, c.Ag *= 2;
 						c.w = d + (Game.Board.bb / 2 | 0) + Math.cos(g) * h;
 						c.v = this.dd() + (Game.Board.ab / 2 | 0) + Math.sin(g) * h
@@ -29547,12 +29547,12 @@ Game.Piece.prototype = {
 						if (Game.Util.Fc() % 6 != 0)
 							c.w -= d, c.v -= this.dd(), c.qd = this.xa;
 						f.Gc(c);
-						if (Game.BejApp.q.$f)
+						if (Game.BejApp.instance.$f)
 							break
 					}
 				}
 			}
-			if ((Game.BejApp.q.aa + this.xa) % 24 == 0 || Game.Util.Fc() % 64 == 0) {
+			if ((Game.BejApp.instance.aa + this.xa) % 24 == 0 || Game.Util.Fc() % 64 == 0) {
 				b = this.e.ob.wf(Game.Effect.da.Yl);
 				b.uc = Game.Effect.K.ks | 0;
 				b.w = this.Ad() + GameFramework.Utils.P() * 30;
@@ -29571,7 +29571,7 @@ Game.Piece.prototype = {
 			}
 		}
 		if (this.Y(Game.Piece.K.sc)
-				&& ((Game.BejApp.q.aa + this.xa) % 24 == 0 || Game.Util.Fc() % 64 == 0)) {
+				&& ((Game.BejApp.instance.aa + this.xa) % 24 == 0 || Game.Util.Fc() % 64 == 0)) {
 			b = this.e.ob.wf(Game.Effect.da.Yl);
 			b.uc = Game.Effect.K.ks | 0;
 			b.w = this.Ad() + GameFramework.Utils.P() * 30;
@@ -29864,11 +29864,11 @@ Game.PointsManager.prototype = {
 	Yd : function(b, c, d, f, g, h, j, k) {
 		if (d <= 0 && !k)
 			return null;
-		k = Game.BejApp.q.e.Nf * Game.BejApp.q.e.pq();
+		k = Game.BejApp.instance.e.Nf * Game.BejApp.instance.e.pq();
 		h || (k = 1);
 		var h = null, l = d, m, d = d * k | 0;
 		if (b >= 0 && c >= 0) {
-			var o = d, k = l, l = k * Math.pow(Game.BejApp.q.e.Nf, 0.45) | 0;
+			var o = d, k = l, l = k * Math.pow(Game.BejApp.instance.e.Nf, 0.45) | 0;
 			if (g != -1)
 				for (m = 0; m < this.Sp.length; m++) {
 					var q = this.Sp[m];
@@ -29890,7 +29890,7 @@ Game.PointsManager.prototype = {
 					Math.min(1, (l - 50) / 1E3)), r = 0.6 + Math.min(1, o * 2)
 					* 0.4, c = Math.max(c, 120) | 0;
 			if (h == null && Game.Resources.FONT_FLOATERS != null) {
-				h = new Game.Points(Game.BejApp.q, Game.Resources.FONT_FLOATERS, m, b, c, 1, 0,
+				h = new Game.Points(Game.BejApp.instance, Game.Resources.FONT_FLOATERS, m, b, c, 1, 0,
 						f, -1);
 				h.Pa = j;
 				h.xa = g;
@@ -30115,13 +30115,13 @@ Game.RankBarWidget = function(b, c, d, f) {
 	this.FO = d;
 	this.AW = f;
 	this.HH = null;
-	this.dx = Game.BejApp.q.Ka.Qj;
-	c = Game.BejApp.q.Ka.El;
+	this.dx = Game.BejApp.instance.Ka.Qj;
+	c = Game.BejApp.instance.Ka.El;
 	this.Zx = 0;
 	if (this.e != null)
-		d = Game.BejApp.q, d.Ka.El += this.e.od[Game.DM.T.POINTS | 0] / this.e.kE()
+		d = Game.BejApp.instance, d.Ka.El += this.e.od[Game.DM.T.POINTS | 0] / this.e.kE()
 				/ 1E3 | 0, d.Ka.Qj = d.Ka.fS(d.Ka.El) | 0;
-	this.qm = c - Game.BejApp.q.Ka.El;
+	this.qm = c - Game.BejApp.instance.Ka.El;
 	this.Lb(0, 0, b, 142)
 };
 Game.RankBarWidget.prototype = {
@@ -30135,14 +30135,14 @@ Game.RankBarWidget.prototype = {
 	HH : null,
 	update : function() {
 		GameFramework.widgets.ClassicWidget.prototype.update.apply(this);
-		var b = Game.BejApp.q;
+		var b = Game.BejApp.instance;
 		if (b.Zd(Game.DM.mb.EU) == null && this.e != null)
 			if (this.$x.$a(), this.Zx > 0)
 				--this.Zx;
 			else if (this.qm < 0 && this.aa >= 90) {
 				this.aa % 12 == 0 && b.mi(Game.Resources.SOUND_RANK_COUNTUP);
 				this.qm = Math.min(0, this.qm + -this.qm / 100 + 0.1);
-				var c = b.Ka.fS((this.qm | 0) + Game.BejApp.q.Ka.El) | 0;
+				var c = b.Ka.fS((this.qm | 0) + Game.BejApp.instance.Ka.El) | 0;
 				if (c > this.dx)
 					b.mi(Game.Resources.SOUND_RANKUP), this.dx = c, this.qm = 0, this.Zx = 84, this.$x
 							.ea("b+0,1,0.004167,1,#### 9~### (#### 5g### .#### 3W### ;#### BJ### X####"), this.FO != null
@@ -30150,7 +30150,7 @@ Game.RankBarWidget.prototype = {
 			}
 	},
 	draw : function(b) {
-		var c = Game.BejApp.q;
+		var c = Game.BejApp.instance;
 		if (this.e != null || c.Bi.or) {
 			b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 			b.U.Ia("MAIN", 4294967295);
@@ -30191,17 +30191,17 @@ Game.RankBarWidget.prototype = {
 		}
 	},
 	jE : function() {
-		return this.e != null ? this.dx | 0 : Game.BejApp.q.Ka.Qj | 0
+		return this.e != null ? this.dx | 0 : Game.BejApp.instance.Ka.Qj | 0
 	},
 	gS : function() {
-		return Game.BejApp.q.Ka.El
+		return Game.BejApp.instance.Ka.El
 	},
 	ZR : function() {
-		return this.Zx > 0 ? Game.BejApp.q.Ka.tv(this.jE() | 0) : Game.BejApp.q.Ka
+		return this.Zx > 0 ? Game.BejApp.instance.Ka.tv(this.jE() | 0) : Game.BejApp.instance.Ka
 				.tv((this.jE() | 0) + 1)
 	},
 	NJ : function(b) {
-		return Game.BejApp.q.JC[Math.min(b | 0, (Game.BejApp.q.JC.length | 0) - 1) | 0]
+		return Game.BejApp.instance.JC[Math.min(b | 0, (Game.BejApp.instance.JC.length | 0) - 1) | 0]
 	},
 	OJ : function() {
 		return Math.max(0, (this.ZR() - this.gS() - this.qm) * this.e.kE() | 0)
@@ -30209,29 +30209,29 @@ Game.RankBarWidget.prototype = {
 	},
 	Ys : function() {
 		GameFramework.widgets.ClassicWidget.prototype.Ys.apply(this);
-		if (Game.BejApp.q.hr)
-			this.HH = Game.BejApp.q.Nh.Vh, Game.BejApp.q.Nh.oi(this)
+		if (Game.BejApp.instance.hr)
+			this.HH = Game.BejApp.instance.Nh.Vh, Game.BejApp.instance.Nh.oi(this)
 	},
 	kn : function() {
 		GameFramework.widgets.ClassicWidget.prototype.kn.apply(this);
-		Game.BejApp.q.hr && this.HH != null && Game.BejApp.q.Nh.oi(this.HH)
+		Game.BejApp.instance.hr && this.HH != null && Game.BejApp.instance.Nh.oi(this.HH)
 	},
 	Tk : function(b) {
-		if (Game.BejApp.q.hr)
+		if (Game.BejApp.instance.hr)
 			switch (b) {
 				case 61 :
 				case 43 :
-					Game.BejApp.q.Ka.Qj++;
-					Game.BejApp.q.Ka.El = (Game.BejApp.q.Ka.tv(Game.BejApp.q.Ka.Qj | 0) | 0)
+					Game.BejApp.instance.Ka.Qj++;
+					Game.BejApp.instance.Ka.El = (Game.BejApp.instance.Ka.tv(Game.BejApp.instance.Ka.Qj | 0) | 0)
 							+ 50;
 					this.qm = -100;
 					break;
 				case 45 :
-					if (Game.BejApp.q.Ka.Qj > 0) {
-						Game.BejApp.q.Ka.Qj--;
-						Game.BejApp.q.Ka.El = Game.BejApp.q.Ka.tv(Game.BejApp.q.Ka.Qj | 0) | 0;
-						if (this.dx > Game.BejApp.q.Ka.Qj)
-							this.dx = Game.BejApp.q.Ka.Qj;
+					if (Game.BejApp.instance.Ka.Qj > 0) {
+						Game.BejApp.instance.Ka.Qj--;
+						Game.BejApp.instance.Ka.El = Game.BejApp.instance.Ka.tv(Game.BejApp.instance.Ka.Qj | 0) | 0;
+						if (this.dx > Game.BejApp.instance.Ka.Qj)
+							this.dx = Game.BejApp.instance.Ka.Qj;
 						this.qm = 0
 					}
 			}
@@ -30320,7 +30320,7 @@ Game.RankUpDialog.prototype = {
 	},
 	update : function() {
 		Game.Bej3Dialog.prototype.update.apply(this);
-		if (Game.BejApp.q.uh != Game.DM.xf.jk && !this.m.wg() && this.m.V() == 1
+		if (Game.BejApp.instance.uh != Game.DM.xf.jk && !this.m.wg() && this.m.V() == 1
 				&& this.aa >= 300) {
 			var b = new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.Ld);
 			b.w = this.tb.w;
@@ -30354,7 +30354,7 @@ Game.RecordsDialog = function(b) {
 	this.Gl = new Game.RankBarWidget(1195, null, null, true);
 	this.Gl.nh(200, 240);
 	this.Bc(this.Gl);
-	Game.BejApp.q.Nh.oi(this.Gl);
+	Game.BejApp.instance.Nh.oi(this.Gl);
 	this.oQ("Lightning", this.UO);
 	this.oQ("Classic", this.FM);
 	this.tb.Id = "OK"
@@ -30368,7 +30368,7 @@ Game.RecordsDialog.prototype = {
 		Game.Bej3Dialog.prototype.update.apply(this);
 		var b = this.LB ? 930 : 1050;
 		this.Gl.nh(700 - this.Gl.s / 2, b / 2 | 0);
-		this.Lb((Game.BejApp.q.s / 2 | 0) - 700, (Game.BejApp.q.z / 2 | 0) - (b / 2 | 0),
+		this.Lb((Game.BejApp.instance.s / 2 | 0) - 700, (Game.BejApp.instance.z / 2 | 0) - (b / 2 | 0),
 				1400, b)
 	},
 	draw : function(b) {
@@ -30396,10 +30396,10 @@ Game.RecordsDialog.prototype = {
 		b.U.Ia("OUTLINE", GameFramework.gfx.Color.ta(64, 24, 8));
 		b.U.Ia("GLOW", GameFramework.gfx.Color.Ma(0, 0, 0, 0));
 		for (var c = "N/A", d = -1, f = 0, g = 0; g < 7; g++)
-			Game.BejApp.q.Ka.xe[(Game.DM.T.IK | 0) + g] > f
-					&& (f = Game.BejApp.q.Ka.xe[(Game.DM.T.IK | 0) + g], d = g);
+			Game.BejApp.instance.Ka.xe[(Game.DM.T.IK | 0) + g] > f
+					&& (f = Game.BejApp.instance.Ka.xe[(Game.DM.T.IK | 0) + g], d = g);
 		d > -1 && (c = Game.RecordsDialog.t7[d]);
-		f = Game.BejApp.q.Ka.xe[Game.DM.T.aF | 0] / 10 | 0;
+		f = Game.BejApp.instance.Ka.xe[Game.DM.T.aF | 0] / 10 | 0;
 		f < 60 ? (g = String.format("{0} second", f), f != 1
 				&& (g += String.fromCharCode(115))) : f < 3600 ? (f = f / 60
 				| 0, g = String.format("{0} minute", f), f != 1
@@ -30407,9 +30407,9 @@ Game.RecordsDialog.prototype = {
 				"{0:0.0} hours", f / 3600);
 		f = Array.O(4, "", "All-Time Best Move:", "Total Time Played:",
 				"Gems Matched:", "Favorite Gem Color:");
-		g = Array.O(4, "", GameFramework.Utils.ei(Game.BejApp.q.Ka.xe[Game.DM.T.vD | 0])
+		g = Array.O(4, "", GameFramework.Utils.ei(Game.BejApp.instance.Ka.xe[Game.DM.T.vD | 0])
 						+ " pts", g, GameFramework.Utils
-						.ei(Game.BejApp.q.Ka.xe[Game.DM.T.dn | 0]), c);
+						.ei(Game.BejApp.instance.Ka.xe[Game.DM.T.dn | 0]), c);
 		this.LB && b.translate(0, -120);
 		this.LB
 				? b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 110, 650, 1175, 260, 0)
@@ -30452,7 +30452,7 @@ Game.RecordsDialog.prototype = {
 		}
 	},
 	oQ : function(b, c) {
-		for (var d = Game.BejApp.q.uk.qq(b), f = 0; f < d.zc.length; ++f)
+		for (var d = Game.BejApp.instance.uk.qq(b), f = 0; f < d.zc.length; ++f)
 			c.push(d.zc[f])
 	},
 	$y : function(b, c, d) {
@@ -31915,7 +31915,7 @@ Game.QuasiRandom.prototype = {
 		this.qp.ea(b);
 		b = new GameFramework.CurvedVal;
 		b.vj("SpeedBoard_cs_11_21_11__05_51_47_583");
-		Game.BejApp.q.kA(Game.Resources.W3, b)
+		Game.BejApp.instance.kA(Game.Resources.W3, b)
 	},
 	tU : function() {
 		this.PA(1)
@@ -32163,12 +32163,12 @@ Game.SpeedBoard.prototype = {
 		return false
 	},
 	HJ : function() {
-		Game.BejApp.q.uk.qq("Lightning").rF(Game.BejApp.q.Ka.Km, this.Z)
-				&& Game.BejApp.q.$K(false);
+		Game.BejApp.instance.uk.qq("Lightning").rF(Game.BejApp.instance.Ka.Km, this.Z)
+				&& Game.BejApp.instance.$K(false);
 		var b = new Game.SpeedEndLevelDialog(this);
-		Game.BejApp.q.te.Ho(b);
+		Game.BejApp.instance.te.Ho(b);
 		b.eU("Lightning");
-		Game.BejApp.q.Ka.OL()
+		Game.BejApp.instance.Ka.OL()
 	},
 	GJ : function() {
 		new Game.Announcement(this, "TIME UP");
@@ -32191,7 +32191,7 @@ Game.SpeedBoard.prototype = {
 					&& this.oj(b.Ad() | 0, b.Rd() | 0, b.qe * 50, Game.DM.Yi[b.n
 									| 0], b.Lf, true, true, b.Pa, false, Game.Board.je.sn);
 			c = String.format("+{0:d} sec", b.qe);
-			c = new Game.Points(Game.BejApp.q, Game.Resources.FONT_DIALOG_HEADER, c, b.Ad() | 0,
+			c = new Game.Points(Game.BejApp.instance, Game.Resources.FONT_DIALOG_HEADER, c, b.Ad() | 0,
 					b.Rd() | 0, 1, 0, Game.DM.Yi[b.n | 0], -1);
 			c.jr = 1.5;
 			c.NO = 0.2;
@@ -32283,7 +32283,7 @@ Game.SpeedBoard.prototype = {
 					this.yF("death", 15);
 					var d = new GameFramework.CurvedVal;
 					d.vj("SpeedBoard_cs_11_21_11__05_58_39_924");
-					Game.BejApp.q.kA(Game.Resources.V3, d, false);
+					Game.BejApp.instance.kA(Game.Resources.V3, d, false);
 					Game.SoundUtil.Play(Game.Resources.SOUND_BOMB_EXPLODE);
 					Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_TIMEUP);
 					this.CB = true;
@@ -32612,7 +32612,7 @@ Game.SpeedBoard.prototype = {
 		}
 	},
 	Tk : function(b) {
-		if (Game.BejApp.q.hr) {
+		if (Game.BejApp.instance.hr) {
 			var c = this.rq(this.ao | 0, this.bo | 0);
 			if (b == 116) {
 				if (c != null) {
@@ -32927,11 +32927,11 @@ Game.TimeBonusEffect.prototype = {
 		}
 		c = 0;
 		b != null && (c = Math.min(19, 20 * b.eh | 0) | 0);
-		var d = Game.BejApp.q.vp != 1
-				&& GameFramework.Utils.randZeroOne() > 0.5 + Game.BejApp.q.vp * 0.5, f = Math
+		var d = Game.BejApp.instance.vp != 1
+				&& GameFramework.Utils.randZeroOne() > 0.5 + Game.BejApp.instance.vp * 0.5, f = Math
 				.min(4, this.Tm - 1)
 				/ 4;
-		if (!Game.BejApp.q.$f
+		if (!Game.BejApp.instance.$f
 				&& GameFramework.Utils.randZeroOne() < 0.025 * Math.min(5, this.Tm - 1)
 				&& !d) {
 			var g = this.Nb.wf(Game.Effect.da.cz), h = GameFramework.Utils.P() * Math.PI, j = Game.Piece
@@ -32951,7 +32951,7 @@ Game.TimeBonusEffect.prototype = {
 			g.qd = b == null ? -1 : b.xa;
 			this.Nb.e.Jg.Gc(g)
 		}
-		Game.BejApp.q.$f && (f *= 0.25);
+		Game.BejApp.instance.$f && (f *= 0.25);
 		g = GameFramework.Utils.randZeroOne() < 0.15 * f;
 		g |= (this.sm.length | 0) < Math.min(3, this.Tm * 2 - 1);
 		d && (g = false);
@@ -32959,7 +32959,7 @@ Game.TimeBonusEffect.prototype = {
 			d = new Game.ElectroBolt;
 			d.Lj = false;
 			d.ll = !d.Lj && GameFramework.Utils.randZeroOne() < 0.02;
-			Game.BejApp.q.$f && (d.ll |= !d.Lj && GameFramework.Utils.randZeroOne() < 0.1);
+			Game.BejApp.instance.$f && (d.ll |= !d.Lj && GameFramework.Utils.randZeroOne() < 0.1);
 			if (d.Lj)
 				d.$g = Math.abs(GameFramework.Utils.P()) * Math.PI * 2, g = this.Nb.e
 						.rq(	this.w + Game.Board.bb / 2 + Math.cos(d.$g)
@@ -33098,7 +33098,7 @@ Game.TimeBonusEffect.prototype = {
 			this.ce = true
 	},
 	NQ : function(b, c, d, f, g, h, j, k, l) {
-		if (Game.BejApp.q.isUseGL()) {
+		if (Game.BejApp.instance.isUseGL()) {
 			var m = Math.atan2(h - f, g - d), o = Math.cos(m), m = -Math.sin(m), q = d
 					+ o * -j, r = g + o * j;
 			Game.TimeBonusEffect.na == null
@@ -33983,7 +33983,7 @@ Game.TutorialStep.prototype = {
 			this.Hd = new Game.HintDialog(this.Fk, this.Re, true, false), this.Hd.gs = false;
 		else if (this.Fb == Game.TutorialStep.hg.Wo || this.Fb == Game.TutorialStep.hg.sK)
 			this.Hd = new Game.HintDialog(this.Fk, this.Re, true, false), this.Hd.gs = false, this.Hd.XH = 0;
-		Game.BejApp.q.te.Ho(this.Hd);
+		Game.BejApp.instance.te.Ho(this.Hd);
 		this.Hd.addEventHandler(GameFramework.widgets.DialogEvent.CLOSED, ss.Delegate.create(this, this.N6));
 		this.Hd.Pt = 1;
 		if (this.Fj != 0 || this.CG != 0) {
@@ -34004,7 +34004,7 @@ Game.TutorialStep.prototype = {
 		this.Hd != null
 				&& this.Hd.Pj.ti
 				&& (this.VH.iu.HA(false), this.Fh != Game.DM.Xa.Zc
-						&& Game.BejApp.q.e.Cf(this.Fh))
+						&& Game.BejApp.instance.e.Cf(this.Fh))
 	},
 	aw : function(b, c, d, f) {
 		b = new GameFramework.TRect(b.tz(c), b.xz(d), Game.Board.bb, Game.Board.ab);
@@ -34099,7 +34099,7 @@ Game.TutorialSequence.prototype = {
 		var b = false, c = this.ii();
 		c != null && c.Hd != null && c.Hd.Pj.ti && (b = true);
 		c != null && c.Fh != Game.DM.Xa.Zc
-				&& (b && this.iu.HA(false), Game.BejApp.q.e.Cf(c.Fh));
+				&& (b && this.iu.HA(false), Game.BejApp.instance.e.Cf(c.Fh));
 		this.OS(b || this.om + 1 >= this.xo.length || !this.iu.Ka.Zj);
 		b ? this.om = this.xo.length : this.om < this.xo.length && ++this.om;
 		this.om > 0 && (c = this.ii(), c != null && c.ur.Aa(1));
@@ -34147,7 +34147,7 @@ addClassInitEntry(function() {
 Game.TutorialMgr = function(b) {
 	Game.TutorialMgr.K0 = this;
 	this.e = b;
-	this.Ka = Game.BejApp.q.Ka
+	this.Ka = Game.BejApp.instance.Ka
 };
 Game.TutorialMgr.M_ = function(b, c) {
 	var d;
