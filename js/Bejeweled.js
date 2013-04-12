@@ -4780,9 +4780,9 @@ GameFramework.gfx.Graphics = function() {
 	this.BN = {};
 	this.cG = new GameFramework.misc.DisposeProxyStatic(ss.Delegate.create(this, this.popMatrix));
 	this.mM = new GameFramework.misc.DisposeProxyStatic(ss.Delegate.create(this, this.pb));
-	this.lC = [];
+	this.matrixStack = [];
 	this.matrix = new GameFramework.geom.Matrix;
-	this.Eg = 0;
+	this.topIndex = 0;
 	this.m = GameFramework.BaseApp.instance.artRes / GameFramework.BaseApp.instance.z
 };
 GameFramework.gfx.Graphics.QU = function(b, c, d, f, g, h, j, k, l) {
@@ -4837,9 +4837,9 @@ GameFramework.gfx.Graphics.$0 = function(b, c, d, f, g) {
 			&& GameFramework.gfx.Graphics.QU(null, c, b, 0, 0, d, h, f, g)
 };
 GameFramework.gfx.Graphics.prototype = {
-	lC : null,
+	matrixStack : null,
 	matrix : null,
-	Eg : 0,
+	topIndex : 0,
 	Tf : null,
 	Yx : null,
 	Ct : null,
@@ -4863,7 +4863,7 @@ GameFramework.gfx.Graphics.prototype = {
 	},
 	Vg : function() {
 		this.n = 4294967295;
-		this.Eg = 0;
+		this.topIndex = 0;
 		this.matrix.identity();
 		this.U = null;
 		this.Tf.clear()
@@ -4923,35 +4923,35 @@ GameFramework.gfx.Graphics.prototype = {
 				: (this.n = this.Tf.pop(), this.Yx.pop())
 	},
 	translate : function(b, c) {
-		var d = this.lC[this.Eg++] = this.matrix;
+		var d = this.matrixStack[this.topIndex++] = this.matrix;
 		this.matrix = new GameFramework.geom.Matrix;
 		this.matrix.translate(b, c);
 		this.matrix.concat(d);
 		return this.cG
 	},
 	nc : function(b, c, d, f) {
-		var g = this.lC[this.Eg++] = this.matrix;
+		var g = this.matrixStack[this.topIndex++] = this.matrix;
 		this.matrix = new GameFramework.geom.Matrix;
 		this.matrix.translate(-d, -f);
 		this.matrix.scale(b, c);
 		this.matrix.translate(d, f);
-		this.Eg != 1 && this.matrix.concat(g);
+		this.topIndex != 1 && this.matrix.concat(g);
 		return this.cG
 	},
 	jg : function(b) {
-		var c = this.lC[this.Eg++] = this.matrix;
+		var c = this.matrixStack[this.topIndex++] = this.matrix;
 		this.Nr == null
 				? this.matrix = b.zg()
 				: (b == this.Ml
 						? (this.matrix = this.Ml, this.Ml = this.Nr)
 						: (this.matrix = this.Nr, this.matrix.a = b.a, this.matrix.b = b.b, this.matrix.c = b.c, this.matrix.d = b.d, this.matrix.tx = b.tx, this.matrix.ty = b.ty), this.Nr = null);
-		this.Eg != 1 && this.matrix.concat(c);
+		this.topIndex != 1 && this.matrix.concat(c);
 		return this.cG
 	},
 	popMatrix : function() {
 		this.Nr = this.matrix;
-		this.Eg--;
-		this.matrix = this.lC[this.Eg]
+		this.topIndex--;
+		this.matrix = this.matrixStack[this.topIndex]
 	},
 	Bd : function(b, c, d, f) {
 		if (this.Ie != null) {
@@ -12001,15 +12001,15 @@ GameFramework.widgets.ClassicWidget.prototype = {
 	draw : dummy(),
 	jq : dummy(),
 	visit : function(b) {
-		var c = b.Eg, d = b.Tf.length;
+		var c = b.topIndex, d = b.Tf.length;
 		this.draw(b);
-		S(c == b.Eg, "Matrix stack error - pops don't match pushes");
+		S(c == b.topIndex, "Matrix stack error - pops don't match pushes");
 		S(d == b.Tf.length, "Color stack error - pops don't match pushes");
 		for (var f = ss.IEnumerator.enumerate(this.cf); f.hasNext();) {
 			var g = f.next();
 			if (g.ec)
 				b.translate(g.w, g.v), g.NN = b.matrix.tx, g.ON = b.matrix.ty, g.visit(b), b.popMatrix();
-			S(c == b.Eg, "Matrix stack error - pops don't match pushes");
+			S(c == b.topIndex, "Matrix stack error - pops don't match pushes");
 			S(d == b.Tf.length, "Color stack error - pops don't match pushes")
 		}
 	},
@@ -21817,9 +21817,9 @@ Game.DialogMgr.prototype = {
 	},
 	visit : function(b) {
 		this.wd.ZD();
-		var c = b.Eg, d = b.Tf.length;
+		var c = b.topIndex, d = b.Tf.length;
 		this.draw(b);
-		S(c == b.Eg, "Matrix stack error - pops don't match pushes");
+		S(c == b.topIndex, "Matrix stack error - pops don't match pushes");
 		S(d == b.Tf.length, "Color stack error - pops don't match pushes");
 		var f;
 		for (f = this.cf.length - 1; f >= 0; --f) {
@@ -21839,7 +21839,7 @@ Game.DialogMgr.prototype = {
 					j.t()
 				}
 			}
-			S(c == b.Eg, "Matrix stack error - pops don't match pushes");
+			S(c == b.topIndex, "Matrix stack error - pops don't match pushes");
 			S(d == b.Tf.length, "Color stack error - pops don't match pushes")
 		}
 		this.cf.length == 0 && this.pV(b)
@@ -34253,7 +34253,7 @@ addClassInitEntry(function() {
 Game.CheckMatrixInfo = dummy();
 Game.CheckMatrixInfo.prototype = {
 	VX : null,
-	Eg : 0,
+	topIndex : 0,
 	dW : 0,
 	graphics : null
 };
@@ -34605,7 +34605,7 @@ Game.Util.x4 = function(b, c, d) {
 };
 Game.Util.tba = function(b) {
 	var c = new Game.CheckMatrixInfo;
-	c.Eg = b.Eg;
+	c.topIndex = b.topIndex;
 	c.dW = b.Tf.length;
 	c.graphics = b;
 	c.VX = new GameFramework.misc.DisposeProxy(ss.Delegate.create(this, Game.Util.$Z));
@@ -34614,8 +34614,8 @@ Game.Util.tba = function(b) {
 };
 Game.Util.$Z = function() {
 	S(
-			Game.Util.mp[Game.Util.mp.length - 1].Eg == Game.Util.mp[Game.Util.mp.length
-					- 1].graphics.Eg,
+			Game.Util.mp[Game.Util.mp.length - 1].topIndex == Game.Util.mp[Game.Util.mp.length
+					- 1].graphics.topIndex,
 			"CheckGraphicsState MATRIX calls not aligned (check push/pop calls)");
 	S(
 			Game.Util.mp[Game.Util.mp.length - 1].dW == Game.Util.mp[Game.Util.mp.length
