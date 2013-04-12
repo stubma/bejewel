@@ -3542,10 +3542,10 @@ GameFramework.Utils.bootTimea = dynamicGet();
 GameFramework.Utils.randZeroOne = function() {
 	return Math.random()
 };
-GameFramework.Utils.P = function() {
+GameFramework.Utils.randOneMinusOne = function() {
 	return (Math.random() - 0.5) * 2
 };
-GameFramework.Utils.Sk = function() {
+GameFramework.Utils.randZeroMax = function() {
 	return Math.random() * 2147483647 | 0
 };
 GameFramework.Utils.Xda = function(b) {
@@ -7787,17 +7787,17 @@ GameFramework.resources.PIEffect.prototype = {
 			this.up = b;
 		return false
 	},
-	P : function() {
-		return GameFramework.Utils.P()
+	randOneMinusOne : function() {
+		return GameFramework.Utils.randOneMinusOne()
 	},
 	Ec : function() {
 		return GameFramework.Utils.randZeroOne()
 	},
 	MJ : function() {
-		return GameFramework.Utils.Sk() % 2 == 0 ? 1 : -1
+		return GameFramework.Utils.randZeroMax() % 2 == 0 ? 1 : -1
 	},
 	Ti : function() {
-		return this.P() * this.P()
+		return this.randOneMinusOne() * this.randOneMinusOne()
 	},
 	RK : function(b) {
 		var c = new GameFramework.geom.Matrix;
@@ -8155,7 +8155,7 @@ GameFramework.resources.PIEffect.prototype = {
 			d.gm = b.Ga();
 		if (c.xk.Rh.length > 0)
 			d.Ur = b.fa();
-		d.gm = d.Jc != null && d.Jc.$F ? GameFramework.Utils.Sk() & 32767 : 0
+		d.gm = d.Jc != null && d.Jc.$F ? GameFramework.Utils.randZeroMax() & 32767 : 0
 	},
 	JJ : function(b, c, d) {
 		d === UNDEF && (d = null);
@@ -8195,7 +8195,7 @@ GameFramework.resources.PIEffect.prototype = {
 				l = b.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Fw | 0].G(this.A);
 				f = b.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.EF | 0].G(this.A);
 				g.Ud != 0 ? (c = c.Dm % g.Ud * Math.PI * 2 / g.Ud, c > Math.PI
-						&& (c -= Math.PI * 2)) : c = this.P() * Math.PI;
+						&& (c -= Math.PI * 2)) : c = this.randOneMinusOne() * Math.PI;
 				l > f
 						? (h = 1 + (l / f - 1) * 0.3, c = c < -Math.PI / 2
 								? Math.PI
@@ -8256,7 +8256,7 @@ GameFramework.resources.PIEffect.prototype = {
 				break;
 			case GameFramework.resources.PIEmitterInstanceDef.ke.Zu :
 				l = b.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Fw | 0].G(this.A);
-				c = g.Ud != 0 ? c.Dm % g.Ud * Math.PI * 2 / g.Ud : this.P()
+				c = g.Ud != 0 ? c.Dm % g.Ud * Math.PI * 2 / g.Ud : this.randOneMinusOne()
 						* Math.PI;
 				f = new GameFramework.geom.TPoint(Math.cos(c) * l, Math.sin(c) * l);
 				d != null
@@ -8275,7 +8275,7 @@ GameFramework.resources.PIEffect.prototype = {
 					if (g.pr > 1)
 						f.y = (c / (g.pr - 1) - 0.5) * l
 				} else
-					f = new GameFramework.geom.TPoint(this.P() * d / 2, this.P() * l
+					f = new GameFramework.geom.TPoint(this.randOneMinusOne() * d / 2, this.randOneMinusOne() * l
 									/ 2);
 				break;
 			case GameFramework.resources.PIEmitterInstanceDef.ke.a3 :
@@ -8868,8 +8868,8 @@ GameFramework.resources.PIEffect.prototype = {
 					.G(this.A), g.nl = f.F[GameFramework.resources.PIParticleDef.p.ud | 0]
 					.G(this.A);
 		if (g.ie % 25 == 0 && !h.Ac)
-			g.xG = g.ie == 0 ? this.P() * 0.5
-					* f.F[GameFramework.resources.PIParticleDef.p.cT | 0].G(this.A) / 2 : this.P()
+			g.xG = g.ie == 0 ? this.randOneMinusOne() * 0.5
+					* f.F[GameFramework.resources.PIParticleDef.p.cT | 0].G(this.A) / 2 : this.randOneMinusOne()
 					* 0.75 * f.F[GameFramework.resources.PIParticleDef.p.cT | 0].G(this.A) / 2;
 		g.ie++;
 		h.Ac
@@ -8943,22 +8943,22 @@ GameFramework.resources.PIEffect.prototype = {
 			k.Yh = j;
 			k.Dm = g.uO++;
 			o = h.Ac ? d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.xs | 0].G(this.A)
-					+ d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ys | 0].G(this.A) * this.P()
+					+ d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ys | 0].G(this.A) * this.randOneMinusOne()
 					/ 2 : f.TY ? h.bf
 					? c.F[GameFramework.resources.PIEmitter.p.xs | 0].G(this.A)
 							+ c.F[GameFramework.resources.PIEmitter.p.ys | 0].G(this.A)
-							* this.P() / 2
+							* this.randOneMinusOne() / 2
 					: d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.xs | 0].G(this.A)
 							+ d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.ys | 0].G(this.A)
-							* this.P() / 2 : f.F[GameFramework.resources.PIParticleDef.p.xs | 0]
+							* this.randOneMinusOne() / 2 : f.F[GameFramework.resources.PIParticleDef.p.xs | 0]
 					.G(this.A)
-					+ f.F[GameFramework.resources.PIParticleDef.p.ys | 0].G(this.A) * this.P() / 2;
+					+ f.F[GameFramework.resources.PIParticleDef.p.ys | 0].G(this.A) * this.randOneMinusOne() / 2;
 			o = GameFramework.resources.PIEffect.Rc(-o);
 			q = j != null ? j.Vc : GameFramework.resources.PIEffect
 					.Rc(-d.Wa.F[GameFramework.resources.PIEmitterInstanceDef.p.Ru | 0].G(this.A));
 			o += q;
 			k.AH = q;
-			k.gm = f != null && f.$F ? GameFramework.Utils.Sk() & 32767 : 0;
+			k.gm = f != null && f.$F ? GameFramework.Utils.randZeroMax() & 32767 : 0;
 			if (f != null
 					&& (q = this.ga.gh[f.lj], k.zp = k.gm % q.zk, f.Fe == -1))
 				k.zp = k.gm % q.zk;
@@ -8968,11 +8968,11 @@ GameFramework.resources.PIEffect.prototype = {
 			h.Ac
 					? (k.lb[GameFramework.resources.PIParticleInstance.Sa.Uk | 0] = this.Ti()
 							* c.F[GameFramework.resources.PIEmitter.p.s0 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.Wg
-							| 0] = this.P()
+							| 0] = this.randOneMinusOne()
 							* c.F[GameFramework.resources.PIEmitter.p.w0 | 0].G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.Xg
 							| 0] = f == null || f.$N
 							? k.lb[GameFramework.resources.PIParticleInstance.Sa.Wg | 0]
-							: this.P()
+							: this.randOneMinusOne()
 									* c.F[GameFramework.resources.PIEmitter.p.y0 | 0]
 											.G(this.A), k.lb[GameFramework.resources.PIParticleInstance.Sa.xj
 							| 0] = this.Ti()
@@ -9024,7 +9024,7 @@ GameFramework.resources.PIEffect.prototype = {
 			GameFramework.resources.PIEffect.Qu.S6 = false;
 			k.tx = this.Ec();
 			k.ie = 0;
-			k.Ur = this.P();
+			k.Ur = this.randOneMinusOne();
 			k.Vc = 0;
 			k.Cr = h.Ac
 					? (c.F[GameFramework.resources.PIEmitter.p.r0 | 0].G(this.A) + k.lb[GameFramework.resources.PIParticleInstance.Sa.Uk
@@ -9077,7 +9077,7 @@ GameFramework.resources.PIEffect.prototype = {
 														| 0].G(this.A))))
 								: k.Vc = -GameFramework.resources.PIEffect.Qu.bs, k.Vc += GameFramework.resources.PIEffect
 								.Rc(f.ar))
-						: k.Vc = f.HV ? GameFramework.resources.PIEffect.Rc(-(f.GV + this.P()
+						: k.Vc = f.HV ? GameFramework.resources.PIEffect.Rc(-(f.GV + this.randOneMinusOne()
 								* f.IV / 2)) : GameFramework.resources.PIEffect.Rc(f.JV);
 			k.Jn = 4294967295;
 			k.kl = 0;
@@ -9170,7 +9170,7 @@ GameFramework.resources.PIEffect.prototype = {
 						% r.zk;
 			if (d.Ac || !m.fh) {
 				if (this.vr) {
-					var r = this.P() * this.P(), v = this.P() * this.P(), u;
+					var r = this.randOneMinusOne() * this.randOneMinusOne(), v = this.randOneMinusOne() * this.randOneMinusOne(), u;
 					u = d.Ac
 							? Math
 									.max(
@@ -9382,7 +9382,7 @@ GameFramework.resources.PIEffect.prototype = {
 							: ((g.ie * this.Vf / (m.Fe + 1) | 0) + g.gm) % r.zk;
 				if (d.Ac || !m.fh) {
 					if (this.vr) {
-						var r = this.P() * this.P(), v = this.P() * this.P(), u;
+						var r = this.randOneMinusOne() * this.randOneMinusOne(), v = this.randOneMinusOne() * this.randOneMinusOne(), u;
 						u = d.Ac
 								? Math
 										.max(
@@ -9585,7 +9585,7 @@ GameFramework.resources.PIEffect.prototype = {
 		if (GameFramework.resources.PIEffect.sh == -1) {
 			GameFramework.resources.PIEffect.An = Array.O(1024, null);
 			for (var f = 0; f < 1024; f++)
-				GameFramework.resources.PIEffect.An[f] = this.P() * this.P();
+				GameFramework.resources.PIEffect.An[f] = this.randOneMinusOne() * this.randOneMinusOne();
 			GameFramework.resources.PIEffect.sh = 0
 		}
 		if (d.ux)
@@ -15100,7 +15100,7 @@ Game.BejApp.prototype = {
     init : function() {
 		this.po = "Bejeweled";
 		kc = false;
-		Game.Util.TF.gF(GameFramework.Utils.Sk() | 0);
+		Game.Util.TF.gF(GameFramework.Utils.randZeroMax() | 0);
 		var b = this.artRes, c = this.Is(this.po, "ArtRes");
 		if (c != null)
 			this.artRes = GameFramework.Utils.Hc(c);
@@ -15943,21 +15943,21 @@ Game.LightningStorm.prototype = {
 							* (Game.LightningStorm.hk - 1) + 0].y, o = 0; o < Game.LightningStorm.hk; o++) {
 						var q = o / (Game.LightningStorm.hk - 1), r = 1
 								- Math.abs(1 - q * 2), v = f * (1 - q) + l * q
-								+ r * (GameFramework.Utils.P() * 40 + d * b.WX), q = k
+								+ r * (GameFramework.Utils.randOneMinusOne() * 40 + d * b.WX), q = k
 								* (1 - q)
 								+ m
 								* q
 								+ r
-								* (GameFramework.Utils.P() * 40 + d * b.XX), r = b.Z[b.Z.g
+								* (GameFramework.Utils.randOneMinusOne() * 40 + d * b.XX), r = b.Z[b.Z.g
 								* o + 0], u = b.Z[b.Z.g * o + 1];
 						if (o == 0 || o == Game.LightningStorm.hk - 1)
 							r.x = v | 0, r.y = q | 0, u.x = v | 0, u.y = q | 0;
 						else {
 							var y = GameFramework.BaseApp.instance.isUseGL() ? 32 : 26;
-							r.x = v + GameFramework.Utils.P() * y | 0;
-							r.y = q + GameFramework.Utils.P() * y | 0;
-							u.x = v + GameFramework.Utils.P() * y | 0;
-							u.y = q + GameFramework.Utils.P() * y | 0
+							r.x = v + GameFramework.Utils.randOneMinusOne() * y | 0;
+							r.y = q + GameFramework.Utils.randOneMinusOne() * y | 0;
+							u.x = v + GameFramework.Utils.randOneMinusOne() * y | 0;
+							u.y = q + GameFramework.Utils.randOneMinusOne() * y | 0
 						}
 					}
 			if (!j && c == 0 && h == 0 && this.Fp.length == 0) {
@@ -17216,31 +17216,31 @@ Game.Board.prototype = {
 								var o = this.ob.wf(Game.Effect.da.nv);
 								o.n = Game.DM.Yi[j.n | 0];
 								var q = m * 0.503 + Game.Util.Fc() % 100 / 800;
-								o.w = j.Ad() + GameFramework.Utils.P() * Game.Board.bb
+								o.w = j.Ad() + GameFramework.Utils.randOneMinusOne() * Game.Board.bb
 										/ 2;
-								o.v = j.Rd() + GameFramework.Utils.P() * Game.Board.ab
+								o.v = j.Rd() + GameFramework.Utils.randOneMinusOne() * Game.Board.ab
 										/ 2;
 								o.Hb = q;
-								o.Qh = GameFramework.Utils.P() * 0.0835;
+								o.Qh = GameFramework.Utils.randOneMinusOne() * 0.0835;
 								o.m = 1;
 								o.L = 1;
-								o.Et = 0.8 + GameFramework.Utils.P() * 0.15;
+								o.Et = 0.8 + GameFramework.Utils.randOneMinusOne() * 0.15;
 								q = Math.atan2(l, k);
-								o.Nc = (6.68 * GameFramework.Utils.P() + Math
+								o.Nc = (6.68 * GameFramework.Utils.randOneMinusOne() + Math
 										.cos(q)
 										* 16)
 										* 1.67;
-								o.Vb = (6.68 * GameFramework.Utils.P() + Math
+								o.Vb = (6.68 * GameFramework.Utils.randOneMinusOne() + Math
 										.sin(q)
 										* 16)
 										* 1.67;
 								o.yi = 0.0835;
-								o.oa[0] = GameFramework.Utils.P() * Game.MathUtil.gT;
+								o.oa[0] = GameFramework.Utils.randOneMinusOne() * Game.MathUtil.gT;
 								o.oa[1] = o.oa[0] + 0.25 * Game.MathUtil.gT;
-								o.oa[2] = GameFramework.Utils.P() > 0 ? 0 : 1;
+								o.oa[2] = GameFramework.Utils.randOneMinusOne() > 0 ? 0 : 1;
 								o.oa[3] = 0.045
-										* (3 * Math.abs(GameFramework.Utils.P()) + 1);
-								o.Ic = (4 * Math.abs(GameFramework.Utils.P()) + 2)
+										* (3 * Math.abs(GameFramework.Utils.randOneMinusOne()) + 1);
+								o.Ic = (4 * Math.abs(GameFramework.Utils.randOneMinusOne()) + 2)
 										* -0.00835;
 								this.ob.Gc(o)
 							}
@@ -17909,7 +17909,7 @@ Game.Board.prototype = {
 																	.wf(Game.Effect.da.EA), u.w = o
 																	+ this.Ef
 																	+ GameFramework.Utils
-																			.P()
+																			.randOneMinusOne()
 																	* Math
 																			.abs(j[j.g
 																					* l
@@ -17918,21 +17918,21 @@ Game.Board.prototype = {
 																	/ 3, u.v = r
 																	+ this.Cd()
 																	+ GameFramework.Utils
-																			.P()
+																			.randOneMinusOne()
 																	* Math
 																			.abs(j[j.g
 																					* l
 																					+ 1])
 																	* Game.Board.ab
 																	/ 3, u.Nc = (GameFramework.Utils
-																	.P()
+																	.randOneMinusOne()
 																	* (Math
 																			.abs(j[j.g
 																					* l
 																					+ 1]) + 0.5)
 																	* 10 | 0)
 																	* 1.67, u.Vb = (GameFramework.Utils
-																	.P()
+																	.randOneMinusOne()
 																	* (Math
 																			.abs(j[j.g
 																					* l
@@ -17946,7 +17946,7 @@ Game.Board.prototype = {
 																	.wf(Game.Effect.da.EA), u.w = o
 																	+ this.Ef
 																	+ GameFramework.Utils
-																			.P()
+																			.randOneMinusOne()
 																	* Math
 																			.abs(j[j.g
 																					* l
@@ -17955,21 +17955,21 @@ Game.Board.prototype = {
 																	/ 3, u.v = r
 																	+ this.Cd()
 																	+ GameFramework.Utils
-																			.P()
+																			.randOneMinusOne()
 																	* Math
 																			.abs(j[j.g
 																					* l
 																					+ 1])
 																	* Game.Board.ab
 																	/ 3, u.Nc = (GameFramework.Utils
-																	.P()
+																	.randOneMinusOne()
 																	* (Math
 																			.abs(j[j.g
 																					* l
 																					+ 1]) + 0.5)
 																	* 10 | 0)
 																	* 1.67, u.Vb = (GameFramework.Utils
-																	.P()
+																	.randOneMinusOne()
 																	* (Math
 																			.abs(j[j.g
 																					* l
@@ -18057,24 +18057,24 @@ Game.Board.prototype = {
 					if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f) {
 						for (var v = 0; v < 14; v++) {
 							var u = this.ob.wf(Game.Effect.da.cp), y = GameFramework.Utils
-									.P()
+									.randOneMinusOne()
 									* Game.MathUtil.PI, z = (0 + 2
-									* Math.abs(GameFramework.Utils.P()))
+									* Math.abs(GameFramework.Utils.randOneMinusOne()))
 									* 1.67;
 							u.Nc = z * Math.cos(y) + k;
 							u.Vb = z * Math.sin(y) + l;
-							u.Nc *= 2.5 * Math.abs(GameFramework.Utils.P());
-							u.Vb *= 2.5 * Math.abs(GameFramework.Utils.P());
-							z = Math.abs(GameFramework.Utils.P());
+							u.Nc *= 2.5 * Math.abs(GameFramework.Utils.randOneMinusOne());
+							u.Vb *= 2.5 * Math.abs(GameFramework.Utils.randOneMinusOne());
+							z = Math.abs(GameFramework.Utils.randOneMinusOne());
 							z *= z;
 							u.w = z * d + (1 - z) * o + Math.cos(y) * 64
-									* Math.abs(GameFramework.Utils.P());
+									* Math.abs(GameFramework.Utils.randOneMinusOne());
 							u.v = z * f + (1 - z) * q + Math.sin(y) * 64
-									* Math.abs(GameFramework.Utils.P());
+									* Math.abs(GameFramework.Utils.randOneMinusOne());
 							u.n = GameFramework.gfx.Color.Ma(255, 96, 32, 64);
 							u.Cg = false;
 							u.Ag = 0.02505;
-							u.m = 0.1 + Math.abs(GameFramework.Utils.P()) * 1;
+							u.m = 0.1 + Math.abs(GameFramework.Utils.randOneMinusOne()) * 1;
 							this.ob.Gc(u)
 						}
 						for (v = 0; v < 25; v++) {
@@ -18082,63 +18082,63 @@ Game.Board.prototype = {
 							u.n = Game.DM.Yi[(m.n | 0) + 1];
 							var y = v * ((v + 120) / 120 | 0), z = v * 0.503
 									+ Game.Util.Fc() % 100 / 800, A = 1.2
-									+ Math.abs(GameFramework.Utils.P()) * 1.2;
+									+ Math.abs(GameFramework.Utils.randOneMinusOne()) * 1.2;
 							u.Nc = Math.cos(z) * A + k * 1.67;
 							u.Vb = Math.sin(z) * A + -2 + l * 1.67;
 							k != 0 || l != 0
-									? (z = GameFramework.Utils.P() * 3.14159, y = GameFramework.Utils
-											.P()
+									? (z = GameFramework.Utils.randOneMinusOne() * 3.14159, y = GameFramework.Utils
+											.randOneMinusOne()
 											* 48 | 0, u.w = o
 											+ (1 * y * Math.cos(z) | 0), u.v = q
 											+ (1 * y * Math.sin(z) | 0), z = Math
 											.atan2(u.v - f, u.w - d)
-											+ GameFramework.Utils.P() * 0.3, A = 3.5
-											+ Math.abs(GameFramework.Utils.P()) * 1, u.Nc = Math
+											+ GameFramework.Utils.randOneMinusOne() * 0.3, A = 3.5
+											+ Math.abs(GameFramework.Utils.randOneMinusOne()) * 1, u.Nc = Math
 											.cos(z)
 											* A * 1.67, u.Vb = (Math.sin(z) * A + -2)
 											* 1.67, u.Et = 0.965
-											+ GameFramework.Utils.P() * 0.0050)
+											+ GameFramework.Utils.randOneMinusOne() * 0.0050)
 									: (u.w = o + (1.2 * y * u.Nc | 0) + 14, u.v = q
 											+ (1.2 * y * u.Vb | 0) + 10);
 							u.Hb = z;
-							u.Qh = GameFramework.Utils.P() * 0.0835;
+							u.Qh = GameFramework.Utils.randOneMinusOne() * 0.0835;
 							u.yi = 0.06;
-							u.oa[0] = GameFramework.Utils.P() * Game.MathUtil.PI * 2;
-							u.oa[1] = GameFramework.Utils.P() * Game.MathUtil.PI * 2;
+							u.oa[0] = GameFramework.Utils.randOneMinusOne() * Game.MathUtil.PI * 2;
+							u.oa[1] = GameFramework.Utils.randOneMinusOne() * Game.MathUtil.PI * 2;
 							u.oa[2] = 0.045
-									* (3 * Math.abs(GameFramework.Utils.P()) + 1);
+									* (3 * Math.abs(GameFramework.Utils.randOneMinusOne()) + 1);
 							u.oa[3] = 0.045
-									* (3 * Math.abs(GameFramework.Utils.P()) + 1);
-							u.Ic = (2 * Math.abs(GameFramework.Utils.P()) + 4)
+									* (3 * Math.abs(GameFramework.Utils.randOneMinusOne()) + 1);
+							u.Ic = (2 * Math.abs(GameFramework.Utils.randOneMinusOne()) + 4)
 									* -0.004175;
 							this.ob.Gc(u)
 						}
 						for (v = 0; v < 14; v++)
 							u = this.ob.wf(Game.Effect.da.cp), y = v * Game.MathUtil.PI
 									* 2 / 14, z = 0.5 + 5.75
-									* Math.abs(GameFramework.Utils.P()), u.Nc = (z
+									* Math.abs(GameFramework.Utils.randOneMinusOne()), u.Nc = (z
 									* Math.cos(y) + k)
 									* 1.67, u.Vb = (z * Math.sin(y) + l) * 1.67, u.w = o
 									+ Math.cos(y)
 									* 25
-									* Math.abs(GameFramework.Utils.P()), u.v = q
+									* Math.abs(GameFramework.Utils.randOneMinusOne()), u.v = q
 									+ Math.sin(y) * 25
-									* Math.abs(GameFramework.Utils.P()), u.Cg = false, u.m = 0.5, u.Ag = 0.00835, u.oa[1] *= 1
-									- Math.abs(GameFramework.Utils.P() * 0.5), u.n = GameFramework.gfx.Color
+									* Math.abs(GameFramework.Utils.randOneMinusOne()), u.Cg = false, u.m = 0.5, u.Ag = 0.00835, u.oa[1] *= 1
+									- Math.abs(GameFramework.Utils.randOneMinusOne() * 0.5), u.n = GameFramework.gfx.Color
 									.ta(128, 128, 128), this.ob.Gc(u)
 					} else
 						for (v = 0; v < 6; v++)
 							u = this.ob.wf(Game.Effect.da.cp), y = v * Game.MathUtil.PI
 									* 2 / 6, z = 0.5 + 5.75
-									* Math.abs(GameFramework.Utils.P()), u.Nc = (z
+									* Math.abs(GameFramework.Utils.randOneMinusOne()), u.Nc = (z
 									* Math.cos(y) + k)
 									* 1.67, u.Vb = (z * Math.sin(y) + l) * 1.67, u.w = o
 									+ Math.cos(y)
 									* 20
-									* Math.abs(GameFramework.Utils.P()), u.v = q
+									* Math.abs(GameFramework.Utils.randOneMinusOne()), u.v = q
 									+ Math.sin(y) * 20
-									* Math.abs(GameFramework.Utils.P()), u.Cg = false, u.m = 1, u.Ag = 0.0167, u.L = 0.5, u.oa[1] *= 1
-									- Math.abs(GameFramework.Utils.P() * 0.5), u.n = 4294967295, this.ob
+									* Math.abs(GameFramework.Utils.randOneMinusOne()), u.Cg = false, u.m = 1, u.Ag = 0.0167, u.L = 0.5, u.oa[1] *= 1
+									- Math.abs(GameFramework.Utils.randOneMinusOne() * 0.5), u.n = 4294967295, this.ob
 									.Gc(u);
 					m.Y(Game.Piece.K.Be) && (r = true)
 				}
@@ -18201,74 +18201,74 @@ Game.Board.prototype = {
 			k == 0 && (j *= 2);
 			if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f)
 				for (var l = 0; l < 14; l++) {
-					var m = this.ob.wf(Game.Effect.da.cp), o = GameFramework.Utils.P()
+					var m = this.ob.wf(Game.Effect.da.cp), o = GameFramework.Utils.randOneMinusOne()
 							* Game.MathUtil.PI, q = 0 + 2
-							* Math.abs(GameFramework.Utils.P());
+							* Math.abs(GameFramework.Utils.randOneMinusOne());
 					m.Nc = (q * Math.cos(o) + j) * 1.67;
 					m.Vb = (q * Math.sin(o) + k) * 1.67;
 					g
-							? (m.Nc *= 2.5 * Math.abs(GameFramework.Utils.P()), m.Vb *= 2.5
-									* Math.abs(GameFramework.Utils.P()), q = Math
-									.abs(GameFramework.Utils.P()), q *= q, m.w = q
+							? (m.Nc *= 2.5 * Math.abs(GameFramework.Utils.randOneMinusOne()), m.Vb *= 2.5
+									* Math.abs(GameFramework.Utils.randOneMinusOne()), q = Math
+									.abs(GameFramework.Utils.randOneMinusOne()), q *= q, m.w = q
 									* c + (1 - q) * f + Math.cos(o) * 64
-									* Math.abs(GameFramework.Utils.P()), m.v = q
+									* Math.abs(GameFramework.Utils.randOneMinusOne()), m.v = q
 									* d + (1 - q) * h + Math.sin(o) * 64
-									* Math.abs(GameFramework.Utils.P()), m.n = GameFramework.gfx.Color
+									* Math.abs(GameFramework.Utils.randOneMinusOne()), m.n = GameFramework.gfx.Color
 									.Ma(255, 96, 32, 64), m.Cg = false, m.Ag = 0.015)
 							: (m.w = f + Math.cos(o) * 24
-									* Math.abs(GameFramework.Utils.P()), m.v = h
+									* Math.abs(GameFramework.Utils.randOneMinusOne()), m.v = h
 									+ Math.sin(o) * 24
-									* Math.abs(GameFramework.Utils.P()), m.n = Game.DM.Yi[(b.n | 0)
+									* Math.abs(GameFramework.Utils.randOneMinusOne()), m.n = Game.DM.Yi[(b.n | 0)
 									+ 1], m.Cg = false, m.Ag = 0.02);
-					m.m = 0.1 + Math.abs(GameFramework.Utils.P()) * 1;
+					m.m = 0.1 + Math.abs(GameFramework.Utils.randOneMinusOne()) * 1;
 					this.ob.Gc(m)
 				}
 			for (g = 0; g < 25; g++)
 				l = this.ob.wf(Game.Effect.da.nv), l.n = Game.DM.Yi[(b.n | 0) + 1], m = g
 						* ((g + 120) / 120 | 0), o = g * 0.503 + Game.Util.Fc()
-						% 100 / 800, q = 1.2 + Math.abs(GameFramework.Utils.P())
+						% 100 / 800, q = 1.2 + Math.abs(GameFramework.Utils.randOneMinusOne())
 						* 1.2, l.Nc = (Math.cos(o) * q + j) * 1.67, l.Vb = (Math
 						.sin(o)
 						* q + -2 + k)
 						* 1.67, j != 0 || k != 0
-						? (o = GameFramework.Utils.P() * 3.14159 | 0, m = GameFramework.Utils
-								.P()
+						? (o = GameFramework.Utils.randOneMinusOne() * 3.14159 | 0, m = GameFramework.Utils
+								.randOneMinusOne()
 								* 48 | 0, l.w = f + (1 * m * Math.cos(o) | 0), l.v = h
 								+ (1 * m * Math.sin(o) | 0), o = Math.atan2(l.v
 										- d, l.w - c)
-								+ GameFramework.Utils.P() * 0.3, q = 3.5
-								+ Math.abs(GameFramework.Utils.P()) * 1, l.Nc = Math
+								+ GameFramework.Utils.randOneMinusOne() * 0.3, q = 3.5
+								+ Math.abs(GameFramework.Utils.randOneMinusOne()) * 1, l.Nc = Math
 								.cos(o)
 								* q * 1.67, l.Vb = (Math.sin(o) * q + -2)
-								* 1.67, l.Et = 0.98 + GameFramework.Utils.P()
+								* 1.67, l.Et = 0.98 + GameFramework.Utils.randOneMinusOne()
 								* 0.0050)
 						: (l.w = f + (1.2 * m * l.Nc | 0) + 14, l.v = h
 								+ (1.2 * m * l.Vb | 0) + 10), l.Hb = o, l.Qh = GameFramework.Utils
-						.P()
-						* 0.0835, l.yi = 0.06, l.oa[0] = GameFramework.Utils.P()
-						* Game.MathUtil.PI * 2, l.oa[1] = GameFramework.Utils.P()
+						.randOneMinusOne()
+						* 0.0835, l.yi = 0.06, l.oa[0] = GameFramework.Utils.randOneMinusOne()
+						* Game.MathUtil.PI * 2, l.oa[1] = GameFramework.Utils.randOneMinusOne()
 						* Game.MathUtil.PI * 2, l.oa[2] = 0.045
-						* (3 * Math.abs(GameFramework.Utils.P()) + 1), l.oa[3] = 0.045
-						* (3 * Math.abs(GameFramework.Utils.P()) + 1), l.Ic = -0.0025
-						* (2 * Math.abs(GameFramework.Utils.P()) + 4), this.ob
+						* (3 * Math.abs(GameFramework.Utils.randOneMinusOne()) + 1), l.oa[3] = 0.045
+						* (3 * Math.abs(GameFramework.Utils.randOneMinusOne()) + 1), l.Ic = -0.0025
+						* (2 * Math.abs(GameFramework.Utils.randOneMinusOne()) + 4), this.ob
 						.Gc(l);
 			if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f) {
 				for (c = 0; c < 14; c++)
 					d = this.ob.wf(Game.Effect.da.cp), g = c * Game.MathUtil.PI * 2 / 20, l = 0.5
-							+ 5.75 * Math.abs(GameFramework.Utils.P()), d.Nc = (l
+							+ 5.75 * Math.abs(GameFramework.Utils.randOneMinusOne()), d.Nc = (l
 							* Math.cos(g) + j)
 							* 1.67, d.Vb = (l * Math.sin(g) + k) * 1.67, d.w = f
-							+ Math.cos(g) * 25 * Math.abs(GameFramework.Utils.P()), d.v = h
-							+ Math.sin(g) * 25 * Math.abs(GameFramework.Utils.P()), d.Cg = false, d.m = 0.5, d.Ag = 0.00835, d.oa[1] *= 1
-							- Math.abs(GameFramework.Utils.P() * 0.5), d.n = GameFramework.gfx.Color
+							+ Math.cos(g) * 25 * Math.abs(GameFramework.Utils.randOneMinusOne()), d.v = h
+							+ Math.sin(g) * 25 * Math.abs(GameFramework.Utils.randOneMinusOne()), d.Cg = false, d.m = 0.5, d.Ag = 0.00835, d.oa[1] *= 1
+							- Math.abs(GameFramework.Utils.randOneMinusOne() * 0.5), d.n = GameFramework.gfx.Color
 							.ta(128, 128, 128), this.ob.Gc(d);
 				if (b.Th > 0) {
 					f = this.ob;
 					for (h = 0; h < 15; h++)
 						j = f.wf(Game.Effect.da.WD), k = 1
-								+ Math.abs(GameFramework.Utils.P()) * 2, c = GameFramework.Utils
-								.P()
-								* Game.MathUtil.PI, j.m = 1 + GameFramework.Utils.P()
+								+ Math.abs(GameFramework.Utils.randOneMinusOne()) * 2, c = GameFramework.Utils
+								.randOneMinusOne()
+								* Game.MathUtil.PI, j.m = 1 + GameFramework.Utils.randOneMinusOne()
 								* 0.5, j.Nc = k * Math.cos(c) * 1.67, j.Vb = k
 								* Math.sin(c) * 1.67, j.w = b.$d()
 								+ (Game.Board.bb / 2 | 0) + Math.cos(c) * Game.Board.bb
@@ -18285,7 +18285,7 @@ Game.Board.prototype = {
 		return this.uR(b, false)
 	},
 	uR : function(b, c) {
-		for (var d = GameFramework.Utils.P() >= 0, f = GameFramework.Utils.randZeroOne() * 10
+		for (var d = GameFramework.Utils.randOneMinusOne() >= 0, f = GameFramework.Utils.randZeroOne() * 10
 				| 0, g = 0; g < 2; g++) {
 			for (var h = f; h >= 0; h--)
 				if (this.Bs(b, h, true, true, d, null, c))
@@ -21512,10 +21512,10 @@ Game.CrystalBall = function(b, c) {
 	this.O7 = GameFramework.gfx.Color.Ma(128, 0, 64, 160);
 	this.nD.ea("b;-3,3,0.003333,1,####     $~###    }####");
 	this.nD.jL(GameFramework.CurvedVal.Uz);
-	this.nD.zx = GameFramework.Utils.Sk() % 100;
+	this.nD.zx = GameFramework.Utils.randZeroMax() % 100;
 	this.oD.ea("b;-3,3,0.005,1,####     $~###    }####");
 	this.oD.jL(GameFramework.CurvedVal.Uz);
-	this.oD.zx = GameFramework.Utils.Sk() % 100
+	this.oD.zx = GameFramework.Utils.randZeroMax() % 100
 };
 Game.CrystalBall.prototype = {
 	Oa : null,
@@ -21908,8 +21908,8 @@ Game.Effect = function(b) {
 			this.Oa = Game.Resources.IMAGE_FX_STEAM;
 			this.yi = -0.00835;
 			if (GameFramework.BaseApp.instance.isUseGL())
-				this.Hb = GameFramework.Utils.P() * 3.141593, this.Qh = GameFramework.Utils
-						.P()
+				this.Hb = GameFramework.Utils.randOneMinusOne() * 3.141593, this.Qh = GameFramework.Utils
+						.randOneMinusOne()
 						* 0.0668;
 			this.L = 0.85;
 			this.Ic = 0;
@@ -21929,7 +21929,7 @@ Game.Effect = function(b) {
 			this.nf = Game.Util.Fc() % 40;
 			this.ds = 0;
 			this.L = 1;
-			this.Ic = (-0.0050 + Math.abs(GameFramework.Utils.P()) * -0.01) * 1.67;
+			this.Ic = (-0.0050 + Math.abs(GameFramework.Utils.randOneMinusOne()) * -0.01) * 1.67;
 			this.Et = 1;
 			break;
 		case Game.Effect.da.EJ :
@@ -21943,12 +21943,12 @@ Game.Effect = function(b) {
 			break;
 		case Game.Effect.da.WD :
 			this.yi = 0.0050;
-			this.Nc = GameFramework.Utils.P() * 1;
-			this.Vb = GameFramework.Utils.P() * 1;
+			this.Nc = GameFramework.Utils.randOneMinusOne() * 1;
+			this.Vb = GameFramework.Utils.randOneMinusOne() * 1;
 			this.m = 0.2;
 			this.L = 1;
 			this.Ic = -0.0050;
-			this.Hb = GameFramework.Utils.P() * 3.141593;
+			this.Hb = GameFramework.Utils.randOneMinusOne() * 3.141593;
 			break;
 		case Game.Effect.da.iv :
 		case Game.Effect.da.ws :
@@ -21961,30 +21961,30 @@ Game.Effect = function(b) {
 			this.yi = 0;
 			this.m = 0.75;
 			this.Ag = 0.0050;
-			this.Hb = GameFramework.Utils.P() * 3.141593;
+			this.Hb = GameFramework.Utils.randOneMinusOne() * 3.141593;
 			this.Qh = 0;
 			if (this.Fb == Game.Effect.da.ws || this.Fb == Game.Effect.da.iv)
 				this.L = 0.01, this.Ic = 0.02, this.oy = 0;
 			break;
 		case Game.Effect.da.ED :
 			var b = Game.Util.Fc() % 2, c = Game.Util.Fc() % 2 * 3.141593;
-			c += GameFramework.Utils.P() * 3.141593 * 0.3;
-			var d = Game.Board.bb * (0.02 + Math.abs(GameFramework.Utils.P()) * 0.05);
+			c += GameFramework.Utils.randOneMinusOne() * 3.141593 * 0.3;
+			var d = Game.Board.bb * (0.02 + Math.abs(GameFramework.Utils.randOneMinusOne()) * 0.05);
 			b != 0
-					? (this.Hb = c, this.Qh = GameFramework.Utils.P() * 0.03141593)
+					? (this.Hb = c, this.Qh = GameFramework.Utils.randOneMinusOne() * 0.03141593)
 					: this.Hb = 0;
-			this.Hb = GameFramework.Utils.P() * 3.141593;
-			this.Qh = GameFramework.Utils.P() * 0.2;
+			this.Hb = GameFramework.Utils.randOneMinusOne() * 3.141593;
+			this.Qh = GameFramework.Utils.randOneMinusOne() * 0.2;
 			this.nf = Game.Util.Fc() % this.Oa.Em;
 			this.n = GameFramework.gfx.Color.pi;
 			this.Nc = Math.cos(c) * d * 1.25;
 			this.Vb = -Math.abs(Math.sin(c) * d) * 1.5;
 			this.yi = 0.15;
-			this.Ic = 0 + Math.abs(GameFramework.Utils.P()) * 0;
+			this.Ic = 0 + Math.abs(GameFramework.Utils.randOneMinusOne()) * 0;
 			this.L = 1;
-			this.m = 0.5 + Math.abs(GameFramework.Utils.P()) * 0.2;
-			this.Ag = 0 + Math.abs(GameFramework.Utils.P()) * -0.01;
-			this.$e = 0.5 + Math.abs(GameFramework.Utils.P()) * 0.75;
+			this.m = 0.5 + Math.abs(GameFramework.Utils.randOneMinusOne()) * 0.2;
+			this.Ag = 0 + Math.abs(GameFramework.Utils.randOneMinusOne()) * -0.01;
+			this.$e = 0.5 + Math.abs(GameFramework.Utils.randOneMinusOne()) * 0.75;
 			break;
 		case Game.Effect.da.bF :
 			this.Oa = Game.Resources.IMAGE_SMOKE;
@@ -22001,8 +22001,8 @@ Game.Effect = function(b) {
 			this.oa = Array.O(2, null);
 			this.Oa = Game.Resources.IMAGE_FX_STEAM;
 			this.yi = -0.0050;
-			this.Hb = GameFramework.Utils.P() * 3.141593;
-			this.Qh = GameFramework.Utils.P() * 0.04;
+			this.Hb = GameFramework.Utils.randOneMinusOne() * 3.141593;
+			this.Qh = GameFramework.Utils.randOneMinusOne() * 0.04;
 			this.L = 0.85;
 			this.Ic = 0;
 			break;
@@ -22343,13 +22343,13 @@ Game.EffectsManager.prototype = {
 								g.Hb += g.Qh;
 								h = this.wf(Game.Effect.da.bF);
 								h.m *= g.m
-										* (0 + Math.abs(GameFramework.Utils.P())
+										* (0 + Math.abs(GameFramework.Utils.randOneMinusOne())
 												* 0.45);
-								h.L *= 0.3 + Math.abs(GameFramework.Utils.P())
+								h.L *= 0.3 + Math.abs(GameFramework.Utils.randOneMinusOne())
 										* 0.05;
 								h.L *= g.L;
-								h.Hb = GameFramework.Utils.P() * 3.141593;
-								h.Qh = GameFramework.Utils.P() * 3.141593 * 0.1;
+								h.Hb = GameFramework.Utils.randOneMinusOne() * 3.141593;
+								h.Qh = GameFramework.Utils.randOneMinusOne() * 3.141593 * 0.1;
 								h.Cg = g.Cg;
 								h.yi = 0;
 								h.Vb = -1;
@@ -22366,8 +22366,8 @@ Game.EffectsManager.prototype = {
 								if (g.m < 0.1)
 									g.L = 0;
 								else if (this.aa % 10 == 9
-										&& (g.Nc += 1.3 * GameFramework.Utils.P(), g.Vb += 1.3
-												* GameFramework.Utils.P()), this.aa
+										&& (g.Nc += 1.3 * GameFramework.Utils.randOneMinusOne(), g.Vb += 1.3
+												* GameFramework.Utils.randOneMinusOne()), this.aa
 										% 2 != 0)
 									h = this.wf(Game.Effect.da.cp), h.Nc = 0, h.Vb = 0, h.w = g.w, h.v = g.v, h.Cg = false, h.m = g.m, h.Ag = 0, this
 											.Gc(h);
@@ -26702,7 +26702,7 @@ Game.HighScoreTable.prototype = {
 			if (f && this.zc[j].Hl >= 0)
 				break;
 			for (var k = 100; --k > 0;) {
-				this.zc[j].sb = g[GameFramework.Utils.Sk() % h];
+				this.zc[j].sb = g[GameFramework.Utils.randZeroMax() % h];
 				for (var l = j - 1; l >= 0; --l)
 					if (this.zc[j].sb == this.zc[l].sb)
 						break;
@@ -27361,7 +27361,7 @@ Game.HyperspaceUltra.prototype = {
 							Game.Resources.IMAGE_WARP_LINES_01,
 							Game.Resources.IMAGE_WARP_LINES_01,
 							Game.Resources.IMAGE_WARP_LINES_01);
-					Game.HyperspaceUltra.$t[0] = b[GameFramework.Utils.Sk() % 4];
+					Game.HyperspaceUltra.$t[0] = b[GameFramework.Utils.randZeroMax() % 4];
 					Game.HyperspaceUltra.$t[1] = Game.Resources.IMAGE_HYPERSPACE_INITIAL;
 					break;
 				case Game.HyperspaceUltra.ya.Oo :
@@ -29421,7 +29421,7 @@ Game.Piece.prototype = {
 	update : function() {
 		this.IX.$a();
 		this.JX.$a();
-		this.iy > 0 ? (this.WH = 3.141593 * GameFramework.Utils.P(), this.uu = Math
+		this.iy > 0 ? (this.WH = 3.141593 * GameFramework.Utils.randOneMinusOne(), this.uu = Math
 				.cos(this.WH)
 				* this.iy * Game.Board.bb / 20, this.vu = Math.sin(this.WH)
 				* this.iy * Game.Board.ab / 20) : this.vu = this.uu = 0;
@@ -29439,11 +29439,11 @@ Game.Piece.prototype = {
 							c.Hb = 0;
 							c.Qh = 0;
 							c.L = 0;
-							c.Ic = (0.0075 + 0.0015 * GameFramework.Utils.P())
+							c.Ic = (0.0075 + 0.0015 * GameFramework.Utils.randOneMinusOne())
 									* 1.67;
-							c.m = 0.12 + 0.035 * GameFramework.Utils.P();
-							c.Ag = (0.01 + 0.0050 * GameFramework.Utils.P()) * 1.67;
-							c.Vb = (-0.12 + -0.05 * GameFramework.Utils.P()) * 1.67;
+							c.m = 0.12 + 0.035 * GameFramework.Utils.randOneMinusOne();
+							c.Ag = (0.01 + 0.0050 * GameFramework.Utils.randOneMinusOne()) * 1.67;
+							c.Vb = (-0.12 + -0.05 * GameFramework.Utils.randOneMinusOne()) * 1.67;
 							var g = this.e.nP && Game.Util.Fc() % 4 <= 0
 									&& f == this.e.Jg;
 							if (this.n == Game.DM.Ha.bB || g) {
@@ -29454,7 +29454,7 @@ Game.Piece.prototype = {
 						} else if (f = Game.Util.Fc() % 2 == 0
 								? this.e.ob
 								: this.e.Jg, c = f.wf(Game.Effect.da.cz), c.L = 1, c.m = 2, c.Ag = -0.0167, c.nf = 0, c.Oa = Game.Resources.IMAGE_SPARKLET, c.Vb = (-0.4 + GameFramework.Utils
-								.P()
+								.randOneMinusOne()
 								* 0.15)
 								* 1.67, c.n = GameFramework.gfx.Color.ta(128, Game.Util
 										.Fc()
@@ -29466,7 +29466,7 @@ Game.Piece.prototype = {
 						} else if (this.n == Game.DM.Ha.WE)
 							c.n = GameFramework.gfx.Color.ta(240, 128, 64);
 						var g = 3.141593
-								+ Math.abs(GameFramework.Utils.P() * 6.283186), h = this
+								+ Math.abs(GameFramework.Utils.randOneMinusOne() * 6.283186), h = this
 								.CR(g), j = Math.cos(g), k = Math.sin(g);
 						if (d && k > 0 && Game.Util.Fc() % 2 != 0)
 							d = j < 0 ? 0.0010 : -0.0010, d = Math.atan2((Math
@@ -29474,7 +29474,7 @@ Game.Piece.prototype = {
 											/ 2 - k, (Math.cos(g + d) + Math
 											.cos(g + d * 2))
 											/ 2 - j), j = 0.12 + 0.05
-									* GameFramework.Utils.P(), k = Math.sin(d) * j, c.Nc = (c.Nc + Math
+									* GameFramework.Utils.randOneMinusOne(), k = Math.sin(d) * j, c.Nc = (c.Nc + Math
 									.cos(d)
 									* j)
 									/ 2 * 1.67, c.Vb = (c.Vb + k) / 2 * 1.67;
@@ -29496,8 +29496,8 @@ Game.Piece.prototype = {
 			if ((Game.BejApp.instance.aa + this.xa) % 24 == 0 || Game.Util.Fc() % 64 == 0) {
 				b = this.e.ob.wf(Game.Effect.da.Yl);
 				b.uc = Game.Effect.K.ks | 0;
-				b.w = this.Ad() + GameFramework.Utils.P() * 30;
-				b.v = this.Rd() + GameFramework.Utils.P() * 30 + 0;
+				b.w = this.Ad() + GameFramework.Utils.randOneMinusOne() * 30;
+				b.v = this.Rd() + GameFramework.Utils.randOneMinusOne() * 30 + 0;
 				b.eg = 0.08;
 				b.oa[0] = 6E3;
 				b.oa[1] = -4E3;
@@ -29515,8 +29515,8 @@ Game.Piece.prototype = {
 				&& ((Game.BejApp.instance.aa + this.xa) % 24 == 0 || Game.Util.Fc() % 64 == 0)) {
 			b = this.e.ob.wf(Game.Effect.da.Yl);
 			b.uc = Game.Effect.K.ks | 0;
-			b.w = this.Ad() + GameFramework.Utils.P() * 30;
-			b.v = this.Rd() + GameFramework.Utils.P() * 30 + 0;
+			b.w = this.Ad() + GameFramework.Utils.randOneMinusOne() * 30;
+			b.v = this.Rd() + GameFramework.Utils.randOneMinusOne() * 30 + 0;
 			b.eg = 0.08;
 			b.oa[0] = 6E3;
 			b.oa[1] = -4E3;
@@ -29586,7 +29586,7 @@ Game.Points = function(b, c, d, f, g, h, j, k, l) {
 		this.Oa[b] = null, this.Je[b] = new Game.ColorCycle;
 	if (l < 3)
 		for (b = 0; b < Game.Points.Tz; b++)
-			this.Je[b].sp = Math.abs(GameFramework.Utils.P()), this.Je[b].lf
+			this.Je[b].sp = Math.abs(GameFramework.Utils.randOneMinusOne()), this.Je[b].lf
 					.clear(), this.Je[b].n = 0;
 	for (b = 0; b < Game.Points.Tz; b++)
 		this.Je[b].o4(1.8);
@@ -32368,7 +32368,7 @@ Game.SpeedBoard.prototype = {
 	},
 	$Q : function(b) {
 		if (this.jD) {
-			for (var c = GameFramework.Utils.Sk() % (b.length | 0), d = 0; d < 7; d++) {
+			for (var c = GameFramework.Utils.randZeroMax() % (b.length | 0), d = 0; d < 7; d++) {
 				b[c].n = this.Of.Dd() % (Game.DM.Ha.Zc | 0);
 				for (var f = 0, g = new Game.PieceIter(this); g.Dd();) {
 					var h = g.Tl();
@@ -32503,8 +32503,8 @@ Game.SpeedBoard.prototype = {
 				this.EH + 0.01);
 		if (this.Xr > 0 && this.Xr < 60) {
 			if (this.aa % 2 == 0)
-				this.w = GameFramework.Utils.P() * (60 - this.Xr) / 60 * 12, this.v = GameFramework.Utils
-						.P()
+				this.w = GameFramework.Utils.randOneMinusOne() * (60 - this.Xr) / 60 * 12, this.v = GameFramework.Utils
+						.randOneMinusOne()
 						* (60 - this.Xr) / 60 * 12
 		} else
 			this.v = this.w = 0;
@@ -32875,7 +32875,7 @@ Game.TimeBonusEffect.prototype = {
 		if (!Game.BejApp.instance.$f
 				&& GameFramework.Utils.randZeroOne() < 0.025 * Math.min(5, this.Tm - 1)
 				&& !d) {
-			var g = this.Nb.wf(Game.Effect.da.cz), h = GameFramework.Utils.P() * Math.PI, j = Game.Piece
+			var g = this.Nb.wf(Game.Effect.da.cz), h = GameFramework.Utils.randOneMinusOne() * Math.PI, j = Game.Piece
 					.Es(h, this.Kj, c), k = 0.35 + GameFramework.Utils.randZeroOne() * 0.1;
 			g.L = 1;
 			g.m = 1;
@@ -32902,33 +32902,33 @@ Game.TimeBonusEffect.prototype = {
 			d.ll = !d.Lj && GameFramework.Utils.randZeroOne() < 0.02;
 			Game.BejApp.instance.$f && (d.ll |= !d.Lj && GameFramework.Utils.randZeroOne() < 0.1);
 			if (d.Lj)
-				d.$g = Math.abs(GameFramework.Utils.P()) * Math.PI * 2, g = this.Nb.e
+				d.$g = Math.abs(GameFramework.Utils.randOneMinusOne()) * Math.PI * 2, g = this.Nb.e
 						.rq(	this.w + Game.Board.bb / 2 + Math.cos(d.$g)
 										* Game.Board.bb * 0.6 | 0, this.v
 										+ Game.Board.ab / 2 + Math.sin(d.$g)
 										* Game.Board.ab * 0.6 | 0), g != null
 						&& g != b ? d.yN = g.xa : d.Lj = false;
 			d.Lj
-					? (d.Lh = Math.PI + d.$g + Math.abs(GameFramework.Utils.P())
-							* 0.5, d.$q = GameFramework.Utils.P() * 0.03, d.ZF = GameFramework.Utils
-							.P()
+					? (d.Lh = Math.PI + d.$g + Math.abs(GameFramework.Utils.randOneMinusOne())
+							* 0.5, d.$q = GameFramework.Utils.randOneMinusOne() * 0.03, d.ZF = GameFramework.Utils
+							.randOneMinusOne()
 							* 0.03)
 					: d.ll
-							? (d.$g = Math.abs(GameFramework.Utils.P()) * Math.PI
+							? (d.$g = Math.abs(GameFramework.Utils.randOneMinusOne()) * Math.PI
 									* 2, d.Lh = d.$g, d.$q = GameFramework.Utils
-									.P()
+									.randOneMinusOne()
 									* 0.02, d.$q += d.$q < 0 ? -0.02 : 0.02, d.ZF = -d.$q
-									+ GameFramework.Utils.P() * 0.02)
-							: (d.$g = Math.abs(GameFramework.Utils.P()) * Math.PI
+									+ GameFramework.Utils.randOneMinusOne() * 0.02)
+							: (d.$g = Math.abs(GameFramework.Utils.randOneMinusOne()) * Math.PI
 									* 2, d.Lh = d.$g
-									+ Math.abs(GameFramework.Utils.P()) * 0.5 + 0.5, d.$q = GameFramework.Utils
-									.P()
-									* 0.0075, d.ZF = d.$q + GameFramework.Utils.P()
+									+ Math.abs(GameFramework.Utils.randOneMinusOne()) * 0.5 + 0.5, 
+									d.$q = GameFramework.Utils.randOneMinusOne()
+									* 0.0075, d.ZF = d.$q + GameFramework.Utils.randOneMinusOne()
 									* 0.0020);
 			d.ko = 2;
 			for (g = 0; g < d.ko; g++)
-				d.lg[g] = GameFramework.Utils.P() * 10, d.Ci[g] = GameFramework.Utils
-						.P()
+				d.lg[g] = GameFramework.Utils.randOneMinusOne() * 10, d.Ci[g] = GameFramework.Utils
+						.randOneMinusOne()
 						* 0.2;
 			this.sm.push(d)
 		}
@@ -32943,35 +32943,35 @@ Game.TimeBonusEffect.prototype = {
 					Math.abs(g.lg[j]) >= 25
 							? g.Ci[j] *= -0.65
 							: GameFramework.Utils.randZeroOne() < 0.2
-									? g.lg[j] = GameFramework.Utils.P() * 15
+									? g.lg[j] = GameFramework.Utils.randOneMinusOne() * 15
 									: GameFramework.Utils.randZeroOne() < 0.05
-											? g.Ci[j] += GameFramework.Utils.P()
+											? g.Ci[j] += GameFramework.Utils.randOneMinusOne()
 													* 1.5
 											: GameFramework.Utils.randZeroOne() < 0.05
 													&& (g.Ci[j] = GameFramework.Utils
-															.P()
+															.randOneMinusOne()
 															* 1.5);
 				else if (g.ll)
 					Math.abs(g.lg[j]) >= 25
 							? g.Ci[j] *= -0.65
 							: GameFramework.Utils.randZeroOne() < 0.2
-									? g.lg[j] = GameFramework.Utils.P() * 15
+									? g.lg[j] = GameFramework.Utils.randOneMinusOne() * 15
 									: GameFramework.Utils.randZeroOne() < 0.1
-											? g.Ci[j] += GameFramework.Utils.P()
+											? g.Ci[j] += GameFramework.Utils.randOneMinusOne()
 													* 1.5
 											: GameFramework.Utils.randZeroOne() < 0.1
 													&& (g.Ci[j] = GameFramework.Utils
-															.P()
+															.randOneMinusOne()
 															* 1.5);
 				else {
 					g.lg[j] <= 0 ? (g.lg[j] = 0, g.Ci[j] = GameFramework.Utils.randZeroOne()
 							* 0.1) : GameFramework.Utils.randZeroOne() < 0.05
 							? g.Ci[j] = (4 - g.lg[j]) * 0.1
-									+ GameFramework.Utils.P() * 1
+									+ GameFramework.Utils.randOneMinusOne() * 1
 							: GameFramework.Utils.randZeroOne() < 0.025
 									? g.lg[j] = GameFramework.Utils.randZeroOne() * 18
 									: GameFramework.Utils.randZeroOne() < 0.04
-											&& (g.Ci[j] += GameFramework.Utils.P()
+											&& (g.Ci[j] += GameFramework.Utils.randOneMinusOne()
 													* 2.5);
 					if (GameFramework.Utils.randZeroOne() < 0.1) {
 						var l = k = 0;
@@ -32980,7 +32980,7 @@ Game.TimeBonusEffect.prototype = {
 						g.lg[j] = (g.lg[j] + k + l) / 3
 					}
 					GameFramework.Utils.randZeroOne() < 0.2
-							&& (k = j + GameFramework.Utils.Sk() % 3 - 1, k >= 0
+							&& (k = j + GameFramework.Utils.randZeroMax() % 3 - 1, k >= 0
 									&& k < g.ko
 									&& (g.Ci[j] += (g.lg[k] - g.lg[j]) * 0.2));
 					GameFramework.Utils.randZeroOne() < 0.1
@@ -33016,11 +33016,11 @@ Game.TimeBonusEffect.prototype = {
 						&& (h = true)) : GameFramework.Utils.randZeroOne() < 0.0050 && (h = true);
 			h && (C(this.sm, d), d--)
 		}
-		if (GameFramework.Utils.Sk() % 25 == 0) {
+		if (GameFramework.Utils.randZeroMax() % 25 == 0) {
 			c = this.Nb.wf(Game.Effect.da.Yl);
 			c.uc = Game.Effect.K.ks | 0;
-			c.w = this.w + GameFramework.Utils.P() * 20;
-			c.v = this.v + GameFramework.Utils.P() * 20;
+			c.w = this.w + GameFramework.Utils.randOneMinusOne() * 20;
+			c.v = this.v + GameFramework.Utils.randOneMinusOne() * 20;
 			c.eg = 0.08;
 			c.eg = 0.08;
 			c.oa[0] = 6E3;
@@ -33030,7 +33030,7 @@ Game.TimeBonusEffect.prototype = {
 			c.Ic = 0.07;
 			c.m = 0.75;
 			c.n = GameFramework.gfx.Color.ta(255, 255, 255);
-			if (GameFramework.Utils.Sk() % 2 != 0 && this.qd != -1)
+			if (GameFramework.Utils.randZeroMax() % 2 != 0 && this.qd != -1)
 				c.lu = this.qd;
 			this.Nb.Gc(c)
 		}
@@ -33383,15 +33383,15 @@ Game.LightningBarFillEffect.prototype = {
 		else if (Math.max(0, 1 - (1 - this.Zh) * 3), this.Nb.e.aa % 2 == 0 || b)
 			for (var b = 550 + this.Nb.e.Mj * 1E3, c = 0; c < Game.LightningBarFillEffect.Xk; c++) {
 				var d = c / (Game.LightningBarFillEffect.Xk - 1), f = 1 - Math.abs(1 - d * 2), g = 200
-						* (1 - d) + b * d + f * GameFramework.Utils.P() * 60, d = 320
-						* (1 - d) + 70 * d + f * GameFramework.Utils.P() * 60, f = this.Z[this.Z.g
+						* (1 - d) + b * d + f * GameFramework.Utils.randOneMinusOne() * 60, d = 320
+						* (1 - d) + 70 * d + f * GameFramework.Utils.randOneMinusOne() * 60, f = this.Z[this.Z.g
 						* c + 0], h = this.Z[this.Z.g * c + 1];
 				c == 0 || c == Game.LightningBarFillEffect.Xk - 1
 						? (f.x = g, f.y = d, h.x = g, h.y = d)
-						: (f.x = g + GameFramework.Utils.P() * 60, f.y = d
-								+ GameFramework.Utils.P() * 60, h.x = g
-								+ GameFramework.Utils.P() * 60, h.y = d
-								+ GameFramework.Utils.P() * 60)
+						: (f.x = g + GameFramework.Utils.randOneMinusOne() * 60, f.y = d
+								+ GameFramework.Utils.randOneMinusOne() * 60, h.x = g
+								+ GameFramework.Utils.randOneMinusOne() * 60, h.y = d
+								+ GameFramework.Utils.randOneMinusOne() * 60)
 			}
 	},
 	draw : function(b) {
