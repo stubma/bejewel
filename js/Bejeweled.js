@@ -3506,7 +3506,7 @@ addClassInitEntry(function() {
 			GameFramework.TVector.initClass()
 		});
 GameFramework.Utils = dummy();
-GameFramework.Utils.Hc = function(b) {
+GameFramework.Utils.toInt = function(b) {
 	return b | 0
 };
 GameFramework.Utils.aqa = function(b) {
@@ -8601,10 +8601,10 @@ GameFramework.resources.PIEffect.prototype = {
 		d = this.$R("Rand");
 		for (f = 0; f < (d.length | 0);)
 			if (g = d.indexOf(String.fromCharCode(44), f) | 0, g != -1)
-				this.IC.push(GameFramework.Utils.Hc(d.substr(f, g - f).trim())), f = g
+				this.IC.push(GameFramework.Utils.toInt(d.substr(f, g - f).trim())), f = g
 						+ 1;
 			else {
-				this.IC.push(GameFramework.Utils.Hc(d.substr(f).trim()));
+				this.IC.push(GameFramework.Utils.toInt(d.substr(f).trim()));
 				break
 			}
 		this.tm = this.$R("EmitAfter", "no") != "no";
@@ -11101,7 +11101,7 @@ GameFramework.resources.ResourceManager.prototype = {
 				var g = d.$c;
 				if (g != null) {
 					if (d.er.hasOwnProperty("res"))
-						if (d = GameFramework.Utils.Hc(d.Pb("res").Gb()), GameFramework.BaseApp.instance.artRes == 0)
+						if (d = GameFramework.Utils.toInt(d.Pb("res").Gb()), GameFramework.BaseApp.instance.artRes == 0)
 							GameFramework.BaseApp.instance.artRes = d;
 						else if (GameFramework.BaseApp.instance.artRes != d)
 							continue;
@@ -11134,37 +11134,37 @@ GameFramework.resources.ResourceManager.prototype = {
 						k.vc = h.Pb("path").Gb();
 						k.vc = GameFramework.Utils.qF(k.vc);
 						if (h.Pb("width").Gb().length > 0)
-							k.s = GameFramework.Utils.Hc(h.Pb("width").Gb());
+							k.s = GameFramework.Utils.toInt(h.Pb("width").Gb());
 						if (h.Pb("height").Gb().length > 0)
-							k.z = GameFramework.Utils.Hc(h.Pb("height").Gb());
+							k.z = GameFramework.Utils.toInt(h.Pb("height").Gb());
 						if (h.Pb("origw").Gb().length > 0)
-							k.Ox = GameFramework.Utils.Hc(h.Pb("origw").Gb());
+							k.Ox = GameFramework.Utils.toInt(h.Pb("origw").Gb());
 						if (h.Pb("origh").Gb().length > 0)
-							k.Nx = GameFramework.Utils.Hc(h.Pb("origh").Gb());
+							k.Nx = GameFramework.Utils.toInt(h.Pb("origh").Gb());
 						if (h.Pb("cols").Gb().length > 0)
-							k.ui = GameFramework.Utils.Hc(h.Pb("cols").Gb());
+							k.ui = GameFramework.Utils.toInt(h.Pb("cols").Gb());
 						if (h.Pb("rows").Gb().length > 0)
-							k.qo = GameFramework.Utils.Hc(h.Pb("rows").Gb());
+							k.qo = GameFramework.Utils.toInt(h.Pb("rows").Gb());
 						if (h.Pb("samples").Gb().length > 0)
-							k.uC = GameFramework.Utils.Hc(h.Pb("samples").Gb());
+							k.uC = GameFramework.Utils.toInt(h.Pb("samples").Gb());
 						if (h.Pb("x").Gb().length > 0)
-							k.sf = GameFramework.Utils.Hc(h.Pb("x").Gb());
+							k.sf = GameFramework.Utils.toInt(h.Pb("x").Gb());
 						if (h.Pb("y").Gb().length > 0)
-							k.Oe = GameFramework.Utils.Hc(h.Pb("y").Gb());
+							k.Oe = GameFramework.Utils.toInt(h.Pb("y").Gb());
 						if (h.Pb("ax").Gb().length > 0)
-							k.kM = GameFramework.Utils.Hc(h.Pb("ax").Gb());
+							k.kM = GameFramework.Utils.toInt(h.Pb("ax").Gb());
 						if (h.Pb("ay").Gb().length > 0)
-							k.lM = GameFramework.Utils.Hc(h.Pb("ay").Gb());
+							k.lM = GameFramework.Utils.toInt(h.Pb("ay").Gb());
 						if (h.Pb("aw").Gb().length > 0)
-							k.bG = GameFramework.Utils.Hc(h.Pb("aw").Gb());
+							k.bG = GameFramework.Utils.toInt(h.Pb("aw").Gb());
 						if (h.Pb("ah").Gb().length > 0)
-							k.aG = GameFramework.Utils.Hc(h.Pb("ah").Gb());
+							k.aG = GameFramework.Utils.toInt(h.Pb("ah").Gb());
 						if (h.Pb("rtax").Gb().length > 0)
-							k.iM = GameFramework.Utils.Hc(h.Pb("rtax").Gb());
+							k.iM = GameFramework.Utils.toInt(h.Pb("rtax").Gb());
 						if (h.Pb("rtay").Gb().length > 0)
-							k.jM = GameFramework.Utils.Hc(h.Pb("rtay").Gb());
+							k.jM = GameFramework.Utils.toInt(h.Pb("rtay").Gb());
 						if (h.Pb("rtaflags").Gb().length > 0)
-							k.d7 = GameFramework.Utils.Hc(h.Pb("rtaflags").Gb());
+							k.d7 = GameFramework.Utils.toInt(h.Pb("rtaflags").Gb());
 						if (h.Pb("runtime").Gb().length > 0)
 							k.hX = h.Pb("runtime").Gb() == "true", k.gX = h
 									.Pb("runtime").Gb() == "false";
@@ -15103,7 +15103,7 @@ Game.BejApp.prototype = {
 		Game.Util.TF.gF(GameFramework.Utils.randZeroMax() | 0);
 		var b = this.artRes, c = this.getItem(this.appName, "ArtRes");
 		if (c != null)
-			this.artRes = GameFramework.Utils.Hc(c);
+			this.artRes = GameFramework.Utils.toInt(c);
 		GameFramework.JSBaseApp.prototype.Ub.apply(this);
 		this.sY = GameFramework.Utils.eJ();
 		if (this.userId == null)
@@ -34574,7 +34574,7 @@ Game.Util.x4 = function(b, c, d) {
 					Type.getInstanceOrNull(c, GameFramework.TVector).push(b.substr(g, f - g));
 					break;
 				case Game.Util.kq.vw :
-					c.push(GameFramework.Utils.Hc(b.substr(g, f - g)));
+					c.push(GameFramework.Utils.toInt(b.substr(g, f - g)));
 					break;
 				case Game.Util.kq.R4 :
 					Type.getInstanceOrNull(c, GameFramework.TVector).push(GameFramework.Utils.fp(b
