@@ -4925,7 +4925,7 @@ GameFramework.gfx.Graphics.prototype = {
 				? this.Ie = this.Ct.length == 0 ? null : this.Ct.pop()
 				: (this.n = this.Tf.pop(), this.Yx.pop())
 	},
-	gc : function(b, c) {
+	translate : function(b, c) {
 		var d = this.lC[this.Eg++] = this.sa;
 		this.sa = new GameFramework.geom.Matrix;
 		this.sa.translate(b, c);
@@ -12011,7 +12011,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 		for (var f = ss.IEnumerator.enumerate(this.cf); f.hasNext();) {
 			var g = f.next();
 			if (g.ec)
-				b.gc(g.w, g.v), g.NN = b.sa.tx, g.ON = b.sa.ty, g.Ok(b), b.Ab();
+				b.translate(g.w, g.v), g.NN = b.sa.tx, g.ON = b.sa.ty, g.Ok(b), b.Ab();
 			S(c == b.Eg, "Matrix stack error - pops don't match pushes");
 			S(d == b.Tf.length, "Color stack error - pops don't match pushes")
 		}
@@ -12139,7 +12139,7 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 	},
 	ZD : function() {
 		for (var b = 0; b < this.zB.length; b++) {
-			var c = this.zB[b], d = this.graphics.gc(c.NN - this.graphics.sa.tx, c.ON
+			var c = this.zB[b], d = this.graphics.translate(c.NN - this.graphics.sa.tx, c.ON
 							- this.graphics.sa.ty);
 			try {
 				c.jq(this.graphics)
@@ -12156,7 +12156,7 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 			this.graphics.m != GameFramework.BaseApp.instance.m
 					&& (b = GameFramework.BaseApp.instance.m / this.graphics.m);
 			b != 1 && this.graphics.nc(b + 1.0E-8, b + 1.0E-8, 0, 0);
-			this.graphics.gc(this.fe.w, this.fe.v);
+			this.graphics.translate(this.fe.w, this.fe.v);
 			this.fe.Ok(this.graphics);
 			this.graphics.Ab();
 			this.ZD();
@@ -14918,7 +14918,7 @@ Game.TopWidget.prototype = {
 				&& (GameFramework.widgets.ClassicWidget.prototype.ja.apply(this, [b]), this.ag
 						.ja(b, 10, Game.BejApp.q.z + 20), Game.BejApp.q.hr))
 			for (var c = 0; c < 2; ++c) {
-				c == 0 && (b.Q(4278190080), b.gc(-1, -1));
+				c == 0 && (b.Q(4278190080), b.translate(-1, -1));
 				b.kb(Game.Resources.FONT_FLAREGOTHIC16);
 				Game.BejApp.q.uh != Game.DM.xf.jk
 						&& b.Cc(String.format("Autoplay: {0} -- {1}",
@@ -15712,7 +15712,7 @@ Game.LightningZap.prototype = {
 		b.pb();
 		if (GameFramework.BaseApp.instance.kc()) {
 			c = this.Z[0].length | 0;
-			f = b.gc(this.e.Ef, this.e.Cd());
+			f = b.translate(this.e.Ef, this.e.Cd());
 			try {
 				for (var g = 0; g < c - 1; g++) {
 					var h = Array.O(4, 4, new GameFramework.gfx.TriVertex,
@@ -15971,7 +15971,7 @@ Game.LightningStorm.prototype = {
 		}
 	},
 	lJ : function(b) {
-		b.gc(this.e.Ef, this.e.Cd());
+		b.translate(this.e.Ef, this.e.Cd());
 		for (var c = 0; c < (this.Fp.length | 0); c++) {
 			var d = this.Fp[c], f = Math.min((1 - d.Zh) * 8, 1) * this.e.Yc(), g = GameFramework.gfx.Color
 					.Jb(f);
@@ -20418,7 +20418,7 @@ Game.Board.prototype = {
 		if (this.xc.Hz() && this.m.D() == 1) {
 			var c = b.Q(GameFramework.gfx.Color.Jb(0.5));
 			try {
-				var d = b.gc(this.fd.w + (this.we.D() * 4 | 0), this.fd.v);
+				var d = b.translate(this.fd.w + (this.we.D() * 4 | 0), this.fd.v);
 				try {
 					this.fd.ja(b)
 				} finally {
@@ -20434,7 +20434,7 @@ Game.Board.prototype = {
 	ja : function(b) {
 		if (!(this.to.D() >= 1 && this.pf > 0)) {
 			this.we.D() != 0 ? this.we.D() : this.to.D();
-			var c = b.gc(this.we.D(), 0);
+			var c = b.translate(this.we.D(), 0);
 			try {
 				this.Rf();
 				this.Rf();
@@ -20444,7 +20444,7 @@ Game.Board.prototype = {
 				Math.min(1, this.og * 5);
 				for (var d = Array.O(this.$b + 1, 0), f = 0; f < this.$b + 1; f++)
 					d[f] = this.tz(f);
-				this.hG != 0 && b.gc(0, this.hG);
+				this.hG != 0 && b.translate(0, this.hG);
 				this.L_(b);
 				if (this.zI > 0) {
 					var g = this.$b * Game.Board.bb, h = this.wc * Game.Board.ab, j = this.Ef, k = this
@@ -20500,7 +20500,7 @@ Game.Board.prototype = {
 	},
 	UQ : function(b) {
 		this.so.D() != 1 && b.Q(GameFramework.gfx.Color.Jb(this.so.D()));
-		this.we.D() != 0 && b.gc(this.we.D() * 4 | 0, 0);
+		this.we.D() != 0 && b.translate(this.we.D() * 4 | 0, 0);
 		this.Y_(b);
 		this.nJ(b);
 		this.MQ(b);
@@ -20562,12 +20562,12 @@ Game.Board.prototype = {
 	},
 	E_ : function(b) {
 		this.m.D() < 0.8
-				|| (b.gc(this.Ib.w + (this.we.D() * 4 | 0), this.Ib.v), this.Ib
-						.ja(b), b.Ab(), b.gc(this.fd.w + (this.we.D() * 4 | 0),
+				|| (b.translate(this.Ib.w + (this.we.D() * 4 | 0), this.Ib.v), this.Ib
+						.ja(b), b.Ab(), b.translate(this.fd.w + (this.we.D() * 4 | 0),
 						this.fd.v), this.fd.ja(b), b.Ab(), this.hd != null
-						&& (b.gc(this.hd.w + (this.we.D() * 4 | 0), this.hd.v), this.hd
+						&& (b.translate(this.hd.w + (this.we.D() * 4 | 0), this.hd.v), this.hd
 								.ja(b), b.Ab()), this.EI != null
-						&& (b.gc(this.EI.w + (this.we.D() * 4 | 0), this.EI.v), this.EI
+						&& (b.translate(this.EI.w + (this.we.D() * 4 | 0), this.EI.v), this.EI
 								.ja(b), b.Ab()))
 	},
 	WQ : function(b) {
@@ -20684,7 +20684,7 @@ Game.Board.prototype = {
 		} finally {
 			c.t()
 		}
-		c = b.gc(Game.DM.CL * this.to.D(), 0);
+		c = b.translate(Game.DM.CL * this.to.D(), 0);
 		try {
 			if (this.OQ(b), this.GB) {
 				this.SQ(b, false);
@@ -21337,7 +21337,7 @@ Game.ClassicEndLevelDialog.prototype = {
 		b.zb(String.format("{0}:{1:00}", c / 60 | 0, c % 60), 760, 619, -1, 1)
 	},
 	mJ : function(b, c, d) {
-		var f = b.gc(c, d - 90);
+		var f = b.translate(c, d - 90);
 		try {
 			var g = this.s / 2;
 			b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
@@ -21369,11 +21369,11 @@ Game.ClassicEndLevelDialog.prototype = {
 		}
 	},
 	PQ : function(b) {
-		var c = b.gc(0, 60);
+		var c = b.translate(0, 60);
 		try {
 			b.dk(Game.Resources.IMAGE_GAMEOVER_SECTION_LABEL, 195, 385, 600,
 					Game.Resources.IMAGE_GAMEOVER_SECTION_LABEL.z, 0);
-			var d = b.gc(0, 60);
+			var d = b.translate(0, 60);
 			try {
 				b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 195, 385, 602, 282, 0)
 			} finally {
@@ -21396,7 +21396,7 @@ Game.ClassicEndLevelDialog.prototype = {
 			this.Vd.L = this.Jd.D();
 		if (this.Yf != null)
 			this.Yf.L = this.Jd.D();
-		c = b.gc(0, 10);
+		c = b.translate(0, 10);
 		try {
 			this.T_(b)
 		} finally {
@@ -21571,11 +21571,11 @@ Game.CrystalBall.prototype = {
 			c = this.m.V();
 			this.eg > 0 && (c *= 0.00255 / this.eg);
 			var d = Game.BejApp.q.e == null || !Game.BejApp.q.$f && GameFramework.BaseApp.instance.kc(), f = b
-					.gc(this.s / 2, this.z / 2);
+					.translate(this.s / 2, this.z / 2);
 			try {
 				!this.Hx
 						&& this.xW
-						&& b.gc(this.nD.V() * (1 - this.Tc.V()), this.oD.V()
+						&& b.translate(this.nD.V() * (1 - this.Tc.V()), this.oD.V()
 										* (1 - this.Tc.V()));
 				var g = c * 5.3 * (1 + this.Tc.V() * 0.5), h = c * 5.3
 						* (1 + this.Tc.V() * 0.2), j = 1 - this.Tc.V(), k = Math
@@ -21816,7 +21816,7 @@ Game.DialogMgr.prototype = {
 			var h = Type.getInstanceOrNull(this.cf[g], GameFramework.widgets.ClassicWidget);
 			if (h.ec) {
 				g == f && this.pV(b);
-				var j = b.gc(h.w, h.v);
+				var j = b.translate(h.w, h.v);
 				try {
 					h.NN = b.sa.tx, h.ON = b.sa.ty, h.Ok(b)
 				} finally {
@@ -23040,7 +23040,7 @@ Game.EndLevelDialog.prototype = {
 		b.U.ib("MAIN");
 		b.U.ib("OUTLINE");
 		b.U.ib("GLOW");
-		var c = b.gc(0, 60);
+		var c = b.translate(0, 60);
 		try {
 			this.$y(b)
 		} finally {
@@ -23075,7 +23075,7 @@ Game.EndLevelDialog.prototype = {
 		b.U.ib("MAIN");
 		b.U.ib("OUTLINE");
 		b.U.ib("GLOW");
-		var c = b.gc(0, 60);
+		var c = b.translate(0, 60);
 		try {
 			this.YQ(b)
 		} finally {
@@ -23083,7 +23083,7 @@ Game.EndLevelDialog.prototype = {
 		}
 	},
 	mJ : function(b, c, d) {
-		var f = b.gc(c, d);
+		var f = b.translate(c, d);
 		try {
 			b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 			Game.Resources.FONT_GAMEOVER_DIALOG.Ia("MAIN", -1);
@@ -23103,7 +23103,7 @@ Game.EndLevelDialog.prototype = {
 				b.U.Ia("OUTLINE", k);
 				b.U.Ia("GLOW", 0);
 				this.ho.D() != 1
-						&& (b.gc(0, 10 * (this.ho.D() - 1)), b.nc(this.ho.D(),
+						&& (b.translate(0, 10 * (this.ho.D() - 1)), b.nc(this.ho.D(),
 								this.ho.D(), h, 460));
 				b.jh("A NEW TOP SCORE!", h, 460);
 				this.ho.D() != 1 && (b.Ab(), b.Ab());
@@ -27670,7 +27670,7 @@ Game.HyperspaceUltra.prototype = {
 	},
 	LQ : function(b) {
 		if (Game.Resources.POPANIM_ANIMS_BOARDSHATTER.Ts()) {
-			var c = b.gc(210, -150);
+			var c = b.translate(210, -150);
 			try {
 				var d = b.nc(this.wu.D(), this.wu.D(), 750, 750);
 				try {
@@ -27755,7 +27755,7 @@ Game.HyperspaceUltra.prototype = {
 							f |= D.Nb == this.kf.e.Jg;
 							l |= D.Nb == this.kf.e.ob
 						}
-						var F = b.gc(y.Jm.x * 800 + 960, y.Jm.y * -600 + 600);
+						var F = b.translate(y.Jm.x * 800 + 960, y.Jm.y * -600 + 600);
 						try {
 							if (f || A == (Game.DM.Ha.sc | 0)) {
 								j.t();
@@ -27767,7 +27767,7 @@ Game.HyperspaceUltra.prototype = {
 								var P = z.L.D();
 								z.L.Aa(1);
 								if (A == (Game.DM.Ha.sc | 0)) {
-									var Z = b.gc(-z.Ad(), -z.Rd());
+									var Z = b.translate(-z.Ad(), -z.Rd());
 									try {
 										this.kf.e.bz(b, z, y.fy, true)
 									} finally {
@@ -27780,7 +27780,7 @@ Game.HyperspaceUltra.prototype = {
 										if (V.Nb == this.kf.e.Jg) {
 											var W = b.nc(y.fy, y.fy, 0, 0);
 											try {
-												var da = b.gc(-V.w, -V.v);
+												var da = b.translate(-V.w, -V.v);
 												try {
 													V.ja(b)
 												} finally {
@@ -27806,7 +27806,7 @@ Game.HyperspaceUltra.prototype = {
 										if (X.Nb == this.kf.e.ob) {
 											var ia = b.nc(y.fy, y.fy, 0, 0);
 											try {
-												var aa = b.gc(-X.w, -X.v);
+												var aa = b.translate(-X.w, -X.v);
 												try {
 													X.ja(b)
 												} finally {
@@ -27974,7 +27974,7 @@ Game.HyperspaceFallback.prototype = {
 			var f = new GameFramework.geom.TPoint(this.s / 2, this.z / 2), g = b
 					.Q(GameFramework.gfx.Color.Jb(this.oM.D()));
 			try {
-				var h = b.gc(f.x, f.y);
+				var h = b.translate(f.x, f.y);
 				try {
 					c[d].de = f.rg(new GameFramework.geom.TPoint(f.x, f.y)), c[d]
 							.ja(b)
@@ -28026,7 +28026,7 @@ Game.LoadingScreen.prototype = {
 		b.fc(-160, 0, 1920, 1200);
 		b.pb();
 		if (this.Ke != null) {
-			var c = b.gc(800, 600);
+			var c = b.translate(800, 600);
 			try {
 				this.Ke.ja(b)
 			} finally {
@@ -29232,7 +29232,7 @@ Game.OptionsDialog.prototype = {
 	ja : function(b) {
 		Game.Bej3Dialog.prototype.ja.apply(this, [b]);
 		this.A5();
-		var c = b.gc(this.Un.yh, this.Un.Um);
+		var c = b.translate(this.Un.yh, this.Un.Um);
 		try {
 			b.kb(Game.Resources.FONT_DIALOG_TEXT);
 			var d = b.Q(4278190080);
@@ -30384,7 +30384,7 @@ Game.RecordsDialog.prototype = {
 		b.U.Ia("MAIN", 4287121432);
 		b.jh("Records", this.s / 2, 152);
 		b.U.ib("MAIN");
-		c = b.gc(0, -10);
+		c = b.translate(0, -10);
 		try {
 			this.U_(b)
 		} finally {
@@ -30411,7 +30411,7 @@ Game.RecordsDialog.prototype = {
 		g = Array.O(4, "", GameFramework.Utils.ei(Game.BejApp.q.Ka.xe[Game.DM.T.vD | 0])
 						+ " pts", g, GameFramework.Utils
 						.ei(Game.BejApp.q.Ka.xe[Game.DM.T.dn | 0]), c);
-		this.LB && b.gc(0, -120);
+		this.LB && b.translate(0, -120);
 		this.LB
 				? b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 110, 650, 1175, 260, 0)
 				: b.dk(Game.Resources.IMAGE_GAMEOVER_LIGHT_BOX, 110, 610, 1175, 300, 0);
@@ -30439,13 +30439,13 @@ Game.RecordsDialog.prototype = {
 		b.U.ib("GLOW")
 	},
 	X_ : function(b) {
-		var c = b.gc(98, 240);
+		var c = b.translate(98, 240);
 		try {
 			this.$y(b, "CLASSIC", this.FM)
 		} finally {
 			c.t()
 		}
-		c = b.gc(this.s - 600 - 102, 240);
+		c = b.translate(this.s - 600 - 102, 240);
 		try {
 			this.$y(b, "SPEED", this.UO)
 		} finally {
@@ -32642,7 +32642,7 @@ Game.SpeedBoard.prototype = {
 		b.pb()
 	},
 	OQ : function(b) {
-		var c = b.gc(-160, 0);
+		var c = b.translate(-160, 0);
 		try {
 			Game.Resources.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.ja(b)
 		} finally {
@@ -32662,10 +32662,10 @@ Game.SpeedBoard.prototype = {
 		try {
 			var d = 0;
 			this.Bj.V() > 0 && (d = Math.pow(this.Bj.V(), 0.5) * 1 + 0);
-			var f = b.gc(56, -22 + d * 280);
+			var f = b.translate(56, -22 + d * 280);
 			try {
 				Game.Resources.POPANIM_ANIMS_GEM_MEGA.ja(b);
-				var g = b.gc(170, 300);
+				var g = b.translate(170, 300);
 				try {
 					Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.ja(b)
 				} finally {
@@ -32695,7 +32695,7 @@ Game.SpeedBoard.prototype = {
 			var k = this.Ef - 523 - 160, l = this.Cd() - 130;
 			b.Ba(Game.Resources.IMAGE_LIGHTNING_TOP_BACK_LIGHTNING.vd(), k, l);
 			this.kJ(b);
-			var m = b.gc(-160, 0);
+			var m = b.translate(-160, 0);
 			try {
 				Game.Resources.POPANIM_ANIMS_LIGHTNINGUI.ja(b)
 			} finally {
@@ -32735,7 +32735,7 @@ Game.SpeedBoard.prototype = {
 				}
 			}
 			this.VQ(b);
-			var u = b.gc(240, 240);
+			var u = b.translate(240, 240);
 			try {
 				Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.ja(b)
 			} finally {
@@ -33592,7 +33592,7 @@ Game.SpeedEndLevelDialog.prototype = {
 	},
 	ja : function(b) {
 		Game.EndLevelDialog.prototype.ja.apply(this, [b]);
-		var c = b.gc(-160, 0);
+		var c = b.translate(-160, 0);
 		try {
 			b.Ba(Game.Resources.IMAGE_GAMEOVER_SECTION_GRAPH.vd(), 0, 0), b.Ba(
 					Game.Resources.IMAGE_GAMEOVER_LINES.vd(), 0, 0), b.Ba(
