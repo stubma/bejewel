@@ -4193,7 +4193,7 @@ addClassInitEntry(function() {
 			GameFramework.geom.Coords3.initClass()
 		});
 GameFramework.geom.Matrix = function() {
-	this.th()
+	this.identity()
 };
 GameFramework.geom.Matrix.O = function(b, c, d, f, g, h) {
 	var j = new GameFramework.geom.Matrix;
@@ -4216,7 +4216,7 @@ GameFramework.geom.Matrix.prototype = {
 		return GameFramework.geom.Matrix.O(this.a, this.b, this.c, this.d,
 				this.tx, this.ty)
 	},
-	th : function() {
+	identity : function() {
 		this.ty = this.tx = 0;
 		this.a = 1;
 		this.c = this.b = 0;
@@ -4867,7 +4867,7 @@ GameFramework.gfx.Graphics.prototype = {
 	Vg : function() {
 		this.n = 4294967295;
 		this.Eg = 0;
-		this.sa.th();
+		this.sa.identity();
 		this.U = null;
 		this.Tf.clear()
 	},
@@ -6296,7 +6296,7 @@ GameFramework.resources.FontResource.prototype = {
 				GameFramework.Utils.w4(h);
 				c = 4294967295;
 				j = b.Ml;
-				j.th();
+				j.identity();
 				j.translate(d, f);
 				j.concat(b.sa);
 				f = d = 0;
@@ -6325,7 +6325,7 @@ GameFramework.resources.FontResource.prototype = {
 			j = 4294967295;
 			k = 1 / GameFramework.BaseApp.instance.graphics.m;
 			l = b.Nr;
-			l.th();
+			l.identity();
 			l.translate(d, f);
 			l.concat(b.sa);
 			for (m = f = d = 0; m < c.length; m++) {
@@ -8790,7 +8790,7 @@ GameFramework.resources.PIEffect.prototype = {
 			l *= q.RH;
 			m *= q.SH;
 			if (f.XV) {
-				k.th();
+				k.identity();
 				var r = j.Ln;
 				r != 0 && k.rotate(r);
 				h.Yh != null && h.Yh.Vc != 0 && k.rotate(-h.Yh.Vc)
@@ -10616,7 +10616,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 									.H()
 									/ 65536, j.Na.d = b.H() / 65536)
 							: (o & GameFramework.resources.PopAnimResource.J2) != 0
-									&& (q = b.Ga() / 1E3, j.Na.th(), j.Na
+									&& (q = b.Ga() / 1E3, j.Na.identity(), j.Na
 											.rotate(q));
 					q = new GameFramework.geom.Matrix;
 					if ((o & GameFramework.resources.PopAnimResource.H2) != 0) {
@@ -10728,7 +10728,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 				for (var d = 0; d < b.ve.length; d++) {
 					var f = b.ve[d], g = null;
 					f.iB || (g = b.zG.Wd(new GameFramework.geom.TPoint(f.By, f.Cy)));
-					f.Ke.za.th();
+					f.Ke.za.identity();
 					g != null && f.Ke.za.translate(g.x, g.y);
 					f.Ke.za.scale(this.Qn, this.Qn);
 					if (f.Na && c != null)
@@ -10830,7 +10830,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 			for (c = 0; c < (b.ve.length | 0); c++)
 				d = b.ve[c], d.iB
 						&& d.Na
-						&& (d.Ke.dj.th(), d.Ke.dj.translate(d.Ke.s / 2, d.Ke.z
+						&& (d.Ke.dj.identity(), d.Ke.dj.translate(d.Ke.s / 2, d.Ke.z
 										/ 2), d.Ke.dj.concat(b.zG))
 	},
 	cK : function(b, c, d) {
@@ -13490,7 +13490,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 				context.fillRect(g, h, b - g, c - h);
 				hc = false
 			} else
-				g = new GameFramework.geom.Matrix, g.th(), g.tx = b, g.ty = c, g.a = d, g.d = f, g
+				g = new GameFramework.geom.Matrix, g.identity(), g.tx = b, g.ty = c, g.a = d, g.d = f, g
 						.concat(this.sa), context.setTransform(g.a, g.b, g.c,
 						g.d, g.tx, g.ty), context.fillRect(0, 0, 1, 1), hc = true
 		}
@@ -13821,7 +13821,7 @@ GameFramework.resources.JSImageResource.prototype = {
 	Rm : 0,
 	Og : function(b, c, d, f, g) {
 		var h = (g | 0) % this.ui | 0, g = (g | 0) / this.ui | 0, j = this.Hg, k = this.Gg, l = new GameFramework.geom.Matrix;
-		l.th();
+		l.identity();
 		l.tx = d;
 		l.ty = f;
 		l.concat(c);
@@ -15698,7 +15698,7 @@ Game.LightningZap.prototype = {
 				* this.e.Yc();
 		c.pc = true;
 		var f = b.Nr;
-		f.th();
+		f.identity();
 		f.scale(2.5 * c.s / c.FV, 4 * c.z / c.cM);
 		this.Mt.y == this.Lg.y && f.rotate(Math.PI / -2);
 		this.Mt.x == this.Lg.x ? f.translate(this.e.Ef + this.Lg.x - 104,
@@ -21555,7 +21555,7 @@ Game.CrystalBall.prototype = {
 	nh : function(b, c) {
 		GameFramework.widgets.ButtonWidget.prototype.nh.apply(this, [b, c]);
 		var d = new GameFramework.geom.Matrix;
-		d.th();
+		d.identity();
 		var f = this.m.V();
 		this.eg > 0 && (f *= 0.00195 / this.eg);
 		d.scale(f * 5.3 * (1 + this.Tc.V() * 0.5), f * 5.3
@@ -21584,7 +21584,7 @@ Game.CrystalBall.prototype = {
 				this.Mr.n = GameFramework.gfx.Color.ta(k, k, k);
 				this.sr.n = GameFramework.gfx.Color.ta(k, k, k);
 				this.Hx
-						|| (this.Mr.za.th(), this.Mr.za.scale(g, h), d
+						|| (this.Mr.za.identity(), this.Mr.za.scale(g, h), d
 								&& this.Mr.ja(b));
 				var l = b.Q(this.Hx ? GameFramework.gfx.Color.Zg(this.n & 16777215,
 						GameFramework.gfx.Color.S0(this.n) * 127.5 | 0) : this.n);
@@ -21665,7 +21665,7 @@ Game.CrystalBall.prototype = {
 							}
 						}
 					}
-					this.sr.za.th();
+					this.sr.za.identity();
 					this.sr.za.scale(g, h);
 					d && this.sr.ja(b)
 				}
@@ -22179,7 +22179,7 @@ Game.ParticleEffect.prototype = {
 		b.translate(this.w, this.v);
 		this.lr
 				? (b.scale(1, 1), this.mg.za = b)
-				: (this.mg.za.th(), this.mg.dj = b);
+				: (this.mg.za.identity(), this.mg.dj = b);
 		this.fH ? (this.mg.qn(), this.fH = false) : this.mg.ca();
 		if (!this.mg.Ts())
 			this.ce = true
@@ -29778,7 +29778,7 @@ Game.Points.prototype = {
 				c = this.m;
 			if (this.VY && this.zM != null) {
 				var d = new GameFramework.geom.Matrix;
-				d.th();
+				d.identity();
 				d.scale(c, c);
 				d.rotate(this.Kg);
 				d.translate(this.w, this.v);
@@ -31952,11 +31952,11 @@ Game.SpeedBoard = function(b) {
 	this.Wr = new Game.EffectsManager(this);
 	this.UN = 40;
 	Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.qn();
-	Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.za.th();
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.za.identity();
 	Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.za.scale(1, 1);
 	Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.tm = true;
 	Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.qn();
-	Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.za.th();
+	Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.za.identity();
 	Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.za.scale(1, 1);
 	Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.tm = true;
 	Game.Resources.POPANIM_ANIMS_GEM_MEGA.Px = [];
