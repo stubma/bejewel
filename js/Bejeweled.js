@@ -14941,7 +14941,7 @@ Game.BejApp = function() {
 	this.uh = Game.DM.xf.jk;
 	this.AN = [];
 	this.Sn = [];
-	this.Jp = new Game.Metrics;
+	this.metrics = new Game.Metrics;
 	this.by = [];
 	callSuperConstructor(Game.BejApp, this);
 	S(Game.BejApp.instance == null);
@@ -15003,7 +15003,7 @@ Game.BejApp.prototype = {
 	Sn : null,
 	AI : null,
 	XY : null,
-	Jp : null,
+	metrics : null,
 	eH : false,
 	sY : null,
 	by : null,
@@ -15019,7 +15019,7 @@ Game.BejApp.prototype = {
 	yX : null,
 	userAgent : "unknown",
 	update : function() {
-		this.Jp.update();
+		this.metrics.update();
 		if (this.Bi == null)
 			GameFramework.JSBaseApp.prototype.update.apply(this);
 		else {
@@ -15079,10 +15079,10 @@ Game.BejApp.prototype = {
 	setArtRes : set("artRes"),
 	setPathPrefix : set("pathPrefix"),
     setMetricsURL : function(b) {
-		this.Jp.iL(b)
+		this.metrics.iL(b)
 	},
     setThrottlingURL : function(b) {
-		this.Jp.nL(b)
+		this.metrics.nL(b)
 	},
 	setUserAgent : set("userAgent"),
 	setUserId : set("userId"),
@@ -15126,10 +15126,10 @@ Game.BejApp.prototype = {
 		
 		// TODO
 		if (!this.eH)
-			this.Jp.Ub(), this.eH = true;
+			this.metrics.Ub(), this.eH = true;
 		for (var d = c = 0; d < this.userId.length; d++)
 			c ^= (this.userId.charCodeAt(d) | 0) << d % 4 * 8;
-		this.Jp.SC == 0 && this.Jp.n4(c % 1234567 / 1234567);
+		this.metrics.SC == 0 && this.metrics.n4(c % 1234567 / 1234567);
 		this.uk.x2();
 		this.FS();
 		this.m = this.Ig / this.dC;
@@ -15180,7 +15180,7 @@ Game.BejApp.prototype = {
 		d === UNDEF && (d = false);
 		f === UNDEF && (f = null);
 		if (!this.eH)
-			this.Jp.Ub(), this.eH = true;
+			this.metrics.Ub(), this.eH = true;
 		var g = [];
 		if (c != null)
 			for (aKey in c)
@@ -15198,7 +15198,7 @@ Game.BejApp.prototype = {
 		if (c != null)
 			for (var h = 0; h < c.length; h++)
 				g.push(c[h]);
-		this.Jp.N4(b, g, d, f)
+		this.metrics.N4(b, g, d, f)
 	},
 	Rz : function(b) {
 		if (!this.tk) {
