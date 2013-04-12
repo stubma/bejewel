@@ -684,7 +684,7 @@ if (!Array.prototype.forEach)
 		for (var d = this.length, f = 0; f < d; f++)
 			f in this && b.call(c, this[f], f, this)
 	};
-Array.prototype.Pd = function() {
+Array.prototype.enumerate = function() {
 	return new ss.ArrayEnumerator(this)
 };
 Array.prototype.index = function(b, c) {
@@ -1312,33 +1312,33 @@ ss.CultureInfo.yQ = ss.CultureInfo.fK;
 // IEnumerator
 ss.IEnumerator = dummy();
 ss.IEnumerator.prototype = {
-	oe : null,
-	ye : null
+	next : null,
+	hasNext : null
 };
-ss.IEnumerator.Pd = function(b) {
-	return b ? b.Pd ? b.Pd() : new ss.ArrayEnumerator(b) : null
+ss.IEnumerator.enumerate = function(b) {
+	return b ? b.enumerate ? b.enumerate() : new ss.ArrayEnumerator(b) : null
 };
 registerInterface(ss.IEnumerator, "IEnumerator");
 
 // IEnumerable
 ss.IEnumerable = dummy();
 ss.IEnumerable.prototype = {
-	Pd : null
+	enumerate : null
 };
 registerInterface(ss.IEnumerable, "IEnumerable");
 
 // ArrayEnumerator
 ss.ArrayEnumerator = function(b) {
-	this.bV = b;
-	this.HF = -1
+	this.array = b;
+	this.nextPos = -1
 };
 ss.ArrayEnumerator.prototype = {
-	oe : function() {
-		return this.bV[this.HF]
+	next : function() {
+		return this.array[this.nextPos]
 	},
-	ye : function() {
-		this.HF++;
-		return this.HF < this.bV.length
+	hasNext : function() {
+		this.nextPos++;
+		return this.nextPos < this.array.length
 	}
 };
 ss.ArrayEnumerator.registerClass("ArrayEnumerator", null, ss.IEnumerator);
@@ -1437,7 +1437,7 @@ ss.CollectionChangedEventArgs = function(b, c, d) {
 	callSuperConstructor(ss.CollectionChangedEventArgs, this);
 	this.mqa = b;
 	this.pqa = c || null;
-	this.HF = d || -1
+	this.nextPos = d || -1
 };
 ss.CollectionChangedEventArgs.prototype = {};
 ss.CollectionChangedEventArgs.registerClass("CollectionChangedEventArgs", ss.EventArgs);
@@ -2303,16 +2303,16 @@ GameFramework.BaseApp.prototype = {
 		this.Ck.push(b)
 	},
 	q1 : function(b) {
-		for (var c = ss.IEnumerator.Pd(this.Ck); c.ye();) {
-			var d = c.oe();
+		for (var c = ss.IEnumerator.enumerate(this.Ck); c.hasNext();) {
+			var d = c.next();
 			if (d.xa == b)
 				return d
 		}
 		return null
 	},
 	zS : function(b) {
-		for (var c = ss.IEnumerator.Pd(this.Ck); c.ye();)
-			if (c.oe().xa == b)
+		for (var c = ss.IEnumerator.enumerate(this.Ck); c.hasNext();)
+			if (c.next().xa == b)
 				return true;
 		return false
 	},
@@ -2321,8 +2321,8 @@ GameFramework.BaseApp.prototype = {
 		$c(this.Ck, 0, 0, b)
 	},
 	hS : function() {
-		for (var b = 0, c = ss.IEnumerator.Pd(this.Ck); c.ye();) {
-			var d = c.oe();
+		for (var b = 0, c = ss.IEnumerator.enumerate(this.Ck); c.hasNext();) {
+			var d = c.next();
 			d.Or == 0 && d.xa != null && d.vc != null && !startsWith(d.vc, "!") && b++
 		}
 		return b
@@ -3463,8 +3463,8 @@ GameFramework.TVector.prototype = {
 		this.He.Yd(b)
 	},
 	gi : function() {
-		for (var b = [], c = ss.IEnumerator.Pd(this.He); c.ye();) {
-			var d = c.oe();
+		for (var b = [], c = ss.IEnumerator.enumerate(this.He); c.hasNext();) {
+			var d = c.next();
 			b.He.Yd(d)
 		}
 		return b
@@ -3550,8 +3550,8 @@ GameFramework.Utils.zla = function(b) {
 	return false
 };
 GameFramework.Utils.Bla = function(b) {
-	for (b = ss.IEnumerator.Pd(b); b.ye();)
-		return b.oe(), true;
+	for (b = ss.IEnumerator.enumerate(b); b.hasNext();)
+		return b.next(), true;
 	return false
 };
 GameFramework.Utils.gqa = staticGet("");
@@ -3970,8 +3970,8 @@ GameFramework.events.EventDispatcher.prototype = {
 	},
 	dispatchEvent : function(event) {
 		if (this.handlers != null && (event.target = this, this.handlers.hasOwnProperty(event.type)))
-			for (var c = ss.IEnumerator.Pd(this.handlers[event.type]); c.ye();)
-				c.oe().tt(event)
+			for (var c = ss.IEnumerator.enumerate(this.handlers[event.type]); c.hasNext();)
+				c.next().tt(event)
 	},
 	t : function() {
 		this.handlers = null
@@ -5976,13 +5976,13 @@ GameFramework.resources.FontResource.prototype = {
 		b.m = this.m;
 		b.jN = this.jN;
 		b.WF = this.WF;
-		for (var c = ss.IEnumerator.Pd(this.Ll); c.ye();) {
-			var d = c.oe();
+		for (var c = ss.IEnumerator.enumerate(this.Ll); c.hasNext();) {
+			var d = c.next();
 			b.Ll.push(d)
 		}
 		b.em = [];
-		for (c = ss.IEnumerator.Pd(this.lx); c.ye();)
-			d = c.oe(), b.em.push(d);
+		for (c = ss.IEnumerator.enumerate(this.lx); c.hasNext();)
+			d = c.next(), b.em.push(d);
 		b.Kw = this.Kw;
 		return b
 	},
@@ -6086,24 +6086,24 @@ GameFramework.resources.FontResource.prototype = {
 	},
 	n1 : function() {
 		this.$o();
-		for (var b = 0, c = ss.IEnumerator.Pd(this.em); c.ye();) {
-			var d = c.oe(), f = d.Hn[65];
+		for (var b = 0, c = ss.IEnumerator.enumerate(this.em); c.hasNext();) {
+			var d = c.next(), f = d.Hn[65];
 			f != null && f.MH > 0 && (b = Math.min(b, d.lo + f.Oe - this.Mh))
 		}
 		return -b
 	},
 	bS : function() {
 		this.$o();
-		for (var b = 0, c = ss.IEnumerator.Pd(this.em); c.ye();) {
-			var d = c.oe(), f = d.Hn[65];
+		for (var b = 0, c = ss.IEnumerator.enumerate(this.em); c.hasNext();) {
+			var d = c.next(), f = d.Hn[65];
 			f != null && (b = Math.max(b, d.lo + f.Oe - this.Mh + f.MH))
 		}
 		return b
 	},
 	ZZ : function(b, c) {
 		this.$o();
-		for (var d = 0, f = 0, g = 0, h = ss.IEnumerator.Pd(this.em); h.ye();) {
-			var j = h.oe(), k = f, l = j.Hn[b];
+		for (var d = 0, f = 0, g = 0, h = ss.IEnumerator.enumerate(this.em); h.hasNext();) {
+			var j = h.next(), k = f, l = j.Hn[b];
 			if (l != null) {
 				var m;
 				if (c != 0) {
@@ -6136,8 +6136,8 @@ GameFramework.resources.FontResource.prototype = {
 				}
 			var j = 0;
 			g < b.length - 1 && (j = GameFramework.Utils.hi(b, g + 1));
-			for (var k = 0, l = ss.IEnumerator.Pd(this.em); l.ye();) {
-				var m = l.oe(), o = f, q = m.Hn[h];
+			for (var k = 0, l = ss.IEnumerator.enumerate(this.em); l.hasNext();) {
+				var m = l.next(), o = f, q = m.Hn[h];
 				if (q != null) {
 					var r;
 					if (j != 0) {
@@ -6175,11 +6175,11 @@ GameFramework.resources.FontResource.prototype = {
 	M0 : function() {
 		this.em = [];
 		this.gj = this.z = this.hl = this.Mh = 0;
-		for (var b = true, c = ss.IEnumerator.Pd(this.lx); c.ye();) {
-			for (var d = c.oe(), f = true, g = ss.IEnumerator.Pd(d.KO); g.ye();)
-				this.Ll.indexOf(g.oe()) == -1 && (f = false);
-			for (g = ss.IEnumerator.Pd(d.aN); g.ye();)
-				this.Ll.indexOf(g.oe()) != -1 && (f = false);
+		for (var b = true, c = ss.IEnumerator.enumerate(this.lx); c.hasNext();) {
+			for (var d = c.next(), f = true, g = ss.IEnumerator.enumerate(d.KO); g.hasNext();)
+				this.Ll.indexOf(g.next()) == -1 && (f = false);
+			for (g = ss.IEnumerator.enumerate(d.aN); g.hasNext();)
+				this.Ll.indexOf(g.next()) != -1 && (f = false);
 			this.WF && (f = true);
 			if (f) {
 				this.em.push(d);
@@ -6255,8 +6255,8 @@ GameFramework.resources.FontResource.prototype = {
 			for (var g = {}, h = [], j = 0, k = 0, l = 0; l < c.length; l++) {
 				var m = GameFramework.Utils.hi(c, l), o = 0;
 				l < c.length - 1 && (o = GameFramework.Utils.hi(c, l + 1));
-				for (var q = 0, r = ss.IEnumerator.Pd(this.em); r.ye();) {
-					var v = r.oe(), u = k, y = v.Hn[m];
+				for (var q = 0, r = ss.IEnumerator.enumerate(this.em); r.hasNext();) {
+					var v = r.next(), u = k, y = v.Hn[m];
 					if (y != null) {
 						var z = (v.UV + y.GX << 16) + j, A;
 						A = GameFramework.resources.FontResource.zW.length == 0
@@ -6324,8 +6324,8 @@ GameFramework.resources.FontResource.prototype = {
 				q = 0;
 				m < c.length - 1 && (q = GameFramework.Utils.hi(c, m + 1));
 				r = 0;
-				for (v = ss.IEnumerator.Pd(this.em); v.ye();) {
-					u = v.oe();
+				for (v = ss.IEnumerator.enumerate(this.em); v.hasNext();) {
+					u = v.next();
 					y = h;
 					z = u.Hn[o];
 					if (z != null) {
@@ -10649,8 +10649,8 @@ GameFramework.resources.PopAnimResource.prototype = {
 			}
 			h.of = [];
 			k = 0;
-			for (j = ss.IEnumerator.Pd(d); j.ye();) {
-				l = j.oe();
+			for (j = ss.IEnumerator.enumerate(d); j.hasNext();) {
+				l = j.next();
 				if (l != null) {
 					if (h.of.push(l), l.Ya.Wx != 0)
 						l.Ya = l.Ya.gi(), l.Ya.Wx = 0
@@ -11921,8 +11921,8 @@ GameFramework.widgets.ClassicWidget.prototype = {
 	ON : 0,
 	UK : function(b) {
 		b === UNDEF && (b = true);
-		for (var c = ss.IEnumerator.Pd(this.cf); c.ye();) {
-			var d = c.oe();
+		for (var c = ss.IEnumerator.enumerate(this.cf); c.hasNext();) {
+			var d = c.next();
 			b && d.UK();
 			d.Qb = null;
 			d.wd = null
@@ -11938,8 +11938,8 @@ GameFramework.widgets.ClassicWidget.prototype = {
 			this.wd = null
 		}
 		this.Qb = null;
-		for (var b = ss.IEnumerator.Pd(this.cf); b.ye();)
-			b.oe().t();
+		for (var b = ss.IEnumerator.enumerate(this.cf); b.hasNext();)
+			b.next().t();
 		this.cf.clear();
 		GameFramework.events.EventDispatcher.prototype.t.apply(this)
 	},
@@ -11999,8 +11999,8 @@ GameFramework.widgets.ClassicWidget.prototype = {
 		this.ja(b);
 		S(c == b.Eg, "Matrix stack error - pops don't match pushes");
 		S(d == b.Tf.length, "Color stack error - pops don't match pushes");
-		for (var f = ss.IEnumerator.Pd(this.cf); f.ye();) {
-			var g = f.oe();
+		for (var f = ss.IEnumerator.enumerate(this.cf); f.hasNext();) {
+			var g = f.next();
 			if (g.ec)
 				b.gc(g.w, g.v), g.NN = b.sa.Ca, g.ON = b.sa.Da, g.Ok(b), b.Ab();
 			S(c == b.Eg, "Matrix stack error - pops don't match pushes");
@@ -12083,8 +12083,8 @@ GameFramework.widgets.ClassicWidget.prototype = {
 	Cw : function(b, c) {
 		if (this.Vn || this.dh)
 			return true;
-		for (var d = ss.IEnumerator.Pd(this.cf); d.ye();) {
-			var f = d.oe();
+		for (var d = ss.IEnumerator.enumerate(this.cf); d.hasNext();) {
+			var f = d.next();
 			if (f.Cw(b - f.w, c - f.v))
 				return true
 		}
@@ -13210,8 +13210,8 @@ GameFramework.JSBaseApp.prototype = {
 	},
 	lT : function(b, c) {
 		b.sb = c.nodeName;
-		for (var d = ss.IEnumerator.Pd(c.attributes); d.ye();) {
-			var f = d.oe(), g = b;
+		for (var d = ss.IEnumerator.enumerate(c.attributes); d.hasNext();) {
+			var f = d.next(), g = b;
 			if (g.er == null)
 				g.er = {}, g.OV = [];
 			var h = f.nodeName, j = new GameFramework.XMLParserList;
@@ -13219,8 +13219,8 @@ GameFramework.JSBaseApp.prototype = {
 			g.er[h] = j;
 			g.OV.push(h)
 		}
-		for (d = ss.IEnumerator.Pd(c.childNodes); d.ye();)
-			if (f = d.oe(), f.nodeType === 1) {
+		for (d = ss.IEnumerator.enumerate(c.childNodes); d.hasNext();)
+			if (f = d.next(), f.nodeType === 1) {
 				g = b;
 				h = f.nodeName;
 				j = new GameFramework.XMLParser;
@@ -26755,8 +26755,8 @@ Game.HighScoreMgr.prototype = {
 			b = new Game.HighScoreTable;
 			b.bO = this;
 			this.xp[aName] = b;
-			for (var d = 0, f = ss.IEnumerator.Pd(c[aName]); f.ye();) {
-				var g = f.oe(), h = new Game.HighScoreEntry;
+			for (var d = 0, f = ss.IEnumerator.enumerate(c[aName]); f.hasNext();) {
+				var g = f.next(), h = new Game.HighScoreEntry;
 				h.sb = g.Name;
 				h.Hl = g.Score | 0;
 				h.Eb = g.Time | 0;
@@ -30030,8 +30030,8 @@ Game.Profile.prototype = {
 				if (c.hasOwnProperty("Stats")) {
 					for (var d = c.Stats, b = b = 0; b < (Game.DM.T.Zc | 0); b++)
 						this.xe[b] = 0;
-					for (var b = 0, f = ss.IEnumerator.Pd(d); f.ye();) {
-						var g = f.oe();
+					for (var b = 0, f = ss.IEnumerator.enumerate(d); f.hasNext();) {
+						var g = f.next();
 						this.xe[b++] = g
 					}
 				}
