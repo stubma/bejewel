@@ -3689,7 +3689,7 @@ GameFramework.Utils.TS = function(b, c) {
 GameFramework.Utils.RS = function(b, c, d) {
 	var f = 1 - d, g = new GameFramework.geom.Matrix;
 	g.a = b.a * f + c.a * d;
-	g.Sb = b.Sb * f + c.Sb * d;
+	g.b = b.b * f + c.b * d;
 	g.ub = b.ub * f + c.ub * d;
 	g.Va = b.Va * f + c.Va * d;
 	g.Ca = b.Ca * f + c.Ca * d;
@@ -4198,7 +4198,7 @@ GameFramework.geom.Matrix = function() {
 GameFramework.geom.Matrix.O = function(b, c, d, f, g, h) {
 	var j = new GameFramework.geom.Matrix;
 	j.a = b;
-	j.Sb = c;
+	j.b = c;
 	j.ub = d;
 	j.Va = f;
 	j.Ca = g;
@@ -4207,19 +4207,19 @@ GameFramework.geom.Matrix.O = function(b, c, d, f, g, h) {
 };
 GameFramework.geom.Matrix.prototype = {
 	a : 0,
-	Sb : 0,
+	b : 0,
 	ub : 0,
 	Va : 0,
 	Ca : 0,
 	Da : 0,
 	zg : function() {
-		return GameFramework.geom.Matrix.O(this.a, this.Sb, this.ub, this.Va,
+		return GameFramework.geom.Matrix.O(this.a, this.b, this.ub, this.Va,
 				this.Ca, this.Da)
 	},
 	th : function() {
 		this.Da = this.Ca = 0;
 		this.a = 1;
-		this.ub = this.Sb = 0;
+		this.ub = this.b = 0;
 		this.Va = 1
 	},
 	translate : function(b, c) {
@@ -4228,34 +4228,34 @@ GameFramework.geom.Matrix.prototype = {
 	},
 	scale : function(b, c) {
 		this.a *= b;
-		this.Sb *= c;
+		this.b *= c;
 		this.ub *= b;
 		this.Va *= c;
 		this.Ca *= b;
 		this.Da *= c
 	},
 	rotate : function(b) {
-		var c = this.a, d = this.Sb, f = this.ub, g = this.Va, h = this.Ca, j = this.Da, k = Math
+		var c = this.a, d = this.b, f = this.ub, g = this.Va, h = this.Ca, j = this.Da, k = Math
 				.sin(b), b = Math.cos(b);
 		this.a = c * b - d * k;
-		this.Sb = c * k + d * b;
+		this.b = c * k + d * b;
 		this.ub = f * b - g * k;
 		this.Va = f * k + g * b;
 		this.Ca = h * b - j * k;
 		this.Da = h * k + j * b
 	},
 	concat : function(b) {
-		var c = this.a, d = this.Sb, f = this.ub, g = this.Va, h = this.Ca, j = this.Da;
+		var c = this.a, d = this.b, f = this.ub, g = this.Va, h = this.Ca, j = this.Da;
 		this.a = c * b.a + d * b.ub;
-		this.Sb = c * b.Sb + d * b.Va;
+		this.b = c * b.b + d * b.Va;
 		this.ub = f * b.a + g * b.ub;
-		this.Va = f * b.Sb + g * b.Va;
+		this.Va = f * b.b + g * b.Va;
 		this.Ca = h * b.a + j * b.ub + b.Ca;
-		this.Da = h * b.Sb + j * b.Va + b.Da
+		this.Da = h * b.b + j * b.Va + b.Da
 	},
 	Wd : function(b) {
 		return new GameFramework.geom.TPoint(this.Ca + this.a * b.x + this.ub * b.y,
-				this.Da + this.Sb * b.x + this.Va * b.y)
+				this.Da + this.b * b.x + this.Va * b.y)
 	}
 };
 GameFramework.geom.Matrix.initClass = dummy();
@@ -4947,7 +4947,7 @@ GameFramework.gfx.Graphics.prototype = {
 				? this.sa = b.zg()
 				: (b == this.Ml
 						? (this.sa = this.Ml, this.Ml = this.Nr)
-						: (this.sa = this.Nr, this.sa.a = b.a, this.sa.Sb = b.Sb, this.sa.ub = b.ub, this.sa.Va = b.Va, this.sa.Ca = b.Ca, this.sa.Da = b.Da), this.Nr = null);
+						: (this.sa = this.Nr, this.sa.a = b.a, this.sa.b = b.b, this.sa.ub = b.ub, this.sa.Va = b.Va, this.sa.Ca = b.Ca, this.sa.Da = b.Da), this.Nr = null);
 		this.Eg != 1 && this.sa.concat(c);
 		return this.cG
 	},
@@ -6309,7 +6309,7 @@ GameFramework.resources.FontResource.prototype = {
 								&& b.Q(c);
 					o = q.By * k - d;
 					q = q.Cy * k - f;
-					j.Ca += o * j.a + q * j.Sb;
+					j.Ca += o * j.a + q * j.b;
 					j.Da += o * j.ub + q * j.Va;
 					this.FH != GameFramework.resources.De.fi
 							? (r = m.bu.Mf, m.bu.Mf = this.FH, m.bu.Og(b, j, 0,
@@ -6345,7 +6345,7 @@ GameFramework.resources.FontResource.prototype = {
 									&& b.Q(j);
 						B = B * k - d;
 						A = A * k - f;
-						l.Ca += B * l.a + A * l.Sb;
+						l.Ca += B * l.a + A * l.b;
 						l.Da += B * l.ub + A * l.Va;
 						z.bu.Og(b, l, 0, 0, 0);
 						d += B;
@@ -7802,7 +7802,7 @@ GameFramework.resources.PIEffect.prototype = {
 	RK : function(b) {
 		var c = new GameFramework.geom.Matrix;
 		c.a = b.fa();
-		c.Sb = b.fa();
+		c.b = b.fa();
 		b.fa();
 		c.ub = b.fa();
 		c.Va = b.fa();
@@ -8809,10 +8809,10 @@ GameFramework.resources.PIEffect.prototype = {
 						* f.im;
 			h.bi != 1
 					? (j = Math.sin(r) * h.bi, r = Math.cos(r) * h.bi, o.a = r
-							* l, o.Sb = j * l, o.ub = -j * m, o.Va = r * m, o.Ca = (d.x + q.MC
+							* l, o.b = j * l, o.ub = -j * m, o.Va = r * m, o.Ca = (d.x + q.MC
 							* l)
 							* h.bi, o.Da = (d.y + q.NC * m) * h.bi)
-					: (j = Math.sin(r), r = Math.cos(r), o.a = r * l, o.Sb = j
+					: (j = Math.sin(r), r = Math.cos(r), o.a = r * l, o.b = j
 							* l, o.ub = -j * m, o.Va = r * m, o.Ca = d.x + q.MC
 							* l, o.Da = d.y + q.NC * m);
 			q = h.Gf;
@@ -8844,10 +8844,10 @@ GameFramework.resources.PIEffect.prototype = {
 		j = d * f.SH;
 		h.bi != 1
 				? (d = Math.sin(h.Vc) * h.bi, g = Math.cos(h.Vc) * h.bi, c.a = g
-						* k, c.Sb = d * k, c.ub = -d * j, c.Va = g * j, c.Ca = (h.qa.x + f.MC
+						* k, c.b = d * k, c.ub = -d * j, c.Va = g * j, c.Ca = (h.qa.x + f.MC
 						* k)
 						* h.bi, c.Da = (h.qa.y + f.NC * j) * h.bi)
-				: (d = Math.sin(h.Vc), g = Math.cos(h.Vc), c.a = g * k, c.Sb = d
+				: (d = Math.sin(h.Vc), g = Math.cos(h.Vc), c.a = g * k, c.b = d
 						* k, c.ub = -d * j, c.Va = g * j, c.Ca = h.qa.x + f.MC
 						* k, c.Da = h.qa.y + f.NC * j);
 		h = h.Gf;
@@ -9912,11 +9912,11 @@ GameFramework.resources.PIEffect.prototype = {
 							else {
 								var G = B.s * 0.5, B = B.z * 0.5;
 								z.Ca += -z.a - z.ub;
-								z.Da += -z.Sb - z.Va;
+								z.Da += -z.b - z.Va;
 								z.Ca = z.Ca * this.za.a + this.za.Ca;
 								z.Da = z.Da * this.za.Va + this.za.Da;
 								z.a *= this.za.a / G;
-								z.Sb *= this.za.a / G;
+								z.b *= this.za.a / G;
 								z.ub *= this.za.Va / B;
 								z.Va *= this.za.Va / B
 							}
@@ -9969,10 +9969,10 @@ GameFramework.resources.PIEffect.prototype = {
 							this.Xt
 									? k.concat(this.za)
 									: (u = z.s * 0.5, z = z.z * 0.5, k.Ca += -k.a
-											- k.ub, k.Da += -k.Sb - k.Va, k.Ca = k.Ca
+											- k.ub, k.Da += -k.b - k.Va, k.Ca = k.Ca
 											* this.za.a + this.za.Ca, k.Da = k.Da
 											* this.za.Va + this.za.Da, k.a *= this.za.a
-											/ u, k.Sb *= this.za.a / u, k.ub *= this.za.Va
+											/ u, k.b *= this.za.a / u, k.ub *= this.za.Va
 											/ z, k.Va *= this.za.Va / z);
 							g.ai.Ki.zi.qg(g.Jc.Ap);
 							r = b.Q(r);
@@ -10039,10 +10039,10 @@ GameFramework.resources.PIEffect.prototype = {
 								this.Xt
 										? k.concat(this.za)
 										: (z = A.s * 0.5, A = A.z * 0.5, k.Ca += -k.a
-												- k.ub, k.Da += -k.Sb - k.Va, k.Ca = k.Ca
+												- k.ub, k.Da += -k.b - k.Va, k.Ca = k.Ca
 												* this.za.a + this.za.Ca, k.Da = k.Da
 												* this.za.Va + this.za.Da, k.a *= this.za.a
-												/ z, k.Sb *= this.za.a / z, k.ub *= this.za.Va
+												/ z, k.b *= this.za.a / z, k.ub *= this.za.Va
 												/ A, k.Va *= this.za.Va / A);
 								q.ai.Ki.zi.qg(q.Jc.Ap);
 								v = b.Q(v);
@@ -10098,10 +10098,10 @@ GameFramework.resources.PIEffect.prototype = {
 								this.Xt
 										? l.concat(this.za)
 										: (u = z.s * 0.5, z = z.z * 0.5, l.Ca += -l.a
-												- l.ub, l.Da += -l.Sb - l.Va, l.Ca = l.Ca
+												- l.ub, l.Da += -l.b - l.Va, l.Ca = l.Ca
 												* this.za.a + this.za.Ca, l.Da = l.Da
 												* this.za.Va + this.za.Da, l.a *= this.za.a
-												/ u, l.Sb *= this.za.a / u, l.ub *= this.za.Va
+												/ u, l.b *= this.za.a / u, l.ub *= this.za.Va
 												/ z, l.Va *= this.za.Va / z);
 								q.ai.Ki.zi.qg(q.Jc.Ap);
 								v = b.Q(v);
@@ -10154,10 +10154,10 @@ GameFramework.resources.PIEffect.prototype = {
 						this.Xt
 								? l.concat(this.za)
 								: (v = u.s * 0.5, u = u.z * 0.5, l.Ca += -l.a
-										- l.ub, l.Da += -l.Sb - l.Va, l.Ca = l.Ca
+										- l.ub, l.Da += -l.b - l.Va, l.Ca = l.Ca
 										* this.za.a + this.za.Ca, l.Da = l.Da
 										* this.za.Va + this.za.Da, l.a *= this.za.a
-										/ v, l.Sb *= this.za.a / v, l.ub *= this.za.Va
+										/ v, l.b *= this.za.a / v, l.ub *= this.za.Va
 										/ u, l.Va *= this.za.Va / u);
 						g.ai.Ki.zi.qg(g.Jc.Ap);
 						r = b.Q(r);
@@ -10212,7 +10212,7 @@ GameFramework.resources.PIEffect.prototype = {
 		var c = this.za;
 		b.jg(this.za);
 		this.za = b.sa;
-		this.Xt = this.za.Sb != 0 || this.za.ub != 0;
+		this.Xt = this.za.b != 0 || this.za.ub != 0;
 		for (var d = this.nH = 0; d < (this.ga.Kf.length | 0); d++) {
 			var f = this.xh[d];
 			f.ec && this.R_(b, f)
@@ -10612,7 +10612,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 					d[q] = j;
 					j.Na = new GameFramework.geom.Matrix;
 					(o & GameFramework.resources.PopAnimResource.I2) != 0
-							? (j.Na.a = b.H() / 65536, j.Na.ub = b.H() / 65536, j.Na.Sb = b
+							? (j.Na.a = b.H() / 65536, j.Na.ub = b.H() / 65536, j.Na.b = b
 									.H()
 									/ 65536, j.Na.Va = b.H() / 65536)
 							: (o & GameFramework.resources.PopAnimResource.J2) != 0
@@ -10692,12 +10692,12 @@ GameFramework.resources.PopAnimResource.prototype = {
 			g.Nx = b.Ga();
 			g.Na = new GameFramework.geom.Matrix;
 			g.Na.a = b.H() / 1310720;
-			g.Na.Sb = b.H() / 1310720;
+			g.Na.b = b.H() / 1310720;
 			g.Na.ub = b.H() / 1310720;
 			g.Na.Va = b.H() / 1310720;
 			g.Na.Ca = b.Ga() / 20;
 			g.Na.Da = b.Ga() / 20;
-			if (Math.abs(g.Na.a - 1) < 0.0050 && g.Na.Sb == 0 && g.Na.ub == 0
+			if (Math.abs(g.Na.a - 1) < 0.0050 && g.Na.b == 0 && g.Na.ub == 0
 					&& Math.abs(g.Na.Va - 1) < 0.0050 && g.Na.Ca == 0
 					&& g.Na.Da == 0)
 				g.Na = null;
@@ -13481,7 +13481,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 			var context = document.getElementById("GameCanvas").getContext("2d");
 			context.fillStyle = g;
 			jc = context.globalAlpha = 1;
-			if (this.sa.Sb == 0 && this.sa.ub == 0) {
+			if (this.sa.b == 0 && this.sa.ub == 0) {
 				var k = this.m * this.sa.a, l = this.m * this.sa.Va, g = this.sa.Ca
 						* this.m + b * k | 0, h = this.sa.Da * this.m + c * l
 						| 0, b = this.sa.Ca * this.m + (b + d) * k | 0, c = this.sa.Da
@@ -13491,7 +13491,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 				hc = false
 			} else
 				g = new GameFramework.geom.Matrix, g.th(), g.Ca = b, g.Da = c, g.a = d, g.Va = f, g
-						.concat(this.sa), context.setTransform(g.a, g.Sb, g.ub,
+						.concat(this.sa), context.setTransform(g.a, g.b, g.ub,
 						g.Va, g.Ca, g.Da), context.fillRect(0, 0, 1, 1), hc = true
 		}
 	},
@@ -13776,7 +13776,7 @@ GameFramework.resources.JSImageInst.prototype = {
 			h.Da *= b.m;
 			if (this.Mf == GameFramework.resources.De.ms
 					|| this.Mf == GameFramework.resources.De.LI && h.a == 1
-					&& h.Sb == 0 && h.ub == 0 && h.Va == 1) {
+					&& h.b == 0 && h.ub == 0 && h.Va == 1) {
 				c = h.Ca | 0;
 				d = h.Da | 0;
 				if (this.YC)
@@ -13787,11 +13787,11 @@ GameFramework.resources.JSImageInst.prototype = {
 				h.Da = d
 			}
 			GameFramework.JSBaseApp.instance.useGL
-					? drawTexture(this.jj.vh, h.Ca, h.Da, h.a, h.Sb, h.ub, h.Va,
+					? drawTexture(this.jj.vh, h.Ca, h.Da, h.a, h.b, h.ub, h.Va,
 							this.he + this.jj.Vp, this.uf + this.jj.Wp,
 							this.jd, this.ge, this.jj.Sm, this.jj.Rm, this.pc,
 							b.n)
-					: lc(this.jj.ym, g, this.pc, h.a, h.Sb, h.ub, h.Va, h.Ca,
+					: lc(this.jj.ym, g, this.pc, h.a, h.b, h.ub, h.Va, h.Ca,
 							h.Da, this.jj.Vp + this.he, this.jj.Wp + this.uf,
 							this.jd, this.ge)
 		}
@@ -13828,7 +13828,7 @@ GameFramework.resources.JSImageResource.prototype = {
 		l.Ca *= b.m;
 		l.Da *= b.m;
 		if (this.Mf == GameFramework.resources.De.ms
-				|| this.Mf == GameFramework.resources.De.LI && l.a == 1 && l.Sb == 0
+				|| this.Mf == GameFramework.resources.De.LI && l.a == 1 && l.b == 0
 				&& l.ub == 0 && l.Va == 1) {
 			c = Math.round(l.Ca);
 			d = Math.round(l.Da);
@@ -13839,10 +13839,10 @@ GameFramework.resources.JSImageResource.prototype = {
 			l.Ca = c;
 			l.Da = d
 		}
-		GameFramework.JSBaseApp.instance.useGL ? drawTexture(this.vh, l.Ca, l.Da, l.a, l.Sb, l.ub,
+		GameFramework.JSBaseApp.instance.useGL ? drawTexture(this.vh, l.Ca, l.Da, l.a, l.b, l.ub,
 				l.Va, h * j + this.Vp, g * k + this.Wp, j, k, this.Sm, this.Rm,
 				this.pc, b.n) : lc(this.ym, (b.n >>> 24) / 255, this.pc, l.a,
-				l.Sb, l.ub, l.Va, l.Ca, l.Da, this.Vp + h * j, this.Wp + g * k,
+				l.b, l.ub, l.Va, l.Ca, l.Da, this.Vp + h * j, this.Wp + g * k,
 				j, k)
 	},
 	t : function() {
@@ -22576,7 +22576,7 @@ Game.EffectsManager.prototype = {
 									case Game.Effect.da.iv :
 									case Game.Effect.da.ws :
 										b.Ml.a = k.m;
-										b.Ml.Sb = 0;
+										b.Ml.b = 0;
 										b.Ml.ub = 0;
 										b.Ml.Va = k.m;
 										b.Ml.Ca = k.w - k.Oa.s / 2 * k.m;
