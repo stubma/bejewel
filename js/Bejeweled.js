@@ -11760,10 +11760,10 @@ GameFramework.widgets.ButtonWidget.prototype = {
 	tK : function(b, c) {
 		this.pl || GameFramework.widgets.ClassicWidget.prototype.tK.apply(this, [b, c])
 	},
-	Ok : function(b) {
+	visit : function(b) {
 		var c = this.L != 1;
 		c && b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.L | 0));
-		GameFramework.widgets.ClassicWidget.prototype.Ok.apply(this, [b]);
+		GameFramework.widgets.ClassicWidget.prototype.visit.apply(this, [b]);
 		c && b.pb()
 	},
 	iq : function(b, c, d, f, g) {
@@ -12003,7 +12003,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 	},
 	draw : dummy(),
 	jq : dummy(),
-	Ok : function(b) {
+	visit : function(b) {
 		var c = b.Eg, d = b.Tf.length;
 		this.draw(b);
 		S(c == b.Eg, "Matrix stack error - pops don't match pushes");
@@ -12011,7 +12011,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 		for (var f = ss.IEnumerator.enumerate(this.cf); f.hasNext();) {
 			var g = f.next();
 			if (g.ec)
-				b.translate(g.w, g.v), g.NN = b.sa.tx, g.ON = b.sa.ty, g.Ok(b), b.Ab();
+				b.translate(g.w, g.v), g.NN = b.sa.tx, g.ON = b.sa.ty, g.visit(b), b.Ab();
 			S(c == b.Eg, "Matrix stack error - pops don't match pushes");
 			S(d == b.Tf.length, "Color stack error - pops don't match pushes")
 		}
@@ -12157,7 +12157,7 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 					&& (b = GameFramework.BaseApp.instance.m / this.graphics.m);
 			b != 1 && this.graphics.nc(b + 1.0E-8, b + 1.0E-8, 0, 0);
 			this.graphics.translate(this.fe.w, this.fe.v);
-			this.fe.Ok(this.graphics);
+			this.fe.visit(this.graphics);
 			this.graphics.Ab();
 			this.ZD();
 			b != 1 && this.graphics.Ab()
@@ -14662,10 +14662,10 @@ Game.Bej3DialogButton = function(b) {
 Game.Bej3DialogButton.prototype = {
 	t9 : null,
 	gP : null,
-	Ok : function(b) {
+	visit : function(b) {
 		var c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.L | 0));
 		try {
-			GameFramework.widgets.ButtonWidget.prototype.Ok.apply(this, [b])
+			GameFramework.widgets.ButtonWidget.prototype.visit.apply(this, [b])
 		} finally {
 			c.t()
 		}
@@ -14733,7 +14733,7 @@ Game.Bej3Dialog.prototype = {
 	draw : function(b) {
 		GameFramework.widgets.Dialog.prototype.draw.apply(this, [b])
 	},
-	Ok : function(b) {
+	visit : function(b) {
 		this.L.D() != 1 && b.Q(GameFramework.gfx.Color.Jb(this.L.D()));
 		this.wd.ZD();
 		var c = this.m.V() != 1;
@@ -14743,7 +14743,7 @@ Game.Bej3Dialog.prototype = {
 				d = this.QH, f = this.MO;
 			b.nc(this.m.D(), this.m.D(), d, f)
 		}
-		GameFramework.widgets.Dialog.prototype.Ok.apply(this, [b]);
+		GameFramework.widgets.Dialog.prototype.visit.apply(this, [b]);
 		c && b.Ab();
 		this.L.D() != 1 && b.pb()
 	},
@@ -15098,19 +15098,36 @@ Game.BejApp.prototype = {
 		GameFramework.JSBaseApp.prototype.KA.apply(this, [b, c])
 	},
     init : function() {
+		// set app name
 		this.appName = "Bejeweled";
+		
+		// TODO
 		kc = false;
+		
+		// TODO
 		Game.Util.TF.gF(GameFramework.Utils.randZeroMax() | 0);
+		
+		// read resolution
 		var b = this.artRes, c = this.getItem(this.appName, "ArtRes");
 		if (c != null)
 			this.artRes = GameFramework.Utils.toInt(c);
+		
+		// TODO
 		GameFramework.JSBaseApp.prototype.Ub.apply(this);
+		
+		// generate session id
 		this.sessionId = GameFramework.Utils.uuid();
-		if (this.userId == null)
+		
+		// read user id, if not existent, generate and save
+		if (this.userId == null) {
 			this.userId = this.getItem("Global", "UserId");
-		if (this.userId == null)
-			this.userId = GameFramework.Utils.uuid(), this
-					.setItem("Global", "UserId", this.userId);
+		}
+		if (this.userId == null) {
+			this.userId = GameFramework.Utils.uuid();
+			this.setItem("Global", "UserId", this.userId);
+		}
+		
+		// TODO
 		if (!this.eH)
 			this.Jp.Ub(), this.eH = true;
 		for (var d = c = 0; d < this.userId.length; d++)
@@ -15121,10 +15138,13 @@ Game.BejApp.prototype = {
 		this.m = this.Ig / this.dC;
 		if (this.BG != null)
 			this.BG.v9 = "http://10.1.244.102/query_engine.php";
+		
+		// TODO
 		this.tw("startup", [new GameFramework.misc.KeyVal("DefaultArtRes", b),
 						new GameFramework.misc.KeyVal("WebGL", this.isUseGL()),
 						new GameFramework.misc.KeyVal("ArtRes", this.artRes),
 						new GameFramework.misc.KeyVal("PlatformInfo", this.userAgent)]);
+		
 		this.Nh = new GameFramework.widgets.ClassicWidgetAppState;
 		this.Nh.graphics = this.graphics;
 		this.fe = this.Nh.fe;
@@ -20255,7 +20275,7 @@ Game.Board.prototype = {
 				var f = GameFramework.gfx.Color.ta(96, 96, 255);
 				d = this.vg(3) + Game.Board.ab * -0.185 | 0;
 				var g = this.St.D() * this.Yc(), h = 2 + (1 - this.St.D()) * 2, j = GameFramework.Utils
-						.wj(this.mN), k = Game.Resources.FONT_POPUP_COUNT, l = k.hc(j)
+						.toStr(this.mN), k = Game.Resources.FONT_POPUP_COUNT, l = k.hc(j)
 						| 0, m = k.Rl() | 0;
 				b.kb(k);
 				b.nc(h, h, c, d);
@@ -20285,7 +20305,7 @@ Game.Board.prototype = {
 				f = GameFramework.gfx.Color.ta(255, 64, 64), d = this.vg(4)
 						+ (0.6 * Game.Board.ab | 0), g = this.CM.D() * this.Yc(), h = 1
 						+ (1 - this.CM.D()) * 0.9, j = GameFramework.Utils
-						.wj(this.BM), k = Game.Resources.FONT_POPUP_COUNT, l = k.hc(j)
+						.toStr(this.BM), k = Game.Resources.FONT_POPUP_COUNT, l = k.hc(j)
 						| 0, m = k.Rl() | 0, b.kb(k), b.nc(h, h, c, d), b
 						.Q(GameFramework.gfx.Color.Zg(f, 255 * g | 0)), b.Cc(j, c
 								- (l / 2 | 0), d + (m / 2 | 0)), b.pb(), h = this.oG
@@ -20411,7 +20431,7 @@ Game.Board.prototype = {
 		this.zj.length > 0 && this.zj[0].draw(b);
 		Game.BejApp.instance.hr
 				&& (b.kb(Game.Resources.FONT_DEFAULT), b.zb(GameFramework.Utils
-								.wj(GameFramework.BaseApp.instance.ml), 1585, 1185, 0, 1));
+								.toStr(GameFramework.BaseApp.instance.ml), 1585, 1185, 0, 1));
 		this.NU() && this.WQ(b);
 		this.xc.draw(b);
 		if (this.xc.Hz() && this.m.D() == 1) {
@@ -20527,7 +20547,7 @@ Game.Board.prototype = {
 		if (this.zf() != 0) {
 			var c = this.Hh(), d = this.uz(), d = new GameFramework.geom.TPoint(this
 							.zz(), d.v + d.z / 2), f = 0.22 + this.Zr.D() * 1, g = GameFramework.Utils
-					.wj(((c + 59) / 60 | 0) % 60);
+					.toStr(((c + 59) / 60 | 0) % 60);
 			g.length == 1 && (g = "0" + g);
 			g = GameFramework.Utils.toStr(((c + 59) / 60 | 0) / 60 | 0) + ":" + g;
 			if (this.Zr.D() > 0) {
@@ -20772,13 +20792,13 @@ Game.Board.prototype = {
 			c.t()
 		}
 	},
-	Ok : function(b) {
+	visit : function(b) {
 		if (this.L.D() != 0) {
 			var c = this.m.D() != 1;
 			this.zQ();
 			c && b.nc(this.m.D(), this.m.D(), 800, 600);
 			this.gx
-					&& (b.sa.tx += this.Ir, b.sa.ty += this.lo, GameFramework.widgets.ClassicWidget.prototype.Ok
+					&& (b.sa.tx += this.Ir, b.sa.ty += this.lo, GameFramework.widgets.ClassicWidget.prototype.visit
 							.apply(this, [b]), b.sa.tx -= this.Ir, b.sa.ty -= this.lo);
 			c && b.Ab()
 		}
@@ -21798,7 +21818,7 @@ Game.DialogMgr.prototype = {
 		}
 		return false
 	},
-	Ok : function(b) {
+	visit : function(b) {
 		this.wd.ZD();
 		var c = b.Eg, d = b.Tf.length;
 		this.draw(b);
@@ -21817,7 +21837,7 @@ Game.DialogMgr.prototype = {
 				g == f && this.pV(b);
 				var j = b.translate(h.w, h.v);
 				try {
-					h.NN = b.sa.tx, h.ON = b.sa.ty, h.Ok(b)
+					h.NN = b.sa.tx, h.ON = b.sa.ty, h.visit(b)
 				} finally {
 					j.t()
 				}
