@@ -147,56 +147,73 @@ function HandleException(e) {
         }
 		TRACE && ss.Debug.writeln("error msg: " + aMessage);
 		TRACE && ss.Debug.writeln("stack:" + aStack);
-        //gApp.submitStandardMetricsDict("error", { "Type": aType, "Message": aMessage, "Stack": aStack }, true, "http://errors.stats.popcap.com");
         gAlreadyFailed = true;
     }
     return !gReThrowException;
 }
 
 function ShowHelp() {
-    window.open("http://support.popcap.com/bejeweled-html5");
+    window.open("http://localhost");
 }
 
+// bootstrap
 function Startup() {
     gCWSPrompt = false;
 
+	// user id
     var aUserId = getCookie('user_id');
     if (aUserId != null)
         gApp.setUserId(aUserId);
+
+	// user agent
     gApp.setUserAgent(navigator.userAgent);
+
+	// debug mode or not
     if (window.location.href.indexOf('debug') != -1) {
         gApp.setDebugMode(true);
-        //gReThrowException = true;
     }
+
+	// webgl or not
     if (window.location.href.indexOf('nogl') != -1)
         gApp.setUseGL(false);
     else
         gApp.setUseGL(true);
+
+	// save app reference to curApp
+	if (typeof (curApp) == "undefined")
+		curApp = gApp;
+
+	// html5 or not
     if (HTML5Supported()) {
         JSFExt_Init(gApp, document.getElementById('GameCanvas'));
-    }
-    else {
-        if (typeof (curApp) == "undefined") // Temporary hack
-            curApp = gApp;
+    } else {
         if (window['JSFExt_MinInit'])
             window['JSFExt_MinInit'](gApp);
     }
+
+	// high resolution or not
     if (!wantsHighRes())
         gApp.setArtRes(480);
+
+	// if not webgl, access different set of resources
     if (!gApp.isUseGL())
         gApp.setPathPrefix('../html5canvas/');
+
+	// init app
     gApp.init();
 
+	// start load resource if html5 supported, or failed directly
     if (HTML5Supported()) {
         gApp.startLoad();
-    }
-    else {
+    } else {
         gApp.submitStandardMetricsDict("startup_failed", null, false);
     }
 
+	// relayout
     ResizeElements();
 }
 
+// setup sound manager
 soundManager.debugMode = false;
 soundManager.flashVersion = 9;
 soundManager.useHighPerformance = true;
@@ -205,17 +222,23 @@ soundManager.waitForWindowLoad = true;
 soundManager.onload = JSFExt_SoundManagerReady;
 soundManager.onerror = JSFExt_SoundError;
 
+// init classes
 JS_Init();
+
+// create app instance
 gApp = new Game.BejApp();
+
+// no binary hack for resources
 JFSExt_SetRequiresBinaryHack(false);
 
-// gApp.setThrottlingURL("http://gats.popcap.com/bejeweled-html5.json?t=" + (new Date().getTime()));
-// gApp.setMetricsURL("http://stats.popcap.com");
+// conf url, metrics url
 gApp.setThrottlingURL("http://localhost/~maruojie/bejewel/properties/jew.conf");
 gApp.setMetricsURL("http://localhost/~maruojie");
 
+// exception handler
 gApp.setExceptionCallback(HandleException);
 
+// check chrome app installed or not
 if ((!/Chrome/.test(navigator.userAgent)) || (chrome.app.isInstalled)) {
     Startup();
 } else {
@@ -224,9 +247,10 @@ if ((!/Chrome/.test(navigator.userAgent)) || (chrome.app.isInstalled)) {
 }
 window.onresize = ResizeElements;
 
+// layout when loaded
 var aLeftPillar = document.getElementById('leftPillar');
 aLeftPillar.onload = ResizeElements;
 var aLeftPillarBot = document.getElementById('leftPillarBot');
 aLeftPillarBot.onload = ResizeElements;
 
-alert('d7');
+alert('dd7');

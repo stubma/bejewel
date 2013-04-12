@@ -2000,12 +2000,9 @@ function Vc() {
 	document.webkitHidden ? curApp.bL(true) : curApp.bL(false)
 }
 
-// global init
+// global init for webgl and event handlers
 var wb = false;
 window.JSFExt_Init = function(app, canvas) {
-	// save app reference
-	curApp = app;
-
 	// if use webgl, get gl context and install canvas listener
 	if (app.useGL) {
 		var config = {
@@ -2064,10 +2061,13 @@ window.JSFExt_Init = function(app, canvas) {
 			}, false);
 	wb = true
 };
+
+// sound manager lifecycle methods
 window.JSFExt_SoundManagerReady = dummy();
 window.JSFExt_SoundError = function() {
 	curApp.SJ(Error("SoundManager2 error"))
 };
+
 function Wc(b, c) {
 	if (soundManager.ok()) {
 		var d = b.xa;
