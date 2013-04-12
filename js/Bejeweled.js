@@ -28012,65 +28012,6 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			Game.IconButton.initClass()
 		});
-Game.LoadingScreen = function(b) {
-	callSuperConstructor(Game.LoadingScreen, this);
-	this.M = b
-};
-Game.LoadingScreen.prototype = {
-	M : null,
-	XW : false,
-	Ke : null,
-	draw : function(b) {
-		b.Q(4278190208);
-		b.fc(-160, 0, 1920, 1200);
-		b.pb();
-		if (this.Ke != null) {
-			var c = b.translate(800, 600);
-			try {
-				this.Ke.draw(b)
-			} finally {
-				c.t()
-			}
-		} else if (this.XW) {
-			b.kb(Game.Resources.FONT_DEFAULT);
-			c = "Loading";
-			Game.BejApp.instance.gW && Game.BejApp.instance.Ut == 1 && (c = "Connecting");
-			for (var d = 0; d < (this.aa / 80 | 0) % 4; d++)
-				c += ".";
-			b.Cc(c, 800 - b.hc("Loading") / 2, 600);
-			b.zb("(" + GameFramework.BaseApp.instance.Ck.length + " resources left)", 800,
-					650, 0, 0);
-			b.zb(GameFramework.Utils.wj(GameFramework.BaseApp.instance.ml), 1585, 1185, 0, 1)
-		}
-	},
-	update : function() {
-		GameFramework.widgets.ClassicWidget.prototype.update.apply(this)
-	}
-};
-Game.LoadingScreen.initClass = dummy();
-addClassEntry(function() {
-			Game.LoadingScreen.registerClass("Game.LoadingScreen", GameFramework.widgets.ClassicWidget)
-		});
-addClassInitEntry(function() {
-			Game.LoadingScreen.initClass()
-		});
-Game.PartnerLogo = function() {
-	this.Oa = null;
-	this.L = this.HX = this.Eb = 0
-};
-Game.PartnerLogo.prototype = {
-	Oa : null,
-	Eb : 0,
-	HX : 0,
-	L : 0
-};
-Game.PartnerLogo.initClass = dummy();
-addClassEntry(function() {
-			Game.PartnerLogo.registerClass("Game.PartnerLogo", null)
-		});
-addClassInitEntry(function() {
-			Game.PartnerLogo.initClass()
-		});
 Game.CurvedAlphaButton = function() {
 	this.eM = GameFramework.CurvedVal.qs(1);
 	callSuperConstructor(Game.CurvedAlphaButton, this)
