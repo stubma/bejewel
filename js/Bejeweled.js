@@ -1375,15 +1375,8 @@ ss.StringBuilder.registerClass("StringBuilder");
 ss.EventArgs = dummy();
 ss.EventArgs.registerClass("EventArgs");
 ss.EventArgs.EMPTY = new ss.EventArgs;
-if (!window.XMLHttpRequest)
-	window.XMLHttpRequest = function() {
-		for (var b = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"], c = 0; c < b.length; c++)
-			try {
-				return new ActiveXObject(b[c])
-			} catch (d) {
-			}
-		return null
-	};
+
+// XmlDocumentParser
 ss.XmlDocumentParser = dummy();
 ss.XmlDocumentParser.registerClass("XmlDocumentParser");
 ss.XmlDocumentParser.parse = function(b) {
@@ -1404,15 +1397,21 @@ ss.XmlDocumentParser.parse = function(b) {
 			}
 	return null
 };
+
+// CancelEventArgs
 ss.CancelEventArgs = function() {
 	callSuperConstructor(ss.CancelEventArgs, this);
 	this.oqa = false
 };
 ss.CancelEventArgs.prototype = {};
 ss.CancelEventArgs.registerClass("CancelEventArgs", ss.EventArgs);
+
+// INotifyPropertyChanged
 ss.INotifyPropertyChanged = dummy();
 ss.INotifyPropertyChanged.prototype = {};
 registerInterface(ss.INotifyPropertyChanged, "INotifyPropertyChanged");
+
+// PropertyChangedEventArgs
 ss.PropertyChangedEventArgs = function(b) {
 	callSuperConstructor(ss.PropertyChangedEventArgs, this);
 	this.qqa = b
@@ -1587,6 +1586,18 @@ var requiresBinaryHack = false;
 window.JFSExt_SetRequiresBinaryHack = function(b) {
 	requiresBinaryHack = b
 };
+
+// IE compatibility
+if (!window.XMLHttpRequest) {
+	window.XMLHttpRequest = function() {
+		for (var b = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"], c = 0; c < b.length; c++)
+			try {
+				return new ActiveXObject(b[c])
+			} catch (d) {
+			}
+		return null
+	};
+}
 
 function Ya(b, c) {
 	var ajax = new XMLHttpRequest;
