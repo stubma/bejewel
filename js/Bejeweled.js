@@ -12106,15 +12106,15 @@ addClassInitEntry(function() {
 			GameFramework.widgets.ClassicWidget.initClass()
 		});
 GameFramework.widgets.ClassicWidgetAppState = function() {
-	this.fe = new GameFramework.widgets.ClassicWidget;
+	this.root = new GameFramework.widgets.ClassicWidget;
 	this.Vh = this.Al = null;
 	this.zB = [];
 	this.iH = Array.O(GameFramework.la.VZ | 0, null);
 	callSuperConstructor(GameFramework.widgets.ClassicWidgetAppState, this);
-	this.fe.wd = this
+	this.root.wd = this
 };
 GameFramework.widgets.ClassicWidgetAppState.prototype = {
-	fe : null,
+	root : null,
 	graphics : null,
 	no : false,
 	Al : null,
@@ -12132,7 +12132,7 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 	update : function() {
 		if (this.yI)
 			this.TK(), this.yI = false;
-		this.no || this.fe.IU()
+		this.no || this.root.IU()
 	},
 	ZD : function() {
 		for (var b = 0; b < this.zB.length; b++) {
@@ -12153,21 +12153,21 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 			this.graphics.m != GameFramework.BaseApp.instance.m
 					&& (b = GameFramework.BaseApp.instance.m / this.graphics.m);
 			b != 1 && this.graphics.nc(b + 1.0E-8, b + 1.0E-8, 0, 0);
-			this.graphics.translate(this.fe.w, this.fe.v);
-			this.fe.visit(this.graphics);
+			this.graphics.translate(this.root.w, this.root.v);
+			this.root.visit(this.graphics);
 			this.graphics.popMatrix();
 			this.ZD();
 			b != 1 && this.graphics.popMatrix()
 		}
 	},
 	Wk : function(b, c) {
-		this.fe.Wk(b - this.fe.w, c - this.fe.v)
+		this.root.Wk(b - this.root.w, c - this.root.v)
 	},
 	Af : function(b, c) {
-		this.fe.Af(b - this.fe.w, c - this.fe.v)
+		this.root.Af(b - this.root.w, c - this.root.v)
 	},
 	TK : function() {
-		var b = this.fe.wR(this.ao - this.fe.w, this.bo - this.fe.v);
+		var b = this.root.wR(this.ao - this.root.w, this.bo - this.root.v);
 		if (b != this.Al) {
 			if (this.Al != null)
 				this.Al.kn(), this.Al.dh = false;
@@ -12180,7 +12180,7 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 		this.ao = b;
 		this.bo = c;
 		this.TK();
-		this.fe.ln(b - this.fe.w, c - this.fe.v)
+		this.root.ln(b - this.root.w, c - this.root.v)
 	},
 	hK : function(b) {
 		return this.iH[b | 0]
@@ -14973,7 +14973,7 @@ Game.BejApp.Yu = function(b, c) {
 Game.BejApp.prototype = {
 	ag : null,
 	Nh : null,
-	fe : null,
+	root : null,
 	nx : null,
 	nI : null,
 	e : null,
@@ -15144,7 +15144,7 @@ Game.BejApp.prototype = {
 		
 		this.Nh = new GameFramework.widgets.ClassicWidgetAppState;
 		this.Nh.graphics = this.graphics;
-		this.fe = this.Nh.fe;
+		this.root = this.Nh.root;
 		this.pt(this.Nh)
 	},
 	FS : function() {
@@ -15152,20 +15152,20 @@ Game.BejApp.prototype = {
 		this.uk.$D("Lightning", 1E5, 5E4)
 	},
 	startLoad : function() {
-		this.fe.w = ((this.Di - (1600 * this.Ig / 1200 | 0)) / 2 | 0) / this.m;
-		this.w = -this.fe.w | 0;
-		this.ix = this.s + this.fe.w * 2;
+		this.root.w = ((this.Di - (1600 * this.Ig / 1200 | 0)) / 2 | 0) / this.m;
+		this.w = -this.root.w | 0;
+		this.ix = this.s + this.root.w * 2;
 		this.hx = this.z;
 		this.nx = new GameFramework.widgets.ClassicWidget;
-		this.fe.Bc(this.nx);
+		this.root.Bc(this.nx);
 		this.te = new Game.DialogMgr;
-		this.fe.Bc(this.te);
+		this.root.Bc(this.te);
 		this.nI = new Game.TopWidget;
 		this.ag = this.nI.ag;
-		this.fe.Bc(this.nI);
+		this.root.Bc(this.nI);
 		if (this.ZN == null)
 			this.Bi = new Game.MainMenu, this.Bi.s = 1600, this.Bi.z = 1200, this.nx
-					.Bc(this.Bi), this.Bi.update(), this.Nh.oi(this.Bi), this.hP = new Game.TooltipManager, this.fe
+					.Bc(this.Bi), this.Bi.update(), this.Nh.oi(this.Bi), this.hP = new Game.TooltipManager, this.root
 					.Bc(this.hP);
 		var b = this.resManager.J4("properties/resources.xml");
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.M3));
