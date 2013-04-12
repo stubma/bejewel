@@ -2283,7 +2283,7 @@ GameFramework.BaseApp.prototype = {
 								"Version", this.nj), new GameFramework.misc.KeyVal(
 								"ExecutionId", this.bN)));
 		this.createGraphics();
-		this.fJ()
+		this.createHttpService()
 	},
 	KA : function(b, c) {
 		this.Di = b;
@@ -2336,8 +2336,8 @@ GameFramework.BaseApp.prototype = {
 		}
 		return b
 	},
-	fJ : function() {
-		return this.tr = new GameFramework.connected.HTTPService
+	createHttpService : function() {
+		return this.httpService = new GameFramework.connected.HTTPService
 	},
 	vQ : function() {
 		var b = new GameFramework.connected.ConnectedRequest;
@@ -2349,7 +2349,7 @@ GameFramework.BaseApp.prototype = {
 		this.Bb != null && this.Bb.update();
 		this.BG != null && this.BG.update();
 		this.AY != null && this.AY.update();
-		this.tr != null && this.tr.update();
+		this.httpService != null && this.httpService.update();
 		this.dispatchEvent(new GameFramework.events.Event("update"))
 	},
 	draw : function() {
@@ -28898,8 +28898,8 @@ Game.Metrics.prototype = {
 		d ? (this.update(), this.YT(b, f != null ? f : this.vH), GameFramework.BaseApp.instance.FL()) : this.xC.push(b)
 	},
 	nL : function(b) {
-		GameFramework.BaseApp.instance.tr == null && GameFramework.BaseApp.instance.fJ();
-		GameFramework.BaseApp.instance.tr.sz(b).addEventHandler(GameFramework.events.Event.COMPLETE,
+		GameFramework.BaseApp.instance.httpService == null && GameFramework.BaseApp.instance.createHttpService();
+		GameFramework.BaseApp.instance.httpService.sz(b).addEventHandler(GameFramework.events.Event.COMPLETE,
 				ss.Delegate.create(this, this.v1));
 		this.mY = true
 	},
@@ -28923,9 +28923,9 @@ Game.Metrics.prototype = {
 	},
 	YT : function(b, c) {
 		if (this.vH != null) {
-			GameFramework.BaseApp.instance.tr == null && GameFramework.BaseApp.instance.fJ();
+			GameFramework.BaseApp.instance.httpService == null && GameFramework.BaseApp.instance.createHttpService();
 			var d = GameFramework.BaseApp.instance.rj(b);
-			GameFramework.BaseApp.instance.tr.n3(c, d)
+			GameFramework.BaseApp.instance.httpService.n3(c, d)
 		}
 	},
 	update : function() {
