@@ -3708,7 +3708,7 @@ GameFramework.Utils.Dq = function(b, c, d) {
 GameFramework.Utils.Cla = staticGet(false);
 GameFramework.Utils.Zda = staticGet(0);
 GameFramework.Utils.Yda = staticGet(0);
-GameFramework.Utils.eJ = function() {
+GameFramework.Utils.uuid = function() {
 	for (var b = "", c = 0; c < 36; c++)
 		if ("xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".charCodeAt(c) == 120
 				|| "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".charCodeAt(c) == 121) {
@@ -15105,11 +15105,11 @@ Game.BejApp.prototype = {
 		if (c != null)
 			this.artRes = GameFramework.Utils.toInt(c);
 		GameFramework.JSBaseApp.prototype.Ub.apply(this);
-		this.sY = GameFramework.Utils.eJ();
+		this.sessionId = GameFramework.Utils.uuid();
 		if (this.userId == null)
 			this.userId = this.getItem("Global", "UserId");
 		if (this.userId == null)
-			this.userId = GameFramework.Utils.eJ(), this
+			this.userId = GameFramework.Utils.uuid(), this
 					.setItem("Global", "UserId", this.userId);
 		if (!this.eH)
 			this.Jp.Ub(), this.eH = true;
@@ -15177,7 +15177,7 @@ Game.BejApp.prototype = {
 				new GameFramework.misc.KeyVal("ProductName", "Bejeweled"),
 				new GameFramework.misc.KeyVal("PlatformName", "HTML5"),
 				new GameFramework.misc.KeyVal("ClientVersion", Game.Version.getVersion()),
-				new GameFramework.misc.KeyVal("SessionId", this.sY)];
+				new GameFramework.misc.KeyVal("SessionId", this.sessionId)];
 		if (c != null)
 			for (var h = 0; h < c.length; h++)
 				g.push(c[h]);
@@ -16809,9 +16809,9 @@ Game.Board.prototype = {
 		this.xc != null && this.xc.Te();
 		this.xc = new Game.TutorialMgr(this);
 		this.xc.oL(this.ki());
-		this.TG = GameFramework.Utils.eJ();
+		this.gameId = GameFramework.Utils.uuid();
 		Game.BejApp.instance
-				.tw("game_started", [new GameFramework.misc.KeyVal("GameId", this.TG)]);
+				.tw("game_started", [new GameFramework.misc.KeyVal("GameId", this.gameId)]);
 		this.es = false;
 		this.Bo = 0;
 		this.Nw = this.Mw = -1;
@@ -16948,7 +16948,7 @@ Game.Board.prototype = {
 				new GameFramework.misc.KeyVal("IsSlow", Game.BejApp.instance.$f),
 				new GameFramework.misc.KeyVal("MusicVolume", Game.BejApp.instance.Ka.Fr),
 				new GameFramework.misc.KeyVal("SfxVolume", Game.BejApp.instance.Ka.tu),
-				new GameFramework.misc.KeyVal("GameId", this.TG),
+				new GameFramework.misc.KeyVal("GameId", this.gameId),
 				new GameFramework.misc.KeyVal("GameMode", this.dE()),
 				new GameFramework.misc.KeyVal("GameTimePlayed", c[Game.DM.T.aF | 0]
 								* 10),
@@ -19199,7 +19199,7 @@ Game.Board.prototype = {
 				&& (d = Game.DM.F6[b | 0], d != null
 						&& Game.BejApp.instance.tw("tutorial_cleared", [
 										new GameFramework.misc.KeyVal("GameId",
-												this.TG),
+												this.gameId),
 										new GameFramework.misc.KeyVal("TutorialType",
 												d),
 										new GameFramework.misc.KeyVal(
