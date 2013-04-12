@@ -1419,28 +1419,12 @@ ss.PropertyChangedEventArgs = function(b) {
 };
 ss.PropertyChangedEventArgs.prototype = {};
 ss.PropertyChangedEventArgs.registerClass("PropertyChangedEventArgs", ss.EventArgs);
+
+// INotifyCollectionChanged
 ss.INotifyCollectionChanged = dummy();
 ss.INotifyCollectionChanged.prototype = {};
 registerInterface(ss.INotifyCollectionChanged, "INotifyCollectionChanged");
-ss.CollectionChangedAction = dummy();
-ss.CollectionChangedAction.prototype = {
-	add : 0,
-	remove : 1
-};
-var Da = ss.CollectionChangedAction, Ea;
-for (Ea in Da.prototype)
-	Da[Ea] = Da.prototype[Ea];
-Da.qi = "CollectionChangedAction";
-Da.YU = true;
-Da.toString = ss.Enum.toString;
-ss.CollectionChangedEventArgs = function(b, c, d) {
-	callSuperConstructor(ss.CollectionChangedEventArgs, this);
-	this.mqa = b;
-	this.pqa = c || null;
-	this.nextPos = d || -1
-};
-ss.CollectionChangedEventArgs.prototype = {};
-ss.CollectionChangedEventArgs.registerClass("CollectionChangedEventArgs", ss.EventArgs);
+
 function Ha(b, c, d, f, g, h, j, k, l) {
 	var m = document.getElementById("ScratchCanvas").getContext("2d"), o = 256;
 	h && j && (o = 128);
