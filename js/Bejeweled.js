@@ -2241,7 +2241,7 @@ GameFramework.BaseApp.prototype = {
 	xX : null,
 	exceptionCallback : null,
 	TV : false,
-	kc : staticGet(false),
+	isUseGL : staticGet(false),
 	addEventHandler : function(b, c) {
 		this.eventDispatcher.addEventHandler(b, c)
 	},
@@ -4994,7 +4994,7 @@ GameFramework.gfx.Graphics.prototype = {
 				j[2].jd = g;
 				b = j;
 				for (g = 0; g < b.length; g++)
-					k = b[g], GameFramework.BaseApp.instance.kc()
+					k = b[g], GameFramework.BaseApp.instance.isUseGL()
 							? k.Mf = GameFramework.resources.De.ik
 							: (k.Mf = GameFramework.resources.De.ms, k.YC = true), k.$o();
 				this.xM[h] = j
@@ -5051,7 +5051,7 @@ GameFramework.gfx.Graphics.prototype = {
 			k[8].ge = m;
 			b = k;
 			for (h = 0; h < b.length; h++)
-				l = b[h], GameFramework.BaseApp.instance.kc()
+				l = b[h], GameFramework.BaseApp.instance.isUseGL()
 						? l.Mf = GameFramework.resources.De.ik
 						: (l.Mf = GameFramework.resources.De.ms, l.YC = true), l.$o();
 			this.BN[j] = k
@@ -13061,7 +13061,7 @@ GameFramework.JSBaseApp.prototype = {
 	NB : null,
 	RN : 0,
 	YW : false,
-	kc : get("useGL"),
+	isUseGL : get("useGL"),
 	Ub : function() {
 		GameFramework.BaseApp.prototype.Ub.apply(this);
 		this.vb = this.fu = new GameFramework.resources.JSResourceManager
@@ -14499,7 +14499,7 @@ Game.Background.prototype = {
 			this.Lw = false;
 			if (Game.Background.iC[b] != null)
 				this.Oa = Game.Background.iC[b];
-			else if (this.Oa = GameFramework.BaseApp.instance.vb.Gs(Game.Background.eN[b]), GameFramework.BaseApp.instance.kc()
+			else if (this.Oa = GameFramework.BaseApp.instance.vb.Gs(Game.Background.eN[b]), GameFramework.BaseApp.instance.isUseGL()
 					&& !Game.BejApp.q.$f)
 				this.hf = GameFramework.BaseApp.instance.vb.o1(Game.Background.RX[b]), this.hf.Px = [], this.hf.Px
 						.push("PIEFFECT_BACKGROUNDS_");
@@ -14559,7 +14559,7 @@ Game.Background.prototype = {
 	update : function() {
 		GameFramework.widgets.ClassicWidget.prototype.update.apply(this);
 		var b = this.Hk;
-		this.Hk = Game.BejApp.q.Ka.vt && Game.BejApp.q.kc();
+		this.Hk = Game.BejApp.q.Ka.vt && Game.BejApp.q.isUseGL();
 		b != this.Hk && this.Hk && this.hf == null && this.CU(this.Dt);
 		if (this.xI != -1 && Game.BejApp.q.e != null && Game.BejApp.q.e.Jf == null && this.Hk
 				&& Game.BejApp.q.e.we.D() == 0)
@@ -14567,7 +14567,7 @@ Game.Background.prototype = {
 		if (this.xy != -1 && Game.BejApp.q.e != null && Game.BejApp.q.e.Jf == null && this.Hk
 				&& Game.BejApp.q.e.we.D() == 0)
 			Game.Background.KP(this.xy), this.xy = -1;
-		Game.BejApp.q.kc() && this.Hk && this.oy == 1 && (this.ec || this.Qb == null)
+		Game.BejApp.q.isUseGL() && this.Hk && this.oy == 1 && (this.ec || this.Qb == null)
 				&& this.oy++;
 		if (this.hf != null)
 			if (this.Hk) {
@@ -14904,7 +14904,7 @@ Game.TopWidget.prototype = {
 	E1 : function(b) {
 		this.xl
 				&& b.KN == 86
-				&& (b = "", b += GameFramework.BaseApp.instance.kc()
+				&& (b = "", b += GameFramework.BaseApp.instance.isUseGL()
 						? "(HTML5 WebGL)"
 						: "(HTML5 Canvas)", this.ag.Ip.length == 0
 						&& this.ag.ls(String.format("Version {0} " + b, Game.Version
@@ -15091,7 +15091,6 @@ Game.BejApp.prototype = {
 	setUserId : set("userId"),
 	getUserId : get("userId"),
 	setUseGL : set("useGL"),
-	isUseGL : get("useGL"),
     setBkgImagePath : function(b, c) {
 		Game.Background.cL(b, c)
 	},
@@ -15123,7 +15122,7 @@ Game.BejApp.prototype = {
 		if (this.BG != null)
 			this.BG.v9 = "http://10.1.244.102/query_engine.php";
 		this.tw("startup", [new GameFramework.misc.KeyVal("DefaultArtRes", b),
-						new GameFramework.misc.KeyVal("WebGL", this.kc()),
+						new GameFramework.misc.KeyVal("WebGL", this.isUseGL()),
 						new GameFramework.misc.KeyVal("ArtRes", this.artRes),
 						new GameFramework.misc.KeyVal("PlatformInfo", this.userAgent)]);
 		this.Nh = new GameFramework.widgets.ClassicWidgetAppState;
@@ -15710,7 +15709,7 @@ Game.LightningZap.prototype = {
 		b.Bd(c, 0, c.cM, (this.nf + 0) % c.Em);
 		b.Ab();
 		b.pb();
-		if (GameFramework.BaseApp.instance.kc()) {
+		if (GameFramework.BaseApp.instance.isUseGL()) {
 			c = this.Z[0].length | 0;
 			f = b.translate(this.e.Ef, this.e.Cd());
 			try {
@@ -15954,7 +15953,7 @@ Game.LightningStorm.prototype = {
 						if (o == 0 || o == Game.LightningStorm.hk - 1)
 							r.x = v | 0, r.y = q | 0, u.x = v | 0, u.y = q | 0;
 						else {
-							var y = GameFramework.BaseApp.instance.kc() ? 32 : 26;
+							var y = GameFramework.BaseApp.instance.isUseGL() ? 32 : 26;
 							r.x = v + GameFramework.Utils.P() * y | 0;
 							r.y = q + GameFramework.Utils.P() * y | 0;
 							u.x = v + GameFramework.Utils.P() * y | 0;
@@ -15975,7 +15974,7 @@ Game.LightningStorm.prototype = {
 		for (var c = 0; c < (this.Fp.length | 0); c++) {
 			var d = this.Fp[c], f = Math.min((1 - d.Zh) * 8, 1) * this.e.Yc(), g = GameFramework.gfx.Color
 					.Jb(f);
-			if (GameFramework.BaseApp.instance.kc()) {
+			if (GameFramework.BaseApp.instance.isUseGL()) {
 				for (var h = Array.Sd((Game.LightningStorm.hk - 1) * 2 - 2, 3, null), j = 0, k = 0; k < Game.LightningStorm.hk
 						- 1; k++) {
 					var l = d.Z[d.Z.g * k + 0], m = d.Z[d.Z.g * k + 1], o = d.Z[d.Z.g
@@ -17364,7 +17363,7 @@ Game.Board.prototype = {
 		c.jt(true);
 		c.lr = true;
 		for (var f = 0; f < 7; f++)
-			d = c.fn(f + 1), f == (b | 0) && GameFramework.BaseApp.instance.kc()
+			d = c.fn(f + 1), f == (b | 0) && GameFramework.BaseApp.instance.isUseGL()
 					&& !Game.BejApp.q.$f ? d.tn(true) : d.tn(false);
 		d = c.fn((b | 0) + 1);
 		b = d.MR("Glow");
@@ -17378,7 +17377,7 @@ Game.Board.prototype = {
 		c.lr = true;
 		c.nr = true;
 		for (var f = 0; f < 7; f++)
-			d = c.fn(f + 1), f == (b | 0) && GameFramework.BaseApp.instance.kc()
+			d = c.fn(f + 1), f == (b | 0) && GameFramework.BaseApp.instance.isUseGL()
 					&& !Game.BejApp.q.$f ? d.tn(true) : d.tn(false);
 		c.KJ("Top").tn(false);
 		d = c.fn((b | 0) + 1);
@@ -17401,7 +17400,7 @@ Game.Board.prototype = {
 		this.ob.Gc(c)
 	},
 	qU : function(b) {
-		if (GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f) {
+		if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f) {
 			var c = new Game.ParticleEffect(Game.Resources.PIEFFECT_HYPERCUBE);
 			c.qd = b.xa;
 			c.jt(true);
@@ -17903,7 +17902,7 @@ Game.Board.prototype = {
 											if (!q) {
 												h = false;
 												if (v.Th == 0)
-													if (f.Rp.push(v.xa), v.Th = 0.0167, !GameFramework.BaseApp.instance.kc()
+													if (f.Rp.push(v.xa), v.Th = 0.0167, !GameFramework.BaseApp.instance.isUseGL()
 															|| Game.BejApp.q.$f)
 														for (q = 0; q < 5; q++)
 															u = this.ob
@@ -18055,7 +18054,7 @@ Game.Board.prototype = {
 						+ (Game.Board.ab / 2 | 0), r = false, k = 0.013 * (k - b) | 0, l = 0.013
 						* (l - c) | 0;
 				if (h[h.g * j + 0] != 0 || h[h.g * j + 1] != 0) {
-					if (GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f) {
+					if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f) {
 						for (var v = 0; v < 14; v++) {
 							var u = this.ob.wf(Game.Effect.da.cp), y = GameFramework.Utils
 									.P()
@@ -18200,7 +18199,7 @@ Game.Board.prototype = {
 					* (h - d);
 			j == 0 && (k *= 2);
 			k == 0 && (j *= 2);
-			if (GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f)
+			if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f)
 				for (var l = 0; l < 14; l++) {
 					var m = this.ob.wf(Game.Effect.da.cp), o = GameFramework.Utils.P()
 							* Game.MathUtil.PI, q = 0 + 2
@@ -18253,7 +18252,7 @@ Game.Board.prototype = {
 						* (3 * Math.abs(GameFramework.Utils.P()) + 1), l.Ic = -0.0025
 						* (2 * Math.abs(GameFramework.Utils.P()) + 4), this.ob
 						.Gc(l);
-			if (GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f) {
+			if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f) {
 				for (c = 0; c < 14; c++)
 					d = this.ob.wf(Game.Effect.da.cp), g = c * Game.MathUtil.PI * 2 / 20, l = 0.5
 							+ 5.75 * Math.abs(GameFramework.Utils.P()), d.Nc = (l
@@ -19726,7 +19725,7 @@ Game.Board.prototype = {
 				b.Tw = false;
 				b.cx = false;
 				Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_LEVELCOMPLETE);
-				GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f
+				GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f
 						? (this.Jf = new Game.HyperspaceUltra(this), Game.BejApp.q.nx.Bc(this.Jf))
 						: (this.Jf = new Game.HyperspaceFallback(this), b = this.Qb, this.Mq(), b
 								.Bc(this.Jf), b.Bc(this), this.wd.oi(this));
@@ -19881,11 +19880,11 @@ Game.Board.prototype = {
 				if (d != null)
 					d.L = this.L.D()
 			}
-			GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f ? GameFramework.BaseApp.instance.vb
+			GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f ? GameFramework.BaseApp.instance.vb
 					.nT(this.Jf == null || this.Jf.aa < 96) : GameFramework.BaseApp.instance.vb
 					.nT(this.Jf == null);
 			if (this.Ge != null)
-				this.Ge.ec = !Game.BejApp.q.Bi.JS() || !GameFramework.BaseApp.instance.kc();
+				this.Ge.ec = !Game.BejApp.q.Bi.JS() || !GameFramework.BaseApp.instance.isUseGL();
 			this.Bw = 0.95 * this.Bw + (1 - 0.95) * 1;
 			if (Math.abs(this.Bw - 1) < 0.01)
 				this.Bw = 1;
@@ -19938,7 +19937,7 @@ Game.Board.prototype = {
 		}
 	},
 	K_ : function(b, c) {
-		if (GameFramework.BaseApp.instance.kc()
+		if (GameFramework.BaseApp.instance.isUseGL()
 				&& !(c.n == Game.DM.Ha.sc || c.m.D() != 1 || c.eh != 0 || this
 						.Yc() != 1)) {
 			if (this.ob.Sh[Game.Effect.da.Yl | 0] != null) {
@@ -20173,7 +20172,7 @@ Game.Board.prototype = {
 			b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_FRAME_BACK.Ee(), this.Se(), this
 							.Cd()
 							+ 1054);
-			var f = this.qv(), g = !GameFramework.BaseApp.instance.kc();
+			var f = this.qv(), g = !GameFramework.BaseApp.instance.isUseGL();
 			f.s = f.s * this.Mj | 0;
 			var h = b.mh(f.w), j = b.mh(f.w + f.s) - h;
 			if (!g) {
@@ -20250,7 +20249,7 @@ Game.Board.prototype = {
 		}
 	},
 	G_ : function(b) {
-		if (GameFramework.BaseApp.instance.kc()) {
+		if (GameFramework.BaseApp.instance.isUseGL()) {
 			var c = this.Ef + -95, d;
 			if (this.MB.D() > 0) {
 				var f = GameFramework.gfx.Color.ta(96, 96, 255);
@@ -20303,7 +20302,7 @@ Game.Board.prototype = {
 		}
 	},
 	F_ : function(b) {
-		if (this.$w.D() != 0 && this.ax != -1 && GameFramework.BaseApp.instance.kc()) {
+		if (this.$w.D() != 0 && this.ax != -1 && GameFramework.BaseApp.instance.isUseGL()) {
 			var c = Array.O(7, "", Game.Resources.a2, Game.Resources.Y1, Game.Resources.W1, Game.Resources.b2,
 					Game.Resources.Z1, Game.Resources.c2, Game.Resources.X1);
 			b.Q(GameFramework.gfx.Color.Jb(this.$w.D() * this.Yc()));
@@ -20392,7 +20391,7 @@ Game.Board.prototype = {
 		this.TQ(b, false);
 		this.V_(b);
 		!Game.BejApp.q.$f
-				&& GameFramework.BaseApp.instance.kc()
+				&& GameFramework.BaseApp.instance.isUseGL()
 				&& (this.Pm[0] != null && this.Pm[0].draw(b), this.Pm[1] != null
 						&& this.Pm[1].draw(b));
 		this.nm > 0
@@ -20619,7 +20618,7 @@ Game.Board.prototype = {
 							m = 1;
 							o > 0 && (m = (j - q) / o);
 							if (this.Ch > 0)
-								if (!GameFramework.BaseApp.instance.kc()
+								if (!GameFramework.BaseApp.instance.isUseGL()
 										&& Game.Resources.FONT_SPEED_SCORE_ORANGE != null) {
 									b.kb(Game.Resources.FONT_SPEED_SCORE_ORANGE);
 									if (h.length > 0) {
@@ -21570,7 +21569,7 @@ Game.CrystalBall.prototype = {
 			b.jg(c);
 			c = this.m.V();
 			this.eg > 0 && (c *= 0.00255 / this.eg);
-			var d = Game.BejApp.q.e == null || !Game.BejApp.q.$f && GameFramework.BaseApp.instance.kc(), f = b
+			var d = Game.BejApp.q.e == null || !Game.BejApp.q.$f && GameFramework.BaseApp.instance.isUseGL(), f = b
 					.translate(this.s / 2, this.z / 2);
 			try {
 				!this.Hx
@@ -21652,7 +21651,7 @@ Game.CrystalBall.prototype = {
 								G[z * 2] = u[u.g * (z % Game.CrystalBall.Yk) + y], G[z
 										* 2 + 1] = u[u.g * (z % Game.CrystalBall.Yk) + y
 										+ 1];
-							if (Game.BejApp.q.kc()) {
+							if (Game.BejApp.q.isUseGL()) {
 								var A = z = 0, D = Game.CrystalBall.Yk * 2, F = Array
 										.Sd(D, 3, null);
 								F[F.g * z + 0] = G[A++];
@@ -21908,7 +21907,7 @@ Game.Effect = function(b) {
 		case Game.Effect.da.cp :
 			this.Oa = Game.Resources.IMAGE_FX_STEAM;
 			this.yi = -0.00835;
-			if (GameFramework.BaseApp.instance.kc())
+			if (GameFramework.BaseApp.instance.isUseGL())
 				this.Hb = GameFramework.Utils.P() * 3.141593, this.Qh = GameFramework.Utils
 						.P()
 						* 0.0668;
@@ -22582,7 +22581,7 @@ Game.EffectsManager.prototype = {
 										b.Ml.tx = k.w - k.Oa.s / 2 * k.m;
 										b.Ml.ty = k.v - k.Oa.z / 2 * k.m;
 										b.jg(b.Ml);
-										GameFramework.BaseApp.instance.kc()
+										GameFramework.BaseApp.instance.isUseGL()
 												? (m *= 0.8, k.Oa.pc = true)
 												: (m = Math.min(1, 1.5 * m), k.Oa.pc = false);
 										b.Q(GameFramework.gfx.Color.st(k.n, m));
@@ -22693,7 +22692,7 @@ addClassInitEntry(function() {
 Game.Bej3EditWidget = function() {
 	callSuperConstructor(Game.Bej3EditWidget, this);
 	this.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
-	GameFramework.BaseApp.instance.kc()
+	GameFramework.BaseApp.instance.isUseGL()
 			|| (this.pe[GameFramework.widgets.EditWidget.CD] = 4285554768, this.pe[GameFramework.widgets.EditWidget.TI] = 4278190080, this.pe[GameFramework.widgets.EditWidget.SP] = 4294967295)
 };
 Game.Bej3EditWidget.prototype = {
@@ -22993,7 +22992,7 @@ Game.EndLevelDialog.prototype = {
 					- (b.hc(f) | 0), h = -1;
 			if (this.zc[d].vk || d == -1) {
 				Game.Resources.FONT_GAMEOVER_DIALOG.Ia("GLOW", 0);
-				if (GameFramework.BaseApp.instance.kc()) {
+				if (GameFramework.BaseApp.instance.isUseGL()) {
 					Game.Resources.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 1090519039);
 					var j = this.aa % 45 / 45;
 					j > 0.5 && (j = 1 - j);
@@ -23011,7 +23010,7 @@ Game.EndLevelDialog.prototype = {
 				this.Vd.Jx = g
 			} else
 				Game.Resources.FONT_GAMEOVER_DIALOG.Ia("OUTLINE", 4294967295), Game.Resources.FONT_GAMEOVER_DIALOG
-						.Ia("GLOW", 0), c && !GameFramework.BaseApp.instance.kc()
+						.Ia("GLOW", 0), c && !GameFramework.BaseApp.instance.isUseGL()
 						? Game.Resources.FONT_GAMEOVER_DIALOG.Ia("MAIN", 3372220415)
 						: (h = 4294953816, Game.Resources.FONT_GAMEOVER_DIALOG.Ia(
 								"MAIN", -1));
@@ -27263,7 +27262,7 @@ Game.HyperspaceUltra.prototype = {
 		this.B5()
 	},
 	draw : function(b) {
-		if (GameFramework.BaseApp.instance.kc()) {
+		if (GameFramework.BaseApp.instance.isUseGL()) {
 			Game.HyperspaceUltra.nb = b.yD();
 			switch (this.Bb) {
 				case Game.HyperspaceUltra.ya.un :
@@ -28590,7 +28589,7 @@ Game.MainMenu.prototype = {
 					}
 					b.U.ib("OUTLINE");
 					b.U.ib("GLOW");
-					if (Game.BejApp.q.kc() && this.Gx.V() > 0) {
+					if (Game.BejApp.q.isUseGL() && this.Gx.V() > 0) {
 						for (var c = Array.Sd((Game.MainMenu.Ov - 1) * 2, 3, null), d = 0, f = (Math
 								.sin(this.aa * 0.03)
 								* 0.125 + 0.75)
@@ -28745,7 +28744,7 @@ Game.MainMenu.prototype = {
 			var d = b.Qb;
 			d != null && (d.pn(b), d.Bc(b));
 			c != null
-					? GameFramework.BaseApp.instance.kc()
+					? GameFramework.BaseApp.instance.isUseGL()
 							? (c.L.ea("b;0,1,0.01,1,####  Z####       F~###"), c.m
 									.ea("b;1,5,0.01,1,~pF[         ~####"), b.Oa = c.Ge
 									.ER(true, false), b.$B = new GameFramework.TIntRect(0,
@@ -29071,7 +29070,7 @@ Game.OptionsDialog = function(b) {
 	callSuperConstructor(Game.OptionsDialog, this, [Game.Resources.IMAGE_DIALOG_HEADERLESS_BKG,
 					Game.Resources.IMAGE_DIALOG_BUTTON, Game.DM.mb.bA, true, "", "", "",
 					GameFramework.widgets.Dialog.Zp]);
-	this.tI = !Game.BejApp.q.$f && Game.BejApp.q.kc() || !Game.BejApp.q.Ka.vt;
+	this.tI = !Game.BejApp.q.$f && Game.BejApp.q.isUseGL() || !Game.BejApp.q.Ka.vt;
 	b = (this.Wn = b) ? 740 : 850;
 	this.tI || (b -= 94);
 	this.Fd = new GameFramework.Insets(128, 20, 128, 88);
@@ -29491,7 +29490,7 @@ Game.Piece.prototype = {
 				if (!(Game.BejApp.q.vp != 1 && GameFramework.Utils.randZeroOne() > 0.4
 						+ Game.BejApp.q.vp * 0.6)) {
 					var d = Game.Util.Fc() % 5 != 0;
-					if (d || GameFramework.BaseApp.instance.kc() && !Game.BejApp.q.$f) {
+					if (d || GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.q.$f) {
 						var f;
 						if (d) {
 							f = Game.Util.Fc() % 32 == 0 ? this.e.ob : this.e.Jg;
@@ -29540,7 +29539,7 @@ Game.Piece.prototype = {
 									/ 2 * 1.67, c.Vb = (c.Vb + k) / 2 * 1.67;
 						d = this.$d();
 						f == this.e.ob && (d += this.e.we.V());
-						if (Game.BejApp.q.$f || !Game.BejApp.q.kc())
+						if (Game.BejApp.q.$f || !Game.BejApp.q.isUseGL())
 							h *= 0.8, c.m *= 2, c.Ag *= 2;
 						c.w = d + (Game.Board.bb / 2 | 0) + Math.cos(g) * h;
 						c.v = this.dd() + (Game.Board.ab / 2 | 0) + Math.sin(g) * h
@@ -29988,7 +29987,7 @@ Game.Profile.prototype = {
 		this.Km = "";
 		this.vk = true;
 		this.s8 = this.uc = this.I8 = this.H8 = this.K8 = this.J8 = this.El = this.Qj = 0;
-		this.vt = GameFramework.BaseApp.instance.kc();
+		this.vt = GameFramework.BaseApp.instance.isUseGL();
 		this.r8 = false;
 		this.Fr = this.tu = 0.5;
 		var b;
@@ -32576,7 +32575,7 @@ Game.SpeedBoard.prototype = {
 			this.Iu = 0
 	},
 	kJ : function(b) {
-		var c = this.qv(), d = Math.pow(this.Rf(), 4), f = !GameFramework.BaseApp.instance.kc();
+		var c = this.qv(), d = Math.pow(this.Rf(), 4), f = !GameFramework.BaseApp.instance.isUseGL();
 		c.s = this.Mj * c.s + this.UN | 0;
 		var g = b.mh(c.w), h = b.mh(c.w + c.s) - g;
 		if (!f) {
@@ -33099,7 +33098,7 @@ Game.TimeBonusEffect.prototype = {
 			this.ce = true
 	},
 	NQ : function(b, c, d, f, g, h, j, k, l) {
-		if (Game.BejApp.q.kc()) {
+		if (Game.BejApp.q.isUseGL()) {
 			var m = Math.atan2(h - f, g - d), o = Math.cos(m), m = -Math.sin(m), q = d
 					+ o * -j, r = g + o * j;
 			Game.TimeBonusEffect.na == null
@@ -33456,7 +33455,7 @@ Game.LightningBarFillEffect.prototype = {
 	},
 	draw : function(b) {
 		var c = Math.min((1 - this.Zh) * 8, 1) * this.Nb.e.Yc() * 255 | 0;
-		if (GameFramework.BaseApp.instance.kc()) {
+		if (GameFramework.BaseApp.instance.isUseGL()) {
 			for (var d = Array.Sd((Game.LightningBarFillEffect.Xk - 1) * 2, 3, null), f = 0; f < (Game.LightningBarFillEffect.Xk - 1)
 					* 2; f++)
 				d[d.g * f + 0] = new GameFramework.gfx.TriVertex, d[d.g * f + 1] = new GameFramework.gfx.TriVertex, d[d.g
