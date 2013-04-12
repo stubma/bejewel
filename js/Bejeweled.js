@@ -1726,12 +1726,12 @@ function drawFrame() {
 		for (var frames = 0, atLeastOneFrame = false; delta >= curApp.frameInterval;) {
 			if (exitWhenError) {
 				try {
-					curApp.ca()
+					curApp.update()
 				} catch (d) {
 					curApp.onException(d)
 				}
 			} else {
-				curApp.ca();
+				curApp.update();
 			}
 
 			delta -= curApp.frameInterval;
@@ -2344,12 +2344,12 @@ GameFramework.BaseApp.prototype = {
 		this.tB.push(b);
 		return b
 	},
-	ca : function() {
+	update : function() {
 		this.aa++;
-		this.Bb != null && this.Bb.ca();
-		this.BG != null && this.BG.ca();
-		this.AY != null && this.AY.ca();
-		this.tr != null && this.tr.ca();
+		this.Bb != null && this.Bb.update();
+		this.BG != null && this.BG.update();
+		this.AY != null && this.AY.update();
+		this.tr != null && this.tr.update();
 		this.dispatchEvent(new GameFramework.events.Event("update"))
 	},
 	draw : function() {
@@ -3844,7 +3844,7 @@ GameFramework.connected.Database.prototype = {
 	v9 : "http://mooami.internal.popcap.com/p4_managed/PrimeSharp/prime/Database/query_engine.php",
 	U8 : null,
 	y8 : null,
-	ca : dummy()
+	update : dummy()
 };
 GameFramework.connected.Database.initClass = function() {
 	GameFramework.connected.Database.Cca = 1;
@@ -3908,7 +3908,7 @@ GameFramework.connected.HTTPService.prototype = {
 		c.OH = b;
 		return c
 	},
-	ca : dummy()
+	update : dummy()
 };
 GameFramework.connected.HTTPService.initClass = dummy();
 addClassEntry(function() {
@@ -3924,7 +3924,7 @@ GameFramework.connected.SocialService = function() {
 GameFramework.connected.SocialService.prototype = {
 	Q7 : null,
 	Ub : staticGet(null),
-	ca : dummy()
+	update : dummy()
 };
 GameFramework.connected.SocialService.initClass = dummy();
 addClassEntry(function() {
@@ -9739,7 +9739,7 @@ GameFramework.resources.PIEffect.prototype = {
 									* (m.Cj + j.lb[GameFramework.resources.PIParticleInstance.Sa.md | 0])), j = z
 		}
 	},
-	ca : function() {
+	update : function() {
 		if (this.up == null
 				&& (this.aa++, !(this.frameInterval == GameFramework.BaseApp.instance.frameInterval * 2 && this.aa
 						% 2 == 0))) {
@@ -10507,7 +10507,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 			var b = this.gl, c = this.no;
 			this.gl = true;
 			this.no = false;
-			this.ca();
+			this.update();
 			this.gl = b;
 			this.no = c
 		}
@@ -10733,7 +10733,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 					f.Ke.za.scale(this.Qn, this.Qn);
 					if (f.Na && c != null)
 						f.Ke.Fe = 1 / c.Ya.vo;
-					f.Ke.ca();
+					f.Ke.update();
 					f.Ep = this.aa;
 					f.Ke.Ts() || (C(b.ve, d), d--)
 				}
@@ -10946,9 +10946,9 @@ GameFramework.resources.PopAnimResource.prototype = {
 	q5 : function(b) {
 		this.no || this.uZ(b)
 	},
-	ca : function() {
+	update : function() {
 		if (this.ue
-				&& (GameFramework.widgets.ClassicWidget.prototype.ca.apply(this), this.mw(null)))
+				&& (GameFramework.widgets.ClassicWidget.prototype.update.apply(this), this.mw(null)))
 			this.q5(this.KV), this.JL(this.Kc, null, this.n, false), this.vy = false, this.no
 					|| (this.LU(this.Kc, null), this.jQ(this.Kc))
 	}
@@ -11967,11 +11967,11 @@ GameFramework.widgets.ClassicWidget.prototype = {
 		this.s = d;
 		this.z = f
 	},
-	ca : function() {
+	update : function() {
 		this.aa++
 	},
 	IU : function() {
-		this.ca();
+		this.update();
 		for (var b = 0; b < this.cf.length; b++)
 			this.cf[b].IU()
 	},
@@ -12132,7 +12132,7 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 		this.Vh = b;
 		this.Vh != null && this.Vh.PJ()
 	},
-	ca : function() {
+	update : function() {
 		if (this.yI)
 			this.TK(), this.yI = false;
 		this.no || this.fe.IU()
@@ -12463,8 +12463,8 @@ GameFramework.widgets.Dialog.prototype = {
 			this.ql = false;
 		GameFramework.widgets.ClassicWidget.prototype.Wk.apply(this, [b, c])
 	},
-	ca : function() {
-		GameFramework.widgets.ClassicWidget.prototype.ca.apply(this)
+	update : function() {
+		GameFramework.widgets.ClassicWidget.prototype.update.apply(this)
 	},
 	Te : function() {
 		if (!this.zl) {
@@ -12661,8 +12661,8 @@ GameFramework.widgets.EditWidget.prototype = {
 		GameFramework.widgets.ClassicWidget.prototype.EE.apply(this);
 		this.xu = false
 	},
-	ca : function() {
-		GameFramework.widgets.ClassicWidget.prototype.ca.apply(this);
+	update : function() {
+		GameFramework.widgets.ClassicWidget.prototype.update.apply(this);
 		if (this.vN && ++this.mB > this.VV)
 			this.mB = 0, this.xu = !this.xu
 	},
@@ -12932,8 +12932,8 @@ Game.Slider.prototype = {
 			this.af = 1;
 		this.af != c && this.dispatchEvent(new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.DA))
 	},
-	ca : function() {
-		GameFramework.widgets.ClassicWidget.prototype.ca.apply(this);
+	update : function() {
+		GameFramework.widgets.ClassicWidget.prototype.update.apply(this);
 		this.h9 = this.g9 = false
 	},
 	draw : function(b) {
@@ -13107,8 +13107,8 @@ GameFramework.JSBaseApp.prototype = {
 			c.fX && (C(this.tB, b), b--)
 		}
 	},
-	ca : function() {
-		GameFramework.BaseApp.prototype.ca.apply(this);
+	update : function() {
+		GameFramework.BaseApp.prototype.update.apply(this);
 		for (var b = false, c = false, d = false, f = 0; f < this.Ck.length; f++) {
 			if (this.wW && GameFramework.Utils.bootTime() - this.nX >= 100)
 				break;
@@ -14390,7 +14390,7 @@ Game.Announcement.prototype = {
 		this.L.pv() < 0.85
 				&& (this.L.iF(0.85, true), this.m.iF(0.85, true), this.xx.iF(0.85, true))
 	},
-	ca : function() {
+	update : function() {
 		this.L.$a();
 		this.m.$a();
 		this.xx.$a();
@@ -14556,8 +14556,8 @@ Game.Background.prototype = {
 		d && b.pb();
 		this.JW.V()
 	},
-	ca : function() {
-		GameFramework.widgets.ClassicWidget.prototype.ca.apply(this);
+	update : function() {
+		GameFramework.widgets.ClassicWidget.prototype.update.apply(this);
 		var b = this.Hk;
 		this.Hk = Game.BejApp.q.Ka.vt && Game.BejApp.q.kc();
 		b != this.Hk && this.Hk && this.hf == null && this.CU(this.Dt);
@@ -14582,7 +14582,7 @@ Game.Background.prototype = {
 		if (this.Lw) {
 			this.HO = true;
 			if (this.Hk)
-				this.hf.KV = this.qI.V(), this.hf.ca();
+				this.hf.KV = this.qI.V(), this.hf.update();
 			if (!this.Hk) {
 				this.oy = 0;
 				this.Lw = false;
@@ -14670,8 +14670,8 @@ Game.Bej3DialogButton.prototype = {
 			c.t()
 		}
 	},
-	ca : function() {
-		GameFramework.widgets.ButtonWidget.prototype.ca.apply(this);
+	update : function() {
+		GameFramework.widgets.ButtonWidget.prototype.update.apply(this);
 		this.dh
 				&& this.gP != null
 				&& this.gP.length > 0
@@ -14747,8 +14747,8 @@ Game.Bej3Dialog.prototype = {
 		c && b.Ab();
 		this.L.D() != 1 && b.pb()
 	},
-	ca : function() {
-		GameFramework.widgets.Dialog.prototype.ca.apply(this);
+	update : function() {
+		GameFramework.widgets.Dialog.prototype.update.apply(this);
 		this.QH = this.s / 2;
 		this.MO = this.z / 2;
 		this.L.$a();
@@ -14910,8 +14910,8 @@ Game.TopWidget.prototype = {
 						&& this.ag.ls(String.format("Version {0} " + b, Game.Version
 										.sz())))
 	},
-	ca : function() {
-		this.xl && (GameFramework.widgets.ClassicWidget.prototype.ca.apply(this), this.ag.ca())
+	update : function() {
+		this.xl && (GameFramework.widgets.ClassicWidget.prototype.update.apply(this), this.ag.update())
 	},
 	draw : function(b) {
 		if (this.xl
@@ -15021,10 +15021,10 @@ Game.BejApp.prototype = {
 	WY : 1,
 	yX : null,
 	userAgent : "unknown",
-	ca : function() {
-		this.Jp.ca();
+	update : function() {
+		this.Jp.update();
 		if (this.Bi == null)
-			GameFramework.JSBaseApp.prototype.ca.apply(this);
+			GameFramework.JSBaseApp.prototype.update.apply(this);
 		else {
 			if (this.Bi.ue) {
 				if (this.aa % 20 == 0) {
@@ -15053,7 +15053,7 @@ Game.BejApp.prototype = {
 			}
 			b = 0;
 			this.e != null && this.e.CF() && (b = 35);
-			this.OX <= b && GameFramework.JSBaseApp.prototype.ca.apply(this);
+			this.OX <= b && GameFramework.JSBaseApp.prototype.update.apply(this);
 			this.KU()
 		}
 	},
@@ -15149,7 +15149,7 @@ Game.BejApp.prototype = {
 		this.fe.Bc(this.nI);
 		if (this.ZN == null)
 			this.Bi = new Game.MainMenu, this.Bi.s = 1600, this.Bi.z = 1200, this.nx
-					.Bc(this.Bi), this.Bi.ca(), this.Nh.oi(this.Bi), this.hP = new Game.TooltipManager, this.fe
+					.Bc(this.Bi), this.Bi.update(), this.Nh.oi(this.Bi), this.hP = new Game.TooltipManager, this.fe
 					.Bc(this.hP);
 		var b = this.vb.J4("properties/resources.xml");
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.M3));
@@ -15640,7 +15640,7 @@ Game.LightningZap = function(b, c, d, f, g, h, j, k) {
 	this.Hb = Math.atan2(b, c);
 	this.fC = Math.sqrt(c * c + b * b);
 	this.jP = this.nf = 0;
-	this.ca()
+	this.update()
 };
 Game.LightningZap.prototype = {
 	e : null,
@@ -15659,7 +15659,7 @@ Game.LightningZap.prototype = {
 	nf : 0,
 	ce : null,
 	IW : null,
-	ca : function() {
+	update : function() {
 		var b = Game.Resources.IMAGE_LIGHTNING;
 		this.jP++;
 		this.$e += 0.167;
@@ -16057,14 +16057,14 @@ Game.LightningStorm.prototype = {
 		}
 		b.Ab()
 	},
-	ca : function() {
+	update : function() {
 		this.aa++;
 		this.zH.$a();
 		this.tC.$a();
 		this.Qe == Game.LightningStorm.Yb.mq && this.tC.aJ(1.6)
 				&& Game.SoundUtil.Play(Game.Resources.SOUND_BOMB_EXPLODE);
 		for (var b = 0; b < (this.Pu.length | 0); b++)
-			this.Pu[b].ca();
+			this.Pu[b].update();
 		this.lN = Math.max(0, this.lN - 0.0167);
 		this.Qe == Game.LightningStorm.Yb.sc && this.GL()
 	},
@@ -17204,7 +17204,7 @@ Game.Board.prototype = {
 	i5 : function() {
 		if (this.Cm.wg()) {
 			var b = !this.Cm.$a();
-			this.tl.ca();
+			this.tl.update();
 			for (var c = this.mO.V() * 280, d = this.tl.w + (Game.Board.bb / 2 | 0), f = this.tl.v
 					+ (Game.Board.ab / 2 | 0), g = 0; g < this.wc; g++)
 				for (var h = 0; h < this.$b; h++) {
@@ -17305,7 +17305,7 @@ Game.Board.prototype = {
 			c.m = 2;
 			c.nr = true;
 			c.UE("Creation_Below Gem_Horizontal");
-			c.ca();
+			c.update();
 			this.Jg.Gc(c);
 			c = new Game.PopAnimEffect(Game.Resources.POPANIM_FLAMEGEMCREATION);
 			c.w = b.Ad();
@@ -17314,7 +17314,7 @@ Game.Board.prototype = {
 			c.Ak = true;
 			c.nr = true;
 			c.UE("Creation_Above Gem");
-			c.ca();
+			c.update();
 			this.ob.Gc(c)
 		}
 	},
@@ -17825,7 +17825,7 @@ Game.Board.prototype = {
 			this.nm = Math.min(this.nm + 0.0835, 1);
 		for (d = 0; d < (this.qc.length | 0); d++) {
 			f = this.qc[d];
-			f.ca();
+			f.update();
 			b = false;
 			switch (f.Qe) {
 				case Game.LightningStorm.Yb.oE :
@@ -19534,7 +19534,7 @@ Game.Board.prototype = {
 						| 0
 	},
 	s5 : function() {
-		this.zj.length > 0 && this.zj[0].ca();
+		this.zj.length > 0 && this.zj[0].update();
 		this.Fu.$a();
 		this.L.$a();
 		this.so.$a();
@@ -19796,7 +19796,7 @@ Game.Board.prototype = {
 	KQ : function() {
 		for (var b = 0; b < 2; b++)
 			this.Pm[b] != null
-					&& (this.Pm[b].ca(), this.Pm[b].Ts() || (this.Pm[b] = null));
+					&& (this.Pm[b].update(), this.Pm[b].Ts() || (this.Pm[b] = null));
 		if (Game.BejApp.q.te.Zd(Game.DM.mb.uJ) == null) {
 			for (var b = this.e, c = 0; c < b.length; c++) {
 				var d = b[c];
@@ -19804,7 +19804,7 @@ Game.Board.prototype = {
 					d.ed = this.Iz(d), d.Ik = this.R5(d)
 			}
 			this.yl = this.tE();
-			this.Jg.ca();
+			this.Jg.update();
 			this.L.D() == 1 && this.m.D() == 1 && this.aa >= 200 && this.E5();
 			if ((this.es || Game.BejApp.q.Zd(Game.DM.mb.q3) != null && this.Yr.V() == 1
 					|| Game.BejApp.q.Zd(Game.DM.mb.bA) != null
@@ -19828,7 +19828,7 @@ Game.Board.prototype = {
 				} else {
 					b = this.e;
 					for (c = 0; c < b.length; c++)
-						d = b[c], d != null && d.ca();
+						d = b[c], d != null && d.update();
 					if (this.L.D() == 1 && this.m.D() == 1
 							&& Game.DialogMgr.te.se.length == 0 && this.pf == 0
 							&& this.Wt && !this.iK()) {
@@ -19864,7 +19864,7 @@ Game.Board.prototype = {
 								if (d.eh += 0.02, d.eh >= 1)
 									d.eh = 0
 					} else
-						this.z5(), GameFramework.widgets.ClassicWidget.prototype.ca.apply(this), this
+						this.z5(), GameFramework.widgets.ClassicWidget.prototype.update.apply(this), this
 								.s5()
 				}
 		}
@@ -19872,10 +19872,10 @@ Game.Board.prototype = {
 	l5 : function() {
 		return this.lD ? (this.lD = false, this.Ub(), this.NE(), true) : false
 	},
-	ca : function() {
+	update : function() {
 		if (!this.l5()) {
 			Game.BejApp.q.te.Zd(Game.DM.mb.bA) == null
-					&& Game.BejApp.q.te.Zd(Game.DM.mb.JK) == null && this.xc.ca();
+					&& Game.BejApp.q.te.Zd(Game.DM.mb.JK) == null && this.xc.update();
 			for (var b = Array.O(3, null, this.Ib, this.fd, this.hd), c = 0; c < b.length; c++) {
 				var d = b[c];
 				if (d != null)
@@ -21026,7 +21026,7 @@ Game.Board.prototype = {
 				Game.BejApp.q.$I(GameFramework.BaseApp.instance.artRes == 768 ? 480 : 768);
 			else if (b == 93)
 				for (c = 0; c < 500; c++)
-					this.ca();
+					this.update();
 			else if (b == 91)
 				this.Me = this.zf() * 60;
 			if (b == 70)
@@ -21430,7 +21430,7 @@ Game.ColorCycle.prototype = {
 	lf : null,
 	t : dummy(),
 	o4 : set("$H"),
-	ca : function() {
+	update : function() {
 		if (this.$H != 0)
 			if (this.lf.length == 0)
 				this.n = 0;
@@ -21458,7 +21458,7 @@ Game.ColorCycle.prototype = {
 		for (; b >= 1;)
 			b -= 1;
 		this.sp = b;
-		this.ca()
+		this.update()
 	},
 	N3 : function() {
 		this.sp = 0;
@@ -21697,10 +21697,10 @@ Game.CrystalBall.prototype = {
 			}
 		}
 	},
-	ca : function() {
-		GameFramework.widgets.ButtonWidget.prototype.ca.apply(this);
+	update : function() {
+		GameFramework.widgets.ButtonWidget.prototype.update.apply(this);
 		if (this.ec)
-			++this.aa, this.sr.ca(), this.Mr.ca(), this.nC = this.dh ? Math
+			++this.aa, this.sr.update(), this.Mr.update(), this.nC = this.dh ? Math
 					.min(1, this.nC + 0.05) : Math.max(0, this.nC - 0.05)
 	},
 	Af : function(b, c) {
@@ -21839,8 +21839,8 @@ Game.DialogMgr.prototype = {
 			}
 		}
 	},
-	ca : function() {
-		GameFramework.widgets.ClassicWidget.prototype.ca.apply(this);
+	update : function() {
+		GameFramework.widgets.ClassicWidget.prototype.update.apply(this);
 		this.Ht.D() != 0
 				&& this.Ht.Js() != 0
 				&& (this.se.length == 0 || Type.isInstance(this.se[this.se.length - 1],
@@ -22057,7 +22057,7 @@ Game.Effect.prototype = {
 	hj : 0,
 	Nb : null,
 	t : dummy(),
-	ca : dummy(),
+	update : dummy(),
 	draw : dummy()
 };
 Game.Effect.initClass = dummy();
@@ -22130,7 +22130,7 @@ Game.TextNotifyEffect.prototype = {
 				/ 100;
 		b < this.qJ.Oc ? this.qJ.Ks(b) : c > 0 && this.rJ.Ks(c)
 	},
-	ca : function() {
+	update : function() {
 		if (this.re > 0)
 			--this.re;
 		else if (++this.aa, !(this.aa < 0) && this.aa >= this.ZM)
@@ -22160,8 +22160,8 @@ Game.ParticleEffect.prototype = {
 		this.mg.t();
 		this.mg = null
 	},
-	ca : function() {
-		Game.Effect.prototype.ca.apply(this);
+	update : function() {
+		Game.Effect.prototype.update.apply(this);
 		var b = new GameFramework.geom.Matrix;
 		b.scale(this.m, this.m);
 		b.rotate(this.Hb);
@@ -22180,7 +22180,7 @@ Game.ParticleEffect.prototype = {
 		this.lr
 				? (b.scale(1, 1), this.mg.za = b)
 				: (this.mg.za.identity(), this.mg.dj = b);
-		this.fH ? (this.mg.qn(), this.fH = false) : this.mg.ca();
+		this.fH ? (this.mg.qn(), this.fH = false) : this.mg.update();
 		if (!this.mg.Ts())
 			this.ce = true
 	},
@@ -22239,8 +22239,8 @@ Game.PopAnimEffect.prototype = {
 	UE : function(b) {
 		this.Bk.Play(b)
 	},
-	ca : function() {
-		Game.Effect.prototype.ca.apply(this);
+	update : function() {
+		Game.Effect.prototype.update.apply(this);
 		var b = this.m, c = this.Bk.s * b, d = this.Bk.z * b, f = new GameFramework.geom.Matrix;
 		f.scale(b, b);
 		f.translate(-c / 2, -d / 2);
@@ -22255,8 +22255,8 @@ Game.PopAnimEffect.prototype = {
 					&& (this.w += Game.DM.CL * this.Nb.e.to.D());
 		f.translate(this.w - c / 2, this.v - d / 2);
 		this.Bk.Na = f;
-		this.Bk.ca();
-		this.yW && this.Bk.ca();
+		this.Bk.update();
+		this.yW && this.Bk.update();
 		if (!this.Bk.Ts())
 			this.ce = true
 	},
@@ -22295,8 +22295,8 @@ Game.EffectsManager.prototype = {
 	t : function() {
 		this.bq()
 	},
-	ca : function() {
-		GameFramework.widgets.ClassicWidget.prototype.ca.apply(this);
+	update : function() {
+		GameFramework.widgets.ClassicWidget.prototype.update.apply(this);
 		if (!(this.e != null && this.e.En == 1)) {
 			this.s = GameFramework.BaseApp.instance.s;
 			this.z = GameFramework.BaseApp.instance.z;
@@ -22432,7 +22432,7 @@ Game.EffectsManager.prototype = {
 								g.sH = g.L;
 								break;
 							default :
-								g.ca(), g.nr && g.ca()
+								g.update(), g.nr && g.update()
 						}
 						if (g.m < g.hO)
 							g.ce = true, g.m = g.hO;
@@ -22912,9 +22912,9 @@ Game.EndLevelDialog.prototype = {
 		this.m.ea("b+0,1,0.01,0.25,P+1x         ~~###");
 		this.Vd != null && this.Jd.D() > 0 && Game.BejApp.q.Nh.oi(this.Vd)
 	},
-	ca : function() {
+	update : function() {
 		if (Game.BejApp.q.Zd(Game.DM.mb.EU) == null
-				&& (Game.Bej3Dialog.prototype.ca.apply(this), this.Jd.D() > 0
+				&& (Game.Bej3Dialog.prototype.update.apply(this), this.Jd.D() > 0
 						&& this.Vd != null && this.JU(), this.uB.$a(), Game.BejApp.q.uh != Game.DM.xf.jk
 						&& !this.m.wg() && this.m.V() == 1 && this.aa >= 300)) {
 			var b = this.We[Game.EndLevelDialog.ug.QF | 0], c = new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.Ld);
@@ -26854,8 +26854,8 @@ Game.HintDialog.prototype = {
 		this.UK(true);
 		Game.Bej3Dialog.prototype.t.apply(this)
 	},
-	ca : function() {
-		Game.Bej3Dialog.prototype.ca.apply(this);
+	update : function() {
+		Game.Bej3Dialog.prototype.update.apply(this);
 		this.Pj.ti && this.Lp.Js() != 1 ? this.Lp
 				.vj("HintDialog_cs_11_14_11__18_37_44_846") : !this.Pj.ti
 				&& this.Lp.Js() != 0
@@ -27215,8 +27215,8 @@ Game.HyperspaceUltra.prototype = {
 	Yc : function() {
 		return this.Qp.D()
 	},
-	ca : function() {
-		Game.Hyperspace.prototype.ca.apply(this);
+	update : function() {
+		Game.Hyperspace.prototype.update.apply(this);
 		for (this.ie += 1.67;;) {
 			var b = this.Bb;
 			switch (this.Bb) {
@@ -27463,7 +27463,7 @@ Game.HyperspaceUltra.prototype = {
 		f.Aw(c.x, c.y, c.ia);
 		this.kf.pk(f);
 		Game.Resources.POPANIM_ANIMS_BOARDSHATTER.Ts()
-				&& Game.Resources.POPANIM_ANIMS_BOARDSHATTER.ca()
+				&& Game.Resources.POPANIM_ANIMS_BOARDSHATTER.update()
 	},
 	d5 : function() {
 		if (this.ae.Rk() >= 68)
@@ -27938,16 +27938,16 @@ Game.HyperspaceFallback.prototype = {
 	Yc : function() {
 		return this.e.L.D()
 	},
-	ca : function() {
-		Game.Hyperspace.prototype.ca.apply(this);
+	update : function() {
+		Game.Hyperspace.prototype.update.apply(this);
 		this.aa == 2 && this.e.Zb(Game.Hyperspace.Zb.Pv);
 		this.aa == 100 && Game.BejApp.q.mi(Game.Resources.SOUND_NEXTLEVEL);
 		this.sl.$a() || this.e.Zb(Game.Hyperspace.Zb.Cs);
 		this.aa == 180
 				&& (this.e.we.Aa(0), this.e.PK(), this.e.Zb(Game.Hyperspace.Zb.AK));
 		this.aa == 250 && this.e.PK();
-		this.KB.ca();
-		this.ty.ca()
+		this.KB.update();
+		this.ty.update()
 	},
 	draw : function(b) {
 		Game.Hyperspace.prototype.draw.apply(this, [b]);
@@ -28044,8 +28044,8 @@ Game.LoadingScreen.prototype = {
 			b.zb(GameFramework.Utils.wj(GameFramework.BaseApp.instance.ml), 1585, 1185, 0, 1)
 		}
 	},
-	ca : function() {
-		GameFramework.widgets.ClassicWidget.prototype.ca.apply(this)
+	update : function() {
+		GameFramework.widgets.ClassicWidget.prototype.update.apply(this)
 	}
 };
 Game.LoadingScreen.initClass = dummy();
@@ -28078,9 +28078,9 @@ Game.CurvedAlphaButton = function() {
 };
 Game.CurvedAlphaButton.prototype = {
 	eM : null,
-	ca : function() {
+	update : function() {
 		this.L = this.eM.D();
-		GameFramework.widgets.ButtonWidget.prototype.ca.apply(this)
+		GameFramework.widgets.ButtonWidget.prototype.update.apply(this)
 	}
 };
 Game.CurvedAlphaButton.initClass = dummy();
@@ -28346,7 +28346,7 @@ Game.MainMenu.prototype = {
 		this.fd = b
 	},
 	JA : dummy(),
-	ca : function() {
+	update : function() {
 		if (Game.BejApp.q.EN) {
 			this.RC != null && this.RC.dh & !this.RC.pl
 					? this.ru.Js() != 1
@@ -28366,7 +28366,7 @@ Game.MainMenu.prototype = {
 			this.or = this.ec;
 			if (this.ue)
 				this.ad.ec = this.or, this.Pe.ec = this.or, this.Tj.ec = this.or;
-			GameFramework.widgets.ClassicWidget.prototype.ca.apply(this);
+			GameFramework.widgets.ClassicWidget.prototype.update.apply(this);
 			if (this.or)
 				if (this.Qx.length > 0) {
 					this.vC = 1;
@@ -28511,7 +28511,7 @@ Game.MainMenu.prototype = {
 					}
 				}
 		} else
-			GameFramework.widgets.ClassicWidget.prototype.ca.apply(this)
+			GameFramework.widgets.ClassicWidget.prototype.update.apply(this)
 	},
 	draw : function(b) {
 		if (this.or) {
@@ -28852,7 +28852,7 @@ Game.Messager.prototype = {
 		f.wF = b;
 		this.Ip.push(f)
 	},
-	ca : function() {
+	update : function() {
 		for (var b = this.Ip.length - 1; b >= 0; --b)
 			this.Ip[b].Lv -= 0.01, this.Ip[b].Lv <= 0 && C(this.Ip, b)
 	},
@@ -28938,7 +28938,7 @@ Game.Metrics.prototype = {
 		if (Type.isInstance(c, GameFramework.TVector))
 			for (g = 0; g < c.length; g++)
 				b.push(c[g]);
-		d ? (this.ca(), this.YT(b, f != null ? f : this.vH), GameFramework.BaseApp.instance.FL()) : this.xC.push(b)
+		d ? (this.update(), this.YT(b, f != null ? f : this.vH), GameFramework.BaseApp.instance.FL()) : this.xC.push(b)
 	},
 	nL : function(b) {
 		GameFramework.BaseApp.instance.tr == null && GameFramework.BaseApp.instance.fJ();
@@ -28962,7 +28962,7 @@ Game.Metrics.prototype = {
 	},
 	iL : function(b) {
 		this.vH = b;
-		this.ca()
+		this.update()
 	},
 	YT : function(b, c) {
 		if (this.vH != null) {
@@ -28971,7 +28971,7 @@ Game.Metrics.prototype = {
 			GameFramework.BaseApp.instance.tr.n3(c, d)
 		}
 	},
-	ca : function() {
+	update : function() {
 		if (this.VW || !this.mY)
 			for (; this.xC.length > 0;) {
 				var b = this.xC[0], c = 1;
@@ -29478,7 +29478,7 @@ Game.Piece.prototype = {
 		var c = Math.min(19, 20 * this.eh) | 0;
 		return Game.Piece.Es(b, this.n, c)
 	},
-	ca : function() {
+	update : function() {
 		this.IX.$a();
 		this.JX.$a();
 		this.iy > 0 ? (this.WH = 3.141593 * GameFramework.Utils.P(), this.uu = Math
@@ -29739,7 +29739,7 @@ Game.Points.prototype = {
 	YM : null,
 	ce : null,
 	t : dummy(),
-	ca : function() {
+	update : function() {
 		this.aa++;
 		var b = this.U.hc(this.Za) | 0;
 		if (this.w + (b / 2 | 0) * 1.5 > 1920)
@@ -29753,7 +29753,7 @@ Game.Points.prototype = {
 			if (this.zy < 0)
 				this.zy = 0;
 			for (b = 0; b < 3; b++)
-				this.Je[b].ca();
+				this.Je[b].update();
 			b = this.jr - this.m;
 			if (this.Bb == Game.Points.Td.XE) {
 				if (this.PH += b * this.NO, this.PH *= this.TC, this.m += this.PH, this.m < this.jr
@@ -29855,10 +29855,10 @@ Game.PointsManager.prototype = {
 	Sp : null,
 	N8 : 0,
 	sD : null,
-	ca : function() {
+	update : function() {
 		for (var b = 0; b < this.Sp.length;) {
 			var c = this.Sp[b];
-			c.ca();
+			c.update();
 			c.ce ? C(this.Sp, b) : ++b
 		}
 	},
@@ -30134,8 +30134,8 @@ Game.RankBarWidget.prototype = {
 	e : null,
 	FO : null,
 	HH : null,
-	ca : function() {
-		GameFramework.widgets.ClassicWidget.prototype.ca.apply(this);
+	update : function() {
+		GameFramework.widgets.ClassicWidget.prototype.update.apply(this);
 		var b = Game.BejApp.q;
 		if (b.Zd(Game.DM.mb.EU) == null && this.e != null)
 			if (this.$x.$a(), this.Zx > 0)
@@ -30319,8 +30319,8 @@ Game.RankUpDialog.prototype = {
 			c.t()
 		}
 	},
-	ca : function() {
-		Game.Bej3Dialog.prototype.ca.apply(this);
+	update : function() {
+		Game.Bej3Dialog.prototype.update.apply(this);
 		if (Game.BejApp.q.uh != Game.DM.xf.jk && !this.m.wg() && this.m.V() == 1
 				&& this.aa >= 300) {
 			var b = new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.Ld);
@@ -30365,8 +30365,8 @@ Game.RecordsDialog.prototype = {
 	LB : null,
 	UO : null,
 	FM : null,
-	ca : function() {
-		Game.Bej3Dialog.prototype.ca.apply(this);
+	update : function() {
+		Game.Bej3Dialog.prototype.update.apply(this);
 		var b = this.LB ? 930 : 1050;
 		this.Gl.nh(700 - this.Gl.s / 2, b / 2 | 0);
 		this.Lb((Game.BejApp.q.s / 2 | 0) - 700, (Game.BejApp.q.z / 2 | 0) - (b / 2 | 0),
@@ -32493,11 +32493,11 @@ Game.SpeedBoard.prototype = {
 		Game.Board.prototype.rw.apply(this, [b]);
 		b.Y(Game.Piece.K.Yg) && this.uL(b)
 	},
-	ca : function() {
+	update : function() {
 		var b = this.Me;
 		this.$n.$a();
 		this.QN++;
-		Game.Board.prototype.ca.apply(this);
+		Game.Board.prototype.update.apply(this);
 		this.Ge.Hk = false;
 		if (this.Me != b) {
 			var c = this.wp | 0;
@@ -32530,12 +32530,12 @@ Game.SpeedBoard.prototype = {
 					? (this.DC + this.XF * Math.pow(this.Qm, this.yO) | 0)
 							* (this.Qm + 1)
 					: this.DC + this.XF * Math.pow(this.Qm, this.yO) | 0, this.Me = 0;
-		Game.Resources.POPANIM_ANIMS_GEM_MEGA.ca();
+		Game.Resources.POPANIM_ANIMS_GEM_MEGA.update();
 		Game.Resources.POPANIM_ANIMS_GEM_MEGA.n = GameFramework.gfx.Color.Jb(this.kh());
-		Game.Resources.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.ca();
+		Game.Resources.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.update();
 		Game.Resources.POPANIM_ANIMS_LIGHTNINGUIBOTTOM.n = GameFramework.gfx.Color.Jb(this
 				.kh());
-		Game.Resources.POPANIM_ANIMS_LIGHTNINGUI.ca();
+		Game.Resources.POPANIM_ANIMS_LIGHTNINGUI.update();
 		Game.Resources.POPANIM_ANIMS_LIGHTNINGUI.n = GameFramework.gfx.Color.Jb(this.kh());
 		b = Math.pow(this.Bj.V(), 0.7);
 		c = Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.fn(0);
@@ -32552,13 +32552,13 @@ Game.SpeedBoard.prototype = {
 			c.xk.Uh[d].F[GameFramework.resources.PIEmitterInstanceDef.p.Xo | 0].dc[0].oa = this.Bj.V() > 0
 					? 0.1 + b * 0.9
 					: 0;
-		Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.ca();
+		Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.update();
 		Game.Resources.PIEFFECT_LIGHTNING_POWERED_MEGASHARD.n = GameFramework.gfx.Color
 				.Jb(this.kh());
-		Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.ca();
+		Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.update();
 		Game.Resources.PIEFFECT_LIGHTNING_POWERED_LEFTRIGHT.n = GameFramework.gfx.Color
 				.Jb(this.kh());
-		this.Wr.ca();
+		this.Wr.update();
 		this.EH = this.ri > 0 ? Math.max(0, this.EH - 0.01) : Math.min(1,
 				this.EH + 0.01);
 		if (this.Xr > 0 && this.Xr < 60) {
@@ -32820,7 +32820,7 @@ Game.TimeBonusEffectTop.prototype = {
 	Tm : 0,
 	Aj : null,
 	Lm : null,
-	ca : function() {
+	update : function() {
 		this.Aj.$a();
 		this.Lm.$a();
 		var b = this.Nb.e.lh(this.qd);
@@ -32912,7 +32912,7 @@ Game.TimeBonusEffect.prototype = {
 	Tm : 0,
 	Aj : null,
 	Lm : null,
-	ca : function() {
+	update : function() {
 		this.Aj.$a();
 		this.Lm.$a();
 		var b = this.Nb.e.lh(this.qd);
@@ -33384,8 +33384,8 @@ Game.SpeedCollectEffect.prototype = {
 			}
 		}
 	},
-	ca : function() {
-		Game.Effect.prototype.ca.apply(this);
+	update : function() {
+		Game.Effect.prototype.update.apply(this);
 		++this.aa;
 		if (this.pG) {
 			if (this.w = this.Lg.x + this.Ii.V() * (this.Nb.e.Se() - this.Lg.x), this.v = this.Lg.y
@@ -33435,7 +33435,7 @@ Game.LightningBarFillEffect = function() {
 Game.LightningBarFillEffect.prototype = {
 	Z : null,
 	Zh : 0,
-	ca : function() {
+	update : function() {
 		var b = this.Zh == 0;
 		this.Zh += 0.02004;
 		if (this.Zh > 1)
@@ -33574,8 +33574,8 @@ Game.SpeedEndLevelDialog = function(b) {
 Game.SpeedEndLevelDialog.prototype = {
 	BY : null,
 	$r : 0,
-	ca : function() {
-		Game.EndLevelDialog.prototype.ca.apply(this)
+	update : function() {
+		Game.EndLevelDialog.prototype.update.apply(this)
 	},
 	oJ : function(b) {
 		b.zb("Highest Multiplier", 230, 475, -1, -1);
@@ -33879,7 +33879,7 @@ Game.TutorialStep.prototype = {
 		this.hB.vj("TutorialMgr_cs_11_14_11__19_18_09_946");
 		b ? this.ur.vj("TutorialMgr_cs_11_14_11__19_05_53_409") : this.ur.Aa(0)
 	},
-	ca : function() {
+	update : function() {
 		if (this.Pr != null && (this.Pr.$a(), this.Hd != null))
 			this.Hd.XH = this.Pr.D();
 		this.Bb == Game.TutorialStep.Td.Ub
@@ -34119,7 +34119,7 @@ Game.TutorialSequence.prototype = {
 				return true;
 		return false
 	},
-	ca : function() {
+	update : function() {
 		var b = this.ii();
 		if (b == null || b.Q5())
 			for (;;) {
@@ -34128,7 +34128,7 @@ Game.TutorialSequence.prototype = {
 					break
 			}
 		else
-			b != null && b.ca();
+			b != null && b.update();
 		if (this.Cp != null && this.Cp.hB.D() + this.Cp.ur.D() == 0)
 			this.Cp = null
 	},
@@ -34219,8 +34219,8 @@ Game.TutorialMgr.prototype = {
 		if (this.Oh != null)
 			this.Oh.OS(true), this.Oh.pY = false, this.Oh = null
 	},
-	ca : function() {
-		this.Oh != null && this.Oh.pY && this.Oh.ca()
+	update : function() {
+		this.Oh != null && this.Oh.pY && this.Oh.update()
 	},
 	ii : function() {
 		return this.Ka.Zj && this.Oh != null ? this.Oh.ii() : null
