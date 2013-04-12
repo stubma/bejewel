@@ -1942,17 +1942,27 @@ function flushBuffer() {
 // will be flushed to screen
 var curAdditive;
 function drawTexture(b, c, d, f, g, h, j, k, l, m, o, q, r, additive, u) {
+	// if old buffer is large enough, flush it anyway
 	vbLen > 1E3 && flushBuffer();
+
+	// if texture or blend mode is not same, flush old buffer
 	if (curTex != b || curAdditive != additive)
 		flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, b), curTex = b;
+
+	// ensure blend mode ok
 	curAdditive != additive
 			&& (gl.blendFunc(gl.SRC_ALPHA, additive ? gl.ONE : gl.ONE_MINUS_SRC_ALPHA), curAdditive = additive);
+
+	// build color array
 	b = [(u >> 16 & 255) / 255, (u >> 8 & 255) / 255, (u & 255) / 255,
 			(u >> 24 & 255) / 255];
+
 	k /= q;
 	l /= r;
 	q = m / q;
 	r = o / r;
+
+	// fill vertex buffer
 	vertexBuffer[vbLen++] = (c + h * o) / curApp.Di;
 	vertexBuffer[vbLen++] = (d + j * o) / curApp.Ig;
 	vertexBuffer[vbLen++] = k;
@@ -1977,6 +1987,8 @@ function drawTexture(b, c, d, f, g, h, j, k, l, m, o, q, r, additive, u) {
 	vertexBuffer[vbLen++] = (d + g * m) / curApp.Ig;
 	vertexBuffer[vbLen++] = k + q;
 	vertexBuffer[vbLen++] = l;
+
+	// fill color buffer
 	for (i = 0; i < 6; i++)
 		colorBuffer[cbLen++] = b[0], colorBuffer[cbLen++] = b[1], colorBuffer[cbLen++] = b[2], colorBuffer[cbLen++] = b[3]
 }
