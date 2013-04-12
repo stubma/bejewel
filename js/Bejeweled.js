@@ -1938,8 +1938,10 @@ function flushBuffer() {
 	}
 }
 
+// populate buffer for a texture, if current texture is not same as the new one, old buffer
+// will be flushed to screen
 var curAdditive;
-function Tc(b, c, d, f, g, h, j, k, l, m, o, q, r, additive, u) {
+function drawTexture(b, c, d, f, g, h, j, k, l, m, o, q, r, additive, u) {
 	vbLen > 1E3 && flushBuffer();
 	if (curTex != b || curAdditive != additive)
 		flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, b), curTex = b;
@@ -13462,7 +13464,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 					* this.m | 0, b = ((b + d) * this.sa.Ua + this.sa.Ca)
 					* this.m | 0, c = ((c + f) * this.sa.Va + this.sa.Da)
 					* this.m | 0;
-			Tc(Pa, g, h, 1, 0, 0, 1, 0, 0, b - g, c - h, 1, 1, false, this.n)
+			drawTexture(Pa, g, h, 1, 0, 0, 1, 0, 0, b - g, c - h, 1, 1, false, this.n)
 		} else {
 			var context = document.getElementById("GameCanvas").getContext("2d");
 			context.fillStyle = g;
@@ -13773,7 +13775,7 @@ GameFramework.resources.JSImageInst.prototype = {
 				h.Da = d
 			}
 			GameFramework.JSBaseApp.instance.useGL
-					? Tc(this.jj.vh, h.Ca, h.Da, h.Ua, h.Sb, h.ub, h.Va,
+					? drawTexture(this.jj.vh, h.Ca, h.Da, h.Ua, h.Sb, h.ub, h.Va,
 							this.he + this.jj.Vp, this.uf + this.jj.Wp,
 							this.jd, this.ge, this.jj.Sm, this.jj.Rm, this.pc,
 							b.n)
@@ -13825,7 +13827,7 @@ GameFramework.resources.JSImageResource.prototype = {
 			l.Ca = c;
 			l.Da = d
 		}
-		GameFramework.JSBaseApp.instance.useGL ? Tc(this.vh, l.Ca, l.Da, l.Ua, l.Sb, l.ub,
+		GameFramework.JSBaseApp.instance.useGL ? drawTexture(this.vh, l.Ca, l.Da, l.Ua, l.Sb, l.ub,
 				l.Va, h * j + this.Vp, g * k + this.Wp, j, k, this.Sm, this.Rm,
 				this.pc, b.n) : lc(this.ym, (b.n >>> 24) / 255, this.pc, l.Ua,
 				l.Sb, l.ub, l.Va, l.Ca, l.Da, this.Vp + h * j, this.Wp + g * k,
