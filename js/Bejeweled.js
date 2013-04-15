@@ -15020,10 +15020,10 @@ Game.BejApp.prototype = {
 	userAgent : "unknown",
 	update : function() {
 		this.metrics.update();
-		if (this.Bi == null)
+		if (this.mainMenu == null)
 			GameFramework.JSBaseApp.prototype.update.apply(this);
 		else {
-			if (this.Bi.ue) {
+			if (this.mainMenu.ue) {
 				if (this.aa % 20 == 0) {
 					for (this.by.push(this.ml); this.by.length > 5;)
 						C(this.by, 0);
@@ -15164,8 +15164,8 @@ Game.BejApp.prototype = {
 		this.ag = this.nI.ag;
 		this.root.addChild(this.nI);
 		if (this.ZN == null)
-			this.Bi = new Game.MainMenu, this.Bi.s = 1600, this.Bi.z = 1200, this.nx
-					.addChild(this.Bi), this.Bi.update(), this.Nh.oi(this.Bi), this.hP = new Game.TooltipManager, this.root
+			this.mainMenu = new Game.MainMenu, this.mainMenu.s = 1600, this.mainMenu.z = 1200, this.nx
+					.addChild(this.mainMenu), this.mainMenu.update(), this.Nh.oi(this.mainMenu), this.hP = new Game.TooltipManager, this.root
 					.addChild(this.hP);
 		var b = this.resManager.J4("properties/resources.xml");
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.M3));
@@ -15235,7 +15235,7 @@ Game.BejApp.prototype = {
 		if (this.ZN != null)
 			this.ZN.XW = true;
 		this.EN = true;
-		this.Bi.dK();
+		this.mainMenu.dK();
 		var b = Game.Background.pU(0);
 		this.Ut++;
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.pK));
@@ -15319,8 +15319,8 @@ Game.BejApp.prototype = {
 		this.e.Lb(0, 0, 1600, 1200);
 		this.Nh.oi(this.e);
 		this.e.Ge.ec = false;
-		if (this.Bi != null)
-			this.Bi.ad.Oa = Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_FLATTENEDPAM;
+		if (this.mainMenu != null)
+			this.mainMenu.ad.Oa = Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_FLATTENEDPAM;
 		qb = 0
 	},
 	lL : function(b) {
@@ -15358,9 +15358,9 @@ Game.BejApp.prototype = {
 			this.Oj.Rq(b), this.KM = b
 	},
 	Iy : function() {
-		this.e != null && this.Bi.h5(this.e.Ge.V0());
-		this.Bi.ec = true;
-		this.Bi.l3();
+		this.e != null && this.mainMenu.h5(this.e.Ge.V0());
+		this.mainMenu.ec = true;
+		this.mainMenu.l3();
 		var b = new GameFramework.CurvedVal;
 		b.vj("BejApp_cs_11_21_11__05_46_54_679");
 		Game.BejApp.instance.kA(Game.Resources.QT, b)
@@ -19901,7 +19901,7 @@ Game.Board.prototype = {
 					.nT(this.Jf == null || this.Jf.aa < 96) : GameFramework.BaseApp.instance.resManager
 					.nT(this.Jf == null);
 			if (this.Ge != null)
-				this.Ge.ec = !Game.BejApp.instance.Bi.JS() || !GameFramework.BaseApp.instance.isUseGL();
+				this.Ge.ec = !Game.BejApp.instance.mainMenu.JS() || !GameFramework.BaseApp.instance.isUseGL();
 			this.Bw = 0.95 * this.Bw + (1 - 0.95) * 1;
 			if (Math.abs(this.Bw - 1) < 0.01)
 				this.Bw = 1;
@@ -30109,7 +30109,7 @@ Game.RankBarWidget.prototype = {
 	},
 	draw : function(b) {
 		var c = Game.BejApp.instance;
-		if (this.e != null || c.Bi.or) {
+		if (this.e != null || c.mainMenu.or) {
 			b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 			b.U.Ia("MAIN", 4294967295);
 			b.U.Ia("OUTLINE", 4278190080);
