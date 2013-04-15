@@ -4627,9 +4627,9 @@ addClassInitEntry(function() {
 			GameFramework.gfx.Camera.initClass()
 		});
 GameFramework.gfx.Color = function(b, c, d, f) {
-	this.Mm = b;
-	this.xm = c;
-	this.mm = d;
+	this.r = b;
+	this.g = c;
+	this.b = d;
 	this.L = f
 };
 GameFramework.gfx.Color.zba = function(b, c, d) {
@@ -4717,22 +4717,22 @@ GameFramework.gfx.Color.mn = function(b, c) {
 			* (c & 255) / 255 | 0
 };
 GameFramework.gfx.Color.prototype = {
-	Mm : 0,
-	xm : 0,
-	mm : 0,
+	r : 0,
+	g : 0,
+	b : 0,
 	L : 0,
-	Hc : function() {
-		return GameFramework.gfx.Color.toARGB(this.Mm, this.xm, this.mm, this.L)
+	toARGB : function() {
+		return GameFramework.gfx.Color.toARGB(this.r, this.g, this.b, this.L)
 	},
 	ID : function() {
-		return new GameFramework.gfx.Color(this.Mm, this.xm, this.mm, this.L)
+		return new GameFramework.gfx.Color(this.r, this.g, this.b, this.L)
 	}
 };
 GameFramework.gfx.Color.initClass = function() {
 	GameFramework.gfx.Color.BLACK = new GameFramework.gfx.Color(0, 0, 0, 255);
 	GameFramework.gfx.Color.WHITE = new GameFramework.gfx.Color(255, 255, 255, 255);
-	GameFramework.gfx.Color.BLACK_ARGB = GameFramework.gfx.Color.BLACK.Hc();
-	GameFramework.gfx.Color.WHITE_ARGB = GameFramework.gfx.Color.WHITE.Hc()
+	GameFramework.gfx.Color.BLACK_ARGB = GameFramework.gfx.Color.BLACK.toARGB();
+	GameFramework.gfx.Color.WHITE_ARGB = GameFramework.gfx.Color.WHITE.toARGB()
 };
 addClassEntry(function() {
 			GameFramework.gfx.Color.registerClass("GameFramework.gfx.Color", null)
@@ -14408,7 +14408,7 @@ Game.Announcement.prototype = {
 			var c = GameFramework.gfx.Color.WHITE.ID();
 			c.L = this.e != null ? this.L.V() * this.e.Yc() * 255 | 0 : this.L.V()
 					* 255 | 0;
-			b.Q(c.Hc());
+			b.Q(c.toARGB());
 			for (var c = this.qa.x + (this.e != null ? this.e.we.V() : 0), d = this.qa.y, f = 1, g = 0; g < this.Re.length; g++)
 				GameFramework.Utils.hi(this.Re, g) == 10 && f++;
 			b.nc(this.m.V() * this.xx.V(), this.m.V(), c, d);
@@ -16338,7 +16338,7 @@ Game.Board.ina = function(b, c, d, f, g, h) {
 				d.length == 0 && d.push(new Game.GridData(g, h)), d[d.length - 1]
 						.pZ();
 			d[d.length - 1].KI(j / b.wc | 0, j % b.$b).PV.push(GameFramework.Utils
-					.Hc(c.substr(k, 1)));
+					.toARGB(c.substr(k, 1)));
 			++j
 		} else if (c.substr(k, 1) == "'") {
 			var l = c.indexOf(String.fromCharCode(39), k + 1), m = d[d.length
@@ -21470,9 +21470,9 @@ Game.ColorCycle.prototype = {
 				f[0] = GameFramework.gfx.Color.fq(this.lf[c]);
 				f[1] = GameFramework.gfx.Color.fq(this.lf[d]);
 				b -= c;
-				this.n = GameFramework.gfx.Color.toARGB(b * f[1].Mm + (1 - b) * f[0].Mm
-								| 0, b * f[1].xm + (1 - b) * f[0].xm | 0, b
-								* f[1].mm + (1 - b) * f[0].mm | 0, this.L
+				this.n = GameFramework.gfx.Color.toARGB(b * f[1].r + (1 - b) * f[0].r
+								| 0, b * f[1].g + (1 - b) * f[0].g | 0, b
+								* f[1].b + (1 - b) * f[0].b | 0, this.L
 								* (b * f[1].L + (1 - b) * f[0].L) | 0)
 			}
 	},
@@ -29614,28 +29614,28 @@ Game.Points = function(b, c, d, f, g, h, j, k, l) {
 	for (b = 0; b < Game.Points.Tz; b++)
 		this.Je[b].o4(1.8);
 	b = GameFramework.gfx.Color.fq(this.n);
-	b.Mm = Math.min(255, b.Mm * 1.5 | 0) | 0;
-	b.xm = Math.min(255, b.xm * 1.5 | 0) | 0;
-	b.mm = Math.min(255, b.mm * 1.5 | 0) | 0;
+	b.r = Math.min(255, b.r * 1.5 | 0) | 0;
+	b.g = Math.min(255, b.g * 1.5 | 0) | 0;
+	b.b = Math.min(255, b.b * 1.5 | 0) | 0;
 	c = GameFramework.gfx.Color.fq(this.n);
-	c.Mm = Math.min(255, c.Mm * 0.5 | 0) | 0;
-	c.xm = Math.min(255, c.xm * 0.5 | 0) | 0;
-	c.mm = Math.min(255, c.mm * 0.5 | 0) | 0;
+	c.r = Math.min(255, c.r * 0.5 | 0) | 0;
+	c.g = Math.min(255, c.g * 0.5 | 0) | 0;
+	c.b = Math.min(255, c.b * 0.5 | 0) | 0;
 	switch (l) {
 		case 0 :
-			this.Je[0].lf.push(c.Hc());
-			this.Je[0].lf.push(c.Hc());
+			this.Je[0].lf.push(c.toARGB());
+			this.Je[0].lf.push(c.toARGB());
 			break;
 		case 1 :
-			this.Je[0].lf.push(c.Hc());
-			this.Je[0].lf.push(b.Hc());
+			this.Je[0].lf.push(c.toARGB());
+			this.Je[0].lf.push(b.toARGB());
 			break;
 		case 2 :
-			this.Je[0].lf.push(c.Hc());
-			this.Je[0].lf.push(b.Hc());
+			this.Je[0].lf.push(c.toARGB());
+			this.Je[0].lf.push(b.toARGB());
 			this.Je[0].kw(0.25);
-			this.Je[2].lf.push(c.Hc());
-			this.Je[2].lf.push(b.Hc());
+			this.Je[2].lf.push(c.toARGB());
+			this.Je[2].lf.push(b.toARGB());
 			this.Je[2].kw(0.75);
 			break;
 		default :
@@ -29888,12 +29888,12 @@ Game.PointsManager.prototype = {
 											&& (g = Math.min(1, Math.max(0,
 															(q - 1) * 1)), c = 1, d = 0.7), j = GameFramework.gfx.Color
 							.fq(f), h.Je[b].lf.push(GameFramework.gfx.Color.toARGB(
-							this.sD[m].Mm * g
-									+ Math.min(255, j.Mm * c * (1 - g)) | 0,
-							this.sD[m].xm * g
-									+ Math.min(255, j.xm * c * (1 - g)) | 0,
-							this.sD[m].mm * g
-									+ Math.min(255, j.mm * c * (1 - g)) | 0, d
+							this.sD[m].r * g
+									+ Math.min(255, j.r * c * (1 - g)) | 0,
+							this.sD[m].g * g
+									+ Math.min(255, j.g * c * (1 - g)) | 0,
+							this.sD[m].b * g
+									+ Math.min(255, j.b * c * (1 - g)) | 0, d
 									* 255 | 0));
 			h.Je[0].kw(0.25);
 			h.Je[1].kw(0.75);
@@ -33172,7 +33172,7 @@ Game.TimeBonusEffect.prototype = {
 				var m = this.sm[k], o = GameFramework.gfx.Color.i_(m.ll
 								? Game.DM.y6[this.Kj | 0]
 								: Game.DM.rV[this.Kj | 0], 255 * this.L | 0), q = b
-						.Q(o.Hc());
+						.Q(o.toARGB());
 				try {
 					var l = 0, r = Game.Piece.Es(m.$g, this.Kj, d), r = (this.Aj
 							.V()
@@ -33224,7 +33224,7 @@ Game.TimeBonusEffect.prototype = {
 										+ (Game.Board.bb / 2 | 0) + da, h
 										+ (Game.Board.ab / 2 | 0) + X, m.Lj
 										? 8
-										: m.ll ? 9 : 6, fa.Hc(), aa.Hc());
+										: m.ll ? 9 : 6, fa.toARGB(), aa.toARGB());
 						var ka = GameFramework.gfx.Color.fq(GameFramework.gfx.Color.WHITE_ARGB), draw = GameFramework.gfx.Color
 								.fq(GameFramework.gfx.Color.WHITE_ARGB);
 						if (!m.ll && !m.Lj)
@@ -33239,8 +33239,8 @@ Game.TimeBonusEffect.prototype = {
 										+ (Game.Board.bb / 2 | 0) + v, h
 										+ (Game.Board.ab / 2 | 0) + u, g
 										+ Game.Board.bb / 2 + da, h + Game.Board.ab / 2
-										+ X, m.Lj ? 8 : m.ll ? 8 : 6, ka.Hc(),
-								draw.Hc());
+										+ X, m.Lj ? 8 : m.ll ? 8 : 6, ka.toARGB(),
+								draw.toARGB());
 						v = da;
 						u = X;
 						r = W;
