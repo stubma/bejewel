@@ -14974,8 +14974,8 @@ Game.BejApp.prototype = {
 	messager : null,
 	appState : null,
 	root : null,
-	nx : null,
-	nI : null,
+	bottomLayer : null,
+	topLayer : null,
 	e : null,
 	Ka : null,
 	mainMenu : null,
@@ -15156,15 +15156,15 @@ Game.BejApp.prototype = {
 		this.w = -this.root.w | 0;
 		this.ix = this.s + this.root.w * 2;
 		this.hx = this.z;
-		this.nx = new GameFramework.widgets.ClassicWidget;
-		this.root.addChild(this.nx);
+		this.bottomLayer = new GameFramework.widgets.ClassicWidget;
+		this.root.addChild(this.bottomLayer);
 		this.dialogLayer = new Game.DialogMgr;
 		this.root.addChild(this.dialogLayer);
-		this.nI = new Game.TopWidget;
-		this.messager = this.nI.messager;
-		this.root.addChild(this.nI);
+		this.topLayer = new Game.TopWidget;
+		this.messager = this.topLayer.messager;
+		this.root.addChild(this.topLayer);
 		if (this.ZN == null)
-			this.mainMenu = new Game.MainMenu, this.mainMenu.s = 1600, this.mainMenu.z = 1200, this.nx
+			this.mainMenu = new Game.MainMenu, this.mainMenu.s = 1600, this.mainMenu.z = 1200, this.bottomLayer
 					.addChild(this.mainMenu), this.mainMenu.update(), this.appState.oi(this.mainMenu), this.hP = new Game.TooltipManager, this.root
 					.addChild(this.hP);
 		var b = this.resManager.J4("properties/resources.xml");
@@ -15270,7 +15270,7 @@ Game.BejApp.prototype = {
 			this.wW = false, this.dl("Music"), this.tw("load_complete",
 					[new GameFramework.misc.KeyVal("LoadSeconds", GameFramework.Utils.bootTime()
 									/ 1E3 | 0)]), this.bU(this.Ka.Fr), this
-					.lL(this.Ka.tu), this.kA(Game.Resources.QT), this.nI.f2(), this.jC = true, Game.Resources.FONT_DIALOG_BUTTONS
+					.lL(this.Ka.tu), this.kA(Game.Resources.QT), this.topLayer.f2(), this.jC = true, Game.Resources.FONT_DIALOG_BUTTONS
 					.Ia("MAIN", GameFramework.gfx.Color.Ma(255, 255, 255, 230)), Game.Resources.FONT_DIALOG_BUTTONS
 					.Ia("OUTLINE", GameFramework.gfx.Color.Ma(255, 255, 255, 255)), Game.Resources.FONT_DIALOG_BUTTONS
 					.Ia("GLOW", GameFramework.gfx.Color.Ma(255, 255, 255, 128)), Game.Resources.FONT_DIALOG_HEADER
@@ -15308,12 +15308,12 @@ Game.BejApp.prototype = {
 	},
 	b_ : function() {
 		if (this.e != null)
-			this.nx.pn(this.e), this.e.t(), this.e = null
+			this.bottomLayer.pn(this.e), this.e.t(), this.e = null
 	},
 	oV : function(b) {
 		this.b_();
 		this.e = b;
-		this.nx.addChild(this.e);
+		this.bottomLayer.addChild(this.e);
 		this.e.Ub();
 		this.e.NE();
 		this.e.Lb(0, 0, 1600, 1200);
@@ -19743,7 +19743,7 @@ Game.Board.prototype = {
 				b.cx = false;
 				Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_LEVELCOMPLETE);
 				GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f
-						? (this.Jf = new Game.HyperspaceUltra(this), Game.BejApp.instance.nx.addChild(this.Jf))
+						? (this.Jf = new Game.HyperspaceUltra(this), Game.BejApp.instance.bottomLayer.addChild(this.Jf))
 						: (this.Jf = new Game.HyperspaceFallback(this), b = this.Qb, this.Mq(), b
 								.addChild(this.Jf), b.addChild(this), this.wd.oi(this));
 				this.Jf.Lb(-160, 0, 1920, 1200);
