@@ -14972,7 +14972,7 @@ Game.BejApp.Yu = function(b, c) {
 };
 Game.BejApp.prototype = {
 	messager : null,
-	Nh : null,
+	appState : null,
 	root : null,
 	nx : null,
 	nI : null,
@@ -15142,10 +15142,10 @@ Game.BejApp.prototype = {
 						new GameFramework.misc.KeyVal("ArtRes", this.artRes),
 						new GameFramework.misc.KeyVal("PlatformInfo", this.userAgent)]);
 		
-		this.Nh = new GameFramework.widgets.ClassicWidgetAppState;
-		this.Nh.graphics = this.graphics;
-		this.root = this.Nh.root;
-		this.pt(this.Nh)
+		this.appState = new GameFramework.widgets.ClassicWidgetAppState;
+		this.appState.graphics = this.graphics;
+		this.root = this.appState.root;
+		this.pt(this.appState)
 	},
 	FS : function() {
 		this.uk.$D("Classic", 6E4, 1E4);
@@ -15165,7 +15165,7 @@ Game.BejApp.prototype = {
 		this.root.addChild(this.nI);
 		if (this.ZN == null)
 			this.mainMenu = new Game.MainMenu, this.mainMenu.s = 1600, this.mainMenu.z = 1200, this.nx
-					.addChild(this.mainMenu), this.mainMenu.update(), this.Nh.oi(this.mainMenu), this.hP = new Game.TooltipManager, this.root
+					.addChild(this.mainMenu), this.mainMenu.update(), this.appState.oi(this.mainMenu), this.hP = new Game.TooltipManager, this.root
 					.addChild(this.hP);
 		var b = this.resManager.J4("properties/resources.xml");
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.M3));
@@ -15317,7 +15317,7 @@ Game.BejApp.prototype = {
 		this.e.Ub();
 		this.e.NE();
 		this.e.Lb(0, 0, 1600, 1200);
-		this.Nh.oi(this.e);
+		this.appState.oi(this.e);
 		this.e.Ge.ec = false;
 		if (this.mainMenu != null)
 			this.mainMenu.ad.Oa = Game.Resources.IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_FLATTENEDPAM;
@@ -16841,7 +16841,7 @@ Game.Board.prototype = {
 		this.Yp = false;
 		this.dG = -1;
 		this.JA(1);
-		Game.BejApp.instance.Nh.oi(this);
+		Game.BejApp.instance.appState.oi(this);
 		this.hW = this.Wt = false;
 		this.sR(false);
 		this.ay = 0;
@@ -22796,7 +22796,7 @@ Game.EndLevelDialog = function(b) {
 	this.Gl = new Game.RankBarWidget(1195, this.e, null, true);
 	this.Gl.nh(200, 240);
 	this.addChild(this.Gl);
-	Game.BejApp.instance.Nh.oi(this.Gl)
+	Game.BejApp.instance.appState.oi(this.Gl)
 };
 Game.EndLevelDialog.prototype = {
 	e : null,
@@ -22850,7 +22850,7 @@ Game.EndLevelDialog.prototype = {
 			if (this.Vd == null)
 				this.Vd = new Game.Bej3EditWidget, this.Vd.V9(0), this.Vd.gU(
 						Game.BejApp.instance.Ka.Km, false), this.Vd.addEventHandler(GameFramework.widgets.WidgetEvent.EDIT_TEXT,
-						ss.Delegate.create(this, this.M6)), Game.BejApp.instance.Nh.oi(this.Vd), this
+						ss.Delegate.create(this, this.M6)), Game.BejApp.instance.appState.oi(this.Vd), this
 						.addChild(this.Vd), this.Vd.sI = this;
 			if (this.Yf == null)
 				this.Yf = this.ME(Game.EndLevelDialog.ug.$L | 0, 280,
@@ -22888,7 +22888,7 @@ Game.EndLevelDialog.prototype = {
 						? (b = Game.BejApp.instance.e, b != null && (this.Te(), b.Iy()))
 						: b.target == this.We[Game.EndLevelDialog.ug.QF | 0]
 								? (b = Game.BejApp.instance.e, b != null
-										&& (this.Te(), b.Ub(), b.NE(), Game.BejApp.instance.Nh
+										&& (this.Te(), b.Ub(), b.NE(), Game.BejApp.instance.appState
 												.oi(b)))
 								: b.target == this.We[Game.EndLevelDialog.ug.qV | 0]
 										? (this.m
@@ -22926,7 +22926,7 @@ Game.EndLevelDialog.prototype = {
 	},
 	P6 : function() {
 		this.m.ea("b+0,1,0.01,0.25,P+1x         ~~###");
-		this.Vd != null && this.Jd.D() > 0 && Game.BejApp.instance.Nh.oi(this.Vd)
+		this.Vd != null && this.Jd.D() > 0 && Game.BejApp.instance.appState.oi(this.Vd)
 	},
 	update : function() {
 		if (Game.BejApp.instance.Zd(Game.DM.mb.EU) == null
@@ -29033,7 +29033,7 @@ Game.OptionsDialog = function(b) {
 	this.tI || (b -= 94);
 	this.Fd = new GameFramework.Insets(128, 20, 128, 88);
 	this.Lb(350, this.Wn ? 250 : 180, 900, b);
-	Game.BejApp.instance.Nh.oi(this);
+	Game.BejApp.instance.appState.oi(this);
 	this.tb.Id = "OK";
 	this.tb.addEventHandler(GameFramework.widgets.WidgetEvent.CLICKED, ss.Delegate.create(this, this.J1));
 	this.hd = this.eq(Game.Resources.IMAGE_DIALOG_BUTTON);
@@ -29099,7 +29099,7 @@ Game.OptionsDialog.prototype = {
 	},
 	Te : function() {
 		Game.Bej3Dialog.prototype.Te.apply(this);
-		Game.BejApp.instance.e != null && Game.BejApp.instance.Nh.oi(Game.BejApp.instance.e)
+		Game.BejApp.instance.e != null && Game.BejApp.instance.appState.oi(Game.BejApp.instance.e)
 	},
 	AV : function(b) {
 		if (b.$A())
@@ -30168,11 +30168,11 @@ Game.RankBarWidget.prototype = {
 	Ys : function() {
 		GameFramework.widgets.ClassicWidget.prototype.Ys.apply(this);
 		if (Game.BejApp.instance.hr)
-			this.HH = Game.BejApp.instance.Nh.Vh, Game.BejApp.instance.Nh.oi(this)
+			this.HH = Game.BejApp.instance.appState.Vh, Game.BejApp.instance.appState.oi(this)
 	},
 	kn : function() {
 		GameFramework.widgets.ClassicWidget.prototype.kn.apply(this);
-		Game.BejApp.instance.hr && this.HH != null && Game.BejApp.instance.Nh.oi(this.HH)
+		Game.BejApp.instance.hr && this.HH != null && Game.BejApp.instance.appState.oi(this.HH)
 	},
 	Tk : function(b) {
 		if (Game.BejApp.instance.hr)
@@ -30312,7 +30312,7 @@ Game.RecordsDialog = function(b) {
 	this.Gl = new Game.RankBarWidget(1195, null, null, true);
 	this.Gl.nh(200, 240);
 	this.addChild(this.Gl);
-	Game.BejApp.instance.Nh.oi(this.Gl);
+	Game.BejApp.instance.appState.oi(this.Gl);
 	this.oQ("Lightning", this.UO);
 	this.oQ("Classic", this.FM);
 	this.tb.Id = "OK"
