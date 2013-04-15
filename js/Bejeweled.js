@@ -4652,7 +4652,7 @@ GameFramework.gfx.Color.Jb = function(b) {
 GameFramework.gfx.Color.S0 = function(b) {
 	return (255 & b >>> 24) / 255
 };
-GameFramework.gfx.Color.Ma = function(b, c, d, f) {
+GameFramework.gfx.Color.toARGB = function(b, c, d, f) {
 	return f << 24 | b << 16 | c << 8 | d | 0
 };
 GameFramework.gfx.Color.Zg = function(b, c) {
@@ -4722,17 +4722,17 @@ GameFramework.gfx.Color.prototype = {
 	mm : 0,
 	L : 0,
 	Hc : function() {
-		return GameFramework.gfx.Color.Ma(this.Mm, this.xm, this.mm, this.L)
+		return GameFramework.gfx.Color.toARGB(this.Mm, this.xm, this.mm, this.L)
 	},
 	ID : function() {
 		return new GameFramework.gfx.Color(this.Mm, this.xm, this.mm, this.L)
 	}
 };
 GameFramework.gfx.Color.initClass = function() {
-	GameFramework.gfx.Color.zZ = new GameFramework.gfx.Color(0, 0, 0, 255);
-	GameFramework.gfx.Color.cm = new GameFramework.gfx.Color(255, 255, 255, 255);
-	GameFramework.gfx.Color.Uu = GameFramework.gfx.Color.zZ.Hc();
-	GameFramework.gfx.Color.pi = GameFramework.gfx.Color.cm.Hc()
+	GameFramework.gfx.Color.BLACK = new GameFramework.gfx.Color(0, 0, 0, 255);
+	GameFramework.gfx.Color.WHITE = new GameFramework.gfx.Color(255, 255, 255, 255);
+	GameFramework.gfx.Color.BLACK_ARGB = GameFramework.gfx.Color.BLACK.Hc();
+	GameFramework.gfx.Color.WHITE_ARGB = GameFramework.gfx.Color.WHITE.Hc()
 };
 addClassEntry(function() {
 			GameFramework.gfx.Color.registerClass("GameFramework.gfx.Color", null)
@@ -6250,7 +6250,7 @@ GameFramework.resources.FontResource.prototype = {
 									&& o <= 102 && (q = o - 97 + 10 | 0);
 							l += q << (5 - m) * 4
 						}
-						b.am(GameFramework.gfx.Color.Ma(l >>> 16 & 255 | 0, l >>> 8
+						b.am(GameFramework.gfx.Color.toARGB(l >>> 16 & 255 | 0, l >>> 8
 										& 255 | 0, l & 255 | 0, 255))
 					}
 					k += 7;
@@ -11765,7 +11765,7 @@ GameFramework.widgets.ButtonWidget.prototype = {
 	},
 	visit : function(b) {
 		var c = this.L != 1;
-		c && b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.L | 0));
+		c && b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.L | 0));
 		GameFramework.widgets.ClassicWidget.prototype.visit.apply(this, [b]);
 		c && b.pb()
 	},
@@ -11809,7 +11809,7 @@ GameFramework.widgets.ButtonWidget.prototype = {
 												&& this.rO < 1
 												&& this.iq(b, this.wb, this.io,
 														0, 0), b
-												.Q(GameFramework.gfx.Color.Ma(255,
+												.Q(GameFramework.gfx.Color.toARGB(255,
 														255, 255, this.rO * 255
 																| 0)), this.iq(
 												b, this.Sj, this.Rj, 0, 0), b
@@ -11853,7 +11853,7 @@ Game.Checkbox = function(b, c) {
 	this.hD = b;
 	this.qG = c;
 	this.ti = false;
-	this.BH = GameFramework.gfx.Color.pi;
+	this.BH = GameFramework.gfx.Color.WHITE_ARGB;
 	this.jf = GameFramework.gfx.Color.ta(80, 80, 80);
 	this.aW = GameFramework.gfx.Color.ta(255, 255, 0)
 };
@@ -12922,9 +12922,9 @@ Game.Slider.prototype = {
 	g9 : false,
 	h9 : false,
 	p9 : null,
-	BH : GameFramework.gfx.Color.pi,
+	BH : GameFramework.gfx.Color.WHITE_ARGB,
 	jf : GameFramework.gfx.Color.ta(80, 80, 80),
-	e9 : GameFramework.gfx.Color.pi,
+	e9 : GameFramework.gfx.Color.WHITE_ARGB,
 	wr : 5,
 	lF : function(b) {
 		var c = this.af;
@@ -14405,7 +14405,7 @@ Game.Announcement.prototype = {
 	draw : function(b) {
 		if (this.m.V() != 0) {
 			b.kb(this.U);
-			var c = GameFramework.gfx.Color.cm.ID();
+			var c = GameFramework.gfx.Color.WHITE.ID();
 			c.L = this.e != null ? this.L.V() * this.e.Yc() * 255 | 0 : this.L.V()
 					* 255 | 0;
 			b.Q(c.Hc());
@@ -14526,7 +14526,7 @@ Game.Background.prototype = {
 		GameFramework.widgets.ClassicWidget.prototype.t.apply(this)
 	},
 	draw : function(b) {
-		var c = false, d = this.n != GameFramework.gfx.Color.pi;
+		var c = false, d = this.n != GameFramework.gfx.Color.WHITE_ARGB;
 		d && b.Q(this.n);
 		this.hf != null && this.hf.ue && this.Lw && (this.hf.draw(b), c = true);
 		if (this.Oa != null && this.yp.V() > 0) {
@@ -14666,7 +14666,7 @@ Game.Bej3DialogButton.prototype = {
 	t9 : null,
 	gP : null,
 	visit : function(b) {
-		var c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.L | 0));
+		var c = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.L | 0));
 		try {
 			GameFramework.widgets.ButtonWidget.prototype.visit.apply(this, [b])
 		} finally {
@@ -15277,12 +15277,12 @@ Game.BejApp.prototype = {
 					[new GameFramework.misc.KeyVal("LoadSeconds", GameFramework.Utils.bootTime()
 									/ 1E3 | 0)]), this.bU(this.Ka.Fr), this
 					.lL(this.Ka.tu), this.kA(Game.Resources.QT), this.topLayer.f2(), this.jC = true, Game.Resources.FONT_DIALOG_BUTTONS
-					.Ia("MAIN", GameFramework.gfx.Color.Ma(255, 255, 255, 230)), Game.Resources.FONT_DIALOG_BUTTONS
-					.Ia("OUTLINE", GameFramework.gfx.Color.Ma(255, 255, 255, 255)), Game.Resources.FONT_DIALOG_BUTTONS
-					.Ia("GLOW", GameFramework.gfx.Color.Ma(255, 255, 255, 128)), Game.Resources.FONT_DIALOG_HEADER
-					.Ia("MAIN", GameFramework.gfx.Color.Ma(255, 255, 255, 230)), Game.Resources.FONT_DIALOG_HEADER
-					.Ia("OUTLINE", GameFramework.gfx.Color.Ma(255, 255, 255, 255)), Game.Resources.FONT_DIALOG_HEADER
-					.Ia("GLOW", GameFramework.gfx.Color.Ma(255, 255, 255, 128)), Game.Resources.IMAGE_BOARD_TIMER.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_BOARD_TIMER_RED.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_BOARD_TIMER_GOLD.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_LIGHTNING_TIMER_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_LIGHTNING_TIMER_RED_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.Resources.FONT_TIMER_LARGE
+					.Ia("MAIN", GameFramework.gfx.Color.toARGB(255, 255, 255, 230)), Game.Resources.FONT_DIALOG_BUTTONS
+					.Ia("OUTLINE", GameFramework.gfx.Color.toARGB(255, 255, 255, 255)), Game.Resources.FONT_DIALOG_BUTTONS
+					.Ia("GLOW", GameFramework.gfx.Color.toARGB(255, 255, 255, 128)), Game.Resources.FONT_DIALOG_HEADER
+					.Ia("MAIN", GameFramework.gfx.Color.toARGB(255, 255, 255, 230)), Game.Resources.FONT_DIALOG_HEADER
+					.Ia("OUTLINE", GameFramework.gfx.Color.toARGB(255, 255, 255, 255)), Game.Resources.FONT_DIALOG_HEADER
+					.Ia("GLOW", GameFramework.gfx.Color.toARGB(255, 255, 255, 128)), Game.Resources.IMAGE_BOARD_TIMER.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_BOARD_TIMER_RED.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_BOARD_TIMER_GOLD.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_LIGHTNING_TIMER_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_LIGHTNING_TIMER_GOLD_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.Resources.IMAGE_LIGHTNING_TIMER_RED_LIGHTNING.Mf = GameFramework.resources.De.ik, Game.Resources.FONT_TIMER_LARGE
 					.dU(GameFramework.resources.De.ik), Game.Resources.FONT_TIMER_SMALL
 					.dU(GameFramework.resources.De.ik), this.Sn.push(this.resManager.Po(this.resManager
 					.al("3d/gemRed.p3d"))), this.Sn.push(this.resManager.Po(this.resManager
@@ -15747,7 +15747,7 @@ Game.LightningZap.prototype = {
 							- this.Z[1][g + 1].y, m = Math.max(1, Math.sqrt(k
 									* k + l * l)), o = k, k = 0 * l / m, l = 0
 							* o / m, q = GameFramework.gfx.Color.mn(this.n,
-							GameFramework.gfx.Color.Ma(255, 255, 255, Math.min(255,
+							GameFramework.gfx.Color.toARGB(255, 255, 255, Math.min(255,
 											800 * d | 0)
 											| 0));
 					j.x = this.Z[0][g].x - k;
@@ -16635,8 +16635,8 @@ Game.Board.prototype = {
 		this.HC = [];
 		this.o9 = [];
 		this.qc = [];
-		this.At[0] = GameFramework.gfx.Color.Ma(6, 6, 6, 160);
-		this.At[1] = GameFramework.gfx.Color.Ma(24, 24, 24, 160);
+		this.At[0] = GameFramework.gfx.Color.toARGB(6, 6, 6, 160);
+		this.At[1] = GameFramework.gfx.Color.toARGB(24, 24, 24, 160);
 		this.od = Array.O(Game.DM.T.Zc | 0, 0);
 		this.Cl = Array.O(Game.DM.T.Zc | 0, 0);
 		this.p7 = this.cW = Game.DM.Ha.Zc | 0;
@@ -18094,7 +18094,7 @@ Game.Board.prototype = {
 									* Math.abs(GameFramework.Utils.randOneMinusOne());
 							u.v = z * f + (1 - z) * q + Math.sin(y) * 64
 									* Math.abs(GameFramework.Utils.randOneMinusOne());
-							u.n = GameFramework.gfx.Color.Ma(255, 96, 32, 64);
+							u.n = GameFramework.gfx.Color.toARGB(255, 96, 32, 64);
 							u.Cg = false;
 							u.Ag = 0.02505;
 							u.m = 0.1 + Math.abs(GameFramework.Utils.randOneMinusOne()) * 1;
@@ -18237,7 +18237,7 @@ Game.Board.prototype = {
 									* Math.abs(GameFramework.Utils.randOneMinusOne()), m.v = q
 									* d + (1 - q) * h + Math.sin(o) * 64
 									* Math.abs(GameFramework.Utils.randOneMinusOne()), m.n = GameFramework.gfx.Color
-									.Ma(255, 96, 32, 64), m.Cg = false, m.Ag = 0.015)
+									.toARGB(255, 96, 32, 64), m.Cg = false, m.Ag = 0.015)
 							: (m.w = f + Math.cos(o) * 24
 									* Math.abs(GameFramework.Utils.randOneMinusOne()), m.v = h
 									+ Math.sin(o) * 24
@@ -19482,7 +19482,7 @@ Game.Board.prototype = {
 				&& (c *= Math.max(0, 120 - (this.Me - 150 - this.zf() * 60))
 						/ 120, c *= Math.max(0, 1 - this.pf / 20));
 		b = (Math.sin(this.aa * 0.15) * 127 + 127) * c * this.Yc() | 0;
-		return GameFramework.gfx.Color.Ma(255, 255, 255, b)
+		return GameFramework.gfx.Color.toARGB(255, 255, 255, b)
 	},
 	OU : function() {
 		return this.zf() == 0
@@ -19657,7 +19657,7 @@ Game.Board.prototype = {
 						g += k.Ad() | 0;
 						d++;
 						this.oj(k.Ad() | 0, k.Rd() | 0, 20,
-								GameFramework.gfx.Color.pi, k.Lf, true, true, k.Pa, false,
+								GameFramework.gfx.Color.WHITE_ARGB, k.Lf, true, true, k.Pa, false,
 								Game.Board.je.sn);
 						this.gR(k.Ad() | 0, k.Rd() | 0);
 						f = true
@@ -19667,7 +19667,7 @@ Game.Board.prototype = {
 						k.Y(Game.Piece.K.xg) ? c || (c = true) : b = true, (k
 								.Y(Game.Piece.K.Nl) || k.Y(Game.Piece.K.rn))
 								&& this.oj(k.Ad() | 0, k.Rd() | 0, 300,
-										GameFramework.gfx.Color.pi, k.Lf, true, true, k.Pa,
+										GameFramework.gfx.Color.WHITE_ARGB, k.Lf, true, true, k.Pa,
 										false, Game.Board.je.sn), this.v4(k, k.Ad(), k
 										.Rd(), true, false)
 			}
@@ -20062,7 +20062,7 @@ Game.Board.prototype = {
 								+ (Game.Board.ab / 2 | 0));
 		var h;
 		h = this.Jf != null ? c.L.D() * this.Jf.Yc() : c.L.D() * this.Yc();
-		b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * h | 0));
+		b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * h | 0));
 		if (c.Y(Game.Piece.K.xg))
 			h = Math.min(c.eh * Game.Resources.IMAGE_GEMS_RED.Em,
 					Game.Resources.IMAGE_GEMS_RED.Em - 1)
@@ -20086,14 +20086,14 @@ Game.Board.prototype = {
 					&& b.nc(g, g, c.$d() + (Game.Board.bb / 2 | 0), c.dd()
 									+ (Game.Board.ab / 2 | 0));
 			this.yY
-					&& (b.Q(GameFramework.gfx.Color.pi), b.kb(Game.Resources.FONT_HUMANST19), c.Pa != -1
+					&& (b.Q(GameFramework.gfx.Color.WHITE_ARGB), b.kb(Game.Resources.FONT_HUMANST19), c.Pa != -1
 							&& b.Cc(GameFramework.Utils.toStr(c.Pa), c.$d() + 10, c
 											.dd()
 											+ 20), c.qe != 0
 							&& b.Cc(GameFramework.Utils.toStr(c.qe), c.$d() + 80, c
 											.dd()
 											+ 20), b.pb());
-			b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * h | 0));
+			b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * h | 0));
 			c.Y(Game.Piece.K.sc) ? this.N_(b, c) : !c.Y(Game.Piece.K.ns)
 					&& !c.Y(Game.Piece.K.ap)
 					&& (c.Y(Game.Piece.K.ts) || (c.Y(Game.Piece.K.LD) ? c.n >= 0
@@ -20119,7 +20119,7 @@ Game.Board.prototype = {
 			b.pb();
 			g != 1 && b.popMatrix();
 			c.WB > 0
-					&& (b.Q(GameFramework.gfx.Color.Ma(128, 128, 128, (0.15 + c.WB
+					&& (b.Q(GameFramework.gfx.Color.toARGB(128, 128, 128, (0.15 + c.WB
 									* 0.85)
 									* 255 | 0)), b.fc(c.$d() + 1, c.dd() + 1,
 							Game.Board.bb - 2, Game.Board.ab - 2), b.pb());
@@ -20133,7 +20133,7 @@ Game.Board.prototype = {
 		this.D_(b)
 	},
 	W_ : function(b) {
-		b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.Rf() | 0));
+		b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.Rf() | 0));
 		b.Ba(Game.Resources.IMAGE_BOARD_TOP_FRAME.Ee(), this.Se(), this.Cd() - 5);
 		if (this.xn()) {
 			b.Q(this.vv());
@@ -20149,7 +20149,7 @@ Game.Board.prototype = {
 		if (this.L5()) {
 			this.H_(b);
 			var c = b.Q(GameFramework.gfx.Color
-					.Ma(255, 255, 255, 255 * this.Rf() | 0));
+					.toARGB(255, 255, 255, 255 * this.Rf() | 0));
 			try {
 				b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_FRAME.Ee(), this.Se(), this.Cd()
 								+ Game.Board.ab * this.wc + 33)
@@ -20158,7 +20158,7 @@ Game.Board.prototype = {
 			}
 		} else if (this.OU()) {
 			this.kJ(b);
-			c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.Rf() | 0));
+			c = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.Rf() | 0));
 			try {
 				b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_FRAME.Ee(), this.Se(), this.Cd()
 								+ Game.Board.ab * this.wc + 33)
@@ -20166,7 +20166,7 @@ Game.Board.prototype = {
 				c.t()
 			}
 		} else {
-			c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.Rf() | 0));
+			c = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.Rf() | 0));
 			try {
 				b.Ba(Game.Resources.IMAGE_BOARD_THIN_BOTTOM_FRAME.Ee(), this.Se(), this
 								.Cd()
@@ -20189,7 +20189,7 @@ Game.Board.prototype = {
 		}
 	},
 	kJ : function(b) {
-		var c = Math.pow(this.Rf(), 4), d = b.Q(GameFramework.gfx.Color.Ma(255, 255,
+		var c = Math.pow(this.Rf(), 4), d = b.Q(GameFramework.gfx.Color.toARGB(255, 255,
 				255, this.Rf() * 255 | 0));
 		try {
 			b.Ba(Game.Resources.IMAGE_BOARD_BOTTOM_FRAME_BACK.Ee(), this.Se(), this
@@ -20199,7 +20199,7 @@ Game.Board.prototype = {
 			f.s = f.s * this.Mj | 0;
 			var h = b.mh(f.w), j = b.mh(f.w + f.s) - h;
 			if (!g) {
-				var k = b.Q(GameFramework.gfx.Color.Ma(12, 35, 47, 255));
+				var k = b.Q(GameFramework.gfx.Color.toARGB(12, 35, 47, 255));
 				try {
 					b.fc(h, f.v, j, f.z)
 				} finally {
@@ -20212,7 +20212,7 @@ Game.Board.prototype = {
 						f.z * b.m | 0);
 				if (!g)
 					m.pc = true;
-				var o = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, l.L * c * 255
+				var o = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, l.L * c * 255
 								| 0));
 				try {
 					b.Ba(m, h, f.v)
@@ -20221,7 +20221,7 @@ Game.Board.prototype = {
 				}
 			}
 			if (g) {
-				var q = b.Q(GameFramework.gfx.Color.Ma(128, 200, 255, 100));
+				var q = b.Q(GameFramework.gfx.Color.toARGB(128, 200, 255, 100));
 				try {
 					b.fc(h, f.v, j, f.z)
 				} finally {
@@ -20234,14 +20234,14 @@ Game.Board.prototype = {
 	},
 	H_ : function(b) {
 		var c = Math.pow(this.Rf(), 4), d, f, g = this.uz(), h = b
-				.Q(GameFramework.gfx.Color.Ma(255, 255, 255, this.Rf() * 255 | 0));
+				.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, this.Rf() * 255 | 0));
 		try {
 			d = this.Se(), f = this.Cd() + Game.Board.ab * this.wc + 30, b.Ba(
 					Game.Resources.IMAGE_BOARD_BOTTOM_FRAME_BACK.Ee(), d, f)
 		} finally {
 			h.t()
 		}
-		c = b.Q(GameFramework.gfx.Color.Ma(188, 67, 137, c * 100 | 0));
+		c = b.Q(GameFramework.gfx.Color.toARGB(188, 67, 137, c * 100 | 0));
 		try {
 			if (this.xn()) {
 				var j = this.vv();
@@ -20259,7 +20259,7 @@ Game.Board.prototype = {
 			if (this.gC.D() > 0) {
 				var l = this.uz();
 				l.s = l.s * this.Hs() | 0;
-				var m = b.Q(GameFramework.gfx.Color.Ma(240, 255, 200, this.gC.D()
+				var m = b.Q(GameFramework.gfx.Color.toARGB(240, 255, 200, this.gC.D()
 								* 255 | 0));
 				try {
 					b.fc(l.w, l.v, l.s, l.z)
@@ -20282,7 +20282,7 @@ Game.Board.prototype = {
 						| 0, m = k.Rl() | 0;
 				b.kb(k);
 				b.nc(h, h, c, d);
-				b.Q(GameFramework.gfx.Color.Ma(96, 96, 255, 255 * g | 0));
+				b.Q(GameFramework.gfx.Color.toARGB(96, 96, 255, 255 * g | 0));
 				b.Cc(j, c - (l / 2 | 0), d + (m / 2 | 0));
 				b.pb();
 				h = this.UG.D() * 0.9;
@@ -20316,7 +20316,7 @@ Game.Board.prototype = {
 						* 1, g = this.qB.D() * this.Yc(), b.popMatrix(), b.nc(h, h, c,
 						d), b.Q(GameFramework.gfx.Color.Zg(0, 128 * g | 0)), b.Cc(j,
 						c - (l / 2 | 0) + 8, d + (m / 2 | 0) + 8), b.pb(), b
-						.Q(GameFramework.gfx.Color.Ma(255, 64, 64, 255 * g | 0)), b
+						.Q(GameFramework.gfx.Color.toARGB(255, 64, 64, 255 * g | 0)), b
 						.Cc(j, c - (l / 2 | 0), d + (m / 2 | 0)), b.pb(), b
 						.kb(Game.Resources.FONT_POPUP_TEXT), j = "CASCADES", c = c
 						- ((b.hc(j) | 0) / 2 | 0) + 0, d += 130, b
@@ -20388,11 +20388,11 @@ Game.Board.prototype = {
 				}
 			} else if (this.FC.D(), this.Ze.D() == 1
 					&& (this.Nf >= 1 || this.Eh && this.Nf > 0)) {
-				Game.Resources.FONT_MULTIPLIER.Ia("MAIN", GameFramework.gfx.Color.Ma(255,
+				Game.Resources.FONT_MULTIPLIER.Ia("MAIN", GameFramework.gfx.Color.toARGB(255,
 								255, 255, 230));
-				Game.Resources.FONT_MULTIPLIER.Ia("OUTLINE", GameFramework.gfx.Color.Ma(128,
+				Game.Resources.FONT_MULTIPLIER.Ia("OUTLINE", GameFramework.gfx.Color.toARGB(128,
 								0, 80, 230));
-				Game.Resources.FONT_MULTIPLIER.Ia("GLOW", GameFramework.gfx.Color.Ma(255, 0,
+				Game.Resources.FONT_MULTIPLIER.Ia("GLOW", GameFramework.gfx.Color.toARGB(255, 0,
 								160, 128));
 				b.kb(Game.Resources.FONT_MULTIPLIER);
 				h = "x" + GameFramework.Utils.toStr(this.Nf);
@@ -20418,7 +20418,7 @@ Game.Board.prototype = {
 				&& (this.Pm[0] != null && this.Pm[0].draw(b), this.Pm[1] != null
 						&& this.Pm[1].draw(b));
 		this.nm > 0
-				&& (b.Q(GameFramework.gfx.Color.Ma(0, 0, 0, this.Rf() * this.nm * 128
+				&& (b.Q(GameFramework.gfx.Color.toARGB(0, 0, 0, this.Rf() * this.nm * 128
 								| 0)), b.fc(this.is - 50, -50, 2020, 1300), b
 						.pb(), this.SQ(b, true));
 		this.lJ(b);
@@ -20506,11 +20506,11 @@ Game.Board.prototype = {
 			c[d] = this.tz(d);
 		for (var f = this.og * 60, d = GameFramework.gfx.Color.Zg(this.At[0],
 				((4278190080 & this.At[0]) >>> 24) * this.Rf() | 0), g = GameFramework.gfx.Color
-				.Ma(180, 100 + (Math.sin(f) * 14 | 0), 48
+				.toARGB(180, 100 + (Math.sin(f) * 14 | 0), 48
 								+ (Math.sin(f) * 8 | 0), 200 * this.Rf() | 0), d = GameFramework.Utils
 				.Dq(d, g, Math.min(1, this.og * 5)), g = GameFramework.gfx.Color.Zg(
 				this.At[1], ((4278190080 & this.At[1]) >>> 24) * this.Rf() | 0), f = GameFramework.gfx.Color
-				.Ma(160, 90 + (Math.sin(f) * 12 | 0), 40
+				.toARGB(160, 90 + (Math.sin(f) * 12 | 0), 40
 								+ (Math.sin(f) * 7 | 0), 200 * this.Rf() | 0), f = GameFramework.Utils
 				.Dq(g, f, Math.min(1, this.og * 5)), g = 0; g < this.wc; g++)
 			for (var h = this.xz(g), j = this.xz(g + 1), k = 0; k < this.$b; k++) {
@@ -20530,7 +20530,7 @@ Game.Board.prototype = {
 		this.so.D() != 1 && b.pb()
 	},
 	MQ : function(b) {
-		var c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.Rf() | 0));
+		var c = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.Rf() | 0));
 		try {
 			switch (this.yo) {
 				case Game.Board.Pi.OA :
@@ -20557,7 +20557,7 @@ Game.Board.prototype = {
 				b.kb(Game.Resources.FONT_TIMER_LARGE);
 				c = b.nc(f, f, d.x, d.y);
 				try {
-					var h = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255
+					var h = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255
 									* this.kh() * this.Yr.D()
 									* (1 - this.Bo * this.Zr.D()) | 0));
 					try {
@@ -20570,8 +20570,8 @@ Game.Board.prototype = {
 				}
 			} else if (this.Zr.D() == 0) {
 				b.kb(Game.Resources.FONT_TIMER_SMALL);
-				Game.Resources.FONT_TIMER_SMALL.Ia("GLOW", GameFramework.gfx.Color.Uu);
-				h = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.kh()
+				Game.Resources.FONT_TIMER_SMALL.Ia("GLOW", GameFramework.gfx.Color.BLACK_ARGB);
+				h = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.kh()
 								* this.Yr.D() | 0));
 				try {
 					b.zb(g, d.x, d.y + 14, -1, 0)
@@ -20596,13 +20596,13 @@ Game.Board.prototype = {
 		if (this.II() && this.zu.V() != 0) {
 			var c = b.nc(this.Om.V(), this.Om.V(), 244, 100);
 			try {
-				var d = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.kh()
+				var d = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.kh()
 								* this.so.D() | 0));
 				try {
-					Game.Resources.FONT_SPEED_SCORE.Ia("OUTLINE", GameFramework.gfx.Color.Uu);
+					Game.Resources.FONT_SPEED_SCORE.Ia("OUTLINE", GameFramework.gfx.Color.BLACK_ARGB);
 					Game.Resources.FONT_SPEED_SCORE.Ia("GLOW", GameFramework.gfx.Color
 									.Jb(this.$C.V()));
-					Game.Resources.FONT_SPEED_TEXT.Ia("OUTLINE", GameFramework.gfx.Color.Uu);
+					Game.Resources.FONT_SPEED_TEXT.Ia("OUTLINE", GameFramework.gfx.Color.BLACK_ARGB);
 					b.kb(Game.Resources.FONT_SPEED_TEXT);
 					b.jh(	String.format("{0} MATCH CHAIN", this.ng == 0
 											? this.aI
@@ -20699,7 +20699,7 @@ Game.Board.prototype = {
 		}
 	},
 	J_ : function(b) {
-		var c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.kh()
+		var c = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.kh()
 						* this.so.D() | 0));
 		try {
 			this.E_(b)
@@ -20713,7 +20713,7 @@ Game.Board.prototype = {
 				for (var d = this.e, f = 0; f < d.length; f++) {
 					var g = d[f];
 					if (g != null && g.vx.D() != 0) {
-						var h = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, this
+						var h = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, this
 										.Yc()
 										* g.vx.D() * 255 | 0));
 						try {
@@ -20779,13 +20779,13 @@ Game.Board.prototype = {
 		this.ah.x != -1
 				&& this.Ro() == null
 				&& (b.Q(GameFramework.gfx.Color
-						.Ma(255, 255, 255, 255 * this.Yc() | 0)), b.Ba(
+						.toARGB(255, 255, 255, 255 * this.Yc() | 0)), b.Ba(
 						Game.Resources.IMAGE_SELECTOR, this.Ef + this.Ri(this.ah.x),
 						this.Cd() + this.vg(this.ah.y)), b.pb())
 	},
 	Y_ : function(b) {
 		this.VQ(b);
-		var c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.kh() | 0));
+		var c = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.kh() | 0));
 		try {
 			var d = Game.Resources.IMAGE_BOARD_TOP_WIDGET;
 			b.Bd(d, 0 + d.sf - 160, d.Oe, 0);
@@ -21097,7 +21097,7 @@ Game.Board.prototype = {
 		Game.Resources.FONT_SCORE.Ia("GLOW", 2667577344);
 		var c = GameFramework.Utils.ei(this.pm);
 		this.xY && (c += " of " + GameFramework.Utils.ei(this.rv()));
-		b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.kh() | 0));
+		b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.kh() | 0));
 		b.zb(c, 242, 202, 0, 0);
 		b.pb();
 		Game.Resources.FONT_SCORE.ib("GLOW")
@@ -21443,7 +21443,7 @@ Game.ColorCycle = function() {
 	this.N3()
 };
 Game.ColorCycle.prototype = {
-	n : GameFramework.gfx.Color.pi,
+	n : GameFramework.gfx.Color.WHITE_ARGB,
 	sp : 0,
 	$H : 0,
 	k7 : 0,
@@ -21470,7 +21470,7 @@ Game.ColorCycle.prototype = {
 				f[0] = GameFramework.gfx.Color.fq(this.lf[c]);
 				f[1] = GameFramework.gfx.Color.fq(this.lf[d]);
 				b -= c;
-				this.n = GameFramework.gfx.Color.Ma(b * f[1].Mm + (1 - b) * f[0].Mm
+				this.n = GameFramework.gfx.Color.toARGB(b * f[1].Mm + (1 - b) * f[0].Mm
 								| 0, b * f[1].xm + (1 - b) * f[0].xm | 0, b
 								* f[1].mm + (1 - b) * f[0].mm | 0, this.L
 								* (b * f[1].L + (1 - b) * f[0].L) | 0)
@@ -21532,7 +21532,7 @@ Game.CrystalBall = function(b, c) {
 	this.sr.tm = true;
 	this.Mr = Game.Resources.PIEFFECT_CRYSTALRAYS.gi();
 	this.Mr.tm = true;
-	this.O7 = GameFramework.gfx.Color.Ma(128, 0, 64, 160);
+	this.O7 = GameFramework.gfx.Color.toARGB(128, 0, 64, 160);
 	this.nD.ea("b;-3,3,0.003333,1,####     $~###    }####");
 	this.nD.jL(GameFramework.CurvedVal.Uz);
 	this.nD.zx = GameFramework.Utils.randZeroMax() % 100;
@@ -21705,7 +21705,7 @@ Game.CrystalBall.prototype = {
 				c = b.nc(c, c, this.s / 2, this.z / 2);
 				try {
 					var P = b.Q(GameFramework.gfx.Color
-							.Ma(255, 255, 255, 255 * g | 0));
+							.toARGB(255, 255, 255, 255 * g | 0));
 					try {
 						b.Cc(this.Id, this.s / 2
 										- Game.Resources.FONT_PLAYBUTTONS.hc(this.Id)
@@ -21917,7 +21917,7 @@ Game.Effect = function(b) {
 	this.hO = this.Ag = 0;
 	this.fO = 1E4;
 	this.Hb = this.Qh = this.nf = 0;
-	this.n = GameFramework.gfx.Color.pi;
+	this.n = GameFramework.gfx.Color.WHITE_ARGB;
 	this.eX = false;
 	this.wG = 0;
 	this.L = this.ds = 1;
@@ -21945,7 +21945,7 @@ Game.Effect = function(b) {
 			this.ds = Game.Util.Fc() % 2 + 2;
 			this.Nc = (-1 + Game.Util.Fc() % 20 * 0.1) * 1.67;
 			this.Vb = Game.Util.Fc() % 50 * 0.167;
-			this.n = GameFramework.gfx.Color.Ma(255, 255, 255, 255);
+			this.n = GameFramework.gfx.Color.toARGB(255, 255, 255, 255);
 			break;
 		case Game.Effect.da.nv :
 			this.oa = Array.O(4, null);
@@ -21978,7 +21978,7 @@ Game.Effect = function(b) {
 		case Game.Effect.da.TD :
 		case Game.Effect.da.cz :
 			this.Oa = Game.Resources.IMAGE_FIREPARTICLE;
-			this.n = GameFramework.gfx.Color.Ma(255, Game.Util.Fc() % 64 + 64, Game.Util
+			this.n = GameFramework.gfx.Color.toARGB(255, Game.Util.Fc() % 64 + 64, Game.Util
 							.Fc()
 							% 32 + 30, 255);
 			this.yi = 0;
@@ -21999,7 +21999,7 @@ Game.Effect = function(b) {
 			this.Hb = GameFramework.Utils.randOneMinusOne() * 3.141593;
 			this.Qh = GameFramework.Utils.randOneMinusOne() * 0.2;
 			this.nf = Game.Util.Fc() % this.Oa.Em;
-			this.n = GameFramework.gfx.Color.pi;
+			this.n = GameFramework.gfx.Color.WHITE_ARGB;
 			this.Nc = Math.cos(c) * d * 1.25;
 			this.Vb = -Math.abs(Math.sin(c) * d) * 1.5;
 			this.yi = 0.15;
@@ -22061,7 +22061,7 @@ Game.Effect.prototype = {
 	sH : 0,
 	hO : 0,
 	fO : 0,
-	n : GameFramework.gfx.Color.pi,
+	n : GameFramework.gfx.Color.WHITE_ARGB,
 	Hb : 0,
 	Qh : 0,
 	oy : 0,
@@ -22196,7 +22196,7 @@ Game.ParticleEffect.prototype = {
 						&& (this.w += Game.DM.CL * this.Nb.e.to.D()), this.Nb.e != null
 						&& this.Nb.e.ob == this.Nb
 						&& (this.w += this.Nb.e.we.D()), c.WB > 0))
-			this.mg.n = GameFramework.gfx.Color.mn(this.mg.n, GameFramework.gfx.Color.Ma(
+			this.mg.n = GameFramework.gfx.Color.mn(this.mg.n, GameFramework.gfx.Color.toARGB(
 							255, 255, 255, 255 - c.WB * 255 | 0));
 		b.translate(this.w, this.v);
 		this.lr
@@ -22640,7 +22640,7 @@ Game.EffectsManager.prototype = {
 										b.Bd(k.Oa, k.w - (k.Oa.Hg / 2 | 0), k.v
 														- (k.Oa.Gg / 2 | 0),
 												k.nf);
-										if (k.n != GameFramework.gfx.Color.pi)
+										if (k.n != GameFramework.gfx.Color.WHITE_ARGB)
 											b.Q(k.n), k.Oa.pc = true, b.Bd(k.Oa,
 													k.w - (k.Oa.Hg / 2 | 0),
 													k.v - (k.Oa.Gg / 2 | 0),
@@ -22648,7 +22648,7 @@ Game.EffectsManager.prototype = {
 										break;
 									case Game.Effect.da.tT :
 										b.Q(GameFramework.gfx.Color.Zg(
-												GameFramework.gfx.Color.pi, (k.L | 0)
+												GameFramework.gfx.Color.WHITE_ARGB, (k.L | 0)
 														* 255));
 										b.Ba(k.Oa, k.w, k.v);
 										b.pb();
@@ -22723,8 +22723,8 @@ Game.Bej3EditWidget.prototype = {
 	draw : function(b) {
 		this.L != 0
 				&& (this.L < 1 && b.Q(GameFramework.gfx.Color.Jb(this.L)), Game.Resources.FONT_GAMEOVER_DIALOG
-						.Ia("OUTLINE", GameFramework.gfx.Color.Ma(64, 24, 8, 0)), Game.Resources.FONT_GAMEOVER_DIALOG
-						.Ia("GLOW", GameFramework.gfx.Color.Ma(0, 0, 0, 0)), GameFramework.widgets.EditWidget.prototype.draw
+						.Ia("OUTLINE", GameFramework.gfx.Color.toARGB(64, 24, 8, 0)), Game.Resources.FONT_GAMEOVER_DIALOG
+						.Ia("GLOW", GameFramework.gfx.Color.toARGB(0, 0, 0, 0)), GameFramework.widgets.EditWidget.prototype.draw
 						.apply(this, [b]), Game.Resources.FONT_GAMEOVER_DIALOG
 						.ib("OUTLINE"), Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW"), this.L < 1
 						&& b.pb())
@@ -28479,7 +28479,7 @@ Game.MainMenu.prototype = {
 	draw : function(b) {
 		if (this.or) {
 			if (this.vC > 0 && this.Xp.D() < 1) {
-				var c = b.Q(GameFramework.gfx.Color.Ma(0, 0, 0, 255 * this.vC | 0));
+				var c = b.Q(GameFramework.gfx.Color.toARGB(0, 0, 0, 255 * this.vC | 0));
 				try {
 					b.fc(0, 0, this.s, this.z)
 				} finally {
@@ -28488,7 +28488,7 @@ Game.MainMenu.prototype = {
 			}
 			if (Game.BejApp.instance.EN)
 				if (this.Qx.length > 0) {
-					var c = this.Qx[0], d = b.Q(GameFramework.gfx.Color.Ma(255, 255,
+					var c = this.Qx[0], d = b.Q(GameFramework.gfx.Color.toARGB(255, 255,
 							255, c.L));
 					try {
 						b.Ba(c.Oa, 160, 0)
@@ -28500,7 +28500,7 @@ Game.MainMenu.prototype = {
 					d = Math.max(0, Math.min(1, this.Mn * this.lB.V() * 3));
 					c -= d * 0.4;
 					if (this.Xp.D() < 1) {
-						c = b.Q(GameFramework.gfx.Color.Ma(0, 0, 0, 255 * c | 0));
+						c = b.Q(GameFramework.gfx.Color.toARGB(0, 0, 0, 255 * c | 0));
 						try {
 							b.fc(GameFramework.BaseApp.instance.w, GameFramework.BaseApp.instance.v,
 									GameFramework.BaseApp.instance.ix, GameFramework.BaseApp.instance.hx)
@@ -28510,7 +28510,7 @@ Game.MainMenu.prototype = {
 					}
 					Math.min(1, 1.9 - this.Mn * 2.1);
 					if (this.Xp.V() > 0 && this.ue) {
-						c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255
+						c = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255
 										* this.Xp.V() | 0));
 						try {
 							b.Ba(Game.Resources.IMAGE_TITLE, GameFramework.BaseApp.instance.w, 0)
@@ -28533,12 +28533,12 @@ Game.MainMenu.prototype = {
 						}
 					}
 					b.kb(Game.Resources.FONT_LOADER_TIP);
-					b.U.Ia("GLOW", GameFramework.gfx.Color.Ma(64, 0, 32, 128));
+					b.U.Ia("GLOW", GameFramework.gfx.Color.toARGB(64, 0, 32, 128));
 					b.U.Ia("OUTLINE", 0);
 					c = (Math.sin(this.aa * 0.03) * 0.125 + 0.75) * this.Gx.V();
 					if (c > 0) {
 						c = b.Q(GameFramework.gfx.Color
-								.Ma(255, 255, 255, 255 * c | 0));
+								.toARGB(255, 255, 255, 255 * c | 0));
 						try {
 							d = "Loading";
 							Game.BejApp.instance.gW && Game.BejApp.instance.Ut == 1
@@ -28586,13 +28586,13 @@ Game.MainMenu.prototype = {
 						b.bn(Game.Resources.IMAGE_LOADER_WHITEDOT, c)
 					}
 					if (Game.BejApp.instance.mI.length != 0 && Game.BejApp.instance.kI > 0) {
-						c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255
+						c = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255
 										* this.lI.V()
 										* Math.max(0, Math.min(1, this.Mn * 2
 																- 0.15)) | 0));
 						try {
 							b.kb(Game.Resources.FONT_LOADER_TIP), b.U.Ia("GLOW",
-									GameFramework.gfx.Color.Ma(64, 0, 32, 128)), b.U
+									GameFramework.gfx.Color.toARGB(64, 0, 32, 128)), b.U
 									.Ia("OUTLINE", 0), b.jh(
 									Game.BejApp.instance.mI[(Game.BejApp.instance.kI - 1)
 											% Game.BejApp.instance.mI.length], this.s / 2,
@@ -28830,10 +28830,10 @@ Game.Messager.prototype = {
 				this.iX == Game.Messager.hv.w6 && (c = 0 - (b.U.hc(g.wF) | 0));
 				var h, j;
 				g.Lv < this.sJ
-						? (h = GameFramework.gfx.Color.Ma(0, 0, 0, g.Lv / this.sJ
+						? (h = GameFramework.gfx.Color.toARGB(0, 0, 0, g.Lv / this.sJ
 										* 255 | 0), j = GameFramework.gfx.Color.Zg(
 								g.AL & 16777215, g.Lv / this.sJ * 255 | 0))
-						: (h = GameFramework.gfx.Color.Uu, j = g.AL);
+						: (h = GameFramework.gfx.Color.BLACK_ARGB, j = g.AL);
 				h = b.Q(h);
 				try {
 					b.Cc(g.wF, c + 1, d + 1)
@@ -29592,7 +29592,7 @@ addClassEntry(function() {
 		});
 Game.Points = function(b, c, d, f, g, h, j, k, l) {
 	this.Oa = Array.O(Game.Points.Tz, null);
-	this.q9 = GameFramework.gfx.Color.cm.ID();
+	this.q9 = GameFramework.gfx.Color.WHITE.ID();
 	this.Je = Array.O(Game.Points.Tz, null);
 	this.vX = true;
 	this.re = 0;
@@ -29688,7 +29688,7 @@ Game.Points.prototype = {
 	Je : null,
 	GM : null,
 	aa : 0,
-	n : GameFramework.gfx.Color.pi,
+	n : GameFramework.gfx.Color.WHITE_ARGB,
 	mD : 0,
 	zy : 0,
 	SM : null,
@@ -29887,7 +29887,7 @@ Game.PointsManager.prototype = {
 									: b == 2
 											&& (g = Math.min(1, Math.max(0,
 															(q - 1) * 1)), c = 1, d = 0.7), j = GameFramework.gfx.Color
-							.fq(f), h.Je[b].lf.push(GameFramework.gfx.Color.Ma(
+							.fq(f), h.Je[b].lf.push(GameFramework.gfx.Color.toARGB(
 							this.sD[m].Mm * g
 									+ Math.min(255, j.Mm * c * (1 - g)) | 0,
 							this.sD[m].xm * g
@@ -30231,7 +30231,7 @@ Game.RankUpDialog.prototype = {
 	KC : null,
 	draw : function(b) {
 		Game.Bej3Dialog.prototype.draw.apply(this, [b]);
-		var c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.e.Rf() | 0));
+		var c = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.e.Rf() | 0));
 		try {
 			var d = this.Tp.jE(), f = this.s / 2 | 0, g = 150;
 			b.kb(Game.Resources.FONT_DIALOG_SMALL_TEXT);
@@ -30244,7 +30244,7 @@ Game.RankUpDialog.prototype = {
 			}
 			(this.Tp.OJ() | 0) > 0
 					&& (b.kb(Game.Resources.FONT_GAMEOVER_DIALOG), Game.Resources.FONT_GAMEOVER_DIALOG
-							.Ia("GLOW", GameFramework.gfx.Color.Ma(192, 96, 48, 80)), Game.Resources.FONT_GAMEOVER_DIALOG
+							.Ia("GLOW", GameFramework.gfx.Color.toARGB(192, 96, 48, 80)), Game.Resources.FONT_GAMEOVER_DIALOG
 							.Ia("OUTLINE", GameFramework.gfx.Color.ta(64, 32, 16)), b
 							.jh(	GameFramework.Utils.ei(this.Tp.OJ() | 0)
 											+ ",000 Points", f, g), Game.Resources.FONT_GAMEOVER_DIALOG
@@ -30269,7 +30269,7 @@ Game.RankUpDialog.prototype = {
 			var o = b.nc(k.V(), k.V(), f, g - 20);
 			try {
 				var q = b.Q(GameFramework.gfx.Color
-						.Ma(255, 255, 255, 255 * l.V() | 0));
+						.toARGB(255, 255, 255, 255 * l.V() | 0));
 				try {
 					b.jh(this.Tp.NJ(d), f, g)
 				} finally {
@@ -30358,7 +30358,7 @@ Game.RecordsDialog.prototype = {
 	U_ : function(b) {
 		b.kb(Game.Resources.FONT_GAMEOVER_DIALOG);
 		b.U.Ia("OUTLINE", GameFramework.gfx.Color.ta(64, 24, 8));
-		b.U.Ia("GLOW", GameFramework.gfx.Color.Ma(0, 0, 0, 0));
+		b.U.Ia("GLOW", GameFramework.gfx.Color.toARGB(0, 0, 0, 0));
 		for (var c = "N/A", d = -1, f = 0, g = 0; g < 7; g++)
 			Game.BejApp.instance.Ka.xe[(Game.DM.T.IK | 0) + g] > f
 					&& (f = Game.BejApp.instance.Ka.xe[(Game.DM.T.IK | 0) + g], d = g);
@@ -30437,7 +30437,7 @@ Game.RecordsDialog.prototype = {
 							.Ia(
 									"GLOW",
 									GameFramework.gfx.Color
-											.Ma(
+											.toARGB(
 													255,
 													255,
 													0,
@@ -32543,7 +32543,7 @@ Game.SpeedBoard.prototype = {
 		c.s = this.Mj * c.s + this.UN | 0;
 		var g = b.mh(c.w), h = b.mh(c.w + c.s) - g;
 		if (!f) {
-			var j = b.Q(GameFramework.gfx.Color.Ma(180, 120, 70, d * 255 | 0));
+			var j = b.Q(GameFramework.gfx.Color.toARGB(180, 120, 70, d * 255 | 0));
 			try {
 				b.fc(g, c.v, h, c.z)
 			} finally {
@@ -32551,7 +32551,7 @@ Game.SpeedBoard.prototype = {
 			}
 		}
 		this.gC.V() > 0
-				&& (b.Q(GameFramework.gfx.Color.Ma(240, 255, 200, this.gC.V() * 255
+				&& (b.Q(GameFramework.gfx.Color.toARGB(240, 255, 200, this.gC.V() * 255
 								| 0)), b.fc(g, c.v, h, c.z), b.pb());
 		for (j = 0; j < this.Cn.length; j++) {
 			var k = this.Cn[j], l = Game.Resources.IMAGE_BARFILLRED.dv(k.he * 1E3 * b.m
@@ -32559,7 +32559,7 @@ Game.SpeedBoard.prototype = {
 							| 0);
 			if (!f)
 				l.pc = true;
-			k = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, k.L * d * 255 | 0));
+			k = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, k.L * d * 255 | 0));
 			try {
 				b.Ba(l, g, c.v)
 			} finally {
@@ -32567,7 +32567,7 @@ Game.SpeedBoard.prototype = {
 			}
 		}
 		if (f) {
-			d = b.Q(GameFramework.gfx.Color.Ma(255, 160, 60, d * 160 | 0));
+			d = b.Q(GameFramework.gfx.Color.toARGB(255, 160, 60, d * 160 | 0));
 			try {
 				b.fc(g, c.v, h, c.z)
 			} finally {
@@ -32600,7 +32600,7 @@ Game.SpeedBoard.prototype = {
 	},
 	nJ : function(b) {
 		b.kb(Game.Resources.FONT_SCORE_LARGE);
-		b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.kh() | 0));
+		b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.kh() | 0));
 		b.zb(GameFramework.Utils.ei(this.pm), 242, 210, 0, 0);
 		b.pb()
 	},
@@ -32618,10 +32618,10 @@ Game.SpeedBoard.prototype = {
 				&& (c *= Math.max(0, 120 - (this.Me - 150 - this.zf() * 60))
 						/ 120, c *= Math.max(0, 1 - this.Xr / 20));
 		b = (Math.sin(this.aa * 0.15) * 127 + 127) * c * this.Yc() | 0;
-		return GameFramework.gfx.Color.Ma(255, 255, 255, b)
+		return GameFramework.gfx.Color.toARGB(255, 255, 255, b)
 	},
 	I_ : function(b) {
-		var c = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.Rf() | 0));
+		var c = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.Rf() | 0));
 		try {
 			var d = 0;
 			this.Bj.V() > 0 && (d = Math.pow(this.Bj.V(), 0.5) * 1 + 0);
@@ -32644,7 +32644,7 @@ Game.SpeedBoard.prototype = {
 					}
 				}
 				b.kb(Game.Resources.FONT_SCORE);
-				b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, 255 * this.kh()
+				b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.kh()
 								* this.rG.V() | 0));
 				Game.Resources.FONT_SCORE.Ia("GLOW", 2667577344);
 				var j = this.Bj.V() * 60 + 0.5 | 0;
@@ -32668,8 +32668,8 @@ Game.SpeedBoard.prototype = {
 				b.kb(Game.Resources.FONT_SPEED_TEXT);
 				var o = b.Q(GameFramework.gfx.Color.Jb(this.$n.V() * this.Yc()));
 				try {
-					b.U.Ia("GLOW", GameFramework.gfx.Color.Uu);
-					b.U.Ia("OUTLINE", GameFramework.gfx.Color.Uu);
+					b.U.Ia("GLOW", GameFramework.gfx.Color.BLACK_ARGB);
+					b.U.Ia("OUTLINE", GameFramework.gfx.Color.BLACK_ARGB);
 					var q = 1.25 + Math.sin(this.QN * 0.1) * 0.25;
 					b.nc(q, q, this.Se(), 75);
 					b.zb("Last Hurrah", this.Se(), 98, 0, 0);
@@ -32836,7 +32836,7 @@ Game.TimeBonusEffectTop.prototype = {
 				b.Bd(h, f, g, (this.Tm / 5 | 0) - 1);
 				if (d != null && this.Nb.e.Hh() <= 500
 						&& (this.Nb.e.Me / 18 | 0) % 2 == 0) {
-					var j = b.Q(GameFramework.gfx.Color.Ma(255, 200, 200, 255));
+					var j = b.Q(GameFramework.gfx.Color.toARGB(255, 200, 200, 255));
 					try {
 						b.Bd(Game.Resources.IMAGE_LIGHTNING_GEMNUMS_WHITE, f, g,
 								(this.Tm / 5 | 0) - 1)
@@ -33225,8 +33225,8 @@ Game.TimeBonusEffect.prototype = {
 										+ (Game.Board.ab / 2 | 0) + X, m.Lj
 										? 8
 										: m.ll ? 9 : 6, fa.Hc(), aa.Hc());
-						var ka = GameFramework.gfx.Color.fq(GameFramework.gfx.Color.pi), draw = GameFramework.gfx.Color
-								.fq(GameFramework.gfx.Color.pi);
+						var ka = GameFramework.gfx.Color.fq(GameFramework.gfx.Color.WHITE_ARGB), draw = GameFramework.gfx.Color
+								.fq(GameFramework.gfx.Color.WHITE_ARGB);
 						if (!m.ll && !m.Lj)
 							ka.L = Math.max(2, 255 * (0.85 - l * 0.04) | 0) | 0, draw.L = Math
 									.max(2, 255 * (0.85 - V * 0.04) | 0)
@@ -33424,7 +33424,7 @@ Game.LightningBarFillEffect.prototype = {
 					* 2; f++)
 				d[d.g * f + 0] = new GameFramework.gfx.TriVertex, d[d.g * f + 1] = new GameFramework.gfx.TriVertex, d[d.g
 						* f + 2] = new GameFramework.gfx.TriVertex;
-			for (var f = 0, g = GameFramework.gfx.Color.Ma(255, 200, 100, c), h = 0; h < Game.LightningBarFillEffect.Xk
+			for (var f = 0, g = GameFramework.gfx.Color.toARGB(255, 200, 100, c), h = 0; h < Game.LightningBarFillEffect.Xk
 					- 1; h++) {
 				var j = this.Z[this.Z.g * h + 0], k = this.Z[this.Z.g * h + 1], l = this.Z[this.Z.g
 						* (h + 1) + 0], m = this.Z[this.Z.g * (h + 1) + 1], o = h
@@ -33480,7 +33480,7 @@ Game.LightningBarFillEffect.prototype = {
 			}
 			Game.Resources.IMAGE_LIGHTNING_TEX.qg(true);
 			b.bn(Game.Resources.IMAGE_LIGHTNING_TEX, d);
-			c = GameFramework.gfx.Color.Ma(c, c, c, 255);
+			c = GameFramework.gfx.Color.toARGB(c, c, c, 255);
 			for (f = 0; f < d.length; f++)
 				d[f].color = c;
 			Game.Resources.IMAGE_LIGHTNING_CENTER.qg(true);
@@ -33505,7 +33505,7 @@ Game.LightningBarFillEffect.prototype = {
 				} finally {
 					A.t()
 				}
-				v = b.Q(GameFramework.gfx.Color.Ma(255, 255, 255, c));
+				v = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, c));
 				try {
 					r[r.g * 0 + 0] = g | 0, r[r.g * 0 + 1] = h | 0, r[r.g * 1
 							+ 0] = k | 0, r[r.g * 1 + 1] = m | 0, r[r.g * 2 + 0] = o
