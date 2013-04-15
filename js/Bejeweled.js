@@ -3184,8 +3184,8 @@ GameFramework.TDictionaryEnumerator.prototype = {
 	Zs : function() {
 		return this.Bg.Zs()
 	},
-	Vg : function() {
-		this.Bg.Vg()
+	reset : function() {
+		this.Bg.reset()
 	},
 	Si : function() {
 		return this
@@ -3228,8 +3228,8 @@ GameFramework.TMapKeyEnumerator.prototype = {
 	Zs : function() {
 		return this.Bg.Zs()
 	},
-	Vg : function() {
-		this.Bg.Vg()
+	reset : function() {
+		this.Bg.reset()
 	},
 	Si : function() {
 		return this
@@ -3252,8 +3252,8 @@ GameFramework.TMapValueEnumerator.prototype = {
 	Zs : function() {
 		return this.Bg.Zs()
 	},
-	Vg : function() {
-		this.Bg.Vg()
+	reset : function() {
+		this.Bg.reset()
 	},
 	Si : function() {
 		return this
@@ -3377,7 +3377,7 @@ GameFramework.TMapEnumerator.prototype = {
 	Zs : function() {
 		return this.Bg.Zs()
 	},
-	Vg : dummy(),
+	reset : dummy(),
 	Si : function() {
 		return this
 	}
@@ -4861,7 +4861,7 @@ GameFramework.gfx.Graphics.prototype = {
 		var c = this.matrix.d * this.m;
 		return (b * c | 0) / c + 1.0E-5
 	},
-	Vg : function() {
+	reset : function() {
 		this.n = 4294967295;
 		this.topIndex = 0;
 		this.matrix.identity();
@@ -5474,7 +5474,7 @@ addClassInitEntry(function() {
 			GameFramework.misc.Bezier.initClass()
 		});
 GameFramework.misc.BSpline = function() {
-	this.Vg()
+	this.reset()
 };
 GameFramework.misc.BSpline.prototype = {
 	Do : null,
@@ -5486,7 +5486,7 @@ GameFramework.misc.BSpline.prototype = {
 	GI : null,
 	qu : 0,
 	yG : 0,
-	Vg : function() {
+	reset : function() {
 		this.Do = [];
 		this.Dy = [];
 		this.hM = [];
@@ -7198,7 +7198,7 @@ addClassEntry(function() {
 			GameFramework.resources.PIParticleInstance.Sa.initClass()
 		});
 GameFramework.resources.PIParticleDefInstance = function() {
-	this.Vg()
+	this.reset()
 };
 GameFramework.resources.PIParticleDefInstance.prototype = {
 	ku : 0,
@@ -7209,7 +7209,7 @@ GameFramework.resources.PIParticleDefInstance.prototype = {
 	vi : 0,
 	Cj : 0,
 	nl : 0,
-	Vg : function() {
+	reset : function() {
 		this.ie = this.uO = this.xG = this.ku = 0
 	},
 	t : dummy()
@@ -8732,10 +8732,10 @@ GameFramework.resources.PIEffect.prototype = {
 					h.Wb.pd = null;
 					h.Wb.cg = null;
 					for (j = h.Wb.be = 0; j < (g.ej.length | 0); j++)
-						h.Kl[j].Vg();
+						h.Kl[j].reset();
 					g = this.ga.Hf[g.um];
 					for (j = 0; (j | 0) < (g.tf.length | 0); j++)
-						h.Bh[j].Vg();
+						h.Bh[j].reset();
 					h.Ou = true;
 					h.Co = false
 				}
@@ -12148,7 +12148,7 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 	},
 	draw : function() {
 		if (!this.no) {
-			this.graphics.Vg();
+			this.graphics.reset();
 			var b = 1;
 			this.graphics.m != GameFramework.BaseApp.instance.m
 					&& (b = GameFramework.BaseApp.instance.m / this.graphics.m);
@@ -14978,7 +14978,7 @@ Game.BejApp.prototype = {
 	nI : null,
 	e : null,
 	Ka : null,
-	Bi : null,
+	mainMenu : null,
 	ZN : null,
 	hr : null,
 	C8 : null,
@@ -27035,7 +27035,7 @@ Game.HyperAnimSequence.prototype = {
 	d1 : function(b, c) {
 		return this.Rt[this.Rt.g * b + c]
 	},
-	Vg : function() {
+	reset : function() {
 		this.dg = 0
 	},
 	T4 : function() {
@@ -27184,7 +27184,7 @@ Game.HyperspaceUltra = function(b) {
 	this.np = new GameFramework.geom.Vector3;
 	callSuperConstructor(Game.HyperspaceUltra, this);
 	this.ae = Game.BejApp.instance.AN[0];
-	this.ae.Vg();
+	this.ae.reset();
 	this.si.Ub(this.OR(), GameFramework.BaseApp.instance.s / GameFramework.BaseApp.instance.z, 100, this
 					.rS());
 	this.kf.Ub(b, this.ae);
@@ -27337,7 +27337,7 @@ Game.HyperspaceUltra.prototype = {
 			switch (this.XO = this.ie, this.Bb = b, this.Bb) {
 				case Game.HyperspaceUltra.ya.Ub :
 					this.ie = 0;
-					this.ae.Vg();
+					this.ae.reset();
 					this.Kp.Aa(0);
 					this.Ay.Aa(0);
 					this.pu.Aa(0);
@@ -27422,7 +27422,7 @@ Game.HyperspaceUltra.prototype = {
 					this.kf.e.Zb(Game.Hyperspace.Zb.Cs);
 					break;
 				case Game.HyperspaceUltra.ya.MD :
-					this.ae.Vg(), this.Kp.Aa(1), this.Ot = 1
+					this.ae.reset(), this.Kp.Aa(1), this.Ot = 1
 			}
 	},
 	f5 : function() {
@@ -28252,7 +28252,7 @@ Game.MainMenu.prototype = {
 										Game.BejApp.instance.LP)))
 				: this.sS(b)
 	},
-	Vg : dummy(),
+	reset : dummy(),
 	gQ : function() {
 		if (this.xH) {
 			if (!Game.BejApp.instance.jC)
