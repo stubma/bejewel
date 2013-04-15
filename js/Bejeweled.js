@@ -14750,7 +14750,7 @@ Game.Bej3Dialog.prototype = {
 		this.MO = this.z / 2;
 		this.L.$a();
 		!this.m.$a() && this.m.Lr != GameFramework.CurvedVal.uT
-				&& (this.m.V() == 0 ? Game.BejApp.instance.te.PS(this.PM) : this.m.V())
+				&& (this.m.V() == 0 ? Game.BejApp.instance.dialogLayer.PS(this.PM) : this.m.V())
 	},
 	Te : function() {
 		if (!this.zl) {
@@ -14982,7 +14982,7 @@ Game.BejApp.prototype = {
 	ZN : null,
 	hr : null,
 	C8 : null,
-	te : null,
+	dialogLayer : null,
 	V8 : null,
 	jC : false,
 	EN : false,
@@ -15158,8 +15158,8 @@ Game.BejApp.prototype = {
 		this.hx = this.z;
 		this.nx = new GameFramework.widgets.ClassicWidget;
 		this.root.addChild(this.nx);
-		this.te = new Game.DialogMgr;
-		this.root.addChild(this.te);
+		this.dialogLayer = new Game.DialogMgr;
+		this.root.addChild(this.dialogLayer);
 		this.nI = new Game.TopWidget;
 		this.messager = this.nI.messager;
 		this.root.addChild(this.nI);
@@ -15303,7 +15303,7 @@ Game.BejApp.prototype = {
 		b.am(GameFramework.widgets.Dialog.VI, 4278190080);
 		b.Qr = 32;
 		b.Lb(300, 300, 1E3, b.Qo(1E3));
-		this.te.Ho(b);
+		this.dialogLayer.Ho(b);
 		return b
 	},
 	b_ : function() {
@@ -15372,7 +15372,7 @@ Game.BejApp.prototype = {
 		this.oV(new Game.SpeedBoard(this))
 	},
 	Zd : function(b) {
-		return this.te.Zd(b)
+		return this.dialogLayer.Zd(b)
 	},
 	bL : function(b) {
 		this.TV = b;
@@ -16847,7 +16847,7 @@ Game.Board.prototype = {
 		this.ay = 0;
 		this.Tt = 25;
 		this.gy = 0;
-		b = Game.BejApp.instance.te.Zd(Game.DM.mb.uJ);
+		b = Game.BejApp.instance.dialogLayer.Zd(Game.DM.mb.uJ);
 		b != null && b.Te();
 		this.xJ()
 	},
@@ -18924,7 +18924,7 @@ Game.Board.prototype = {
 	Wz : function() {
 		Game.SoundUtil.Play(Game.Resources.SOUND_BUTTON_RELEASE);
 		var b = new Game.OptionsDialog(true);
-		Game.BejApp.instance.te.Ho(b);
+		Game.BejApp.instance.dialogLayer.Ho(b);
 		b.w = this.Se() - b.s / 2;
 		b.v = 200;
 		b.addEventHandler(GameFramework.widgets.DialogEvent.CLOSED, ss.Delegate.create(this, this.L6))
@@ -18936,7 +18936,7 @@ Game.Board.prototype = {
 			this.lD = true;
 		!this.xc.Ka.Zj
 				&& this.iK()
-				&& (this.xc.Te(), b = Game.BejApp.instance.te.Zd(Game.DM.mb.vn), b != null
+				&& (this.xc.Te(), b = Game.BejApp.instance.dialogLayer.Zd(Game.DM.mb.vn), b != null
 						&& b.Te())
 	},
 	L3 : function() {
@@ -19272,7 +19272,7 @@ Game.Board.prototype = {
 						}
 						c = new Game.HintDialog(c, d, true);
 						c.wo = b.wo;
-						Game.BejApp.instance.te.Ho(c);
+						Game.BejApp.instance.dialogLayer.Ho(c);
 						c.addEventHandler(GameFramework.widgets.DialogEvent.CLOSED, ss.Delegate.create(this,
 										this.D1));
 						c.Pt = 1;
@@ -19422,7 +19422,7 @@ Game.Board.prototype = {
 	},
 	t5 : function() {
 		if (this.yl && this.En == 0 && this.os()
-				&& Game.BejApp.instance.te.Zd(Game.DM.mb.vn) == null
+				&& Game.BejApp.instance.dialogLayer.Zd(Game.DM.mb.vn) == null
 				&& (!this.xc.Hz() || this.xc.HP()))
 			this.pH++, this.fs++, this.fs == (this.Nw != -1 ? this.Nw : this
 					.UR())
@@ -19714,7 +19714,7 @@ Game.Board.prototype = {
 			this.t5();
 			if (this.pf > 0 && this.wi.length == 0)
 				this.wi.length = 0, ++this.pf == 240
-						&& Game.DialogMgr.te.se.length == 0 && this.HJ();
+						&& Game.DialogMgr.dialogLayer.se.length == 0 && this.HJ();
 			this.ob.L = this.Yc();
 			this.Jg.L = this.Yc();
 			if (this.yl) {
@@ -19807,13 +19807,13 @@ Game.Board.prototype = {
 	},
 	HJ : dummy(),
 	iK : function() {
-		return this.xc.Hz() || Game.BejApp.instance.te.Zd(Game.DM.mb.vn) != null
+		return this.xc.Hz() || Game.BejApp.instance.dialogLayer.Zd(Game.DM.mb.vn) != null
 	},
 	KQ : function() {
 		for (var b = 0; b < 2; b++)
 			this.Pm[b] != null
 					&& (this.Pm[b].update(), this.Pm[b].Ts() || (this.Pm[b] = null));
-		if (Game.BejApp.instance.te.Zd(Game.DM.mb.uJ) == null) {
+		if (Game.BejApp.instance.dialogLayer.Zd(Game.DM.mb.uJ) == null) {
 			for (var b = this.e, c = 0; c < b.length; c++) {
 				var d = b[c];
 				if (d != null)
@@ -19828,7 +19828,7 @@ Game.Board.prototype = {
 					.Zd(Game.DM.mb.JK) != null)
 					&& this.CF()) {
 				this.En = Math.min(1, this.En + 0.035);
-				if (Game.DialogMgr.te.se.length == 0 && this.aD == 0)
+				if (Game.DialogMgr.dialogLayer.se.length == 0 && this.aD == 0)
 					this.Bo = Math.min(1, this.Bo + 0.035);
 				if (this.En >= 0.75)
 					return
@@ -19846,7 +19846,7 @@ Game.Board.prototype = {
 					for (c = 0; c < b.length; c++)
 						d = b[c], d != null && d.update();
 					if (this.L.D() == 1 && this.m.D() == 1
-							&& Game.DialogMgr.te.se.length == 0 && this.pf == 0
+							&& Game.DialogMgr.dialogLayer.se.length == 0 && this.pf == 0
 							&& this.Wt && !this.iK()) {
 						if (this.ay > 0 && --this.ay == 110)
 							b = new Game.Announcement(this, "GET READY"), b.Tw = false, b.L.Ye *= 3, b.m.Ye *= 3, b.cx = false, Game.SoundUtil
@@ -19890,8 +19890,8 @@ Game.Board.prototype = {
 	},
 	update : function() {
 		if (!this.l5()) {
-			Game.BejApp.instance.te.Zd(Game.DM.mb.bA) == null
-					&& Game.BejApp.instance.te.Zd(Game.DM.mb.JK) == null && this.xc.update();
+			Game.BejApp.instance.dialogLayer.Zd(Game.DM.mb.bA) == null
+					&& Game.BejApp.instance.dialogLayer.Zd(Game.DM.mb.JK) == null && this.xc.update();
 			for (var b = Array.O(3, null, this.Ib, this.fd, this.hd), c = 0; c < b.length; c++) {
 				var d = b[c];
 				if (d != null)
@@ -19939,7 +19939,7 @@ Game.Board.prototype = {
 			if (this.Ge != null)
 				this.Ge.Hk = (this.Jf == null || this.m.D() == 1)
 						&& this.kh() == 1 && this.m.D() == 1 && this.Wt
-						&& Game.BejApp.instance.te.se.length == 0;
+						&& Game.BejApp.instance.dialogLayer.se.length == 0;
 			if (this.aa % 60 == 0) {
 				this.qD(Game.DM.T.jR, 1);
 				this.qD(Game.DM.T.kR, GameFramework.BaseApp.instance.ml);
@@ -21187,7 +21187,7 @@ Game.ClassicBoard.prototype = {
 	HJ : function() {
 		Game.BejApp.instance.uk.qq("Classic").rF(Game.BejApp.instance.Ka.Km, this.Z) && Game.BejApp.instance.$K(false);
 		var b = new Game.ClassicEndLevelDialog(this);
-		Game.BejApp.instance.te.Ho(b);
+		Game.BejApp.instance.dialogLayer.Ho(b);
 		b.eU("Classic");
 		Game.BejApp.instance.Ka.OL()
 	},
@@ -21793,8 +21793,8 @@ Game.DialogMgr = function() {
 	this.BB = {};
 	this.Ht = GameFramework.CurvedVal.qs(0);
 	callSuperConstructor(Game.DialogMgr, this);
-	S(Game.DialogMgr.te == null);
-	Game.DialogMgr.te = this
+	S(Game.DialogMgr.dialogLayer == null);
+	Game.DialogMgr.dialogLayer = this
 };
 Game.DialogMgr.prototype = {
 	se : null,
@@ -21890,7 +21890,7 @@ Game.DialogMgr.prototype = {
 	}
 };
 Game.DialogMgr.initClass = function() {
-	Game.DialogMgr.te = null
+	Game.DialogMgr.dialogLayer = null
 };
 addClassEntry(function() {
 			Game.DialogMgr.registerClass("Game.DialogMgr", GameFramework.widgets.ClassicWidget)
@@ -22892,7 +22892,7 @@ Game.EndLevelDialog.prototype = {
 												.oi(b)))
 								: b.target == this.We[Game.EndLevelDialog.ug.qV | 0]
 										? (this.m
-												.ea("b;0,1,0.01,0.25,~t4G         ~O###"), b = new Game.RecordsDialog(true), Game.BejApp.instance.te
+												.ea("b;0,1,0.01,0.25,~t4G         ~O###"), b = new Game.RecordsDialog(true), Game.BejApp.instance.dialogLayer
 												.Ho(b), b.addEventHandler(
 												GameFramework.widgets.DialogEvent.CLOSED,
 												ss.Delegate.create(this, this.P6)))
@@ -28220,7 +28220,7 @@ Game.MainMenu.prototype = {
 	},
 	F1 : function() {
 		var b = new Game.OptionsDialog(false);
-		Game.BejApp.instance.te.Ho(b)
+		Game.BejApp.instance.dialogLayer.Ho(b)
 	},
 	NT : function() {
 		Game.BejApp.instance.$I(480)
@@ -28678,7 +28678,7 @@ Game.MainMenu.prototype = {
 								: this.IQ();
 						break;
 					case Game.MainMenu.gg.SK | 0 :
-						b = new Game.RecordsDialog, Game.BejApp.instance.mi(Game.Resources.SOUND_MENUSPIN), Game.BejApp.instance.te
+						b = new Game.RecordsDialog, Game.BejApp.instance.mi(Game.Resources.SOUND_MENUSPIN), Game.BejApp.instance.dialogLayer
 								.Ho(b)
 				}
 		}
@@ -32124,7 +32124,7 @@ Game.SpeedBoard.prototype = {
 		Game.BejApp.instance.uk.qq("Lightning").rF(Game.BejApp.instance.Ka.Km, this.Z)
 				&& Game.BejApp.instance.$K(false);
 		var b = new Game.SpeedEndLevelDialog(this);
-		Game.BejApp.instance.te.Ho(b);
+		Game.BejApp.instance.dialogLayer.Ho(b);
 		b.eU("Lightning");
 		Game.BejApp.instance.Ka.OL()
 	},
@@ -33941,7 +33941,7 @@ Game.TutorialStep.prototype = {
 			this.Hd = new Game.HintDialog(this.Fk, this.Re, true, false), this.Hd.gs = false;
 		else if (this.Fb == Game.TutorialStep.hg.Wo || this.Fb == Game.TutorialStep.hg.sK)
 			this.Hd = new Game.HintDialog(this.Fk, this.Re, true, false), this.Hd.gs = false, this.Hd.XH = 0;
-		Game.BejApp.instance.te.Ho(this.Hd);
+		Game.BejApp.instance.dialogLayer.Ho(this.Hd);
 		this.Hd.addEventHandler(GameFramework.widgets.DialogEvent.CLOSED, ss.Delegate.create(this, this.N6));
 		this.Hd.Pt = 1;
 		if (this.Fj != 0 || this.CG != 0) {
