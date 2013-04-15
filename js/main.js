@@ -253,4 +253,4 @@ aLeftPillar.onload = ResizeElements;
 var aLeftPillarBot = document.getElementById('leftPillarBot');
 aLeftPillarBot.onload = ResizeElements;
 
-alert('gf');
+alert('3s');
