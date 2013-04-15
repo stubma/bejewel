@@ -14887,32 +14887,32 @@ addClassInitEntry(function() {
 			Game.ResourceCache.initClass()
 		});
 Game.TopWidget = function() {
-	this.ag = new Game.Messager;
+	this.messager = new Game.Messager;
 	callSuperConstructor(Game.TopWidget, this)
 };
 Game.TopWidget.prototype = {
-	ag : null,
+	messager : null,
 	xl : false,
 	f2 : function() {
 		this.xl = true;
-		this.ag.Ub(Game.Resources.FONT_FLAREGOTHIC16);
-		GameFramework.BaseApp.instance.addEventHandler(GameFramework.widgets.WidgetEvent.KEY_CHAR, ss.Delegate.create(this, this.E1))
+		this.messager.Ub(Game.Resources.FONT_FLAREGOTHIC16);
+		GameFramework.BaseApp.instance.addEventHandler(GameFramework.widgets.WidgetEvent.KEY_CHAR, ss.Delegate.create(this, this.onKeyChar))
 	},
-	E1 : function(b) {
+	onKeyChar : function(e) {
 		this.xl
-				&& b.KN == 86
-				&& (b = "", b += GameFramework.BaseApp.instance.isUseGL()
+				&& e.KN == 86
+				&& (e = "", e += GameFramework.BaseApp.instance.isUseGL()
 						? "(HTML5 WebGL)"
-						: "(HTML5 Canvas)", this.ag.Ip.length == 0
-						&& this.ag.ls(String.format("Version {0} " + b, Game.Version
+						: "(HTML5 Canvas)", this.messager.Ip.length == 0
+						&& this.messager.ls(String.format("Version {0} " + e, Game.Version
 										.sz())))
 	},
 	update : function() {
-		this.xl && (GameFramework.widgets.ClassicWidget.prototype.update.apply(this), this.ag.update())
+		this.xl && (GameFramework.widgets.ClassicWidget.prototype.update.apply(this), this.messager.update())
 	},
 	draw : function(b) {
 		if (this.xl
-				&& (GameFramework.widgets.ClassicWidget.prototype.draw.apply(this, [b]), this.ag
+				&& (GameFramework.widgets.ClassicWidget.prototype.draw.apply(this, [b]), this.messager
 						.draw(b, 10, Game.BejApp.instance.z + 20), Game.BejApp.instance.hr))
 			for (var c = 0; c < 2; ++c) {
 				c == 0 && (b.Q(4278190080), b.translate(-1, -1));
@@ -14971,7 +14971,7 @@ Game.BejApp.Yu = function(b, c) {
 	return b >= 128 ? (b | -256) * c / 127 : b * c / 127
 };
 Game.BejApp.prototype = {
-	ag : null,
+	messager : null,
 	Nh : null,
 	root : null,
 	nx : null,
@@ -15161,7 +15161,7 @@ Game.BejApp.prototype = {
 		this.te = new Game.DialogMgr;
 		this.root.addChild(this.te);
 		this.nI = new Game.TopWidget;
-		this.ag = this.nI.ag;
+		this.messager = this.nI.messager;
 		this.root.addChild(this.nI);
 		if (this.ZN == null)
 			this.mainMenu = new Game.MainMenu, this.mainMenu.s = 1600, this.mainMenu.z = 1200, this.nx
@@ -16544,7 +16544,7 @@ Game.Board.prototype = {
 	H7 : null,
 	I7 : null,
 	zj : null,
-	ag : null,
+	messager : null,
 	ay : 0,
 	Tt : 0,
 	Ef : 0,
@@ -16711,7 +16711,7 @@ Game.Board.prototype = {
 		this.g2();
 		for (b = 0; b < 7; b++)
 			this.yH.push(b), this.yH.push(b);
-		this.ag = Game.BejApp.instance.ag
+		this.messager = Game.BejApp.instance.messager
 	},
 	ki : staticGet(null),
 	t : function() {
@@ -20971,7 +20971,7 @@ Game.Board.prototype = {
 		if (Game.BejApp.instance.hr) {
 			var c = this.rq(this.ao | 0, this.bo | 0);
 			if (b == 116)
-				this.ag != null && this.ag.ls("tutorial reset"), this.xc.hU(0), this.xc
+				this.messager != null && this.messager.ls("tutorial reset"), this.xc.hU(0), this.xc
 						.HA(true);
 			else if (b == 120)
 				this.Fu.ea("b+-200,1500,0.006667,1,#0zN         ~~W7v");
@@ -20990,12 +20990,12 @@ Game.Board.prototype = {
 				d.m = 1;
 				this.ob.Gc(d)
 			} else if (b == 65)
-				Game.BejApp.instance.uh = ((Game.BejApp.instance.uh | 0) + 1) % (Game.DM.xf.Zc | 0), this.ag
+				Game.BejApp.instance.uh = ((Game.BejApp.instance.uh | 0) + 1) % (Game.DM.xf.Zc | 0), this.messager
 						.ls(String.format("Autoplay: {0}", Game.DM.sV[Game.BejApp.instance.uh
-										| 0])), this.ag.ls(String.format(
+										| 0])), this.messager.ls(String.format(
 						"Ticks elapsed u:{0},g:{1}", this.aa, this.Me));
 			else if (b == 33) {
-				this.ag.ls("Reset tutorial sequence");
+				this.messager.ls("Reset tutorial sequence");
 				d = -1;
 				this.Cf(Game.DM.Xa.BD, false);
 				this.Cf(Game.DM.Xa.fF, false);
@@ -21062,24 +21062,24 @@ Game.Board.prototype = {
 				}
 			} else
 				b == 77 ? (this.$S(null), this.OD(false)) : b == 90 ? (this.Ge != null
-						&& this.Ge.Mq(), this.JA(-1), this.wd.oi(this), this.ag
+						&& this.Ge.Mq(), this.JA(-1), this.wd.oi(this), this.messager
 						.ls(String.format("Background changed to idx: {0}\n",
 								this.dG))) : b == 88
 						&& (this.Ge != null && this.Ge.Mq(), this.JA(1), this.wd
-								.oi(this), this.ag.ls(String.format(
+								.oi(this), this.messager.ls(String.format(
 								"Background changed to idx: {0}\n", this.dG)));
 			if (b == 112)
 				this.oj(800, 600, 100);
 			else if (b == 80)
 				this.oj(800, 600, 2E3);
 			else if (b == 114) {
-				this.ag.HI("RESET STATS", 4294927974);
+				this.messager.HI("RESET STATS", 4294927974);
 				for (c = 0; c < (Game.DM.T.Zc | 0); c++)
 					Game.BejApp.instance.Ka.xe[c] = 0
 			} else if (b == 82)
-				this.ag.HI("RESET PROFILE", 4294927974), Game.BejApp.instance.Ka = new Game.Profile;
+				this.messager.HI("RESET PROFILE", 4294927974), Game.BejApp.instance.Ka = new Game.Profile;
 			else if (b == 72)
-				this.ag.HI("RESET HIGH SCORES", 4294927974), Game.BejApp.instance.uk = new Game.HighScoreMgr, Game.BejApp.instance
+				this.messager.HI("RESET HIGH SCORES", 4294927974), Game.BejApp.instance.uk = new Game.HighScoreMgr, Game.BejApp.instance
 						.FS(), Game.BejApp.instance.uk.gt()
 		}
 		if (b == 32 && this.ah.x == -1 && (this.CF() || this.es) && !this.iK())
