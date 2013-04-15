@@ -4630,7 +4630,7 @@ GameFramework.gfx.Color = function(b, c, d, f) {
 	this.r = b;
 	this.g = c;
 	this.b = d;
-	this.L = f
+	this.a = f
 };
 GameFramework.gfx.Color.zba = function(b, c, d) {
 	return new GameFramework.gfx.Color(b, c, d, 255)
@@ -4720,12 +4720,12 @@ GameFramework.gfx.Color.prototype = {
 	r : 0,
 	g : 0,
 	b : 0,
-	L : 0,
+	a : 0,
 	toARGB : function() {
-		return GameFramework.gfx.Color.toARGB(this.r, this.g, this.b, this.L)
+		return GameFramework.gfx.Color.toARGB(this.r, this.g, this.b, this.a)
 	},
 	ID : function() {
-		return new GameFramework.gfx.Color(this.r, this.g, this.b, this.L)
+		return new GameFramework.gfx.Color(this.r, this.g, this.b, this.a)
 	}
 };
 GameFramework.gfx.Color.initClass = function() {
@@ -14406,7 +14406,7 @@ Game.Announcement.prototype = {
 		if (this.m.V() != 0) {
 			b.kb(this.U);
 			var c = GameFramework.gfx.Color.WHITE.ID();
-			c.L = this.e != null ? this.L.V() * this.e.Yc() * 255 | 0 : this.L.V()
+			c.a = this.e != null ? this.L.V() * this.e.Yc() * 255 | 0 : this.L.V()
 					* 255 | 0;
 			b.Q(c.toARGB());
 			for (var c = this.qa.x + (this.e != null ? this.e.we.V() : 0), d = this.qa.y, f = 1, g = 0; g < this.Re.length; g++)
