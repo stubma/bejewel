@@ -1941,21 +1941,23 @@ function flushBuffer() {
 // populate buffer for a texture, if current texture is not same as the new one, old buffer
 // will be flushed to screen
 var curAdditive;
-function drawTexture(b, c, d, f, g, h, j, k, l, m, o, q, r, additive, u) {
+function drawTexture(tex, c, d, f, g, h, j, k, l, m, o, q, r, additive, color) {
 	// if old buffer is large enough, flush it anyway
 	vbLen > 1E3 && flushBuffer();
 
 	// if texture or blend mode is not same, flush old buffer
-	if (curTex != b || curAdditive != additive)
-		flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, b), curTex = b;
+	if (curTex != tex || curAdditive != additive)
+		flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, tex), curTex = tex;
 
 	// ensure blend mode ok
 	curAdditive != additive
 			&& (gl.blendFunc(gl.SRC_ALPHA, additive ? gl.ONE : gl.ONE_MINUS_SRC_ALPHA), curAdditive = additive);
 
-	// build color array
-	b = [(u >> 16 & 255) / 255, (u >> 8 & 255) / 255, (u & 255) / 255,
-			(u >> 24 & 255) / 255];
+	// color int to 4 float color array
+	var c4f = [(color >> 16 & 255) / 255,
+		(color >> 8 & 255) / 255,
+		(color & 255) / 255,
+		(color >> 24 & 255) / 255];
 
 	k /= q;
 	l /= r;
@@ -1989,8 +1991,12 @@ function drawTexture(b, c, d, f, g, h, j, k, l, m, o, q, r, additive, u) {
 	vertexBuffer[vbLen++] = l;
 
 	// fill color buffer
-	for (i = 0; i < 6; i++)
-		colorBuffer[cbLen++] = b[0], colorBuffer[cbLen++] = b[1], colorBuffer[cbLen++] = b[2], colorBuffer[cbLen++] = b[3]
+	for (i = 0; i < 6; i++) {
+		colorBuffer[cbLen++] = c4f[0];
+		colorBuffer[cbLen++] = c4f[1];
+		colorBuffer[cbLen++] = c4f[2];
+		colorBuffer[cbLen++] = c4f[3];
+	}
 }
 
 // reload page when webgl context is lost
@@ -15169,7 +15175,7 @@ Game.BejApp.prototype = {
 					.addChild(this.hP);
 		var b = this.resManager.J4("properties/resources.xml");
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.M3));
-		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.Rz))
+		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.onIOError))
 	},
 	M3 : function(b) {
 		this.resManager.g3(b.target.rd);
@@ -15200,7 +15206,7 @@ Game.BejApp.prototype = {
 				g.push(c[h]);
 		this.metrics.N4(b, g, d, f)
 	},
-	Rz : function(b) {
+	onIOError : function(b) {
 		if (!this.tk) {
 			for (var c = "Loading failed", b = Type.getInstanceOrNull(b.target,
 					GameFramework.resources.ResourceStreamer); b.MG != null;)
@@ -15218,13 +15224,13 @@ Game.BejApp.prototype = {
 	I4 : function() {
 		this.FN = this.resManager.dl("Init");
 		this.FN.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.dK));
-		this.FN.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.Rz))
+		this.FN.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.onIOError))
 	},
 	dl : function(b) {
 		b = this.resManager.dl(b);
 		this.Ut++;
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.pK));
-		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.Rz))
+		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.onIOError))
 	},
 	$K : function() {
 		this.uk.gt()
@@ -15239,7 +15245,7 @@ Game.BejApp.prototype = {
 		var b = Game.Background.pU(0);
 		this.Ut++;
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.pK));
-		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.Rz));
+		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.onIOError));
 		this.dl("Gameplay");
 		this.dl("Fonts");
 		this.dl("LoadingThread");
@@ -15250,7 +15256,7 @@ Game.BejApp.prototype = {
 		b = this.resManager.H4(Game.Resources.z3);
 		this.Ut++;
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.R1));
-		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.Rz))
+		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.onIOError))
 	},
 	R1 : function(b) {
 		var c = b.target.rd, d = new GameFramework.DataBuffer;
