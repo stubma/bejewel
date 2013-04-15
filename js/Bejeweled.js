@@ -4724,7 +4724,7 @@ GameFramework.gfx.Color.prototype = {
 	toARGB : function() {
 		return GameFramework.gfx.Color.toARGB(this.r, this.g, this.b, this.a)
 	},
-	ID : function() {
+	clone : function() {
 		return new GameFramework.gfx.Color(this.r, this.g, this.b, this.a)
 	}
 };
@@ -14405,7 +14405,7 @@ Game.Announcement.prototype = {
 	draw : function(b) {
 		if (this.m.V() != 0) {
 			b.kb(this.U);
-			var c = GameFramework.gfx.Color.WHITE.ID();
+			var c = GameFramework.gfx.Color.WHITE.clone();
 			c.a = this.e != null ? this.L.V() * this.e.Yc() * 255 | 0 : this.L.V()
 					* 255 | 0;
 			b.Q(c.toARGB());
@@ -22980,7 +22980,7 @@ Game.EndLevelDialog.prototype = {
 	eU : function(b) {
 		this.VC = b;
 		for (var b = Game.BejApp.instance.uk.qq(this.VC), c = 0; c < b.zc.length; ++c)
-			c < Game.EndLevelDialog.HE && this.zc.push(b.zc[c].ID());
+			c < Game.EndLevelDialog.HE && this.zc.push(b.zc[c].clone());
 		for (var c = false, d = 0; d < Game.HighScoreTable.Ql; ++d) {
 			var f = b.zc[d];
 			if (f.vk)
@@ -26678,7 +26678,7 @@ Game.HighScoreEntry.prototype = {
 	Eb : 0,
 	Hl : 0,
 	vk : null,
-	ID : function() {
+	clone : function() {
 		var b = new Game.HighScoreEntry;
 		b.sb = this.sb;
 		b.Hl = this.Hl;
@@ -29592,7 +29592,7 @@ addClassEntry(function() {
 		});
 Game.Points = function(b, c, d, f, g, h, j, k, l) {
 	this.Oa = Array.O(Game.Points.Tz, null);
-	this.q9 = GameFramework.gfx.Color.WHITE.ID();
+	this.q9 = GameFramework.gfx.Color.WHITE.clone();
 	this.Je = Array.O(Game.Points.Tz, null);
 	this.vX = true;
 	this.re = 0;
