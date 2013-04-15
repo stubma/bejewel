@@ -2207,7 +2207,7 @@ GameFramework.BaseApp.prototype = {
 	Nt : null,
 	bN : null,
 	appName : "PopCapGame",
-	nj : "",
+	version : "",
 	w9 : null,
 	graphics : null,
 	AY : null,
@@ -2280,7 +2280,7 @@ GameFramework.BaseApp.prototype = {
 		this.O0();
 		GameFramework.Utils.TS("Init", Array.O(3, null, new GameFramework.misc.KeyVal(
 								"ProdName", this.appName), new GameFramework.misc.KeyVal(
-								"Version", this.nj), new GameFramework.misc.KeyVal(
+								"Version", this.version), new GameFramework.misc.KeyVal(
 								"ExecutionId", this.bN)));
 		this.createGraphics();
 		this.createHttpService()
@@ -7649,7 +7649,7 @@ GameFramework.resources.PIEffect.prototype = {
 	NG : 0,
 	Ai : null,
 	e7 : null,
-	nj : 0,
+	version : 0,
 	DY : null,
 	Sr : null,
 	Hr : null,
@@ -7689,7 +7689,7 @@ GameFramework.resources.PIEffect.prototype = {
 		--this.ga.hj == 0 && this.ga.t();
 		this.NG = b.NG;
 		this.DY = b.DY;
-		this.nj = b.nj;
+		this.version = b.version;
 		this.Sr = b.Sr;
 		this.Hr = b.Hr;
 		this.s = b.s;
@@ -8287,13 +8287,13 @@ GameFramework.resources.PIEffect.prototype = {
 	y2 : function(b, c) {
 		this.ga = new GameFramework.resources.PIEffectDef;
 		this.bq();
-		this.NG = this.nj = 0;
+		this.NG = this.version = 0;
 		this.C = b;
 		this.Ai = true;
 		this.ni();
 		if (this.Ai)
-			this.nj = this.C.H();
-		this.nj < GameFramework.resources.PIEffect.b3 && this.BJ("PPF version too old");
+			this.version = this.C.H();
+		this.version < GameFramework.resources.PIEffect.b3 && this.BJ("PPF version too old");
 		this.Hr = this.ni();
 		this.ga.gh = [];
 		for (var d = this.C.Ga(), f = 0; f < d; f++) {
@@ -8579,7 +8579,7 @@ GameFramework.resources.PIEffect.prototype = {
 		this.C.eb();
 		this.C.Ga();
 		this.C.Ga();
-		if (this.Ai && this.nj >= 1) {
+		if (this.Ai && this.version >= 1) {
 			if (d = this.C.H(), d > 0)
 				this.Sr = new GameFramework.DataBuffer, f = Array.O(d, 0), b
 						.vA(f, 0, d), this.Sr.Ss(f)
@@ -8750,7 +8750,7 @@ GameFramework.resources.PIEffect.prototype = {
 		this.ga.gh = null;
 		this.ga.Kf = null;
 		this.IC = this.ga.KG = null;
-		this.nj = 0;
+		this.version = 0;
 		this.ue = false
 	},
 	fn : function(b) {
@@ -10300,7 +10300,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 	n : 4294967295,
 	ue : false,
 	pc : false,
-	nj : 0,
+	version : 0,
 	KV : 1,
 	Px : null,
 	Mx : null,
@@ -10537,13 +10537,13 @@ GameFramework.resources.PopAnimResource.prototype = {
 	},
 	SS : function(b, c) {
 		var d = [];
-		this.nj >= 4
+		this.version >= 4
 				? (this.Gm.push(b.bl()), c.sb = this.Gm[this.Gm.length - 1], c.kp = b
 						.H()
 						/ 65536)
 				: c.kp = this.kp;
 		var f = b.Ga();
-		this.nj >= 5
+		this.version >= 5
 				? (c.Jk = b.Ga(), c.Ym = b.Ga())
 				: (c.Jk = 0, c.Ym = f - 1);
 		c.Ym = Math.min(c.Jk + c.Ym, f - 1) - c.Jk | 0;
@@ -10673,7 +10673,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 		this.Kc = new GameFramework.resources.popanim.PopAnimSpriteInst;
 		this.Gm = [];
 		b.H();
-		this.nj = b.H();
+		this.version = b.H();
 		this.kp = b.eb();
 		this.w = b.Ga() / 20;
 		this.v = b.Ga() / 20;
