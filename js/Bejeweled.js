@@ -13121,7 +13121,6 @@ GameFramework.JSBaseApp.prototype = {
 					? c = true
 					: stream.resType != GameFramework.resources.ResourceManager.zT && (d = true);
 			if (stream.rd == null && stream.path != null) {
-                TRACE && ss.Debug.writeln("JSBaseApp::update: stream: " + stream.path);
 				if (stream.resType === GameFramework.resources.ResourceManager.IMAGE)
 					stream.Kb != null && stream.Kb.Qb != null ? this.resManager.Gs(stream.Kb.Qb) != null
 							&& stream.Or != stream.Uj && stream.Or++ : stream.rd = stream.Kb != null
