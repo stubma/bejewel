@@ -1716,7 +1716,7 @@ ab.g6(Math.random(), document.documentElement.clientWidth,
 
 // main loop of game
 var vertexBO, vertexBuffer, vbLen = 0, colorBO, colorBuffer, cbLen = 0, lastFrameTime = (new Date).getTime(), delta = 0;
-var speedFactor = 1, exitWhenError = true, ub, resManager;
+var speedFactor = 1, exitWhenError = true, viewportWidth, viewportHeight;
 function drawFrame() {
 	var now = (new Date).getTime();
 	delta += (now - lastFrameTime) * speedFactor;
@@ -1741,7 +1741,7 @@ function drawFrame() {
 		}
 		if (atLeastOneFrame && jsfInited) {
 			gl
-					&& (ub && (gl.viewport(0, 0, ub, resManager), resManager = ub = 0), gl.clearColor(0, 0, 0.1, 1), gl
+					&& (viewportWidth && (gl.viewport(0, 0, viewportWidth, viewportHeight), viewportHeight = viewportWidth = 0), gl.clearColor(0, 0, 0.1, 1), gl
 							.colorMask(1, 1, 1, 1), gl.clear(gl.COLOR_BUFFER_BIT), gl
 							.colorMask(1, 1, 1, 0), curTex = null);
 			context = document.getElementById("GameCanvas").getContext("2d");
@@ -1941,13 +1941,14 @@ function flushBuffer() {
 // populate buffer for a texture, if current texture is not same as the new one, old buffer
 // will be flushed to screen
 var curAdditive;
-function drawTexture(tex, c, d, f, g, h, j, k, l, m, o, q, r, additive, color) {
+function drawTexture(tex, tx, ty, a, b, c, d, texX, texY, texWidth, texHeight, atlasWidth, atlasHeight, additive, color) {
 	// if old buffer is large enough, flush it anyway
 	vbLen > 1E3 && flushBuffer();
 
 	// if texture or blend mode is not same, flush old buffer
 	if(curTex != tex || curAdditive != additive) {
-		flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, tex);
+		flushBuffer();
+		gl.bindTexture(gl.TEXTURE_2D, tex);
 		curTex = tex;
 	}
 
@@ -1963,36 +1964,37 @@ function drawTexture(tex, c, d, f, g, h, j, k, l, m, o, q, r, additive, color) {
 		(color & 255) / 255,
 		(color >> 24 & 255) / 255];
 
-	k /= q;
-	l /= r;
-	q = m / q;
-	r = o / r;
+	texX /= atlasWidth;
+	texY /= atlasHeight;
+	var texW = texWidth / atlasWidth;
+	var texH = texHeight / atlasHeight;
 
-	// fill vertex buffer
-	vertexBuffer[vbLen++] = (c + h * o) / curApp.Di;
-	vertexBuffer[vbLen++] = (d + j * o) / curApp.Ig;
-	vertexBuffer[vbLen++] = k;
-	vertexBuffer[vbLen++] = l + r;
-	vertexBuffer[vbLen++] = c / curApp.Di;
-	vertexBuffer[vbLen++] = d / curApp.Ig;
-	vertexBuffer[vbLen++] = k;
-	vertexBuffer[vbLen++] = l;
-	vertexBuffer[vbLen++] = (c + f * m + h * o) / curApp.Di;
-	vertexBuffer[vbLen++] = (d + g * m + j * o) / curApp.Ig;
-	vertexBuffer[vbLen++] = k + q;
-	vertexBuffer[vbLen++] = l + r;
-	vertexBuffer[vbLen++] = c / curApp.Di;
-	vertexBuffer[vbLen++] = d / curApp.Ig;
-	vertexBuffer[vbLen++] = k;
-	vertexBuffer[vbLen++] = l;
-	vertexBuffer[vbLen++] = (c + f * m + h * o) / curApp.Di;
-	vertexBuffer[vbLen++] = (d + g * m + j * o) / curApp.Ig;
-	vertexBuffer[vbLen++] = k + q;
-	vertexBuffer[vbLen++] = l + r;
-	vertexBuffer[vbLen++] = (c + f * m) / curApp.Di;
-	vertexBuffer[vbLen++] = (d + g * m) / curApp.Ig;
-	vertexBuffer[vbLen++] = k + q;
-	vertexBuffer[vbLen++] = l;
+	// fill vertex buffer and tex coords
+	// remember last two components are tex coords
+	vertexBuffer[vbLen++] = (tx + c * texHeight) / curApp.surfaceWidth;
+	vertexBuffer[vbLen++] = (ty + d * texHeight) / curApp.surfaceHeight;
+	vertexBuffer[vbLen++] = texX;
+	vertexBuffer[vbLen++] = texY + texH;
+	vertexBuffer[vbLen++] = tx / curApp.surfaceWidth;
+	vertexBuffer[vbLen++] = ty / curApp.surfaceHeight;
+	vertexBuffer[vbLen++] = texX;
+	vertexBuffer[vbLen++] = texY;
+	vertexBuffer[vbLen++] = (tx + a * texWidth + c * texHeight) / curApp.surfaceWidth;
+	vertexBuffer[vbLen++] = (ty + b * texWidth + d * texHeight) / curApp.surfaceHeight;
+	vertexBuffer[vbLen++] = texX + texW;
+	vertexBuffer[vbLen++] = texY + texH;
+	vertexBuffer[vbLen++] = tx / curApp.surfaceWidth;
+	vertexBuffer[vbLen++] = ty / curApp.surfaceHeight;
+	vertexBuffer[vbLen++] = texX;
+	vertexBuffer[vbLen++] = texY;
+	vertexBuffer[vbLen++] = (tx + a * texWidth + c * texHeight) / curApp.surfaceWidth;
+	vertexBuffer[vbLen++] = (ty + b * texWidth + d * texHeight) / curApp.surfaceHeight;
+	vertexBuffer[vbLen++] = texX + texW;
+	vertexBuffer[vbLen++] = texY + texH;
+	vertexBuffer[vbLen++] = (tx + a * texWidth) / curApp.surfaceWidth;
+	vertexBuffer[vbLen++] = (ty + b * texWidth) / curApp.surfaceHeight;
+	vertexBuffer[vbLen++] = texX + texW;
+	vertexBuffer[vbLen++] = texY;
 
 	// fill color buffer
 	for (i = 0; i < 6; i++) {
@@ -2228,8 +2230,8 @@ GameFramework.BaseApp.prototype = {
 	dC : 0,
 	artRes : 0,
 	m : 1,
-	Di : 0,
-	Ig : 0,
+	surfaceWidth : 0,
+	surfaceHeight : 0,
 	aa : 0,
 	Le : 10,
 	vo : 1,
@@ -2290,9 +2292,9 @@ GameFramework.BaseApp.prototype = {
 		this.createHttpService()
 	},
 	KA : function(b, c) {
-		this.Di = b;
-		this.Ig = c;
-		this.m = this.Ig / this.z
+		this.surfaceWidth = b;
+		this.surfaceHeight = c;
+		this.m = this.surfaceHeight / this.z
 	},
 	bL : dummy(),
 	X4 : dummy(),
@@ -13072,14 +13074,14 @@ GameFramework.JSBaseApp.prototype = {
 	},
 	KA : function(b, c) {
 		GameFramework.BaseApp.prototype.KA.apply(this, [b, c]);
-		ub = b;
-		resManager = c
+		viewportWidth = b;
+		viewportHeight = c
 	},
 	uQ : function() {
 		return new GameFramework.JSDataBufferData
 	},
 	createGraphics : function() {
-		this.graphics = this.m8 = new GameFramework.gfx.JSGraphics(this.Di, this.Ig)
+		this.graphics = this.m8 = new GameFramework.gfx.JSGraphics(this.surfaceWidth, this.surfaceHeight)
 	},
 	getItem : function(ns, key) {
 		return localStorage.getItem(ns + "/" + key)
@@ -13520,16 +13522,16 @@ GameFramework.gfx.JSGraphics.prototype = {
 						&& (gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA), curAdditive = false);
 				l = [(l >> 16 & 255) / 255, (l >> 8 & 255) / 255,
 						(l & 255) / 255, (l >> 24 & 255) / 255];
-				vertexBuffer[vbLen++] = d / curApp.Di;
-				vertexBuffer[vbLen++] = f / curApp.Ig;
+				vertexBuffer[vbLen++] = d / curApp.surfaceWidth;
+				vertexBuffer[vbLen++] = f / curApp.surfaceHeight;
 				vertexBuffer[vbLen++] = 0;
 				vertexBuffer[vbLen++] = 0;
-				vertexBuffer[vbLen++] = g / curApp.Di;
-				vertexBuffer[vbLen++] = h / curApp.Ig;
+				vertexBuffer[vbLen++] = g / curApp.surfaceWidth;
+				vertexBuffer[vbLen++] = h / curApp.surfaceHeight;
 				vertexBuffer[vbLen++] = 0;
 				vertexBuffer[vbLen++] = 0;
-				vertexBuffer[vbLen++] = j / curApp.Di;
-				vertexBuffer[vbLen++] = k / curApp.Ig;
+				vertexBuffer[vbLen++] = j / curApp.surfaceWidth;
+				vertexBuffer[vbLen++] = k / curApp.surfaceHeight;
 				vertexBuffer[vbLen++] = 0;
 				for (i = vertexBuffer[vbLen++] = 0; i < 3; i++)
 					colorBuffer[cbLen++] = l[0], colorBuffer[cbLen++] = l[1], colorBuffer[cbLen++] = l[2], colorBuffer[cbLen++] = l[3]
@@ -13578,16 +13580,16 @@ GameFramework.gfx.JSGraphics.prototype = {
 						(y & 255) / 255, (y >> 24 & 255) / 255];
 				r = B == r ? m : [(B >> 16 & 255) / 255, (B >> 8 & 255) / 255,
 						(B & 255) / 255, (B >> 24 & 255) / 255];
-				vertexBuffer[vbLen++] = f / curApp.Di;
-				vertexBuffer[vbLen++] = g / curApp.Ig;
+				vertexBuffer[vbLen++] = f / curApp.surfaceWidth;
+				vertexBuffer[vbLen++] = g / curApp.surfaceHeight;
 				vertexBuffer[vbLen++] = o;
 				vertexBuffer[vbLen++] = q;
-				vertexBuffer[vbLen++] = h / curApp.Di;
-				vertexBuffer[vbLen++] = j / curApp.Ig;
+				vertexBuffer[vbLen++] = h / curApp.surfaceWidth;
+				vertexBuffer[vbLen++] = j / curApp.surfaceHeight;
 				vertexBuffer[vbLen++] = v;
 				vertexBuffer[vbLen++] = u;
-				vertexBuffer[vbLen++] = k / curApp.Di;
-				vertexBuffer[vbLen++] = l / curApp.Ig;
+				vertexBuffer[vbLen++] = k / curApp.surfaceWidth;
+				vertexBuffer[vbLen++] = l / curApp.surfaceHeight;
 				vertexBuffer[vbLen++] = z;
 				vertexBuffer[vbLen++] = A;
 				colorBuffer[cbLen++] = m[0];
@@ -14952,9 +14954,9 @@ Game.BejApp = function() {
 	this.frameInterval = 1E3 / 60;
 	this.lH = 1600;
 	this.dC = 1200;
-	this.Di = 1024;
-	this.artRes = this.Ig = 768;
-	this.m = this.Ig / this.dC;
+	this.surfaceWidth = 1024;
+	this.artRes = this.surfaceHeight = 768;
+	this.m = this.surfaceHeight / this.dC;
 	this.Ka = new Game.Profile;
 	this.C8 = new Game.MusicInterface;
 	this.V8 = new Game.ResourceCache;
@@ -15136,7 +15138,7 @@ Game.BejApp.prototype = {
 		this.metrics.SC == 0 && this.metrics.n4(c % 1234567 / 1234567);
 		this.uk.x2();
 		this.FS();
-		this.m = this.Ig / this.dC;
+		this.m = this.surfaceHeight / this.dC;
 		if (this.BG != null)
 			this.BG.v9 = "http://10.1.244.102/query_engine.php";
 		
@@ -15156,7 +15158,7 @@ Game.BejApp.prototype = {
 		this.uk.$D("Lightning", 1E5, 5E4)
 	},
 	startLoad : function() {
-		this.root.w = ((this.Di - (1600 * this.Ig / 1200 | 0)) / 2 | 0) / this.m;
+		this.root.w = ((this.surfaceWidth - (1600 * this.surfaceHeight / 1200 | 0)) / 2 | 0) / this.m;
 		this.w = -this.root.w | 0;
 		this.ix = this.s + this.root.w * 2;
 		this.hx = this.z;

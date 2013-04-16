@@ -3,20 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bejeweled.js" afterPath="$PROJECT_DIR$/js/Bejeweled.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bejewel.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365264647261" ignored="false" />
-    <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365690627267" ignored="false" />
+    <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366079423153" ignored="false" />
     <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365681347481" ignored="false" />
     <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366077817030" ignored="false" />
     <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366077586850" ignored="false" />
-    <file path="/fragment.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366011766432" ignored="false" />
+    <file path="/fragment.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366085319089" ignored="false" />
     <file path="/main.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366078527976" ignored="false" />
-    <file path="/Bejeweled.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366017468229" ignored="false" />
+    <file path="/Bejeweled.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366084898273" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,16 +38,7 @@
       <file leaf-file-name="Bejeweled.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1584" column="22" selection-start="38309" selection-end="38327" vertical-scroll-proportion="-4.576923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="284" column="10" selection-start="9330" selection-end="9330" vertical-scroll-proportion="0.7567568">
+            <state line="2237" column="32" selection-start="57105" selection-end="57105" vertical-scroll-proportion="-3.0727272">
               <folding />
             </state>
           </provider>
@@ -57,7 +47,25 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="308" column="26" selection-start="8053" selection-end="8066" vertical-scroll-proportion="-2.3">
+            <state line="326" column="51" selection-start="8693" selection-end="8693" vertical-scroll-proportion="-1.25">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resources.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/properties/resources.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1475" column="46" selection-start="358035" selection-end="358070" vertical-scroll-proportion="-4.576923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="284" column="10" selection-start="9330" selection-end="9330" vertical-scroll-proportion="0.7360704">
               <folding />
             </state>
           </provider>
@@ -90,6 +98,9 @@
         <option value="$PROJECT_DIR$/js/jquery-1.7.1.min.js" />
         <option value="$PROJECT_DIR$/js/soundmanager2.js" />
         <option value="$PROJECT_DIR$/js/Bejeweled_min.js" />
+        <option value="$PROJECT_DIR$/shader/bejewel.fsh" />
+        <option value="$PROJECT_DIR$/shader/bejewel.vsh" />
+        <option value="localhost/~maruojie/bejewel/js/main.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/Bejeweled.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
@@ -148,7 +159,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="1" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -183,6 +194,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bejewel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bejewel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bejewel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="properties" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -235,7 +260,7 @@
       <recent name="$PROJECT_DIR$/js" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.bejewel (remote)">
+  <component name="RunManager" selected="JavaScript Debug.bejewel (local)">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -414,33 +439,16 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="124" />
+      <option name="time" value="128" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="219" column="52" selection-start="0" selection-end="8082" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1194" column="7" selection-start="18447" selection-end="18447" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="http://127.0.0.1/~maruojie/bejewel/js/Bejeweled_min.js">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
       </provider>
     </entry>
     <entry file="http://127.0.0.1/~maruojie/bejewel/js/main.js">
-      <provider selected="true" editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="http://localhost/~maruojie/bejewel/js/main.js">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
       </provider>
@@ -455,23 +463,11 @@
         <state line="3" column="27" selection-start="44" selection-end="44" vertical-scroll-proportion="0.07826087" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/soundmanager2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="29" selection-start="580" selection-end="580" vertical-scroll-proportion="0.09544008">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/properties/resources.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1179" column="30" selection-start="305178" selection-end="305197" vertical-scroll-proportion="0.01590668" />
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="31" selection-start="1163" selection-end="1177" vertical-scroll-proportion="0.33333334" />
+        <state line="79" column="31" selection-start="1163" selection-end="1177" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMEvents.js">
@@ -491,23 +487,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="http://localhost/~maruojie/bejewel/js/main.js">
+      <provider selected="true" editor-type-id="httpFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/soundmanager2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="64" selection-start="1244" selection-end="1244" vertical-scroll-proportion="0.44817072">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/properties/resources.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1475" column="46" selection-start="358035" selection-end="358070" vertical-scroll-proportion="-4.576923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="308" column="26" selection-start="8053" selection-end="8066" vertical-scroll-proportion="-2.3">
+        <state line="326" column="51" selection-start="8693" selection-end="8693" vertical-scroll-proportion="-1.25">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Bejeweled.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1584" column="22" selection-start="38309" selection-end="38327" vertical-scroll-proportion="-4.576923">
+        <state line="2237" column="32" selection-start="57105" selection-end="57105" vertical-scroll-proportion="-3.0727272">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="284" column="10" selection-start="9330" selection-end="9330" vertical-scroll-proportion="0.7567568">
+        <state line="284" column="10" selection-start="9330" selection-end="9330" vertical-scroll-proportion="0.7360704">
           <folding />
         </state>
       </provider>
