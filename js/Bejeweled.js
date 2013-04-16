@@ -2078,12 +2078,6 @@ window.JSFExt_Init = function(app, canvas) {
 	jsfInited = true
 };
 
-// sound manager lifecycle methods
-window.JSFExt_SoundManagerReady = dummy();
-window.JSFExt_SoundError = function() {
-	curApp.onException(Error("SoundManager2 error"))
-};
-
 function Wc(b, c) {
 	if (soundManager.ok()) {
 		var d = b.xa;
@@ -29093,7 +29087,7 @@ Game.OptionsDialog.prototype = {
 	zm : null,
 	TJ : function(b) {
 		if (b.target == this.zm)
-			window.ShowHelp();
+			window.showHelp();
 		else if (b.target == this.Ow)
 			b = Game.BejApp.instance.gq("MAIN MENU",
 					"Abandon the current game and go to main menu?", "",

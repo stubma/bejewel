@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bejeweled.js" afterPath="$PROJECT_DIR$/js/Bejeweled.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -11,10 +12,10 @@
     <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365264647261" ignored="false" />
     <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365690627267" ignored="false" />
     <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365681347481" ignored="false" />
-    <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365408132098" ignored="false" />
-    <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366005626632" ignored="false" />
+    <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366077817030" ignored="false" />
+    <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366077586850" ignored="false" />
     <file path="/fragment.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366011766432" ignored="false" />
-    <file path="/main.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365670021547" ignored="false" />
+    <file path="/main.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366078527976" ignored="false" />
     <file path="/Bejeweled.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366017468229" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +39,7 @@
       <file leaf-file-name="Bejeweled.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26677" column="40" selection-start="927004" selection-end="927004" vertical-scroll-proportion="-1.1636363">
+            <state line="1584" column="22" selection-start="38309" selection-end="38327" vertical-scroll-proportion="-4.576923">
               <folding />
             </state>
           </provider>
@@ -47,7 +48,16 @@
       <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="255" column="9" selection-start="8182" selection-end="8182" vertical-scroll-proportion="0.77272725">
+            <state line="284" column="10" selection-start="9330" selection-end="9330" vertical-scroll-proportion="0.7567568">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="308" column="26" selection-start="8053" selection-end="8066" vertical-scroll-proportion="-2.3">
               <folding />
             </state>
           </provider>
@@ -79,8 +89,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/js/jquery-1.7.1.min.js" />
         <option value="$PROJECT_DIR$/js/soundmanager2.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/Bejeweled_min.js" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/Bejeweled.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
       </list>
@@ -157,6 +167,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -191,7 +202,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -207,8 +217,8 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig" serverName="bejewel" serverId="3d1b4129-d0b0-41a7-9d36-b570f0ce44d7">
     <servers>
@@ -225,7 +235,7 @@
       <recent name="$PROJECT_DIR$/js" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.bejewel (local)">
+  <component name="RunManager" selected="JavaScript Debug.bejewel (remote)">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -323,6 +333,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32825205" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23147495" sideWeight="0.61627907" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38372093" sideWeight="0.9971831" order="3" side_tool="false" content_ui="tabs" />
@@ -334,7 +345,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32825205" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.60901165" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32994187" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -415,11 +425,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMCore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="243" column="33" selection-start="4913" selection-end="4927" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1194" column="7" selection-start="18447" selection-end="18447" vertical-scroll-proportion="0.0" />
@@ -461,16 +466,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/properties/resources.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1179" column="30" selection-start="305178" selection-end="305197" vertical-scroll-proportion="0.01590668">
-          <folding />
-        </state>
+        <state line="1179" column="30" selection-start="305178" selection-end="305197" vertical-scroll-proportion="0.01590668" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="31" selection-start="1163" selection-end="1177" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="79" column="31" selection-start="1163" selection-end="1177" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMEvents.js">
@@ -478,28 +479,35 @@
         <state line="131" column="22" selection-start="2192" selection-end="2192" vertical-scroll-proportion="0.33159268" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="274" column="0" selection-start="6735" selection-end="6735" vertical-scroll-proportion="-5.1666665">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="7" selection-start="854" selection-end="854" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMCore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="254" column="0" selection-start="5182" selection-end="5182" vertical-scroll-proportion="0.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="308" column="26" selection-start="8053" selection-end="8066" vertical-scroll-proportion="-2.3">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/Bejeweled.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26677" column="40" selection-start="927004" selection-end="927004" vertical-scroll-proportion="-1.1636363">
+        <state line="1584" column="22" selection-start="38309" selection-end="38327" vertical-scroll-proportion="-4.576923">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="255" column="9" selection-start="8182" selection-end="8182" vertical-scroll-proportion="0.77272725">
+        <state line="284" column="10" selection-start="9330" selection-end="9330" vertical-scroll-proportion="0.7567568">
           <folding />
         </state>
       </provider>
