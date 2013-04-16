@@ -11252,7 +11252,7 @@ GameFramework.resources.ResourceManager.prototype = {
 	J4 : function(b) {
 		var c = new GameFramework.resources.ResourceStreamer;
 		c.vc = b;
-		c.resType = GameFramework.resources.ResourceManager.A3;
+		c.resType = GameFramework.resources.ResourceManager.RESGEN;
 		c.Uj = 1;
 		GameFramework.BaseApp.instance.Su(c);
 		return c
@@ -11357,7 +11357,7 @@ GameFramework.resources.ResourceManager.initClass = function() {
 	GameFramework.resources.ResourceManager.PIEFFECT = 5;
 	GameFramework.resources.ResourceManager.POP3D = 6;
 	GameFramework.resources.ResourceManager.RENDEREFFECT = 7;
-	GameFramework.resources.ResourceManager.A3 = 8;
+	GameFramework.resources.ResourceManager.RESGEN = 8;
 	GameFramework.resources.ResourceManager.yT = 9
 };
 addClassEntry(function() {
