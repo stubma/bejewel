@@ -2339,7 +2339,7 @@ GameFramework.BaseApp.prototype = {
 	hS : function() {
 		for (var b = 0, c = ss.IEnumerator.enumerate(this.Ck); c.hasNext();) {
 			var d = c.next();
-			d.Or == 0 && d.xa != null && d.vc != null && !startsWith(d.vc, "!") && b++
+			d.Or == 0 && d.xa != null && d.path != null && !startsWith(d.path, "!") && b++
 		}
 		return b
 	},
@@ -5815,7 +5815,7 @@ GameFramework.resources.BaseRes = dummy();
 GameFramework.resources.BaseRes.prototype = {
 	Fb : 0,
 	xa : null,
-	vc : null,
+	path : null,
 	Qb : null,
 	T7 : null,
 	ui : 1,
@@ -11135,8 +11135,8 @@ GameFramework.resources.ResourceManager.prototype = {
 								l.$c = [];
 							l.$c.push(k)
 						}
-						k.vc = h.Pb("path").Gb();
-						k.vc = GameFramework.Utils.qF(k.vc);
+						k.path = h.Pb("path").Gb();
+						k.path = GameFramework.Utils.qF(k.path);
 						if (h.Pb("width").Gb().length > 0)
 							k.s = GameFramework.Utils.toInt(h.Pb("width").Gb());
 						if (h.Pb("height").Gb().length > 0)
@@ -11183,10 +11183,10 @@ GameFramework.resources.ResourceManager.prototype = {
 										+ 1);
 							k.Jj.push(h)
 						}
-						if (j == "File" && endsWith(k.vc, ".p3d"))
+						if (j == "File" && endsWith(k.path, ".p3d"))
 							k.Fb = GameFramework.resources.ResourceManager.POP3D;
 						this.Nm[k.xa] = k;
-						this.xO[k.vc] = k;
+						this.xO[k.path] = k;
 						this.dy[f][k.xa] = k
 					}
 				}
@@ -11229,7 +11229,7 @@ GameFramework.resources.ResourceManager.prototype = {
 					&& this.sw(d.Qb).addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR,
 							ss.Delegate.create(c, c.ps));
 			if (!(d.Fb == GameFramework.resources.ResourceManager.zT || d.hX)) {
-				var f = d.vc, g = new GameFramework.resources.ResourceStreamer;
+				var f = d.path, g = new GameFramework.resources.ResourceStreamer;
 				if (d.Jj != null) {
 					if (d.Jj.length > 1)
 						g.Rx = f + d.Jj[1];
@@ -11237,7 +11237,7 @@ GameFramework.resources.ResourceManager.prototype = {
 				}
 				g.resType = d.Fb;
 				g.xa = d.xa;
-				g.vc = f;
+				g.path = f;
 				g.Kb = d;
 				g.Uj = 1;
 				g.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(c, c.Sy));
@@ -11251,7 +11251,7 @@ GameFramework.resources.ResourceManager.prototype = {
 	},
 	J4 : function(b) {
 		var c = new GameFramework.resources.ResourceStreamer;
-		c.vc = b;
+		c.path = b;
 		c.resType = GameFramework.resources.ResourceManager.RESGEN;
 		c.Uj = 1;
 		GameFramework.BaseApp.instance.addToLoadingQueue(c);
@@ -11259,8 +11259,8 @@ GameFramework.resources.ResourceManager.prototype = {
 	},
 	H4 : function(b) {
 		var b = this.Nm[b], c = new GameFramework.resources.ResourceStreamer;
-		c.vc = b.vc;
-		b.Jj != null && (c.vc += b.Jj[0]);
+		c.path = b.path;
+		b.Jj != null && (c.path += b.Jj[0]);
 		c.resType = GameFramework.resources.ResourceManager.yT;
 		c.Uj = 1;
 		GameFramework.BaseApp.instance.addToLoadingQueue(c);
@@ -11278,10 +11278,10 @@ GameFramework.resources.ResourceManager.prototype = {
 						ss.Delegate.create(c, c.ps));
 		c.xa = b;
 		c.Kb = d;
-		c.vc = c.Kb.vc;
-		if (c.Kb.Jj != null && (c.vc = c.Kb.vc + c.Kb.Jj[0], c.Kb.Jj.length > 1))
-			c.Rx = c.Kb.vc + c.Kb.Jj[1];
-		c.vc = GameFramework.Utils.qF(c.vc);
+		c.path = c.Kb.path;
+		if (c.Kb.Jj != null && (c.path = c.Kb.path + c.Kb.Jj[0], c.Kb.Jj.length > 1))
+			c.Rx = c.Kb.path + c.Kb.Jj[1];
+		c.path = GameFramework.Utils.qF(c.path);
 		c.resType = GameFramework.resources.ResourceManager.IMAGE;
 		c.Uj = 1;
 		GameFramework.BaseApp.instance.addToLoadingQueue(c);
@@ -11289,7 +11289,7 @@ GameFramework.resources.ResourceManager.prototype = {
 	},
 	vU : function(b) {
 		var c = new GameFramework.resources.ResourceStreamer;
-		c.vc = b;
+		c.path = b;
 		c.resType = GameFramework.resources.ResourceManager.IMAGE;
 		c.Uj = 1;
 		GameFramework.BaseApp.instance.addToLoadingQueue(c);
@@ -11373,7 +11373,7 @@ GameFramework.resources.ResourceStreamer = function() {
 GameFramework.resources.ResourceStreamer.prototype = {
 	sN : null,
 	xa : null,
-	vc : null,
+	path : null,
 	Rx : null,
 	Kb : null,
 	rd : null,
@@ -13120,17 +13120,17 @@ GameFramework.JSBaseApp.prototype = {
 			stream.resType == GameFramework.resources.ResourceManager.SOUND
 					? c = true
 					: stream.resType != GameFramework.resources.ResourceManager.zT && (d = true);
-			if (stream.rd == null && stream.vc != null) {
-                TRACE && ss.Debug.writeln("JSBaseApp::update: stream: " + stream.vc);
+			if (stream.rd == null && stream.path != null) {
+                TRACE && ss.Debug.writeln("JSBaseApp::update: stream: " + stream.path);
 				if (stream.resType === GameFramework.resources.ResourceManager.IMAGE)
 					stream.Kb != null && stream.Kb.Qb != null ? this.resManager.Gs(stream.Kb.Qb) != null
 							&& stream.Or != stream.Uj && stream.Or++ : stream.rd = stream.Kb != null
-							&& stream.Kb.gX ? Oa(stream, stream.vc ? this.pathPrefix + stream.vc : null, stream.Rx
+							&& stream.Kb.gX ? Oa(stream, stream.path ? this.pathPrefix + stream.path : null, stream.Rx
 									? this.pathPrefix + stream.Rx
-									: null) : Na(stream, stream.vc ? this.pathPrefix + stream.vc : null,
+									: null) : Na(stream, stream.path ? this.pathPrefix + stream.path : null,
 							stream.Rx ? this.pathPrefix + stream.Rx : null);
 				else if (stream.resType === GameFramework.resources.ResourceManager.SOUND) {
-					var h = stream.vc;
+					var h = stream.path;
 					h.indexOf(".") === -1 && (h += stream.Kb.Jj[0]);
 					stream.rd = Wc(stream, h);
 					this.resManager.JT(stream)
@@ -13140,16 +13140,16 @@ GameFramework.JSBaseApp.prototype = {
 						|| stream.resType === GameFramework.resources.ResourceManager.POP3D
 						|| stream.resType === GameFramework.resources.ResourceManager.RENDEREFFECT
 						|| stream.resType === GameFramework.resources.ResourceManager.yT)
-					if (startsWith(stream.vc, "!ref:"))
-						h = this.resManager.b1(stream.vc.substr(5)), h != null && stream.Or != stream.Uj
+					if (startsWith(stream.path, "!ref:"))
+						h = this.resManager.b1(stream.path.substr(5)), h != null && stream.Or != stream.Uj
 								&& (this.resManager.ET(stream.xa, h.gi()), stream.Or++);
-					else if (h = null, h = stream.vc.indexOf("@"), h != -1) {
+					else if (h = null, h = stream.path.indexOf("@"), h != -1) {
                         // search : and -, h will be filename, j, k is start and end bytes
-						var j = stream.vc.indexOf(":", h);
-						var k = stream.vc.indexOf("-", h);
-						h = stream.vc.substr(h + 1, j - h - 1);
-						j = stream.vc.substr(j + 1, k - j - 1) | 0;
-						k = stream.vc.substr(k + 1) | 0;
+						var j = stream.path.indexOf(":", h);
+						var k = stream.path.indexOf("-", h);
+						h = stream.path.substr(h + 1, j - h - 1);
+						j = stream.path.substr(j + 1, k - j - 1) | 0;
+						k = stream.path.substr(k + 1) | 0;
                         
 						var l = this.NB[h];
 						if(l) {
@@ -13168,12 +13168,12 @@ GameFramework.JSBaseApp.prototype = {
 							Za(stream, h, k);
 						}
 					} else
-						h = Ya(stream, this.pathPrefix + stream.vc), h.nY = stream, this.tN[h
+						h = Ya(stream, this.pathPrefix + stream.path), h.nY = stream, this.tN[h
 								.toString()] = stream, stream.rd = h;
 				else
-					h = stream.vc.indexOf(".json") !== -1 ? $.get(this.pathPrefix + stream.vc, null,
+					h = stream.path.indexOf(".json") !== -1 ? $.get(this.pathPrefix + stream.path, null,
 							ss.Delegate.create(this, this.KT), "text") : $.get(
-							this.pathPrefix + stream.vc, null, ss.Delegate.create(this, this.KT)), h.nY = stream, this.tN[h
+							this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.KT)), h.nY = stream, this.tN[h
 							.toString()] = stream, stream.rd = h;
             }
 			if (stream.OM && !GameFramework.BaseApp.instance.resManager.YO)
@@ -15221,8 +15221,8 @@ Game.BejApp.prototype = {
 					GameFramework.resources.ResourceStreamer); b.MG != null;)
 				b = b.MG;
 			b != null
-					&& (b.vc != null
-							? c = "Failed to load '" + b.vc + "'"
+					&& (b.path != null
+							? c = "Failed to load '" + b.path + "'"
 							: b.sN != null
 									&& (c = "Failed to load group '" + b.sN
 											+ "'"));
