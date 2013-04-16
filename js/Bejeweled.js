@@ -1542,7 +1542,7 @@ function Oa(b, c, d) {
 
 // schedule game main loop
 // use requestAnimation first, if not, use timer
-var Pa, requestAnimationFrame;
+var dummyTex, requestAnimationFrame;
 if (typeof webkitRequestAnimationFrame == "function")
 	requestAnimationFrame = webkitRequestAnimationFrame;
 else if (typeof window.G9 == "function")
@@ -2059,9 +2059,10 @@ window.JSFExt_Init = function(app, canvas) {
 		gl.uniform1i(program.UNIFORM_TEXTURE, 0);
 		gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 		config = new Uint8Array([255, 255, 255, 255]);
-		Pa = createOnePixelTexture(config);
+		dummyTex = createOnePixelTexture(config);
 	}
 
+    // setup event handlers
 	document.onkeypress = onKeyPress;
 	document.onkeydown = onKeyDown;
 	document.onkeyup = onKeyUp;
@@ -13479,7 +13480,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 					* this.m | 0, b = ((b + d) * this.matrix.a + this.matrix.tx)
 					* this.m | 0, c = ((c + f) * this.matrix.d + this.matrix.ty)
 					* this.m | 0;
-			drawTexture(Pa, g, h, 1, 0, 0, 1, 0, 0, b - g, c - h, 1, 1, false, this.n)
+			drawTexture(dummyTex, g, h, 1, 0, 0, 1, 0, 0, b - g, c - h, 1, 1, false, this.n)
 		} else {
 			var context = document.getElementById("GameCanvas").getContext("2d");
 			context.fillStyle = g;
@@ -13514,7 +13515,7 @@ GameFramework.gfx.JSGraphics.prototype = {
 					* b[b.g * c + 5])
 					* this.m;
 			if (GameFramework.JSBaseApp.instance.useGL) {
-				var l = this.n, m = Pa;
+				var l = this.n, m = dummyTex;
 				vbLen > 1E3 && flushBuffer();
 				if (curTex != m || curAdditive != false)
 					flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, m), curTex = m;
@@ -15543,7 +15544,7 @@ Game.MoveData.prototype = {
 	UH : 0,
 	eI : 0,
 	dI : 0,
-	Pa : 0,
+	XYZ1 : 0,
 	xe : null
 };
 Game.MoveData.initClass = dummy();
@@ -15815,7 +15816,7 @@ Game.LightningStorm = function(b, c, d) {
 	this.Rp.push(c.xa);
 	this.oH = this.FB = 0;
 	this.WO = c.uc;
-	this.Pa = c.Pa;
+	this.XYZ1 = c.XYZ1;
 	this.Lf = c.Lf;
 	this.L7 = 0;
 	c.Y(Game.Piece.K.Be)
@@ -15886,7 +15887,7 @@ Game.LightningStorm.prototype = {
 	L7 : 0,
 	zN : 0,
 	jx : 0,
-	Pa : 0,
+	XYZ1 : 0,
 	Lf : 0,
 	L8 : 0,
 	M8 : 0,
@@ -15932,7 +15933,7 @@ Game.LightningStorm.prototype = {
 					if (m != null)
 						if (m.If > 0 && (j = true), m.aC)
 							if (m.Th += m.Y(Game.Piece.K.sc) ? 0.0167 : 0.02505, m.Th > 1) {
-								if (this.e.jF(m, this.Pa), m.Ij = this.jx, m.Hj |= this.WO, !this.e
+								if (this.e.jF(m, this.XYZ1), m.Ij = this.jx, m.Hj |= this.WO, !this.e
 										.YA(m, this.e.lh(this.jx)))
 									m.If = 1
 							} else
@@ -16150,7 +16151,7 @@ Game.MatchSet = function() {
 Game.MatchSet.prototype = {
 	ee : null,
 	Lf : 0,
-	Pa : 0,
+	XYZ1 : 0,
 	FW : 0
 };
 Game.MatchSet.initClass = dummy();
@@ -16868,12 +16869,12 @@ Game.Board.prototype = {
 		if (!b.fI)
 			b.fI = true, this.EK(b), c
 					&& (b.Y(Game.Piece.K.LD)
-							|| (this.fg(Game.DM.T.dn, 1, b.Pa), assert(b.n < Game.DM.Ha.Zc), b.n != Game.DM.Ha.Ve
+							|| (this.fg(Game.DM.T.dn, 1, b.XYZ1), assert(b.n < Game.DM.Ha.Zc), b.n != Game.DM.Ha.Ve
 									&& this.fg((Game.DM.T.IK | 0) + (b.n | 0),
-											1, b.Pa), b.Pa != -1
-									&& (this.rK(Game.DM.T.vD, this.ek(b.Pa,
+											1, b.XYZ1), b.XYZ1 != -1
+									&& (this.rK(Game.DM.T.vD, this.ek(b.XYZ1,
 													Game.DM.T.POINTS)), this.rK(
-											Game.DM.T.yZ, this.ek(b.Pa,
+											Game.DM.T.yZ, this.ek(b.XYZ1,
 													Game.DM.T.dn)))), b
 							.Y(Game.Piece.K.xg)
 							&& this.ES(b))
@@ -16921,7 +16922,7 @@ Game.Board.prototype = {
 						&& (Game.BejApp.instance.Ka.xe[b | 0] = 2147483647));
 		if (d != -1)
 			for (f = 0; f < (this.rf.length | 0); f++)
-				this.rf[f].Pa == d && (this.rf[f].xe[b | 0] += c)
+				this.rf[f].XYZ1 == d && (this.rf[f].xe[b | 0] += c)
 	},
 	rK : function(b, c) {
 		this.aT(b, c, -1)
@@ -16932,7 +16933,7 @@ Game.Board.prototype = {
 		Game.BejApp.instance.Ka.xe[b | 0] = Math.max(Game.BejApp.instance.Ka.xe[b | 0], c) | 0;
 		if (d != -1)
 			for (var f = 0; f < (this.rf.length | 0); f++)
-				this.rf[f].Pa == d
+				this.rf[f].XYZ1 == d
 						&& (this.rf[f].xe[b | 0] = Math.max(
 								this.rf[f].xe[b | 0], c)
 								| 0)
@@ -16942,7 +16943,7 @@ Game.Board.prototype = {
 	},
 	k1 : function(b, c, d) {
 		for (var f = 0; f < (this.rf.length | 0); f++)
-			if (this.rf[f].Pa == b)
+			if (this.rf[f].XYZ1 == b)
 				return this.rf[f].xe[c | 0];
 		return d
 	},
@@ -17555,8 +17556,8 @@ Game.Board.prototype = {
 				++c
 		}
 		for (c = 0; c < b.La; c++)
-			d = this.e[this.e.g * c + b.Ja], d != null && this.jF(d, b.Pa);
-		this.ju[b.Ja] = Math.max(this.ju[b.Ja], b.Pa) | 0;
+			d = this.e[this.e.g * c + b.Ja], d != null && this.jF(d, b.XYZ1);
+		this.ju[b.Ja] = Math.max(this.ju[b.Ja], b.XYZ1) | 0;
 		this.e[this.e.g * b.La + b.Ja] = null;
 		b.t()
 	},
@@ -17629,8 +17630,8 @@ Game.Board.prototype = {
 		return this.Fz() ? false : this.qc.length != 0 ? false : this.TH != 0 ? false : true
 	},
 	GQ : function(b, c) {
-		c == Game.DM.Ha.Ve && this.fg(Game.DM.T.z1, 1, b.Pa);
-		this.fg(Game.DM.T.RJ, 1, b.Pa);
+		c == Game.DM.Ha.Ve && this.fg(Game.DM.T.z1, 1, b.XYZ1);
+		this.fg(Game.DM.T.RJ, 1, b.XYZ1);
 		b.ol = true;
 		var d = new Game.LightningStorm(this, b, Game.LightningStorm.Yb.sc);
 		d.n = c;
@@ -17728,9 +17729,9 @@ Game.Board.prototype = {
 		var k = this.vB;
 		this.p3(b, c, d, j);
 		var l = this.ji(c, d);
-		b.Pa = k;
+		b.XYZ1 = k;
 		if (l != null)
-			l.Pa = k;
+			l.XYZ1 = k;
 		if (b.Y(Game.Piece.K.sc) && l != null) {
 			if (!l.fr)
 				return false;
@@ -17779,7 +17780,7 @@ Game.Board.prototype = {
 		f.UH = b.xa;
 		f.eI = c;
 		f.dI = d;
-		f.Pa = this.vB++;
+		f.XYZ1 = this.vB++;
 		f.xe = [];
 		for (b = 0; b < (Game.DM.T.Zc | 0); b++)
 			f.xe.push(0);
@@ -17869,7 +17870,7 @@ Game.Board.prototype = {
 							if (k.Th += 0.02505, k.Th >= 1) {
 								var l = this.lh(f.jx);
 								if (!k.ol) {
-									this.jF(k, f.Pa);
+									this.jF(k, f.XYZ1);
 									k.Lf = f.Lf;
 									k.Ij = f.jx;
 									k.Hj |= f.WO;
@@ -18173,7 +18174,7 @@ Game.Board.prototype = {
 				}
 				if (m.wl == 0) {
 					if (g != null) {
-						this.jF(m, g.Pa);
+						this.jF(m, g.XYZ1);
 						if (g.Lf == -1)
 							g.Lf = this.vB++;
 						m.Lf = g.Lf
@@ -18195,7 +18196,7 @@ Game.Board.prototype = {
 							if (g != null)
 								m.Ij = g.xa, m.Hj |= g.uc;
 							this.oj(m.$d() | 0, m.dd() | 0, 20,
-									Game.DM.Yi[(m.n | 0) + 1], m.Lf, true, true, m.Pa,
+									Game.DM.Yi[(m.n | 0) + 1], m.Lf, true, true, m.XYZ1,
 									false, Game.Board.je.sn);
 							this.Xy(m)
 						}
@@ -18220,7 +18221,7 @@ Game.Board.prototype = {
 		!b.Y(Game.Piece.K.rn)
 				&& !b.Y(Game.Piece.K.Nl)
 				&& this.oj(b.$d() | 0, b.dd() | 0, 50,
-						Game.DM.Yi[(b.n | 0) + 1], b.Lf, true, true, b.Pa, false,
+						Game.DM.Yi[(b.n | 0) + 1], b.Lf, true, true, b.XYZ1, false,
 						Game.Board.je.sn);
 		if (!b.Y(Game.Piece.K.Mk)) {
 			var f = (b.$d() | 0) + (Game.Board.bb / 2 | 0), h = (b.dd() | 0)
@@ -18496,8 +18497,8 @@ Game.Board.prototype = {
 			return true
 		}
 		if (b.Y(Game.Piece.K.Ue) && this.kz(b) == -1)
-			return b.ol = true, b.Y(Game.Piece.K.Be) && this.fg(Game.DM.T.WT, 1, b.Pa), this
-					.fg(Game.DM.T.yE, 1, b.Pa), this.qc.push(new Game.LightningStorm(this,
+			return b.ol = true, b.Y(Game.Piece.K.Be) && this.fg(Game.DM.T.WT, 1, b.XYZ1), this
+					.fg(Game.DM.T.yE, 1, b.XYZ1), this.qc.push(new Game.LightningStorm(this,
 					b, Game.LightningStorm.Yb.MI)), true;
 		return b.Y(Game.Piece.K.xg) ? (b.ol = true, b.If = 1, b.ed = false, b.Ij = c != null
 				? c.xa
@@ -18533,7 +18534,7 @@ Game.Board.prototype = {
 						if (W >= 3) {
 							var yb = 0, zb = this.yl = false, ya = new Game.MatchSet, vc = false, popMatrix = false, ea = -1, Bb = -1;
 							ya.Lf = this.vB++;
-							ya.Pa = -1;
+							ya.XYZ1 = -1;
 							ya.FW = 0;
 							for (var ra = false, Cb = X; Cb <= aa; Cb++)
 								for (var Db = ia; Db <= fa; Db++) {
@@ -18565,18 +18566,18 @@ Game.Board.prototype = {
 												&& (matrix.py == this.aa
 														&& (zb = true), ya.ee
 														.push(matrix));
-										ea = Math.max(ea, matrix.Pa) | 0;
+										ea = Math.max(ea, matrix.XYZ1) | 0;
 										Bb = Math.max(Bb, matrix.eC) | 0
 									}
 								}
 							ea == -1 && (ea = Bb);
-							ya.Pa = ea;
+							ya.XYZ1 = ea;
 							if (V || popMatrix)
 								for (var f = true, Eb = X; Eb <= aa; Eb++)
 									for (var Fb = ia; Fb <= fa; Fb++) {
 										var eb = this.e[this.e.g * Eb + Fb];
 										if (eb != null)
-											eb.Pa = ea, m.indexOf(eb) == -1
+											eb.XYZ1 = ea, m.indexOf(eb) == -1
 													&& m.push(eb)
 									}
 							else {
@@ -18596,7 +18597,7 @@ Game.Board.prototype = {
 										var M = this.e[this.e.g * Ib + Jb];
 										if (M != null) {
 											M.Lf = ya.Lf;
-											M.Pa = ea;
+											M.XYZ1 = ea;
 											M.Y(Game.Piece.K.Mk)
 													&& M.cq(Game.Piece.K.Mk);
 											vc || (vc = false);
@@ -18628,7 +18629,7 @@ Game.Board.prototype = {
 													else if (!ra)
 														M.m.Aa(1), M.Gn = this.aa, q
 																.indexOf(M) == -1
-																&& q.push(M), M.Pa = ea, D
+																&& q.push(M), M.XYZ1 = ea, D
 																.indexOf(M) == -1
 																&& D.push(M);
 													Kb = false
@@ -18688,9 +18689,9 @@ Game.Board.prototype = {
 											this.PD(Game.DM.Xa.ZK, Q), ra = true;
 										else {
 											if (!ra) {
-												Q.Pa = ea;
+												Q.XYZ1 = ea;
 												if (la != null)
-													la.Pa = ea;
+													la.XYZ1 = ea;
 												var zc = A.indexOf(Q);
 												zc != -1 && C(A, zc);
 												A.push(Q);
@@ -18704,9 +18705,9 @@ Game.Board.prototype = {
 											this.PD(Game.DM.Xa.sc, Q), ra = true;
 										else {
 											if (!ra) {
-												Q.Pa = ea;
+												Q.XYZ1 = ea;
 												if (la != null)
-													la.Pa = ea;
+													la.XYZ1 = ea;
 												var Ac = A.indexOf(Q);
 												Ac != -1 && C(A, Ac);
 												A.push(Q);
@@ -18718,9 +18719,9 @@ Game.Board.prototype = {
 										if (this.gp(Game.DM.Xa.Be))
 											this.PD(Game.DM.Xa.Be, Q), ra = true;
 										else if (!ra) {
-											Q.Pa = ea;
+											Q.XYZ1 = ea;
 											if (la != null)
-												la.Pa = ea;
+												la.XYZ1 = ea;
 											var Bc = A.indexOf(Q);
 											Bc != -1 && C(A, Bc);
 											A.push(Q);
@@ -18763,8 +18764,8 @@ Game.Board.prototype = {
 			var ma = D[Pb];
 			if (ma.Y(Game.Piece.K.Be) || ma.Y(Game.Piece.K.Zm))
 				ma.If = 1, ma.Ij = ma.xa, ma.Hj = ma.uc, ma.ed = false, ma.uc = 0;
-			this.fg(Game.DM.T.dn, 1, ma.Pa);
-			this.fg(Game.DM.T.Kv, 1, ma.Pa);
+			this.fg(Game.DM.T.dn, 1, ma.XYZ1);
+			this.fg(Game.DM.T.Kv, 1, ma.XYZ1);
 			this.zE(ma)
 		}
 		for (var La = 0; La < A.length; ++La) {
@@ -18773,16 +18774,16 @@ Game.Board.prototype = {
 			if (R.uc == 0 && l.indexOf(R) == -1) {
 				q.indexOf(R) == -1 && q.push(R);
 				B[La] > 5
-						? (this.fg(Game.DM.T.dn, 1, R.Pa), this.fg(Game.DM.T.kv,
-								1, R.Pa), this.fg(Game.DM.T.Kv, 1, R.Pa), this
-								.fg(Game.DM.T.VT, 1, R.Pa), this.zE(R), this
+						? (this.fg(Game.DM.T.dn, 1, R.XYZ1), this.fg(Game.DM.T.kv,
+								1, R.XYZ1), this.fg(Game.DM.T.Kv, 1, R.XYZ1), this
+								.fg(Game.DM.T.VT, 1, R.XYZ1), this.zE(R), this
 								.YD(R), R.m.Aa(1))
 						: B[La] > 4
-								? (this.fg(Game.DM.T.dn, 1, R.Pa), this.fg(
-										Game.DM.T.Cz, 1, R.Pa), this.VJ(R), R.m
+								? (this.fg(Game.DM.T.dn, 1, R.XYZ1), this.fg(
+										Game.DM.T.Cz, 1, R.XYZ1), this.VJ(R), R.m
 										.Aa(1))
-								: (this.YD(R), this.fg(Game.DM.T.dn, 1, R.Pa), this
-										.fg(Game.DM.T.kv, 1, R.Pa));
+								: (this.YD(R), this.fg(Game.DM.T.dn, 1, R.XYZ1), this
+										.fg(Game.DM.T.kv, 1, R.XYZ1));
 				R.Gn = this.aa;
 				if (R.n != Game.DM.Ha.Ve && R.n != Game.DM.Ha.sc)
 					R.Am = R.n;
@@ -18865,15 +18866,15 @@ Game.Board.prototype = {
 				j += Mc;
 				k += Nc;
 				var Xb = 0;
-				this.fg(Game.DM.T.qK, 1, Y.Pa);
-				Xb = 50 * (Math.max(1, this.ek(Y.Pa, Game.DM.T.qK)) | 0)
+				this.fg(Game.DM.T.qK, 1, Y.XYZ1);
+				Xb = 50 * (Math.max(1, this.ek(Y.XYZ1, Game.DM.T.qK)) | 0)
 						+ (Ma - 3) * 50;
 				Ma >= 5 && (Xb += (Ma - 4) * 350);
 				this.oj(Mc + (Game.Board.bb / 2 | 0), Nc + (Game.Board.ab / 2 | 0) - 8,
-						Xb, Game.DM.A6[(Y.ee[0].n | 0) + 1], Y.Lf, true, true, Y.Pa,
+						Xb, Game.DM.A6[(Y.ee[0].n | 0) + 1], Y.Lf, true, true, Y.XYZ1,
 						false, Game.Board.je.GE);
-				this.aT(Game.DM.T.uD, Ma, Y.Pa);
-				z.indexOf(Y.Pa) == -1 && z.push(Y.Pa)
+				this.aT(Game.DM.T.uD, Ma, Y.XYZ1);
+				z.indexOf(Y.XYZ1) == -1 && z.push(Y.XYZ1)
 			}
 		}
 		if (Dc) {
@@ -19012,7 +19013,7 @@ Game.Board.prototype = {
 								o.ed = false;
 								this.e[this.e.g * m + f] = null;
 								this.e[this.e.g * (m + 1) + f] = o;
-								j = o.Pa
+								j = o.XYZ1
 							}
 						} else
 							g
@@ -19023,7 +19024,7 @@ Game.Board.prototype = {
 						d = true;
 						g = this.xQ(0, f);
 						g.Xe = k - 0.55;
-						g.Pa = j;
+						g.XYZ1 = j;
 						g.ed = false;
 						g.v = h - Game.Board.ab - this.Of.Dd() % 15 - 10;
 						if (g.dd() > -Game.Board.ab)
@@ -19096,7 +19097,7 @@ Game.Board.prototype = {
 					if (b = d[f], b.aa == 0) {
 						d = Math.min(200, (this.ng + 1) * 20) | 0;
 						this.TO += d * this.Nf * this.pq() | 0;
-						this.oj(b.w | 0, b.v | 0, d, b.n, b.xa, false, true, b.Pa, false,
+						this.oj(b.w | 0, b.v | 0, d, b.n, b.xa, false, true, b.XYZ1, false,
 								Game.Board.je.cF);
 						b.aa++;
 						break
@@ -19178,7 +19179,7 @@ Game.Board.prototype = {
 	},
 	m5 : function() {
 		for (var b = 0, c = 0; c < (this.rf.length | 0); c++)
-			b += this.XZ(this.rf[c].Pa);
+			b += this.XZ(this.rf[c].XYZ1);
 		for (var c = -1, d = this.EL.length - 1; d >= 0; d--)
 			if (b >= this.EL[d]) {
 				c = d;
@@ -19214,7 +19215,7 @@ Game.Board.prototype = {
 		return false
 	},
 	jF : function(b, c) {
-		b.Pa = Math.max(b.Pa, c) | 0
+		b.XYZ1 = Math.max(b.XYZ1, c) | 0
 	},
 	Ez : function(b) {
 		return this.xc.Ez(b | 0)
@@ -19502,15 +19503,15 @@ Game.Board.prototype = {
 			if (this.qc.length == 0) {
 				for (var d = false, f = this.e, g = 0; g < f.length; g++) {
 					var h = f[g];
-					if (h != null && h.Pa == c.Pa)
-						this.Iz(h) ? (h.eC = h.Pa, h.Pa = -1, h.Yn = 0) : d = true
+					if (h != null && h.XYZ1 == c.XYZ1)
+						this.Iz(h) ? (h.eC = h.XYZ1, h.XYZ1 = -1, h.Yn = 0) : d = true
 				}
 				for (f = 0; f < this.$b; f++)
-					this.ju[f] == c.Pa && (d = true);
+					this.ju[f] == c.XYZ1 && (d = true);
 				if (!d) {
 					d = this.e;
 					for (f = 0; f < d.length; f++)
-						if (g = d[f], g != null && g.eC == c.Pa)
+						if (g = d[f], g != null && g.eC == c.XYZ1)
 							g.eC = -1;
 					C(this.rf, b);
 					b--
@@ -19644,8 +19645,8 @@ Game.Board.prototype = {
 											* this.od[Game.DM.T.IP | 0],
 									Game.DM.Yi[k.n | 0], k.Lf, false, false, -1, false,
 									Game.Board.je.sn);
-							this.fg(Game.DM.T.IP, 1, k.Pa);
-							for (var f = k.Pa, l = 0, m = this.e, o = 0; o < m.length; o++) {
+							this.fg(Game.DM.T.IP, 1, k.XYZ1);
+							for (var f = k.XYZ1, l = 0, m = this.e, o = 0; o < m.length; o++) {
 								var q = m[o];
 								if (q != null
 										&& (q.Y(Game.Piece.K.Be)
@@ -19656,14 +19657,14 @@ Game.Board.prototype = {
 												.Y(Game.Piece.K.Zm)))
 									q.Y(Game.Piece.K.Mk)
 											? (l == 0 && l++, q.cq(Game.Piece.K.Mk))
-											: (q.Pa = f, q.If = 1 + l * 15, q.wl = 0, l++)
+											: (q.XYZ1 = f, q.If = 1 + l * 15, q.wl = 0, l++)
 							}
 						} else
-							this.fg(Game.DM.T.yJ, 1, k.Pa);
+							this.fg(Game.DM.T.yJ, 1, k.XYZ1);
 						g += k.Ad() | 0;
 						d++;
 						this.oj(k.Ad() | 0, k.Rd() | 0, 20,
-								GameFramework.gfx.Color.WHITE_ARGB, k.Lf, true, true, k.Pa, false,
+								GameFramework.gfx.Color.WHITE_ARGB, k.Lf, true, true, k.XYZ1, false,
 								Game.Board.je.sn);
 						this.gR(k.Ad() | 0, k.Rd() | 0);
 						f = true
@@ -19673,7 +19674,7 @@ Game.Board.prototype = {
 						k.Y(Game.Piece.K.xg) ? c || (c = true) : b = true, (k
 								.Y(Game.Piece.K.Nl) || k.Y(Game.Piece.K.rn))
 								&& this.oj(k.Ad() | 0, k.Rd() | 0, 300,
-										GameFramework.gfx.Color.WHITE_ARGB, k.Lf, true, true, k.Pa,
+										GameFramework.gfx.Color.WHITE_ARGB, k.Lf, true, true, k.XYZ1,
 										false, Game.Board.je.sn), this.v4(k, k.Ad(), k
 										.Rd(), true, false)
 			}
@@ -20092,8 +20093,8 @@ Game.Board.prototype = {
 					&& b.nc(g, g, c.$d() + (Game.Board.bb / 2 | 0), c.dd()
 									+ (Game.Board.ab / 2 | 0));
 			this.yY
-					&& (b.Q(GameFramework.gfx.Color.WHITE_ARGB), b.kb(Game.Resources.FONT_HUMANST19), c.Pa != -1
-							&& b.Cc(GameFramework.Utils.toStr(c.Pa), c.$d() + 10, c
+					&& (b.Q(GameFramework.gfx.Color.WHITE_ARGB), b.kb(Game.Resources.FONT_HUMANST19), c.XYZ1 != -1
+							&& b.Cc(GameFramework.Utils.toStr(c.XYZ1), c.$d() + 10, c
 											.dd()
 											+ 20), c.qe != 0
 							&& b.Cc(GameFramework.Utils.toStr(c.qe), c.$d() + 80, c
@@ -29309,7 +29310,7 @@ Game.Piece.prototype = {
 	fr : null,
 	du : null,
 	wl : 0,
-	Pa : 0,
+	XYZ1 : 0,
 	eC : 0,
 	Lf : 0,
 	ed : false,
@@ -29374,7 +29375,7 @@ Game.Piece.prototype = {
 		this.fr = true;
 		this.du = false;
 		this.wl = 0;
-		this.Lf = this.eC = this.Pa = -1;
+		this.Lf = this.eC = this.XYZ1 = -1;
 		this.Ej = this.qk = this.Xe = this.La = this.Ja = this.v = this.w = 0;
 		this.L.Aa(1);
 		this.eh = 0;
@@ -29658,7 +29659,7 @@ Game.Points = function(b, c, d, f, g, h, j, k, l) {
 	this.aa = 0;
 	this.ZO = -1;
 	this.bI = null;
-	this.Pa = this.xa = -1;
+	this.XYZ1 = this.xa = -1;
 	this.Bb = Game.Points.Td.XE;
 	this.L = 1;
 	this.TN = 3;
@@ -29703,7 +29704,7 @@ Game.Points.prototype = {
 	zM : null,
 	Kg : 0,
 	xa : 0,
-	Pa : 0,
+	XYZ1 : 0,
 	oa : 0,
 	YM : null,
 	ce : null,
@@ -29862,7 +29863,7 @@ Game.PointsManager.prototype = {
 			if (h == null && Game.Resources.FONT_FLOATERS != null) {
 				h = new Game.Points(Game.BejApp.instance, Game.Resources.FONT_FLOATERS, m, b, c, 1, 0,
 						f, -1);
-				h.Pa = j;
+				h.XYZ1 = j;
 				h.xa = g;
 				h.jr = r;
 				h.NO = 0.15;
@@ -32159,7 +32160,7 @@ Game.SpeedBoard.prototype = {
 					: Game.SoundUtil.Play(Game.Resources.SOUND_SPEEDBOARD_TIMEBONUS_10);
 			(Math.max(0, this.ri - 60) | 0) > 0
 					&& this.oj(b.Ad() | 0, b.Rd() | 0, b.qe * 50, Game.DM.Yi[b.n
-									| 0], b.Lf, true, true, b.Pa, false, Game.Board.je.sn);
+									| 0], b.Lf, true, true, b.XYZ1, false, Game.Board.je.sn);
 			c = String.format("+{0:d} sec", b.qe);
 			c = new Game.Points(Game.BejApp.instance, Game.Resources.FONT_DIALOG_HEADER, c, b.Ad() | 0,
 					b.Rd() | 0, 1, 0, Game.DM.Yi[b.n | 0], -1);
@@ -32227,7 +32228,7 @@ Game.SpeedBoard.prototype = {
 				var c = b.Tl();
 				if (c != null && c.Y(Game.Piece.K.Yg))
 					this.ri == 0 ? this.oj(c.Ad() | 0, c.Rd() | 0, c.qe * 50,
-							Game.DM.Yi[c.n | 0], c.Lf, true, true, c.Pa, false,
+							Game.DM.Yi[c.n | 0], c.Lf, true, true, c.XYZ1, false,
 							Game.Board.je.sn).$e *= 1.5 : c.qe >= 10
 							? this.zE(c)
 							: this.YD(c), c.cq(Game.Piece.K.Yg), c.qe = 0
