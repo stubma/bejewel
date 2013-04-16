@@ -13143,7 +13143,7 @@ GameFramework.JSBaseApp.prototype = {
 						h = this.resManager.b1(stream.vc.substr(5)), h != null && stream.Or != stream.Uj
 								&& (this.resManager.ET(stream.xa, h.gi()), stream.Or++);
 					else if (h = null, h = stream.vc.indexOf("@"), h != -1) {
-                        // search : and -, h will be filename, j, k is start and end codepoint
+                        // search : and -, h will be filename, j, k is start and end bytes
 						var j = stream.vc.indexOf(":", h);
 						var k = stream.vc.indexOf("-", h);
 						h = stream.vc.substr(h + 1, j - h - 1);
