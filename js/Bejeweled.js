@@ -6062,7 +6062,7 @@ GameFramework.resources.FontResource.prototype = {
 			j = GameFramework.Utils.qF(j);
 			k = GameFramework.BaseApp.instance.resManager.al(j);
 			j = k != null ? GameFramework.BaseApp.instance.resManager.sw(k) : GameFramework.BaseApp.instance.resManager
-					.vU(j);
+					.startLoadingImage(j);
 			GameFramework.BaseApp.instance.resManager.gw(j);
 			j.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(h, h.xq));
 			c != null
@@ -11287,7 +11287,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		GameFramework.BaseApp.instance.addToLoadingQueue(stream);
 		return stream
 	},
-	vU : function(path) {
+	startLoadingImage : function(path) {
 		var stream = new GameFramework.resources.ResourceStreamer;
 		stream.path = path;
 		stream.resType = GameFramework.resources.ResourceManager.IMAGE;
@@ -14462,7 +14462,7 @@ Game.Background = function() {
 Game.Background.pU = function(b) {
 	if (!Game.Background.Ax[b]) {
 		var c = new Game.BackgroundLoader(b), b = Game.Background.lm[b] != null ? GameFramework.BaseApp.instance.resManager
-				.dl(Game.Background.lm[b]) : GameFramework.BaseApp.instance.resManager.vU(Game.Background.eN[b]);
+				.dl(Game.Background.lm[b]) : GameFramework.BaseApp.instance.resManager.startLoadingImage(Game.Background.eN[b]);
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(c, c.JZ));
 		return b
 	}
