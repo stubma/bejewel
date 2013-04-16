@@ -15183,10 +15183,10 @@ Game.BejApp.prototype = {
             this.root.addChild(this.tooltipLayer);
         }
 		var b = this.resManager.J4("properties/resources.xml");
-		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.M3));
+		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.onResGenManifestLoaded));
 		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.onIOError))
 	},
-	M3 : function(b) {
+	onResGenManifestLoaded : function(b) {
 		this.resManager.g3(b.target.rd);
 		this.I4()
 	},
