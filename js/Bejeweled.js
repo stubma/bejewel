@@ -13120,7 +13120,8 @@ GameFramework.JSBaseApp.prototype = {
 			stream.resType == GameFramework.resources.ResourceManager.SOUND
 					? c = true
 					: stream.resType != GameFramework.resources.ResourceManager.zT && (d = true);
-			if (stream.rd == null && stream.vc != null)
+			if (stream.rd == null && stream.vc != null) {
+                TRACE && ss.Debug.writeln("JSBaseApp::update: stream: " + stream.vc);
 				if (stream.resType === GameFramework.resources.ResourceManager.IMAGE)
 					stream.Kb != null && stream.Kb.Qb != null ? this.resManager.Gs(stream.Kb.Qb) != null
 							&& stream.Or != stream.Uj && stream.Or++ : stream.rd = stream.Kb != null
@@ -13174,6 +13175,7 @@ GameFramework.JSBaseApp.prototype = {
 							ss.Delegate.create(this, this.KT), "text") : $.get(
 							this.pathPrefix + stream.vc, null, ss.Delegate.create(this, this.KT)), h.nY = stream, this.tN[h
 							.toString()] = stream, stream.rd = h;
+            }
 			if (stream.OM && !GameFramework.BaseApp.instance.resManager.YO)
 				stream.OM(), stream.OM = null;
 			if (stream.tk || stream.Or == stream.Uj && !GameFramework.BaseApp.instance.resManager.YO)
