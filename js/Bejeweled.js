@@ -11249,7 +11249,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		GameFramework.BaseApp.instance.addToLoadingQueue(c);
 		return c
 	},
-	J4 : function(b) {
+	startLoadingResGen : function(b) {
 		var c = new GameFramework.resources.ResourceStreamer;
 		c.path = b;
 		c.resType = GameFramework.resources.ResourceManager.RESGEN;
@@ -15182,7 +15182,7 @@ Game.BejApp.prototype = {
             this.tooltipLayer = new Game.TooltipManager;
             this.root.addChild(this.tooltipLayer);
         }
-		var b = this.resManager.J4("properties/resources.xml");
+		var b = this.resManager.startLoadingResGen("properties/resources.xml");
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.onResGenManifestLoaded));
 		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.onIOError))
 	},
