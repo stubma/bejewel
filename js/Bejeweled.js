@@ -2110,7 +2110,7 @@ function Xc(b) {
 Xc.prototype.toString = function() {
 	return "AssertException: " + this.message
 };
-function S(b, c) {
+function assert(b, c) {
 	if (!b) {
 		c == null && (c = "Assertion failed");
 		var d = new Xc(c);
@@ -12003,14 +12003,14 @@ GameFramework.widgets.ClassicWidget.prototype = {
 	visit : function(b) {
 		var c = b.topIndex, d = b.colorStack.length;
 		this.draw(b);
-		S(c == b.topIndex, "Matrix stack error - pops don't match pushes");
-		S(d == b.colorStack.length, "Color stack error - pops don't match pushes");
+		assert(c == b.topIndex, "Matrix stack error - pops don't match pushes");
+		assert(d == b.colorStack.length, "Color stack error - pops don't match pushes");
 		for (var f = ss.IEnumerator.enumerate(this.cf); f.hasNext();) {
 			var g = f.next();
 			if (g.ec)
 				b.translate(g.w, g.v), g.NN = b.matrix.tx, g.ON = b.matrix.ty, g.visit(b), b.popMatrix();
-			S(c == b.topIndex, "Matrix stack error - pops don't match pushes");
-			S(d == b.colorStack.length, "Color stack error - pops don't match pushes")
+			assert(c == b.topIndex, "Matrix stack error - pops don't match pushes");
+			assert(d == b.colorStack.length, "Color stack error - pops don't match pushes")
 		}
 	},
 	nh : function(b, c) {
@@ -14944,7 +14944,7 @@ Game.BejApp = function() {
 	this.metrics = new Game.Metrics;
 	this.by = [];
 	callSuperConstructor(Game.BejApp, this);
-	S(Game.BejApp.instance == null);
+	assert(Game.BejApp.instance == null);
 	this.frameInterval = 1E3 / 60;
 	this.lH = 1600;
 	this.dC = 1200;
@@ -16856,7 +16856,7 @@ Game.Board.prototype = {
 		if (!b.fI)
 			b.fI = true, this.EK(b), c
 					&& (b.Y(Game.Piece.K.LD)
-							|| (this.fg(Game.DM.T.dn, 1, b.Pa), S(b.n < Game.DM.Ha.Zc), b.n != Game.DM.Ha.Ve
+							|| (this.fg(Game.DM.T.dn, 1, b.Pa), assert(b.n < Game.DM.Ha.Zc), b.n != Game.DM.Ha.Ve
 									&& this.fg((Game.DM.T.IK | 0) + (b.n | 0),
 											1, b.Pa), b.Pa != -1
 									&& (this.rK(Game.DM.T.vD, this.ek(b.Pa,
@@ -17447,7 +17447,7 @@ Game.Board.prototype = {
 		d.ed = false;
 		d.w = this.Ri(c);
 		d.v = this.vg(b);
-		S(this.e[this.e.g * b + c] == null);
+		assert(this.e[this.e.g * b + c] == null);
 		return this.e[this.e.g * b + c] = d
 	},
 	Ri : function(b) {
@@ -17556,7 +17556,7 @@ Game.Board.prototype = {
 		this.Qf = []
 	},
 	qZ : function(b, c) {
-		S(this.yC[b] == null);
+		assert(this.yC[b] == null);
 		this.yC[b] = c
 	},
 	I3 : function(b) {
@@ -21793,7 +21793,7 @@ Game.DialogMgr = function() {
 	this.BB = {};
 	this.Ht = GameFramework.CurvedVal.qs(0);
 	callSuperConstructor(Game.DialogMgr, this);
-	S(Game.DialogMgr.dialogLayer == null);
+	assert(Game.DialogMgr.dialogLayer == null);
 	Game.DialogMgr.dialogLayer = this
 };
 Game.DialogMgr.prototype = {
@@ -21819,8 +21819,8 @@ Game.DialogMgr.prototype = {
 		this.wd.ZD();
 		var c = b.topIndex, d = b.colorStack.length;
 		this.draw(b);
-		S(c == b.topIndex, "Matrix stack error - pops don't match pushes");
-		S(d == b.colorStack.length, "Color stack error - pops don't match pushes");
+		assert(c == b.topIndex, "Matrix stack error - pops don't match pushes");
+		assert(d == b.colorStack.length, "Color stack error - pops don't match pushes");
 		var f;
 		for (f = this.cf.length - 1; f >= 0; --f) {
 			var g = Type.getInstanceOrNull(this.cf[f], Game.Bej3Dialog);
@@ -21839,8 +21839,8 @@ Game.DialogMgr.prototype = {
 					j.t()
 				}
 			}
-			S(c == b.topIndex, "Matrix stack error - pops don't match pushes");
-			S(d == b.colorStack.length, "Color stack error - pops don't match pushes")
+			assert(c == b.topIndex, "Matrix stack error - pops don't match pushes");
+			assert(d == b.colorStack.length, "Color stack error - pops don't match pushes")
 		}
 		this.cf.length == 0 && this.pV(b)
 	},
@@ -22514,7 +22514,7 @@ Game.EffectsManager.prototype = {
 														* m | 0));
 										try {
 											if (k.Oa != null) {
-												S(k.nf >= 0 && k.nf < k.Oa.Em);
+												assert(k.nf >= 0 && k.nf < k.Oa.Em);
 												k.Oa.pc = k.Cg;
 												var o = new GameFramework.geom.Matrix;
 												o.rotate(k.Hb);
@@ -28993,18 +28993,18 @@ Game.MTRand.prototype = {
 		return b
 	},
 	Dd : function() {
-		S(Game.MTRand.Iw == 0);
+		assert(Game.MTRand.Iw == 0);
 		return this.yK()
 	},
 	OE : function() {
-		S(Game.MTRand.Iw == 0);
+		assert(Game.MTRand.Iw == 0);
 		return this.yK() | 0
 	},
 	Q2 : function(b) {
 		return this.yK() % b
 	},
 	R2 : function(b) {
-		S(Game.MTRand.Iw == 0);
+		assert(Game.MTRand.Iw == 0);
 		return this.Q2(b)
 	}
 };
@@ -33635,8 +33635,8 @@ Game.SpreadCurve.prototype = {
 	p4 : function(b) {
 		for (var c = Array.O(this.Dk, null), d = 0; d < this.Dk; ++d)
 			c[d] = 0;
-		S(b.bg <= 1);
-		S(b.Oc >= 0);
+		assert(b.bg <= 1);
+		assert(b.Oc >= 0);
 		for (var f = d = 0; f < this.Dk; ++f) {
 			var g = b.Ks(f / this.Dk);
 			c[f] += g;
@@ -33646,7 +33646,7 @@ Game.SpreadCurve.prototype = {
 			this.kD[h] = 1;
 			f += c[h] / d * (g - 1);
 			for (var j = h / (g - 1); b <= f;)
-				b < g && (S(j <= 1 && j >= 0), this.kD[b] = j), ++b
+				b < g && (assert(j <= 1 && j >= 0), this.kD[b] = j), ++b
 		}
 	},
 	V : function(b) {
@@ -34297,7 +34297,7 @@ Game.BejUtil.c1 = function(b) {
 		case Game.DM.Ha.bB :
 			return Game.Resources.IMAGE_GEMS_YELLOW
 	}
-	S(false);
+	assert(false);
 	return Game.Resources.IMAGE_GEMS_WHITE
 };
 Game.BejUtil.PR = function(b) {
@@ -34317,7 +34317,7 @@ Game.BejUtil.PR = function(b) {
 		case Game.DM.Ha.bB :
 			return Game.Resources.IMAGE_GEMSSHADOW_YELLOW
 	}
-	S(false);
+	assert(false);
 	return Game.Resources.IMAGE_GEMSSHADOW_WHITE
 };
 Game.BejUtil.prototype = {};
@@ -34613,11 +34613,11 @@ Game.Util.tba = function(b) {
 	return c.VX
 };
 Game.Util.$Z = function() {
-	S(
+	assert(
 			Game.Util.mp[Game.Util.mp.length - 1].topIndex == Game.Util.mp[Game.Util.mp.length
 					- 1].graphics.topIndex,
 			"CheckGraphicsState MATRIX calls not aligned (check push/pop calls)");
-	S(
+	assert(
 			Game.Util.mp[Game.Util.mp.length - 1].dW == Game.Util.mp[Game.Util.mp.length
 					- 1].graphics.colorStack.length,
 			"CheckGraphicsState COLOR calls not aligned (check push/pop calls)")
