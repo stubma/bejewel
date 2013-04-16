@@ -1946,12 +1946,16 @@ function drawTexture(tex, c, d, f, g, h, j, k, l, m, o, q, r, additive, color) {
 	vbLen > 1E3 && flushBuffer();
 
 	// if texture or blend mode is not same, flush old buffer
-	if (curTex != tex || curAdditive != additive)
-		flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, tex), curTex = tex;
+	if(curTex != tex || curAdditive != additive) {
+		flushBuffer(), gl.bindTexture(gl.TEXTURE_2D, tex);
+		curTex = tex;
+	}
 
 	// ensure blend mode ok
-	curAdditive != additive
-			&& (gl.blendFunc(gl.SRC_ALPHA, additive ? gl.ONE : gl.ONE_MINUS_SRC_ALPHA), curAdditive = additive);
+	if(curAdditive != additive) {
+		gl.blendFunc(gl.SRC_ALPHA, additive ? gl.ONE : gl.ONE_MINUS_SRC_ALPHA);
+		curAdditive = additive;
+	}
 
 	// color int to 4 float color array
 	var c4f = [(color >> 16 & 255) / 255,
