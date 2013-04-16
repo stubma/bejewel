@@ -1302,7 +1302,7 @@ ss.CultureInfo.fK = new ss.CultureInfo("en-US", {
 			q6 : "Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday"
 					.split(","),
 			W9 : "Sun,Mon,Tue,Wed,Thu,Fri,Sat".split(","),
-			dra : "Su,Mo,Tu,We,Th,Fr,Sa".split(","),
+			dra : "addToLoadingQueue,Mo,Tu,We,Th,Fr,Sa".split(","),
 			F9 : "January,February,March,April,May,June,July,August,September,October,November,December,"
 					.split(","),
 			X9 : "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec,".split(",")
@@ -2315,7 +2315,7 @@ GameFramework.BaseApp.prototype = {
 	},
 	xq : dummy(),
 	pt : set("Bb"),
-	Su : function(b) {
+	addToLoadingQueue : function(b) {
 		this.Ck.push(b)
 	},
 	q1 : function(b) {
@@ -11242,11 +11242,11 @@ GameFramework.resources.ResourceManager.prototype = {
 				g.Uj = 1;
 				g.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(c, c.Sy));
 				g.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(c, c.ps));
-				GameFramework.BaseApp.instance.Su(g);
+				GameFramework.BaseApp.instance.addToLoadingQueue(g);
 				c.Uj++
 			}
 		}
-		GameFramework.BaseApp.instance.Su(c);
+		GameFramework.BaseApp.instance.addToLoadingQueue(c);
 		return c
 	},
 	J4 : function(b) {
@@ -11254,7 +11254,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		c.vc = b;
 		c.resType = GameFramework.resources.ResourceManager.RESGEN;
 		c.Uj = 1;
-		GameFramework.BaseApp.instance.Su(c);
+		GameFramework.BaseApp.instance.addToLoadingQueue(c);
 		return c
 	},
 	H4 : function(b) {
@@ -11263,7 +11263,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		b.Jj != null && (c.vc += b.Jj[0]);
 		c.resType = GameFramework.resources.ResourceManager.yT;
 		c.Uj = 1;
-		GameFramework.BaseApp.instance.Su(c);
+		GameFramework.BaseApp.instance.addToLoadingQueue(c);
 		return c
 	},
 	sw : function(b) {
@@ -11284,7 +11284,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		c.vc = GameFramework.Utils.qF(c.vc);
 		c.resType = GameFramework.resources.ResourceManager.IMAGE;
 		c.Uj = 1;
-		GameFramework.BaseApp.instance.Su(c);
+		GameFramework.BaseApp.instance.addToLoadingQueue(c);
 		return c
 	},
 	vU : function(b) {
@@ -11292,7 +11292,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		c.vc = b;
 		c.resType = GameFramework.resources.ResourceManager.IMAGE;
 		c.Uj = 1;
-		GameFramework.BaseApp.instance.Su(c);
+		GameFramework.BaseApp.instance.addToLoadingQueue(c);
 		return c
 	},
 	dp : function(b, c) {
