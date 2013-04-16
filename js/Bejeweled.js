@@ -2292,7 +2292,7 @@ GameFramework.BaseApp.prototype = {
 		this.createGraphics();
 		this.createHttpService()
 	},
-	KA : function(b, c) {
+	onSizeChanged : function(b, c) {
 		this.surfaceWidth = b;
 		this.surfaceHeight = c;
 		this.m = this.surfaceHeight / this.z
@@ -13073,8 +13073,8 @@ GameFramework.JSBaseApp.prototype = {
 	nQ : function() {
 		qb = 0
 	},
-	KA : function(b, c) {
-		GameFramework.BaseApp.prototype.KA.apply(this, [b, c]);
+	onSizeChanged : function(b, c) {
+		GameFramework.BaseApp.prototype.onSizeChanged.apply(this, [b, c]);
 		viewportWidth = b;
 		viewportHeight = c
 	},
@@ -15099,7 +15099,7 @@ Game.BejApp.prototype = {
 		Game.Background.cL(b, c)
 	},
     onSizeChanged : function(b, c) {
-		GameFramework.JSBaseApp.prototype.KA.apply(this, [b, c])
+		GameFramework.JSBaseApp.prototype.onSizeChanged.apply(this, [b, c])
 	},
     init : function() {
 		// set app name
