@@ -2195,7 +2195,7 @@ GameFramework.BaseApp = function() {
 	this.XM = Array.O(100, 0);
 	this.K7 = [];
 	this.M7 = {};
-	this.Ck = [];
+	this.loadingQueue = [];
 	this.tB = [];
 	this.xX = [];
 	callSuperConstructor(GameFramework.BaseApp, this);
@@ -2243,7 +2243,7 @@ GameFramework.BaseApp.prototype = {
 	mX : 0,
 	K7 : null,
 	M7 : null,
-	Ck : null,
+	loadingQueue : null,
 	tB : null,
 	xX : null,
 	exceptionCallback : null,
@@ -2316,10 +2316,10 @@ GameFramework.BaseApp.prototype = {
 	xq : dummy(),
 	pt : set("Bb"),
 	addToLoadingQueue : function(b) {
-		this.Ck.push(b)
+		this.loadingQueue.push(b)
 	},
 	q1 : function(b) {
-		for (var c = ss.IEnumerator.enumerate(this.Ck); c.hasNext();) {
+		for (var c = ss.IEnumerator.enumerate(this.loadingQueue); c.hasNext();) {
 			var d = c.next();
 			if (d.xa == b)
 				return d
@@ -2327,17 +2327,17 @@ GameFramework.BaseApp.prototype = {
 		return null
 	},
 	zS : function(b) {
-		for (var c = ss.IEnumerator.enumerate(this.Ck); c.hasNext();)
+		for (var c = ss.IEnumerator.enumerate(this.loadingQueue); c.hasNext();)
 			if (c.next().xa == b)
 				return true;
 		return false
 	},
 	gw : function(b) {
-		$c(this.Ck, this.Ck.indexOf(b), 1);
-		$c(this.Ck, 0, 0, b)
+		$c(this.loadingQueue, this.loadingQueue.indexOf(b), 1);
+		$c(this.loadingQueue, 0, 0, b)
 	},
 	hS : function() {
-		for (var b = 0, c = ss.IEnumerator.enumerate(this.Ck); c.hasNext();) {
+		for (var b = 0, c = ss.IEnumerator.enumerate(this.loadingQueue); c.hasNext();) {
 			var d = c.next();
 			d.Or == 0 && d.xa != null && d.path != null && !startsWith(d.path, "!") && b++
 		}
@@ -13113,10 +13113,10 @@ GameFramework.JSBaseApp.prototype = {
 	},
 	update : function() {
 		GameFramework.BaseApp.prototype.update.apply(this);
-		for (var b = false, c = false, d = false, f = 0; f < this.Ck.length; f++) {
+		for (var b = false, c = false, d = false, f = 0; f < this.loadingQueue.length; f++) {
 			if (this.wW && GameFramework.Utils.bootTime() - this.nX >= 100)
 				break;
-			var stream = this.Ck[f];
+			var stream = this.loadingQueue[f];
 			stream.resType == GameFramework.resources.ResourceManager.SOUND
 					? c = true
 					: stream.resType != GameFramework.resources.ResourceManager.zT && (d = true);
@@ -13182,8 +13182,8 @@ GameFramework.JSBaseApp.prototype = {
 						? stream.dispatchEvent(new GameFramework.events.Event(GameFramework.events.IOErrorEvent.IO_ERROR))
 						: (this.jsResManager.JT(stream), stream
 								.dispatchEvent(new GameFramework.events.Event(GameFramework.events.Event.COMPLETE))), C(
-						this.Ck, f), f--, b = true;
-			f == this.Ck.length - 1 && b && (f = -1, b = false)
+						this.loadingQueue, f), f--, b = true;
+			f == this.loadingQueue.length - 1 && b && (f = -1, b = false)
 		}
 		c && !d && !this.YW && GameFramework.Utils.bootTime() - this.RN >= 3E4
 				&& throwError(new System.wJ("Sound loading stalled"));
