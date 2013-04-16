@@ -11249,51 +11249,51 @@ GameFramework.resources.ResourceManager.prototype = {
 		GameFramework.BaseApp.instance.addToLoadingQueue(c);
 		return c
 	},
-	startLoadingResGen : function(b) {
-		var c = new GameFramework.resources.ResourceStreamer;
-		c.path = b;
-		c.resType = GameFramework.resources.ResourceManager.RESGEN;
-		c.Uj = 1;
-		GameFramework.BaseApp.instance.addToLoadingQueue(c);
-		return c
+	startLoadingResGen : function(path) {
+		var stream = new GameFramework.resources.ResourceStreamer;
+		stream.path = path;
+		stream.resType = GameFramework.resources.ResourceManager.RESGEN;
+		stream.Uj = 1;
+		GameFramework.BaseApp.instance.addToLoadingQueue(stream);
+		return stream
 	},
 	H4 : function(b) {
-		var b = this.Nm[b], c = new GameFramework.resources.ResourceStreamer;
-		c.path = b.path;
-		b.Jj != null && (c.path += b.Jj[0]);
-		c.resType = GameFramework.resources.ResourceManager.yT;
-		c.Uj = 1;
-		GameFramework.BaseApp.instance.addToLoadingQueue(c);
-		return c
+		var b = this.Nm[b], stream = new GameFramework.resources.ResourceStreamer;
+		stream.path = b.path;
+		b.Jj != null && (stream.path += b.Jj[0]);
+		stream.resType = GameFramework.resources.ResourceManager.yT;
+		stream.Uj = 1;
+		GameFramework.BaseApp.instance.addToLoadingQueue(stream);
+		return stream
 	},
 	sw : function(b) {
-		var c = GameFramework.BaseApp.instance.q1(b);
-		if (c != null)
-			return c;
-		var c = new GameFramework.resources.ResourceStreamer, d = this.Nm[b];
+		var stream = GameFramework.BaseApp.instance.q1(b);
+		if (stream != null)
+			return stream;
+		var stream = new GameFramework.resources.ResourceStreamer, d = this.Nm[b];
 		d.Qb != null
 				&& this.bh[d.Qb] == null
 				&& !GameFramework.BaseApp.instance.zS(d.Qb)
 				&& this.sw(d.Qb).addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR,
-						ss.Delegate.create(c, c.ps));
-		c.xa = b;
-		c.Kb = d;
-		c.path = c.Kb.path;
-		if (c.Kb.Jj != null && (c.path = c.Kb.path + c.Kb.Jj[0], c.Kb.Jj.length > 1))
-			c.Rx = c.Kb.path + c.Kb.Jj[1];
-		c.path = GameFramework.Utils.qF(c.path);
-		c.resType = GameFramework.resources.ResourceManager.IMAGE;
-		c.Uj = 1;
-		GameFramework.BaseApp.instance.addToLoadingQueue(c);
-		return c
+						ss.Delegate.create(stream, stream.ps));
+		stream.xa = b;
+		stream.Kb = d;
+		stream.path = stream.Kb.path;
+		if (stream.Kb.Jj != null && (stream.path = stream.Kb.path + stream.Kb.Jj[0], stream.Kb.Jj.length > 1))
+			stream.Rx = stream.Kb.path + stream.Kb.Jj[1];
+		stream.path = GameFramework.Utils.qF(stream.path);
+		stream.resType = GameFramework.resources.ResourceManager.IMAGE;
+		stream.Uj = 1;
+		GameFramework.BaseApp.instance.addToLoadingQueue(stream);
+		return stream
 	},
-	vU : function(b) {
-		var c = new GameFramework.resources.ResourceStreamer;
-		c.path = b;
-		c.resType = GameFramework.resources.ResourceManager.IMAGE;
-		c.Uj = 1;
-		GameFramework.BaseApp.instance.addToLoadingQueue(c);
-		return c
+	vU : function(path) {
+		var stream = new GameFramework.resources.ResourceStreamer;
+		stream.path = path;
+		stream.resType = GameFramework.resources.ResourceManager.IMAGE;
+		stream.Uj = 1;
+		GameFramework.BaseApp.instance.addToLoadingQueue(stream);
+		return stream
 	},
 	dp : function(b, c) {
 		this.Nm[b].Nn = Type.getInstanceOrNull(c, System.Wl)
