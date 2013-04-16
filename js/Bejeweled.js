@@ -14678,7 +14678,7 @@ Game.Bej3DialogButton.prototype = {
 		this.dh
 				&& this.gP != null
 				&& this.gP.length > 0
-				&& Game.BejApp.instance.hP
+				&& Game.BejApp.instance.tooltipLayer
 						.J3(this, this.t9, "^FFAACC^" + this.gP,
 								new GameFramework.geom.TPoint(this.w + this.s / 2,
 										this.v + 0), 400, Game.Tooltip.Wc.CP, 10)
@@ -14998,7 +14998,7 @@ Game.BejApp.prototype = {
 	JC : null,
 	mI : null,
 	kI : 0,
-	hP : null,
+	tooltipLayer : null,
 	uk : null,
 	pN : null,
 	uh : null,
@@ -15169,10 +15169,16 @@ Game.BejApp.prototype = {
 		this.topLayer = new Game.TopWidget;
 		this.messager = this.topLayer.messager;
 		this.root.addChild(this.topLayer);
-		if (this.ZN == null)
-			this.mainMenu = new Game.MainMenu, this.mainMenu.s = 1600, this.mainMenu.z = 1200, this.bottomLayer
-					.addChild(this.mainMenu), this.mainMenu.update(), this.appState.oi(this.mainMenu), this.hP = new Game.TooltipManager, this.root
-					.addChild(this.hP);
+		if (this.ZN == null) {
+			this.mainMenu = new Game.MainMenu;
+            this.mainMenu.s = 1600;
+            this.mainMenu.z = 1200;
+            this.bottomLayer.addChild(this.mainMenu);
+            this.mainMenu.update();
+            this.appState.oi(this.mainMenu);
+            this.tooltipLayer = new Game.TooltipManager;
+            this.root.addChild(this.tooltipLayer);
+        }
 		var b = this.resManager.J4("properties/resources.xml");
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.M3));
 		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.onIOError))
