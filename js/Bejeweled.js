@@ -11092,7 +11092,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		d.BE(c, b);
 		this.FT(b.xa, d)
 	},
-	g3 : function(b) {
+	parseResGen : function(b) {
 		var c = new GameFramework.XMLParser;
 		c.SE(b);
 		b = c.$c;
@@ -15186,7 +15186,7 @@ Game.BejApp.prototype = {
 		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.onIOError))
 	},
 	onResGenManifestLoaded : function(b) {
-		this.resManager.g3(b.target.rd);
+		this.resManager.parseResGen(b.target.rd);
 		this.I4()
 	},
 	submitStandardMetricsDict : function(b, c, d, f) {
