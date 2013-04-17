@@ -5827,7 +5827,7 @@ GameFramework.resources.BaseRes.prototype = {
 	xa : null,
 	path : null,
 	parent : null,
-	id : null,
+	pid : null,
 	ui : 1,
 	qo : 1,
 	sf : 0,
@@ -11134,7 +11134,7 @@ GameFramework.resources.ResourceManager.prototype = {
                         var res = new GameFramework.resources.BaseRes;
                         
                         // resource id
-						res.id = id;
+						res.pid = id;
                         
                         // resource type
 						if (n == "Font")
