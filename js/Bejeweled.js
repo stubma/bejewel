@@ -2386,7 +2386,7 @@ GameFramework.BaseApp.prototype = {
 			this.ml = c * 1E3 / d + 0.5 | 0, this.mX = b;
 		this.VM++
 	},
-	SE : dummy(),
+	parseXML : dummy(),
 	ND : dummy(),
 	rj : staticGet(""),
 	getItem : staticGet(null),
@@ -3761,8 +3761,8 @@ GameFramework.XMLParser.prototype = {
 	OV : null,
 	sb : null,
 	Qb : null,
-	SE : function(b) {
-		GameFramework.BaseApp.instance.SE(this, b)
+	parseXML : function(b) {
+		GameFramework.BaseApp.instance.parseXML(this, b)
 	},
 	Gb : get("sb"),
 	Pb : function(b) {
@@ -11104,7 +11104,7 @@ GameFramework.resources.ResourceManager.prototype = {
 	},
 	parseResGen : function(b) {
 		var c = new GameFramework.XMLParser;
-		c.SE(b);
+		c.parseXML(b);
 		b = c.$c;
 		for (c = 0; c < b.tQ(); c++) {
 			var d = b.VR(c);
@@ -13293,7 +13293,7 @@ GameFramework.JSBaseApp.prototype = {
 				this.lT(j, f)
 			}
 	},
-	SE : function(b, c) {
+	parseXML : function(b, c) {
 		var d;
 		d = Type.isString(c) ? ss.XmlDocumentParser.parse(c) : c;
 		this.lT(b, d.documentElement)
