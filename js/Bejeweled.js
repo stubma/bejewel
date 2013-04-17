@@ -3759,12 +3759,12 @@ GameFramework.XMLParser.prototype = {
 	$c : null,
 	er : null,
 	OV : null,
-	sb : null,
+	name : null,
 	parent : null,
 	parseXML : function(b) {
 		GameFramework.BaseApp.instance.parseXML(this, b)
 	},
-	Gb : get("sb"),
+	getName : get("name"),
 	Pb : function(b) {
 		return this.er == null ? new GameFramework.XMLParserList : this.er[b] == null
 				? new GameFramework.XMLParserList
@@ -3788,7 +3788,7 @@ GameFramework.XMLParserList.prototype = {
 	VR : function(b) {
 		return this.vm == null ? null : this.vm[b]
 	},
-	Gb : function() {
+	getName : function() {
 		return this.vm == null ? this.oa == null ? "" : this.oa : this.vm[0]
 	}
 };
@@ -3950,7 +3950,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.connected.UserInfo = dummy();
 GameFramework.connected.UserInfo.prototype = {
-	sb : null
+	name : null
 };
 GameFramework.connected.UserInfo.initClass = dummy();
 addClassEntry(function() {
@@ -6912,7 +6912,7 @@ GameFramework.resources.PITexture = function() {
 };
 GameFramework.resources.PITexture.prototype = {
 	Xj : null,
-	sb : null,
+	name : null,
 	cu : null,
 	zi : null,
 	zk : 0,
@@ -6985,7 +6985,7 @@ GameFramework.resources.PIParticleDef = dummy();
 GameFramework.resources.PIParticleDef.prototype = {
 	fj : null,
 	parent : null,
-	sb : null,
+	name : null,
 	lj : 0,
 	Xj : null,
 	F : null,
@@ -7071,7 +7071,7 @@ addClassEntry(function() {
 		});
 GameFramework.resources.PIEmitter = dummy();
 GameFramework.resources.PIEmitter.prototype = {
-	sb : null,
+	name : null,
 	F : null,
 	tf : null,
 	o8 : null,
@@ -7312,7 +7312,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources.PIEmitterInstanceDef = dummy();
 GameFramework.resources.PIEmitterInstanceDef.prototype = {
-	sb : null,
+	name : null,
 	SG : 0,
 	um : 0,
 	Gj : null,
@@ -7413,7 +7413,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources.PIDeflector = dummy();
 GameFramework.resources.PIDeflector.prototype = {
-	sb : null,
+	name : null,
 	kG : 0,
 	bH : 0,
 	Hu : 0,
@@ -7433,7 +7433,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources.PIBlocker = dummy();
 GameFramework.resources.PIBlocker.prototype = {
-	sb : null,
+	name : null,
 	qa : null,
 	yj : null,
 	Hb : null,
@@ -7450,7 +7450,7 @@ GameFramework.resources.PIForce = function() {
 	this.ac = Array.O(5, null)
 };
 GameFramework.resources.PIForce.prototype = {
-	sb : null,
+	name : null,
 	ec : null,
 	qa : null,
 	cD : null,
@@ -7472,7 +7472,7 @@ GameFramework.resources.PILayerDef = function() {
 	this.qO = new GameFramework.geom.TPoint
 };
 GameFramework.resources.PILayerDef.prototype = {
-	sb : null,
+	name : null,
 	Uh : null,
 	Rh : null,
 	j7 : null,
@@ -7512,7 +7512,7 @@ GameFramework.resources.PILayer.prototype = {
 	},
 	MR : function(b) {
 		for (var c = 0; c < (this.mf.length | 0); c++)
-			if (b.length == 0 || this.mf[c].Wa.sb == b)
+			if (b.length == 0 || this.mf[c].Wa.name == b)
 				return this.mf[c];
 		return null
 	}
@@ -7936,7 +7936,7 @@ GameFramework.resources.PIEffect.prototype = {
 	},
 	C3 : function(b) {
 		this.C.H();
-		b.sb = this.ni();
+		b.name = this.ni();
 		b.o8 = this.C.oc();
 		this.C.H();
 		b.pO = this.C.oc();
@@ -7976,7 +7976,7 @@ GameFramework.resources.PIEffect.prototype = {
 			f.iY = this.C.H();
 			f.hY = this.C.H();
 			f.w8 = this.C.oc();
-			f.sb = this.ni();
+			f.name = this.ni();
 			f.br = this.C.oc();
 			f.HV = this.C.oc();
 			f.fm = this.C.oc();
@@ -8316,13 +8316,13 @@ GameFramework.resources.PIEffect.prototype = {
 		for (var d = this.C.Ga(), f = 0; f < d; f++) {
 			this.Qi("CMultiTexture");
 			var g = new GameFramework.resources.PITexture;
-			g.sb = this.ni();
+			g.name = this.ni();
 			var h = this.C.Ga();
 			g.zk = h;
 			if (this.Ai) {
 				this.C.Ga();
 				g.O8 = this.C.oc();
-				var j = this.ni(), k = this.e1(g.sb, j, c), j = k.Kb;
+				var j = this.ni(), k = this.e1(g.name, j, c), j = k.Kb;
 				k.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(g, g.xq));
 				for (k = 0; k < h; k++) {
 					var l = new GameFramework.resources.PITextureChunk;
@@ -8357,7 +8357,7 @@ GameFramework.resources.PIEffect.prototype = {
 			this.xh[h] = l = new GameFramework.resources.PILayer;
 			l.xk = j;
 			this.Qi("CLayer");
-			j.sb = this.ni();
+			j.name = this.ni();
 			k = this.C.Ga();
 			l.mf = [];
 			l.mf.length = k;
@@ -8386,7 +8386,7 @@ GameFramework.resources.PIEffect.prototype = {
 				this.C.H();
 				o.SG = this.C.H();
 				this.C.H();
-				o.sb = this.ni();
+				o.name = this.ni();
 				o.Gj = this.C.H();
 				this.C.fa();
 				this.C.fa();
@@ -8470,7 +8470,7 @@ GameFramework.resources.PIEffect.prototype = {
 			for (l = 0; l < k; l++) {
 				m = new GameFramework.resources.PIDeflector;
 				this.Qi("CDeflector");
-				m.sb = this.ni();
+				m.name = this.ni();
 				m.kG = this.C.fa();
 				m.bH = this.C.fa();
 				m.Hu = this.C.fa();
@@ -8494,7 +8494,7 @@ GameFramework.resources.PIEffect.prototype = {
 			for (l = 0; l < k; l++) {
 				m = new GameFramework.resources.PIBlocker;
 				this.Qi("CBlocker");
-				m.sb = this.ni();
+				m.name = this.ni();
 				this.C.H();
 				this.C.H();
 				this.C.H();
@@ -8529,7 +8529,7 @@ GameFramework.resources.PIEffect.prototype = {
 			j.xi = [];
 			k = this.C.Ga();
 			for (l = 0; l < k; l++)
-				this.Qi("CForce"), m = new GameFramework.resources.PIForce, m.sb = this.ni(), m.ec = this.C
+				this.Qi("CForce"), m = new GameFramework.resources.PIForce, m.name = this.ni(), m.ec = this.C
 						.oc(), m.qa = new GameFramework.resources.PIValue2D, this.wA(m.qa), m.yj = new GameFramework.resources.PIValue, this
 						.Bf(m.yj), this.Bf(new GameFramework.resources.PIValue), m.cD = new GameFramework.resources.PIValue, this
 						.Bf(m.cD), m.s = new GameFramework.resources.PIValue, this.Bf(m.s), m.z = new GameFramework.resources.PIValue, this
@@ -8775,7 +8775,7 @@ GameFramework.resources.PIEffect.prototype = {
 	},
 	KJ : function(b) {
 		for (var c = 0; c < (this.ga.Kf.length | 0); c++)
-			if (b.length == 0 || this.ga.Kf[c].sb == b)
+			if (b.length == 0 || this.ga.Kf[c].name == b)
 				return this.xh[c];
 		return null
 	},
@@ -10375,7 +10375,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 						l = m == -1 ? h : h.substr(0, m);
 						l = l.trim();
 						if (k)
-							g = f.sb = l, k = false;
+							g = f.name = l, k = false;
 						else {
 							for (var o; (o = l.indexOf(String.fromCharCode(32))
 									| 0) != -1;)
@@ -10400,13 +10400,13 @@ GameFramework.resources.PopAnimResource.prototype = {
 					}
 					if (j && b.ve != null)
 						for (h = 0; h < (b.ve.length | 0); h++)
-							if (b.ve[h].sb == g)
+							if (b.ve[h].name == g)
 								return;
 					if (this.Px != null) {
 						g = this.Px;
 						for (h = 0; h < g.length; h++) {
 							f.Ke = GameFramework.BaseApp.instance.resManager.m1(g[h]
-									+ f.sb.toUpperCase());
+									+ f.name.toUpperCase());
 							if (f.Ke == null)
 								break;
 							f.Ke = f.Ke.gi()
@@ -10442,7 +10442,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 			for (var d = 0; d < (c.Fm.length | 0); d++) {
 				var f = c.Fm[d], g = new GameFramework.resources.popanim.PopAnimObjectInst;
 				g.color = 4294967295;
-				g.sb = f.sb;
+				g.name = f.name;
 				g.dX = false;
 				f = f.CY;
 				if (f != null) {
@@ -10467,7 +10467,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 		b == null && (b = "main");
 		for (var c = null, d = 0; d < (this.Dg.Rr.length | 0); d++) {
 			var f = this.Dg.Rr[d];
-			f.sb != null && f.sb == b && (c = f)
+			f.name != null && f.name == b && (c = f)
 		}
 		c == null && (c = this.Dg.Rr[0]);
 		if (c != this.Kc.ga) {
@@ -10555,7 +10555,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 	SS : function(b, c) {
 		var d = [];
 		this.version >= 4
-				? (this.Gm.push(b.bl()), c.sb = this.Gm[this.Gm.length - 1], c.kp = b
+				? (this.Gm.push(b.bl()), c.name = this.Gm[this.Gm.length - 1], c.kp = b
 						.H()
 						/ 65536)
 				: c.kp = this.kp;
@@ -10593,11 +10593,11 @@ GameFramework.resources.PopAnimResource.prototype = {
 					j.Ya.QC = b.eb();
 					j.Ya.UB = false;
 					j.Ya.vo = 1;
-					j.Ya.sb = null;
+					j.Ya.name = null;
 					j.Na = new GameFramework.geom.Matrix;
 					j.Ya.Wx = (o & 8192) != 0 ? b.Ga() : 0;
 					if ((o & 4096) != 0)
-						this.Dg.Gm.push(b.bl()), j.Ya.sb = this.Dg.Gm[this.Dg.Gm.length
+						this.Dg.Gm.push(b.bl()), j.Ya.name = this.Dg.Gm[this.Dg.Gm.length
 								- 1];
 					if ((o & 2048) != 0)
 						j.Ya.vo = b.H() / 65536;
@@ -10607,7 +10607,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 						c.Fm.push(null);
 					c.Fm[j.Ya.Ne] == null
 							&& (c.Fm[j.Ya.Ne] = new GameFramework.resources.popanim.PopAnimObjectDef);
-					c.Fm[j.Ya.Ne].sb = j.Ya.sb;
+					c.Fm[j.Ya.Ne].name = j.Ya.name;
 					if (j.Ya.wk)
 						c.Fm[j.Ya.Ne].CY = this.Dg.Rr[j.Ya.QC];
 					for (; d.length <= j.Ya.Ne;)
@@ -11108,19 +11108,19 @@ GameFramework.resources.ResourceManager.prototype = {
 		b = c.$c;
 		for (c = 0; c < b.tQ(); c++) {
 			var d = b.VR(c);
-			if (d.Gb() == "Resources") {
-				var f = d.Pb("id").Gb();
-				d.er.hasOwnProperty("parent") && (f = d.Pb("parent").Gb());
+			if (d.getName() == "Resources") {
+				var f = d.Pb("id").getName();
+				d.er.hasOwnProperty("parent") && (f = d.Pb("parent").getName());
 				this.dy.hasOwnProperty(f) || (this.dy[f] = {});
 				var g = d.$c;
 				if (g != null) {
 					if (d.er.hasOwnProperty("res"))
-						if (d = GameFramework.Utils.toInt(d.Pb("res").Gb()), GameFramework.BaseApp.instance.artRes == 0)
+						if (d = GameFramework.Utils.toInt(d.Pb("res").getName()), GameFramework.BaseApp.instance.artRes == 0)
 							GameFramework.BaseApp.instance.artRes = d;
 						else if (GameFramework.BaseApp.instance.artRes != d)
 							continue;
 					for (d = 0; d < g.tQ(); d++) {
-						var h = g.VR(d), j = h.Gb(), k = new GameFramework.resources.BaseRes;
+						var h = g.VR(d), j = h.getName(), k = new GameFramework.resources.BaseRes;
 						k.T7 = f;
 						if (j == "Font")
 							k.Fb = GameFramework.resources.ResourceManager.FONT;
@@ -11134,59 +11134,59 @@ GameFramework.resources.ResourceManager.prototype = {
 							k.Fb = GameFramework.resources.ResourceManager.PIEFFECT;
 						if (j == "RenderEffect")
 							k.Fb = GameFramework.resources.ResourceManager.RENDEREFFECT;
-						k.xa = h.Pb("id").Gb();
-						if (h.Pb("parent").Gb().length > 0)
-							k.parent = h.Pb("parent").Gb();
-						if (h.Pb("rtparent").Gb().length > 0)
-							k.nu = h.Pb("rtparent").Gb(), this.Nm[k.nu].YX++;
+						k.xa = h.Pb("id").getName();
+						if (h.Pb("parent").getName().length > 0)
+							k.parent = h.Pb("parent").getName();
+						if (h.Pb("rtparent").getName().length > 0)
+							k.nu = h.Pb("rtparent").getName(), this.Nm[k.nu].YX++;
 						if (k.parent != null) {
 							var l = this.Nm[k.parent];
 							if (l.$c == null)
 								l.$c = [];
 							l.$c.push(k)
 						}
-						k.path = h.Pb("path").Gb();
+						k.path = h.Pb("path").getName();
 						k.path = GameFramework.Utils.qF(k.path);
-						if (h.Pb("width").Gb().length > 0)
-							k.s = GameFramework.Utils.toInt(h.Pb("width").Gb());
-						if (h.Pb("height").Gb().length > 0)
-							k.z = GameFramework.Utils.toInt(h.Pb("height").Gb());
-						if (h.Pb("origw").Gb().length > 0)
-							k.Ox = GameFramework.Utils.toInt(h.Pb("origw").Gb());
-						if (h.Pb("origh").Gb().length > 0)
-							k.Nx = GameFramework.Utils.toInt(h.Pb("origh").Gb());
-						if (h.Pb("cols").Gb().length > 0)
-							k.ui = GameFramework.Utils.toInt(h.Pb("cols").Gb());
-						if (h.Pb("rows").Gb().length > 0)
-							k.qo = GameFramework.Utils.toInt(h.Pb("rows").Gb());
-						if (h.Pb("samples").Gb().length > 0)
-							k.uC = GameFramework.Utils.toInt(h.Pb("samples").Gb());
-						if (h.Pb("x").Gb().length > 0)
-							k.sf = GameFramework.Utils.toInt(h.Pb("x").Gb());
-						if (h.Pb("y").Gb().length > 0)
-							k.Oe = GameFramework.Utils.toInt(h.Pb("y").Gb());
-						if (h.Pb("ax").Gb().length > 0)
-							k.kM = GameFramework.Utils.toInt(h.Pb("ax").Gb());
-						if (h.Pb("ay").Gb().length > 0)
-							k.lM = GameFramework.Utils.toInt(h.Pb("ay").Gb());
-						if (h.Pb("aw").Gb().length > 0)
-							k.bG = GameFramework.Utils.toInt(h.Pb("aw").Gb());
-						if (h.Pb("ah").Gb().length > 0)
-							k.aG = GameFramework.Utils.toInt(h.Pb("ah").Gb());
-						if (h.Pb("rtax").Gb().length > 0)
-							k.iM = GameFramework.Utils.toInt(h.Pb("rtax").Gb());
-						if (h.Pb("rtay").Gb().length > 0)
-							k.jM = GameFramework.Utils.toInt(h.Pb("rtay").Gb());
-						if (h.Pb("rtaflags").Gb().length > 0)
-							k.d7 = GameFramework.Utils.toInt(h.Pb("rtaflags").Gb());
-						if (h.Pb("runtime").Gb().length > 0)
-							k.hX = h.Pb("runtime").Gb() == "true", k.gX = h
-									.Pb("runtime").Gb() == "false";
-						if (h.Pb("tags").Gb().length > 0)
-							k.Ll = h.Pb("tags").Gb();
-						if (h.Pb("exts").Gb().length > 0) {
+						if (h.Pb("width").getName().length > 0)
+							k.s = GameFramework.Utils.toInt(h.Pb("width").getName());
+						if (h.Pb("height").getName().length > 0)
+							k.z = GameFramework.Utils.toInt(h.Pb("height").getName());
+						if (h.Pb("origw").getName().length > 0)
+							k.Ox = GameFramework.Utils.toInt(h.Pb("origw").getName());
+						if (h.Pb("origh").getName().length > 0)
+							k.Nx = GameFramework.Utils.toInt(h.Pb("origh").getName());
+						if (h.Pb("cols").getName().length > 0)
+							k.ui = GameFramework.Utils.toInt(h.Pb("cols").getName());
+						if (h.Pb("rows").getName().length > 0)
+							k.qo = GameFramework.Utils.toInt(h.Pb("rows").getName());
+						if (h.Pb("samples").getName().length > 0)
+							k.uC = GameFramework.Utils.toInt(h.Pb("samples").getName());
+						if (h.Pb("x").getName().length > 0)
+							k.sf = GameFramework.Utils.toInt(h.Pb("x").getName());
+						if (h.Pb("y").getName().length > 0)
+							k.Oe = GameFramework.Utils.toInt(h.Pb("y").getName());
+						if (h.Pb("ax").getName().length > 0)
+							k.kM = GameFramework.Utils.toInt(h.Pb("ax").getName());
+						if (h.Pb("ay").getName().length > 0)
+							k.lM = GameFramework.Utils.toInt(h.Pb("ay").getName());
+						if (h.Pb("aw").getName().length > 0)
+							k.bG = GameFramework.Utils.toInt(h.Pb("aw").getName());
+						if (h.Pb("ah").getName().length > 0)
+							k.aG = GameFramework.Utils.toInt(h.Pb("ah").getName());
+						if (h.Pb("rtax").getName().length > 0)
+							k.iM = GameFramework.Utils.toInt(h.Pb("rtax").getName());
+						if (h.Pb("rtay").getName().length > 0)
+							k.jM = GameFramework.Utils.toInt(h.Pb("rtay").getName());
+						if (h.Pb("rtaflags").getName().length > 0)
+							k.d7 = GameFramework.Utils.toInt(h.Pb("rtaflags").getName());
+						if (h.Pb("runtime").getName().length > 0)
+							k.hX = h.Pb("runtime").getName() == "true", k.gX = h
+									.Pb("runtime").getName() == "false";
+						if (h.Pb("tags").getName().length > 0)
+							k.Ll = h.Pb("tags").getName();
+						if (h.Pb("exts").getName().length > 0) {
 							k.Jj = [];
-							for (h = h.Pb("exts").Gb(); h.indexOf(String
+							for (h = h.Pb("exts").getName(); h.indexOf(String
 									.fromCharCode(59)) != -1;)
 								l = h.indexOf(String.fromCharCode(59)), k.Jj
 										.push(h.substr(0, l)), h = h.substr(l
@@ -11551,7 +11551,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources.popanim.PopAnimObjectDef = dummy();
 GameFramework.resources.popanim.PopAnimObjectDef.prototype = {
-	sb : null,
+	name : null,
 	CY : null
 };
 GameFramework.resources.popanim.PopAnimObjectDef.initClass = dummy();
@@ -11564,7 +11564,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources.popanim.PopAnimObjectInst = dummy();
 GameFramework.resources.popanim.PopAnimObjectInst.prototype = {
-	sb : null,
+	name : null,
 	Ji : null,
 	i7 : null,
 	h7 : 0,
@@ -11612,7 +11612,7 @@ GameFramework.resources.popanim.PopAnimObjectPosData = function() {
 	GameFramework.resources.popanim.PopAnimObjectPosData.GN++
 };
 GameFramework.resources.popanim.PopAnimObjectPosData.prototype = {
-	sb : null,
+	name : null,
 	Ne : 0,
 	wk : null,
 	Cg : null,
@@ -11626,7 +11626,7 @@ GameFramework.resources.popanim.PopAnimObjectPosData.prototype = {
 	ge : 0,
 	gi : function() {
 		var b = new GameFramework.resources.popanim.PopAnimObjectPosData;
-		b.sb = this.sb;
+		b.name = this.name;
 		b.Ne = this.Ne;
 		b.wk = this.wk;
 		b.Cg = this.Cg;
@@ -11654,7 +11654,7 @@ addClassInitEntry(function() {
 GameFramework.resources.popanim.PopAnimParticleEffect = dummy();
 GameFramework.resources.popanim.PopAnimParticleEffect.prototype = {
 	Ke : null,
-	sb : null,
+	name : null,
 	Ep : 0,
 	qM : null,
 	iB : null,
@@ -11672,7 +11672,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources.popanim.PopAnimSpriteDef = dummy();
 GameFramework.resources.popanim.PopAnimSpriteDef.prototype = {
-	sb : null,
+	name : null,
 	Wf : null,
 	Jk : 0,
 	Ym : 0,
@@ -11709,7 +11709,7 @@ GameFramework.resources.popanim.PopAnimSpriteInst.prototype = {
 		f != -1 ? (c = b.substr(0, f), d = b.substr(f + 1)) : c = b;
 		for (b = 0; b < this.$c.length; b++) {
 			var g = this.$c[b];
-			if (g.sb != null && g.sb == c) {
+			if (g.name != null && g.name == c) {
 				if (f == -1)
 					return g;
 				if (g.Ji == null)
@@ -13261,7 +13261,7 @@ GameFramework.JSBaseApp.prototype = {
 		this.NB[b] = c
 	},
 	lT : function(b, c) {
-		b.sb = c.nodeName;
+		b.name = c.nodeName;
 		for (var d = ss.IEnumerator.enumerate(c.attributes); d.hasNext();) {
 			var f = d.next(), g = b;
 			if (g.er == null)
@@ -13278,7 +13278,7 @@ GameFramework.JSBaseApp.prototype = {
 				j = new GameFramework.XMLParser;
 				j.parent = g;
 				var k;
-				j.sb = h;
+				j.name = h;
 				if (g.$c == null)
 					g.$c = new GameFramework.XMLParserList, g.$c.vm = [];
 				g.$c.vm.push(j);
@@ -21087,11 +21087,11 @@ Game.Board.prototype = {
 				else if (b == 64)
 					c.n = Game.DM.Ha.Ve, c.cl(Game.Piece.K.rn), c.fr = false, this.rw(c);
 			if (b == 45)
-				GameFramework.BaseApp.instance.vo *= 0.75, sb *= 0.75;
+				GameFramework.BaseApp.instance.vo *= 0.75, name *= 0.75;
 			else if (b == 43)
-				GameFramework.BaseApp.instance.vo /= 0.75, sb /= 0.75;
+				GameFramework.BaseApp.instance.vo /= 0.75, name /= 0.75;
 			else if (b == 61)
-				sb = GameFramework.BaseApp.instance.vo = 1;
+				name = GameFramework.BaseApp.instance.vo = 1;
 			else if (b == 82)
 				Game.BejApp.instance.$I(GameFramework.BaseApp.instance.artRes == 768 ? 480 : 768);
 			else if (b == 93)
@@ -22968,8 +22968,8 @@ Game.EndLevelDialog.prototype = {
 				Game.BejApp.instance.Ka.Km = b;
 				for (var b = Game.BejApp.instance.uk.qq(this.VC), d = 0; d < Game.HighScoreTable.Ql; ++d) {
 					var f = b.zc[d];
-					if (f.sb == c && f.Hl == this.Z)
-						f.sb = Game.BejApp.instance.Ka.Km
+					if (f.name == c && f.Hl == this.Z)
+						f.name = Game.BejApp.instance.Ka.Km
 				}
 				Game.BejApp.instance.$K(true)
 			}
@@ -22997,10 +22997,10 @@ Game.EndLevelDialog.prototype = {
 		for (var b = Game.BejApp.instance.uk.qq(this.VC), c = 0; c < this.zc.length; ++c) {
 			var d = this.zc[c];
 			if (d.vk) {
-				d.sb = GameFramework.Utils.uU(this.Vd.Za);
+				d.name = GameFramework.Utils.uU(this.Vd.Za);
 				if (b != null && b.zc != null && c < b.zc.length
 						&& (b = b.zc[c], b != null))
-					b.sb = d.sb;
+					b.name = d.name;
 				break
 			}
 		}
@@ -23088,7 +23088,7 @@ Game.EndLevelDialog.prototype = {
 			h = b.Q(h);
 			try {
 				b.zb(String.format("{0:d}.", d + 1), 830, 455 + 45 * d, 1, -1), b
-						.zb(Game.GfxUtil.LR(b, this.zc[d].sb, g), 880, 455 + 45 * d,
+						.zb(Game.GfxUtil.LR(b, this.zc[d].name, g), 880, 455 + 45 * d,
 								-1, -1), b.zb(f, 1370, 455 + 45 * d, -1, 1), Game.Resources.FONT_GAMEOVER_DIALOG
 						.ib("OUTLINE"), Game.Resources.FONT_GAMEOVER_DIALOG.ib("GLOW"), Game.Resources.FONT_GAMEOVER_DIALOG
 						.ib("MAIN")
@@ -26722,13 +26722,13 @@ Game.HighScoreEntry = function() {
 	this.vk = false
 };
 Game.HighScoreEntry.prototype = {
-	sb : null,
+	name : null,
 	Eb : 0,
 	Hl : 0,
 	vk : null,
 	clone : function() {
 		var b = new Game.HighScoreEntry;
-		b.sb = this.sb;
+		b.name = this.name;
 		b.Hl = this.Hl;
 		b.Eb = this.Eb;
 		b.vk = this.vk;
@@ -26756,7 +26756,7 @@ Game.HighScoreTable.prototype = {
 				for (var f = Game.HighScoreTable.Ql - 1; f > d; --f)
 					this.zc[f] = this.zc[f - 1];
 				this.zc[d] = new Game.HighScoreEntry;
-				this.zc[d].sb = b;
+				this.zc[d].name = b;
 				this.zc[d].vk = true;
 				this.zc[d].Hl = c;
 				this.zc[d].Eb = 0;
@@ -26773,9 +26773,9 @@ Game.HighScoreTable.prototype = {
 			if (f && this.zc[j].Hl >= 0)
 				break;
 			for (var k = 100; --k > 0;) {
-				this.zc[j].sb = g[GameFramework.Utils.randZeroMax() % h];
+				this.zc[j].name = g[GameFramework.Utils.randZeroMax() % h];
 				for (var l = j - 1; l >= 0; --l)
-					if (this.zc[j].sb == this.zc[l].sb)
+					if (this.zc[j].name == this.zc[l].name)
 						break;
 					else
 						l == 0 && (k = 0)
@@ -26836,7 +26836,7 @@ Game.HighScoreMgr.prototype = {
 			this.xp[aName] = b;
 			for (var d = 0, f = ss.IEnumerator.enumerate(c[aName]); f.hasNext();) {
 				var g = f.next(), h = new Game.HighScoreEntry;
-				h.sb = g.Name;
+				h.name = g.Name;
 				h.Hl = g.Score | 0;
 				h.Eb = g.Time | 0;
 				d < b.zc.length && (b.zc[d++] = h)
@@ -26852,7 +26852,7 @@ Game.HighScoreMgr.prototype = {
 			b[aName] = c;
 			for (var d = this.xp[aName].zc, f = 0; f < d.length; f++) {
 				var g = d[f];
-				c.push(Array.O(3, null, new GameFramework.misc.KeyVal("Name", g.sb),
+				c.push(Array.O(3, null, new GameFramework.misc.KeyVal("Name", g.name),
 						new GameFramework.misc.KeyVal("Score", g.Hl),
 						new GameFramework.misc.KeyVal("Time", g.Eb)))
 			}
@@ -30499,10 +30499,10 @@ Game.RecordsDialog.prototype = {
 							.Ia("GLOW", 0));
 			var f = b.Q(-1);
 			try {
-				if (d[c].sb != null) {
+				if (d[c].name != null) {
 					var g = Game.GlobalMembersEndLevelDialog.HU(GameFramework.Utils.ei(d[c].Hl));
 					b.zb(String.format("{0:d}.", c + 1), 30, 70 + 45 * c, 1, -1);
-					b.zb(Game.GfxUtil.LR(b, d[c].sb, 455 - (b.hc(g) | 0)), 80, 70
+					b.zb(Game.GfxUtil.LR(b, d[c].name, 455 - (b.hc(g) | 0)), 80, 70
 									+ 45 * c, -1, -1);
 					b.zb(g, 570, 70 + 45 * c, -1, 1)
 				} else
