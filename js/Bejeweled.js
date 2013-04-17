@@ -5819,7 +5819,7 @@ GameFramework.resources.BaseRes.prototype = {
 	path : null,
 	parent : null,
 	pid : null,
-	ui : 1,
+	cols : 1,
 	qo : 1,
 	sf : 0,
 	Oe : 0,
@@ -6435,7 +6435,7 @@ GameFramework.resources.ImageResource = function() {
 };
 GameFramework.resources.ImageResource.prototype = {
 	qo : 1,
-	ui : 1,
+	cols : 1,
 	Em : 1,
 	id : 0,
 	Hg : 0,
@@ -6468,7 +6468,7 @@ GameFramework.resources.ImageResource.prototype = {
 		return this.DM
 	},
 	bk : function(b) {
-		var c = b % this.ui, b = b / this.ui | 0, d = new GameFramework.resources.ImageInst(this);
+		var c = b % this.cols, b = b / this.cols | 0, d = new GameFramework.resources.ImageInst(this);
 		d.jj = this;
 		d.he = c * this.Hg;
 		d.uf = b * this.Gg;
@@ -10691,7 +10691,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 		for (var d = b.Ga(), f = 0; f < d; f++) {
 			var g = new GameFramework.resources.popanim.PopAnimImage, h = b.bl();
 			g.f8 = h;
-			g.ui = 1;
+			g.cols = 1;
 			g.qo = 1;
 			g.origw = b.Ga();
 			g.origh = b.Ga();
@@ -11176,7 +11176,7 @@ GameFramework.resources.ResourceManager.prototype = {
 						if (sub.getAttr("origh").getValue().length > 0)
 							res.origh = GameFramework.Utils.toInt(sub.getAttr("origh").getValue());
 						if (sub.getAttr("cols").getValue().length > 0)
-							res.ui = GameFramework.Utils.toInt(sub.getAttr("cols").getValue());
+							res.cols = GameFramework.Utils.toInt(sub.getAttr("cols").getValue());
 						if (sub.getAttr("rows").getValue().length > 0)
 							res.qo = GameFramework.Utils.toInt(sub.getAttr("rows").getValue());
 						if (sub.getAttr("samples").getValue().length > 0)
@@ -11553,7 +11553,7 @@ GameFramework.resources.popanim.PopAnimImage.prototype = {
 	dH : null,
 	origh : 0,
 	origw : 0,
-	ui : 0,
+	cols : 0,
 	qo : 0,
 	f8 : null,
 	WM : 0,
@@ -13899,7 +13899,7 @@ GameFramework.resources.JSImageResource.prototype = {
 	Sm : 0,
 	Rm : 0,
 	Og : function(b, c, d, f, g) {
-		var h = (g | 0) % this.ui | 0, g = (g | 0) / this.ui | 0, j = this.Hg, k = this.Gg, l = new GameFramework.geom.Matrix;
+		var h = (g | 0) % this.cols | 0, g = (g | 0) / this.cols | 0, j = this.Hg, k = this.Gg, l = new GameFramework.geom.Matrix;
 		l.identity();
 		l.tx = d;
 		l.ty = f;
@@ -13930,7 +13930,7 @@ GameFramework.resources.JSImageResource.prototype = {
 		this.ym = this.vh = null
 	},
 	bk : function(b) {
-		var c = b % this.ui, b = b / this.ui | 0, d = new GameFramework.resources.JSImageInst(this);
+		var c = b % this.cols, b = b / this.cols | 0, d = new GameFramework.resources.JSImageInst(this);
 		d.he = c * this.Hg;
 		d.uf = b * this.Gg;
 		d.jd = this.Hg;
@@ -14294,8 +14294,8 @@ GameFramework.resources.JSResourceManager.prototype = {
 				c.w7 = 1;
 				c.ym = b.data;
 				if (b.Kb != null)
-					c.ui = b.Kb.ui, c.qo = b.Kb.qo, c.width = b.Kb.origw, c.height = b.Kb.origh, c.sf = b.Kb.sf, c.Oe = b.Kb.Oe;
-				c.Em = c.ui * c.qo;
+					c.cols = b.Kb.cols, c.qo = b.Kb.qo, c.width = b.Kb.origw, c.height = b.Kb.origh, c.sf = b.Kb.sf, c.Oe = b.Kb.Oe;
+				c.Em = c.cols * c.qo;
 				if (b.Kb != null && b.Kb.runtimeParent != null) {
 					var d = this.bh[b.Kb.runtimeParent], f = this.bh[b.Kb.parent], g = this.resMap[b.Kb.runtimeParent];
 					if (d == null) {
@@ -14332,16 +14332,16 @@ GameFramework.resources.JSResourceManager.prototype = {
 					c.vh = d.vh;
 					c.Vp = b.Kb.iM;
 					c.Wp = b.Kb.jM;
-					c.Hg = b.Kb.bG / b.Kb.ui | 0;
+					c.Hg = b.Kb.bG / b.Kb.cols | 0;
 					c.Gg = b.Kb.aG / b.Kb.qo | 0;
 					c.Sm = d.Sm;
 					c.Rm = d.Rm
 				} else
 					c.ym == null
 							? (d = this.Gs(b.Kb.parent), c.ym = d.ym, c.vh = d.vh, c.Vp = b.Kb.kM, c.Wp = b.Kb.lM, c.Hg = b.Kb.bG
-									/ b.Kb.ui | 0, c.Gg = b.Kb.aG / b.Kb.qo | 0, c.Sm = d.Sm, c.Rm = d.Rm)
+									/ b.Kb.cols | 0, c.Gg = b.Kb.aG / b.Kb.qo | 0, c.Sm = d.Sm, c.Rm = d.Rm)
 							: (c.sO = true, c.vh = b.vh, c.Sm = c.ym.width, c.Rm = c.ym.height, c.Hg = c.ym.width
-									/ c.ui, c.Gg = c.ym.height / c.qo, c.In = b.In, c.Bn = b.Bn);
+									/ c.cols, c.Gg = c.ym.height / c.qo, c.In = b.In, c.Bn = b.Bn);
 				if (b.Kb == null)
 					c.width = c.Hg / GameFramework.BaseApp.instance.graphics.m | 0, c.height = c.Gg
 							/ GameFramework.BaseApp.instance.graphics.m | 0;
