@@ -1483,7 +1483,7 @@ function Na(b, c, d) {
 				b.vh = Ia(b.In, b.Bn), curApp.nk(f, b)
 		};
 		f.onerror = function() {
-			b.tk = true
+			b.hasError = true
 		};
 		f.src = c;
 		var g = new Image;
@@ -1493,7 +1493,7 @@ function Na(b, c, d) {
 				b.vh = Ia(b.In, b.Bn), curApp.nk(f, b)
 		};
 		g.onerror = function() {
-			b.tk = true
+			b.hasError = true
 		};
 		g.src = d
 	} else
@@ -1503,7 +1503,7 @@ function Na(b, c, d) {
 				curApp.nk(f, b)
 			}
 		}, f.onerror = function() {
-			b.tk = true
+			b.hasError = true
 		}, f.src = c;
 	return f
 }
@@ -1515,7 +1515,7 @@ function Oa(b, c, d) {
 			b.Bn != null && curApp.nk(f, b)
 		};
 		f.onerror = function() {
-			b.tk = true
+			b.hasError = true
 		};
 		f.src = c;
 		var g = new Image;
@@ -1524,7 +1524,7 @@ function Oa(b, c, d) {
 			b.In != null && curApp.nk(f, b)
 		};
 		g.onerror = function() {
-			b.tk = true
+			b.hasError = true
 		};
 		g.src = d
 	} else
@@ -1535,7 +1535,7 @@ function Oa(b, c, d) {
 			b.Bn = f;
 			curApp.nk(f, b)
 		}), f.onerror = function() {
-			b.tk = true
+			b.hasError = true
 		}, f.src = c;
 	return f
 }
@@ -1606,7 +1606,7 @@ function Ya(b, c) {
 	TRACE && ss.Debug.writeln(d);
 	ajax.onreadystatechange = function() {
 		if (ajax.readyState == 4)
-			ajax.status != 200 ? b.tk = true : curApp.nk(ajax.responseText, b)
+			ajax.status != 200 ? b.hasError = true : curApp.nk(ajax.responseText, b)
 	};
 	ajax.overrideMimeType
 			&& ajax.overrideMimeType("text/plain;charset=x-user-defined");
@@ -1620,7 +1620,7 @@ function Za(b, path, d) {
     TRACE && ss.Debug.writeln(d);
 	ajax.onreadystatechange = function() {
 		if (ajax.readyState == 4)
-			(ajax.status != 200 && !LOCAL_DEBUG) ? b.tk = true : curApp.KZ(path, ajax.responseText)
+			(ajax.status != 200 && !LOCAL_DEBUG) ? b.hasError = true : curApp.KZ(path, ajax.responseText)
 	};
 	ajax.overrideMimeType && !f
 			&& ajax.overrideMimeType("text/plain;charset=x-user-defined");
@@ -11380,7 +11380,7 @@ GameFramework.resources.ResourceStreamer.prototype = {
 	resType : 0,
 	Uj : 0,
 	Or : 0,
-	tk : false,
+	hasError : false,
 	MG : null,
 	Sy : function() {
 		this.Or++
@@ -13179,8 +13179,8 @@ GameFramework.JSBaseApp.prototype = {
             }
 			if (stream.OM && !GameFramework.BaseApp.instance.resManager.YO)
 				stream.OM(), stream.OM = null;
-			if (stream.tk || stream.Or == stream.Uj && !GameFramework.BaseApp.instance.resManager.YO)
-				stream.tk
+			if (stream.hasError || stream.Or == stream.Uj && !GameFramework.BaseApp.instance.resManager.YO)
+				stream.hasError
 						? stream.dispatchEvent(new GameFramework.events.Event(GameFramework.events.IOErrorEvent.IO_ERROR))
 						: (this.jsResManager.JT(stream), stream
 								.dispatchEvent(new GameFramework.events.Event(GameFramework.events.Event.COMPLETE))), C(
@@ -15020,7 +15020,7 @@ Game.BejApp.prototype = {
 	cy : 0,
 	LH : 60,
 	vp : 1,
-	tk : false,
+	hasError : false,
 	wI : null,
 	Oj : null,
 	qC : null,
@@ -15219,7 +15219,7 @@ Game.BejApp.prototype = {
 		this.metrics.N4(b, g, d, f)
 	},
 	onIOError : function(b) {
-		if (!this.tk) {
+		if (!this.hasError) {
 			for (var c = "Loading failed", b = Type.getInstanceOrNull(b.target,
 					GameFramework.resources.ResourceStreamer); b.MG != null;)
 				b = b.MG;
@@ -15229,7 +15229,7 @@ Game.BejApp.prototype = {
 							: b.sN != null
 									&& (c = "Failed to load group '" + b.sN
 											+ "'"));
-			this.tk = true;
+			this.hasError = true;
 			throwError(new Game.LoadingError(c))
 		}
 	},
