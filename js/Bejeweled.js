@@ -5823,7 +5823,7 @@ GameFramework.resources.BaseRes.prototype = {
 	rows : 1,
 	sf : 0,
 	Oe : 0,
-	uC : 0,
+	samples : 0,
 	origw : 0,
 	origh : 0,
 	width : 0,
@@ -11180,7 +11180,7 @@ GameFramework.resources.ResourceManager.prototype = {
 						if (sub.getAttr("rows").getValue().length > 0)
 							res.rows = GameFramework.Utils.toInt(sub.getAttr("rows").getValue());
 						if (sub.getAttr("samples").getValue().length > 0)
-							res.uC = GameFramework.Utils.toInt(sub.getAttr("samples").getValue());
+							res.samples = GameFramework.Utils.toInt(sub.getAttr("samples").getValue());
 						if (sub.getAttr("x").getValue().length > 0)
 							res.sf = GameFramework.Utils.toInt(sub.getAttr("x").getValue());
 						if (sub.getAttr("y").getValue().length > 0)
@@ -11476,7 +11476,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources.SoundResource = dummy();
 GameFramework.resources.SoundResource.prototype = {
-	uC : 0
+	samples : 0
 };
 GameFramework.resources.SoundResource.initClass = dummy();
 addClassEntry(function() {
@@ -14354,7 +14354,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 			c = new GameFramework.resources.JSSoundResource;
 			c.WW = b.data;
 			if (b.Kb != null)
-				c.uC = b.Kb.uC;
+				c.samples = b.Kb.samples;
 			this.dp(b.id, c);
 			this.RO[b.id] = c
 		}
@@ -14393,7 +14393,7 @@ GameFramework.resources.JSSoundInstance.prototype = {
 	},
 	Ug : function(b) {
 		var c;
-		var d = this.JN.WW, f = this.Mu * GameFramework.BaseApp.instance.ZH.WG[this.QO], g = this.KX, h = this.JN.uC;
+		var d = this.JN.WW, f = this.Mu * GameFramework.BaseApp.instance.ZH.WG[this.QO], g = this.KX, h = this.JN.samples;
 		if (d != null)
 			(c = soundManager.getSoundById(d)) || (c = d), d = {
 				volume : f * 100,
