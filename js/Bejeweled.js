@@ -11157,9 +11157,12 @@ GameFramework.resources.ResourceManager.prototype = {
 						if (sub.getAttr("parent").getValue().length > 0)
 							res.parent = sub.getAttr("parent").getValue();
 
+                        // runtime parent
+						if (sub.getAttr("rtparent").getValue().length > 0) {
+							res.runtimeParent = sub.getAttr("rtparent").getValue();
+                            this.Nm[res.runtimeParent].YX++;
+                        }
 
-						if (sub.getAttr("rtparent").getValue().length > 0)
-							res.runtimeParent = sub.getAttr("rtparent").getValue(), this.Nm[res.runtimeParent].YX++;
 						if (res.parent != null) {
 							var l = this.Nm[res.parent];
 							if (l.subObjects == null)
