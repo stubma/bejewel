@@ -3765,7 +3765,7 @@ GameFramework.XMLParser.prototype = {
 		GameFramework.BaseApp.instance.parseXML(this, xml)
 	},
 	getName : get("name"),
-	Pb : function(b) {
+	getAttr : function(b) {
 		return this.attrMap == null ? new GameFramework.XMLParserList : this.attrMap[b] == null
 				? new GameFramework.XMLParserList
 				: this.attrMap[b]
@@ -11109,13 +11109,13 @@ GameFramework.resources.ResourceManager.prototype = {
 		for (c = 0; c < b.itemCount(); c++) {
 			var d = b.itemAt(c);
 			if (d.getName() == "Resources") {
-				var f = d.Pb("id").getValue();
-				d.attrMap.hasOwnProperty("parent") && (f = d.Pb("parent").getValue());
+				var f = d.getAttr("id").getValue();
+				d.attrMap.hasOwnProperty("parent") && (f = d.getAttr("parent").getValue());
 				this.dy.hasOwnProperty(f) || (this.dy[f] = {});
 				var g = d.$c;
 				if (g != null) {
 					if (d.attrMap.hasOwnProperty("res"))
-						if (d = GameFramework.Utils.toInt(d.Pb("res").getValue()), GameFramework.BaseApp.instance.artRes == 0)
+						if (d = GameFramework.Utils.toInt(d.getAttr("res").getValue()), GameFramework.BaseApp.instance.artRes == 0)
 							GameFramework.BaseApp.instance.artRes = d;
 						else if (GameFramework.BaseApp.instance.artRes != d)
 							continue;
@@ -11134,59 +11134,59 @@ GameFramework.resources.ResourceManager.prototype = {
 							k.Fb = GameFramework.resources.ResourceManager.PIEFFECT;
 						if (j == "RenderEffect")
 							k.Fb = GameFramework.resources.ResourceManager.RENDEREFFECT;
-						k.xa = h.Pb("id").getValue();
-						if (h.Pb("parent").getValue().length > 0)
-							k.parent = h.Pb("parent").getValue();
-						if (h.Pb("rtparent").getValue().length > 0)
-							k.nu = h.Pb("rtparent").getValue(), this.Nm[k.nu].YX++;
+						k.xa = h.getAttr("id").getValue();
+						if (h.getAttr("parent").getValue().length > 0)
+							k.parent = h.getAttr("parent").getValue();
+						if (h.getAttr("rtparent").getValue().length > 0)
+							k.nu = h.getAttr("rtparent").getValue(), this.Nm[k.nu].YX++;
 						if (k.parent != null) {
 							var l = this.Nm[k.parent];
 							if (l.$c == null)
 								l.$c = [];
 							l.$c.push(k)
 						}
-						k.path = h.Pb("path").getValue();
+						k.path = h.getAttr("path").getValue();
 						k.path = GameFramework.Utils.qF(k.path);
-						if (h.Pb("width").getValue().length > 0)
-							k.s = GameFramework.Utils.toInt(h.Pb("width").getValue());
-						if (h.Pb("height").getValue().length > 0)
-							k.z = GameFramework.Utils.toInt(h.Pb("height").getValue());
-						if (h.Pb("origw").getValue().length > 0)
-							k.Ox = GameFramework.Utils.toInt(h.Pb("origw").getValue());
-						if (h.Pb("origh").getValue().length > 0)
-							k.Nx = GameFramework.Utils.toInt(h.Pb("origh").getValue());
-						if (h.Pb("cols").getValue().length > 0)
-							k.ui = GameFramework.Utils.toInt(h.Pb("cols").getValue());
-						if (h.Pb("rows").getValue().length > 0)
-							k.qo = GameFramework.Utils.toInt(h.Pb("rows").getValue());
-						if (h.Pb("samples").getValue().length > 0)
-							k.uC = GameFramework.Utils.toInt(h.Pb("samples").getValue());
-						if (h.Pb("x").getValue().length > 0)
-							k.sf = GameFramework.Utils.toInt(h.Pb("x").getValue());
-						if (h.Pb("y").getValue().length > 0)
-							k.Oe = GameFramework.Utils.toInt(h.Pb("y").getValue());
-						if (h.Pb("ax").getValue().length > 0)
-							k.kM = GameFramework.Utils.toInt(h.Pb("ax").getValue());
-						if (h.Pb("ay").getValue().length > 0)
-							k.lM = GameFramework.Utils.toInt(h.Pb("ay").getValue());
-						if (h.Pb("aw").getValue().length > 0)
-							k.bG = GameFramework.Utils.toInt(h.Pb("aw").getValue());
-						if (h.Pb("ah").getValue().length > 0)
-							k.aG = GameFramework.Utils.toInt(h.Pb("ah").getValue());
-						if (h.Pb("rtax").getValue().length > 0)
-							k.iM = GameFramework.Utils.toInt(h.Pb("rtax").getValue());
-						if (h.Pb("rtay").getValue().length > 0)
-							k.jM = GameFramework.Utils.toInt(h.Pb("rtay").getValue());
-						if (h.Pb("rtaflags").getValue().length > 0)
-							k.d7 = GameFramework.Utils.toInt(h.Pb("rtaflags").getValue());
-						if (h.Pb("runtime").getValue().length > 0)
-							k.hX = h.Pb("runtime").getValue() == "true", k.gX = h
-									.Pb("runtime").getValue() == "false";
-						if (h.Pb("tags").getValue().length > 0)
-							k.Ll = h.Pb("tags").getValue();
-						if (h.Pb("exts").getValue().length > 0) {
+						if (h.getAttr("width").getValue().length > 0)
+							k.s = GameFramework.Utils.toInt(h.getAttr("width").getValue());
+						if (h.getAttr("height").getValue().length > 0)
+							k.z = GameFramework.Utils.toInt(h.getAttr("height").getValue());
+						if (h.getAttr("origw").getValue().length > 0)
+							k.Ox = GameFramework.Utils.toInt(h.getAttr("origw").getValue());
+						if (h.getAttr("origh").getValue().length > 0)
+							k.Nx = GameFramework.Utils.toInt(h.getAttr("origh").getValue());
+						if (h.getAttr("cols").getValue().length > 0)
+							k.ui = GameFramework.Utils.toInt(h.getAttr("cols").getValue());
+						if (h.getAttr("rows").getValue().length > 0)
+							k.qo = GameFramework.Utils.toInt(h.getAttr("rows").getValue());
+						if (h.getAttr("samples").getValue().length > 0)
+							k.uC = GameFramework.Utils.toInt(h.getAttr("samples").getValue());
+						if (h.getAttr("x").getValue().length > 0)
+							k.sf = GameFramework.Utils.toInt(h.getAttr("x").getValue());
+						if (h.getAttr("y").getValue().length > 0)
+							k.Oe = GameFramework.Utils.toInt(h.getAttr("y").getValue());
+						if (h.getAttr("ax").getValue().length > 0)
+							k.kM = GameFramework.Utils.toInt(h.getAttr("ax").getValue());
+						if (h.getAttr("ay").getValue().length > 0)
+							k.lM = GameFramework.Utils.toInt(h.getAttr("ay").getValue());
+						if (h.getAttr("aw").getValue().length > 0)
+							k.bG = GameFramework.Utils.toInt(h.getAttr("aw").getValue());
+						if (h.getAttr("ah").getValue().length > 0)
+							k.aG = GameFramework.Utils.toInt(h.getAttr("ah").getValue());
+						if (h.getAttr("rtax").getValue().length > 0)
+							k.iM = GameFramework.Utils.toInt(h.getAttr("rtax").getValue());
+						if (h.getAttr("rtay").getValue().length > 0)
+							k.jM = GameFramework.Utils.toInt(h.getAttr("rtay").getValue());
+						if (h.getAttr("rtaflags").getValue().length > 0)
+							k.d7 = GameFramework.Utils.toInt(h.getAttr("rtaflags").getValue());
+						if (h.getAttr("runtime").getValue().length > 0)
+							k.hX = h.getAttr("runtime").getValue() == "true", k.gX = h
+									.getAttr("runtime").getValue() == "false";
+						if (h.getAttr("tags").getValue().length > 0)
+							k.Ll = h.getAttr("tags").getValue();
+						if (h.getAttr("exts").getValue().length > 0) {
 							k.Jj = [];
-							for (h = h.Pb("exts").getValue(); h.indexOf(String
+							for (h = h.getAttr("exts").getValue(); h.indexOf(String
 									.fromCharCode(59)) != -1;)
 								l = h.indexOf(String.fromCharCode(59)), k.Jj
 										.push(h.substr(0, l)), h = h.substr(l
