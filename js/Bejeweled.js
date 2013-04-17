@@ -5206,12 +5206,12 @@ addClassEntry(function() {
 GameFramework.gfx.OffsetDrawable = function(b, c, d) {
 	this.tp = b;
 	this.x = c;
-	this.Oe = d
+	this.y = d
 };
 GameFramework.gfx.OffsetDrawable.prototype = {
 	tp : null,
 	x : 0,
-	Oe : 0,
+	y : 0,
 	Jw : function() {
 		return this.tp.Jw()
 	},
@@ -5219,7 +5219,7 @@ GameFramework.gfx.OffsetDrawable.prototype = {
 		this.tp.qg(b)
 	},
 	Og : function(b, c, d, f, g) {
-		this.tp.Og(b, c, d + this.x, f + this.Oe, g)
+		this.tp.Og(b, c, d + this.x, f + this.y, g)
 	}
 };
 GameFramework.gfx.OffsetDrawable.initClass = dummy();
@@ -5822,7 +5822,7 @@ GameFramework.resources.BaseRes.prototype = {
 	cols : 1,
 	rows : 1,
 	x : 0,
-	Oe : 0,
+	y : 0,
 	samples : 0,
 	origw : 0,
 	origh : 0,
@@ -5860,7 +5860,7 @@ GameFramework.resources.FontCharData.prototype = {
 	bY : 0,
 	MH : 0,
 	x : 0,
-	Oe : 0,
+	y : 0,
 	bC : 0,
 	Bp : 0,
 	width : 0,
@@ -6041,7 +6041,7 @@ GameFramework.resources.FontResource.prototype = {
 				d.bY = b.H();
 				d.MH = b.H();
 				d.x = b.H();
-				d.Oe = b.H();
+				d.y = b.H();
 				d.bC = b.Ga();
 				d.Bp = b.Ga();
 				d.width = b.H();
@@ -6102,7 +6102,7 @@ GameFramework.resources.FontResource.prototype = {
 		this.$o();
 		for (var b = 0, c = ss.IEnumerator.enumerate(this.em); c.hasNext();) {
 			var d = c.next(), f = d.Hn[65];
-			f != null && f.MH > 0 && (b = Math.min(b, d.lo + f.Oe - this.Mh))
+			f != null && f.MH > 0 && (b = Math.min(b, d.lo + f.y - this.Mh))
 		}
 		return -b
 	},
@@ -6110,7 +6110,7 @@ GameFramework.resources.FontResource.prototype = {
 		this.$o();
 		for (var b = 0, c = ss.IEnumerator.enumerate(this.em); c.hasNext();) {
 			var d = c.next(), f = d.Hn[65];
-			f != null && (b = Math.max(b, d.lo + f.Oe - this.Mh + f.MH))
+			f != null && (b = Math.max(b, d.lo + f.y - this.Mh + f.MH))
 		}
 		return b
 	},
@@ -6279,7 +6279,7 @@ GameFramework.resources.FontResource.prototype = {
 						A.hN = v;
 						A.$V = y;
 						A.By = u + v.Ir + y.x;
-						A.Cy = -(v.Mh - v.lo - y.Oe);
+						A.Cy = -(v.Mh - v.lo - y.y);
 						var B;
 						if (o != 0) {
 							if (B = v.ZC, y.Bp > 0)
@@ -6344,7 +6344,7 @@ GameFramework.resources.FontResource.prototype = {
 					z = u.Hn[o];
 					if (z != null) {
 						B = y + u.Ir + z.x;
-						A = -(u.Mh - u.lo - z.Oe);
+						A = -(u.Mh - u.lo - z.y);
 						if (u.color != j)
 							j != 4294967295 && b.pb(), j = u.color, j != 4294967295
 									&& b.Q(j);
@@ -6450,7 +6450,7 @@ GameFramework.resources.ImageResource.prototype = {
 	Mf : null,
 	YC : false,
 	x : 0,
-	Oe : 0,
+	y : 0,
 	oO : null,
 	DM : null,
 	Jw : get("pc"),
@@ -6459,7 +6459,7 @@ GameFramework.resources.ImageResource.prototype = {
 	Og : dummy(),
 	vd : function() {
 		if (this.oO == null)
-			this.oO = new GameFramework.gfx.OffsetDrawable(this, this.x, this.Oe);
+			this.oO = new GameFramework.gfx.OffsetDrawable(this, this.x, this.y);
 		return this.oO
 	},
 	Ee : function() {
@@ -11184,7 +11184,7 @@ GameFramework.resources.ResourceManager.prototype = {
 						if (sub.getAttr("x").getValue().length > 0)
 							res.x = GameFramework.Utils.toInt(sub.getAttr("x").getValue());
 						if (sub.getAttr("y").getValue().length > 0)
-							res.Oe = GameFramework.Utils.toInt(sub.getAttr("y").getValue());
+							res.y = GameFramework.Utils.toInt(sub.getAttr("y").getValue());
 						if (sub.getAttr("ax").getValue().length > 0)
 							res.kM = GameFramework.Utils.toInt(sub.getAttr("ax").getValue());
 						if (sub.getAttr("ay").getValue().length > 0)
@@ -14294,7 +14294,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 				c.w7 = 1;
 				c.ym = b.data;
 				if (b.Kb != null)
-					c.cols = b.Kb.cols, c.rows = b.Kb.rows, c.width = b.Kb.origw, c.height = b.Kb.origh, c.x = b.Kb.x, c.Oe = b.Kb.Oe;
+					c.cols = b.Kb.cols, c.rows = b.Kb.rows, c.width = b.Kb.origw, c.height = b.Kb.origh, c.x = b.Kb.x, c.y = b.Kb.y;
 				c.Em = c.cols * c.rows;
 				if (b.Kb != null && b.Kb.runtimeParent != null) {
 					var d = this.bh[b.Kb.runtimeParent], f = this.bh[b.Kb.parent], g = this.resMap[b.Kb.runtimeParent];
@@ -16662,7 +16662,7 @@ Game.Board.prototype = {
 				this.Ib.Rj = 1;
 				this.Ib.On = 1;
 				this.Ib.Uw = 84;
-				this.Ib.Lb(this.is + this.Ib.wb.x + 0, this.Ib.wb.Oe,
+				this.Ib.Lb(this.is + this.Ib.wb.x + 0, this.Ib.wb.y,
 						this.Ib.wb.width, this.Ib.wb.height);
 				this.addChild(this.Ib)
 			}
@@ -16679,7 +16679,7 @@ Game.Board.prototype = {
 				this.fd.Rj = 1;
 				this.fd.On = 1;
 				this.fd.Uw = 50;
-				this.fd.Lb(this.is + this.fd.wb.x + 0, this.fd.wb.Oe,
+				this.fd.Lb(this.is + this.fd.wb.x + 0, this.fd.wb.y,
 						this.fd.wb.width, this.fd.wb.height);
 				this.addChild(this.fd)
 			}
@@ -16691,7 +16691,7 @@ Game.Board.prototype = {
 							.addEventHandler(GameFramework.widgets.WidgetEvent.CLICKED, ss.Delegate.create(this,
 											this.L3)), this.hd.addEventHandler(
 							GameFramework.widgets.WidgetEvent.MOUSE_DOWN, ss.Delegate.create(this, this.OI)), this.hd.rm = this.hd.wb, this.hd.Sj = this.hd.wb, this.hd.Rj = 1, this.hd.On = 1, this.hd.Uw = 50, this.hd
-							.Lb(this.is + this.hd.wb.x + 0, this.hd.wb.Oe,
+							.Lb(this.is + this.hd.wb.x + 0, this.hd.wb.y,
 									this.hd.wb.width, this.hd.wb.height), this
 							.addChild(this.hd)
 		}
@@ -20134,7 +20134,7 @@ Game.Board.prototype = {
 		kc = true;
 		var f = Game.Resources.IMAGE_HYPERCUBE_COLORGLOW;
 		f.pc = true;
-		b.Bd(f.vd(), f.x + c.$d() - 16, f.Oe + c.dd() - 16, d);
+		b.Bd(f.vd(), f.x + c.$d() - 16, f.y + c.dd() - 16, d);
 		f.pc = false;
 		b.pb();
 		kc = false
@@ -20872,7 +20872,7 @@ Game.Board.prototype = {
 		var c = b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.kh() | 0));
 		try {
 			var d = Game.Resources.IMAGE_BOARD_TOP_WIDGET;
-			b.Bd(d, 0 + d.x - 160, d.Oe, 0);
+			b.Bd(d, 0 + d.x - 160, d.y, 0);
 			b.kb(Game.Resources.FONT_LEVEL);
 			b.zb(GameFramework.Utils.addThousandsSep(this.Bl + 1), 243, 250, 0, 0)
 		} finally {
@@ -28286,7 +28286,7 @@ Game.MainMenu.prototype = {
 		var b = new GameFramework.widgets.ButtonWidget;
 		b.wb = Game.Resources.IMAGE_BOARD_SD;
 		b.w = b.wb.x - 160;
-		b.v = b.wb.Oe;
+		b.v = b.wb.y;
 		b.width = b.wb.width;
 		b.height = b.wb.height;
 		Game.BejApp.instance.artRes == 768
@@ -28298,7 +28298,7 @@ Game.MainMenu.prototype = {
 		b = new Game.FrameButton;
 		b.wb = Game.Resources.IMAGE_BOARD_HD;
 		b.w = b.wb.x - 160;
-		b.v = b.wb.Oe;
+		b.v = b.wb.y;
 		b.width = b.wb.width;
 		b.height = b.wb.height;
 		Game.BejApp.instance.artRes == 480
@@ -28376,7 +28376,7 @@ Game.MainMenu.prototype = {
 		b.eM.vj("MainMenu_cs_11_21_11__15_34_43_243");
 		b.wb = Game.Resources.IMAGE_BOARD_MENUBTN;
 		b.w = b.wb.x - 160;
-		b.v = b.wb.Oe;
+		b.v = b.wb.y;
 		b.width = b.wb.width;
 		b.height = b.wb.height;
 		b.U = Game.Resources.FONT_FLAREGOTHICBOLD42;
@@ -30213,7 +30213,7 @@ Game.RankBarWidget.prototype = {
 							Game.Resources.IMAGE_RECORDS_RANK_FILL.Hg * f | 0,
 							Game.Resources.IMAGE_RECORDS_RANK_FILL.Gg), b.Ba(f,
 							Game.Resources.IMAGE_RECORDS_RANK_FILL.x,
-							Game.Resources.IMAGE_RECORDS_RANK_FILL.Oe));
+							Game.Resources.IMAGE_RECORDS_RANK_FILL.y));
 			if (this.$x != null && this.$x.D() != 0) {
 				Game.Resources.IMAGE_RECORDS_RANK_GLOW.pc = true;
 				f = b.Q(GameFramework.gfx.Color.Jb(this.$x.D()));
@@ -34524,7 +34524,7 @@ Game.Util.aK = function(b) {
 	return b.x + (b.width / 2 | 0)
 };
 Game.Util.bK = function(b) {
-	return b.Oe + (b.height / 2 | 0)
+	return b.y + (b.height / 2 | 0)
 };
 Game.Util.vba = function(b) {
 	return GameFramework.Utils.aE(b) - 65 + 1 | 0
@@ -34580,12 +34580,12 @@ Game.Util.Oba = function(b, c, d) {
 };
 Game.Util.Kba = function(b, c, d) {
 	c.pc = d;
-	b.Ba(c, c.x, c.Oe);
+	b.Ba(c, c.x, c.y);
 	c.pc = false
 };
 Game.Util.Lba = function(b, c, d, f, g) {
 	c.pc = g;
-	b.Ba(c, c.x + d, c.Oe + f);
+	b.Ba(c, c.x + d, c.y + f);
 	c.pc = false
 };
 Game.Util.Mba = function(b, c, d, f) {
