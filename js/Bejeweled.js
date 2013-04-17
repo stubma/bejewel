@@ -3529,23 +3529,23 @@ GameFramework.Utils.toInt = function(b) {
 GameFramework.Utils.toNumber = function(b) {
 	return Number(b)
 };
-GameFramework.Utils.Zpa = function(b) {
+GameFramework.Utils.isTrue = function(b) {
 	return b != null && b != "0" && b != "no" && b != "off" && b != "false"
 			&& b.length > 0
 };
-GameFramework.Utils.sba = function(b) {
+GameFramework.Utils.upperCharCode = function(b) {
 	return String.fromCharCode(b, 1).toUpperCase().charCodeAt(0)
 };
-GameFramework.Utils.rba = function(b) {
+GameFramework.Utils.lowerCharCode = function(b) {
 	return String.fromCharCode(b).toLowerCase().charCodeAt(0)
 };
-GameFramework.Utils.W4 = function(b) {
+GameFramework.Utils.toUpperCase = function(b) {
 	return b.toUpperCase()
 };
 GameFramework.Utils.toStr = function(b) {
 	return b.toString()
 };
-GameFramework.Utils.ei = function(b) {
+GameFramework.Utils.addThousandsSep = function(b) {
 	for (var c = "", b = GameFramework.Utils.toStr(b); b.length > 3;)
 		c = "," + b.substr(b.length - 3, 3) + c, b = b.substr(0, b.length - 3);
 	return b + c
@@ -10647,7 +10647,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 			}
 			if ((k & GameFramework.resources.PopAnimResource.m0) != 0) {
 				j = b.bl();
-				j = GameFramework.Utils.W4(j);
+				j = GameFramework.Utils.toUpperCase(j);
 				if (c.kH == null)
 					c.kH = {};
 				c.kH[j] = g
@@ -20867,7 +20867,7 @@ Game.Board.prototype = {
 			var d = Game.Resources.IMAGE_BOARD_TOP_WIDGET;
 			b.Bd(d, 0 + d.sf - 160, d.Oe, 0);
 			b.kb(Game.Resources.FONT_LEVEL);
-			b.zb(GameFramework.Utils.ei(this.Bl + 1), 243, 250, 0, 0)
+			b.zb(GameFramework.Utils.addThousandsSep(this.Bl + 1), 243, 250, 0, 0)
 		} finally {
 			c.t()
 		}
@@ -21172,8 +21172,8 @@ Game.Board.prototype = {
 	nJ : function(b) {
 		b.kb(Game.Resources.FONT_SCORE);
 		Game.Resources.FONT_SCORE.Ia("GLOW", 2667577344);
-		var c = GameFramework.Utils.ei(this.pm);
-		this.xY && (c += " of " + GameFramework.Utils.ei(this.rv()));
+		var c = GameFramework.Utils.addThousandsSep(this.pm);
+		this.xY && (c += " of " + GameFramework.Utils.addThousandsSep(this.rv()));
 		b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.kh() | 0));
 		b.zb(c, 242, 202, 0, 0);
 		b.pb();
@@ -21429,9 +21429,9 @@ Game.ClassicEndLevelDialog.prototype = {
 		b.zb("Total Time", 230, 619, -1, -1)
 	},
 	pJ : function(b) {
-		b.zb(GameFramework.Utils.ei(this.Bl + 1), 760, 475, -1, 1);
-		b.zb(GameFramework.Utils.ei(this.od[Game.DM.T.vD | 0]), 760, 523, -1, 1);
-		b.zb(GameFramework.Utils.ei(this.od[Game.DM.T.uD | 0]), 760, 571, -1, 1);
+		b.zb(GameFramework.Utils.addThousandsSep(this.Bl + 1), 760, 475, -1, 1);
+		b.zb(GameFramework.Utils.addThousandsSep(this.od[Game.DM.T.vD | 0]), 760, 523, -1, 1);
+		b.zb(GameFramework.Utils.addThousandsSep(this.od[Game.DM.T.uD | 0]), 760, 571, -1, 1);
 		var c = this.od[Game.DM.T.aF | 0] / 10 | 0;
 		b.zb(String.format("{0}:{1:00}", c / 60 | 0, c % 60), 760, 619, -1, 1)
 	},
@@ -23042,7 +23042,7 @@ Game.EndLevelDialog.prototype = {
 		b.jh("Final Score:", 800, 140);
 		b.U.ib("MAIN");
 		b.U.Ia("LAYER_2", 4290936917);
-		b.jh(GameFramework.Utils.ei(this.Z * this.uB.V() | 0), 800, 220);
+		b.jh(GameFramework.Utils.addThousandsSep(this.Z * this.uB.V() | 0), 800, 220);
 		b.U.ib("LAYER_2");
 		this.PQ(b)
 	},
@@ -23088,7 +23088,7 @@ Game.EndLevelDialog.prototype = {
 		for (var c = false, d = 0; d < (Math.min(Game.EndLevelDialog.HE, this.zc.length) | 0); ++d)
 			this.zc[d].vk && (c = true);
 		for (d = 0; d < (Math.min(Game.EndLevelDialog.HE, this.zc.length) | 0); ++d) {
-			var f = Game.GlobalMembersEndLevelDialog.HU(GameFramework.Utils.ei(this.zc[d].Hl)), g = 455
+			var f = Game.GlobalMembersEndLevelDialog.HU(GameFramework.Utils.addThousandsSep(this.zc[d].Hl)), g = 455
 					- (b.hc(f) | 0), h = -1;
 			if (this.zc[d].vk || d == -1) {
 				Game.Resources.FONT_GAMEOVER_DIALOG.Ia("GLOW", 0);
@@ -30221,7 +30221,7 @@ Game.RankBarWidget.prototype = {
 							? (b.zb(c.JC[Math.min(d | 0, (c.JC.length | 0) - 1)
 											| 0], this.s / 2 + 40, 95, -1, 0), b
 									.zb(	String.format("{0}k to go",
-													GameFramework.Utils.ei(this
+													GameFramework.Utils.addThousandsSep(this
 															.OJ()
 															| 0)), this.s - 40,
 											95, -1, 1))
@@ -30323,7 +30323,7 @@ Game.RankUpDialog.prototype = {
 					&& (b.kb(Game.Resources.FONT_GAMEOVER_DIALOG), Game.Resources.FONT_GAMEOVER_DIALOG
 							.Ia("GLOW", GameFramework.gfx.Color.toARGB(192, 96, 48, 80)), Game.Resources.FONT_GAMEOVER_DIALOG
 							.Ia("OUTLINE", GameFramework.gfx.Color.ta(64, 32, 16)), b
-							.jh(	GameFramework.Utils.ei(this.Tp.OJ() | 0)
+							.jh(	GameFramework.Utils.addThousandsSep(this.Tp.OJ() | 0)
 											+ ",000 Points", f, g), Game.Resources.FONT_GAMEOVER_DIALOG
 							.ib("GLOW"), Game.Resources.FONT_GAMEOVER_DIALOG
 							.ib("OUTLINE"));
@@ -30448,7 +30448,7 @@ Game.RecordsDialog.prototype = {
 				"{0:0.0} hours", f / 3600);
 		f = Array.O(4, "", "All-Time Best Move:", "Total Time Played:",
 				"Gems Matched:", "Favorite Gem Color:");
-		g = Array.O(4, "", GameFramework.Utils.ei(Game.BejApp.instance.Ka.xe[Game.DM.T.vD | 0])
+		g = Array.O(4, "", GameFramework.Utils.addThousandsSep(Game.BejApp.instance.Ka.xe[Game.DM.T.vD | 0])
 						+ " pts", g, GameFramework.Utils
 						.ei(Game.BejApp.instance.Ka.xe[Game.DM.T.dn | 0]), c);
 		this.LB && b.translate(0, -120);
@@ -30529,7 +30529,7 @@ Game.RecordsDialog.prototype = {
 			var f = b.Q(-1);
 			try {
 				if (d[c].name != null) {
-					var g = Game.GlobalMembersEndLevelDialog.HU(GameFramework.Utils.ei(d[c].Hl));
+					var g = Game.GlobalMembersEndLevelDialog.HU(GameFramework.Utils.addThousandsSep(d[c].Hl));
 					b.zb(String.format("{0:d}.", c + 1), 30, 70 + 45 * c, 1, -1);
 					b.zb(Game.GfxUtil.LR(b, d[c].name, 455 - (b.hc(g) | 0)), 80, 70
 									+ 45 * c, -1, -1);
@@ -32678,7 +32678,7 @@ Game.SpeedBoard.prototype = {
 	nJ : function(b) {
 		b.kb(Game.Resources.FONT_SCORE_LARGE);
 		b.Q(GameFramework.gfx.Color.toARGB(255, 255, 255, 255 * this.kh() | 0));
-		b.zb(GameFramework.Utils.ei(this.pm), 242, 210, 0, 0);
+		b.zb(GameFramework.Utils.addThousandsSep(this.pm), 242, 210, 0, 0);
 		b.pb()
 	},
 	OQ : function(b) {
@@ -33625,8 +33625,8 @@ Game.SpeedEndLevelDialog.prototype = {
 	},
 	pJ : function(b) {
 		b.zb(String.format("x{0}", this.Nf), 765, 475, -1, 1);
-		b.zb(GameFramework.Utils.ei(this.od[Game.DM.T.vD | 0]), 765, 523, -1, 1);
-		b.zb(GameFramework.Utils.ei(this.od[Game.DM.T.uD | 0]), 765, 571, -1, 1);
+		b.zb(GameFramework.Utils.addThousandsSep(this.od[Game.DM.T.vD | 0]), 765, 523, -1, 1);
+		b.zb(GameFramework.Utils.addThousandsSep(this.od[Game.DM.T.uD | 0]), 765, 571, -1, 1);
 		var c = 60 + this.$r;
 		b.zb(String.format("{0}:{1:00}", c / 60 | 0, c % 60), 765, 619, -1, 1)
 	},
