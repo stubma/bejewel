@@ -5830,7 +5830,7 @@ GameFramework.resources.BaseRes.prototype = {
 	height : 0,
 	tags : null,
 	subObjects : null,
-	Jj : null,
+	exts : null,
 	runtimeParent : null,
 	ax : 0,
 	ay : 0,
@@ -11206,17 +11206,19 @@ GameFramework.resources.ResourceManager.prototype = {
 						if (sub.getAttr("tags").getValue().length > 0)
 							res.tags = sub.getAttr("tags").getValue();
 						if (sub.getAttr("exts").getValue().length > 0) {
-							res.Jj = [];
-							for (var ext = sub.getAttr("exts").getValue(); ext.indexOf(String
-									.fromCharCode(59)) != -1;) {
-								var l = ext.indexOf(String.fromCharCode(59));
-                                res.Jj.push(ext.substr(0, l)), ext = ext.substr(l
-										+ 1);
+							res.exts = [];
+							for (var ext = sub.getAttr("exts").getValue(); ext.indexOf(String.fromCharCode(59)) != -1;) {
+								var semicolon = ext.indexOf(String.fromCharCode(59));
+                                res.exts.push(ext.substr(0, semicolon));
+                                ext = ext.substr(semicolon + 1);
                             }
-							res.Jj.push(ext)
+							res.exts.push(ext)
 						}
+
+                        // special checking for p3d file
 						if (n == "File" && endsWith(res.path, ".p3d"))
 							res.type = GameFramework.resources.ResourceManager.POP3D;
+
 						this.resMap[res.id] = res;
 						this.xO[res.path] = res;
 						this.dy[id][res.id] = res;
@@ -11262,10 +11264,10 @@ GameFramework.resources.ResourceManager.prototype = {
 							ss.Delegate.create(c, c.ps));
 			if (!(d.type == GameFramework.resources.ResourceManager.UNKNOWN || d.isRuntime)) {
 				var f = d.path, g = new GameFramework.resources.ResourceStreamer;
-				if (d.Jj != null) {
-					if (d.Jj.length > 1)
-						g.Rx = f + d.Jj[1];
-					f += d.Jj[0]
+				if (d.exts != null) {
+					if (d.exts.length > 1)
+						g.Rx = f + d.exts[1];
+					f += d.exts[0]
 				}
 				g.resType = d.type;
 				g.id = d.id;
@@ -11292,7 +11294,7 @@ GameFramework.resources.ResourceManager.prototype = {
 	H4 : function(b) {
 		var b = this.resMap[b], stream = new GameFramework.resources.ResourceStreamer;
 		stream.path = b.path;
-		b.Jj != null && (stream.path += b.Jj[0]);
+		b.exts != null && (stream.path += b.exts[0]);
 		stream.resType = GameFramework.resources.ResourceManager.P3DANIM;
 		stream.totalStep = 1;
 		GameFramework.BaseApp.instance.addToLoadingQueue(stream);
@@ -11311,8 +11313,8 @@ GameFramework.resources.ResourceManager.prototype = {
 		stream.id = b;
 		stream.Kb = d;
 		stream.path = stream.Kb.path;
-		if (stream.Kb.Jj != null && (stream.path = stream.Kb.path + stream.Kb.Jj[0], stream.Kb.Jj.length > 1))
-			stream.Rx = stream.Kb.path + stream.Kb.Jj[1];
+		if (stream.Kb.exts != null && (stream.path = stream.Kb.path + stream.Kb.exts[0], stream.Kb.exts.length > 1))
+			stream.Rx = stream.Kb.path + stream.Kb.exts[1];
 		stream.path = GameFramework.Utils.convertToUnixPath(stream.path);
 		stream.resType = GameFramework.resources.ResourceManager.IMAGE;
 		stream.totalStep = 1;
@@ -13174,7 +13176,7 @@ GameFramework.JSBaseApp.prototype = {
                     }
                 } else if (stream.resType === GameFramework.resources.ResourceManager.SOUND) {
 					var h = stream.path;
-					h.indexOf(".") === -1 && (h += stream.Kb.Jj[0]);
+					h.indexOf(".") === -1 && (h += stream.Kb.exts[0]);
 					stream.data = Wc(stream, h);
 					this.resManager.JT(stream)
 				} else if (stream.resType === GameFramework.resources.ResourceManager.FONT
