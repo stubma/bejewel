@@ -3755,8 +3755,8 @@ GameFramework.XMLParser = function() {
 	this.parent = null
 };
 GameFramework.XMLParser.prototype = {
-	OB : null,
-	$c : null,
+	subObjectsMap : null,
+	subObjects : null,
 	attrMap : null,
 	attrList : null,
 	name : null,
@@ -5838,7 +5838,7 @@ GameFramework.resources.BaseRes.prototype = {
 	s : 0,
 	z : 0,
 	Ll : null,
-	$c : null,
+	subObjects : null,
 	Jj : null,
 	nu : null,
 	kM : 0,
@@ -10352,7 +10352,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 		for (var d = 0; d < (c.of.length | 0); d++) {
 			var f = c.of[d];
 			if (f != null && f.Ya.wk) {
-				var g = b.$c[f.Ya.Ne].Ji;
+				var g = b.subObjects[f.Ya.Ne].Ji;
 				if (g != null)
 					for (var h = 0; h < f.Ya.Wx; h++)
 						this.cK(g, f, 1E3 / GameFramework.BaseApp.instance.frameInterval / b.ga.kp)
@@ -10425,7 +10425,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 		for (var f = 0; f < (d.of.length | 0); f++) {
 			var g = d.of[f];
 			if (g != null && g.Ya.wk) {
-				var h = b.$c[g.Ya.Ne].Ji;
+				var h = b.subObjects[g.Ya.Ne].Ji;
 				h != null && this.iJ(h, g)
 			}
 		}
@@ -10437,7 +10437,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 		b.Ep = -1;
 		b.Np = true;
 		b.A = 0;
-		b.$c = [];
+		b.subObjects = [];
 		if (c.Fm != null)
 			for (var d = 0; d < (c.Fm.length | 0); d++) {
 				var f = c.Fm[d], g = new GameFramework.resources.popanim.PopAnimObjectInst;
@@ -10451,7 +10451,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 					this.eK(h, f);
 					g.Ji = h
 				}
-				b.$c.push(g)
+				b.subObjects.push(g)
 			}
 		b == this.Kc && this.lS()
 	},
@@ -10504,8 +10504,8 @@ GameFramework.resources.PopAnimResource.prototype = {
 		if (b.ve != null)
 			for (var c = 0; c < (b.ve.length | 0); c++)
 				b.ve[c].Ke.qn();
-		for (c = 0; c < (b.$c.length | 0); c++) {
-			var d = b.$c[c].Ji;
+		for (c = 0; c < (b.subObjects.length | 0); c++) {
+			var d = b.subObjects[c].Ji;
 			d != null && this.HT(d)
 		}
 		this.vy = true
@@ -10753,7 +10753,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 				}
 			d = b.ga.Wf[b.A | 0];
 			for (f = 0; f < (d.of.length | 0); f++)
-				g = d.of[f], g != null && g.Ya.wk && this.LU(b.$c[g.Ya.Ne].Ji, g)
+				g = d.of[f], g != null && g.Ya.wk && this.LU(b.subObjects[g.Ya.Ne].Ji, g)
 		}
 	},
 	jQ : function(b, c) {
@@ -10763,8 +10763,8 @@ GameFramework.resources.PopAnimResource.prototype = {
 				for (var d = 0; d < (b.ve.length | 0); d++)
 					if (b.ve[d].Ep != this.aa || c)
 						removeElementAt(b.ve, d), d--;
-			for (d = 0; d < (b.$c.length | 0); d++) {
-				var f = b.$c[d].Ji;
+			for (d = 0; d < (b.subObjects.length | 0); d++) {
+				var f = b.subObjects[d].Ji;
 				f != null && this.jQ(f, c)
 			}
 		}
@@ -10776,8 +10776,8 @@ GameFramework.resources.PopAnimResource.prototype = {
 			return false;
 		if (b.ve.length != 0)
 			return true;
-		for (var c = 0; c < (b.$c.length | 0); c++) {
-			var d = b.$c[c].Ji;
+		for (var c = 0; c < (b.subObjects.length | 0); c++) {
+			var d = b.subObjects[c].Ji;
 			if (d != null && this.yS(d))
 				return true
 		}
@@ -10790,7 +10790,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 		this.Ah == null
 				? this.Ah = Array.O(3, null, null, null, null)
 				: (this.Ah[0] = null, this.Ah[1] = null, this.Ah[2] = null);
-		var g = b.A | 0, h = b.ga.Wf[g], j = h.of[c], k = b.$c[j.Ya.Ne];
+		var g = b.A | 0, h = b.ga.Wf[g], j = h.of[c], k = b.subObjects[j.Ya.Ne];
 		this.Mx[0] = b.ga.Wf.length - 1;
 		b == this.Kc && b.A >= b.ga.Jk && (this.Mx[0] = b.ga.Ym - 1);
 		if (this.i8 && !d) {
@@ -10838,7 +10838,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 			var l = d.of[k];
 			if (l != null && l.Ya.wk)
 				this.WP(b, k, j, g), f = g.Na, h = g.n, c != null && f.concat(c), this
-						.JL(b.$c[l.Ya.Ne].Ji, f, h, j)
+						.JL(b.subObjects[l.Ya.Ne].Ji, f, h, j)
 		}
 		if (b.ve != null)
 			for (c = 0; c < (b.ve.length | 0); c++)
@@ -10873,7 +10873,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 			else
 				for (f = 0; f < (g.of.length | 0); f++) {
 					var h = g.of[f];
-					h != null && h.Ya.wk && this.cK(b.$c[h.Ya.Ne].Ji, h, d / c)
+					h != null && h.Ya.wk && this.cK(b.subObjects[h.Ya.Ne].Ji, h, d / c)
 				}
 		}
 	},
@@ -10887,7 +10887,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 			for (var f = 0; f < (d.of.length | 0); f++) {
 				var g = d.of[f];
 				if (g != null && g.Ya.wk) {
-					var h = b.$c[g.Ya.Ne].Ji;
+					var h = b.subObjects[g.Ya.Ne].Ji;
 					if (h != null) {
 						var j = (b.A | 0) + b.rr * (b.ga.Wf.length | 0);
 						if (h.Ep != j - 1 && h.Ep != j)
@@ -10916,8 +10916,8 @@ GameFramework.resources.PopAnimResource.prototype = {
 				|| c.ir > 0 || j.Yt, q = 0; q < (j.of.length | 0); q++) {
 			var r = j.of[q];
 			if (r != null) {
-				var v = c.$c[r.Ya.Ne];
-				r.Ya.wk ? (m = c.$c[r.Ya.Ne].Ji, l = m.kW, k = m.zG) : (this
+				var v = c.subObjects[r.Ya.Ne];
+				r.Ya.wk ? (m = c.subObjects[r.Ya.Ne].Ji, l = m.kW, k = m.zG) : (this
 						.WP(c, q, h, o), k = o.Na, l = o.n);
 				v.UX != null && (l = v.UX.tt(b, c, v, d, l));
 				d == null && this.Qn != 1 ? (m = this.Na.zg(), m.scale(this.Qn,
@@ -10929,7 +10929,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 				l = GameFramework.gfx.Color.mn(GameFramework.gfx.Color.mn(l, f), v.color);
 				if ((l & 4278190080) != 0)
 					if (r.Ya.wk)
-						m = c.$c[r.Ya.Ne].Ji, this.XQ(b, m, k, l, r.Ya.Cg || g,
+						m = c.subObjects[r.Ya.Ne].Ji, this.XQ(b, m, k, l, r.Ya.Cg || g,
 								h);
 					else
 						for (;;) {
@@ -11105,14 +11105,14 @@ GameFramework.resources.ResourceManager.prototype = {
 	parseResGen : function(b) {
 		var c = new GameFramework.XMLParser;
 		c.parseXML(b);
-		b = c.$c;
+		b = c.subObjects;
 		for (c = 0; c < b.itemCount(); c++) {
 			var d = b.itemAt(c);
 			if (d.getName() == "Resources") {
 				var f = d.getAttr("id").getValue();
 				d.attrMap.hasOwnProperty("parent") && (f = d.getAttr("parent").getValue());
 				this.dy.hasOwnProperty(f) || (this.dy[f] = {});
-				var g = d.$c;
+				var g = d.subObjects;
 				if (g != null) {
 					if (d.attrMap.hasOwnProperty("res"))
 						if (d = GameFramework.Utils.toInt(d.getAttr("res").getValue()), GameFramework.BaseApp.instance.artRes == 0)
@@ -11141,9 +11141,9 @@ GameFramework.resources.ResourceManager.prototype = {
 							k.nu = h.getAttr("rtparent").getValue(), this.Nm[k.nu].YX++;
 						if (k.parent != null) {
 							var l = this.Nm[k.parent];
-							if (l.$c == null)
-								l.$c = [];
-							l.$c.push(k)
+							if (l.subObjects == null)
+								l.subObjects = [];
+							l.subObjects.push(k)
 						}
 						k.path = h.getAttr("path").getValue();
 						k.path = GameFramework.Utils.qF(k.path);
@@ -11701,14 +11701,14 @@ GameFramework.resources.popanim.PopAnimSpriteInst.prototype = {
 	Ep : 0,
 	zG : null,
 	kW : 0,
-	$c : null,
+	subObjects : null,
 	ga : null,
 	ve : null,
 	LJ : function(b) {
 		var c = "", d = "", f = b.indexOf(String.fromCharCode(92));
 		f != -1 ? (c = b.substr(0, f), d = b.substr(f + 1)) : c = b;
-		for (b = 0; b < this.$c.length; b++) {
-			var g = this.$c[b];
+		for (b = 0; b < this.subObjects.length; b++) {
+			var g = this.subObjects[b];
 			if (g.name != null && g.name == c) {
 				if (f == -1)
 					return g;
@@ -11720,12 +11720,12 @@ GameFramework.resources.popanim.PopAnimSpriteInst.prototype = {
 		return null
 	},
 	t : function() {
-		if (this.$c != null)
-			for (var b = 0; b < this.$c.length; b++) {
-				var c = this.$c[b];
+		if (this.subObjects != null)
+			for (var b = 0; b < this.subObjects.length; b++) {
+				var c = this.subObjects[b];
 				c.Ji != null && c.Ji.t()
 			}
-		this.parent = this.ve = this.ga = this.$c = null
+		this.parent = this.ve = this.ga = this.subObjects = null
 	}
 };
 GameFramework.resources.popanim.PopAnimSpriteInst.initClass = dummy();
@@ -13285,14 +13285,14 @@ GameFramework.JSBaseApp.prototype = {
 				subParser.parent = parser;
 				var k;
 				subParser.name = name;
-				if (parser.$c == null)
-					parser.$c = new GameFramework.XMLParserList, parser.$c.list = [];
-				parser.$c.list.push(subParser);
-				if (parser.OB == null)
-					parser.OB = new GameFramework.TDictionary;
-				parser.OB[name] == null
-						? (k = new GameFramework.XMLParserList, parser.OB[name] = k)
-						: k = parser.OB[name];
+				if (parser.subObjects == null)
+					parser.subObjects = new GameFramework.XMLParserList, parser.subObjects.list = [];
+				parser.subObjects.list.push(subParser);
+				if (parser.subObjectsMap == null)
+					parser.subObjectsMap = new GameFramework.TDictionary;
+				parser.subObjectsMap[name] == null
+						? (k = new GameFramework.XMLParserList, parser.subObjectsMap[name] = k)
+						: k = parser.subObjectsMap[name];
 				if (k.list == null)
 					k.list = [];
 				k.list.push(subParser);
