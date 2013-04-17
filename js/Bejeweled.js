@@ -5839,8 +5839,8 @@ GameFramework.resources.BaseRes.prototype = {
 	rtax : 0,
 	rtay : 0,
 	rtaflags : 0,
-	hX : null,
-	gX : null,
+	isRuntime : null,
+	isNotRuntime : null,
 	YX : 0,
 	DO : 0,
 	Nn : null
@@ -11200,8 +11200,8 @@ GameFramework.resources.ResourceManager.prototype = {
 						if (sub.getAttr("rtaflags").getValue().length > 0)
 							res.rtaflags = GameFramework.Utils.toInt(sub.getAttr("rtaflags").getValue());
 						if (sub.getAttr("runtime").getValue().length > 0) {
-							res.hX = sub.getAttr("runtime").getValue() == "true";
-                            res.gX = sub.getAttr("runtime").getValue() == "false";
+							res.isRuntime = sub.getAttr("runtime").getValue() == "true";
+                            res.isNotRuntime = sub.getAttr("runtime").getValue() == "false";
                         }
 						if (sub.getAttr("tags").getValue().length > 0)
 							res.Ll = sub.getAttr("tags").getValue();
@@ -11260,7 +11260,7 @@ GameFramework.resources.ResourceManager.prototype = {
 					&& !GameFramework.BaseApp.instance.zS(d.parent)
 					&& this.sw(d.parent).addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR,
 							ss.Delegate.create(c, c.ps));
-			if (!(d.type == GameFramework.resources.ResourceManager.UNKNOWN || d.hX)) {
+			if (!(d.type == GameFramework.resources.ResourceManager.UNKNOWN || d.isRuntime)) {
 				var f = d.path, g = new GameFramework.resources.ResourceStreamer;
 				if (d.Jj != null) {
 					if (d.Jj.length > 1)
@@ -13162,7 +13162,7 @@ GameFramework.JSBaseApp.prototype = {
                         this.resManager.Gs(stream.Kb.parent) != null && stream.loadStep != stream.totalStep && stream.loadStep++;
                     } else {
                         stream.data = stream.Kb != null;
-                        if(stream.Kb.gX) {
+                        if(stream.Kb.isNotRuntime) {
                             Oa(stream,
                                stream.path ? this.pathPrefix + stream.path : null,
                                stream.Rx ? this.pathPrefix + stream.Rx : null);
