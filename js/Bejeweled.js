@@ -13166,9 +13166,12 @@ GameFramework.JSBaseApp.prototype = {
 							}
 							Za(stream, h, k);
 						}
-					} else
-						h = Ya(stream, this.pathPrefix + stream.path), h.stream = stream, this.tN[h
-								.toString()] = stream, stream.data = h;
+					} else {
+						h = Ya(stream, this.pathPrefix + stream.path);
+                        h.stream = stream;
+                        this.tN[h.toString()] = stream;
+                        stream.data = h;
+                    }
 				else {
 					var ajax = stream.path.indexOf(".json") !== -1
                         ? $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.KT), "text")
