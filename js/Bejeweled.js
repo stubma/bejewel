@@ -5840,7 +5840,7 @@ GameFramework.resources.BaseRes.prototype = {
 	Ll : null,
 	subObjects : null,
 	Jj : null,
-	nu : null,
+	runtimeParent : null,
 	kM : 0,
 	lM : 0,
 	bG : 0,
@@ -11153,10 +11153,13 @@ GameFramework.resources.ResourceManager.prototype = {
                         // resource id
 						res.id = sub.getAttr("id").getValue();
 
+                        // resource parent, used for atlas image
 						if (sub.getAttr("parent").getValue().length > 0)
 							res.parent = sub.getAttr("parent").getValue();
+
+
 						if (sub.getAttr("rtparent").getValue().length > 0)
-							res.nu = sub.getAttr("rtparent").getValue(), this.Nm[res.nu].YX++;
+							res.runtimeParent = sub.getAttr("rtparent").getValue(), this.Nm[res.runtimeParent].YX++;
 						if (res.parent != null) {
 							var l = this.Nm[res.parent];
 							if (l.subObjects == null)
@@ -11237,7 +11240,7 @@ GameFramework.resources.ResourceManager.prototype = {
 				if (d.Nn != null)
 					d.Nn.t(), d.Nn = null
 			}
-			if (c.nu != null && (d = this.Nm[c.nu], d.DO = 0, d.Nn != null))
+			if (c.runtimeParent != null && (d = this.Nm[c.runtimeParent], d.DO = 0, d.Nn != null))
 				d.Nn.t(), d.Nn = null;
 			if (c.Nn != null)
 				c.Nn.t(), c.Nn = null;
@@ -14292,8 +14295,8 @@ GameFramework.resources.JSResourceManager.prototype = {
 				if (b.Kb != null)
 					c.ui = b.Kb.ui, c.qo = b.Kb.qo, c.s = b.Kb.Ox, c.z = b.Kb.Nx, c.sf = b.Kb.sf, c.Oe = b.Kb.Oe;
 				c.Em = c.ui * c.qo;
-				if (b.Kb != null && b.Kb.nu != null) {
-					var d = this.bh[b.Kb.nu], f = this.bh[b.Kb.parent], g = this.Nm[b.Kb.nu];
+				if (b.Kb != null && b.Kb.runtimeParent != null) {
+					var d = this.bh[b.Kb.runtimeParent], f = this.bh[b.Kb.parent], g = this.Nm[b.Kb.runtimeParent];
 					if (d == null) {
 						d = new GameFramework.resources.JSImageResource;
 						d.Sm = g.s;
