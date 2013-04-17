@@ -13126,12 +13126,20 @@ GameFramework.JSBaseApp.prototype = {
             // stream.data is null means loading is not started, so we can check more
 			if (stream.data == null && stream.path != null) {
 				if (stream.resType === GameFramework.resources.ResourceManager.IMAGE) {
-					stream.Kb != null && stream.Kb.Qb != null ? this.resManager.Gs(stream.Kb.Qb) != null
-							&& stream.loadStep != stream.totalStep && stream.loadStep++ : stream.data = stream.Kb != null
-							&& stream.Kb.gX ? Oa(stream, stream.path ? this.pathPrefix + stream.path : null, stream.Rx
-									? this.pathPrefix + stream.Rx
-									: null) : Na(stream, stream.path ? this.pathPrefix + stream.path : null,
-							stream.Rx ? this.pathPrefix + stream.Rx : null);
+                    if(stream.Kb != null && stream.Kb.Qb != null) {
+                        this.resManager.Gs(stream.Kb.Qb) != null && stream.loadStep != stream.totalStep && stream.loadStep++;
+                    } else {
+                        stream.data = stream.Kb != null;
+                        if(stream.Kb.gX) {
+                            Oa(stream,
+                               stream.path ? this.pathPrefix + stream.path : null,
+                               stream.Rx ? this.pathPrefix + stream.Rx : null);
+                        } else {
+                            Na(stream,
+                               stream.path ? this.pathPrefix + stream.path : null,
+                               stream.Rx ? this.pathPrefix + stream.Rx : null);
+                        }
+                    }
                 } else if (stream.resType === GameFramework.resources.ResourceManager.SOUND) {
 					var h = stream.path;
 					h.indexOf(".") === -1 && (h += stream.Kb.Jj[0]);
