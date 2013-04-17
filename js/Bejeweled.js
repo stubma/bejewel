@@ -1014,22 +1014,32 @@ __Namespace = set("qi");
 __Namespace.prototype = {
 	V5 : true
 };
-Type.ci = function(b) {
-	if (!window.cB)
-		window.cB = {};
-	if (!window.aV)
-		window.aV = [];
-	if (window.cB[b])
-		return window.cB[b];
-	for (var c = window, d = b.split("."), f = 0; f < d.length; f++) {
-		var g = d[f], h = c[g];
-		h
-				|| (c[g] = h = new __Namespace(d.slice(0, f + 1).join(".")), f == 0
-						&& window.aV.add(h));
-		c = h
+Type.registerNamespace = function(nsName) {
+    // namespaces is a object contains all namespace object, in a tree hierarchy
+	if (!window.namespaces)
+		window.namespaces = {};
+
+    // topNamespaces save first level namespace object
+	if (!window.topNamespaces)
+		window.topNamespaces = [];
+
+    // if namespace already registered, return it
+	if (window.namespaces[nsName])
+		return window.namespaces[nsName];
+
+    // iterate parts of namespace, create namespace object if not existent
+	for (var parentNS = window, parts = nsName.split("."), i = 0; i < parts.length; i++) {
+		var part = parts[i], ns = parentNS[part];
+		if(!ns) {
+            parentNS[part] = ns = new __Namespace(parts.slice(0, i + 1).join("."));
+            if(i == 0) {
+                window.topNamespaces.add(ns);
+            }
+        }
+		parentNS = ns;
 	}
-	window.cB[b] = c;
-	return window.cB[b]
+	window.namespaces[nsName] = parentNS;
+	return window.namespaces[nsName]
 };
 Type.prototype.registerClass = function(name, parent, d) {
 	this.prototype.constructor = this;
@@ -2148,9 +2158,9 @@ function $c(b, c, d) {
 	for (var f = 3; f < arguments.length; f++)
 		b.VF(c + f - 3, arguments[f])
 }
-Type.ci("System");
+Type.registerNamespace("System");
 System.Wl = dummy();
-GameFramework = Type.ci("GameFramework");
+GameFramework = Type.registerNamespace("GameFramework");
 GameFramework.JSONHelperData = dummy();
 GameFramework.JSONHelperData.prototype = {
 	hC : 1,
@@ -3789,7 +3799,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.XMLParserList.initClass()
 		});
-GameFramework.ads = Type.ci("GameFramework.ads");
+GameFramework.ads = Type.registerNamespace("GameFramework.ads");
 GameFramework.ads.AdAPIEvent = function(b) {
 	callSuperConstructor(GameFramework.ads.AdAPIEvent, this, [b])
 };
@@ -3802,7 +3812,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.ads.AdAPIEvent.initClass()
 		});
-GameFramework.connected = Type.ci("GameFramework.connected");
+GameFramework.connected = Type.registerNamespace("GameFramework.connected");
 GameFramework.connected.ConnectedRequest = function() {
 	callSuperConstructor(GameFramework.connected.ConnectedRequest, this);
 	GameFramework.connected.ConnectedRequest.jY++;
@@ -3949,7 +3959,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.connected.UserInfo.initClass()
 		});
-GameFramework.events = Type.ci("GameFramework.events");
+GameFramework.events = Type.registerNamespace("GameFramework.events");
 GameFramework.events.Event = set("type");
 GameFramework.events.Event.prototype = {
 	type : null,
@@ -4012,7 +4022,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.events.IOErrorEvent.initClass()
 		});
-GameFramework.geom = Type.ci("GameFramework.geom");
+GameFramework.geom = Type.registerNamespace("GameFramework.geom");
 GameFramework.geom.Axes3 = function(b, c, d) {
 	b === UNDEF && (b = null);
 	c === UNDEF && (c = null);
@@ -4578,7 +4588,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.geom.Vector3.initClass()
 		});
-GameFramework.gfx = Type.ci("GameFramework.gfx");
+GameFramework.gfx = Type.registerNamespace("GameFramework.gfx");
 GameFramework.gfx.Camera = function() {
 	this.Ff = new GameFramework.geom.Coords3;
 	this.ZY = 1;
@@ -5305,7 +5315,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.gfx.TransformedDrawable.initClass()
 		});
-GameFramework.misc = Type.ci("GameFramework.misc");
+GameFramework.misc = Type.registerNamespace("GameFramework.misc");
 GameFramework.misc.Bezier = dummy();
 GameFramework.misc.Bezier.prototype = {
 	Yj : null,
@@ -5810,7 +5820,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.misc.TMapSorter.initClass()
 		});
-GameFramework.resources = Type.ci("GameFramework.resources");
+GameFramework.resources = Type.registerNamespace("GameFramework.resources");
 GameFramework.resources.BaseRes = dummy();
 GameFramework.resources.BaseRes.prototype = {
 	Fb : 0,
@@ -11453,7 +11463,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.resources.SoundResource.initClass()
 		});
-GameFramework.resources.popanim = Type.ci("GameFramework.resources.popanim");
+GameFramework.resources.popanim = Type.registerNamespace("GameFramework.resources.popanim");
 GameFramework.resources.popanim.PopAnimCommand = dummy();
 GameFramework.resources.popanim.PopAnimCommand.prototype = {
 	fW : null,
@@ -11727,7 +11737,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.resources.popanim.PopAnimSpriteInst.initClass()
 		});
-GameFramework.widgets = Type.ci("GameFramework.widgets");
+GameFramework.widgets = Type.registerNamespace("GameFramework.widgets");
 GameFramework.widgets.ButtonWidget = function(b) {
 	b === UNDEF && (b = 0);
 	this.pe = Array.O(2, null, 4294967295, 4294967295);
@@ -11846,7 +11856,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.widgets.ButtonWidget.initClass()
 		});
-Game = Type.ci("Game");
+Game = Type.registerNamespace("Game");
 Game.Checkbox = function(b, c) {
 	this.EM = new GameFramework.TRect(0, 0, 0, 0);
 	this.x9 = new GameFramework.TRect(0, 0, 0, 0);
@@ -13046,7 +13056,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.widgets.WidgetEvent.initClass()
 		});
-GameFramework = Type.ci("GameFramework");
+GameFramework = Type.registerNamespace("GameFramework");
 GameFramework.JSBaseApp = function() {
 	this.NB = {};
 	callSuperConstructor(GameFramework.JSBaseApp, this);
@@ -13487,7 +13497,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.JSDataBufferData.initClass()
 		});
-GameFramework.gfx = Type.ci("GameFramework.gfx");
+GameFramework.gfx = Type.registerNamespace("GameFramework.gfx");
 GameFramework.gfx.JSGraphics = function(b, c) {
 	callSuperConstructor(GameFramework.gfx.JSGraphics, this, [b, c])
 };
@@ -13794,7 +13804,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.gfx.JSGraphics3D.initClass()
 		});
-GameFramework.resources = Type.ci("GameFramework.resources");
+GameFramework.resources = Type.registerNamespace("GameFramework.resources");
 GameFramework.resources.JSImageInst = function(b) {
 	callSuperConstructor(GameFramework.resources.JSImageInst, this, [b])
 };
@@ -14391,7 +14401,7 @@ addClassEntry(function() {
 addClassInitEntry(function() {
 			GameFramework.resources.JSSoundResource.initClass()
 		});
-Game = Type.ci("Game");
+Game = Type.registerNamespace("Game");
 Game.Announcement = function(b, c) {
 	this.qa = new GameFramework.geom.TPoint(0, 0);
 	this.L = new GameFramework.CurvedVal;
@@ -30097,7 +30107,7 @@ Game.Profile.Zv.initClass = function() {
 addClassEntry(function() {
 			Game.Profile.Zv.initClass()
 		});
-GameDll = Type.ci("GameDll");
+GameDll = Type.registerNamespace("GameDll");
 GameDll.Program = dummy();
 GameDll.Program.Pla = dummy();
 GameDll.Program.prototype = {};
