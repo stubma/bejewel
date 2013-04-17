@@ -3761,8 +3761,8 @@ GameFramework.XMLParser.prototype = {
 	OV : null,
 	name : null,
 	parent : null,
-	parseXML : function(b) {
-		GameFramework.BaseApp.instance.parseXML(this, b)
+	parseXML : function(xml) {
+		GameFramework.BaseApp.instance.parseXML(this, xml)
 	},
 	getName : get("name"),
 	Pb : function(b) {
