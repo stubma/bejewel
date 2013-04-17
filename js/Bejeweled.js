@@ -13272,7 +13272,7 @@ GameFramework.JSBaseApp.prototype = {
 			g.OV.push(h)
 		}
 		for (d = ss.IEnumerator.enumerate(c.childNodes); d.hasNext();)
-			if (f = d.next(), f.nodeType === 1) {
+			if (f = d.next(), f.nodeType === Node.ELEMENT_NODE) {
 				g = b;
 				h = f.nodeName;
 				j = new GameFramework.XMLParser;
