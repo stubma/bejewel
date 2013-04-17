@@ -11261,7 +11261,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		var b = this.Nm[b], stream = new GameFramework.resources.ResourceStreamer;
 		stream.path = b.path;
 		b.Jj != null && (stream.path += b.Jj[0]);
-		stream.resType = GameFramework.resources.ResourceManager.yT;
+		stream.resType = GameFramework.resources.ResourceManager.P3DANIM;
 		stream.Uj = 1;
 		GameFramework.BaseApp.instance.addToLoadingQueue(stream);
 		return stream
@@ -11358,7 +11358,7 @@ GameFramework.resources.ResourceManager.initClass = function() {
 	GameFramework.resources.ResourceManager.POP3D = 6;
 	GameFramework.resources.ResourceManager.RENDEREFFECT = 7;
 	GameFramework.resources.ResourceManager.RESGEN = 8;
-	GameFramework.resources.ResourceManager.yT = 9
+	GameFramework.resources.ResourceManager.P3DANIM = 9
 };
 addClassEntry(function() {
 			GameFramework.resources.ResourceManager.registerClass("GameFramework.resources.ResourceManager", null)
@@ -13138,7 +13138,7 @@ GameFramework.JSBaseApp.prototype = {
 						|| stream.resType === GameFramework.resources.ResourceManager.PIEFFECT
 						|| stream.resType === GameFramework.resources.ResourceManager.POP3D
 						|| stream.resType === GameFramework.resources.ResourceManager.RENDEREFFECT
-						|| stream.resType === GameFramework.resources.ResourceManager.yT)
+						|| stream.resType === GameFramework.resources.ResourceManager.P3DANIM)
 					if (startsWith(stream.path, "!ref:"))
 						h = this.resManager.b1(stream.path.substr(5)), h != null && stream.Or != stream.Uj
 								&& (this.resManager.ET(stream.xa, h.gi()), stream.Or++);
