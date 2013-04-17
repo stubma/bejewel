@@ -2339,7 +2339,7 @@ GameFramework.BaseApp.prototype = {
 	hS : function() {
 		for (var b = 0, c = ss.IEnumerator.enumerate(this.loadingQueue); c.hasNext();) {
 			var d = c.next();
-			d.Or == 0 && d.xa != null && d.path != null && !startsWith(d.path, "!") && b++
+			d.loadStep == 0 && d.xa != null && d.path != null && !startsWith(d.path, "!") && b++
 		}
 		return b
 	},
@@ -6066,8 +6066,8 @@ GameFramework.resources.FontResource.prototype = {
 			GameFramework.BaseApp.instance.resManager.gw(j);
 			j.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(h, h.xq));
 			c != null
-					&& (c.Uj++, j.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(c,
-									c.Sy)), j.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate
+					&& (c.totalStep++, j.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(c,
+									c.increaseLoadStep)), j.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate
 									.create(c, c.ps)));
 			h.WM = b.H();
 			h.Ir = b.H();
@@ -6573,9 +6573,9 @@ GameFramework.resources.MeshResource.prototype = {
 									.sw(m), o.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate
 											.create(l, l.xq)), o.addEventHandler(
 									GameFramework.events.Event.COMPLETE, ss.Delegate.create(c,
-											c.Sy)), o.addEventHandler(
+											c.increaseLoadStep)), o.addEventHandler(
 									GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(c,
-											c.ps)), c.Uj++, GameFramework.BaseApp.instance.resManager
+											c.ps)), c.totalStep++, GameFramework.BaseApp.instance.resManager
 									.gw(o));
 					b.Ga();
 					o = b.H() | 0;
@@ -7781,8 +7781,8 @@ GameFramework.resources.PIEffect.prototype = {
 		b = c.indexOf(String.fromCharCode(124));
 		return b != -1
 				? (c = GameFramework.BaseApp.instance.resManager.sw(c.substr(b + 1)), c.addEventHandler(
-						GameFramework.events.Event.COMPLETE, ss.Delegate.create(d, d.Sy)), c.addEventHandler(
-						GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(d, d.ps)), d.Uj++, GameFramework.BaseApp.instance.resManager
+						GameFramework.events.Event.COMPLETE, ss.Delegate.create(d, d.increaseLoadStep)), c.addEventHandler(
+						GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(d, d.ps)), d.totalStep++, GameFramework.BaseApp.instance.resManager
 						.gw(c), c)
 				: null
 	},
@@ -10710,8 +10710,8 @@ GameFramework.resources.PopAnimResource.prototype = {
 					? (h = h.substr(j + 1), g.dH.push(h), h = GameFramework.BaseApp.instance.resManager
 							.sw(h), h.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(
 									g, g.xq)), h.addEventHandler(GameFramework.events.Event.COMPLETE,
-							ss.Delegate.create(c, c.Sy)), h.addEventHandler(
-							GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(c, c.ps)), c.Uj++, GameFramework.BaseApp.instance.resManager
+							ss.Delegate.create(c, c.increaseLoadStep)), h.addEventHandler(
+							GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(c, c.ps)), c.totalStep++, GameFramework.BaseApp.instance.resManager
 							.gw(h))
 					: g.dH.push(h);
 			this.cu.push(g)
@@ -11219,7 +11219,7 @@ GameFramework.resources.ResourceManager.prototype = {
 	dl : function(b) {
 		var c = new GameFramework.resources.ResourceStreamer;
 		c.sN = b;
-		c.Uj = 0;
+		c.totalStep = 0;
 		b = this.dy[b];
 		for ($enum3 in b) {
 			var d = b[$enum3];
@@ -11239,11 +11239,11 @@ GameFramework.resources.ResourceManager.prototype = {
 				g.xa = d.xa;
 				g.path = f;
 				g.Kb = d;
-				g.Uj = 1;
-				g.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(c, c.Sy));
+				g.totalStep = 1;
+				g.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(c, c.increaseLoadStep));
 				g.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(c, c.ps));
 				GameFramework.BaseApp.instance.addToLoadingQueue(g);
-				c.Uj++
+				c.totalStep++
 			}
 		}
 		GameFramework.BaseApp.instance.addToLoadingQueue(c);
@@ -11253,7 +11253,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		var stream = new GameFramework.resources.ResourceStreamer;
 		stream.path = path;
 		stream.resType = GameFramework.resources.ResourceManager.RESGEN;
-		stream.Uj = 1;
+		stream.totalStep = 1;
 		GameFramework.BaseApp.instance.addToLoadingQueue(stream);
 		return stream
 	},
@@ -11262,7 +11262,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		stream.path = b.path;
 		b.Jj != null && (stream.path += b.Jj[0]);
 		stream.resType = GameFramework.resources.ResourceManager.P3DANIM;
-		stream.Uj = 1;
+		stream.totalStep = 1;
 		GameFramework.BaseApp.instance.addToLoadingQueue(stream);
 		return stream
 	},
@@ -11283,7 +11283,7 @@ GameFramework.resources.ResourceManager.prototype = {
 			stream.Rx = stream.Kb.path + stream.Kb.Jj[1];
 		stream.path = GameFramework.Utils.qF(stream.path);
 		stream.resType = GameFramework.resources.ResourceManager.IMAGE;
-		stream.Uj = 1;
+		stream.totalStep = 1;
 		GameFramework.BaseApp.instance.addToLoadingQueue(stream);
 		return stream
 	},
@@ -11291,7 +11291,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		var stream = new GameFramework.resources.ResourceStreamer;
 		stream.path = path;
 		stream.resType = GameFramework.resources.ResourceManager.IMAGE;
-		stream.Uj = 1;
+		stream.totalStep = 1;
 		GameFramework.BaseApp.instance.addToLoadingQueue(stream);
 		return stream
 	},
@@ -11378,12 +11378,12 @@ GameFramework.resources.ResourceStreamer.prototype = {
 	Kb : null,
 	data : null,
 	resType : 0,
-	Uj : 0,
-	Or : 0,
+	totalStep : 0,
+	loadStep : 0,
 	hasError : false,
 	MG : null,
-	Sy : function() {
-		this.Or++
+	increaseLoadStep : function() {
+		this.loadStep++
 	},
 	ps : function(b) {
 		this.MG = Type.getInstanceOrNull(b.target, GameFramework.resources.ResourceStreamer);
@@ -13121,7 +13121,7 @@ GameFramework.JSBaseApp.prototype = {
 			if (stream.data == null && stream.path != null) {
 				if (stream.resType === GameFramework.resources.ResourceManager.IMAGE)
 					stream.Kb != null && stream.Kb.Qb != null ? this.resManager.Gs(stream.Kb.Qb) != null
-							&& stream.Or != stream.Uj && stream.Or++ : stream.data = stream.Kb != null
+							&& stream.loadStep != stream.totalStep && stream.loadStep++ : stream.data = stream.Kb != null
 							&& stream.Kb.gX ? Oa(stream, stream.path ? this.pathPrefix + stream.path : null, stream.Rx
 									? this.pathPrefix + stream.Rx
 									: null) : Na(stream, stream.path ? this.pathPrefix + stream.path : null,
@@ -13138,8 +13138,8 @@ GameFramework.JSBaseApp.prototype = {
 						|| stream.resType === GameFramework.resources.ResourceManager.RENDEREFFECT
 						|| stream.resType === GameFramework.resources.ResourceManager.P3DANIM)
 					if (startsWith(stream.path, "!ref:"))
-						h = this.resManager.b1(stream.path.substr(5)), h != null && stream.Or != stream.Uj
-								&& (this.resManager.ET(stream.xa, h.gi()), stream.Or++);
+						h = this.resManager.b1(stream.path.substr(5)), h != null && stream.loadStep != stream.totalStep
+								&& (this.resManager.ET(stream.xa, h.gi()), stream.loadStep++);
 					else if (h = null, h = stream.path.indexOf("@"), h != -1) {
                         // search : and -, h will be filename, j, k is start and end bytes
 						var j = stream.path.indexOf(":", h);
@@ -13179,7 +13179,7 @@ GameFramework.JSBaseApp.prototype = {
             }
 			if (stream.OM && !GameFramework.BaseApp.instance.resManager.YO)
 				stream.OM(), stream.OM = null;
-			if (stream.hasError || stream.Or == stream.Uj && !GameFramework.BaseApp.instance.resManager.YO)
+			if (stream.hasError || stream.loadStep == stream.totalStep && !GameFramework.BaseApp.instance.resManager.YO)
 				stream.hasError
 						? stream.dispatchEvent(new GameFramework.events.Event(GameFramework.events.IOErrorEvent.IO_ERROR))
 						: (this.jsResManager.JT(stream), stream
@@ -13214,7 +13214,7 @@ GameFramework.JSBaseApp.prototype = {
 			d = new GameFramework.DataBuffer, d.nd.Ya = stream.data, stream.data = d, this.jsResManager.kT(stream);
 		if (stream.resType == GameFramework.resources.ResourceManager.RENDEREFFECT)
 			d = new GameFramework.DataBuffer, d.nd.Ya = stream.data, stream.data = d, this.jsResManager.f3(stream);
-		stream.Or++
+		stream.loadStep++
 	},
 	onPlainTextResourceDownloaded : function(data, status, ajax) {
 		var stream = null;
