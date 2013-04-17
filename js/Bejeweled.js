@@ -11228,7 +11228,7 @@ GameFramework.resources.ResourceManager.prototype = {
 					&& !GameFramework.BaseApp.instance.zS(d.Qb)
 					&& this.sw(d.Qb).addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR,
 							ss.Delegate.create(c, c.ps));
-			if (!(d.Fb == GameFramework.resources.ResourceManager.zT || d.hX)) {
+			if (!(d.Fb == GameFramework.resources.ResourceManager.UNKNOWN || d.hX)) {
 				var f = d.path, g = new GameFramework.resources.ResourceStreamer;
 				if (d.Jj != null) {
 					if (d.Jj.length > 1)
@@ -11349,7 +11349,7 @@ GameFramework.resources.ResourceManager.prototype = {
 	}
 };
 GameFramework.resources.ResourceManager.initClass = function() {
-	GameFramework.resources.ResourceManager.zT = 0;
+	GameFramework.resources.ResourceManager.UNKNOWN = 0;
 	GameFramework.resources.ResourceManager.IMAGE = 1;
 	GameFramework.resources.ResourceManager.SOUND = 2;
 	GameFramework.resources.ResourceManager.FONT = 3;
@@ -13051,7 +13051,7 @@ GameFramework.JSBaseApp = function() {
 	this.NB = {};
 	callSuperConstructor(GameFramework.JSBaseApp, this);
 	GameFramework.JSBaseApp.instance = this;
-	this.RN = GameFramework.Utils.bootTime()
+	this.lastResourceGotTime = GameFramework.Utils.bootTime()
 };
 GameFramework.JSBaseApp.prototype = {
 	jsResManager : null,
@@ -13061,7 +13061,7 @@ GameFramework.JSBaseApp.prototype = {
 	pathPrefix : "",
 	wW : true,
 	NB : null,
-	RN : 0,
+	lastResourceGotTime : 0,
 	YW : false,
 	isUseGL : get("useGL"),
 	Ub : function() {
@@ -13111,13 +13111,13 @@ GameFramework.JSBaseApp.prototype = {
 	},
 	update : function() {
 		GameFramework.BaseApp.prototype.update.apply(this);
-		for (var b = false, c = false, d = false, f = 0; f < this.loadingQueue.length; f++) {
+		for (var b = false, hasSound = false, hasNonSound = false, f = 0; f < this.loadingQueue.length; f++) {
 			if (this.wW && GameFramework.Utils.bootTime() - this.nX >= 100)
 				break;
 			var stream = this.loadingQueue[f];
 			stream.resType == GameFramework.resources.ResourceManager.SOUND
-					? c = true
-					: stream.resType != GameFramework.resources.ResourceManager.zT && (d = true);
+					? hasSound = true
+					: stream.resType != GameFramework.resources.ResourceManager.UNKNOWN && (hasNonSound = true);
 			if (stream.data == null && stream.path != null) {
 				if (stream.resType === GameFramework.resources.ResourceManager.IMAGE)
 					stream.Kb != null && stream.Kb.Qb != null ? this.resManager.Gs(stream.Kb.Qb) != null
@@ -13179,6 +13179,8 @@ GameFramework.JSBaseApp.prototype = {
             }
 			if (stream.OM && !GameFramework.BaseApp.instance.resManager.YO)
 				stream.OM(), stream.OM = null;
+
+            // if any stream has error, or loaded, then event can be triggered
 			if (stream.hasError || stream.loadStep == stream.totalStep && !GameFramework.BaseApp.instance.resManager.YO) {
 				if(stream.hasError) {
                     stream.dispatchEvent(new GameFramework.events.Event(GameFramework.events.IOErrorEvent.IO_ERROR))
@@ -13187,22 +13189,28 @@ GameFramework.JSBaseApp.prototype = {
                     stream.dispatchEvent(new GameFramework.events.Event(GameFramework.events.Event.COMPLETE));
                 }
 
+                // this stream is done, so remove it from queue
                 removeElementAt(this.loadingQueue, f);
                 f--;
                 b = true;
             }
 			f == this.loadingQueue.length - 1 && b && (f = -1, b = false)
 		}
-		c && !d && !this.YW && GameFramework.Utils.bootTime() - this.RN >= 3E4
-				&& throwError(new System.wJ("Sound loading stalled"));
-		this.FL()
+
+        // if loading queue only has sound resource, but already hangs more than 30 seconds,
+        // then throw an error
+		if(hasSound && !hasNonSound && !this.YW && GameFramework.Utils.bootTime() - this.lastResourceGotTime >= 3E4) {
+            throwError(new System.wJ("Sound loading stalled"));
+        }
+
+		this.FL();
 	},
 	draw : function() {
 		GameFramework.BaseApp.prototype.draw.apply(this);
 		this.nX = GameFramework.Utils.bootTime();
 	},
 	nk : function(data, stream) {
-		this.RN = GameFramework.Utils.bootTime();
+		this.lastResourceGotTime = GameFramework.Utils.bootTime();
 		stream.data = data;
 		if (stream.resType == GameFramework.resources.ResourceManager.SOUND)
 			this.YW = true;
