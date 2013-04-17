@@ -5836,9 +5836,9 @@ GameFramework.resources.BaseRes.prototype = {
 	ay : 0,
 	aw : 0,
 	ah : 0,
-	iM : 0,
-	jM : 0,
-	d7 : 0,
+	rtax : 0,
+	rtay : 0,
+	rtaflags : 0,
 	hX : null,
 	gX : null,
 	YX : 0,
@@ -11194,11 +11194,11 @@ GameFramework.resources.ResourceManager.prototype = {
 						if (sub.getAttr("ah").getValue().length > 0)
 							res.ah = GameFramework.Utils.toInt(sub.getAttr("ah").getValue());
 						if (sub.getAttr("rtax").getValue().length > 0)
-							res.iM = GameFramework.Utils.toInt(sub.getAttr("rtax").getValue());
+							res.rtax = GameFramework.Utils.toInt(sub.getAttr("rtax").getValue());
 						if (sub.getAttr("rtay").getValue().length > 0)
-							res.jM = GameFramework.Utils.toInt(sub.getAttr("rtay").getValue());
+							res.rtay = GameFramework.Utils.toInt(sub.getAttr("rtay").getValue());
 						if (sub.getAttr("rtaflags").getValue().length > 0)
-							res.d7 = GameFramework.Utils.toInt(sub.getAttr("rtaflags").getValue());
+							res.rtaflags = GameFramework.Utils.toInt(sub.getAttr("rtaflags").getValue());
 						if (sub.getAttr("runtime").getValue().length > 0) {
 							res.hX = sub.getAttr("runtime").getValue() == "true";
                             res.gX = sub.getAttr("runtime").getValue() == "false";
@@ -14311,7 +14311,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 						this.bh[g.id] = d
 					}
 					Ha(d.tG, b.Kb.ax, b.Kb.ay, b.Kb.aw, b.Kb.ah, f.In, f.Bn,
-							b.Kb.iM, b.Kb.jM);
+							b.Kb.rtax, b.Kb.rtay);
 					g.DO++;
 					if (g.DO == g.YX)
 						f = d.tG, gl != null
@@ -14330,8 +14330,8 @@ GameFramework.resources.JSResourceManager.prototype = {
 												gl.CLAMP_TO_EDGE), gl
 										.bindTexture(gl.TEXTURE_2D, null)), d.tG = null;
 					c.vh = d.vh;
-					c.Vp = b.Kb.iM;
-					c.Wp = b.Kb.jM;
+					c.Vp = b.Kb.rtax;
+					c.Wp = b.Kb.rtay;
 					c.Hg = b.Kb.aw / b.Kb.cols | 0;
 					c.Gg = b.Kb.ah / b.Kb.rows | 0;
 					c.Sm = d.Sm;
