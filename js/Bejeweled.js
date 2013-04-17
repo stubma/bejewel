@@ -5828,7 +5828,7 @@ GameFramework.resources.BaseRes.prototype = {
 	origh : 0,
 	width : 0,
 	height : 0,
-	Ll : null,
+	tags : null,
 	subObjects : null,
 	Jj : null,
 	runtimeParent : null,
@@ -5956,7 +5956,7 @@ addClassInitEntry(function() {
 			GameFramework.resources.FontLayer.initClass()
 		});
 GameFramework.resources.FontResource = function() {
-	this.Ll = [];
+	this.tags = [];
 	this.FH = GameFramework.resources.De.fi
 };
 GameFramework.resources.FontResource.prototype = {
@@ -5972,7 +5972,7 @@ GameFramework.resources.FontResource.prototype = {
 	m : 1,
 	jN : null,
 	WF : null,
-	Ll : null,
+	tags : null,
 	em : null,
 	Kw : false,
 	FH : null,
@@ -5990,9 +5990,9 @@ GameFramework.resources.FontResource.prototype = {
 		b.m = this.m;
 		b.jN = this.jN;
 		b.WF = this.WF;
-		for (var c = ss.IEnumerator.enumerate(this.Ll); c.hasNext();) {
+		for (var c = ss.IEnumerator.enumerate(this.tags); c.hasNext();) {
 			var d = c.next();
-			b.Ll.push(d)
+			b.tags.push(d)
 		}
 		b.em = [];
 		for (c = ss.IEnumerator.enumerate(this.lx); c.hasNext();)
@@ -6191,9 +6191,9 @@ GameFramework.resources.FontResource.prototype = {
 		this.gj = this.height = this.hl = this.Mh = 0;
 		for (var b = true, c = ss.IEnumerator.enumerate(this.lx); c.hasNext();) {
 			for (var d = c.next(), f = true, g = ss.IEnumerator.enumerate(d.KO); g.hasNext();)
-				this.Ll.indexOf(g.next()) == -1 && (f = false);
+				this.tags.indexOf(g.next()) == -1 && (f = false);
 			for (g = ss.IEnumerator.enumerate(d.aN); g.hasNext();)
-				this.Ll.indexOf(g.next()) != -1 && (f = false);
+				this.tags.indexOf(g.next()) != -1 && (f = false);
 			this.WF && (f = true);
 			if (f) {
 				this.em.push(d);
@@ -6216,7 +6216,7 @@ GameFramework.resources.FontResource.prototype = {
 			this.M0(), this.Kw = true
 	},
 	FP : function(b) {
-		this.Ll.push(b);
+		this.tags.push(b);
 		this.Kw = false
 	},
 	Ia : function(b, c) {
@@ -11204,7 +11204,7 @@ GameFramework.resources.ResourceManager.prototype = {
                             res.isNotRuntime = sub.getAttr("runtime").getValue() == "false";
                         }
 						if (sub.getAttr("tags").getValue().length > 0)
-							res.Ll = sub.getAttr("tags").getValue();
+							res.tags = sub.getAttr("tags").getValue();
 						if (sub.getAttr("exts").getValue().length > 0) {
 							res.Jj = [];
 							for (var ext = sub.getAttr("exts").getValue(); ext.indexOf(String
@@ -11332,13 +11332,13 @@ GameFramework.resources.ResourceManager.prototype = {
 	},
 	ET : function(b, c) {
 		var d = this.resMap[b];
-		if (d.Ll != null)
+		if (d.tags != null)
 			for (var f = 0;;) {
-				var g = d.Ll.indexOf(" ", f);
+				var g = d.tags.indexOf(" ", f);
 				if (g != -1)
-					c.FP(d.Ll.substr(f, g - f)), f = g + 1;
+					c.FP(d.tags.substr(f, g - f)), f = g + 1;
 				else {
-					c.FP(d.Ll.substr(f));
+					c.FP(d.tags.substr(f));
 					break
 				}
 			}
