@@ -2430,11 +2430,11 @@ GameFramework.CurvedVal.FD = function(b) {
 };
 GameFramework.CurvedVal.WZ = function(b) {
 	var c = 0;
-	c += GameFramework.CurvedVal.FD(GameFramework.Utils.hi(b, 0));
+	c += GameFramework.CurvedVal.FD(GameFramework.Utils.charAt(b, 0));
 	c *= 90;
-	c += GameFramework.CurvedVal.FD(GameFramework.Utils.hi(b, 1));
+	c += GameFramework.CurvedVal.FD(GameFramework.Utils.charAt(b, 1));
 	c *= 90;
-	c += GameFramework.CurvedVal.FD(GameFramework.Utils.hi(b, 2));
+	c += GameFramework.CurvedVal.FD(GameFramework.Utils.charAt(b, 2));
 	return c * 360 / 729E3
 };
 GameFramework.CurvedVal.prototype = {
@@ -2535,11 +2535,11 @@ GameFramework.CurvedVal.prototype = {
 		this.zd = this.Ye = 0;
 		this.bg = 1;
 		this.xt = this.eu = this.CH = this.Lx = this.XC = false;
-		var c = 0, d = 0, f = GameFramework.Utils.hi(b, 0);
+		var c = 0, d = 0, f = GameFramework.Utils.charAt(b, 0);
 		f >= 97 && f <= 98 && (d = f - 97);
 		c++;
 		if (d >= 1)
-			f = GameFramework.CurvedVal.FD(GameFramework.Utils.hi(b, c++)), this.Lx = (f & GameFramework.CurvedVal.m_) != 0, this.XC = (f & GameFramework.CurvedVal.o_) != 0, this.CH = (f & GameFramework.CurvedVal.n_) != 0, this.eu = (f & GameFramework.CurvedVal.l_) != 0, this.xt = (f & GameFramework.CurvedVal.k_) != 0;
+			f = GameFramework.CurvedVal.FD(GameFramework.Utils.charAt(b, c++)), this.Lx = (f & GameFramework.CurvedVal.m_) != 0, this.XC = (f & GameFramework.CurvedVal.o_) != 0, this.CH = (f & GameFramework.CurvedVal.n_) != 0, this.eu = (f & GameFramework.CurvedVal.l_) != 0, this.xt = (f & GameFramework.CurvedVal.k_) != 0;
 		f = b.indexOf(String.fromCharCode(44), c) | 0;
 		if (f == -1)
 			this.eu = true;
@@ -2564,14 +2564,14 @@ GameFramework.CurvedVal.prototype = {
 				GameFramework.CurvedVal.pW[d] = this.Ph;
 				d = [];
 				for (f = 0; c < b.length;) {
-					var g = GameFramework.Utils.hi(b, c++), h = new GameFramework.misc.CurveValDataPoint;
+					var g = GameFramework.Utils.charAt(b, c++), h = new GameFramework.misc.CurveValDataPoint;
 					h.w = f;
 					h.v = GameFramework.CurvedVal.UP(g);
 					this.eu
 							? (h.fM = GameFramework.CurvedVal.WZ(b.substr(c, 3)), c += 3)
 							: h.fM = 0;
 					for (d.push(h); c < b.length;)
-						if (g = GameFramework.Utils.hi(b, c++), g == 32)
+						if (g = GameFramework.Utils.charAt(b, c++), g == 32)
 							f += 0.1;
 						else {
 							f = Math.min(f + GameFramework.CurvedVal.UP(g) * 0.1, 1);
@@ -2956,7 +2956,7 @@ GameFramework.DataBufferData.prototype = {
 	},
 	lk : function(b) {
 		for (var c = "", d = 0; d < b; d++)
-			c += GameFramework.Utils.K4(this.eb());
+			c += GameFramework.Utils.charToStr(this.eb());
 		return c
 	},
 	DT : function(b) {
@@ -2966,7 +2966,7 @@ GameFramework.DataBufferData.prototype = {
 	yn : dummy(),
 	RU : function(b) {
 		for (var c = 0; c < b.length; c++)
-			this.yn(GameFramework.Utils.hi(b, c) | 0)
+			this.yn(GameFramework.Utils.charAt(b, c) | 0)
 	},
 	NL : function(b) {
 		this.yn(b & 255 | 0);
@@ -3550,9 +3550,6 @@ GameFramework.Utils.ei = function(b) {
 		c = "," + b.substr(b.length - 3, 3) + c, b = b.substr(0, b.length - 3);
 	return b + c
 };
-GameFramework.Utils.Tna = dynamicGet();
-GameFramework.Utils.rqa = dynamicGet();
-GameFramework.Utils.bootTimea = dynamicGet();
 GameFramework.Utils.randZeroOne = function() {
 	return Math.random()
 };
@@ -3562,53 +3559,47 @@ GameFramework.Utils.randOneMinusOne = function() {
 GameFramework.Utils.randZeroMax = function() {
 	return Math.random() * 2147483647 | 0
 };
-GameFramework.Utils.Xda = function(b) {
+GameFramework.Utils.copyArray = function(b) {
 	for (var c = [], d = 0; d < b.length; d++)
 		c.push(b[d]);
 	return c
 };
-GameFramework.Utils.zla = function(b) {
+GameFramework.Utils.isNotEmpty = function(b) {
 	for ($enum2 in b)
 		return true;
 	return false
 };
-GameFramework.Utils.Bla = function(b) {
+GameFramework.Utils.firstObj = function(b) {
 	for (b = ss.IEnumerator.enumerate(b); b.hasNext();)
 		return b.next(), true;
 	return false
 };
-GameFramework.Utils.gqa = staticGet("");
 GameFramework.Utils.L4 = staticGet("");
-GameFramework.Utils.iba = staticGet("");
-GameFramework.Utils.jba = staticGet("");
-GameFramework.Utils.K4 = function(b) {
+GameFramework.Utils.charToStr = function(b) {
 	return String.fromCharCode(b | 0)
 };
 GameFramework.Utils.aE = dynamicGet();
-GameFramework.Utils.hi = function(b, c) {
-	return b.charCodeAt(c)
-};
-GameFramework.Utils.Fs = function(b, c) {
+GameFramework.Utils.charAt = function(b, c) {
 	return b.charCodeAt(c)
 };
 GameFramework.Utils.convertToUnixPath = function(b) {
 	return b.replaceAll(String.fromCharCode(92), String.fromCharCode(47))
 };
-GameFramework.Utils.jK = function(b) {
+GameFramework.Utils.isSpace = function(b) {
 	return b == " " || b == "\t" || b == "\r" || b == "\n"
 };
-GameFramework.Utils.Ala = function(b) {
+GameFramework.Utils.isDigit = function(b) {
 	return b >= "0" && b <= "9"
 };
-GameFramework.Utils.KS = function(b, c) {
+GameFramework.Utils.isSpaceAt = function(b, c) {
 	var d = b.charCodeAt(c);
 	return d == 32 || d == 9 || d == 10 || d == 13
 };
-GameFramework.Utils.s2 = function(b, c) {
+GameFramework.Utils.isAlphabetAt = function(b, c) {
 	var d = b.charCodeAt(c);
 	return d >= 65 && d <= 90 || d >= 97 && d <= 122
 };
-GameFramework.Utils.q2 = function(b, c) {
+GameFramework.Utils.isDigitAt = function(b, c) {
 	var d = b.charCodeAt(c);
 	return d >= 48 && d <= 57
 };
@@ -3671,7 +3662,7 @@ GameFramework.Utils.G4 = function(b) {
 	for (var c = 0;;) {
 		if (c >= b.length)
 			return "";
-		if (!GameFramework.Utils.KS(b, c))
+		if (!GameFramework.Utils.isSpaceAt(b, c))
 			break;
 		c++
 	}
@@ -3681,7 +3672,7 @@ GameFramework.Utils.F4 = function(b) {
 	for (var c = b.length - 1;;) {
 		if (c < 0)
 			return "";
-		if (!GameFramework.Utils.KS(b, c))
+		if (!GameFramework.Utils.isSpaceAt(b, c))
 			break;
 		c--
 	}
@@ -4810,7 +4801,7 @@ GameFramework.gfx.Graphics.QU = function(b, c, d, f, g, h, j, k, l) {
 	l === UNDEF && (l = null);
 	m === UNDEF && (m = true);
 	for (var o = 0, q = 0, r = 0, v = 0, u = 0, y = -1, z = 0, A = 0; o < d.length;) {
-		v = GameFramework.Utils.Fs(d, o);
+		v = GameFramework.Utils.charAt(d, o);
 		if (v == 94 && m) {
 			if (o + 1 < d.length)
 				if (d.charCodeAt(o + 1) == 94)
@@ -4828,7 +4819,7 @@ GameFramework.gfx.Graphics.QU = function(b, c, d, f, g, h, j, k, l) {
 			if (y != -1
 					&& (b != null && b.zb(d.substr(q, y - q), f, g + z, h, j), o = y
 							+ 1, v != 10))
-				for (; o < d.length && GameFramework.Utils.Fs(d, o) == 32;)
+				for (; o < d.length && GameFramework.Utils.charAt(d, o) == 32;)
 					o++;
 			q = o;
 			y = -1;
@@ -6149,7 +6140,7 @@ GameFramework.resources.FontResource.prototype = {
 		c === UNDEF && (c = true);
 		this.$o();
 		for (var d = 0, f = 0, g = 0; g < b.length; g++) {
-			var h = GameFramework.Utils.hi(b, g);
+			var h = GameFramework.Utils.charAt(b, g);
 			if (h == 94 && c && g + 1 < b.length)
 				if (b.charCodeAt(g + 1) == 94)
 					g++;
@@ -6158,7 +6149,7 @@ GameFramework.resources.FontResource.prototype = {
 					continue
 				}
 			var j = 0;
-			g < b.length - 1 && (j = GameFramework.Utils.hi(b, g + 1));
+			g < b.length - 1 && (j = GameFramework.Utils.charAt(b, g + 1));
 			for (var k = 0, l = ss.IEnumerator.enumerate(this.em); l.hasNext();) {
 				var m = l.next(), o = f, q = m.Hn[h];
 				if (q != null) {
@@ -6276,8 +6267,8 @@ GameFramework.resources.FontResource.prototype = {
 		this.$o();
 		if (this.em.length > 2) {
 			for (var g = {}, h = [], j = 0, k = 0, l = 0; l < c.length; l++) {
-				var m = GameFramework.Utils.hi(c, l), o = 0;
-				l < c.length - 1 && (o = GameFramework.Utils.hi(c, l + 1));
+				var m = GameFramework.Utils.charAt(c, l), o = 0;
+				l < c.length - 1 && (o = GameFramework.Utils.charAt(c, l + 1));
 				for (var q = 0, r = ss.IEnumerator.enumerate(this.em); r.hasNext();) {
 					var v = r.next(), u = k, y = v.Hn[m];
 					if (y != null) {
@@ -6343,9 +6334,9 @@ GameFramework.resources.FontResource.prototype = {
 			l.translate(d, f);
 			l.concat(b.matrix);
 			for (m = f = d = 0; m < c.length; m++) {
-				o = GameFramework.Utils.hi(c, m);
+				o = GameFramework.Utils.charAt(c, m);
 				q = 0;
-				m < c.length - 1 && (q = GameFramework.Utils.hi(c, m + 1));
+				m < c.length - 1 && (q = GameFramework.Utils.charAt(c, m + 1));
 				r = 0;
 				for (v = ss.IEnumerator.enumerate(this.em); v.hasNext();) {
 					u = v.next();
@@ -13368,7 +13359,7 @@ GameFramework.JSBaseApp.prototype = {
 										: (l = this.LS(b
 												.substr(f, d.Jl - f - 1)), f = -1, m = true);
 					else if (f != -1 && !h) {
-						if (GameFramework.Utils.jK(o) || o == 44 || o == 125
+						if (GameFramework.Utils.isSpace(o) || o == 44 || o == 125
 								|| o == 93)
 							var q = b.substr(f, d.Jl - f - 1), l = q == "null"
 									? null
@@ -13376,7 +13367,7 @@ GameFramework.JSBaseApp.prototype = {
 											.indexOf(".") != -1 ? q + 0 : q | 0, m = true, f = -1
 					} else
 						f == -1 && o != 44 && o != 58 && o != 91 && o != 123
-								&& !GameFramework.Utils.jK(o)
+								&& !GameFramework.Utils.isSpace(o)
 								&& (f = d.Jl - 1, h = false);
 					o == 10 && ++d.hC;
 					if (!j) {
@@ -13397,7 +13388,7 @@ GameFramework.JSBaseApp.prototype = {
 	ND : function(b, c) {
 		if (b.length != 0) {
 			for (var d = new GameFramework.JSONHelperData; d.Jl < b.length
-					&& GameFramework.Utils.jK(b.charCodeAt(d.Jl));)
+					&& GameFramework.Utils.isSpace(b.charCodeAt(d.Jl));)
 				d.Jl++;
 			d.Jl++;
 			this.DK(b, c, d)
@@ -14488,10 +14479,10 @@ Game.Announcement.prototype = {
 					* 255 | 0;
 			b.Q(c.toARGB());
 			for (var c = this.qa.x + (this.e != null ? this.e.we.V() : 0), d = this.qa.y, f = 1, g = 0; g < this.Re.length; g++)
-				GameFramework.Utils.hi(this.Re, g) == 10 && f++;
+				GameFramework.Utils.charAt(this.Re, g) == 10 && f++;
 			b.nc(this.m.V() * this.xx.V(), this.m.V(), c, d);
 			for (var h = g = 0, j = 0; j < this.Re.length; j++)
-				GameFramework.Utils.hi(this.Re, j) == 10
+				GameFramework.Utils.charAt(this.Re, j) == 10
 						&& (b.zb(this.Re.substr(h, j - h), c, d - f * 70 + g
 										* 140 + 120, 0, 0), h = j + 1, g++);
 			b.zb(this.Re.substr(h), c, d - f * 70 + g * 140 + 120, 0, 0);
@@ -16410,12 +16401,12 @@ Game.Board = function() {
 };
 Game.Board.ina = function(b, c, d, f, g, h) {
 	for (var j = 0, k = 0; k < c.length; ++k)
-		if (GameFramework.Utils.s2(c, k)) {
+		if (GameFramework.Utils.isAlphabetAt(c, k)) {
 			var l = d[d.length - 1];
 			j == 0 && (l = d[d.length - 1], j = l.Vr.length - 1);
-			l.KI((j - 1) / b.wc | 0, (j - 1) % b.$b).NV = GameFramework.Utils.Fs(c,
+			l.KI((j - 1) / b.wc | 0, (j - 1) % b.$b).NV = GameFramework.Utils.charAt(c,
 					k)
-		} else if (GameFramework.Utils.q2(c, k)) {
+		} else if (GameFramework.Utils.isDigitAt(c, k)) {
 			if (f && (d.length == 0 || j >= b.$b * b.wc))
 				j = 0, d.length += 1, d[d.length - 1].Vr.length = b.$b * b.wc;
 			else if (!f
