@@ -13048,7 +13048,6 @@ addClassInitEntry(function() {
 		});
 GameFramework = Type.ci("GameFramework");
 GameFramework.JSBaseApp = function() {
-	this.tN = {};
 	this.NB = {};
 	callSuperConstructor(GameFramework.JSBaseApp, this);
 	GameFramework.JSBaseApp.instance = this;
@@ -13057,7 +13056,6 @@ GameFramework.JSBaseApp = function() {
 GameFramework.JSBaseApp.prototype = {
 	jsResManager : null,
 	m8 : null,
-	tN : null,
 	useGL : true,
 	nX : 0,
 	pathPrefix : "",
@@ -13169,7 +13167,6 @@ GameFramework.JSBaseApp.prototype = {
 					} else {
 						h = Ya(stream, this.pathPrefix + stream.path);
                         h.stream = stream;
-                        this.tN[h.toString()] = stream;
                         stream.data = h;
                     }
 				else {
@@ -13177,7 +13174,6 @@ GameFramework.JSBaseApp.prototype = {
                         ? $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.KT), "text")
                         : $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.KT));
                     ajax.stream = stream;
-                    this.tN[ajax.toString()] = stream;
                     stream.data = ajax;
                 }
             }
