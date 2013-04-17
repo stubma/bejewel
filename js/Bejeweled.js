@@ -15200,10 +15200,10 @@ Game.BejApp.prototype = {
 
         // start loading ResourceGen manifest
 		var b = this.resManager.startLoadingResGen("properties/resources.xml");
-		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.onResGenManifestLoaded));
+		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.onResGenDownloaded));
 		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.onIOError))
 	},
-	onResGenManifestLoaded : function(b) {
+	onResGenDownloaded : function(b) {
 		this.resManager.parseResGen(b.target.data);
 		this.I4()
 	},
