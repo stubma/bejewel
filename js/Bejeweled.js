@@ -3757,8 +3757,8 @@ GameFramework.XMLParser = function() {
 GameFramework.XMLParser.prototype = {
 	OB : null,
 	$c : null,
-	er : null,
-	OV : null,
+	attrMap : null,
+	attrList : null,
 	name : null,
 	parent : null,
 	parseXML : function(xml) {
@@ -3766,9 +3766,9 @@ GameFramework.XMLParser.prototype = {
 	},
 	getName : get("name"),
 	Pb : function(b) {
-		return this.er == null ? new GameFramework.XMLParserList : this.er[b] == null
+		return this.attrMap == null ? new GameFramework.XMLParserList : this.attrMap[b] == null
 				? new GameFramework.XMLParserList
-				: this.er[b]
+				: this.attrMap[b]
 	}
 };
 GameFramework.XMLParser.initClass = dummy();
@@ -11110,11 +11110,11 @@ GameFramework.resources.ResourceManager.prototype = {
 			var d = b.VR(c);
 			if (d.getName() == "Resources") {
 				var f = d.Pb("id").getName();
-				d.er.hasOwnProperty("parent") && (f = d.Pb("parent").getName());
+				d.attrMap.hasOwnProperty("parent") && (f = d.Pb("parent").getName());
 				this.dy.hasOwnProperty(f) || (this.dy[f] = {});
 				var g = d.$c;
 				if (g != null) {
-					if (d.er.hasOwnProperty("res"))
+					if (d.attrMap.hasOwnProperty("res"))
 						if (d = GameFramework.Utils.toInt(d.Pb("res").getName()), GameFramework.BaseApp.instance.artRes == 0)
 							GameFramework.BaseApp.instance.artRes = d;
 						else if (GameFramework.BaseApp.instance.artRes != d)
@@ -13264,12 +13264,12 @@ GameFramework.JSBaseApp.prototype = {
 		b.name = c.nodeName;
 		for (var d = ss.IEnumerator.enumerate(c.attributes); d.hasNext();) {
 			var f = d.next(), g = b;
-			if (g.er == null)
-				g.er = {}, g.OV = [];
+			if (g.attrMap == null)
+				g.attrMap = {}, g.attrList = [];
 			var h = f.nodeName, j = new GameFramework.XMLParserList;
 			j.oa = f.nodeValue;
-			g.er[h] = j;
-			g.OV.push(h)
+			g.attrMap[h] = j;
+			g.attrList.push(h)
 		}
 		for (d = ss.IEnumerator.enumerate(c.childNodes); d.hasNext();)
 			if (f = d.next(), f.nodeType === Node.ELEMENT_NODE) {
