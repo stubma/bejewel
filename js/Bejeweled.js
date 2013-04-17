@@ -5824,7 +5824,7 @@ GameFramework.resources.BaseRes.prototype = {
 	sf : 0,
 	Oe : 0,
 	uC : 0,
-	Ox : 0,
+	origw : 0,
 	Nx : 0,
 	width : 0,
 	height : 0,
@@ -8319,8 +8319,8 @@ GameFramework.resources.PIEffect.prototype = {
 					var l = new GameFramework.resources.PITextureChunk;
 					l.Ki = g;
 					l.Ww = k;
-					l.UC = Math.max(j.Ox, j.Nx);
-					l.RH = j.Ox / l.UC;
+					l.UC = Math.max(j.origw, j.Nx);
+					l.RH = j.origw / l.UC;
 					l.SH = j.Nx / l.UC;
 					g.Xj.push(l)
 				}
@@ -10693,7 +10693,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 			g.f8 = h;
 			g.ui = 1;
 			g.qo = 1;
-			g.Ox = b.Ga();
+			g.origw = b.Ga();
 			g.Nx = b.Ga();
 			g.Na = new GameFramework.geom.Matrix;
 			g.Na.a = b.H() / 1310720;
@@ -11156,10 +11156,10 @@ GameFramework.resources.ResourceManager.prototype = {
 
                         // add this resource to its parent child list
 						if (res.parent != null) {
-							var l = this.resMap[res.parent];
-							if (l.subObjects == null)
-								l.subObjects = [];
-							l.subObjects.push(res)
+							var pRes = this.resMap[res.parent];
+							if (pRes.subObjects == null)
+								pRes.subObjects = [];
+							pRes.subObjects.push(res)
 						}
 
                         // path with unix style
@@ -11172,7 +11172,7 @@ GameFramework.resources.ResourceManager.prototype = {
 						if (sub.getAttr("height").getValue().length > 0)
 							res.height = GameFramework.Utils.toInt(sub.getAttr("height").getValue());
 						if (sub.getAttr("origw").getValue().length > 0)
-							res.Ox = GameFramework.Utils.toInt(sub.getAttr("origw").getValue());
+							res.origw = GameFramework.Utils.toInt(sub.getAttr("origw").getValue());
 						if (sub.getAttr("origh").getValue().length > 0)
 							res.Nx = GameFramework.Utils.toInt(sub.getAttr("origh").getValue());
 						if (sub.getAttr("cols").getValue().length > 0)
@@ -11208,10 +11208,11 @@ GameFramework.resources.ResourceManager.prototype = {
 						if (sub.getAttr("exts").getValue().length > 0) {
 							res.Jj = [];
 							for (var ext = sub.getAttr("exts").getValue(); ext.indexOf(String
-									.fromCharCode(59)) != -1;)
-								l = ext.indexOf(String.fromCharCode(59)), res.Jj
-										.push(ext.substr(0, l)), ext = ext.substr(l
+									.fromCharCode(59)) != -1;) {
+								var l = ext.indexOf(String.fromCharCode(59));
+                                res.Jj.push(ext.substr(0, l)), ext = ext.substr(l
 										+ 1);
+                            }
 							res.Jj.push(ext)
 						}
 						if (n == "File" && endsWith(res.path, ".p3d"))
@@ -11551,7 +11552,7 @@ GameFramework.resources.popanim.PopAnimImage.prototype = {
 	bh : null,
 	dH : null,
 	Nx : 0,
-	Ox : 0,
+	origw : 0,
 	ui : 0,
 	qo : 0,
 	f8 : null,
@@ -14293,7 +14294,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 				c.w7 = 1;
 				c.ym = b.data;
 				if (b.Kb != null)
-					c.ui = b.Kb.ui, c.qo = b.Kb.qo, c.width = b.Kb.Ox, c.height = b.Kb.Nx, c.sf = b.Kb.sf, c.Oe = b.Kb.Oe;
+					c.ui = b.Kb.ui, c.qo = b.Kb.qo, c.width = b.Kb.origw, c.height = b.Kb.Nx, c.sf = b.Kb.sf, c.Oe = b.Kb.Oe;
 				c.Em = c.ui * c.qo;
 				if (b.Kb != null && b.Kb.runtimeParent != null) {
 					var d = this.bh[b.Kb.runtimeParent], f = this.bh[b.Kb.parent], g = this.resMap[b.Kb.runtimeParent];
