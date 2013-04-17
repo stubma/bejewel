@@ -13167,13 +13167,13 @@ GameFramework.JSBaseApp.prototype = {
 							Za(stream, h, k);
 						}
 					} else
-						h = Ya(stream, this.pathPrefix + stream.path), h.nY = stream, this.tN[h
+						h = Ya(stream, this.pathPrefix + stream.path), h.stream = stream, this.tN[h
 								.toString()] = stream, stream.data = h;
 				else {
 					var ajax = stream.path.indexOf(".json") !== -1
                         ? $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.KT), "text")
                         : $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.KT));
-                    ajax.nY = stream;
+                    ajax.stream = stream;
                     this.tN[ajax.toString()] = stream;
                     stream.data = ajax;
                 }
@@ -13219,7 +13219,7 @@ GameFramework.JSBaseApp.prototype = {
 	},
 	KT : function(b, c, d) {
 		c = null;
-		c = d.nY;
+		c = d.stream;
 		c != null && this.nk(b, c)
 	},
 	KZ : function(b, c) {
