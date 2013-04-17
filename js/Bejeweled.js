@@ -11044,7 +11044,7 @@ addClassInitEntry(function() {
 			GameFramework.resources.RenderEffect.initClass()
 		});
 GameFramework.resources.ResourceManager = function() {
-	this.Nm = {};
+	this.resMap = {};
 	this.dy = {};
 	this.xO = {};
 	this.bh = {};
@@ -11057,7 +11057,7 @@ GameFramework.resources.ResourceManager = function() {
 	this.W8 = {}
 };
 GameFramework.resources.ResourceManager.prototype = {
-	Nm : null,
+	resMap : null,
 	dy : null,
 	xO : null,
 	bh : null,
@@ -11151,17 +11151,22 @@ GameFramework.resources.ResourceManager.prototype = {
                         // runtime parent
 						if (sub.getAttr("rtparent").getValue().length > 0) {
 							res.runtimeParent = sub.getAttr("rtparent").getValue();
-                            this.Nm[res.runtimeParent].YX++;
+                            this.resMap[res.runtimeParent].YX++;
                         }
 
+                        // add this resource to its parent child list
 						if (res.parent != null) {
-							var l = this.Nm[res.parent];
+							var l = this.resMap[res.parent];
 							if (l.subObjects == null)
 								l.subObjects = [];
 							l.subObjects.push(res)
 						}
+
+                        // path with unix style
 						res.path = sub.getAttr("path").getValue();
 						res.path = GameFramework.Utils.convertToUnixPath(res.path);
+
+                        // other properties
 						if (sub.getAttr("width").getValue().length > 0)
 							res.s = GameFramework.Utils.toInt(sub.getAttr("width").getValue());
 						if (sub.getAttr("height").getValue().length > 0)
@@ -11194,9 +11199,10 @@ GameFramework.resources.ResourceManager.prototype = {
 							res.jM = GameFramework.Utils.toInt(sub.getAttr("rtay").getValue());
 						if (sub.getAttr("rtaflags").getValue().length > 0)
 							res.d7 = GameFramework.Utils.toInt(sub.getAttr("rtaflags").getValue());
-						if (sub.getAttr("runtime").getValue().length > 0)
-							res.hX = sub.getAttr("runtime").getValue() == "true", res.gX = sub
-									.getAttr("runtime").getValue() == "false";
+						if (sub.getAttr("runtime").getValue().length > 0) {
+							res.hX = sub.getAttr("runtime").getValue() == "true";
+                            res.gX = sub.getAttr("runtime").getValue() == "false";
+                        }
 						if (sub.getAttr("tags").getValue().length > 0)
 							res.Ll = sub.getAttr("tags").getValue();
 						if (sub.getAttr("exts").getValue().length > 0) {
@@ -11210,7 +11216,7 @@ GameFramework.resources.ResourceManager.prototype = {
 						}
 						if (n == "File" && endsWith(res.path, ".p3d"))
 							res.type = GameFramework.resources.ResourceManager.POP3D;
-						this.Nm[res.id] = res;
+						this.resMap[res.id] = res;
 						this.xO[res.path] = res;
 						this.dy[id][res.id] = res;
 					}
@@ -11230,11 +11236,11 @@ GameFramework.resources.ResourceManager.prototype = {
 		for ($enum2 in b) {
 			var parser = b[$enum2];
 			if (c.parent != null) {
-				var d = this.Nm[c.parent];
+				var d = this.resMap[c.parent];
 				if (d.Nn != null)
 					d.Nn.t(), d.Nn = null
 			}
-			if (c.runtimeParent != null && (d = this.Nm[c.runtimeParent], d.DO = 0, d.Nn != null))
+			if (c.runtimeParent != null && (d = this.resMap[c.runtimeParent], d.DO = 0, d.Nn != null))
 				d.Nn.t(), d.Nn = null;
 			if (c.Nn != null)
 				c.Nn.t(), c.Nn = null;
@@ -11283,7 +11289,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		return stream
 	},
 	H4 : function(b) {
-		var b = this.Nm[b], stream = new GameFramework.resources.ResourceStreamer;
+		var b = this.resMap[b], stream = new GameFramework.resources.ResourceStreamer;
 		stream.path = b.path;
 		b.Jj != null && (stream.path += b.Jj[0]);
 		stream.resType = GameFramework.resources.ResourceManager.P3DANIM;
@@ -11295,7 +11301,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		var stream = GameFramework.BaseApp.instance.q1(b);
 		if (stream != null)
 			return stream;
-		var stream = new GameFramework.resources.ResourceStreamer, d = this.Nm[b];
+		var stream = new GameFramework.resources.ResourceStreamer, d = this.resMap[b];
 		d.parent != null
 				&& this.bh[d.parent] == null
 				&& !GameFramework.BaseApp.instance.zS(d.parent)
@@ -11321,10 +11327,10 @@ GameFramework.resources.ResourceManager.prototype = {
 		return stream
 	},
 	dp : function(b, c) {
-		this.Nm[b].Nn = Type.getInstanceOrNull(c, System.Wl)
+		this.resMap[b].Nn = Type.getInstanceOrNull(c, System.Wl)
 	},
 	ET : function(b, c) {
-		var d = this.Nm[b];
+		var d = this.resMap[b];
 		if (d.Ll != null)
 			for (var f = 0;;) {
 				var g = d.Ll.indexOf(" ", f);
@@ -14290,7 +14296,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 					c.ui = b.Kb.ui, c.qo = b.Kb.qo, c.s = b.Kb.Ox, c.z = b.Kb.Nx, c.sf = b.Kb.sf, c.Oe = b.Kb.Oe;
 				c.Em = c.ui * c.qo;
 				if (b.Kb != null && b.Kb.runtimeParent != null) {
-					var d = this.bh[b.Kb.runtimeParent], f = this.bh[b.Kb.parent], g = this.Nm[b.Kb.runtimeParent];
+					var d = this.bh[b.Kb.runtimeParent], f = this.bh[b.Kb.parent], g = this.resMap[b.Kb.runtimeParent];
 					if (d == null) {
 						d = new GameFramework.resources.JSImageResource;
 						d.Sm = g.s;
