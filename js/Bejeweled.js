@@ -13260,43 +13260,48 @@ GameFramework.JSBaseApp.prototype = {
 	KZ : function(b, c) {
 		this.NB[b] = c
 	},
-	lT : function(curNode, c) {
-		curNode.name = c.nodeName;
-		for (var d = ss.IEnumerator.enumerate(c.attributes); d.hasNext();) {
-			var f = d.next();
-			if (curNode.attrMap == null)
-				curNode.attrMap = {}, curNode.attrList = [];
-			var h = f.nodeName, j = new GameFramework.XMLParserList;
-			j.oa = f.nodeValue;
-			curNode.attrMap[h] = j;
-			curNode.attrList.push(h)
+	traverse : function(parser, node) {
+        // node name
+		parser.name = node.nodeName;
+
+        // save attributes
+		for (var iter = ss.IEnumerator.enumerate(node.attributes); iter.hasNext();) {
+			var attr = iter.next();
+			if (parser.attrMap == null)
+				parser.attrMap = {}, parser.attrList = [];
+			var name = attr.nodeName, j = new GameFramework.XMLParserList;
+			j.oa = attr.nodeValue;
+			parser.attrMap[name] = j;
+			parser.attrList.push(name);
 		}
-		for (d = ss.IEnumerator.enumerate(c.childNodes); d.hasNext();) {
-			if (f = d.next(), f.nodeType === Node.ELEMENT_NODE) {
-				h = f.nodeName;
+
+        // visit all children
+		for (iter = ss.IEnumerator.enumerate(node.childNodes); iter.hasNext();) {
+            var node = iter.next()
+			if (node.nodeType === Node.ELEMENT_NODE) {
+				name = node.nodeName;
 				j = new GameFramework.XMLParser;
-				j.parent = curNode;
+				j.parent = parser;
 				var k;
-				j.name = h;
-				if (curNode.$c == null)
-					curNode.$c = new GameFramework.XMLParserList, curNode.$c.vm = [];
-				curNode.$c.vm.push(j);
-				if (curNode.OB == null)
-					curNode.OB = new GameFramework.TDictionary;
-				curNode.OB[h] == null
-						? (k = new GameFramework.XMLParserList, curNode.OB[h] = k)
-						: k = curNode.OB[h];
+				j.name = name;
+				if (parser.$c == null)
+					parser.$c = new GameFramework.XMLParserList, parser.$c.vm = [];
+				parser.$c.vm.push(j);
+				if (parser.OB == null)
+					parser.OB = new GameFramework.TDictionary;
+				parser.OB[name] == null
+						? (k = new GameFramework.XMLParserList, parser.OB[name] = k)
+						: k = parser.OB[name];
 				if (k.vm == null)
 					k.vm = [];
 				k.vm.push(j);
-				this.lT(j, f)
+				this.traverse(j, node)
 			}
         }
 	},
-	parseXML : function(b, c) {
-		var d;
-		d = Type.isString(c) ? ss.XmlDocumentParser.parse(c) : c;
-		this.lT(b, d.documentElement)
+	parseXML : function(parser, xml) {
+		var d = Type.isString(xml) ? ss.XmlDocumentParser.parse(xml) : xml;
+		this.traverse(parser, d.documentElement);
 	},
 	LS : function(b) {
 		for (var c = 0; c < b.length - 1; c++)
