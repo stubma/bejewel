@@ -3780,16 +3780,16 @@ addClassInitEntry(function() {
 		});
 GameFramework.XMLParserList = dummy();
 GameFramework.XMLParserList.prototype = {
-	vm : null,
+	subList : null,
 	value : null,
 	tQ : function() {
-		return this.vm != null ? this.vm.length : this.value != null ? 1 : 0
+		return this.subList != null ? this.subList.length : this.value != null ? 1 : 0
 	},
 	VR : function(b) {
-		return this.vm == null ? null : this.vm[b]
+		return this.subList == null ? null : this.subList[b]
 	},
 	getValue : function() {
-		return this.vm == null ? this.value == null ? "" : this.value : this.vm[0]
+		return this.subList == null ? this.value == null ? "" : this.value : this.subList[0]
 	}
 };
 GameFramework.XMLParserList.initClass = dummy();
@@ -13286,16 +13286,16 @@ GameFramework.JSBaseApp.prototype = {
 				var k;
 				subParser.name = name;
 				if (parser.$c == null)
-					parser.$c = new GameFramework.XMLParserList, parser.$c.vm = [];
-				parser.$c.vm.push(subParser);
+					parser.$c = new GameFramework.XMLParserList, parser.$c.subList = [];
+				parser.$c.subList.push(subParser);
 				if (parser.OB == null)
 					parser.OB = new GameFramework.TDictionary;
 				parser.OB[name] == null
 						? (k = new GameFramework.XMLParserList, parser.OB[name] = k)
 						: k = parser.OB[name];
-				if (k.vm == null)
-					k.vm = [];
-				k.vm.push(subParser);
+				if (k.subList == null)
+					k.subList = [];
+				k.subList.push(subParser);
 				this.traverse(subParser, eleNode);
 			}
         }
