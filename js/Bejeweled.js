@@ -13114,19 +13114,25 @@ GameFramework.JSBaseApp.prototype = {
 		for (var hasSound = false, hasNonSound = false, f = 0; f < this.loadingQueue.length; f++) {
 			if (this.wW && GameFramework.Utils.bootTime() - this.nX >= 100)
 				break;
+
+            // get stream
 			var stream = this.loadingQueue[f];
+
+            // remember what the resource type is, if sound or not sound, record it
 			stream.resType == GameFramework.resources.ResourceManager.SOUND
 					? hasSound = true
 					: stream.resType != GameFramework.resources.ResourceManager.UNKNOWN && (hasNonSound = true);
+
+            // stream.data is null means loading is not started, so we can check more
 			if (stream.data == null && stream.path != null) {
-				if (stream.resType === GameFramework.resources.ResourceManager.IMAGE)
+				if (stream.resType === GameFramework.resources.ResourceManager.IMAGE) {
 					stream.Kb != null && stream.Kb.Qb != null ? this.resManager.Gs(stream.Kb.Qb) != null
 							&& stream.loadStep != stream.totalStep && stream.loadStep++ : stream.data = stream.Kb != null
 							&& stream.Kb.gX ? Oa(stream, stream.path ? this.pathPrefix + stream.path : null, stream.Rx
 									? this.pathPrefix + stream.Rx
 									: null) : Na(stream, stream.path ? this.pathPrefix + stream.path : null,
 							stream.Rx ? this.pathPrefix + stream.Rx : null);
-				else if (stream.resType === GameFramework.resources.ResourceManager.SOUND) {
+                } else if (stream.resType === GameFramework.resources.ResourceManager.SOUND) {
 					var h = stream.path;
 					h.indexOf(".") === -1 && (h += stream.Kb.Jj[0]);
 					stream.data = Wc(stream, h);
@@ -13136,11 +13142,11 @@ GameFramework.JSBaseApp.prototype = {
 						|| stream.resType === GameFramework.resources.ResourceManager.PIEFFECT
 						|| stream.resType === GameFramework.resources.ResourceManager.POP3D
 						|| stream.resType === GameFramework.resources.ResourceManager.RENDEREFFECT
-						|| stream.resType === GameFramework.resources.ResourceManager.P3DANIM)
-					if (startsWith(stream.path, "!ref:"))
+						|| stream.resType === GameFramework.resources.ResourceManager.P3DANIM) {
+					if (startsWith(stream.path, "!ref:")) {
 						h = this.resManager.b1(stream.path.substr(5)), h != null && stream.loadStep != stream.totalStep
 								&& (this.resManager.ET(stream.xa, h.gi()), stream.loadStep++);
-					else if (h = null, h = stream.path.indexOf("@"), h != -1) {
+                    } else if (h = null, h = stream.path.indexOf("@"), h != -1) {
                         // search : and -, h will be filename, j, k is start and end bytes
 						var j = stream.path.indexOf(":", h);
 						var k = stream.path.indexOf("-", h);
@@ -13169,7 +13175,7 @@ GameFramework.JSBaseApp.prototype = {
                         h.stream = stream;
                         stream.data = h;
                     }
-				else {
+                } else {
 					var ajax = stream.path.indexOf(".json") !== -1
                         ? $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.onPlainTextResourceDownloaded), "text")
                         : $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.onPlainTextResourceDownloaded));
@@ -13226,7 +13232,7 @@ GameFramework.JSBaseApp.prototype = {
 			d = new GameFramework.DataBuffer, d.nd.Ya = stream.data, stream.data = d, this.jsResManager.kT(stream);
 		if (stream.resType == GameFramework.resources.ResourceManager.RENDEREFFECT)
 			d = new GameFramework.DataBuffer, d.nd.Ya = stream.data, stream.data = d, this.jsResManager.f3(stream);
-		stream.loadStep++
+		stream.loadStep++;
 	},
 	onPlainTextResourceDownloaded : function(data, status, ajax) {
 		var stream = null;
