@@ -13171,8 +13171,8 @@ GameFramework.JSBaseApp.prototype = {
                     }
 				else {
 					var ajax = stream.path.indexOf(".json") !== -1
-                        ? $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.KT), "text")
-                        : $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.KT));
+                        ? $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.onPlainTextResourceDownloaded), "text")
+                        : $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.onPlainTextResourceDownloaded));
                     ajax.stream = stream;
                     stream.data = ajax;
                 }
@@ -13195,31 +13195,31 @@ GameFramework.JSBaseApp.prototype = {
 		GameFramework.BaseApp.prototype.draw.apply(this);
 		this.nX = GameFramework.Utils.bootTime();
 	},
-	nk : function(b, c) {
+	nk : function(data, stream) {
 		this.RN = GameFramework.Utils.bootTime();
-		c.data = b;
-		if (c.resType == GameFramework.resources.ResourceManager.SOUND)
+		stream.data = data;
+		if (stream.resType == GameFramework.resources.ResourceManager.SOUND)
 			this.YW = true;
-		if (c.resType == GameFramework.resources.ResourceManager.FONT) {
+		if (stream.resType == GameFramework.resources.ResourceManager.FONT) {
 			var d = new GameFramework.DataBuffer;
-			d.nd.Ya = c.data;
-			c.data = d;
-			this.jsResManager.c3(c)
+			d.nd.Ya = stream.data;
+			stream.data = d;
+			this.jsResManager.c3(stream)
 		}
-		if (c.resType == GameFramework.resources.ResourceManager.POPANIM)
-			d = new GameFramework.DataBuffer, d.nd.Ya = c.data, c.data = d, this.jsResManager.e3(c);
-		if (c.resType == GameFramework.resources.ResourceManager.PIEFFECT)
-			d = new GameFramework.DataBuffer, d.nd.Ya = c.data, c.data = d, this.jsResManager.d3(c);
-		if (c.resType == GameFramework.resources.ResourceManager.POP3D)
-			d = new GameFramework.DataBuffer, d.nd.Ya = c.data, c.data = d, this.jsResManager.kT(c);
-		if (c.resType == GameFramework.resources.ResourceManager.RENDEREFFECT)
-			d = new GameFramework.DataBuffer, d.nd.Ya = c.data, c.data = d, this.jsResManager.f3(c);
-		c.Or++
+		if (stream.resType == GameFramework.resources.ResourceManager.POPANIM)
+			d = new GameFramework.DataBuffer, d.nd.Ya = stream.data, stream.data = d, this.jsResManager.e3(stream);
+		if (stream.resType == GameFramework.resources.ResourceManager.PIEFFECT)
+			d = new GameFramework.DataBuffer, d.nd.Ya = stream.data, stream.data = d, this.jsResManager.d3(stream);
+		if (stream.resType == GameFramework.resources.ResourceManager.POP3D)
+			d = new GameFramework.DataBuffer, d.nd.Ya = stream.data, stream.data = d, this.jsResManager.kT(stream);
+		if (stream.resType == GameFramework.resources.ResourceManager.RENDEREFFECT)
+			d = new GameFramework.DataBuffer, d.nd.Ya = stream.data, stream.data = d, this.jsResManager.f3(stream);
+		stream.Or++
 	},
-	KT : function(b, c, d) {
-		c = null;
-		c = d.stream;
-		c != null && this.nk(b, c)
+	onPlainTextResourceDownloaded : function(data, status, ajax) {
+		var stream = null;
+		stream = ajax.stream;
+		stream != null && this.nk(data, stream)
 	},
 	KZ : function(b, c) {
 		this.NB[b] = c
