@@ -13280,22 +13280,30 @@ GameFramework.JSBaseApp.prototype = {
 		for (iter = ss.IEnumerator.enumerate(node.childNodes); iter.hasNext();) {
             var eleNode = iter.next();
 			if (eleNode.nodeType === Node.ELEMENT_NODE) {
+                // create parser for sub node and link it with parent parser
 				name = eleNode.nodeName;
 				var subParser = new GameFramework.XMLParser;
 				subParser.parent = parser;
-				var k;
 				subParser.name = name;
+
+                // all sub node parser are saved linearly
 				if (parser.subObjects == null)
 					parser.subObjects = new GameFramework.XMLParserList, parser.subObjects.list = [];
 				parser.subObjects.list.push(subParser);
+
+                // the sub parser is also grouped by its name, so it is possible
+                // to get children by name
+                var map;
 				if (parser.subObjectsMap == null)
 					parser.subObjectsMap = new GameFramework.TDictionary;
 				parser.subObjectsMap[name] == null
-						? (k = new GameFramework.XMLParserList, parser.subObjectsMap[name] = k)
-						: k = parser.subObjectsMap[name];
-				if (k.list == null)
-					k.list = [];
-				k.list.push(subParser);
+						? (map = new GameFramework.XMLParserList, parser.subObjectsMap[name] = map)
+						: map = parser.subObjectsMap[name];
+				if (map.list == null)
+					map.list = [];
+				map.list.push(subParser);
+
+                // recursively parse sub node
 				this.traverse(subParser, eleNode);
 			}
         }
