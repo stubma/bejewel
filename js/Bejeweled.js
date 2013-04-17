@@ -3780,16 +3780,16 @@ addClassInitEntry(function() {
 		});
 GameFramework.XMLParserList = dummy();
 GameFramework.XMLParserList.prototype = {
-	subList : null,
+	list : null,
 	value : null,
-	tQ : function() {
-		return this.subList != null ? this.subList.length : this.value != null ? 1 : 0
+	itemCount : function() {
+		return this.list != null ? this.list.length : this.value != null ? 1 : 0
 	},
-	VR : function(b) {
-		return this.subList == null ? null : this.subList[b]
+	itemAt : function(b) {
+		return this.list == null ? null : this.list[b]
 	},
 	getValue : function() {
-		return this.subList == null ? this.value == null ? "" : this.value : this.subList[0]
+		return this.list == null ? this.value == null ? "" : this.value : this.list[0]
 	}
 };
 GameFramework.XMLParserList.initClass = dummy();
@@ -11106,8 +11106,8 @@ GameFramework.resources.ResourceManager.prototype = {
 		var c = new GameFramework.XMLParser;
 		c.parseXML(b);
 		b = c.$c;
-		for (c = 0; c < b.tQ(); c++) {
-			var d = b.VR(c);
+		for (c = 0; c < b.itemCount(); c++) {
+			var d = b.itemAt(c);
 			if (d.getName() == "Resources") {
 				var f = d.Pb("id").getValue();
 				d.attrMap.hasOwnProperty("parent") && (f = d.Pb("parent").getValue());
@@ -11119,8 +11119,8 @@ GameFramework.resources.ResourceManager.prototype = {
 							GameFramework.BaseApp.instance.artRes = d;
 						else if (GameFramework.BaseApp.instance.artRes != d)
 							continue;
-					for (d = 0; d < g.tQ(); d++) {
-						var h = g.VR(d), j = h.getName(), k = new GameFramework.resources.BaseRes;
+					for (d = 0; d < g.itemCount(); d++) {
+						var h = g.itemAt(d), j = h.getName(), k = new GameFramework.resources.BaseRes;
 						k.T7 = f;
 						if (j == "Font")
 							k.Fb = GameFramework.resources.ResourceManager.FONT;
@@ -13286,16 +13286,16 @@ GameFramework.JSBaseApp.prototype = {
 				var k;
 				subParser.name = name;
 				if (parser.$c == null)
-					parser.$c = new GameFramework.XMLParserList, parser.$c.subList = [];
-				parser.$c.subList.push(subParser);
+					parser.$c = new GameFramework.XMLParserList, parser.$c.list = [];
+				parser.$c.list.push(subParser);
 				if (parser.OB == null)
 					parser.OB = new GameFramework.TDictionary;
 				parser.OB[name] == null
 						? (k = new GameFramework.XMLParserList, parser.OB[name] = k)
 						: k = parser.OB[name];
-				if (k.subList == null)
-					k.subList = [];
-				k.subList.push(subParser);
+				if (k.list == null)
+					k.list = [];
+				k.list.push(subParser);
 				this.traverse(subParser, eleNode);
 			}
         }
