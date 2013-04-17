@@ -13260,38 +13260,38 @@ GameFramework.JSBaseApp.prototype = {
 	KZ : function(b, c) {
 		this.NB[b] = c
 	},
-	lT : function(b, c) {
-		b.name = c.nodeName;
+	lT : function(curNode, c) {
+		curNode.name = c.nodeName;
 		for (var d = ss.IEnumerator.enumerate(c.attributes); d.hasNext();) {
-			var f = d.next(), g = b;
-			if (g.attrMap == null)
-				g.attrMap = {}, g.attrList = [];
+			var f = d.next();
+			if (curNode.attrMap == null)
+				curNode.attrMap = {}, curNode.attrList = [];
 			var h = f.nodeName, j = new GameFramework.XMLParserList;
 			j.oa = f.nodeValue;
-			g.attrMap[h] = j;
-			g.attrList.push(h)
+			curNode.attrMap[h] = j;
+			curNode.attrList.push(h)
 		}
-		for (d = ss.IEnumerator.enumerate(c.childNodes); d.hasNext();)
+		for (d = ss.IEnumerator.enumerate(c.childNodes); d.hasNext();) {
 			if (f = d.next(), f.nodeType === Node.ELEMENT_NODE) {
-				g = b;
 				h = f.nodeName;
 				j = new GameFramework.XMLParser;
-				j.parent = g;
+				j.parent = curNode;
 				var k;
 				j.name = h;
-				if (g.$c == null)
-					g.$c = new GameFramework.XMLParserList, g.$c.vm = [];
-				g.$c.vm.push(j);
-				if (g.OB == null)
-					g.OB = new GameFramework.TDictionary;
-				g.OB[h] == null
-						? (k = new GameFramework.XMLParserList, g.OB[h] = k)
-						: k = g.OB[h];
+				if (curNode.$c == null)
+					curNode.$c = new GameFramework.XMLParserList, curNode.$c.vm = [];
+				curNode.$c.vm.push(j);
+				if (curNode.OB == null)
+					curNode.OB = new GameFramework.TDictionary;
+				curNode.OB[h] == null
+						? (k = new GameFramework.XMLParserList, curNode.OB[h] = k)
+						: k = curNode.OB[h];
 				if (k.vm == null)
 					k.vm = [];
 				k.vm.push(j);
 				this.lT(j, f)
 			}
+        }
 	},
 	parseXML : function(b, c) {
 		var d;
