@@ -5823,11 +5823,11 @@ addClassInitEntry(function() {
 GameFramework.resources = Type.registerNamespace("GameFramework.resources");
 GameFramework.resources.BaseRes = dummy();
 GameFramework.resources.BaseRes.prototype = {
-	Fb : 0,
+	type : 0,
 	xa : null,
 	path : null,
 	parent : null,
-	T7 : null,
+	id : null,
 	ui : 1,
 	qo : 1,
 	sf : 0,
@@ -11127,21 +11127,28 @@ GameFramework.resources.ResourceManager.prototype = {
 							continue;
                     }
 
+                    // visit sub elements of resources
 					for (var j = 0; j < subElements.itemCount(); j++) {
-						var sub = subElements.itemAt(j), n = sub.getName(), res = new GameFramework.resources.BaseRes;
-						res.T7 = id;
+						var sub = subElements.itemAt(j);
+                        var n = sub.getName();
+                        var res = new GameFramework.resources.BaseRes;
+                        
+                        // resource id
+						res.id = id;
+                        
+                        // resource type
 						if (n == "Font")
-							res.Fb = GameFramework.resources.ResourceManager.FONT;
+							res.type = GameFramework.resources.ResourceManager.FONT;
 						if (n == "Image")
-							res.Fb = GameFramework.resources.ResourceManager.IMAGE;
+							res.type = GameFramework.resources.ResourceManager.IMAGE;
 						if (n == "Sound")
-							res.Fb = GameFramework.resources.ResourceManager.SOUND;
+							res.type = GameFramework.resources.ResourceManager.SOUND;
 						if (n == "PopAnim")
-							res.Fb = GameFramework.resources.ResourceManager.POPANIM;
+							res.type = GameFramework.resources.ResourceManager.POPANIM;
 						if (n == "PIEffect")
-							res.Fb = GameFramework.resources.ResourceManager.PIEFFECT;
+							res.type = GameFramework.resources.ResourceManager.PIEFFECT;
 						if (n == "RenderEffect")
-							res.Fb = GameFramework.resources.ResourceManager.RENDEREFFECT;
+							res.type = GameFramework.resources.ResourceManager.RENDEREFFECT;
 						res.xa = sub.getAttr("id").getValue();
 						if (sub.getAttr("parent").getValue().length > 0)
 							res.parent = sub.getAttr("parent").getValue();
@@ -11202,7 +11209,7 @@ GameFramework.resources.ResourceManager.prototype = {
 							res.Jj.push(ext)
 						}
 						if (n == "File" && endsWith(res.path, ".p3d"))
-							res.Fb = GameFramework.resources.ResourceManager.POP3D;
+							res.type = GameFramework.resources.ResourceManager.POP3D;
 						this.Nm[res.xa] = res;
 						this.xO[res.path] = res;
 						this.dy[id][res.xa] = res;
@@ -11246,14 +11253,14 @@ GameFramework.resources.ResourceManager.prototype = {
 					&& !GameFramework.BaseApp.instance.zS(d.parent)
 					&& this.sw(d.parent).addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR,
 							ss.Delegate.create(c, c.ps));
-			if (!(d.Fb == GameFramework.resources.ResourceManager.UNKNOWN || d.hX)) {
+			if (!(d.type == GameFramework.resources.ResourceManager.UNKNOWN || d.hX)) {
 				var f = d.path, g = new GameFramework.resources.ResourceStreamer;
 				if (d.Jj != null) {
 					if (d.Jj.length > 1)
 						g.Rx = f + d.Jj[1];
 					f += d.Jj[0]
 				}
-				g.resType = d.Fb;
+				g.resType = d.type;
 				g.xa = d.xa;
 				g.path = f;
 				g.Kb = d;
@@ -19136,7 +19143,7 @@ Game.Board.prototype = {
 		this.fs = this.pH = 0;
 		this.Nw = this.Mw = -1;
 		b = this.xc.ii();
-		b != null && b.Fb == Game.TutorialStep.hg.Wo && b.Cs();
+		b != null && b.type == Game.TutorialStep.hg.Wo && b.Cs();
 		if (this.II()) {
 			this.cO++;
 			if (this.ng >= 9 && this.og == 0
@@ -21289,7 +21296,7 @@ Game.ClassicBoard.prototype = {
 		var b = new Game.TutorialSequence;
 		b.gG = 1234;
 		var c = new Game.TutorialStep;
-		c.Fb = Game.TutorialStep.hg.Wo;
+		c.type = Game.TutorialStep.hg.Wo;
 		c.Fk = "Make Sets of 3";
 		c.Re = "Swap the red and white gems to make a set of 3.";
 		c.Fh = Game.DM.Xa.RP;
@@ -21307,7 +21314,7 @@ Game.ClassicBoard.prototype = {
 		c.sd(this, 0, 3);
 		b.Yd(c);
 		c = new Game.TutorialStep;
-		c.Fb = Game.TutorialStep.hg.Wo;
+		c.type = Game.TutorialStep.hg.Wo;
 		c.Fk = "Swap Gems";
 		c.Re = "Create horizontal or vertical sets of 3 gems.";
 		c.Fh = Game.DM.Xa.OP;
@@ -21325,7 +21332,7 @@ Game.ClassicBoard.prototype = {
 		c.sd(this, 5, 0);
 		b.Yd(c);
 		c = new Game.TutorialStep;
-		c.Fb = Game.TutorialStep.hg.Wo;
+		c.type = Game.TutorialStep.hg.Wo;
 		c.Fk = "Special Gems";
 		c.Re = "Match 4 or more gems to create a ^007700^SPECIAL GEM^oldclr^.";
 		c.Fh = Game.DM.Xa.PP;
@@ -21347,7 +21354,7 @@ Game.ClassicBoard.prototype = {
 		c.sd(this, 5, 4, false);
 		b.Yd(c);
 		c = new Game.TutorialStep;
-		c.Fb = Game.TutorialStep.hg.Wo;
+		c.type = Game.TutorialStep.hg.Wo;
 		c.Fk = "Flame Gem";
 		c.Re = "Match your special gem to create a ^ff0000^FIERY BLAST^oldclr^.";
 		c.Fh = Game.DM.Xa.QP;
@@ -21366,13 +21373,13 @@ Game.ClassicBoard.prototype = {
 		c.sd(this, 4, 7, false);
 		b.Yd(c);
 		if (this.gp(Game.DM.Xa.Oy))
-			c = new Game.TutorialStep, c.Fb = Game.TutorialStep.hg.sK, c.Fk = "Hints", c.Re = "If you are stuck, use the ^007700^HINT^oldclr^ Button to find a match.", c.Fh = Game.DM.Xa.Oy, c.Il = Game.TutorialStep.Qg.qE, c.hm = Game.TutorialStep.Wc.vs, c.cr = this.Ib.w
+			c = new Game.TutorialStep, c.type = Game.TutorialStep.hg.sK, c.Fk = "Hints", c.Re = "If you are stuck, use the ^007700^HINT^oldclr^ Button to find a match.", c.Fh = Game.DM.Xa.Oy, c.Il = Game.TutorialStep.Qg.qE, c.hm = Game.TutorialStep.Wc.vs, c.cr = this.Ib.w
 					+ this.Ib.s / 2, c.dr = this.Ib.v + this.Ib.z / 2 - 50, c.rk = 426, c.sk = 708, c.Fj = 700, c.vI = true, c.gB = true, c.vl = new GameFramework.TRect(
 					this.Ib.w - this.Ib.s * (1.65 - 1) / 2, this.Ib.v
 							- this.Ib.z * (1.65 - 1) / 2, this.Ib.s * 1.65,
 					this.Ib.z * 1.65), c.re = 0, c.jl = true, b.Yd(c);
 		c = new Game.TutorialStep;
-		c.Fb = Game.TutorialStep.hg.Wo;
+		c.type = Game.TutorialStep.hg.Wo;
 		c.Fk = "Make More\nMatches";
 		c.Re = "Go ahead and play by making more matches. Use the Hint Button if you are stuck.";
 		c.Fh = Game.DM.Xa.BD;
@@ -21976,7 +21983,7 @@ addClassInitEntry(function() {
 		});
 Game.Effect = function(b) {
 	this.nr = false;
-	this.Fb = b;
+	this.type = b;
 	this.Ak = false;
 	this.eg = this.v = this.w = 0;
 	this.qd = -1;
@@ -21996,7 +22003,7 @@ Game.Effect = function(b) {
 	this.Oa = null;
 	this.uc = 0;
 	this.Cg = false;
-	switch (this.Fb) {
+	switch (this.type) {
 		case Game.Effect.da.cp :
 			this.Oa = Game.Resources.IMAGE_FX_STEAM;
 			this.yi = -0.00835;
@@ -22056,7 +22063,7 @@ Game.Effect = function(b) {
 			this.Ag = 0.0050;
 			this.Hb = GameFramework.Utils.randOneMinusOne() * 3.141593;
 			this.Qh = 0;
-			if (this.Fb == Game.Effect.da.ws || this.Fb == Game.Effect.da.iv)
+			if (this.type == Game.Effect.da.ws || this.type == Game.Effect.da.iv)
 				this.L = 0.01, this.Ic = 0.02, this.oy = 0;
 			break;
 		case Game.Effect.da.ED :
@@ -22106,7 +22113,7 @@ Game.Effect = function(b) {
 	this.hj = 0
 };
 Game.Effect.prototype = {
-	Fb : null,
+	type : null,
 	Ak : null,
 	w : 0,
 	v : 0,
@@ -22408,7 +22415,7 @@ Game.EffectsManager.prototype = {
 									g.re = 0
 							} else
 								g.L += g.Ic, g.m += g.Ag;
-						switch (g.Fb) {
+						switch (g.type) {
 							case Game.Effect.da.EA :
 								g.Nc *= 0.95;
 								g.Vb *= 0.95;
@@ -22422,8 +22429,8 @@ Game.EffectsManager.prototype = {
 							case Game.Effect.da.ws :
 								g.m += g.Ag;
 								g.Hb += g.Qh;
-								if (g.Fb == Game.Effect.da.ws
-										|| g.Fb == Game.Effect.da.iv) {
+								if (g.type == Game.Effect.da.ws
+										|| g.type == Game.Effect.da.iv) {
 									g.L += g.Ic;
 									if (g.L >= 1)
 										g.ce = true;
@@ -22566,11 +22573,11 @@ Game.EffectsManager.prototype = {
 									&& (l = this.e.lh(k.qd), l != null
 											&& l.L.V() <= 0))
 								continue;
-							if (k.qd != -1 && k.Fb != Game.Effect.da.PI
-									&& k.Fb != Game.Effect.da.BK
-									&& k.Fb != Game.Effect.da.Yg
-									&& k.Fb != Game.Effect.da.yL
-									&& k.Fb != Game.Effect.da.Py) {
+							if (k.qd != -1 && k.type != Game.Effect.da.PI
+									&& k.type != Game.Effect.da.BK
+									&& k.type != Game.Effect.da.Yg
+									&& k.type != Game.Effect.da.yL
+									&& k.type != Game.Effect.da.Py) {
 								this.e != null && (l = this.e.lh(k.qd));
 								if (l == null)
 									continue;
@@ -22579,12 +22586,12 @@ Game.EffectsManager.prototype = {
 								this.e != null && this.e.ob == this
 										&& (k.w += this.e.we.V())
 							}
-							if (k.Fb == Game.Effect.da.Py)
+							if (k.type == Game.Effect.da.Py)
 								k.draw(b);
 							else {
 								var m = Math.min(1, k.L) * this.L;
 								this.e != null && (this.L *= 1 - this.e.En);
-								switch (k.Fb) {
+								switch (k.type) {
 									case Game.Effect.da.NONE :
 										m = b.Q(GameFramework.gfx.Color.Zg(k.n, 255
 														* m | 0));
@@ -22678,8 +22685,8 @@ Game.EffectsManager.prototype = {
 												? (m *= 0.8, k.Oa.pc = true)
 												: (m = Math.min(1, 1.5 * m), k.Oa.pc = false);
 										b.Q(GameFramework.gfx.Color.st(k.n, m));
-										k.Fb == Game.Effect.da.ws
-												|| k.Fb == Game.Effect.da.iv
+										k.type == Game.Effect.da.ws
+												|| k.type == Game.Effect.da.iv
 												? b.Bd(k.Oa, 0, 0, 63.99 * k.L
 																| 0)
 												: b.Bd(k.Oa, 0, 0, k.nf);
@@ -22727,10 +22734,10 @@ Game.EffectsManager.prototype = {
 										k.draw(b)
 								}
 								l != null
-										&& k.Fb != Game.Effect.da.PI
-										&& k.Fb != Game.Effect.da.BK
-										&& k.Fb != Game.Effect.da.Yg
-										&& k.Fb != Game.Effect.da.yL
+										&& k.type != Game.Effect.da.PI
+										&& k.type != Game.Effect.da.BK
+										&& k.type != Game.Effect.da.Yg
+										&& k.type != Game.Effect.da.yL
 										&& (k.w -= l.$d(), k.v -= l.dd(), this.e != null
 												&& this.e.ob == this
 												&& (k.w -= this.e.we.V()))
@@ -22753,8 +22760,8 @@ Game.EffectsManager.prototype = {
 		return b
 	},
 	Gc : function(b) {
-		this.Sh[b.Fb | 0] == null && (this.Sh[b.Fb | 0] = []);
-		this.Sh[b.Fb | 0].push(b);
+		this.Sh[b.type | 0] == null && (this.Sh[b.type | 0] = []);
+		this.Sh[b.type | 0].push(b);
 		b.Nb = this
 	},
 	J0 : function(b) {
@@ -29541,7 +29548,7 @@ Game.Piece.prototype = {
 									&& f == this.e.Jg;
 							if (this.n == Game.DM.Ha.bB || g) {
 								if (c.n = GameFramework.gfx.Color.ta(255, 128, 128), g)
-									c.Fb = Game.Effect.da.iv
+									c.type = Game.Effect.da.iv
 							} else
 								c.n = GameFramework.gfx.Color.ta(255, 255, 255)
 						} else if (f = Game.Util.Fc() % 2 == 0
@@ -29555,7 +29562,7 @@ Game.Piece.prototype = {
 								&& Game.Util.Fc() % 3 <= 0 && f == this.e.Jg, this.n == Game.DM.Ha.bB
 								|| g) {
 							if (c.n = GameFramework.gfx.Color.ta(255, 0, 0), g)
-								c.Fb = Game.Effect.da.TD
+								c.type = Game.Effect.da.TD
 						} else if (this.n == Game.DM.Ha.WE)
 							c.n = GameFramework.gfx.Color.ta(240, 128, 64);
 						var g = 3.141593
@@ -32114,7 +32121,7 @@ Game.SpeedBoard.prototype = {
 		var b = new Game.TutorialSequence;
 		b.gG = 4321;
 		var c = new Game.TutorialStep;
-		c.Fb = Game.TutorialStep.hg.Wo;
+		c.type = Game.TutorialStep.hg.Wo;
 		c.Fk = "Speed Mode";
 		c.Re = "Swap adjacent gems to make a set of 3 in a row!";
 		c.Fh = Game.DM.Xa.ST;
@@ -32135,7 +32142,7 @@ Game.SpeedBoard.prototype = {
 		c.sd(this, 5, 1);
 		b.Yd(c);
 		c = new Game.TutorialStep;
-		c.Fb = Game.TutorialStep.hg.KE;
+		c.type = Game.TutorialStep.hg.KE;
 		c.Fk = "Timer";
 		c.Re = "... but watch the clock! You only have 60 seconds to start with.";
 		c.Fh = Game.DM.Xa.TT;
@@ -32155,7 +32162,7 @@ Game.SpeedBoard.prototype = {
 		c.jl = true;
 		b.Yd(c);
 		c = new Game.TutorialStep;
-		c.Fb = Game.TutorialStep.hg.Wo;
+		c.type = Game.TutorialStep.hg.Wo;
 		c.zt = Game.TutorialStep.Pg.ct;
 		c.Fk = "Time Gem";
 		c.Re = "Score big to earn ^007700^TIME GEMS^oldclr^. Match these to collect Bonus Time!";
@@ -32178,7 +32185,7 @@ Game.SpeedBoard.prototype = {
 		c.sd(this, 4, 6, false);
 		b.Yd(c);
 		if (this.gp(Game.DM.Xa.Oy))
-			c = new Game.TutorialStep, c.Fb = Game.TutorialStep.hg.sK, c.Fk = "Hints", c.Re = "If you are stuck, use the ^007700^HINT^oldclr^ Button to find a match.", c.Fh = Game.DM.Xa.Oy, c.Il = Game.TutorialStep.Qg.qE, c.zt = Game.TutorialStep.Pg.ct, c.hm = Game.TutorialStep.Wc.vs, c.cr = this.Ib.w
+			c = new Game.TutorialStep, c.type = Game.TutorialStep.hg.sK, c.Fk = "Hints", c.Re = "If you are stuck, use the ^007700^HINT^oldclr^ Button to find a match.", c.Fh = Game.DM.Xa.Oy, c.Il = Game.TutorialStep.Qg.qE, c.zt = Game.TutorialStep.Pg.ct, c.hm = Game.TutorialStep.Wc.vs, c.cr = this.Ib.w
 					+ this.Ib.s / 2, c.dr = this.Ib.v + this.Ib.z / 2 - 50, c.rk = 426, c.sk = 708, c.Fj = 700, c.gB = true, c.vl = new GameFramework.TRect(
 					this.Ib.w - this.Ib.s * (1.65 - 1) / 2, this.Ib.v
 							- this.Ib.z * (1.65 - 1) / 2, this.Ib.s * 1.65,
@@ -32302,7 +32309,7 @@ Game.SpeedBoard.prototype = {
 								&& (b = new Game.TutorialSequence, this.xc.oL(b)), b
 								.UJ(Game.DM.Xa.eF)
 								? this.HQ()
-								: (c = new Game.TutorialStep, c.Fb = Game.TutorialStep.hg.KE, c.Fk = "Bonus Round", c.Re = "If you have Bonus Time stored, you'll get a ^007700^BONUS ROUND^oldclr^ when time runs out.\n\nEach ^007700^BONUS ROUND^oldclr^ ups your multiplier by 1!", c.Fh = Game.DM.Xa.eF, c.zt = Game.TutorialStep.Pg.pT, c.Sw = 100, c.rM = 120, c.Il = Game.TutorialStep.Qg.bT, c.vl = new GameFramework.TRect(
+								: (c = new Game.TutorialStep, c.type = Game.TutorialStep.hg.KE, c.Fk = "Bonus Round", c.Re = "If you have Bonus Time stored, you'll get a ^007700^BONUS ROUND^oldclr^ when time runs out.\n\nEach ^007700^BONUS ROUND^oldclr^ ups your multiplier by 1!", c.Fh = Game.DM.Xa.eF, c.zt = Game.TutorialStep.Pg.pT, c.Sw = 100, c.rM = 120, c.Il = Game.TutorialStep.Qg.bT, c.vl = new GameFramework.TRect(
 										490, 0, 1100, 150), c.rk = 602, c.sk = 180, c.Fj = 680, c.Pr = new GameFramework.CurvedVal, c.Pr
 										.vj("SpeedBoard_cs_11_15_11__17_35_36_339"), c.hm = Game.TutorialStep.Wc.Cq, c.cr = 280, c.dr = 300, c.re = 15, c.jl = true, b
 										.Yd(c)))
@@ -33845,7 +33852,7 @@ addClassEntry(function() {
 			Game.Tooltip.Wc.initClass()
 		});
 Game.TutorialStep = function() {
-	this.Fb = Game.TutorialStep.hg.KE;
+	this.type = Game.TutorialStep.hg.KE;
 	this.hB = GameFramework.CurvedVal.qs(0);
 	this.iP = [];
 	this.ur = GameFramework.CurvedVal.qs(0);
@@ -33867,7 +33874,7 @@ Game.TutorialStep.prototype = {
 	VH : null,
 	Fk : "",
 	Re : "",
-	Fb : null,
+	type : null,
 	hB : null,
 	iP : null,
 	uX : true,
@@ -34013,9 +34020,9 @@ Game.TutorialStep.prototype = {
 		this.ur.D() == 0 && this.ur.vj("TutorialMgr_cs_11_11_11__15_19_51_707");
 		this.hB.vj("TutorialMgr_cs_11_11_11__15_19_51_707");
 		this.Hd != null && this.Hd.Te();
-		if (this.Fb == Game.TutorialStep.hg.KE)
+		if (this.type == Game.TutorialStep.hg.KE)
 			this.Hd = new Game.HintDialog(this.Fk, this.Re, true, false), this.Hd.gs = false;
-		else if (this.Fb == Game.TutorialStep.hg.Wo || this.Fb == Game.TutorialStep.hg.sK)
+		else if (this.type == Game.TutorialStep.hg.Wo || this.type == Game.TutorialStep.hg.sK)
 			this.Hd = new Game.HintDialog(this.Fk, this.Re, true, false), this.Hd.gs = false, this.Hd.XH = 0;
 		Game.BejApp.instance.dialogLayer.Ho(this.Hd);
 		this.Hd.addEventHandler(GameFramework.widgets.DialogEvent.CLOSED, ss.Delegate.create(this, this.N6));
