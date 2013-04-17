@@ -2097,7 +2097,7 @@ window.JSFExt_Init = function(app, canvas) {
 
 function Wc(b, c) {
 	if (soundManager.ok()) {
-		var d = b.xa;
+		var d = b.id;
 		if (soundManager.preferFlash)
 			f = soundManager.createSound({
 						id : d,
@@ -2331,14 +2331,14 @@ GameFramework.BaseApp.prototype = {
 	q1 : function(b) {
 		for (var c = ss.IEnumerator.enumerate(this.loadingQueue); c.hasNext();) {
 			var d = c.next();
-			if (d.xa == b)
+			if (d.id == b)
 				return d
 		}
 		return null
 	},
 	zS : function(b) {
 		for (var c = ss.IEnumerator.enumerate(this.loadingQueue); c.hasNext();)
-			if (c.next().xa == b)
+			if (c.next().id == b)
 				return true;
 		return false
 	},
@@ -2349,7 +2349,7 @@ GameFramework.BaseApp.prototype = {
 	hS : function() {
 		for (var b = 0, c = ss.IEnumerator.enumerate(this.loadingQueue); c.hasNext();) {
 			var d = c.next();
-			d.loadStep == 0 && d.xa != null && d.path != null && !startsWith(d.path, "!") && b++
+			d.loadStep == 0 && d.id != null && d.path != null && !startsWith(d.path, "!") && b++
 		}
 		return b
 	},
@@ -4996,7 +4996,7 @@ GameFramework.gfx.Graphics.prototype = {
 		if (f == b.s)
 			this.Bd(b, c, d, g);
 		else {
-			var h = (b.xa << 10) + g, j = this.xM[h];
+			var h = (b.id << 10) + g, j = this.xM[h];
 			if (j == null) {
 				var j = Array.O(3, null, b.bk(g), b.bk(g), b.bk(g)), b = j[0].jd, g = b
 						/ 3 | 0, k = j[0].he;
@@ -5022,7 +5022,7 @@ GameFramework.gfx.Graphics.prototype = {
 		}
 	},
 	dk : function(b, c, d, f, g, h) {
-		var j = (b.xa << 10) + h, k = this.BN[j];
+		var j = (b.id << 10) + h, k = this.BN[j];
 		if (k == null) {
 			var k = Array.O(9, null, b.bk(h), b.bk(h), b.bk(h), b.bk(h), b.bk(h),
 					b.bk(h), b.bk(h), b.bk(h), b.bk(h)), b = k[0].jd, h = k[0].ge, l = b
@@ -5824,7 +5824,7 @@ GameFramework.resources = Type.registerNamespace("GameFramework.resources");
 GameFramework.resources.BaseRes = dummy();
 GameFramework.resources.BaseRes.prototype = {
 	type : 0,
-	xa : null,
+	id : null,
 	path : null,
 	parent : null,
 	pid : null,
@@ -5940,7 +5940,7 @@ GameFramework.resources.FontLayer.prototype = {
 	Hn : null,
 	xq : function(b) {
 		b = b.target;
-		this.Oa = b.xa != null ? GameFramework.BaseApp.instance.resManager.Gs(b.xa) : b.data;
+		this.Oa = b.id != null ? GameFramework.BaseApp.instance.resManager.Gs(b.id) : b.data;
 		for ($enum1 in this.Hn)
 			b = this.Hn[$enum1], b.bu = this.Oa.dv(b.cY, b.dY, b.bY, b.MH)
 	},
@@ -6440,13 +6440,13 @@ addClassEntry(function() {
 GameFramework.resources.ImageResource = function() {
 	this.Mf = GameFramework.resources.De.LI;
 	GameFramework.resources.ImageResource.cX++;
-	this.xa = GameFramework.resources.ImageResource.cX
+	this.id = GameFramework.resources.ImageResource.cX
 };
 GameFramework.resources.ImageResource.prototype = {
 	qo : 1,
 	ui : 1,
 	Em : 1,
-	xa : 0,
+	id : 0,
 	Hg : 0,
 	Gg : 0,
 	w7 : 1,
@@ -6518,7 +6518,7 @@ GameFramework.resources.MeshPiece.prototype = {
 	Oa : null,
 	xq : function(b) {
 		b = b.target;
-		this.Oa = b.xa != null ? GameFramework.BaseApp.instance.resManager.Gs(b.xa) : b.data
+		this.Oa = b.id != null ? GameFramework.BaseApp.instance.resManager.Gs(b.id) : b.data
 	}
 };
 GameFramework.resources.MeshPiece.initClass = dummy();
@@ -6920,7 +6920,7 @@ GameFramework.resources.PITexture.prototype = {
 	t : dummy(),
 	xq : function(b) {
 		b = b.target;
-		this.zi = b.xa != null ? GameFramework.BaseApp.instance.resManager.Gs(b.xa) : b.data
+		this.zi = b.id != null ? GameFramework.BaseApp.instance.resManager.Gs(b.id) : b.data
 	}
 };
 GameFramework.resources.PITexture.initClass = dummy();
@@ -11085,22 +11085,22 @@ GameFramework.resources.ResourceManager.prototype = {
 	c3 : function(b) {
 		var c = new GameFramework.resources.FontResource;
 		c.aL(b.data, b);
-		this.ET(b.xa, c)
+		this.ET(b.id, c)
 	},
 	e3 : function(b) {
 		var c = b.data, d = new GameFramework.resources.PopAnimResource;
 		d.aL(c, b);
-		this.F3(b.xa, d)
+		this.F3(b.id, d)
 	},
 	d3 : function(b) {
 		var c = new GameFramework.resources.PIEffect;
 		c.y2(b.data, b);
-		this.E3(b.xa, c)
+		this.E3(b.id, c)
 	},
 	kT : function(b) {
 		var c = b.data, d = new GameFramework.resources.MeshResource;
 		d.BE(c, b);
-		this.FT(b.xa, d)
+		this.FT(b.id, d)
 	},
 	parseResGen : function(resGenXml) {
         // parse xml and get children of root
@@ -11133,7 +11133,7 @@ GameFramework.resources.ResourceManager.prototype = {
                         var n = sub.getName();
                         var res = new GameFramework.resources.BaseRes;
                         
-                        // resource id
+                        // resource parent id
 						res.pid = id;
                         
                         // resource type
@@ -11149,7 +11149,10 @@ GameFramework.resources.ResourceManager.prototype = {
 							res.type = GameFramework.resources.ResourceManager.PIEFFECT;
 						if (n == "RenderEffect")
 							res.type = GameFramework.resources.ResourceManager.RENDEREFFECT;
-						res.xa = sub.getAttr("id").getValue();
+
+                        // resource id
+						res.id = sub.getAttr("id").getValue();
+
 						if (sub.getAttr("parent").getValue().length > 0)
 							res.parent = sub.getAttr("parent").getValue();
 						if (sub.getAttr("rtparent").getValue().length > 0)
@@ -11210,9 +11213,9 @@ GameFramework.resources.ResourceManager.prototype = {
 						}
 						if (n == "File" && endsWith(res.path, ".p3d"))
 							res.type = GameFramework.resources.ResourceManager.POP3D;
-						this.Nm[res.xa] = res;
+						this.Nm[res.id] = res;
 						this.xO[res.path] = res;
-						this.dy[id][res.xa] = res;
+						this.dy[id][res.id] = res;
 					}
 				}
 			}
@@ -11220,7 +11223,7 @@ GameFramework.resources.ResourceManager.prototype = {
 	},
 	al : function(b) {
 		b = this.xO[b];
-		return b == null ? null : b.xa
+		return b == null ? null : b.id
 	},
 	gw : function(b) {
 		GameFramework.BaseApp.instance.gw(b)
@@ -11238,7 +11241,7 @@ GameFramework.resources.ResourceManager.prototype = {
 				d.Nn.t(), d.Nn = null;
 			if (c.Nn != null)
 				c.Nn.t(), c.Nn = null;
-			this.bh[c.xa] != null && (this.bh[c.xa].t(), this.bh[c.xa] = null)
+			this.bh[c.id] != null && (this.bh[c.id].t(), this.bh[c.id] = null)
 		}
 	},
 	dl : function(b) {
@@ -11261,7 +11264,7 @@ GameFramework.resources.ResourceManager.prototype = {
 					f += d.Jj[0]
 				}
 				g.resType = d.type;
-				g.xa = d.xa;
+				g.id = d.id;
 				g.path = f;
 				g.Kb = d;
 				g.totalStep = 1;
@@ -11301,7 +11304,7 @@ GameFramework.resources.ResourceManager.prototype = {
 				&& !GameFramework.BaseApp.instance.zS(d.parent)
 				&& this.sw(d.parent).addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR,
 						ss.Delegate.create(stream, stream.ps));
-		stream.xa = b;
+		stream.id = b;
 		stream.Kb = d;
 		stream.path = stream.Kb.path;
 		if (stream.Kb.Jj != null && (stream.path = stream.Kb.path + stream.Kb.Jj[0], stream.Kb.Jj.length > 1))
@@ -11397,7 +11400,7 @@ GameFramework.resources.ResourceStreamer = function() {
 };
 GameFramework.resources.ResourceStreamer.prototype = {
 	sN : null,
-	xa : null,
+	id : null,
 	path : null,
 	Rx : null,
 	Kb : null,
@@ -11553,7 +11556,7 @@ GameFramework.resources.popanim.PopAnimImage.prototype = {
 	Na : null,
 	xq : function(b) {
 		b = b.target;
-		this.bh[this.dH.indexOf(b.xa)] = b.data
+		this.bh[this.dH.indexOf(b.id)] = b.data
 	}
 };
 GameFramework.resources.popanim.PopAnimImage.initClass = dummy();
@@ -11758,13 +11761,13 @@ GameFramework.widgets.ButtonWidget = function(b) {
 	this.pe = Array.O(2, null, 4294967295, 4294967295);
 	this.wM = this.RM = this.rm = this.Sj = this.ZB = this.wb = this.U = null;
 	callSuperConstructor(GameFramework.widgets.ButtonWidget, this);
-	this.xa = b
+	this.id = b
 };
 GameFramework.widgets.ButtonWidget.prototype = {
 	pe : null,
 	L : 1,
 	a7 : 0.5,
-	xa : 0,
+	id : 0,
 	Id : null,
 	jX : 0,
 	LN : 0,
@@ -13178,7 +13181,7 @@ GameFramework.JSBaseApp.prototype = {
 						|| stream.resType === GameFramework.resources.ResourceManager.P3DANIM) {
 					if (startsWith(stream.path, "!ref:")) {
 						h = this.resManager.b1(stream.path.substr(5)), h != null && stream.loadStep != stream.totalStep
-								&& (this.resManager.ET(stream.xa, h.gi()), stream.loadStep++);
+								&& (this.resManager.ET(stream.id, h.gi()), stream.loadStep++);
                     } else if (h = null, h = stream.path.indexOf("@"), h != -1) {
                         // search : and -, h will be filename, j, k is start and end bytes
 						var j = stream.path.indexOf(":", h);
@@ -14271,17 +14274,17 @@ GameFramework.resources.JSResourceManager.prototype = {
 	f3 : function(b) {
 		var c = new GameFramework.resources.JSRenderEffect;
 		c.B3(b.data);
-		this.G3(b.xa, c)
+		this.G3(b.id, c)
 	},
 	kT : function(b) {
 		var c = b.data, d = new GameFramework.resources.JSMeshResource;
 		d.BE(c, b);
-		this.FT(b.xa, d)
+		this.FT(b.id, d)
 	},
 	JT : function(b) {
 		if (b.resType == GameFramework.resources.ResourceManager.IMAGE)
-			if (b.xa != null && this.bh[b.xa] != null)
-				b.data = this.bh[b.xa];
+			if (b.id != null && this.bh[b.id] != null)
+				b.data = this.bh[b.id];
 			else {
 				var c = new GameFramework.resources.JSImageResource;
 				c.w7 = 1;
@@ -14301,7 +14304,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 						h.vh = j;
 						d.tG = document.getElementById("ScratchCanvas")
 								.getContext("2d").createImageData(g.s, g.z);
-						this.bh[g.xa] = d
+						this.bh[g.id] = d
 					}
 					Ha(d.tG, b.Kb.kM, b.Kb.lM, b.Kb.bG, b.Kb.aG, f.In, f.Bn,
 							b.Kb.iM, b.Kb.jM);
@@ -14341,15 +14344,15 @@ GameFramework.resources.JSResourceManager.prototype = {
 				c.FV = c.Hg / GameFramework.BaseApp.instance.graphics.m;
 				c.cM = c.Gg / GameFramework.BaseApp.instance.graphics.m;
 				b.data = c;
-				b.xa != null && (this.dp(b.xa, c), this.bh[b.xa] = c)
+				b.id != null && (this.dp(b.id, c), this.bh[b.id] = c)
 			}
 		else if (b.resType == GameFramework.resources.ResourceManager.SOUND) {
 			c = new GameFramework.resources.JSSoundResource;
 			c.WW = b.data;
 			if (b.Kb != null)
 				c.uC = b.Kb.uC;
-			this.dp(b.xa, c);
-			this.RO[b.xa] = c
+			this.dp(b.id, c);
+			this.RO[b.id] = c
 		}
 	}
 };
@@ -15883,7 +15886,7 @@ Game.LightningStorm = function(b, c, d) {
 	this.aa = 0;
 	this.lN = this.v8 = 1;
 	this.dO = c.n;
-	this.Rp.push(c.xa);
+	this.Rp.push(c.id);
 	this.oH = this.FB = 0;
 	this.WO = c.uc;
 	this.XYZ1 = c.XYZ1;
@@ -15895,7 +15898,7 @@ Game.LightningStorm = function(b, c, d) {
 					.ea("b+0,2,0.006667,1,####   ^X### bX### S~###   /####"), this.sC
 					.me("b+0,1,0,1,#### o~###     Y}###  V####", this.tC), this.Qe = Game.LightningStorm.Yb.mq)
 			: this.Qe = d;
-	this.jx = c.xa;
+	this.jx = c.id;
 	this.nB = (c.Ad() | 0) - this.e.Ef;
 	this.oB = (c.Rd() | 0) - this.e.Cd();
 	this.L8 = c.Ja;
@@ -17085,7 +17088,7 @@ Game.Board.prototype = {
 	p5 : function() {
 		if (this.Ft.length != 0)
 			for (var b = 0; b < this.Ft.length;)
-				this.Me >= this.Ft[b].FX ? (Game.SoundUtil.Play(this.Ft[b].xa), removeElementAt(
+				this.Me >= this.Ft[b].FX ? (Game.SoundUtil.Play(this.Ft[b].id), removeElementAt(
 						this.Ft, b)) : ++b
 	},
 	JQ : function() {
@@ -17489,7 +17492,7 @@ Game.Board.prototype = {
 		b.gM.ea("b390,-90,0.005,1,~         ~#");
 		b.gM.jL(GameFramework.CurvedVal.Uz);
 		var c = new Game.ParticleEffect(Game.Resources.PIEFFECT_MULTIPLIER);
-		c.qd = b.xa;
+		c.qd = b.id;
 		c.lr = true;
 		c.nr = true;
 		c.jt(true);
@@ -17502,7 +17505,7 @@ Game.Board.prototype = {
 	qU : function(b) {
 		if (GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f) {
 			var c = new Game.ParticleEffect(Game.Resources.PIEFFECT_HYPERCUBE);
-			c.qd = b.xa;
+			c.qd = b.id;
 			c.jt(true);
 			c.lr = true;
 			this.Jg.Gc(c)
@@ -17774,7 +17777,7 @@ Game.Board.prototype = {
 			return false;
 		var k = new Game.QueuedMove;
 		k.aa = this.aa;
-		k.UH = b.xa;
+		k.UH = b.id;
 		k.eI = c;
 		k.dI = d;
 		k.Qt = f;
@@ -17847,7 +17850,7 @@ Game.Board.prototype = {
 	p3 : function(b, c, d) {
 		var f = new Game.MoveData;
 		f.aa = this.aa;
-		f.UH = b.xa;
+		f.UH = b.id;
 		f.eI = c;
 		f.dI = d;
 		f.XYZ1 = this.vB++;
@@ -17997,12 +18000,12 @@ Game.Board.prototype = {
 										if (v != null && !v.ol) {
 											for (var q = false, u = 0; u < this.qc.length; u++)
 												for (var y = 0; y < this.qc[u].Rp.length; y++)
-													v.xa == this.qc[u].Rp[y]
+													v.id == this.qc[u].Rp[y]
 															&& (q = true);
 											if (!q) {
 												h = false;
 												if (v.Th == 0)
-													if (f.Rp.push(v.xa), v.Th = 0.0167, !GameFramework.BaseApp.instance.isUseGL()
+													if (f.Rp.push(v.id), v.Th = 0.0167, !GameFramework.BaseApp.instance.isUseGL()
 															|| Game.BejApp.instance.$f)
 														for (q = 0; q < 5; q++)
 															u = this.ob
@@ -18092,7 +18095,7 @@ Game.Board.prototype = {
 							if (g != null)
 								g.cq(Game.Piece.K.Ue), g.Y(Game.Piece.K.sc)
 										? this.YA(g, g)
-										: (g.If = 1, g.Ij = g.xa, g.Hj |= g.uc, g.ed = false);
+										: (g.If = 1, g.Ij = g.id, g.Hj |= g.uc, g.ed = false);
 							f.zN -= 0.4175;
 							g = this.e;
 							for (h = 0; h < g.length; h++)
@@ -18114,7 +18117,7 @@ Game.Board.prototype = {
 	},
 	kz : function(b) {
 		for (var c = 0; c < (this.qc.length | 0); c++)
-			if (this.qc[c].jx == b.xa)
+			if (this.qc[c].jx == b.id)
 				return c;
 		return -1
 	},
@@ -18250,9 +18253,9 @@ Game.Board.prototype = {
 						m.Lf = g.Lf
 					}
 					if (r)
-						m.If = 15, m.Ij = g.xa, m.Hj |= g.uc, m.ed = false;
+						m.If = 15, m.Ij = g.id, m.Hj |= g.uc, m.ed = false;
 					else if (m.Y(Game.Piece.K.xg))
-						m.If = 5, m.Ij = g.xa, m.Hj |= g.uc, m.ed = false;
+						m.If = 5, m.Ij = g.id, m.Hj |= g.uc, m.ed = false;
 					else {
 						if (m.Y(Game.Piece.K.Ue)
 								&& (o = this.kz(m), o != -1
@@ -18264,7 +18267,7 @@ Game.Board.prototype = {
 								&& m.fr) {
 							m.IN = true;
 							if (g != null)
-								m.Ij = g.xa, m.Hj |= g.uc;
+								m.Ij = g.id, m.Hj |= g.uc;
 							this.oj(m.$d() | 0, m.dd() | 0, 20,
 									Game.DM.Yi[(m.n | 0) + 1], m.Lf, true, true, m.XYZ1,
 									false, Game.Board.je.sn);
@@ -18550,11 +18553,11 @@ Game.Board.prototype = {
 		if (b.ol)
 			return false;
 		if (b.Y(Game.Piece.K.Be) && !b.Y(Game.Piece.K.Ue))
-			return b.If = 1, b.Ij = c != null ? c.xa : -1, b.Hj |= c != null
+			return b.If = 1, b.Ij = c != null ? c.id : -1, b.Hj |= c != null
 					? c.uc
 					: 0, b.ed = false, true;
 		if (b.Y(Game.Piece.K.Zm))
-			return b.If = 1, b.Ij = c != null ? c.xa : -1, b.Hj |= c != null
+			return b.If = 1, b.Ij = c != null ? c.id : -1, b.Hj |= c != null
 					? c.uc
 					: 0, b.ed = false, true;
 		if (b.Y(Game.Piece.K.sc) && this.kz(b) == -1) {
@@ -18571,7 +18574,7 @@ Game.Board.prototype = {
 					.fg(Game.DM.T.yE, 1, b.XYZ1), this.qc.push(new Game.LightningStorm(this,
 					b, Game.LightningStorm.Yb.MI)), true;
 		return b.Y(Game.Piece.K.xg) ? (b.ol = true, b.If = 1, b.ed = false, b.Ij = c != null
-				? c.xa
+				? c.id
 				: -1, b.Hj |= c != null ? c.uc : 0, true) : false
 	},
 	G0 : function() {
@@ -18660,7 +18663,7 @@ Game.Board.prototype = {
 												&& Ta.Y(Game.Piece.K.xg)
 												&& (this.ES(Ta), Ta
 														.cq(Game.Piece.K.xg), this.ob
-														.J0(Ta.xa))
+														.J0(Ta.id))
 									}
 								for (var Ib = X; Ib <= aa; Ib++)
 									for (var Jb = ia; Jb <= fa; Jb++) {
@@ -18825,7 +18828,7 @@ Game.Board.prototype = {
 		for (var Ob = 0; Ob < (F.length | 0); Ob++) {
 			var Fa = F[Ob];
 			Fa.If = 1;
-			Fa.Ij = Fa.xa;
+			Fa.Ij = Fa.id;
 			Fa.Hj |= Fa.uc;
 			Fa.m.Aa(1);
 			Fa.ed = false
@@ -18833,7 +18836,7 @@ Game.Board.prototype = {
 		for (var Pb = 0; Pb < D.length; ++Pb) {
 			var ma = D[Pb];
 			if (ma.Y(Game.Piece.K.Be) || ma.Y(Game.Piece.K.Zm))
-				ma.If = 1, ma.Ij = ma.xa, ma.Hj = ma.uc, ma.ed = false, ma.uc = 0;
+				ma.If = 1, ma.Ij = ma.id, ma.Hj = ma.uc, ma.ed = false, ma.uc = 0;
 			this.fg(Game.DM.T.dn, 1, ma.XYZ1);
 			this.fg(Game.DM.T.Kv, 1, ma.XYZ1);
 			this.zE(ma)
@@ -18878,7 +18881,7 @@ Game.Board.prototype = {
 						wa = Tb, Ic = Tb.py
 				}
 				if (wa != null)
-					wa.cl(Game.Piece.K.YJ), this.qD(Game.DM.T.BZ, 1), wa.If = 1, wa.Ij = wa.xa, wa.Hj |= wa.uc, wa.ed = false
+					wa.cl(Game.Piece.K.YJ), this.qD(Game.DM.T.BZ, 1), wa.If = 1, wa.Ij = wa.id, wa.Hj |= wa.uc, wa.ed = false
 			}
 			if (Fc)
 				for (var Ub = 0; Ub < (Y.ee.length | 0); Ub++) {
@@ -18888,7 +18891,7 @@ Game.Board.prototype = {
 							.ea("b+0,2,0.006667,1,PzL;  >l### ~H### P`### qK### fV###ZP###");
 					pa.du = true;
 					pa.If = 0;
-					pa.Ij = pa.xa;
+					pa.Ij = pa.id;
 					pa.Hj |= pa.uc;
 					var Jc = this.kz(pa);
 					Jc != -1 && removeElementAt(this.qc, Jc);
@@ -18918,7 +18921,7 @@ Game.Board.prototype = {
 							var Lc = za.Ja - ba.Ja, cd = za.La - ba.La;
 							if (za.Y(Game.Piece.K.Be)) {
 								var ta = new Game.PopAnimEffect(Game.Resources.POPANIM_FLAMEGEMCREATION);
-								ta.qd = ba.xa;
+								ta.qd = ba.id;
 								ta.w = ba.Ad();
 								ta.v = ba.Rd();
 								ta.Ak = true;
@@ -19042,7 +19045,7 @@ Game.Board.prototype = {
 		b.XB.ea("b+80,64,0.006667,1,####  &}### |####  #~### z####  &~###");
 		if (c) {
 			var d = new Game.ParticleEffect(Game.Resources.PIEFFECT_HINTFLASH);
-			d.qd = b.xa;
+			d.qd = b.id;
 			d.nr = true;
 			this.ob.Gc(d)
 		}
@@ -19167,7 +19170,7 @@ Game.Board.prototype = {
 					if (b = d[f], b.aa == 0) {
 						d = Math.min(200, (this.ng + 1) * 20) | 0;
 						this.TO += d * this.Nf * this.pq() | 0;
-						this.oj(b.w | 0, b.v | 0, d, b.n, b.xa, false, true, b.XYZ1, false,
+						this.oj(b.w | 0, b.v | 0, d, b.n, b.id, false, true, b.XYZ1, false,
 								Game.Board.je.cF);
 						b.aa++;
 						break
@@ -19310,7 +19313,7 @@ Game.Board.prototype = {
 	PD : function(b, c) {
 		var d = new Game.DeferredTutorial;
 		d.wo = b;
-		d.lu = c.xa;
+		d.lu = c.id;
 		this.wi.push(d);
 		this.Cf(b, true, false)
 	},
@@ -21855,12 +21858,12 @@ addClassInitEntry(function() {
 			Game.CurvedValTable.initClass()
 		});
 Game.DeferredSound = function(b, c, d) {
-	this.xa = b;
+	this.id = b;
 	this.FX = c;
 	this.Mu = d
 };
 Game.DeferredSound.prototype = {
-	xa : null,
+	id : null,
 	FX : 0,
 	Mu : 0
 };
@@ -22858,20 +22861,20 @@ Game.EndLevelDialog = function(b) {
 	c = this.ME(Game.EndLevelDialog.ug.PF | 0, b, Game.Resources.IMAGE_DIALOG_SMALL_BUTTON);
 	c.Lb(this.s / 2 - (b / 2 | 0) + 325, this.z - this.Fd.bj - c.z + 0, b, c.z);
 	c.Id = "MAIN MENU";
-	this.We[c.xa] = c;
+	this.We[c.id] = c;
 	c.addEventHandler(GameFramework.widgets.WidgetEvent.CLICKED, ss.Delegate.create(this, this.Mi));
 	this.addChild(c);
 	c = this.ME(Game.EndLevelDialog.ug.qV | 0, b, Game.Resources.IMAGE_DIALOG_SMALL_BUTTON);
 	c.Lb(this.s / 2 - (b / 2 | 0) - 325, this.z - this.Fd.bj - c.z + 0, b, c.z);
 	c.Id = "RECORDS";
-	this.We[c.xa] = c;
+	this.We[c.id] = c;
 	c.addEventHandler(GameFramework.widgets.WidgetEvent.CLICKED, ss.Delegate.create(this, this.Mi));
 	this.addChild(c);
 	b += 80;
 	c = this.O2(Game.EndLevelDialog.ug.QF | 0, b);
 	c.Lb(this.s / 2 - (b / 2 | 0) - 0, this.z - this.Fd.bj - c.z + 10, b, c.z);
 	c.Id = "PLAY AGAIN";
-	this.We[c.xa] = c;
+	this.We[c.id] = c;
 	c.addEventHandler(GameFramework.widgets.WidgetEvent.CLICKED, ss.Delegate.create(this, this.Mi));
 	this.addChild(c);
 	this.Pt = 100;
@@ -22939,7 +22942,7 @@ Game.EndLevelDialog.prototype = {
 				this.Yf = this.ME(Game.EndLevelDialog.ug.$L | 0, 280,
 						Game.Resources.IMAGE_DIALOG_SMALL_BUTTON), this.Yf.Lb(this.s
 								/ 2 - 140 + 325, this.z - this.Fd.bj
-								- this.Yf.z + 0, 280, this.Yf.z), this.Yf.Id = "OK", this.We[this.Yf.xa] = this.Yf, this.Yf
+								- this.Yf.z + 0, 280, this.Yf.z), this.Yf.Id = "OK", this.We[this.Yf.id] = this.Yf, this.Yf
 						.addEventHandler(GameFramework.widgets.WidgetEvent.CLICKED, ss.Delegate.create(this, this.Mi)), this
 						.addChild(this.Yf);
 			this.Vd.Jx = 480;
@@ -29358,7 +29361,7 @@ Game.Piece.Es = function(b, c, d) {
 };
 Game.Piece.prototype = {
 	e : null,
-	xa : 0,
+	id : 0,
 	Ja : 0,
 	La : 0,
 	w : 0,
@@ -29428,7 +29431,7 @@ Game.Piece.prototype = {
 	Sf : null,
 	t : function() {
 		this.lQ();
-		this.e.I3(this.xa)
+		this.e.I3(this.id)
 	},
 	Ub : function(b) {
 		this.FG = this.uc = this.vG = 0;
@@ -29455,8 +29458,8 @@ Game.Piece.prototype = {
 		this.$e = this.x7 = this.qe = 0;
 		this.OY = 100;
 		this.MW = this.fN = this.NW = this.n9 = this.D7 = this.my = this.uo = this.b9 = this.WH = this.iy = this.vu = this.uu = 0;
-		this.xa = b;
-		this.e.qZ(this.xa, this)
+		this.id = b;
+		this.e.qZ(this.id, this)
 	},
 	t2 : function() {
 		return this.m.Lr == GameFramework.CurvedVal.HK
@@ -29465,7 +29468,7 @@ Game.Piece.prototype = {
 		return this.Y(Game.Piece.K.Nl) || this.Y(Game.Piece.K.rn)
 	},
 	zD : function(b) {
-		b.qd = this.xa;
+		b.qd = this.id;
 		b.hj++;
 		this.Sf.push(b)
 	},
@@ -29586,14 +29589,14 @@ Game.Piece.prototype = {
 						c.v = this.dd() + (Game.Board.ab / 2 | 0) + Math.sin(g) * h
 								+ 2;
 						if (Game.Util.Fc() % 6 != 0)
-							c.w -= d, c.v -= this.dd(), c.qd = this.xa;
+							c.w -= d, c.v -= this.dd(), c.qd = this.id;
 						f.Gc(c);
 						if (Game.BejApp.instance.$f)
 							break
 					}
 				}
 			}
-			if ((Game.BejApp.instance.aa + this.xa) % 24 == 0 || Game.Util.Fc() % 64 == 0) {
+			if ((Game.BejApp.instance.aa + this.id) % 24 == 0 || Game.Util.Fc() % 64 == 0) {
 				b = this.e.ob.wf(Game.Effect.da.Yl);
 				b.uc = Game.Effect.K.ks | 0;
 				b.w = this.Ad() + GameFramework.Utils.randOneMinusOne() * 30;
@@ -29607,12 +29610,12 @@ Game.Piece.prototype = {
 				b.m = 0.75;
 				b.n = Game.Util.pE(Game.Util.Fc() % 255 | 0, 128);
 				if (Game.Util.Fc() % 2 != 0)
-					b.lu = this.xa;
+					b.lu = this.id;
 				this.e.ob.Gc(b)
 			}
 		}
 		if (this.Y(Game.Piece.K.sc)
-				&& ((Game.BejApp.instance.aa + this.xa) % 24 == 0 || Game.Util.Fc() % 64 == 0)) {
+				&& ((Game.BejApp.instance.aa + this.id) % 24 == 0 || Game.Util.Fc() % 64 == 0)) {
 			b = this.e.ob.wf(Game.Effect.da.Yl);
 			b.uc = Game.Effect.K.ks | 0;
 			b.w = this.Ad() + GameFramework.Utils.randOneMinusOne() * 30;
@@ -29626,7 +29629,7 @@ Game.Piece.prototype = {
 			b.m = 1;
 			b.n = Game.Util.pE(Game.Util.Fc() % 255 | 0, 128);
 			if (Game.Util.Fc() % 2 != 0)
-				b.lu = this.xa;
+				b.lu = this.id;
 			this.e.ob.Gc(b)
 		}
 		for (b = 0; b < (this.Sf.length | 0);)
@@ -29729,7 +29732,7 @@ Game.Points = function(b, c, d, f, g, h, j, k, l) {
 	this.aa = 0;
 	this.ZO = -1;
 	this.bI = null;
-	this.XYZ1 = this.xa = -1;
+	this.XYZ1 = this.id = -1;
 	this.Bb = Game.Points.Td.XE;
 	this.L = 1;
 	this.TN = 3;
@@ -29773,7 +29776,7 @@ Game.Points.prototype = {
 	VY : null,
 	zM : null,
 	Kg : 0,
-	xa : 0,
+	id : 0,
 	XYZ1 : 0,
 	value : 0,
 	YM : null,
@@ -29913,7 +29916,7 @@ Game.PointsManager.prototype = {
 			if (g != -1)
 				for (m = 0; m < this.Sp.length; m++) {
 					var q = this.Sp[m];
-					if (q.xa == g) {
+					if (q.id == g) {
 						q.Bb = Game.Points.Td.XE;
 						q.L = 1;
 						q.value += d;
@@ -29934,7 +29937,7 @@ Game.PointsManager.prototype = {
 				h = new Game.Points(Game.BejApp.instance, Game.Resources.FONT_FLOATERS, m, b, c, 1, 0,
 						f, -1);
 				h.XYZ1 = j;
-				h.xa = g;
+				h.id = g;
 				h.jr = r;
 				h.NO = 0.15;
 				h.TC = 0.46 + k * 0.0015;
@@ -32849,7 +32852,7 @@ Game.TimeBonusEffectTop = function(b) {
 	this.Aj = new GameFramework.CurvedVal;
 	this.Lm = new GameFramework.CurvedVal;
 	callSuperConstructor(Game.TimeBonusEffectTop, this, [Game.Effect.da.yL]);
-	this.qd = b.xa;
+	this.qd = b.id;
 	this.Kj = b.n;
 	this.Tm = b.qe;
 	this.Ic = 0;
@@ -32940,7 +32943,7 @@ Game.TimeBonusEffect = function(b) {
 	this.Lm = new GameFramework.CurvedVal;
 	callSuperConstructor(Game.TimeBonusEffect, this, [Game.Effect.da.Yg]);
 	this.sm = [];
-	this.qd = b.xa;
+	this.qd = b.id;
 	this.Kj = b.n;
 	this.Tm = b.qe;
 	this.Ic = 0;
@@ -32989,7 +32992,7 @@ Game.TimeBonusEffect.prototype = {
 			g.Nc = Math.cos(h) * k;
 			g.Vb = Math.sin(h) * k;
 			g.n = Game.DM.rV[this.Kj | 0];
-			g.qd = b == null ? -1 : b.xa;
+			g.qd = b == null ? -1 : b.id;
 			this.Nb.e.Jg.Gc(g)
 		}
 		Game.BejApp.instance.$f && (f *= 0.25);
@@ -33007,7 +33010,7 @@ Game.TimeBonusEffect.prototype = {
 										* Game.Board.bb * 0.6 | 0, this.v
 										+ Game.Board.ab / 2 + Math.sin(d.$g)
 										* Game.Board.ab * 0.6 | 0), g != null
-						&& g != b ? d.yN = g.xa : d.Lj = false;
+						&& g != b ? d.yN = g.id : d.Lj = false;
 			d.Lj
 					? (d.Lh = Math.PI + d.$g + Math.abs(GameFramework.Utils.randOneMinusOne())
 							* 0.5, d.$q = GameFramework.Utils.randOneMinusOne() * 0.03, d.ZF = GameFramework.Utils
@@ -33408,7 +33411,7 @@ Game.SpeedCollectEffect.prototype = {
 		this.Nb.Gc(this.kj);
 		for (var c = this.Nb.e.ob.Sh[Game.Effect.da.Yg | 0], d = 0; d < c.length; ++d) {
 			var f = c[d | 0];
-			if (f.qd == b.xa) {
+			if (f.qd == b.id) {
 				this.pg = f;
 				this.pg.sH = 6;
 				this.pg.XN = 300;
@@ -34014,7 +34017,7 @@ Game.TutorialStep.prototype = {
 		if (this.jm != null) {
 			var c = b.cS(this.jm.x, this.jm.y);
 			if (c != null)
-				b.Mw = c.xa, b.Nw = this.yt
+				b.Mw = c.id, b.Nw = this.yt
 		} else
 			b.Mw = -1, b.Nw = -1;
 		this.ur.D() == 0 && this.ur.vj("TutorialMgr_cs_11_11_11__15_19_51_707");
