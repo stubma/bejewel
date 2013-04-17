@@ -3752,7 +3752,7 @@ addClassInitEntry(function() {
 			GameFramework.Utils.initClass()
 		});
 GameFramework.XMLParser = function() {
-	this.Qb = null
+	this.parent = null
 };
 GameFramework.XMLParser.prototype = {
 	OB : null,
@@ -3760,7 +3760,7 @@ GameFramework.XMLParser.prototype = {
 	er : null,
 	OV : null,
 	sb : null,
-	Qb : null,
+	parent : null,
 	parseXML : function(b) {
 		GameFramework.BaseApp.instance.parseXML(this, b)
 	},
@@ -5826,7 +5826,7 @@ GameFramework.resources.BaseRes.prototype = {
 	Fb : 0,
 	xa : null,
 	path : null,
-	Qb : null,
+	parent : null,
 	T7 : null,
 	ui : 1,
 	qo : 1,
@@ -6984,7 +6984,7 @@ addClassEntry(function() {
 GameFramework.resources.PIParticleDef = dummy();
 GameFramework.resources.PIParticleDef.prototype = {
 	fj : null,
-	Qb : null,
+	parent : null,
 	sb : null,
 	lj : 0,
 	Xj : null,
@@ -10447,7 +10447,7 @@ GameFramework.resources.PopAnimResource.prototype = {
 				f = f.CY;
 				if (f != null) {
 					var h = new GameFramework.resources.popanim.PopAnimSpriteInst;
-					h.Qb = b;
+					h.parent = b;
 					this.eK(h, f);
 					g.Ji = h
 				}
@@ -11136,11 +11136,11 @@ GameFramework.resources.ResourceManager.prototype = {
 							k.Fb = GameFramework.resources.ResourceManager.RENDEREFFECT;
 						k.xa = h.Pb("id").Gb();
 						if (h.Pb("parent").Gb().length > 0)
-							k.Qb = h.Pb("parent").Gb();
+							k.parent = h.Pb("parent").Gb();
 						if (h.Pb("rtparent").Gb().length > 0)
 							k.nu = h.Pb("rtparent").Gb(), this.Nm[k.nu].YX++;
-						if (k.Qb != null) {
-							var l = this.Nm[k.Qb];
+						if (k.parent != null) {
+							var l = this.Nm[k.parent];
 							if (l.$c == null)
 								l.$c = [];
 							l.$c.push(k)
@@ -11214,8 +11214,8 @@ GameFramework.resources.ResourceManager.prototype = {
 		b = this.dy[b];
 		for ($enum2 in b) {
 			var c = b[$enum2];
-			if (c.Qb != null) {
-				var d = this.Nm[c.Qb];
+			if (c.parent != null) {
+				var d = this.Nm[c.parent];
 				if (d.Nn != null)
 					d.Nn.t(), d.Nn = null
 			}
@@ -11233,10 +11233,10 @@ GameFramework.resources.ResourceManager.prototype = {
 		b = this.dy[b];
 		for ($enum3 in b) {
 			var d = b[$enum3];
-			d.Qb != null
-					&& this.bh[d.Qb] == null
-					&& !GameFramework.BaseApp.instance.zS(d.Qb)
-					&& this.sw(d.Qb).addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR,
+			d.parent != null
+					&& this.bh[d.parent] == null
+					&& !GameFramework.BaseApp.instance.zS(d.parent)
+					&& this.sw(d.parent).addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR,
 							ss.Delegate.create(c, c.ps));
 			if (!(d.Fb == GameFramework.resources.ResourceManager.UNKNOWN || d.hX)) {
 				var f = d.path, g = new GameFramework.resources.ResourceStreamer;
@@ -11281,10 +11281,10 @@ GameFramework.resources.ResourceManager.prototype = {
 		if (stream != null)
 			return stream;
 		var stream = new GameFramework.resources.ResourceStreamer, d = this.Nm[b];
-		d.Qb != null
-				&& this.bh[d.Qb] == null
-				&& !GameFramework.BaseApp.instance.zS(d.Qb)
-				&& this.sw(d.Qb).addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR,
+		d.parent != null
+				&& this.bh[d.parent] == null
+				&& !GameFramework.BaseApp.instance.zS(d.parent)
+				&& this.sw(d.parent).addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR,
 						ss.Delegate.create(stream, stream.ps));
 		stream.xa = b;
 		stream.Kb = d;
@@ -11693,7 +11693,7 @@ addClassInitEntry(function() {
 		});
 GameFramework.resources.popanim.PopAnimSpriteInst = dummy();
 GameFramework.resources.popanim.PopAnimSpriteInst.prototype = {
-	Qb : null,
+	parent : null,
 	ir : 0,
 	A : 0,
 	rr : 0,
@@ -11725,7 +11725,7 @@ GameFramework.resources.popanim.PopAnimSpriteInst.prototype = {
 				var c = this.$c[b];
 				c.Ji != null && c.Ji.t()
 			}
-		this.Qb = this.ve = this.ga = this.$c = null
+		this.parent = this.ve = this.ga = this.$c = null
 	}
 };
 GameFramework.resources.popanim.PopAnimSpriteInst.initClass = dummy();
@@ -11929,7 +11929,7 @@ GameFramework.widgets.ClassicWidget = function() {
 GameFramework.widgets.ClassicWidget.prototype = {
 	cf : null,
 	aa : 0,
-	Qb : null,
+	parent : null,
 	wd : null,
 	w : 0,
 	v : 0,
@@ -11947,7 +11947,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 		for (var c = ss.IEnumerator.enumerate(this.cf); c.hasNext();) {
 			var d = c.next();
 			b && d.UK();
-			d.Qb = null;
+			d.parent = null;
 			d.wd = null
 		}
 		this.cf.clear()
@@ -11960,7 +11960,7 @@ GameFramework.widgets.ClassicWidget.prototype = {
 				this.wd.Al = null;
 			this.wd = null
 		}
-		this.Qb = null;
+		this.parent = null;
 		for (var b = ss.IEnumerator.enumerate(this.cf); b.hasNext();)
 			b.next().t();
 		this.cf.clear();
@@ -11994,9 +11994,9 @@ GameFramework.widgets.ClassicWidget.prototype = {
 		this.dh && !this.yk && this.wd.TK()
 	},
 	addChild : function(b) {
-		b.Qb != null && b.Qb.pn(b);
+		b.parent != null && b.parent.pn(b);
 		this.cf.push(b);
-		b.Qb = this;
+		b.parent = this;
 		b.wd = this.wd;
 		if (this.wd != null)
 			this.wd.yI = true
@@ -12009,11 +12009,11 @@ GameFramework.widgets.ClassicWidget.prototype = {
 			if (b.wd.Vh == b)
 				b.EE(), b.wd.Vh = null
 		}
-		b.Qb = null;
+		b.parent = null;
 		b.wd = null
 	},
 	Mq : function() {
-		this.Qb != null && this.Qb.pn(this)
+		this.parent != null && this.parent.pn(this)
 	},
 	draw : dummy(),
 	jq : dummy(),
@@ -12486,7 +12486,7 @@ GameFramework.widgets.Dialog.prototype = {
 			var b = new GameFramework.widgets.DialogEvent(GameFramework.widgets.DialogEvent.CLOSED, this);
 			b.rB = this.Fi;
 			this.dispatchEvent(b);
-			this.Qb.pn(this)
+			this.parent.pn(this)
 		}
 	},
 	wS : function() {
@@ -13136,8 +13136,8 @@ GameFramework.JSBaseApp.prototype = {
             // stream.data is null means loading is not started, so we can check more
 			if (stream.data == null && stream.path != null) {
 				if (stream.resType === GameFramework.resources.ResourceManager.IMAGE) {
-                    if(stream.Kb != null && stream.Kb.Qb != null) {
-                        this.resManager.Gs(stream.Kb.Qb) != null && stream.loadStep != stream.totalStep && stream.loadStep++;
+                    if(stream.Kb != null && stream.Kb.parent != null) {
+                        this.resManager.Gs(stream.Kb.parent) != null && stream.loadStep != stream.totalStep && stream.loadStep++;
                     } else {
                         stream.data = stream.Kb != null;
                         if(stream.Kb.gX) {
@@ -13276,7 +13276,7 @@ GameFramework.JSBaseApp.prototype = {
 				g = b;
 				h = f.nodeName;
 				j = new GameFramework.XMLParser;
-				j.Qb = g;
+				j.parent = g;
 				var k;
 				j.sb = h;
 				if (g.$c == null)
@@ -14261,7 +14261,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 					c.ui = b.Kb.ui, c.qo = b.Kb.qo, c.s = b.Kb.Ox, c.z = b.Kb.Nx, c.sf = b.Kb.sf, c.Oe = b.Kb.Oe;
 				c.Em = c.ui * c.qo;
 				if (b.Kb != null && b.Kb.nu != null) {
-					var d = this.bh[b.Kb.nu], f = this.bh[b.Kb.Qb], g = this.Nm[b.Kb.nu];
+					var d = this.bh[b.Kb.nu], f = this.bh[b.Kb.parent], g = this.Nm[b.Kb.nu];
 					if (d == null) {
 						d = new GameFramework.resources.JSImageResource;
 						d.Sm = g.s;
@@ -14302,7 +14302,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 					c.Rm = d.Rm
 				} else
 					c.ym == null
-							? (d = this.Gs(b.Kb.Qb), c.ym = d.ym, c.vh = d.vh, c.Vp = b.Kb.kM, c.Wp = b.Kb.lM, c.Hg = b.Kb.bG
+							? (d = this.Gs(b.Kb.parent), c.ym = d.ym, c.vh = d.vh, c.Vp = b.Kb.kM, c.Wp = b.Kb.lM, c.Hg = b.Kb.bG
 									/ b.Kb.ui | 0, c.Gg = b.Kb.aG / b.Kb.qo | 0, c.Sm = d.Sm, c.Rm = d.Rm)
 							: (c.sO = true, c.vh = b.vh, c.Sm = c.ym.width, c.Rm = c.ym.height, c.Hg = c.ym.width
 									/ c.ui, c.Gg = c.ym.height / c.qo, c.In = b.In, c.Bn = b.Bn);
@@ -14610,7 +14610,7 @@ Game.Background.prototype = {
 		if (this.xy != -1 && Game.BejApp.instance.e != null && Game.BejApp.instance.e.Jf == null && this.Hk
 				&& Game.BejApp.instance.e.we.D() == 0)
 			Game.Background.KP(this.xy), this.xy = -1;
-		Game.BejApp.instance.isUseGL() && this.Hk && this.oy == 1 && (this.ec || this.Qb == null)
+		Game.BejApp.instance.isUseGL() && this.Hk && this.oy == 1 && (this.ec || this.parent == null)
 				&& this.oy++;
 		if (this.hf != null)
 			if (this.Hk) {
@@ -14630,7 +14630,7 @@ Game.Background.prototype = {
 				this.oy = 0;
 				this.Lw = false;
 				if (this.hf != null)
-					this.hf.Qb != null && this.pn(this.hf), this.hf = null;
+					this.hf.parent != null && this.pn(this.hf), this.hf = null;
 				this.yp.Aa(1)
 			}
 		}
@@ -15106,7 +15106,7 @@ Game.BejApp.prototype = {
 	},
 	LP : function(b) {
 		b = b.target;
-		Type.isInstance(b.Qb, GameFramework.widgets.Dialog) ? b.Qb.Te() : b.Qb.Qb.pn(b.Qb)
+		Type.isInstance(b.parent, GameFramework.widgets.Dialog) ? b.parent.Te() : b.parent.parent.pn(b.parent)
 	},
 	$v : function(b) {
 		this.mi(b)
@@ -16869,9 +16869,9 @@ Game.Board.prototype = {
 		if (!(b == 0 && this.dG >= 0 && this.Ge != null)) {
 			if (this.Ge != null)
 				this.Ge.Mq(), this.Ge = null;
-			if (this.Qb != null)
+			if (this.parent != null)
 				this.Ge = new Game.Background, this.Ge.Pv(), this.Ge.Lb(-160, 0, 1920,
-						1200), b = this.Qb, b != null
+						1200), b = this.parent, b != null
 						&& (this.Mq(), b.addChild(this.Ge), b.addChild(this))
 		}
 	},
@@ -19798,7 +19798,7 @@ Game.Board.prototype = {
 				Game.SoundUtil.Play(Game.Resources.SOUND_VOICE_LEVELCOMPLETE);
 				GameFramework.BaseApp.instance.isUseGL() && !Game.BejApp.instance.$f
 						? (this.Jf = new Game.HyperspaceUltra(this), Game.BejApp.instance.bottomLayer.addChild(this.Jf))
-						: (this.Jf = new Game.HyperspaceFallback(this), b = this.Qb, this.Mq(), b
+						: (this.Jf = new Game.HyperspaceFallback(this), b = this.parent, this.Mq(), b
 								.addChild(this.Jf), b.addChild(this), this.wd.oi(this));
 				this.Jf.Lb(-160, 0, 1920, 1200);
 				this.Yp = false
@@ -21634,7 +21634,7 @@ Game.CrystalBall.prototype = {
 		this.Mr.za = d.zg()
 	},
 	draw : function(b) {
-		if (!(this.Qb != null && this.s == 0)) {
+		if (!(this.parent != null && this.s == 0)) {
 			var c = new GameFramework.geom.Matrix;
 			c.translate(this.de.x, this.de.y);
 			b.jg(c);
@@ -21864,7 +21864,7 @@ Game.DialogMgr.prototype = {
 			var g = this.se.indexOf(f);
 			g != -1 && removeElementAt(this.se, g);
 			delete this.BB[b | 0];
-			(c || d) && f.Qb != null && f.Qb.pn(f);
+			(c || d) && f.parent != null && f.parent.pn(f);
 			return true
 		}
 		return false
@@ -28753,7 +28753,7 @@ Game.MainMenu.prototype = {
 			Game.BejApp.instance.mi(Game.Resources.SOUND_CLICKFLYIN);
 			b.Tc.ea("b;0,1,0.01,1,####         ~~###");
 			b.m.ea("b;0.17,0.88,0.01,1,####         ~~Q(j");
-			var d = b.Qb;
+			var d = b.parent;
 			d != null && (d.pn(b), d.addChild(b));
 			c != null
 					? GameFramework.BaseApp.instance.isUseGL()
