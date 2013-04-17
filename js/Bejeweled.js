@@ -13111,7 +13111,7 @@ GameFramework.JSBaseApp.prototype = {
 	},
 	update : function() {
 		GameFramework.BaseApp.prototype.update.apply(this);
-		for (var b = false, hasSound = false, hasNonSound = false, f = 0; f < this.loadingQueue.length; f++) {
+		for (var hasSound = false, hasNonSound = false, f = 0; f < this.loadingQueue.length; f++) {
 			if (this.wW && GameFramework.Utils.bootTime() - this.nX >= 100)
 				break;
 			var stream = this.loadingQueue[f];
@@ -13192,9 +13192,7 @@ GameFramework.JSBaseApp.prototype = {
                 // this stream is done, so remove it from queue
                 removeElementAt(this.loadingQueue, f);
                 f--;
-                b = true;
             }
-			f == this.loadingQueue.length - 1 && b && (f = -1, b = false)
 		}
 
         // if loading queue only has sound resource, but already hangs more than 30 seconds,
