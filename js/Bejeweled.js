@@ -5930,7 +5930,7 @@ GameFramework.resources.FontLayer.prototype = {
 	Hn : null,
 	xq : function(b) {
 		b = b.target;
-		this.Oa = b.xa != null ? GameFramework.BaseApp.instance.resManager.Gs(b.xa) : b.rd;
+		this.Oa = b.xa != null ? GameFramework.BaseApp.instance.resManager.Gs(b.xa) : b.data;
 		for ($enum1 in this.Hn)
 			b = this.Hn[$enum1], b.bu = this.Oa.dv(b.cY, b.dY, b.bY, b.MH)
 	},
@@ -6508,7 +6508,7 @@ GameFramework.resources.MeshPiece.prototype = {
 	Oa : null,
 	xq : function(b) {
 		b = b.target;
-		this.Oa = b.xa != null ? GameFramework.BaseApp.instance.resManager.Gs(b.xa) : b.rd
+		this.Oa = b.xa != null ? GameFramework.BaseApp.instance.resManager.Gs(b.xa) : b.data
 	}
 };
 GameFramework.resources.MeshPiece.initClass = dummy();
@@ -6910,7 +6910,7 @@ GameFramework.resources.PITexture.prototype = {
 	t : dummy(),
 	xq : function(b) {
 		b = b.target;
-		this.zi = b.xa != null ? GameFramework.BaseApp.instance.resManager.Gs(b.xa) : b.rd
+		this.zi = b.xa != null ? GameFramework.BaseApp.instance.resManager.Gs(b.xa) : b.data
 	}
 };
 GameFramework.resources.PITexture.initClass = dummy();
@@ -11074,21 +11074,21 @@ GameFramework.resources.ResourceManager.prototype = {
 	},
 	c3 : function(b) {
 		var c = new GameFramework.resources.FontResource;
-		c.aL(b.rd, b);
+		c.aL(b.data, b);
 		this.ET(b.xa, c)
 	},
 	e3 : function(b) {
-		var c = b.rd, d = new GameFramework.resources.PopAnimResource;
+		var c = b.data, d = new GameFramework.resources.PopAnimResource;
 		d.aL(c, b);
 		this.F3(b.xa, d)
 	},
 	d3 : function(b) {
 		var c = new GameFramework.resources.PIEffect;
-		c.y2(b.rd, b);
+		c.y2(b.data, b);
 		this.E3(b.xa, c)
 	},
 	kT : function(b) {
-		var c = b.rd, d = new GameFramework.resources.MeshResource;
+		var c = b.data, d = new GameFramework.resources.MeshResource;
 		d.BE(c, b);
 		this.FT(b.xa, d)
 	},
@@ -11376,7 +11376,7 @@ GameFramework.resources.ResourceStreamer.prototype = {
 	path : null,
 	Rx : null,
 	Kb : null,
-	rd : null,
+	data : null,
 	resType : 0,
 	Uj : 0,
 	Or : 0,
@@ -11528,7 +11528,7 @@ GameFramework.resources.popanim.PopAnimImage.prototype = {
 	Na : null,
 	xq : function(b) {
 		b = b.target;
-		this.bh[this.dH.indexOf(b.xa)] = b.rd
+		this.bh[this.dH.indexOf(b.xa)] = b.data
 	}
 };
 GameFramework.resources.popanim.PopAnimImage.initClass = dummy();
@@ -13120,10 +13120,10 @@ GameFramework.JSBaseApp.prototype = {
 			stream.resType == GameFramework.resources.ResourceManager.SOUND
 					? c = true
 					: stream.resType != GameFramework.resources.ResourceManager.zT && (d = true);
-			if (stream.rd == null && stream.path != null) {
+			if (stream.data == null && stream.path != null) {
 				if (stream.resType === GameFramework.resources.ResourceManager.IMAGE)
 					stream.Kb != null && stream.Kb.Qb != null ? this.resManager.Gs(stream.Kb.Qb) != null
-							&& stream.Or != stream.Uj && stream.Or++ : stream.rd = stream.Kb != null
+							&& stream.Or != stream.Uj && stream.Or++ : stream.data = stream.Kb != null
 							&& stream.Kb.gX ? Oa(stream, stream.path ? this.pathPrefix + stream.path : null, stream.Rx
 									? this.pathPrefix + stream.Rx
 									: null) : Na(stream, stream.path ? this.pathPrefix + stream.path : null,
@@ -13131,7 +13131,7 @@ GameFramework.JSBaseApp.prototype = {
 				else if (stream.resType === GameFramework.resources.ResourceManager.SOUND) {
 					var h = stream.path;
 					h.indexOf(".") === -1 && (h += stream.Kb.Jj[0]);
-					stream.rd = Wc(stream, h);
+					stream.data = Wc(stream, h);
 					this.resManager.JT(stream)
 				} else if (stream.resType === GameFramework.resources.ResourceManager.FONT
 						|| stream.resType === GameFramework.resources.ResourceManager.POPANIM
@@ -13168,12 +13168,15 @@ GameFramework.JSBaseApp.prototype = {
 						}
 					} else
 						h = Ya(stream, this.pathPrefix + stream.path), h.nY = stream, this.tN[h
-								.toString()] = stream, stream.rd = h;
-				else
-					h = stream.path.indexOf(".json") !== -1 ? $.get(this.pathPrefix + stream.path, null,
-							ss.Delegate.create(this, this.KT), "text") : $.get(
-							this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.KT)), h.nY = stream, this.tN[h
-							.toString()] = stream, stream.rd = h;
+								.toString()] = stream, stream.data = h;
+				else {
+					var ajax = stream.path.indexOf(".json") !== -1
+                        ? $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.KT), "text")
+                        : $.get(this.pathPrefix + stream.path, null, ss.Delegate.create(this, this.KT));
+                    ajax.nY = stream;
+                    this.tN[ajax.toString()] = stream;
+                    stream.data = ajax;
+                }
             }
 			if (stream.OM && !GameFramework.BaseApp.instance.resManager.YO)
 				stream.OM(), stream.OM = null;
@@ -13195,23 +13198,23 @@ GameFramework.JSBaseApp.prototype = {
 	},
 	nk : function(b, c) {
 		this.RN = GameFramework.Utils.bootTime();
-		c.rd = b;
+		c.data = b;
 		if (c.resType == GameFramework.resources.ResourceManager.SOUND)
 			this.YW = true;
 		if (c.resType == GameFramework.resources.ResourceManager.FONT) {
 			var d = new GameFramework.DataBuffer;
-			d.nd.Ya = c.rd;
-			c.rd = d;
+			d.nd.Ya = c.data;
+			c.data = d;
 			this.jsResManager.c3(c)
 		}
 		if (c.resType == GameFramework.resources.ResourceManager.POPANIM)
-			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.jsResManager.e3(c);
+			d = new GameFramework.DataBuffer, d.nd.Ya = c.data, c.data = d, this.jsResManager.e3(c);
 		if (c.resType == GameFramework.resources.ResourceManager.PIEFFECT)
-			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.jsResManager.d3(c);
+			d = new GameFramework.DataBuffer, d.nd.Ya = c.data, c.data = d, this.jsResManager.d3(c);
 		if (c.resType == GameFramework.resources.ResourceManager.POP3D)
-			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.jsResManager.kT(c);
+			d = new GameFramework.DataBuffer, d.nd.Ya = c.data, c.data = d, this.jsResManager.kT(c);
 		if (c.resType == GameFramework.resources.ResourceManager.RENDEREFFECT)
-			d = new GameFramework.DataBuffer, d.nd.Ya = c.rd, c.rd = d, this.jsResManager.f3(c);
+			d = new GameFramework.DataBuffer, d.nd.Ya = c.data, c.data = d, this.jsResManager.f3(c);
 		c.Or++
 	},
 	KT : function(b, c, d) {
@@ -14203,22 +14206,22 @@ GameFramework.resources.JSResourceManager.prototype = {
 	},
 	f3 : function(b) {
 		var c = new GameFramework.resources.JSRenderEffect;
-		c.B3(b.rd);
+		c.B3(b.data);
 		this.G3(b.xa, c)
 	},
 	kT : function(b) {
-		var c = b.rd, d = new GameFramework.resources.JSMeshResource;
+		var c = b.data, d = new GameFramework.resources.JSMeshResource;
 		d.BE(c, b);
 		this.FT(b.xa, d)
 	},
 	JT : function(b) {
 		if (b.resType == GameFramework.resources.ResourceManager.IMAGE)
 			if (b.xa != null && this.bh[b.xa] != null)
-				b.rd = this.bh[b.xa];
+				b.data = this.bh[b.xa];
 			else {
 				var c = new GameFramework.resources.JSImageResource;
 				c.w7 = 1;
-				c.ym = b.rd;
+				c.ym = b.data;
 				if (b.Kb != null)
 					c.ui = b.Kb.ui, c.qo = b.Kb.qo, c.s = b.Kb.Ox, c.z = b.Kb.Nx, c.sf = b.Kb.sf, c.Oe = b.Kb.Oe;
 				c.Em = c.ui * c.qo;
@@ -14273,12 +14276,12 @@ GameFramework.resources.JSResourceManager.prototype = {
 							/ GameFramework.BaseApp.instance.graphics.m | 0;
 				c.FV = c.Hg / GameFramework.BaseApp.instance.graphics.m;
 				c.cM = c.Gg / GameFramework.BaseApp.instance.graphics.m;
-				b.rd = c;
+				b.data = c;
 				b.xa != null && (this.dp(b.xa, c), this.bh[b.xa] = c)
 			}
 		else if (b.resType == GameFramework.resources.ResourceManager.SOUND) {
 			c = new GameFramework.resources.JSSoundResource;
-			c.WW = b.rd;
+			c.WW = b.data;
 			if (b.Kb != null)
 				c.uC = b.Kb.uC;
 			this.dp(b.xa, c);
@@ -14435,7 +14438,7 @@ Game.BackgroundLoader = set("Tn");
 Game.BackgroundLoader.prototype = {
 	Tn : 0,
 	JZ : function(b) {
-		Game.Background.iC[this.Tn] = Type.getInstanceOrNull(b.target.rd, GameFramework.resources.ImageResource);
+		Game.Background.iC[this.Tn] = Type.getInstanceOrNull(b.target.data, GameFramework.resources.ImageResource);
 		Game.Background.Ax[this.Tn] = true;
 		GameFramework.BaseApp.instance.nQ()
 	}
@@ -15181,12 +15184,14 @@ Game.BejApp.prototype = {
             this.tooltipLayer = new Game.TooltipManager;
             this.root.addChild(this.tooltipLayer);
         }
+
+        // start loading ResourceGen manifest
 		var b = this.resManager.startLoadingResGen("properties/resources.xml");
 		b.addEventHandler(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.onResGenManifestLoaded));
 		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.onIOError))
 	},
 	onResGenManifestLoaded : function(b) {
-		this.resManager.parseResGen(b.target.rd);
+		this.resManager.parseResGen(b.target.data);
 		this.I4()
 	},
 	submitStandardMetricsDict : function(b, c, d, f) {
@@ -15267,7 +15272,7 @@ Game.BejApp.prototype = {
 		b.addEventHandler(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.onIOError))
 	},
 	R1 : function(b) {
-		var c = b.target.rd, d = new GameFramework.DataBuffer;
+		var c = b.target.data, d = new GameFramework.DataBuffer;
 		d.Ss(c);
 		c = new Game.HyperAnimSequence;
 		this.z2(d, c);
