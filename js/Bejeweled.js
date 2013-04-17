@@ -5832,10 +5832,10 @@ GameFramework.resources.BaseRes.prototype = {
 	subObjects : null,
 	Jj : null,
 	runtimeParent : null,
-	kM : 0,
-	lM : 0,
-	bG : 0,
-	aG : 0,
+	ax : 0,
+	ay : 0,
+	aw : 0,
+	ah : 0,
 	iM : 0,
 	jM : 0,
 	d7 : 0,
@@ -11186,13 +11186,13 @@ GameFramework.resources.ResourceManager.prototype = {
 						if (sub.getAttr("y").getValue().length > 0)
 							res.y = GameFramework.Utils.toInt(sub.getAttr("y").getValue());
 						if (sub.getAttr("ax").getValue().length > 0)
-							res.kM = GameFramework.Utils.toInt(sub.getAttr("ax").getValue());
+							res.ax = GameFramework.Utils.toInt(sub.getAttr("ax").getValue());
 						if (sub.getAttr("ay").getValue().length > 0)
-							res.lM = GameFramework.Utils.toInt(sub.getAttr("ay").getValue());
+							res.ay = GameFramework.Utils.toInt(sub.getAttr("ay").getValue());
 						if (sub.getAttr("aw").getValue().length > 0)
-							res.bG = GameFramework.Utils.toInt(sub.getAttr("aw").getValue());
+							res.aw = GameFramework.Utils.toInt(sub.getAttr("aw").getValue());
 						if (sub.getAttr("ah").getValue().length > 0)
-							res.aG = GameFramework.Utils.toInt(sub.getAttr("ah").getValue());
+							res.ah = GameFramework.Utils.toInt(sub.getAttr("ah").getValue());
 						if (sub.getAttr("rtax").getValue().length > 0)
 							res.iM = GameFramework.Utils.toInt(sub.getAttr("rtax").getValue());
 						if (sub.getAttr("rtay").getValue().length > 0)
@@ -14310,7 +14310,7 @@ GameFramework.resources.JSResourceManager.prototype = {
 								.getContext("2d").createImageData(g.width, g.height);
 						this.bh[g.id] = d
 					}
-					Ha(d.tG, b.Kb.kM, b.Kb.lM, b.Kb.bG, b.Kb.aG, f.In, f.Bn,
+					Ha(d.tG, b.Kb.ax, b.Kb.ay, b.Kb.aw, b.Kb.ah, f.In, f.Bn,
 							b.Kb.iM, b.Kb.jM);
 					g.DO++;
 					if (g.DO == g.YX)
@@ -14332,14 +14332,14 @@ GameFramework.resources.JSResourceManager.prototype = {
 					c.vh = d.vh;
 					c.Vp = b.Kb.iM;
 					c.Wp = b.Kb.jM;
-					c.Hg = b.Kb.bG / b.Kb.cols | 0;
-					c.Gg = b.Kb.aG / b.Kb.rows | 0;
+					c.Hg = b.Kb.aw / b.Kb.cols | 0;
+					c.Gg = b.Kb.ah / b.Kb.rows | 0;
 					c.Sm = d.Sm;
 					c.Rm = d.Rm
 				} else
 					c.ym == null
-							? (d = this.Gs(b.Kb.parent), c.ym = d.ym, c.vh = d.vh, c.Vp = b.Kb.kM, c.Wp = b.Kb.lM, c.Hg = b.Kb.bG
-									/ b.Kb.cols | 0, c.Gg = b.Kb.aG / b.Kb.rows | 0, c.Sm = d.Sm, c.Rm = d.Rm)
+							? (d = this.Gs(b.Kb.parent), c.ym = d.ym, c.vh = d.vh, c.Vp = b.Kb.ax, c.Wp = b.Kb.ay, c.Hg = b.Kb.aw
+									/ b.Kb.cols | 0, c.Gg = b.Kb.ah / b.Kb.rows | 0, c.Sm = d.Sm, c.Rm = d.Rm)
 							: (c.sO = true, c.vh = b.vh, c.Sm = c.ym.width, c.Rm = c.ym.height, c.Hg = c.ym.width
 									/ c.cols, c.Gg = c.ym.height / c.rows, c.In = b.In, c.Bn = b.Bn);
 				if (b.Kb == null)
