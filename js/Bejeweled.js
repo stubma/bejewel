@@ -4628,10 +4628,10 @@ addClassInitEntry(function() {
 			GameFramework.gfx.Camera.initClass()
 		});
 GameFramework.gfx.Color = function(b, c, d, f) {
-	this.r = b;
-	this.g = c;
-	this.b = d;
-	this.L = f
+	this.red = b;
+	this.green = c;
+	this.blue = d;
+	this.alpha = f
 };
 GameFramework.gfx.Color.zba = function(b, c, d) {
 	return new GameFramework.gfx.Color(b, c, d, 255)
@@ -4718,15 +4718,15 @@ GameFramework.gfx.Color.mn = function(b, c) {
 			* (c & 255) / 255 | 0
 };
 GameFramework.gfx.Color.prototype = {
-	r : 0,
-	g : 0,
-	b : 0,
+	red : 0,
+	green : 0,
+	blue : 0,
 	alpha : 0,
 	toARGB : function() {
-		return GameFramework.gfx.Color.toARGB(this.r, this.g, this.b, this.alpha)
+		return GameFramework.gfx.Color.toARGB(this.red, this.green, this.blue, this.alpha)
 	},
 	clone : function() {
-		return new GameFramework.gfx.Color(this.r, this.g, this.b, this.alpha)
+		return new GameFramework.gfx.Color(this.red, this.green, this.blue, this.alpha)
 	}
 };
 GameFramework.gfx.Color.initClass = function() {
@@ -21500,10 +21500,10 @@ Game.ColorCycle.prototype = {
 				f[0] = GameFramework.gfx.Color.fq(this.lf[c]);
 				f[1] = GameFramework.gfx.Color.fq(this.lf[d]);
 				b -= c;
-				this.n = GameFramework.gfx.Color.toARGB(b * f[1].r + (1 - b) * f[0].r
-								| 0, b * f[1].g + (1 - b) * f[0].g | 0, b
-								* f[1].b + (1 - b) * f[0].b | 0, this.L
-								* (b * f[1].L + (1 - b) * f[0].L) | 0)
+				this.n = GameFramework.gfx.Color.toARGB(b * f[1].red + (1 - b) * f[0].red
+								| 0, b * f[1].green + (1 - b) * f[0].green | 0, b
+								* f[1].blue + (1 - b) * f[0].blue | 0, this.L
+								* (b * f[1].alpha + (1 - b) * f[0].alpha) | 0)
 			}
 	},
 	kw : function(b) {
@@ -29644,13 +29644,13 @@ Game.Points = function(b, c, d, f, g, h, j, k, l) {
 	for (b = 0; b < Game.Points.Tz; b++)
 		this.Je[b].o4(1.8);
 	b = GameFramework.gfx.Color.fq(this.n);
-	b.r = Math.min(255, b.r * 1.5 | 0) | 0;
-	b.g = Math.min(255, b.g * 1.5 | 0) | 0;
-	b.b = Math.min(255, b.b * 1.5 | 0) | 0;
+	b.red = Math.min(255, b.red * 1.5 | 0) | 0;
+	b.green = Math.min(255, b.green * 1.5 | 0) | 0;
+	b.blue = Math.min(255, b.blue * 1.5 | 0) | 0;
 	c = GameFramework.gfx.Color.fq(this.n);
-	c.r = Math.min(255, c.r * 0.5 | 0) | 0;
-	c.g = Math.min(255, c.g * 0.5 | 0) | 0;
-	c.b = Math.min(255, c.b * 0.5 | 0) | 0;
+	c.red = Math.min(255, c.red * 0.5 | 0) | 0;
+	c.green = Math.min(255, c.green * 0.5 | 0) | 0;
+	c.blue = Math.min(255, c.blue * 0.5 | 0) | 0;
 	switch (l) {
 		case 0 :
 			this.Je[0].lf.push(c.toARGB());
@@ -29918,12 +29918,12 @@ Game.PointsManager.prototype = {
 											&& (g = Math.min(1, Math.max(0,
 															(q - 1) * 1)), c = 1, d = 0.7), j = GameFramework.gfx.Color
 							.fq(f), h.Je[b].lf.push(GameFramework.gfx.Color.toARGB(
-							this.sD[m].r * g
-									+ Math.min(255, j.r * c * (1 - g)) | 0,
-							this.sD[m].g * g
-									+ Math.min(255, j.g * c * (1 - g)) | 0,
-							this.sD[m].b * g
-									+ Math.min(255, j.b * c * (1 - g)) | 0, d
+							this.sD[m].red * g
+									+ Math.min(255, j.red * c * (1 - g)) | 0,
+							this.sD[m].green * g
+									+ Math.min(255, j.green * c * (1 - g)) | 0,
+							this.sD[m].blue * g
+									+ Math.min(255, j.blue * c * (1 - g)) | 0, d
 									* 255 | 0));
 			h.Je[0].kw(0.25);
 			h.Je[1].kw(0.75);
