@@ -3591,7 +3591,7 @@ GameFramework.Utils.hi = function(b, c) {
 GameFramework.Utils.Fs = function(b, c) {
 	return b.charCodeAt(c)
 };
-GameFramework.Utils.qF = function(b) {
+GameFramework.Utils.convertToUnixPath = function(b) {
 	return b.replaceAll(String.fromCharCode(92), String.fromCharCode(47))
 };
 GameFramework.Utils.jK = function(b) {
@@ -6069,7 +6069,7 @@ GameFramework.resources.FontResource.prototype = {
 			h.o7 = l << 24 | j << 16 | k << 8 | d;
 			j = b.H();
 			j = b.lk(j);
-			j = GameFramework.Utils.qF(j);
+			j = GameFramework.Utils.convertToUnixPath(j);
 			k = GameFramework.BaseApp.instance.resManager.al(j);
 			j = k != null ? GameFramework.BaseApp.instance.resManager.sw(k) : GameFramework.BaseApp.instance.resManager
 					.startLoadingImage(j);
@@ -6573,7 +6573,7 @@ GameFramework.resources.MeshResource.prototype = {
 						r == "texture0.fileName" && (o = v)
 					}
 					o != null
-							&& (o = GameFramework.Utils.qF(o), o = o.substr(0, o
+							&& (o = GameFramework.Utils.convertToUnixPath(o), o = o.substr(0, o
 											.indexOf(String.fromCharCode(46))), m = GameFramework.BaseApp.instance.resManager
 									.al("images/" + GameFramework.BaseApp.instance.artRes
 											+ "/tex/" + o), m == null
@@ -11170,7 +11170,7 @@ GameFramework.resources.ResourceManager.prototype = {
 							l.subObjects.push(res)
 						}
 						res.path = sub.getAttr("path").getValue();
-						res.path = GameFramework.Utils.qF(res.path);
+						res.path = GameFramework.Utils.convertToUnixPath(res.path);
 						if (sub.getAttr("width").getValue().length > 0)
 							res.s = GameFramework.Utils.toInt(sub.getAttr("width").getValue());
 						if (sub.getAttr("height").getValue().length > 0)
@@ -11315,7 +11315,7 @@ GameFramework.resources.ResourceManager.prototype = {
 		stream.path = stream.Kb.path;
 		if (stream.Kb.Jj != null && (stream.path = stream.Kb.path + stream.Kb.Jj[0], stream.Kb.Jj.length > 1))
 			stream.Rx = stream.Kb.path + stream.Kb.Jj[1];
-		stream.path = GameFramework.Utils.qF(stream.path);
+		stream.path = GameFramework.Utils.convertToUnixPath(stream.path);
 		stream.resType = GameFramework.resources.ResourceManager.IMAGE;
 		stream.totalStep = 1;
 		GameFramework.BaseApp.instance.addToLoadingQueue(stream);
