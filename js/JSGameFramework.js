@@ -106,24 +106,31 @@ GameFramework.JSBaseApp.prototype = {
 		}
 	},
 	Update : function GameFramework_JSBaseApp$Update() {
+		// super
 		GameFramework.BaseApp.prototype.Update.apply(this);
+
+		// visit every stream in queue
 		var didRemove = false;
 		var hasSounds = false;
 		var hasNonSounds = false;
 		for(var anIdx = 0; anIdx < this.mResourceStreamerList.length; anIdx++) {
+			// don't block drawing, so ensure draw is performed at least 10fps
 			if(this.mDistributeLoadTime) {
 				var aCurMS = GameFramework.Utils.GetRunningMilliseconds();
 				if(aCurMS - this.mLastDrawMS >= 100) {
 					break;
 				}
 			}
+
+			// if it is sound or not, record
 			var aResourceStreamer = this.mResourceStreamerList[anIdx];
 			if(aResourceStreamer.mResType == GameFramework.resources.ResourceManager.RESTYPE_SOUND) {
 				hasSounds = true;
 			} else if(aResourceStreamer.mResType != GameFramework.resources.ResourceManager.RESTYPE_NONE) {
 				hasNonSounds = true;
 			}
-			//JS
+
+			// if data is null, then this stream is not started yet, we can go on
 			if((aResourceStreamer.mResultData == null) && (aResourceStreamer.mPath != null)) {
 				if(aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_IMAGE) {
 					if((aResourceStreamer.mBaseRes != null) && (aResourceStreamer.mBaseRes.mParent != null)) {
@@ -133,9 +140,13 @@ GameFramework.JSBaseApp.prototype = {
 						}
 					} else {
 						if((aResourceStreamer.mBaseRes != null) && (aResourceStreamer.mBaseRes.mIsNotRuntimeImage)) {
-							aResourceStreamer.mResultData = JSFExt_LoadImageSub(aResourceStreamer, aResourceStreamer.mPath ? (this.mPathPrefix + aResourceStreamer.mPath) : null, aResourceStreamer.mPath2 ? (this.mPathPrefix + aResourceStreamer.mPath2) : null);
+							aResourceStreamer.mResultData = JSFExt_LoadImageSub(aResourceStreamer,
+								aResourceStreamer.mPath ? (this.mPathPrefix + aResourceStreamer.mPath) : null,
+								aResourceStreamer.mPath2 ? (this.mPathPrefix + aResourceStreamer.mPath2) : null);
 						} else {
-							aResourceStreamer.mResultData = JSFExt_LoadImage(aResourceStreamer, aResourceStreamer.mPath ? (this.mPathPrefix + aResourceStreamer.mPath) : null, aResourceStreamer.mPath2 ? (this.mPathPrefix + aResourceStreamer.mPath2) : null);
+							aResourceStreamer.mResultData = JSFExt_LoadImage(aResourceStreamer,
+								aResourceStreamer.mPath ? (this.mPathPrefix + aResourceStreamer.mPath) : null,
+								aResourceStreamer.mPath2 ? (this.mPathPrefix + aResourceStreamer.mPath2) : null);
 						}
 					}
 				} else if(aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_SOUND) {
@@ -145,7 +156,12 @@ GameFramework.JSBaseApp.prototype = {
 					}
 					aResourceStreamer.mResultData = JSFExt_LoadAudio(aResourceStreamer, aPath);
 					this.mResourceManager.ResourceLoaded(aResourceStreamer);
-				} else if((aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_FONT) || (aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_POPANIM) || (aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_PIEFFECT) || (aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_MESH) || (aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_RENDEREFFECT) || (aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_BINFILE)) {
+				} else if(aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_FONT ||
+						aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_POPANIM ||
+						aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_PIEFFECT ||
+						aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_MESH ||
+						aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_RENDEREFFECT ||
+						aResourceStreamer.mResType === GameFramework.resources.ResourceManager.RESTYPE_BINFILE) {
 					if(aResourceStreamer.mPath.startsWith('!ref:')) {
 						var aRefedFont = this.mResourceManager.GetFontResourceById(aResourceStreamer.mPath.substr(5));
 						if((aRefedFont != null) && (aResourceStreamer.mResourcesLoaded != aResourceStreamer.mResourceCount)) {
@@ -156,6 +172,7 @@ GameFramework.JSBaseApp.prototype = {
 						var aRequest = null;
 						var aFullURL = this.mPathPrefix + aResourceStreamer.mPath;
 
+						// the grouped binary will have a @ in full path
 						var anAtIdx = aResourceStreamer.mPath.indexOf('@');
 						if(anAtIdx != -1) {
 							var aColonPos = aResourceStreamer.mPath.indexOf(':', anAtIdx);
@@ -164,6 +181,9 @@ GameFramework.JSBaseApp.prototype = {
 							var aStartPos = aResourceStreamer.mPath.substr(aColonPos + 1, aDashPos - aColonPos - 1) | 0;
 							var anEndPos = aResourceStreamer.mPath.substr(aDashPos + 1) | 0;
 
+							// if group binary data is got, it will be saved in mGroupBinDataDict
+							// so first check it, if it is here then we can call complete callback
+							// if it is not here, call ajax
 							var aData = this.mGroupBinDataDict[aGroupBinDataName];
 							if(aData) {
 								var aData = this.mGroupBinDataDict[aGroupBinDataName];
@@ -209,15 +229,13 @@ GameFramework.JSBaseApp.prototype = {
 				aResourceStreamer.mDeferredFunc();
 				aResourceStreamer.mDeferredFunc = null;
 			}
-			//-JS
+
 			if((aResourceStreamer.mFailed) || ((aResourceStreamer.mResourcesLoaded == aResourceStreamer.mResourceCount) && (!GameFramework.BaseApp.mApp.mResourceManager.mStreamingPaused))) {
 				if(!aResourceStreamer.mFailed) {
 					this.mJSResourceManager.ResourceLoaded(aResourceStreamer);
 					var anEvent = new GameFramework.events.Event(GameFramework.events.Event.COMPLETE);
 					aResourceStreamer.DispatchEvent(anEvent);
-				}
-
-				else {
+				} else {
 					var anEvent_2 = new GameFramework.events.Event(GameFramework.events.IOErrorEvent.IO_ERROR);
 					aResourceStreamer.DispatchEvent(anEvent_2);
 				}

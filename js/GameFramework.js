@@ -13626,22 +13626,31 @@ GameFramework.resources.ResourceManager.prototype = {
 		}
 	},
 	StreamResourceGroup : function GameFramework_resources_ResourceManager$StreamResourceGroup(theGroup) {
+		// create top stream
 		var aResourceStreamer = new GameFramework.resources.ResourceStreamer();
 		aResourceStreamer.mGroupName = theGroup;
 		aResourceStreamer.mResourceCount = 0;
+
+		// get grouped resources
 		var aGroup = (this.mResGroupMap[theGroup]);
 
+		// visit every resource
 		for($enum3 in aGroup) {
+			// if parent resource doesn't have stream associated, create parent resource stream and install event
 			var aRes = aGroup[$enum3];
 			if(aRes.mParent != null) {
-				if((this.mImages[aRes.mParent] == null) && (!GameFramework.BaseApp.mApp.HasResourceStreamerForId(aRes.mParent))) {
+				if(this.mImages[aRes.mParent] == null && !GameFramework.BaseApp.mApp.HasResourceStreamerForId(aRes.mParent)) {
 					var aParentResStreamer = this.StreamImage(aRes.mParent);
 					aParentResStreamer.AddEventListener(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(aResourceStreamer, aResourceStreamer.ChildFailed));
 				}
 			}
+
+			// for unknown type resource or runtime image, skip loading
 			if((aRes.mType == GameFramework.resources.ResourceManager.RESTYPE_NONE) || (aRes.mIsRuntimeImage)) {
 				continue;
 			}
+
+			// if extensions are more than 1, should save a path in mPath2 field
 			var aPath = aRes.mPath;
 			var aChildResourceStreamer = new GameFramework.resources.ResourceStreamer();
 			if(aRes.mExtensions != null) {
@@ -13650,14 +13659,22 @@ GameFramework.resources.ResourceManager.prototype = {
 				}
 				aPath += aRes.mExtensions[0];
 			}
+
+			// copy other info from parent resource
 			aChildResourceStreamer.mResType = aRes.mType;
 			aChildResourceStreamer.mId = aRes.mId;
 			aChildResourceStreamer.mPath = aPath;
 			aChildResourceStreamer.mBaseRes = aRes;
 			aChildResourceStreamer.mResourceCount = 1;
+
+			// install event
 			aChildResourceStreamer.AddEventListener(GameFramework.events.Event.COMPLETE, ss.Delegate.create(aResourceStreamer, aResourceStreamer.ChildCompleted));
 			aChildResourceStreamer.AddEventListener(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(aResourceStreamer, aResourceStreamer.ChildFailed));
+
+			// add stream to loading queue
 			GameFramework.BaseApp.mApp.AddResourceStreamer(aChildResourceStreamer);
+
+			// increase child count in parent resource
 			aResourceStreamer.mResourceCount++;
 		}
 
@@ -13733,9 +13750,7 @@ GameFramework.resources.ResourceManager.prototype = {
 				if(aSpaceIdx != -1) {
 					theFontResource.AddTag(aBaseRes.mTags.substr(anIdx, aSpaceIdx - anIdx));
 					anIdx = aSpaceIdx + 1;
-				}
-
-				else {
+				} else {
 					theFontResource.AddTag(aBaseRes.mTags.substr(anIdx));
 					break;
 				}

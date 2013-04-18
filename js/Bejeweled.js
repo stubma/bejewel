@@ -1221,11 +1221,14 @@ Game.BejApp.prototype = {
 			throw new Game.LoadingError(aDetails);
 		}
 	},
+
+	// start to load Init group resources, Init group is used for loading screen
 	StreamInitResources : function Game_BejApp$StreamInitResources() {
 		this.mInitResourceStreamer = this.mResourceManager.StreamResourceGroup('Init');
 		this.mInitResourceStreamer.AddEventListener(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.InitLoadingComplete));
 		this.mInitResourceStreamer.AddEventListener(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.LoadFailed));
 	},
+
 	StreamResourceGroup : function Game_BejApp$StreamResourceGroup(theName) {
 		var aStreamer = this.mResourceManager.StreamResourceGroup(theName);
 		this.mGroupsLoading++;
