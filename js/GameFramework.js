@@ -13389,25 +13389,38 @@ GameFramework.resources.ResourceManager.prototype = {
 		this.RegisterMeshResource(theResourceStreamer.mId, aMeshResource);
 	},
 	ParseResourceManifest : function GameFramework_resources_ResourceManager$ParseResourceManifest(theXMLData) {
+		// parse resource manifest
 		var anXMLParser = new GameFramework.XMLParser();
 		anXMLParser.ParseXML(theXMLData);
+
+		// visit elements of root, but we only process Resources tag
 		var anXMLList = anXMLParser.GetChildren();
 		for(var aGroupIdx = 0; aGroupIdx < anXMLList.Count(); aGroupIdx++) {
+			// only process resources tag
 			var aGroup = anXMLList.GetItem(aGroupIdx);
 			if(aGroup.GetValue() != 'Resources') {
 				continue;
 			}
+
+			// get id
 			var aGroupName = aGroup.GetAttribute('id').GetValue();
 			if(aGroup.mAttributes.hasOwnProperty('parent')) {
 				aGroupName = aGroup.GetAttribute('parent').GetValue();
 			}
+
+			// lazy initialize resource map
 			if(!this.mResGroupMap.hasOwnProperty(aGroupName)) {
 				this.mResGroupMap[aGroupName] = {};
 			}
+
+			// get sub elements
 			var aResList = aGroup.GetChildren();
 			if(aResList == null) {
 				continue;
 			}
+
+			// if app resolution is set, we can skip resources whose resolution is not matched
+			// if not set, just set it
 			if(aGroup.mAttributes.hasOwnProperty('res')) {
 				var aRes = GameFramework.Utils.ToInt(aGroup.GetAttribute('res').GetValue());
 				if(GameFramework.BaseApp.mApp.mArtRes == 0) {
@@ -13416,11 +13429,18 @@ GameFramework.resources.ResourceManager.prototype = {
 					continue;
 				}
 			}
+
+			// visit sub elements of resources
 			for(var aResIdx = 0; aResIdx < aResList.Count(); aResIdx++) {
+				// get sub node in resources, create a base resource object
 				var aResXML = aResList.GetItem(aResIdx);
 				var aResType = aResXML.GetValue();
 				var aBaseRes = new GameFramework.resources.BaseRes();
+
+				// parent id, or aka group name
 				aBaseRes.mGroup = aGroupName;
+
+				// resource type
 				if(aResType == 'Font') {
 					aBaseRes.mType = GameFramework.resources.ResourceManager.RESTYPE_FONT;
 				}
@@ -13439,15 +13459,23 @@ GameFramework.resources.ResourceManager.prototype = {
 				if(aResType == 'RenderEffect') {
 					aBaseRes.mType = GameFramework.resources.ResourceManager.RESTYPE_RENDEREFFECT;
 				}
+
+				// id
 				aBaseRes.mId = aResXML.GetAttribute('id').GetValue();
+
+				// parent
 				if(aResXML.GetAttribute('parent').GetValue().length > 0) {
 					aBaseRes.mParent = aResXML.GetAttribute('parent').GetValue();
 				}
+
+				// increase child count of runtime parent
 				if(aResXML.GetAttribute('rtparent').GetValue().length > 0) {
 					aBaseRes.mRTParent = aResXML.GetAttribute('rtparent').GetValue();
 					var aRTParent = this.mResMap[aBaseRes.mRTParent];
 					aRTParent.mRTChildCount++;
 				}
+
+				// put to parent children list
 				if(aBaseRes.mParent != null) {
 					var aParent = this.mResMap[aBaseRes.mParent];
 					if(aParent.mChildren == null) {
@@ -13455,8 +13483,12 @@ GameFramework.resources.ResourceManager.prototype = {
 					}
 					aParent.mChildren.push(aBaseRes);
 				}
+
+				// unix style path
 				aBaseRes.mPath = aResXML.GetAttribute('path').GetValue();
 				aBaseRes.mPath = GameFramework.Utils.StringReplaceChar(aBaseRes.mPath, 92, 47);
+
+				// other attributes
 				if(aResXML.GetAttribute('width').GetValue().length > 0) {
 					aBaseRes.mWidth = GameFramework.Utils.ToInt(aResXML.GetAttribute('width').GetValue());
 				}
@@ -13527,6 +13559,8 @@ GameFramework.resources.ResourceManager.prototype = {
 						aBaseRes.mType = GameFramework.resources.ResourceManager.RESTYPE_MESH;
 					}
 				}
+
+				// save in map, path map and group map
 				this.mResMap[aBaseRes.mId] = aBaseRes;
 				this.mPathToResMap[aBaseRes.mPath] = aBaseRes;
 				(this.mResGroupMap[aGroupName])[aBaseRes.mId] = aBaseRes;
@@ -13597,37 +13631,36 @@ GameFramework.resources.ResourceManager.prototype = {
 		aResourceStreamer.mResourceCount = 0;
 		var aGroup = (this.mResGroupMap[theGroup]);
 
-		{
-			for($enum3 in aGroup) {
-				var aRes = aGroup[$enum3];
-				if(aRes.mParent != null) {
-					if((this.mImages[aRes.mParent] == null) && (!GameFramework.BaseApp.mApp.HasResourceStreamerForId(aRes.mParent))) {
-						var aParentResStreamer = this.StreamImage(aRes.mParent);
-						aParentResStreamer.AddEventListener(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(aResourceStreamer, aResourceStreamer.ChildFailed));
-					}
+		for($enum3 in aGroup) {
+			var aRes = aGroup[$enum3];
+			if(aRes.mParent != null) {
+				if((this.mImages[aRes.mParent] == null) && (!GameFramework.BaseApp.mApp.HasResourceStreamerForId(aRes.mParent))) {
+					var aParentResStreamer = this.StreamImage(aRes.mParent);
+					aParentResStreamer.AddEventListener(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(aResourceStreamer, aResourceStreamer.ChildFailed));
 				}
-				if((aRes.mType == GameFramework.resources.ResourceManager.RESTYPE_NONE) || (aRes.mIsRuntimeImage)) {
-					continue;
-				}
-				var aPath = aRes.mPath;
-				var aChildResourceStreamer = new GameFramework.resources.ResourceStreamer();
-				if(aRes.mExtensions != null) {
-					if(aRes.mExtensions.length > 1) {
-						aChildResourceStreamer.mPath2 = aPath + aRes.mExtensions[1];
-					}
-					aPath += aRes.mExtensions[0];
-				}
-				aChildResourceStreamer.mResType = aRes.mType;
-				aChildResourceStreamer.mId = aRes.mId;
-				aChildResourceStreamer.mPath = aPath;
-				aChildResourceStreamer.mBaseRes = aRes;
-				aChildResourceStreamer.mResourceCount = 1;
-				aChildResourceStreamer.AddEventListener(GameFramework.events.Event.COMPLETE, ss.Delegate.create(aResourceStreamer, aResourceStreamer.ChildCompleted));
-				aChildResourceStreamer.AddEventListener(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(aResourceStreamer, aResourceStreamer.ChildFailed));
-				GameFramework.BaseApp.mApp.AddResourceStreamer(aChildResourceStreamer);
-				aResourceStreamer.mResourceCount++;
 			}
+			if((aRes.mType == GameFramework.resources.ResourceManager.RESTYPE_NONE) || (aRes.mIsRuntimeImage)) {
+				continue;
+			}
+			var aPath = aRes.mPath;
+			var aChildResourceStreamer = new GameFramework.resources.ResourceStreamer();
+			if(aRes.mExtensions != null) {
+				if(aRes.mExtensions.length > 1) {
+					aChildResourceStreamer.mPath2 = aPath + aRes.mExtensions[1];
+				}
+				aPath += aRes.mExtensions[0];
+			}
+			aChildResourceStreamer.mResType = aRes.mType;
+			aChildResourceStreamer.mId = aRes.mId;
+			aChildResourceStreamer.mPath = aPath;
+			aChildResourceStreamer.mBaseRes = aRes;
+			aChildResourceStreamer.mResourceCount = 1;
+			aChildResourceStreamer.AddEventListener(GameFramework.events.Event.COMPLETE, ss.Delegate.create(aResourceStreamer, aResourceStreamer.ChildCompleted));
+			aChildResourceStreamer.AddEventListener(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(aResourceStreamer, aResourceStreamer.ChildFailed));
+			GameFramework.BaseApp.mApp.AddResourceStreamer(aChildResourceStreamer);
+			aResourceStreamer.mResourceCount++;
 		}
+
 		GameFramework.BaseApp.mApp.AddResourceStreamer(aResourceStreamer);
 		return aResourceStreamer;
 	},

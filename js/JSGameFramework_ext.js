@@ -3483,7 +3483,6 @@ function JSFExt_CreateShaderProgram(theVertexShaderData, thePixelShaderData) {
 	aShaderProgram.projectionAttribute = gGL.getUniformLocation(aShaderProgram, "projection");
 	aShaderProgram.worldViewProjAttribute = gGL.getUniformLocation(aShaderProgram, "worldViewProj");
 	aShaderProgram.Tex0Attribute = gGL.getUniformLocation(aShaderProgram, "Tex0");
-
 	aShaderProgram.Tex1Attribute = gGL.getUniformLocation(aShaderProgram, "Tex1");
 
 	return aShaderProgram;
