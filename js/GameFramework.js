@@ -10332,9 +10332,7 @@ GameFramework.resources.PIEffect.prototype = {
             aTransform.d = cos * aScaleY;
             aTransform.tx = (aParticleInstance.mPos.x + aTextureChunk.mRefOfsX * aScaleX) * aParticleInstance.mZoom;
             aTransform.ty = (aParticleInstance.mPos.y + aTextureChunk.mRefOfsY * aScaleY) * aParticleInstance.mZoom;
-        }
-
-        else {
+        } else {
             var sin_2 = Math.sin(aParticleInstance.mImgAngle);
             var cos_2 = Math.cos(aParticleInstance.mImgAngle);
             aTransform.a = cos_2 * aScaleX;
@@ -10370,9 +10368,7 @@ GameFramework.resources.PIEffect.prototype = {
             if(!theParticleGroup.mIsSuperEmitter) {
                 if(theParticleDefInstance.mTicks == 0) {
                     theParticleDefInstance.mCurNumberVariation = (this.GetRandFloat() * 0.5) * (aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.NUMBER_VARIATION | 0)].GetValueAt(this.mFrameNum)) / 2.0;
-                }
-
-                else {
+                } else {
                     theParticleDefInstance.mCurNumberVariation = (this.GetRandFloat() * 0.75) * (aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.NUMBER_VARIATION | 0)].GetValueAt(this.mFrameNum)) / 2.0;
                 }
             }
@@ -10381,9 +10377,7 @@ GameFramework.resources.PIEffect.prototype = {
         var aNumber;
         if(theParticleGroup.mIsSuperEmitter) {
             aNumber = (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.NUMBER | 0)].GetValueAt(this.mFrameNum)) * (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.NUMBER | 0)].GetValueAt(this.mFrameNum));
-        }
-
-        else {
+        } else {
             aNumber = (theParticleGroup.mWasEmitted ? (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.NUMBER | 0)].GetValueAt(this.mFrameNum)) : (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.NUMBER | 0)].GetValueAt(this.mFrameNum))) * ((aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.NUMBER | 0)].GetValueAt(this.mFrameNum)) + theParticleDefInstance.mCurNumberVariation) * (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_NUMBER_OVER_LIFE | 0)].GetValueAt(anEmitterLifePct, 1.0));
             aNumber = Math.max(0.0, aNumber);
             if((theParticleGroup.mWasEmitted) && (anEmitterLifePct >= 1.0)) {
@@ -10400,9 +10394,7 @@ GameFramework.resources.PIEffect.prototype = {
                 {
                     if(anEmitterInstanceDef.mEmitAtPointsNum != 0) {
                         aNumber *= anEmitterInstanceDef.mEmitAtPointsNum;
-                    }
-
-                    else {
+                    } else {
                         var aTotalLength = 0.0;
                         for(var i = 0; i < (anEmitterInstanceDef.mPoints.length | 0) - 1; i++) {
                             var aPt1 = anEmitterInstanceDef.mPoints[i].GetValueAt(this.mFrameNum);
@@ -10421,9 +10413,7 @@ GameFramework.resources.PIEffect.prototype = {
                     var aYRad = (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.YRADIUS | 0)].GetValueAt(this.mFrameNum));
                     if(anEmitterInstanceDef.mEmitAtPointsNum != 0) {
                         aNumber *= anEmitterInstanceDef.mEmitAtPointsNum;
-                    }
-
-                    else {
+                    } else {
                         var aCircumf = 3.14159 * 2.0 * Math.sqrt((aXRad * aXRad + aYRad * aYRad) / 2.0);
                         aNumber *= (aCircumf / 35.0);
                     }
@@ -10436,9 +10426,7 @@ GameFramework.resources.PIEffect.prototype = {
                     var aRad = (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.XRADIUS | 0)].GetValueAt(this.mFrameNum));
                     if(anEmitterInstanceDef.mEmitAtPointsNum != 0) {
                         aNumber *= anEmitterInstanceDef.mEmitAtPointsNum;
-                    }
-
-                    else {
+                    } else {
                         var aCircumf_2 = 3.14159 * 2.0 * Math.sqrt(aRad * aRad);
                         aNumber *= (aCircumf_2 / 35.0);
                     }
@@ -10450,9 +10438,7 @@ GameFramework.resources.PIEffect.prototype = {
                 {
                     if(anEmitterInstanceDef.mEmitAtPointsNum != 0) {
                         aNumber *= anEmitterInstanceDef.mEmitAtPointsNum * anEmitterInstanceDef.mEmitAtPointsNum2;
-                    }
-
-                    else {
+                    } else {
                         var aW = (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.XRADIUS | 0)].GetValueAt(this.mFrameNum));
                         var aH = (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.YRADIUS | 0)].GetValueAt(this.mFrameNum));
                         aNumber *= 1.0 + (aW * aH / 900.0 / 4.0);
@@ -10500,9 +10486,7 @@ GameFramework.resources.PIEffect.prototype = {
                     anEmitterInstance.mEmitter.mParticleDefInstanceVector.push(new GameFramework.resources.PIParticleDefInstance());
                 }
                 aParticleInstance = anEmitterInstance;
-            }
-
-            else {
+            } else {
                 aParticleInstance = new GameFramework.resources.PIParticleInstance();
             }
             aParticleInstance.mParticleDef = theParticleDef;
@@ -10515,19 +10499,13 @@ GameFramework.resources.PIEffect.prototype = {
                 if(theParticleDef.mUseEmitterAngleAndRange) {
                     if(theParticleGroup.mWasEmitted) {
                         anAngle = (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.EMISSION_ANGLE | 0)].GetValueAt(this.mFrameNum)) + (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.EMISSION_RANGE | 0)].GetValueAt(this.mFrameNum)) * this.GetRandFloat() / 2.0;
-                    }
-
-                    else {
+                    } else {
                         anAngle = (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.EMISSION_ANGLE | 0)].GetValueAt(this.mFrameNum)) + (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.EMISSION_RANGE | 0)].GetValueAt(this.mFrameNum)) * this.GetRandFloat() / 2.0;
                     }
-                }
-
-                else {
+                } else {
                     anAngle = (aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.EMISSION_ANGLE | 0)].GetValueAt(this.mFrameNum)) + (aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.EMISSION_RANGE | 0)].GetValueAt(this.mFrameNum)) * this.GetRandFloat() / 2.0;
                 }
-            }
-
-            else {
+            } else {
                 anAngle = (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.EMISSION_ANGLE | 0)].GetValueAt(this.mFrameNum)) + (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.EMISSION_RANGE | 0)].GetValueAt(this.mFrameNum)) * this.GetRandFloat() / 2.0;
             }
             anAngle = GameFramework.resources.PIEffect.DegToRad(-anAngle);
@@ -10541,9 +10519,7 @@ GameFramework.resources.PIEffect.prototype = {
             aParticleInstance.mOrigEmitterAng = anEmitterAngle;
             if((theParticleDef != null) && (theParticleDef.mAnimStartOnRandomFrame)) {
                 aParticleInstance.mAnimFrameRand = GameFramework.Utils.GetRand() & 0x7fff;
-            }
-
-            else {
+            } else {
                 aParticleInstance.mAnimFrameRand = 0;
             }
             if(aParticleDef != null) {
@@ -10574,9 +10550,7 @@ GameFramework.resources.PIEffect.prototype = {
                     aParticleInstance.mSrcSizeYMult *= (1.0 + theFreeEmitter.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.SIZE_Y | 0)]) * (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_SIZE_Y_OVER_LIFE | 0)].GetValueAt(anEmitterLifePct, 1.0));
                     aParticleInstance.mZoom *= (1.0 + theFreeEmitter.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.ZOOM | 0)]) * (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_ZOOM_OVER_LIFE | 0)].GetValueAt(anEmitterLifePct, 1.0));
                 }
-            }
-
-            else {
+            } else {
                 aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.LIFE | 0)] = this.GetVariationScalar() * (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_LIFE_VARIATION | 0)].GetValueAt(this.mFrameNum));
                 aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.SIZE_X | 0)] = this.GetRandFloat() * (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_SIZE_X_VARIATION | 0)].GetValueAt(this.mFrameNum));
                 if((theParticleDef == null) || (theParticleDef.mLockAspect)) {
@@ -10599,9 +10573,7 @@ GameFramework.resources.PIEffect.prototype = {
             aParticleInstance.mImgAngle = 0;
             if(theParticleGroup.mIsSuperEmitter) {
                 aParticleInstance.mLife = ((anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_LIFE | 0)].GetValueAt(this.mFrameNum)) + aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.LIFE | 0)]) * 5 * (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.LIFE | 0)].GetValueAt(this.mFrameNum));
-            }
-
-            else {
+            } else {
                 aParticleInstance.mLife = (theParticleGroup.mWasEmitted ? (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.LIFE | 0)].GetValueAt(this.mFrameNum)) : (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.LIFE | 0)].GetValueAt(this.mFrameNum))) * ((aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.LIFE | 0)].GetValueAt(this.mFrameNum)) + aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.LIFE | 0)]);
             }
             if(aParticleInstance.mLife <= 0.00000001) {
@@ -10625,9 +10597,7 @@ GameFramework.resources.PIEffect.prototype = {
                 aParticleInstance.mEmittedPos = theFreeEmitter.mLastEmitterPos.add(theFreeEmitter.mPos);
                 aParticleInstance.mLastEmitterPos = aParticleInstance.mEmittedPos;
                 aPos = new GameFramework.geom.TPoint();
-            }
-
-            else {
+            } else {
                 aParticleInstance.mEmittedPos = this.GetEmitterPos(theEmitterInstance, true);
                 aParticleInstance.mLastEmitterPos = aParticleInstance.mEmittedPos;
                 var isMaskedOut = false;
@@ -10641,9 +10611,7 @@ GameFramework.resources.PIEffect.prototype = {
             var aVelScale;
             if(theParticleGroup.mIsSuperEmitter) {
                 aVelScale = (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.VELOCITY | 0)].GetValueAt(this.mFrameNum)) * ((anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_VELOCITY | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.VELOCITY | 0)])) * 160.0;
-            }
-
-            else {
+            } else {
                 aVelScale = ((theParticleGroup.mWasEmitted ? (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.VELOCITY | 0)].GetValueAt(this.mFrameNum)) : (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.VELOCITY | 0)].GetValueAt(this.mFrameNum))) * ((aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.VELOCITY | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.VELOCITY | 0)])));
             }
             aParticleInstance.mPos = new GameFramework.geom.TPoint(0, 0);
@@ -10656,9 +10624,7 @@ GameFramework.resources.PIEffect.prototype = {
                         if((theParticleDef.mSingleParticle) && (theParticleDef.mAngleKeepAlignedToMotion) && (!theParticleDef.mAttachToEmitter)) {
                             aParticleInstance.mImgAngle += GameFramework.resources.PIEffect.DegToRad((theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.ANGLE | 0)].GetValueAt(this.mFrameNum)));
                         }
-                    }
-
-                    else {
+                    } else {
                         aParticleInstance.mImgAngle = -GameFramework.resources.PIEffect.sPIGeomDataEx.mTravelAngle;
                     }
                     aParticleInstance.mImgAngle += GameFramework.resources.PIEffect.DegToRad(theParticleDef.mAngleAlignOffset);
@@ -10676,9 +10642,7 @@ GameFramework.resources.PIEffect.prototype = {
                     if(aParticleDef.mUseKeyColorsOnly) {
                         var aKeyframe = ((Math.max(((aParticleInstance.mGradientRand * aParticleDef.mColor.mInterpolatorPointVector.length) | 0), aParticleDef.mColor.mInterpolatorPointVector.length - 1)) | 0);
                         aParticleInstance.mColorOr |= aParticleDef.mColor.GetKeyframeNum(aKeyframe) & 0xffffff;
-                    }
-
-                    else {
+                    } else {
                         var aColorPosUsed = aParticleInstance.mGradientRand;
                         aParticleInstance.mColorOr |= aParticleDef.mColor.GetValueAt(aColorPosUsed) & 0xffffff;
                     }
@@ -10704,9 +10668,7 @@ GameFramework.resources.PIEffect.prototype = {
                     theParticleGroup.mTail = aParticleInstance;
                 }
                 theParticleGroup.mHead = aParticleInstance;
-            }
-
-            else {
+            } else {
                 if(theParticleGroup.mTail != null) {
                     theParticleGroup.mTail.mNext = aParticleInstance;
                 }
@@ -10756,14 +10718,10 @@ GameFramework.resources.PIEffect.prototype = {
                 var aNextKeyIdx = theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.ACTIVE | 0)].GetNextKeyframeIdx(this.mFrameNum);
                 if((aNextToggleTime >= this.mFrameNum) && (aNextKeyIdx == 1)) {
                     aLifePct = Math.min(1.0, (this.mFrameNum + anEmitterInstanceDef.mFramesToPreload) / Math.max(1, aNextToggleTime));
-                }
-
-                else {
+                } else {
                     aLifePct = 0.02;
                 }
-            }
-
-            else {
+            } else {
                 aLifePct = aParticleInstance.mTicks / aParticleInstance.mLife;
             }
             aParticleInstance.mLifePct = aLifePct;
@@ -10773,9 +10731,7 @@ GameFramework.resources.PIEffect.prototype = {
                     continue;
                 }
                 if((!theParticleGroup.mIsSuperEmitter) && (aParticleDef.mSingleParticle) && (theEmitterInstance.mWasActive)) {
-                }
-
-                else {
+                } else {
                     aParticleInstance.Dispose();
                     if(aParticleInstance.mPrev != null) {
                         aParticleInstance.mPrev.mNext = aParticleInstance.mNext;
@@ -10809,9 +10765,7 @@ GameFramework.resources.PIEffect.prototype = {
                     var aMotionRand;
                     if(theParticleGroup.mIsSuperEmitter) {
                         aMotionRand = Math.max(0.0, ((theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.MOTION_RAND | 0)].GetValueAt(this.mFrameNum)) * (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_MOTION_RAND_OVER_LIFE | 0)].GetValueAt(aLifePct, 1.0)) * ((anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_MOTION_RAND | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.MOTION_RAND | 0)])))) * 30.0;
-                    }
-
-                    else {
+                    } else {
                         aMotionRand = Math.max(0.0, ((theParticleGroup.mWasEmitted ? (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.MOTION_RAND | 0)].GetValueAt(this.mFrameNum)) : (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.MOTION_RAND | 0)].GetValueAt(this.mFrameNum))) * (aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.MOTION_RAND | 0)].GetValueAt(aLifePct)) * ((aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.MOTION_RAND | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.MOTION_RAND | 0)]))));
                     }
                     aParticleInstance.mVel.x += aRand1 * aMotionRand;
@@ -10820,9 +10774,7 @@ GameFramework.resources.PIEffect.prototype = {
                 var aWeight;
                 if(theParticleGroup.mIsSuperEmitter) {
                     aWeight = (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.WEIGHT | 0)].GetValueAt(this.mFrameNum)) * ((anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_WEIGHT_OVER_LIFE | 0)].GetValueAt(aLifePct, 1.0)) - 1.0) * ((anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_WEIGHT | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.WEIGHT | 0)])) / 2.0 * 100.0;
-                }
-
-                else {
+                } else {
                     aWeight = (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.WEIGHT | 0)].GetValueAt(this.mFrameNum)) * ((aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.WEIGHT_OVER_LIFE | 0)].GetValueAt(aLifePct)) - 1.0) * ((aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.WEIGHT | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.WEIGHT | 0)])) * 100.0;
                 }
                 aWeight *= 1.0 + (this.mFramerate - 100.0) * 0.0005;
@@ -10830,9 +10782,7 @@ GameFramework.resources.PIEffect.prototype = {
                 var aVelScale;
                 if(theParticleGroup.mIsSuperEmitter) {
                     aVelScale = (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_VELOCITY_OVER_LIFE | 0)].GetValueAt(aLifePct, 1.0));
-                }
-
-                else {
+                } else {
                     aVelScale = (aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.VELOCITY_OVER_LIFE | 0)].GetValueAt(aLifePct));
                 }
                 var aCurVel = new GameFramework.geom.TPoint(aParticleInstance.mVel.x * aVelScale / anUpdateRate, aParticleInstance.mVel.y * aVelScale / anUpdateRate);
@@ -10870,9 +10820,7 @@ GameFramework.resources.PIEffect.prototype = {
                                 var aBounce = aDeflector.mBounce;
                                 if(theParticleGroup.mIsSuperEmitter) {
                                     aBounce *= ((theParticleGroup.mWasEmitted ? (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.BOUNCE | 0)].GetValueAt(this.mFrameNum)) : (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.BOUNCE | 0)].GetValueAt(this.mFrameNum))) * (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_BOUNCE_OVER_LIFE | 0)].GetValueAt(aLifePct, 1.0)) * ((anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_BOUNCE | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.BOUNCE | 0)])));
-                                }
-
-                                else {
+                                } else {
                                     aBounce *= ((theParticleGroup.mWasEmitted ? (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.BOUNCE | 0)].GetValueAt(this.mFrameNum)) : (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.BOUNCE | 0)].GetValueAt(this.mFrameNum))) * (aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.BOUNCE_OVER_LIFE | 0)].GetValueAt(aLifePct)) * ((aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.BOUNCE | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.BOUNCE | 0)])));
                                 }
                                 var aCurVelVec = new GameFramework.geom.TPoint(aCurVel.x, aCurVel.y);
@@ -10890,9 +10838,7 @@ GameFramework.resources.PIEffect.prototype = {
                             }
                         }
                     }
-                }
-
-                else {
+                } else {
                     aParticleInstance.mPos.x += aCurVel.x;
                     aParticleInstance.mPos.y += aCurVel.y;
                     if(aLayerDef.mForceVector.length > 0) {
@@ -10962,9 +10908,7 @@ GameFramework.resources.PIEffect.prototype = {
                     var aCheckY = ((aDrawPoint.y + theLayer.mBkgImgDrawOfs.y) | 0);
                     var aColor = 0;
                     if((theLayer.mBkgImage != null) && (aCheckX >= 0) && (aCheckY >= 0) && (aCheckX < theLayer.mBkgImage.mWidth) && (aCheckY < theLayer.mBkgImage.mHeight)) {
-                    }
-
-                    else {
+                    } else {
                         aColor = 0;
                     }
                     if(wantColor) {
@@ -11004,14 +10948,10 @@ GameFramework.resources.PIEffect.prototype = {
                 var aNextKeyIdx = theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.ACTIVE | 0)].GetNextKeyframeIdx(this.mFrameNum);
                 if((aNextToggleTime >= this.mFrameNum) && (aNextKeyIdx == 1)) {
                     aLifePct = Math.min(1.0, (this.mFrameNum + anEmitterInstanceDef.mFramesToPreload) / Math.max(1, aNextToggleTime));
-                }
-
-                else {
+                } else {
                     aLifePct = 0.02;
                 }
-            }
-
-            else {
+            } else {
                 aLifePct = aParticleInstance.mTicks / aParticleInstance.mLife;
             }
             aParticleInstance.mLifePct = aLifePct;
@@ -11038,9 +10978,7 @@ GameFramework.resources.PIEffect.prototype = {
                     var aMotionRand;
                     if(theParticleGroup.mIsSuperEmitter) {
                         aMotionRand = Math.max(0.0, ((theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.MOTION_RAND | 0)].GetValueAt(this.mFrameNum)) * (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_MOTION_RAND_OVER_LIFE | 0)].GetValueAt(aLifePct, 1.0)) * ((anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_MOTION_RAND | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.MOTION_RAND | 0)])))) * 30.0;
-                    }
-
-                    else {
+                    } else {
                         aMotionRand = Math.max(0.0, ((theParticleGroup.mWasEmitted ? (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.MOTION_RAND | 0)].GetValueAt(this.mFrameNum)) : (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.MOTION_RAND | 0)].GetValueAt(this.mFrameNum))) * (aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.MOTION_RAND_OVER_LIFE | 0)].GetValueAt(aLifePct)) * ((aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.MOTION_RAND | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.MOTION_RAND | 0)]))));
                     }
                     aParticleInstance.mVel.x += aRand1 * aMotionRand;
@@ -11049,9 +10987,7 @@ GameFramework.resources.PIEffect.prototype = {
                 var aWeight;
                 if(theParticleGroup.mIsSuperEmitter) {
                     aWeight = (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.WEIGHT | 0)].GetValueAt(this.mFrameNum)) * ((anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_WEIGHT_OVER_LIFE | 0)].GetValueAt(aLifePct, 1.0)) - 1.0) * ((anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_WEIGHT | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.WEIGHT | 0)])) / 2.0 * 100.0;
-                }
-
-                else {
+                } else {
                     aWeight = (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.WEIGHT | 0)].GetValueAt(this.mFrameNum)) * ((aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.WEIGHT_OVER_LIFE | 0)].GetValueAt(aLifePct)) - 1.0) * ((aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.WEIGHT | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.WEIGHT | 0)])) * 100.0;
                 }
                 aWeight *= 1.0 + (this.mFramerate - 100.0) * 0.0005;
@@ -11059,9 +10995,7 @@ GameFramework.resources.PIEffect.prototype = {
                 var aVelScale;
                 if(theParticleGroup.mIsSuperEmitter) {
                     aVelScale = (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_VELOCITY_OVER_LIFE | 0)].GetValueAt(aLifePct, 1.0));
-                }
-
-                else {
+                } else {
                     aVelScale = (aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.VELOCITY_OVER_LIFE | 0)].GetValueAt(aLifePct));
                 }
                 var aCurVel = new GameFramework.geom.TPoint(aParticleInstance.mVel.x * aVelScale / anUpdateRate, aParticleInstance.mVel.y * aVelScale / anUpdateRate);
@@ -11099,9 +11033,7 @@ GameFramework.resources.PIEffect.prototype = {
                                 var aBounce = aDeflector.mBounce;
                                 if(theParticleGroup.mIsSuperEmitter) {
                                     aBounce *= ((theParticleGroup.mWasEmitted ? (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.BOUNCE | 0)].GetValueAt(this.mFrameNum)) : (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.BOUNCE | 0)].GetValueAt(this.mFrameNum))) * (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_BOUNCE_OVER_LIFE | 0)].GetValueAt(aLifePct, 1.0)) * ((anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.F_BOUNCE | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.BOUNCE | 0)])));
-                                }
-
-                                else {
+                                } else {
                                     aBounce *= ((theParticleGroup.mWasEmitted ? (anEmitter.mValues[(GameFramework.resources.PIEmitter.Value.BOUNCE | 0)].GetValueAt(this.mFrameNum)) : (theEmitterInstance.mEmitterInstanceDef.mValues[(GameFramework.resources.PIEmitterInstanceDef.Value.BOUNCE | 0)].GetValueAt(this.mFrameNum))) * (aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.BOUNCE_OVER_LIFE | 0)].GetValueAt(aLifePct)) * ((aParticleDef.mValues[(GameFramework.resources.PIParticleDef.Value.BOUNCE | 0)].GetValueAt(this.mFrameNum)) + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.BOUNCE | 0)])));
                                 }
                                 var aCurVelVec = new GameFramework.geom.TPoint(aCurVel.x, aCurVel.y);
@@ -11119,9 +11051,7 @@ GameFramework.resources.PIEffect.prototype = {
                             }
                         }
                     }
-                }
-
-                else {
+                } else {
                     aParticleInstance.mPos.x += aCurVel.x;
                     aParticleInstance.mPos.y += aCurVel.y;
                     if(aLayerDef.mForceVector.length > 0) {
@@ -11191,9 +11121,7 @@ GameFramework.resources.PIEffect.prototype = {
                     var aCheckY = ((aDrawPoint.y + theLayer.mBkgImgDrawOfs.y) | 0);
                     var aColor = 0;
                     if((theLayer.mBkgImage != null) && (aCheckX >= 0) && (aCheckY >= 0) && (aCheckX < theLayer.mBkgImage.mWidth) && (aCheckY < theLayer.mBkgImage.mHeight)) {
-                    }
-
-                    else {
+                    } else {
                         aColor = 0;
                     }
                     if(wantColor) {
@@ -11238,7 +11166,7 @@ GameFramework.resources.PIEffect.prototype = {
         var aParticleDefInstance = null;
         var anEmitter = null;
         var hasVelocityEffectors = (aLayerDef.mForceVector.length > 0) && (aLayerDef.mDeflectorVector.length > 0);
-        ;
+
         var doImageCycle = theParticleGroup.mHasImageCycle;
         var checkColorSampling = false;
         var aParamEmitterWeight = 0;
@@ -11301,9 +11229,7 @@ GameFramework.resources.PIEffect.prototype = {
                 if(!hasVelocityEffectors) {
                     aParticleInstance.mPos.x += aCurVel.x;
                     aParticleInstance.mPos.y += aCurVel.y;
-                }
-
-                else {
+                } else {
                     GameFramework.resources.PIEffect.IntegrateAffectors(this, theLayer, theEmitterInstance, anEmitter, aParticleDef, theParticleGroup, aCurVel, aLayerDef, aParticleInstance);
                 }
                 if(checkColorSampling) {
@@ -11315,9 +11241,7 @@ GameFramework.resources.PIEffect.prototype = {
                         var aCheckY = ((aDrawPoint.y + theLayer.mBkgImgDrawOfs.y) | 0);
                         var aColor = 0;
                         if((theLayer.mBkgImage != null) && (aCheckX >= 0) && (aCheckY >= 0) && (aCheckX < theLayer.mBkgImage.mWidth) && (aCheckY < theLayer.mBkgImage.mHeight)) {
-                        }
-
-                        else {
+                        } else {
                             aColor = 0;
                         }
                         if(wantColor) {
@@ -11330,9 +11254,7 @@ GameFramework.resources.PIEffect.prototype = {
                 }
                 if(!aParticleDef.mAngleAlignToMotion) {
                     aParticleInstance.mImgAngle += aParamEmitterSpin * (aLifeValueSample.mSpin) * (aParamParticleDefSpin + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.SPIN | 0)]));
-                }
-
-                else {
+                } else {
                     if(aParticleDef.mAngleKeepAlignedToMotion) {
                         aParticleInstance.mImgAngle = Math.atan2(aCurVel.y, aCurVel.x) + GameFramework.resources.PIEffect.DegToRad(aParticleDef.mAngleAlignOffset);
                     }
@@ -11382,9 +11304,7 @@ GameFramework.resources.PIEffect.prototype = {
                 aParticleInstance.mPos.y += aVelY;
                 if(!aParticleDef.mAngleAlignToMotion) {
                     aParticleInstance.mImgAngle += aParamEmitterSpin * (aLifeValueSample_2.mSpin) * (aParamParticleDefSpin + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.SPIN | 0)]));
-                }
-
-                else {
+                } else {
                     if(aParticleDef.mAngleKeepAlignedToMotion) {
                         aParticleInstance.mImgAngle = Math.atan2(aVelY, aVelX) + GameFramework.resources.PIEffect.DegToRad(aParticleDef.mAngleAlignOffset);
                     }
@@ -11423,9 +11343,7 @@ GameFramework.resources.PIEffect.prototype = {
                     aParticleInstance.mImgAngle += anEmitter.mCurSpin * (aLifeValueSample_3.mSpin) * (aParticleDefInstance.mCurSpin + (aParticleInstance.mVariationValues[(GameFramework.resources.PIParticleInstance.Variation.SPIN | 0)]));
                     aParticleInstance = aNext_4;
                 }
-            }
-
-            else {
+            } else {
                 while(aParticleInstance != null) {
                     var aNext_5 = aParticleInstance.mNext;
                     aParticleDef = aParticleInstance.mParticleDef;
@@ -11577,9 +11495,7 @@ GameFramework.resources.PIEffect.prototype = {
                                     anEmitterCount++;
                                     aChildEmitterInstance = aNext;
                                 }
-                            }
-
-                            else {
+                            } else {
                                 var anEmitter_3 = this.mDef.mEmitterVector[anEmitterInstanceDef.mEmitterDefIdx];
                                 var theEmitterInstance = anEmitterInstance;
                                 var aWeightscale_2 = (1.0 + (this.mFramerate - 100.0) * 0.0005) / anUpdateRate;
@@ -11673,9 +11589,7 @@ GameFramework.resources.PIEffect.prototype = {
                     var anImageResource = aPITextureChunk.mSrcTexture.mImageStrip;
                     if(this.mHasDrawTransform) {
                         aMatrix.concat(this.mDrawTransform);
-                    }
-
-                    else {
+                    } else {
                         var aW = anImageResource.mWidth * 0.5;
                         var aH = anImageResource.mHeight * 0.5;
                         aMatrix.tx += -aMatrix.a - aMatrix.c;
@@ -11730,9 +11644,7 @@ GameFramework.resources.PIEffect.prototype = {
                     var anImageResource_2 = aPITextureChunk_2.mSrcTexture.mImageStrip;
                     if(this.mHasDrawTransform) {
                         aMatrix_2.concat(this.mDrawTransform);
-                    }
-
-                    else {
+                    } else {
                         var aW_2 = anImageResource_2.mWidth * 0.5;
                         var aH_2 = anImageResource_2.mHeight * 0.5;
                         aMatrix_2.tx += -aMatrix_2.a - aMatrix_2.c;
@@ -11815,9 +11727,7 @@ GameFramework.resources.PIEffect.prototype = {
                         var anImageResource_3 = aPITextureChunk_3.mSrcTexture.mImageStrip;
                         if(this.mHasDrawTransform) {
                             aMatrix_3.concat(this.mDrawTransform);
-                        }
-
-                        else {
+                        } else {
                             var aW_3 = anImageResource_3.mWidth * 0.5;
                             var aH_3 = anImageResource_3.mHeight * 0.5;
                             aMatrix_3.tx += -aMatrix_3.a - aMatrix_3.c;
@@ -11840,9 +11750,7 @@ GameFramework.resources.PIEffect.prototype = {
                     }
                     aParticleInstance_3 = aNext_3;
                 }
-            }
-
-            else {
+            } else {
                 while(aParticleInstance_3 != null) {
                     var aNext_4 = aParticleInstance_3.mNext;
                     aParticleDef = aParticleInstance_3.mParticleDef;
@@ -11880,9 +11788,7 @@ GameFramework.resources.PIEffect.prototype = {
                         var anImageResource_4 = aPITextureChunk_4.mSrcTexture.mImageStrip;
                         if(this.mHasDrawTransform) {
                             aMatrix_4.concat(this.mDrawTransform);
-                        }
-
-                        else {
+                        } else {
                             var aW_4 = anImageResource_4.mWidth * 0.5;
                             var aH_4 = anImageResource_4.mHeight * 0.5;
                             aMatrix_4.tx += -aMatrix_4.a - aMatrix_4.c;
@@ -11947,9 +11853,7 @@ GameFramework.resources.PIEffect.prototype = {
                     var anImageResource_5 = aPITextureChunk_5.mSrcTexture.mImageStrip;
                     if(this.mHasDrawTransform) {
                         aMatrix_5.concat(this.mDrawTransform);
-                    }
-
-                    else {
+                    } else {
                         var aW_5 = anImageResource_5.mWidth * 0.5;
                         var aH_5 = anImageResource_5.mHeight * 0.5;
                         aMatrix_5.tx += -aMatrix_5.a - aMatrix_5.c;
@@ -12001,9 +11905,7 @@ GameFramework.resources.PIEffect.prototype = {
                             aChildEmitterInstance = aChildEmitterInstance.mNext;
                         }
                     }
-                }
-
-                else {
+                } else {
                     var anEmitter_2 = this.mDef.mEmitterVector[anEmitterInstanceDef.mEmitterDefIdx];
                     var theEmitterInstance = anEmitterInstance;
                     var anUpdateRate_2 = (1000.0 / this.mFrameTime) / this.mAnimSpeed;
@@ -12260,9 +12162,7 @@ GameFramework.resources.PopAnimResource.prototype = {
                                 aParticleEffect.mName = aCurParam;
                                 aFileName = aCurParam;
                                 firstParam = false;
-                            }
-
-                            else {
+                            } else {
                                 var aSpacePos;
                                 while((aSpacePos = (aCurParam.indexOf(String.fromCharCode(32)) | 0)) != -1) {
                                     aCurParam = aCurParam.remove(aSpacePos);
@@ -12412,9 +12312,7 @@ GameFramework.resources.PopAnimResource.prototype = {
                         var aNewTransform = theTransform.clone();
                         aNewTransform.concat(aTransform);
                         aParticleEffect.mEffect.mDrawTransform = aNewTransform;
-                    }
-
-                    else {
+                    } else {
                     }
                     aParticleEffect.mEffect.mColor = theColor;
                 }
@@ -12504,9 +12402,7 @@ GameFramework.resources.PopAnimResource.prototype = {
                 this.mLastPlayedFrameLabel = theFrameLabel;
                 return this.PlayFrom(aFrameNum, resetAnim);
             }
-        }
-
-        else {
+        } else {
             this.SetupSpriteInst(theFrameLabel);
             return this.PlayFrom(this.mMainSpriteInst.mDef.mWorkAreaStart, resetAnim);
         }
@@ -12517,18 +12413,14 @@ GameFramework.resources.PopAnimResource.prototype = {
             this.mObjectNamePool.push(theBuffer.ReadAsciiString());
             theSpriteDef.mName = (this.mObjectNamePool[this.mObjectNamePool.length - 1]);
             theSpriteDef.mAnimRate = theBuffer.ReadInt() / 0x10000;
-        }
-
-        else {
+        } else {
             theSpriteDef.mAnimRate = this.mAnimRate;
         }
         var aNumFrames = theBuffer.ReadShort();
         if(this.mVersion >= 5) {
             theSpriteDef.mWorkAreaStart = theBuffer.ReadShort();
             theSpriteDef.mWorkAreaDuration = theBuffer.ReadShort();
-        }
-
-        else {
+        } else {
             theSpriteDef.mWorkAreaStart = 0;
             theSpriteDef.mWorkAreaDuration = aNumFrames - 1;
         }
@@ -12634,9 +12526,7 @@ GameFramework.resources.PopAnimResource.prototype = {
                         var i = theBuffer.ReadInt();
                         aMatrix.tx = i / 20.0;
                         aMatrix.ty = theBuffer.ReadInt() / 20.0;
-                    }
-
-                    else {
+                    } else {
                         aMatrix.tx = theBuffer.ReadShort() / 20.0;
                         aMatrix.ty = theBuffer.ReadShort() / 20.0;
                     }
@@ -12697,9 +12587,7 @@ GameFramework.resources.PopAnimResource.prototype = {
                             anObjectPos.mData = anObjectPos.mData.Duplicate();
                             anObjectPos.mData.mPreloadFrames = 0;
                         }
-                    }
-
-                    else {
+                    } else {
                         aFrame.mFrameObjectPosVector.push(null);
                     }
                     ++aCurObjectNum;
@@ -12752,9 +12640,7 @@ GameFramework.resources.PopAnimResource.prototype = {
                 aResourceStreamer.AddEventListener(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(theParentStreamer, theParentStreamer.ChildFailed));
                 theParentStreamer.mResourceCount++;
                 GameFramework.BaseApp.mApp.mResourceManager.PrioritizeResourceStreamer(aResourceStreamer);
-            }
-
-            else {
+            } else {
                 anImage.mImageNames.push(anOrigName);
             }
             this.mImageVector.push(anImage);
@@ -12918,15 +12804,11 @@ GameFramework.resources.PopAnimResource.prototype = {
                 } else {
                     aCurColor = anObjectPos.mColor;
                 }
-            }
-
-            else {
+            } else {
                 aCurTransform = anObjectPos.mTransform;
                 aCurColor = anObjectPos.mColor;
             }
-        }
-
-        else {
+        } else {
             aCurTransform = anObjectPos.mTransform;
             aCurColor = anObjectPos.mColor;
         }
@@ -12974,9 +12856,6 @@ GameFramework.resources.PopAnimResource.prototype = {
                         aParticleEffect.mEffect.mEmitterTransform.translate(aParticleEffect.mEffect.mWidth / 2.0, aParticleEffect.mEffect.mHeight / 2.0);
                         aParticleEffect.mEffect.mEmitterTransform.concat(theSpriteInst.mCurTransform);
                     }
-
-                    else {
-                    }
                 }
             }
         }
@@ -12995,9 +12874,7 @@ GameFramework.resources.PopAnimResource.prototype = {
                     theSpriteInst.mFrameRepeats++;
                     theSpriteInst.mFrameNum -= theSpriteInst.mDef.mWorkAreaDuration + 1;
                 }
-            }
-
-            else {
+            } else {
                 if((theSpriteInst.mFrameNum | 0) >= theSpriteInst.mDef.mWorkAreaStart + theSpriteInst.mDef.mWorkAreaDuration) {
                     theSpriteInst.mOnNewFrame = true;
                     theSpriteInst.mFrameNum = (theSpriteInst.mDef.mWorkAreaStart + theSpriteInst.mDef.mWorkAreaDuration);
@@ -13006,9 +12883,7 @@ GameFramework.resources.PopAnimResource.prototype = {
                         var anEvent = new GameFramework.resources.popanim.PopAnimEvent(GameFramework.resources.popanim.PopAnimEvent.STOPPED);
                         this.DispatchEvent(anEvent);
                         return;
-                    }
-
-                    else {
+                    } else {
                         theSpriteInst.mFrameRepeats++;
                     }
                 }
@@ -13080,9 +12955,7 @@ GameFramework.resources.PopAnimResource.prototype = {
                 this.DoFramesHit(this.mMainSpriteInst, null);
             }
             return;
-        }
-
-        else {
+        } else {
             this.IncSpriteInstFrame(this.mMainSpriteInst, null, theFrac);
         }
         this.PrepSpriteInstFrame(this.mMainSpriteInst, null);
@@ -13105,9 +12978,7 @@ GameFramework.resources.PopAnimResource.prototype = {
                 aChildSpriteInst = theSpriteInst.mChildren[anObjectPos.mData.mObjectNum].mSpriteInst;
                 aCurColor = aChildSpriteInst.mCurColor;
                 aCurTransform = aChildSpriteInst.mCurTransform;
-            }
-
-            else {
+            } else {
                 this.CalcObjectPos(theSpriteInst, anObjectPosIdx, frozen, aPopAnimCalcObjectPosData);
                 aCurTransform = aPopAnimCalcObjectPosData.mTransform;
                 aCurColor = aPopAnimCalcObjectPosData.mColor;
@@ -13140,18 +13011,14 @@ GameFramework.resources.PopAnimResource.prototype = {
             if(anObjectPos.mData.mIsSprite) {
                 aChildSpriteInst = theSpriteInst.mChildren[anObjectPos.mData.mObjectNum].mSpriteInst;
                 this.DrawSprite(g, aChildSpriteInst, aNewTransform, aNewColor, anObjectPos.mData.mIsAdditive || additive, frozen);
-            }
-
-            else {
+            } else {
                 for(var anImageDrawCount = 0; true; anImageDrawCount++) {
                     var anImage = (this.mImageVector[anObjectPos.mData.mResNum]);
                     var anImageTransform;
                     if(anImage.mTransform != null) {
                         anImageTransform = anImage.mTransform.clone();
                         anImageTransform.concat(aNewTransform);
-                    }
-
-                    else {
+                    } else {
                         anImageTransform = aNewTransform;
                     }
                     if(aNewColor != 0xffffffff) {
@@ -13163,9 +13030,7 @@ GameFramework.resources.PopAnimResource.prototype = {
                     if((anObjectPos.mAnimFrameNum == 0) || (anImage.mImages.length == 1)) {
                         aDrawImage = (anImage.mImages[0]);
                         aDrawFrame = anObjectPos.mAnimFrameNum;
-                    }
-
-                    else {
+                    } else {
                         aDrawImage = (anImage.mImages[anObjectPos.mAnimFrameNum]);
                         aDrawFrame = 0;
                     }
@@ -14339,9 +14204,7 @@ GameFramework.resources.popanim.PopAnimSpriteInst.prototype = {
         if(aSlashPos != -1) {
             aCurName = theName.substr(0, aSlashPos);
             aNextName = theName.substr(aSlashPos + 1);
-        }
-
-        else {
+        } else {
             aCurName = theName;
         }
         for(var aChildIdx = 0; aChildIdx < this.mChildren.length; aChildIdx++) {
@@ -14503,9 +14366,7 @@ GameFramework.widgets.ButtonWidget.prototype = {
         var anIconY = 0;
         var aDownOffset = 1.0 / GameFramework.BaseApp.mApp.mScale;
         if((this.mButtonImage == null) && (this.mDownImage == null)) {
-        }
-
-        else {
+        } else {
             if(!isDown) {
                 if(this.mDisabled && this.HaveButtonImage(this.mDisabledImage, this.mDisabledCel)) {
                     this.DrawButtonImage(g, this.mDisabledImage, this.mDisabledCel, 0, 0);
@@ -14532,9 +14393,7 @@ GameFramework.widgets.ButtonWidget.prototype = {
                     g.DrawString(this.mLabel, aFontX, aFontY);
                 }
                 g.PopColor();
-            }
-
-            else {
+            } else {
                 if(this.HaveButtonImage(this.mDownImage, this.mDownCel)) {
                     this.DrawButtonImage(g, this.mDownImage, this.mDownCel, 0, 0);
                 } else if(this.HaveButtonImage(this.mOverImage, this.mOverCel)) {
@@ -15159,9 +15018,7 @@ GameFramework.widgets.Dialog = function GameFramework_widgets_Dialog(theComponen
         if(this.mButtonMode == GameFramework.widgets.Dialog.BUTTONS_YES_NO) {
             this.mYesButton.mLabel = 'YES';
             this.mNoButton.mLabel = 'NO';
-        }
-
-        else {
+        } else {
             this.mYesButton.mLabel = 'OK';
             this.mNoButton.mLabel = 'CANCEL';
         }
@@ -15184,9 +15041,7 @@ GameFramework.widgets.Dialog = function GameFramework_widgets_Dialog(theComponen
     if(theButtonComponentImage == null) {
         this.mColors[GameFramework.widgets.Dialog.COLOR_BUTTON_TEXT] = 0xff000000;
         this.mColors[GameFramework.widgets.Dialog.COLOR_BUTTON_TEXT_HILITE] = 0xff000000;
-    }
-
-    else {
+    } else {
         this.mColors[GameFramework.widgets.Dialog.COLOR_BUTTON_TEXT] = 0xffffffff;
         this.mColors[GameFramework.widgets.Dialog.COLOR_BUTTON_TEXT_HILITE] = 0xffffffff;
     }
@@ -15309,9 +15164,7 @@ GameFramework.widgets.Dialog.prototype = {
             if(!this.mStretchBG) {
                 g.DrawImageBox(this.mComponentImage, aBoxRect.mX, aBoxRect.mY, aBoxRect.mWidth, aBoxRect.mHeight, 0);
             }
-        }
-
-        else {
+        } else {
             var _t1 = g.PushColor(this.mColors[GameFramework.widgets.Dialog.COLOR_BKG]);
             try {
                 g.FillRect(12 + 1, 12 + 1, this.mWidth - 12 * 2 - 2, this.mHeight - 12 * 2 - 2);
@@ -15640,9 +15493,7 @@ GameFramework.widgets.EditWidget.prototype = {
                         } finally {
                             _t3.Dispose();
                         }
-                    }
-
-                    else {
+                    } else {
                         var _t4 = g.PushColor(this.mColors[GameFramework.widgets.EditWidget.COLOR_HILITE_TEXT]);
                         try {
                             this.mFont.Draw(g, '' + String.fromCharCode(aChar), this.applyJustification(aX, strWidth), (this.mHeight - this.mFont.GetHeight()) / 2 + this.mFont.GetAscent());
@@ -15650,9 +15501,7 @@ GameFramework.widgets.EditWidget.prototype = {
                             _t4.Dispose();
                         }
                     }
-                }
-
-                else {
+                } else {
                     if(aPass == 1) {
                         var _t5 = g.PushColor(this.mColors[GameFramework.widgets.EditWidget.COLOR_TEXT]);
                         try {
@@ -15784,9 +15633,7 @@ GameFramework.widgets.EditWidget.prototype = {
                     this.mCursorPos = ((Math.min(this.mCursorPos, this.mHilitePos)) | 0);
                     this.mHilitePos = -1;
                     bigChange = true;
-                }
-
-                else {
+                } else {
                     if(this.mCursorPos > 0) {
                         this.mString = this.mString.substr(0, this.mCursorPos - 1) + this.mString.substr(this.mCursorPos);
                     } else {
@@ -15807,9 +15654,7 @@ GameFramework.widgets.EditWidget.prototype = {
                     this.mCursorPos = ((Math.min(this.mCursorPos, this.mHilitePos)) | 0);
                     this.mHilitePos = -1;
                     bigChange = true;
-                }
-
-                else {
+                } else {
                     if(this.mCursorPos < (this.mString.length | 0)) {
                         this.mString = this.mString.substr(0, this.mCursorPos) + this.mString.substr(this.mCursorPos + 1);
                     }
@@ -15837,9 +15682,7 @@ GameFramework.widgets.EditWidget.prototype = {
                     this.mCursorPos = ((Math.min(this.mCursorPos, this.mHilitePos)) | 0);
                     this.mHilitePos = -1;
                     bigChange = true;
-                }
-
-                else {
+                } else {
                     this.mString = this.mString.substr(0, this.mCursorPos) + String.fromCharCode(theChar) + this.mString.substr(this.mCursorPos);
                     if(this.mCursorPos != this.mLastModifyIdx + 1) {
                         bigChange = true;
@@ -15849,9 +15692,7 @@ GameFramework.widgets.EditWidget.prototype = {
                 }
                 this.mCursorPos++;
                 this.FocusCursor(false);
-            }
-
-            else {
+            } else {
                 removeHilite = false;
             }
         }
@@ -16020,9 +15861,7 @@ Game.Slider = function Game_Slider(theTrackImage, theThumbImage) {
     if(this.mTrackImage != null) {
         this.mWidth = this.mTrackImage.mWidth;
         this.mHeight = this.mTrackImage.mHeight;
-    }
-
-    else {
+    } else {
         this.mWidth = 30.0;
         this.mHeight = 10.0;
     }
@@ -16094,9 +15933,7 @@ Game.Slider.prototype = {
         if(this.mTrackImage != null) {
             if(this.mHorizontal) {
                 g.DrawButton(this.mTrackImage, 0, (this.mHeight - this.mTrackImage.mHeight) / 2, this.mWidth, 0);
-            }
-
-            else {
+            } else {
             }
         } else if(this.mTrackImage == null) {
             var _t1 = g.PushColor(this.mOutlineColor);
@@ -16120,9 +15957,7 @@ Game.Slider.prototype = {
             g.SetColor(this.mSliderColor);
             if(this.mHorizontal) {
                 g.FillRect(((this.mVal * (this.mWidth - this.mKnobSize)) | 0), 0, this.mKnobSize, this.mHeight);
-            }
-
-            else {
+            } else {
                 g.FillRect(0, ((this.mVal * (this.mHeight - this.mKnobSize)) | 0), this.mWidth, this.mKnobSize);
             }
         }
@@ -16131,9 +15966,7 @@ Game.Slider.prototype = {
         if(this.mHorizontal) {
             var knobWidth = this.mThumbImage == null ? this.mKnobSize : this.mThumbImage.mWidth;
             var aThumbX = ((this.mVal * (this.mWidth - knobWidth)) | 0);
-        }
-
-        else {
+        } else {
             var knobHeight = this.mThumbImage == null ? this.mKnobSize : this.mThumbImage.mHeight;
             var aThumbY = ((this.mVal * (this.mHeight - knobHeight)) | 0);
         }
@@ -16148,9 +15981,7 @@ Game.Slider.prototype = {
             if((x >= aThumbX) && (x < aThumbX + knobWidth)) {
                 this.mDragging = true;
                 this.mRelX = x - aThumbX;
-            }
-
-            else {
+            } else {
                 var pos = (x - knobWidth / 2) / (this.mWidth - knobWidth);
                 if(pos < 0.0) {
                     pos = 0.0;
@@ -16162,17 +15993,13 @@ Game.Slider.prototype = {
                 this.mDragging = true;
                 this.mRelX = knobWidth / 2.0;
             }
-        }
-
-        else {
+        } else {
             var knobHeight = this.mThumbImage == null ? this.mKnobSize : this.mThumbImage.mHeight;
             var aThumbY = ((this.mVal * (this.mHeight - knobHeight)) | 0);
             if((y >= aThumbY) && (y < aThumbY + knobHeight)) {
                 this.mDragging = true;
                 this.mRelY = y - aThumbY;
-            }
-
-            else {
+            } else {
                 var pos_2 = y / this.mHeight;
                 this.SetValue(pos_2);
             }
@@ -16185,9 +16012,7 @@ Game.Slider.prototype = {
             if(this.mHorizontal) {
                 var knobWidth = this.mThumbImage == null ? this.mKnobSize : this.mThumbImage.mWidth;
                 this.mVal = (x - this.mRelX) / (this.mWidth - knobWidth);
-            }
-
-            else {
+            } else {
                 var knobHeight = this.mThumbImage == null ? this.mKnobSize : this.mThumbImage.mHeight;
                 this.mVal = (y - this.mRelY) / (this.mHeight - knobHeight);
             }

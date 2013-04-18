@@ -277,4 +277,4 @@ aLeftPillar.onload = resizeElements;
 var aLeftPillarBot = document.getElementById('leftPillarBot');
 aLeftPillarBot.onload = resizeElements;
 
-alert('sd');
+alert('ddge');

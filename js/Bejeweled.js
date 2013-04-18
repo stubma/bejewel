@@ -285,9 +285,7 @@ Game.Background.prototype = {
                     } else {
                         g.DrawImage(this.mImage, 0, 0);
                     }
-                }
-
-                else {
+                } else {
                     var aScaleFactor = this.mHeight / this.mImage.mHeight;
                     var _t2 = g.PushScale(aScaleFactor, aScaleFactor, 160, 0);
                     try {
@@ -389,9 +387,7 @@ Game.Background.prototype = {
                 if(this.mAnim != null) {
                     this.mHasRenderTargetFlatImage = true;
                     this.mRenderTargetFlatImageDirty = false;
-                }
-
-                else {
+                } else {
                     if(this.mHasRenderTargetFlatImage) {
                         this.mHasRenderTargetFlatImage = false;
                     }
@@ -1004,9 +1000,7 @@ Game.BejApp.prototype = {
             this.mPhysHeight = ((Math.min(theWidth, theHeight)) | 0);
             this.mScale = this.mPhysHeight / this.mLandscapeHeight;
             this.mArtRes = anArtRes;
-        }
-
-        else {
+        } else {
             this.mPhysWidth = ((this.mArtRes * 1600 / 1200) | 0);
             this.mPhysHeight = this.mArtRes;
         }
@@ -1653,9 +1647,7 @@ Game.BejApp.prototype = {
                         theOutBuffer.WriteFloat(theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mScale.x);
                         theOutBuffer.WriteFloat(theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mScale.y);
                         theOutBuffer.WriteFloat(theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mScale.z);
-                    }
-
-                    else {
+                    } else {
                         var aFlags = 0;
                         var xbyte = 0;
                         var ybyte = 0;
@@ -1670,9 +1662,7 @@ Game.BejApp.prototype = {
                                 aTrackingRot[aTrackingRot.mIdxMult0 * (row_3) + col_3].x += Game.BejApp.ByteToFloat(xrotbyte, aXRotDeltaScale);
                                 aFlags |= 1;
                             }
-                        }
-
-                        else {
+                        } else {
                             aTrackingRot[aTrackingRot.mIdxMult0 * (row_3) + col_3].x = theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mPos.x;
                             aFlags |= 1024;
                         }
@@ -1683,9 +1673,7 @@ Game.BejApp.prototype = {
                                 aTrackingRot[aTrackingRot.mIdxMult0 * (row_3) + col_3].y += Game.BejApp.ByteToFloat(yrotbyte, aYRotDeltaScale);
                                 aFlags |= 2;
                             }
-                        }
-
-                        else {
+                        } else {
                             aTrackingRot[aTrackingRot.mIdxMult0 * (row_3) + col_3].y = theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mPos.y;
                             aFlags |= 2048;
                         }
@@ -1696,9 +1684,7 @@ Game.BejApp.prototype = {
                                 aTrackingRot[aTrackingRot.mIdxMult0 * (row_3) + col_3].z += Game.BejApp.ByteToFloat(zrotbyte, aZRotDeltaScale);
                                 aFlags |= 4;
                             }
-                        }
-
-                        else {
+                        } else {
                             aTrackingRot[aTrackingRot.mIdxMult0 * (row_3) + col_3].z = theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mPos.z;
                             aFlags |= 4096;
                         }
@@ -1715,9 +1701,7 @@ Game.BejApp.prototype = {
                             aTrackingPos[aTrackingPos.mIdxMult0 * (row_3) + col_3] = new GameFramework.geom.Vector3(theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mPos.x, theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mPos.y, theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mPos.z);
                             aTrackingPosPrev[aTrackingPosPrev.mIdxMult0 * (row_3) + col_3] = aPrevTrackingPos;
                             aTrackingRot[aTrackingRot.mIdxMult0 * (row_3) + col_3] = new GameFramework.geom.Vector3(theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mRot.x, theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mRot.y, theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mRot.z);
-                        }
-
-                        else {
+                        } else {
                             if(theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mPos.x != theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame - 1].mPos.x) {
                                 aDelta_2 = theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mPos.x - aTrackingPos[aTrackingPos.mIdxMult0 * (row_3) + col_3].x;
                                 if(Math.abs(aDelta_2) <= aXDeltaScale) {
@@ -1727,9 +1711,7 @@ Game.BejApp.prototype = {
                                         aString += ' Guessing:' + aTrackingPos[aTrackingPos.mIdxMult0 * (row_3) + col_3].x;
                                         aFlags |= 8;
                                     }
-                                }
-
-                                else {
+                                } else {
                                     aString += ' Setting:' + theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mPos.x;
                                     aTrackingPos[aTrackingPos.mIdxMult0 * (row_3) + col_3].x = theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mPos.x;
                                     aFlags |= 16;
@@ -1743,9 +1725,7 @@ Game.BejApp.prototype = {
                                         aTrackingPos[aTrackingPos.mIdxMult0 * (row_3) + col_3].y += Game.BejApp.ByteToFloat(ybyte, aYDeltaScale);
                                         aFlags |= 32;
                                     }
-                                }
-
-                                else {
+                                } else {
                                     aTrackingPos[aTrackingPos.mIdxMult0 * (row_3) + col_3].y = theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mPos.y;
                                     aFlags |= 64;
                                 }
@@ -1758,9 +1738,7 @@ Game.BejApp.prototype = {
                                         aTrackingPos[aTrackingPos.mIdxMult0 * (row_3) + col_3].z += Game.BejApp.ByteToFloat(zbyte, aZDeltaScale);
                                         aFlags |= 128;
                                     }
-                                }
-
-                                else {
+                                } else {
                                     aTrackingPos[aTrackingPos.mIdxMult0 * (row_3) + col_3].z = theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_3) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_3) + frame].mPos.z;
                                     aFlags |= 256;
                                 }
@@ -1903,9 +1881,7 @@ Game.BejApp.prototype = {
                         theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame].mScale.x = theDataBuffer.ReadFloat();
                         theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame].mScale.y = theDataBuffer.ReadFloat();
                         theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame].mScale.z = theDataBuffer.ReadFloat();
-                    }
-
-                    else {
+                    } else {
                         var aFlags = theDataBuffer.ReadShort();
                         if((aFlags & 1) != 0) {
                             theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame].mRot.x = theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame - 1].mRot.x + Game.BejApp.ByteToFloat(theDataBuffer.ReadByte(), aXRotDeltaScale);
@@ -1953,9 +1929,7 @@ Game.BejApp.prototype = {
                             theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame].mScale.x = theDataBuffer.ReadFloat();
                             theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame].mScale.y = theDataBuffer.ReadFloat();
                             theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame].mScale.z = theDataBuffer.ReadFloat();
-                        }
-
-                        else {
+                        } else {
                             theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame].mScale.x = theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame - 1].mScale.x;
                             theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame].mScale.y = theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame - 1].mScale.y;
                             theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame].mScale.z = theHyperSpaceAnim.mGems[theHyperSpaceAnim.mGems.mIdxMult0 * (row_2) + theHyperSpaceAnim.mGems.mIdxMult1 * (col_2) + frame - 1].mScale.z;
@@ -2408,9 +2382,7 @@ Game.LightningStorm = function Game_LightningStorm(theBoard, thePiece, theType) 
         this.mNukeScale.SetCurve('b+0,2,0.006667,1,####   ^X### bX### S~###   /####');
         this.mNukeAlpha.SetCurveLinked('b+0,1,0,1,#### o~###     Y}###  V####', this.mNukeScale);
         this.mStormType = Game.LightningStorm.EStormType.FLAMING;
-    }
-
-    else {
+    } else {
         this.mStormType = theType;
     }
     this.mElectrocuterId = thePiece.mId;
@@ -2441,9 +2413,7 @@ Game.LightningStorm = function Game_LightningStorm(theBoard, thePiece, theType) 
             }
         }
         this.mLightingAlpha.SetCurve('b;0,1,0.00885,1,####oCh;uZV###X^8.tQ<###Uqh*Kzk###QG###R~###hI###u~### $#### 2y### *####');
-    }
-
-    else {
+    } else {
         if((thePiece != null) && (thePiece.mColor == Game.DM.EGemColor.HYPERCUBE)) {
             thePiece.mDestructing = true;
         }
@@ -2533,9 +2503,7 @@ Game.LightningStorm.prototype = {
                             } else {
                                 aPiece.mElectrocutePercent += (0.01);
                             }
-                        }
-
-                        else {
+                        } else {
                             if(aPiece.IsFlagSet(Game.Piece.EFlag.HYPERCUBE)) {
                                 aPiece.mElectrocutePercent += (0.01) * 1.67;
                             } else {
@@ -2550,9 +2518,7 @@ Game.LightningStorm.prototype = {
                             if(!this.mBoard.TriggerSpecialEx(aPiece, this.mBoard.GetPieceById(this.mElectrocuterId))) {
                                 aPiece.mExplodeDelay = 1;
                             }
-                        }
-
-                        else {
+                        } else {
                             if(aPiece.mElectrocutePercent < 0.04) {
                                 anElectrocuterPieces[aNumElectrocuterPieces++] = aPiece;
                             }
@@ -2598,9 +2564,7 @@ Game.LightningStorm.prototype = {
                     }
                     this.mLastElectroSound = 0;
                 }
-            }
-
-            else {
+            } else {
                 aNewPiece = aMatchingPieces[this.mBoard.mRand.Next() % aNumMatchingPieces];
             }
             aNewPiece.mIsElectrocuting = true;
@@ -2635,9 +2599,7 @@ Game.LightningStorm.prototype = {
                         aPoint.y = (aCenterY | 0);
                         aPointR.x = (aCenterX | 0);
                         aPointR.y = (aCenterY | 0);
-                    }
-
-                    else {
+                    } else {
                         var aWidthMult = GameFramework.BaseApp.mApp.get_Is3D() ? 32.0 : 26.0;
                         aPoint.x = ((aCenterX + GameFramework.Utils.GetRandFloat() * aWidthMult) | 0);
                         aPoint.y = ((aCenterY + GameFramework.Utils.GetRandFloat() * aWidthMult) | 0);
@@ -2709,9 +2671,7 @@ Game.LightningStorm.prototype = {
                 }
                 Game.Resources['IMAGE_LIGHTNING_CENTER'].set_Additive(true);
                 g.DrawTrianglesTex(Game.Resources['IMAGE_LIGHTNING_CENTER'], aTriVertices);
-            }
-
-            else {
+            } else {
                 var aColor_2 = GameFramework.gfx.Color.UInt_AToInt(Game.DM.gElectColors[(this.mColor | 0) + 1], ((aBrightness * 255.0) | 0));
                 for(var aLightningPointNum_2 = 0; aLightningPointNum_2 < Game.LightningStorm.NUM_LIGTNING_POINTS - 1; aLightningPointNum_2++) {
                     var aPoint_2 = aLightning.mPoints[aLightning.mPoints.mIdxMult0 * (aLightningPointNum_2) + 0];
@@ -4002,9 +3962,7 @@ Game.Board.prototype = {
                     }
                 }
             }
-        }
-
-        else {
+        } else {
             aSpeedPoints += this.mPointsBreakdown[this.mPointsBreakdown.length - 1][(Game.Board.EPointType.SPEED | 0)];
             aMatchPoints += this.mPointsBreakdown[this.mPointsBreakdown.length - 1][(Game.Board.EPointType.MATCH | 0)];
         }
@@ -4019,9 +3977,7 @@ Game.Board.prototype = {
             if(this.mGameTicks >= this.mDeferredSounds[i].mOnGameTick) {
                 Game.SoundUtil.Play(this.mDeferredSounds[i].mId);
                 this.mDeferredSounds.removeAt(i);
-            }
-
-            else {
+            } else {
                 ++i;
             }
         }
@@ -4358,9 +4314,7 @@ Game.Board.prototype = {
         if((this.GetTicksLeft() == 0) && (this.GetTimeLimit() > 0)) {
             new Game.Announcement(this, 'TIME UP');
             Game.SoundUtil.Play(Game.Resources['SOUND_VOICE_TIMEUP']);
-        }
-
-        else {
+        } else {
             new Game.Announcement(this, 'GAME OVER');
             Game.SoundUtil.Play(Game.Resources['SOUND_VOICE_GAMEOVER']);
         }
@@ -4693,9 +4647,7 @@ Game.Board.prototype = {
             var aLayer = anEffect.GetLayer(aColor + 1);
             if(aColor == (thePiece.mColor | 0)) {
                 aLayer.SetVisible(true);
-            }
-
-            else {
+            } else {
                 aLayer.SetVisible(false);
             }
         }
@@ -4880,9 +4832,7 @@ Game.Board.prototype = {
                     aSwapData.mPiece2 = null;
                 }
                 this.mSwapDataVector.removeAt(i);
-            }
-
-            else {
+            } else {
                 ++i;
             }
         }
@@ -5081,9 +5031,7 @@ Game.Board.prototype = {
                 this.mDoThirtySecondVoice = false;
                 Game.SoundUtil.Play(Game.Resources['SOUND_VOICE_THIRTYSECONDS']);
             }
-        }
-
-        else {
+        } else {
             this.mDoThirtySecondVoice = true;
         }
         return aCountdownPct;
@@ -5342,9 +5290,7 @@ Game.Board.prototype = {
                                 aChangePiece.mFallVelocity = Math.max(0, aChangePiece.mFallVelocity);
                             }
                         }
-                    }
-
-                    else {
+                    } else {
                         if(aFirstBumpedPiece == null) {
                             aFirstBumpedPiece = aPiece;
                         }
@@ -5417,9 +5363,7 @@ Game.Board.prototype = {
                                     }
                                     anInfo.mPieceIds.removeAt(i);
                                     continue;
-                                }
-
-                                else {
+                                } else {
                                     stormover = false;
                                 }
                             }
@@ -5523,9 +5467,7 @@ Game.Board.prototype = {
                                                 anEffect.mDY = ((GameFramework.Utils.GetRandFloat() * (Math.abs(offsets[offsets.mIdxMult0 * (anOffset) + 0]) + 0.5) * 10) | 0) * 1.67;
                                                 this.mPostFXManager.AddEffect(anEffect);
                                             }
-                                        }
-
-                                        else {
+                                        } else {
                                             for(var i_5 = 0; i_5 < 20; i_5++) {
                                                 var anEffect_2 = this.mPostFXManager.AllocEffect(Game.Effect.EFxType.SPARKLE_SHARD);
                                                 anEffect_2.mX = aSubX + this.GetBoardX() + GameFramework.Utils.GetRandFloat() * Math.abs(offsets[offsets.mIdxMult0 * (anOffset) + 0]) * Game.Board.GEM_WIDTH / 3;
@@ -5555,9 +5497,7 @@ Game.Board.prototype = {
                                 aPiece_2.ClearFlag(Game.Piece.EFlag.LASER);
                                 if(aPiece_2.IsFlagSet(Game.Piece.EFlag.HYPERCUBE)) {
                                     this.TriggerSpecialEx(aPiece_2, aPiece_2);
-                                }
-
-                                else {
+                                } else {
                                     this.CelDestroyedBySpecial(aPiece_2.mCol, aPiece_2.mRow);
                                     aPiece_2.mExplodeDelay = 1;
                                     aPiece_2.mExplodeSourceId = aPiece_2.mId;
@@ -5594,9 +5534,7 @@ Game.Board.prototype = {
                     this.FillInBlanks();
                 }
                 aStormIdx--;
-            }
-
-            else {
+            } else {
                 if(anInfo.mUpdateCnt < aWantDelay) {
                     break;
                 }
@@ -5655,9 +5593,7 @@ Game.Board.prototype = {
             if(aCenterPiece != null) {
                 celX = aCenterPiece.mCol + aCheckPositions[aCheckPositions.mIdxMult0 * (anOffsets) + 0];
                 celY = aCenterPiece.mRow + aCheckPositions[aCheckPositions.mIdxMult0 * (anOffsets) + 1];
-            }
-
-            else {
+            } else {
                 celX = this.GetColAt(theX - this.GetBoardX());
                 celY = this.GetRowAt(theY - this.GetBoardY());
             }
@@ -5692,9 +5628,7 @@ Game.Board.prototype = {
                                 anEffect_2.mScale = 0.1 + Math.abs(GameFramework.Utils.GetRandFloat()) * 1.0;
                                 this.mPostFXManager.AddEffect(anEffect_2);
                             }
-                        }
-
-                        else {
+                        } else {
                             for(var i_2 = 0; i_2 < 14; i_2++) {
                                 var anEffect_3 = this.mPostFXManager.AllocEffect(Game.Effect.EFxType.STEAM);
                                 var anAngle_2 = GameFramework.Utils.GetRandFloat() * Game.MathUtil.PI;
@@ -5732,9 +5666,7 @@ Game.Board.prototype = {
                                 anEffect_4.mDX = (Math.cos(aRot) * aSpeed_3) * 1.67;
                                 anEffect_4.mDY = (Math.sin(aRot) * aSpeed_3 + -2.0) * 1.67;
                                 anEffect_4.mDecel = 0.965 + GameFramework.Utils.GetRandFloat() * 0.005;
-                            }
-
-                            else {
+                            } else {
                                 anEffect_4.mX = aPieceCenterX + ((1.2 * aDist * anEffect_4.mDX) | 0) + 14.0;
                                 anEffect_4.mY = aPieceCenterY + ((1.2 * aDist * anEffect_4.mDY) | 0) + 10.0;
                             }
@@ -5763,9 +5695,7 @@ Game.Board.prototype = {
                             anEffect_5.mColor = GameFramework.gfx.Color.RGBToInt(128, 128, 128);
                             this.mPostFXManager.AddEffect(anEffect_5);
                         }
-                    }
-
-                    else {
+                    } else {
                         for(var i_5 = 0; i_5 < 6; i_5++) {
                             var anEffect_6 = this.mPostFXManager.AllocEffect(Game.Effect.EFxType.STEAM);
                             var anAngle_4 = i_5 * Game.MathUtil.PI * 2.0 / 6.0;
@@ -5895,9 +5825,7 @@ Game.Board.prototype = {
                     anEffect.mColor = GameFramework.gfx.Color.RGBAToInt(255, 96, 32, 64);
                     anEffect.mIsAdditive = false;
                     anEffect.mDScale = 0.015;
-                }
-
-                else {
+                } else {
                     anEffect.mX = aXCenter + Math.cos(anAngle) * 24.0 * Math.abs(GameFramework.Utils.GetRandFloat());
                     anEffect.mY = aYCenter + Math.sin(anAngle) * 24.0 * Math.abs(GameFramework.Utils.GetRandFloat());
                     anEffect.mColor = Game.DM.gGemColors[(thePiece.mColor | 0) + 1];
@@ -5926,9 +5854,7 @@ Game.Board.prototype = {
                 anEffect_2.mDX = (Math.cos(aRot) * aSpeed_2) * 1.67;
                 anEffect_2.mDY = (Math.sin(aRot) * aSpeed_2 + -2.0) * 1.67;
                 anEffect_2.mDecel = 0.98 + GameFramework.Utils.GetRandFloat() * 0.005;
-            }
-
-            else {
+            } else {
                 anEffect_2.mX = aXCenter + ((1.2 * aDist * anEffect_2.mDX) | 0) + 14.0;
                 anEffect_2.mY = aYCenter + ((1.2 * aDist * anEffect_2.mDY) | 0) + 10.0;
             }
@@ -6082,9 +6008,7 @@ Game.Board.prototype = {
                                 if(((aRightCol - aLeftCol >= 2) && (horz)) && ((aBottomRow - aTopRow >= 2) && (vert))) {
                                     moveIsValid = true;
                                 }
-                            }
-
-                            else {
+                            } else {
                                 if(((aRightCol - aLeftCol >= 2) && (horz)) || ((aBottomRow - aTopRow >= 2) && (vert))) {
                                     moveIsValid = true;
                                 }
@@ -6099,9 +6023,7 @@ Game.Board.prototype = {
                                     theCoords[3] = aSwapRow;
                                 }
                                 return true;
-                            }
-
-                            else {
+                            } else {
                                 ++aMoveNum;
                             }
                         }
@@ -6136,16 +6058,12 @@ Game.Board.prototype = {
                         if((++aMatchCount >= 3) && (foundCheckPiece)) {
                             return true;
                         }
-                    }
-
-                    else {
+                    } else {
                         aLastColor = aPiece.mColor;
                         aMatchCount = 1;
                         foundCheckPiece = (aPiece == theCheckPiece) || (theCheckPiece == null);
                     }
-                }
-
-                else {
+                } else {
                     aLastColor = Game.DM.EGemColor._INVALID;
                 }
             }
@@ -6164,16 +6082,12 @@ Game.Board.prototype = {
                         if((++aMatchCount_2 >= 3) && (foundCheckPiece_2)) {
                             return true;
                         }
-                    }
-
-                    else {
+                    } else {
                         aLastColor_2 = aPiece_2.mColor;
                         aMatchCount_2 = 1;
                         foundCheckPiece_2 = (aPiece_2 == theCheckPiece) || (theCheckPiece == null);
                     }
-                }
-
-                else {
+                } else {
                     aLastColor_2 = Game.DM.EGemColor._INVALID;
                 }
             }
@@ -6198,16 +6112,12 @@ Game.Board.prototype = {
                         if((++aMatchCount >= 3) && (hasProtectedGem)) {
                             return true;
                         }
-                    }
-
-                    else {
+                    } else {
                         aLastColor = aPiece.mColor;
                         aMatchCount = 1;
                         hasProtectedGem = isGemProtected;
                     }
-                }
-
-                else {
+                } else {
                     aLastColor = Game.DM.EGemColor._INVALID;
                 }
             }
@@ -6227,16 +6137,12 @@ Game.Board.prototype = {
                         if((++aMatchCount_2 >= 3) && (hasProtectedGem_2)) {
                             return true;
                         }
-                    }
-
-                    else {
+                    } else {
                         aLastColor_2 = aPiece_2.mColor;
                         aMatchCount_2 = 1;
                         hasProtectedGem_2 = isGemProtected_2;
                     }
-                }
-
-                else {
+                } else {
                     aLastColor_2 = Game.DM.EGemColor._INVALID;
                 }
             }
@@ -6343,9 +6249,7 @@ Game.Board.prototype = {
                     if(i_2 == 0) {
                         aCol = i1;
                         aRow = i2;
-                    }
-
-                    else {
+                    } else {
                         aCol = i2;
                         aRow = i1;
                     }
@@ -6404,16 +6308,12 @@ Game.Board.prototype = {
                                                         if(isUnsettled) {
                                                             hadUnsettledPerp = true;
                                                         }
-                                                    }
-
-                                                    else {
+                                                    } else {
                                                         if(isUnsettled) {
                                                             needsSettling = true;
                                                         }
                                                     }
-                                                }
-
-                                                else {
+                                                } else {
                                                     break;
                                                 }
                                             }
@@ -6449,9 +6349,7 @@ Game.Board.prototype = {
                                         }
                                     }
                                 }
-                            }
-
-                            else {
+                            } else {
                                 aFoundCount++;
                                 if(!justSwapped) {
                                     aFoundChains++;
@@ -6511,9 +6409,7 @@ Game.Board.prototype = {
                                                                 aDeferLaserSet.push(aMarkPiece_4);
                                                             }
                                                         }
-                                                    }
-
-                                                    else {
+                                                    } else {
                                                     }
                                                     isCandidate = false;
                                                 }
@@ -6556,9 +6452,7 @@ Game.Board.prototype = {
                                         if(i_2 == 0) {
                                             aSide1 = this.GetPieceAtRowCol(aTestPiece.mRow, aTestPiece.mCol + 1);
                                             aSide2 = this.GetPieceAtRowCol(aTestPiece.mRow, aTestPiece.mCol - 1);
-                                        }
-
-                                        else {
+                                        } else {
                                             aSide1 = this.GetPieceAtRowCol(aTestPiece.mRow + 1, aTestPiece.mCol);
                                             aSide2 = this.GetPieceAtRowCol(aTestPiece.mRow - 1, aTestPiece.mCol);
                                         }
@@ -6576,9 +6470,7 @@ Game.Board.prototype = {
                                             } else {
                                                 aPowerupPieceBackup = this.GetPieceAtRowCol(aPowerupPiece.mRow, ((Math.max(aFirstMatchCol, aPowerupPiece.mCol - aDist_2)) | 0));
                                             }
-                                        }
-
-                                        else {
+                                        } else {
                                             if(i_2 == 0) {
                                                 aPowerupPieceBackup = this.GetPieceAtRowCol(((Math.min(aLastMatchRow, aPowerupPiece.mRow + aDist_2)) | 0), aPowerupPiece.mCol);
                                             } else {
@@ -6698,9 +6590,7 @@ Game.Board.prototype = {
                 this.AddToStatCred(Game.DM.EStat.GEMS_CLEARED, 1, aPiece_3.mMoveCreditId);
                 this.AddToStatCred(Game.DM.EStat.LASERGEMS_MADE, 1, aPiece_3.mMoveCreditId);
                 this.Laserify(aPiece_3);
-            }
-
-            else {
+            } else {
                 this.AddToStatCred(Game.DM.EStat.GEMS_CLEARED, 1, aPiece_3.mMoveCreditId);
                 this.AddToStatCred(Game.DM.EStat.FLAMEGEMS_MADE, 1, aPiece_3.mMoveCreditId);
                 this.Flamify(aPiece_3);
@@ -6803,9 +6693,7 @@ Game.Board.prototype = {
                         aPowerupPieceSet.push(aPiece_6);
                     }
                 }
-            }
-
-            else {
+            } else {
                 doMatchSounds = true;
                 if(isLaserifying) {
                     for(var aPieceIdx_4 = 0; aPieceIdx_4 < (aMatchSet_2.mPieces.length | 0); aPieceIdx_4++) {
@@ -6813,9 +6701,7 @@ Game.Board.prototype = {
                         aPiece_7.mScale.SetConstant(1.0);
                         aPiece_7.mCanMatch = false;
                     }
-                }
-
-                else {
+                } else {
                     if(aSpecialPiece != null) {
                         for(var aPieceIdx_5 = 0; aPieceIdx_5 < (aMatchSet_2.mPieces.length | 0); aPieceIdx_5++) {
                             var aPiece_8 = aMatchSet_2.mPieces[aPieceIdx_5];
@@ -6843,9 +6729,7 @@ Game.Board.prototype = {
                                         if(aDirX < 0) {
                                             anEffect.mAngle = Game.MathUtil.PI;
                                         }
-                                    }
-
-                                    else {
+                                    } else {
                                         anEffect.Play$2('smear vertical');
                                         if(aDirY < 0) {
                                             anEffect.mAngle = Game.MathUtil.PI;
@@ -6891,14 +6775,10 @@ Game.Board.prototype = {
             if((fromUpdateSwapping) && (this.mSpeedBonusCount > 0)) {
                 if(this.mSpeedBonusNum > 0.01) {
                     Game.SoundUtil.PlayEx(Game.Resources['SOUND_FLAMESPEED1'], aPan, 1.0);
-                }
-
-                else {
+                } else {
                     Game.SoundUtil.PlayEx(GameFramework.BaseApp.mApp.mResourceManager.GetSoundResourceById('SOUND_SPEEDMATCH' + (Math.min(8 + 1, this.mSpeedBonusCount + 1) | 0)), aPan, 1.0);
                 }
-            }
-
-            else {
+            } else {
                 Game.SoundUtil.PlayEx(GameFramework.BaseApp.mApp.mResourceManager.GetSoundResourceById('SOUND_COMBO_' + (aComboSoundIdx + 1)), aPan, 1.0);
             }
             for(var i_5 = 0; i_5 < aMoveCreditSet.length; ++i_5) {
@@ -7074,15 +6954,11 @@ Game.Board.prototype = {
                             this.mBoard[this.mBoard.mIdxMult0 * (aRow_2 + 1) + aCol_2] = aPiece_2;
                             aMoveCreditId = aPiece_2.mMoveCreditId;
                         }
-                    }
-
-                    else {
+                    } else {
                         if(colFalling) {
                             this.mBoard[this.mBoard.mIdxMult0 * (aRow_2 + 1) + aCol_2] = null;
                             aFallCount++;
-                        }
-
-                        else {
+                        } else {
                             aFallStart = aRow_2;
                             aFallCount = 0;
                             colFalling = true;
@@ -7452,9 +7328,7 @@ Game.Board.prototype = {
                     if(aDirX < 0) {
                         anEffect.mAngle = Game.MathUtil.PI;
                     }
-                }
-
-                else {
+                } else {
                     anEffect.Play$2('smear vertical');
                     if(aDirY < 0) {
                         anEffect.mAngle = Game.MathUtil.PI;
@@ -7502,9 +7376,7 @@ Game.Board.prototype = {
                         }
                     }
                 }
-            }
-
-            else {
+            } else {
                 if(thePiece.IsFlagSet(Game.Piece.EFlag.COUNTER)) {
                     thePiece.mSpinFrame = 1;
                     thePiece.mSpinSpeed = 0.33;
@@ -7705,9 +7577,7 @@ Game.Board.prototype = {
                         }
                         if(aSwapData.mPiece2 != null) {
                             this.SwapPieceLocations(aSwapData.mPiece1, aSwapData.mPiece2, false);
-                        }
-
-                        else {
+                        } else {
                             this.mBoard[this.mBoard.mIdxMult0 * (aSwapData.mPiece1.mRow) + aSwapData.mPiece1.mCol] = null;
                             aSwapData.mPiece1.mCol = aSwapCol;
                             aSwapData.mPiece1.mRow = aSwapRow;
@@ -7745,18 +7615,14 @@ Game.Board.prototype = {
                                 if(aSwapData.mHoldingSwap > 400) {
                                     foundSets = 0;
                                     aSwapData.mHoldingSwap = 0;
-                                }
-
-                                else {
+                                } else {
                                     done = false;
                                     continue;
                                 }
                             }
                             if(foundSets != 0) {
                                 this.MatchMade(aSwapData);
-                            }
-
-                            else {
+                            } else {
                                 if(forceSwap) {
                                     this.DecrementAllDoomGems(false);
                                 }
@@ -7889,9 +7755,7 @@ Game.Board.prototype = {
             } else {
                 this.mLevelBarPct = Math.min(aLevelPct, this.mLevelBarPct + (aLevelPct - this.mLevelBarPct) * 0.025 + 0.0005);
             }
-        }
-
-        else {
+        } else {
             this.mLevelBarPct = Math.max(aLevelPct, this.mLevelBarPct + (aLevelPct - this.mLevelBarPct) * 0.05 - 0.0001);
         }
         this.UpdateLevelBarEffect();
@@ -7908,9 +7772,7 @@ Game.Board.prototype = {
             } else {
                 this.mCountdownBarPct = Math.min(aCountdownPct, this.mCountdownBarPct + (aCountdownPct - this.mCountdownBarPct) * 0.025 + 0.0005);
             }
-        }
-
-        else {
+        } else {
             this.mCountdownBarPct = Math.max(aCountdownPct, this.mCountdownBarPct + (aCountdownPct - this.mCountdownBarPct) * 0.05 - 0.0001);
         }
         var aBarRect = this.GetCountdownBarRect();
@@ -7932,9 +7794,7 @@ Game.Board.prototype = {
                 this.LevelUp();
                 return true;
             }
-        }
-
-        else {
+        } else {
             if(aLevelPoints > 0 && this.GetLevelPointsTotal() >= aLevelPoints) {
                 this.LevelUp();
                 return true;
@@ -8000,9 +7860,7 @@ Game.Board.prototype = {
                                     aPiece.mLastMoveCreditId = aPiece.mMoveCreditId;
                                     aPiece.mMoveCreditId = -1;
                                     aPiece.mLastActiveTick = 0;
-                                }
-
-                                else {
+                                } else {
                                     found = true;
                                 }
                             }
@@ -8067,9 +7925,7 @@ Game.Board.prototype = {
             if(thePiece.IsFlagSet(Game.Piece.EFlag.LASER)) {
                 theHeader = 'SUPERNOVA GEM';
                 theBody = 'Created by matching 6+ Gems in a row, this powerful Gem explodes with the force of a million suns when matched.';
-            }
-
-            else {
+            } else {
                 theHeader = 'FLAME GEM';
                 theBody = 'Created by forming 4 Gems of the same color in a line. Explodes when matched!';
             }
@@ -8150,9 +8006,7 @@ Game.Board.prototype = {
         this.FlipHeldSwaps();
         if(this.mGameOverPiece != null) {
             this.UpdateBombExplode();
-        }
-
-        else {
+        } else {
             if(this.mLightningStorms.length == 0) {
                 this.FillInBlanks();
             }
@@ -8235,9 +8089,7 @@ Game.Board.prototype = {
                         doBoom = true;
                         aPiece_2.mImmunityCount = aPrevImmunity;
                         aPiece_2.ClearFlag(Game.Piece.EFlag.INFERNO_SWAP);
-                    }
-
-                    else {
+                    } else {
                         if((aPiece_2.IsFlagSet(Game.Piece.EFlag.FLAME)) || (aPiece_2.IsFlagSet(Game.Piece.EFlag.BLAST_GEM)) || ((aPiece_2.IsFlagSet(Game.Piece.EFlag.LASER)) && (aPiece_2.mImmunityCount > 0))) {
                             if(aPiece_2.IsFlagSet(Game.Piece.EFlag.BLAST_GEM)) {
                                 var aBlastCount = this.mGameStats[(Game.DM.EStat.BLASTGEMS_USED | 0)];
@@ -8265,9 +8117,7 @@ Game.Board.prototype = {
                                         }
                                     }
                                 }
-                            }
-
-                            else {
+                            } else {
                                 this.AddToStatCred(Game.DM.EStat.FLAMEGEMS_USED, 1, aPiece_2.mMoveCreditId);
                             }
                             anExplodeAccumX += (aPiece_2.CX() | 0);
@@ -8281,9 +8131,7 @@ Game.Board.prototype = {
                                 if(!didMultiplierBoom) {
                                     didMultiplierBoom = true;
                                 }
-                            }
-
-                            else {
+                            } else {
                                 doElectroBoom = true;
                             }
                             if((aPiece_2.IsFlagSet(Game.Piece.EFlag.DETONATOR)) || (aPiece_2.IsFlagSet(Game.Piece.EFlag.SCRAMBLE))) {
@@ -8302,9 +8150,7 @@ Game.Board.prototype = {
                     Game.SoundUtil.PlayEx(Game.Resources['SOUND_GEM_SHATTERS'], this.GetPanPosition(((anExplodeAccumX / anExplodeCount) | 0)), 0.5);
                 }
                 Game.SoundUtil.PlayEx(Game.Resources['SOUND_BOMB_EXPLODE'], 0.0, 0.5);
-            }
-
-            else {
+            } else {
                 if(anExplodeCount > 0) {
                     Game.SoundUtil.Play(Game.Resources['SOUND_PREBLAST']);
                     Game.SoundUtil.PlayEx(Game.Resources['SOUND_GEM_SHATTERS'], this.GetPanPosition(((anExplodeAccumX / anExplodeCount) | 0)), 1.0);
@@ -8359,9 +8205,7 @@ Game.Board.prototype = {
                     if(aPiece_5.mDestPct.get_v() != 0.0) {
                         aPiece_5.mX = this.GetColX(aPiece_5.mCol) * (1.0 - aPiece_5.mDestPct.get_v()) + this.GetColX(aPiece_5.mDestCol) * aPiece_5.mDestPct.get_v();
                         aPiece_5.mY = this.GetRowY(aPiece_5.mRow) * (1.0 - aPiece_5.mDestPct.get_v()) + this.GetRowY(aPiece_5.mDestRow) * aPiece_5.mDestPct.get_v();
-                    }
-
-                    else {
+                    } else {
                         aPiece_5.mFlyVY += aPiece_5.mFlyAY * 1.67;
                         aPiece_5.mX += aPiece_5.mFlyVX * 1.67;
                         aPiece_5.mY += aPiece_5.mFlyVY * 1.67;
@@ -8413,9 +8257,7 @@ Game.Board.prototype = {
                 this.mSunFired = true;
                 this.mLastSunTick = this.mUpdateCnt;
             }
-        }
-
-        else {
+        } else {
             this.mSunFired = false;
         }
         if(this.mComboFlashPct.get_v() == 0) {
@@ -8435,9 +8277,7 @@ Game.Board.prototype = {
             if((GameFramework.BaseApp.mApp.get_Is3D()) && (!Game.BejApp.mBejApp.mIsSlow)) {
                 this.mHyperspace = new Game.HyperspaceUltra(this);
                 Game.BejApp.mBejApp.mGameLayerWidget.AddWidget(this.mHyperspace);
-            }
-
-            else {
+            } else {
                 this.mHyperspace = new Game.HyperspaceFallback(this);
                 var aParentWidget = this.mParent;
                 this.RemoveSelf();
@@ -8463,9 +8303,7 @@ Game.Board.prototype = {
         if(this.mHintCooldownTicks > 0) {
             --this.mHintCooldownTicks;
             this.mHintButton.SetMouseVisible(false);
-        }
-
-        else {
+        } else {
             this.mHintButton.SetMouseVisible(true);
         }
         if((this.mLightningStorms.length == 0) && (this.mSpeedBonusFlameModePct > 0)) {
@@ -9018,9 +8856,7 @@ Game.Board.prototype = {
         if(drawGem && thePiece.mColor >= 0) {
             if(this.CanBakeShadow(thePiece)) {
                 g.DrawImageCel(Game.Resources['IMAGE_GEMS_SHADOWED'].get_OffsetImage(), anOfsX, anOfsY, (thePiece.mColor | 0));
-            }
-
-            else {
+            } else {
                 var gemColors = Array.Create(7, null, GameFramework.gfx.Color.RGBToInt(255, 255, 255), GameFramework.gfx.Color.RGBToInt(192, 192, 192), GameFramework.gfx.Color.RGBToInt(32, 192, 32), GameFramework.gfx.Color.RGBToInt(224, 192, 32), GameFramework.gfx.Color.RGBToInt(255, 255, 255), GameFramework.gfx.Color.RGBToInt(255, 160, 32), GameFramework.gfx.Color.RGBToInt(255, 255, 255));
                 if(thePiece.IsFlagSet(Game.Piece.EFlag.LASER)) {
                     g.PushColor(GameFramework.gfx.Color.UInt_AToInt(gemColors[(thePiece.mColor | 0)], ((255.0 * thePiece.mAlpha.get_v() * this.GetPieceAlpha()) | 0)));
@@ -9112,9 +8948,7 @@ Game.Board.prototype = {
             try {
                 if(this.WantBottomLevelBar() || this.GetTimeLimit() > 0) {
                     g.DrawImage(Game.Resources['IMAGE_BOARD_BOTTOM_FRAME_GLOW'].get_CenteredImage(), this.GetBoardCenterX(), this.GetBoardY() + Game.Board.GEM_HEIGHT * this.mRowCount + 33);
-                }
-
-                else {
+                } else {
                     g.DrawImage(Game.Resources['IMAGE_BOARD_THIN_BOTTOM_FRAME_GLOW'].get_CenteredImage(), this.GetBoardCenterX(), this.GetBoardY() + Game.Board.GEM_HEIGHT * this.mRowCount + 11);
                 }
             } finally {
@@ -9332,9 +9166,7 @@ Game.Board.prototype = {
             if(this.mTimeExpired) {
                 aPoint.x = Math.max(0.0, 1.0 - (this.mPointMultPosPct.get_v())) * aSrcPos.x + Math.max(0.0, (this.mPointMultPosPct.get_v())) * aSidebarPos.x;
                 aPoint.y = Math.max(0.0, 1.0 - (this.mPointMultPosPct.get_v())) * aSrcPos.y + Math.max(0.0, (this.mPointMultPosPct.get_v())) * aSidebarPos.y;
-            }
-
-            else {
+            } else {
                 aPoint.x = Math.max(0.0, 1.0 - (this.mPointMultPosPct.get_v() * 2.0)) * aSrcPos.x + (1.0 - Math.abs((this.mPointMultPosPct.get_v() - 0.5) * 2)) * aCenterPos.x + Math.max(0.0, 2 * (this.mPointMultPosPct.get_v() - 0.5)) * aSidebarPos.x;
                 aPoint.y = Math.max(0.0, 1.0 - (this.mPointMultPosPct.get_v() * 2.0)) * aSrcPos.y + (1.0 - Math.abs((this.mPointMultPosPct.get_v() - 0.5) * 2)) * aCenterPos.y + Math.max(0.0, 2 * (this.mPointMultPosPct.get_v() - 0.5)) * aSidebarPos.y;
             }
@@ -9446,9 +9278,7 @@ Game.Board.prototype = {
         var tx = 0.0;
         if(this.mSideXOff.get_v() != 0) {
             tx = this.mSideXOff.get_v();
-        }
-
-        else {
+        } else {
             tx = Game.DM.UI_SLIDE_RIGHT * this.mSlideUIPct.get_v();
         }
         var _t54 = g.PushTranslate(this.mSideXOff.get_v(), 0.0);
@@ -9710,9 +9540,7 @@ Game.Board.prototype = {
                                         _t65.Dispose();
                                     }
                                 }
-                            }
-
-                            else {
+                            } else {
                                 if(pctString.length > 0) {
                                     var _t66 = g.PushColor(0xffe09040);
                                     try {
@@ -9803,9 +9631,7 @@ Game.Board.prototype = {
             }
             this.mPreFXManager.Draw(g);
             gemMask = 0xffffffff;
-        }
-
-        else {
+        } else {
             for(var anIdx = 0; anIdx < this.mLightningStorms.length; anIdx++) {
                 if(this.mLightningStorms[anIdx].mStormType == Game.LightningStorm.EStormType.HYPERCUBE) {
                     gemMask |= ((1 << ((this.mLightningStorms[anIdx].mColor | 0) + 1)) | 0);
@@ -9950,9 +9776,7 @@ Game.Board.prototype = {
             if(aClickPiece != null) {
                 failed = true;
             }
-        }
-
-        else {
+        } else {
             aCol = aClickPiece.mCol;
             aRow = aClickPiece.mRow;
         }
@@ -9971,24 +9795,18 @@ Game.Board.prototype = {
                         aClickPiece.mSelectorAlpha.SetConstant(1.0);
                     }
                 }
-            }
-
-            else {
+            } else {
                 if(aClickPiece != null) {
                     if(aClickPiece.IsButton()) {
                         this.QueueSwap(aClickPiece, aClickPiece.mRow, aClickPiece.mCol, false, true, false, false);
-                    }
-
-                    else {
+                    } else {
                         aClickPiece.mSelected = true;
                         aClickPiece.mSelectorAlpha.SetConstant(1.0);
                         Game.SoundUtil.Play(Game.Resources['SOUND_SELECT']);
                     }
                 }
             }
-        }
-
-        else {
+        } else {
             if(aSelectedPiece != null) {
                 aSelectedPiece.mSelected = false;
                 aSelectedPiece.mSelectorAlpha.SetConstant(0.0);
@@ -10004,9 +9822,7 @@ Game.Board.prototype = {
             aSelectedPiece.mSelected = false;
             aSelectedPiece.mSelectorAlpha.SetConstant(0.0);
             this.mMouseUpPiece = null;
-        }
-
-        else {
+        } else {
             this.mMouseUpPiece = aSelectedPiece;
         }
     },
@@ -10036,9 +9852,7 @@ Game.Board.prototype = {
                 } else if(aXDif < 0 && aSelectedPiece.mCol > 0) {
                     aSwapPoint = new GameFramework.geom.TIntPoint(aSelectedPiece.mCol - 1, aSelectedPiece.mRow);
                 }
-            }
-
-            else {
+            } else {
                 if(aYDif > 0 && aSelectedPiece.mRow < this.mRowCount - 1) {
                     aSwapPoint = new GameFramework.geom.TIntPoint(aSelectedPiece.mCol, aSelectedPiece.mRow + 1);
                 } else if(aYDif < 0 && aSelectedPiece.mRow > 0) {
@@ -10114,9 +9928,7 @@ Game.Board.prototype = {
                 if(aPiece != null) {
                     aPiece.mSelected = false;
                     aPiece.mSelectorAlpha.SetConstant(0.0);
-                }
-
-                else {
+                } else {
                     selectPiece = true;
                 }
             }
@@ -10153,9 +9965,7 @@ Game.Board.prototype = {
                 var aPiece_2 = null;
                 if(this.mCursorSelectPos.x == -1) {
                     aPiece_2 = this.GetPieceAtScreenXY((this.mLastMouseX | 0), (this.mLastMouseY | 0));
-                }
-
-                else {
+                } else {
                     aPiece_2 = this.GetPieceAtScreenXY(this.GetBoardX() + this.GetColX(this.mCursorSelectPos.x) + ((Game.Board.GEM_WIDTH / 2) | 0), this.GetBoardY() + this.GetRowY(this.mCursorSelectPos.y) + ((Game.Board.GEM_HEIGHT / 2) | 0));
                 }
                 if(aPiece_2 != null) {
@@ -11149,9 +10959,7 @@ Game.CrystalBall.prototype = {
                             if(this.mImageSrcRect.mWidth != 0.0) {
                                 aTexStretch *= (this.mImage.mHeight / this.mImage.mWidth) / (1200.0 / 1920.0);
                                 aTexOffset = (this.mImageSrcRect.mX + ((this.mImageSrcRect.mWidth / 2) | 0)) / this.mImage.mWidth - 0.5;
-                            }
-
-                            else {
+                            } else {
                                 aTexStretch *= (this.mImage.mHeight / this.mImage.mWidth) / (1200.0 / 1920.0);
                             }
                             var anAlpha = this.mAlphas[aDistIdx_2];
@@ -11580,9 +11388,7 @@ Game.Effect = function Game_Effect(theType) {
             if(aType != 0) {
                 this.mAngle = anAngle;
                 this.mDAngle = GameFramework.Utils.GetRandFloat() * 3.141593 * 0.01;
-            }
-
-            else {
+            } else {
                 this.mAngle = 0;
             }
             this.mAngle = GameFramework.Utils.GetRandFloat() * 3.141593;
@@ -11845,18 +11651,14 @@ Game.ParticleEffect.prototype = {
         if(this.mDoDrawTransform) {
             trans.scale(1.0, 1.0);
             this.mPIEffect.mDrawTransform = trans;
-        }
-
-        else {
+        } else {
             this.mPIEffect.mDrawTransform.identity();
             this.mPIEffect.mEmitterTransform = trans;
         }
         if(this.mIsFirstUpdate) {
             this.mPIEffect.ResetAnim();
             this.mIsFirstUpdate = false;
-        }
-
-        else {
+        } else {
             this.mPIEffect.Update();
         }
         if(!this.mPIEffect.IsActive()) {
@@ -12065,9 +11867,7 @@ Game.EffectsManager.prototype = {
                         anEffect.mX += anEffect.mDX / anUpdateDiv;
                         anEffect.mY += anEffect.mDY / anUpdateDiv;
                         anEffect.mZ += anEffect.mDZ / anUpdateDiv;
-                    }
-
-                    else {
+                    } else {
                         anEffect.mX += anEffect.mDX;
                         anEffect.mY += anEffect.mDY;
                         anEffect.mZ += anEffect.mDZ;
@@ -12082,9 +11882,7 @@ Game.EffectsManager.prototype = {
                             if(anEffect.mDelay <= 0) {
                                 anEffect.mDelay = 0;
                             }
-                        }
-
-                        else {
+                        } else {
                             anEffect.mAlpha += anEffect.mDAlpha;
                             anEffect.mScale += anEffect.mDScale;
                         }
@@ -12115,13 +11913,9 @@ Game.EffectsManager.prototype = {
                                     anEffect.mDeleteMe = true;
                                 }
                                 anEffect.mFrame = ((12.0 * anEffect.mAlpha) | 0);
-                            }
-
-                            else {
+                            } else {
                                 if((anEffect.mColor & 0xff00ff) != 0) {
-                                }
-
-                                else {
+                                } else {
                                     anEffect.mScale += 0.02;
                                     anEffect.mAlpha -= 0.01;
                                     if(anEffect.mAlpha <= 0) {
@@ -12310,9 +12104,7 @@ Game.EffectsManager.prototype = {
                     if((anEffect.mDeleteMe) && (anEffect.mRefCount == 0)) {
                         this.FreeEffect(anEffect);
                         fxArr.removeAt(i);
-                    }
-
-                    else {
+                    } else {
                         ++i;
                     }
                 }
@@ -12504,9 +12296,7 @@ Game.EffectsManager.prototype = {
                             if(GameFramework.BaseApp.mApp.get_Is3D()) {
                                 anEmberAlpha = 0.8 * anAlpha;
                                 anEffect.mImage.mAdditive = true;
-                            }
-
-                            else {
+                            } else {
                                 anEmberAlpha = Math.min(1.0, 1.5 * anAlpha);
                                 anEffect.mImage.mAdditive = false;
                             }
@@ -12515,9 +12305,7 @@ Game.EffectsManager.prototype = {
                             if((anEffect.mType == Game.Effect.EFxType.EMBER_FADEINOUT) || (anEffect.mType == Game.Effect.EFxType.EMBER_FADEINOUT_BOTTOM)) {
                                 var aFrame_3 = ((63.99 * anEffect.mAlpha) | 0);
                                 g.DrawImageCel(anEffect.mImage, 0, 0, aFrame_3);
-                            }
-
-                            else {
+                            } else {
                                 g.DrawImageCel(anEffect.mImage, 0, 0, anEffect.mFrame);
                             }
 
@@ -12643,9 +12431,7 @@ Game.EffectsManager.prototype = {
                 for(var i = 0; i < fxArr.length;) {
                     if(fxArr[i].mPieceIdRel == thePieceId) {
                         fxArr.removeAt(i);
-                    }
-
-                    else {
+                    } else {
                         ++i;
                     }
                 }
@@ -13173,9 +12959,7 @@ Game.EndLevelDialog.prototype = {
                     Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('OUTLINE', GameFramework.gfx.Color.FAlphaToInt(Math.max(0.0, Math.min(1.0, (Math.cos(this.mUpdateCnt * 0.1) + 1.0) / 2.0))));
                     Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('GLOW', 0xffffffff);
                     Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('MAIN', 0xffffffff);
-                }
-
-                else {
+                } else {
                     Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('OUTLINE', 0x40ffffff);
                     var p = 45;
                     var u = (this.mUpdateCnt % p) / p;
@@ -13186,16 +12970,12 @@ Game.EndLevelDialog.prototype = {
                     Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('MAIN', Game.Util.HSLToRGB(185 + ((u * 20.0) | 0), 255, 150));
                 }
                 this.mNameWidget.mMaxPixels = aPossibleLength;
-            }
-
-            else {
+            } else {
                 Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('OUTLINE', 0xffffffff);
                 Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('GLOW', 0);
                 if((hasNewHighScore) && (!GameFramework.BaseApp.mApp.get_Is3D())) {
                     Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('MAIN', 0xc8ffffff);
-                }
-
-                else {
+                } else {
                     clr = 0xffffcb58;
                     Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('MAIN', ~0);
                 }
@@ -13735,9 +13515,7 @@ Game.HighScoreMgr.prototype = {
         var findIt = this.mHighScoreMap[theTable];
         if(findIt != null) {
             return findIt;
-        }
-
-        else {
+        } else {
             this.mHighScoreMap[theTable] = new Game.HighScoreTable();
             this.mHighScoreMap[theTable].mManager = this;
             this.mNeedSave = true;
@@ -14695,9 +14473,7 @@ Game.HyperspaceUltra.prototype = {
                         var gemInfoPointer_3 = this.mGemInfo[this.mGemInfo.mIdxMult0 * (row_3) + col_3];
                         if(gemInfoPointer_3.mBoardHitFrame > this.mAnimSeq.GetCurFrame()) {
                             gemInfoPointer_3.mPiece.mAlpha.SetConstant(0.0);
-                        }
-
-                        else {
+                        } else {
                             gemInfoPointer_3.mDraw3D = false;
                         }
                     }
@@ -14923,9 +14699,7 @@ Game.HyperspaceUltra.prototype = {
                 gemInfoPointer.mPosScreen = gemInfoPointer.mPosScreen.Scale(1 / w);
                 if(scaleFactor < 500) {
                     gemInfoPointer.mScaleScreen = 3.0;
-                }
-
-                else {
+                } else {
                     gemInfoPointer.mScaleScreen = 3225.0 / scaleFactor;
                 }
                 gemInfoPointer.mDistToCamera = (cameraCoords.t.Sub(gemCoords.t)).Magnitude();
@@ -15248,9 +15022,7 @@ Game.HyperspaceUltra.prototype = {
             Game.HyperspaceUltra.mG3D.SetBackfaceCulling(true, false);
             if(this.mState == Game.HyperspaceUltra.HyperSpaceState.FadeTo3D) {
                 renderEffect.SetFloat('globalFade', 1.0 - this.mPieceAlpha.get_v());
-            }
-
-            else {
+            } else {
                 renderEffect.SetFloat('globalFade', this.mFadeTo3D);
             }
             var matWorldScaled = new GameFramework.geom.Matrix3D();
@@ -15551,9 +15323,7 @@ Game.HyperspaceFallback.prototype = {
         try {
             if(this.mPrevBkgImage.mHeight == this.mHeight) {
                 g.DrawImage(this.mPrevBkgImage, (((1920 - this.mPrevBkgImage.mWidth) / 2) | 0), 0);
-            }
-
-            else {
+            } else {
                 var aScaleFactor = this.mHeight / this.mPrevBkgImage.mHeight;
                 var _t24 = g.PushScale(aScaleFactor, aScaleFactor, 160, 0);
                 try {
@@ -15985,9 +15755,7 @@ Game.MainMenu.prototype = {
             var aDialog = Game.BejApp.mBejApp.DoModalDialog('SWITCH RESOLUTION', 'Are you sure you want to switch to Standard Definition?\n\nThis will reload the game.', null, GameFramework.widgets.Dialog.BUTTONS_YES_NO);
             aDialog.mYesButton.AddEventListener(GameFramework.widgets.WidgetEvent.CLICKED, ss.Delegate.create(this, this.SDConfirmed));
             aDialog.mNoButton.AddEventListener(GameFramework.widgets.WidgetEvent.CLICKED, ss.Delegate.create(Game.BejApp.mBejApp, Game.BejApp.mBejApp.ButtonCloseDialog));
-        }
-
-        else {
+        } else {
             this.SDConfirmed(e);
         }
     },
@@ -15999,9 +15767,7 @@ Game.MainMenu.prototype = {
             var aDialog = Game.BejApp.mBejApp.DoModalDialog('SWITCH RESOLUTION', 'Are you sure you want to switch to High Definition?\n\nThis will reload the game.', null, GameFramework.widgets.Dialog.BUTTONS_YES_NO);
             aDialog.mYesButton.AddEventListener(GameFramework.widgets.WidgetEvent.CLICKED, ss.Delegate.create(this, this.HDConfirmed));
             aDialog.mNoButton.AddEventListener(GameFramework.widgets.WidgetEvent.CLICKED, ss.Delegate.create(Game.BejApp.mBejApp, Game.BejApp.mBejApp.ButtonCloseDialog));
-        }
-
-        else {
+        } else {
             this.HDConfirmed(e);
         }
     },
@@ -16117,9 +15883,7 @@ Game.MainMenu.prototype = {
                 }
             }
             return;
-        }
-
-        else {
+        } else {
             this.mPartnerBlackAlpha = Math.max(0.0, this.mPartnerBlackAlpha - 0.05);
         }
         if((this.mLoaded) && (this.mRotation.GetOutVal() == 0) && (!this.mFinishedLoadSequence)) {
@@ -16128,9 +15892,7 @@ Game.MainMenu.prototype = {
             {
                 if(Game.BejApp.mBejApp.mProfile.mProfileName.length == 0) {
                     Game.BejApp.mBejApp.PlayVoice(Game.Resources['SOUND_VOICE_WELCOMETOBEJEWELED']);
-                }
-
-                else {
+                } else {
                     Game.BejApp.mBejApp.PlayVoice(Game.Resources['SOUND_VOICE_WELCOMEBACK']);
                 }
             }
@@ -16156,9 +15918,7 @@ Game.MainMenu.prototype = {
             if((!this.mOfflineUIAlpha.IsDoingCurve()) && (this.mOfflineUIAlpha.GetOutVal() > 0)) {
                 this.mOfflineUIAlpha.SetCurveMult('b;0,1,0.025,1,~###         ~####');
             }
-        }
-
-        else {
+        } else {
             if((!this.mOfflineUIAlpha.IsDoingCurve()) && (this.mOfflineUIAlpha.GetOutVal() == 0) && (this.mRotation.GetOutVal() == 0) && (!this.mRotation.IsDoingCurve())) {
                 this.mOfflineUIAlpha.SetCurve('b;0,1,0.025,1,####         ~~###');
             }
@@ -16317,9 +16077,7 @@ Game.MainMenu.prototype = {
         }
         var aGeomGlowAlpha = Math.min(1.0, 1.9 - this.mDispLoadPct * 2.1);
         if(Game.BejApp.mBejApp.get_Is3D()) {
-        }
-
-        else {
+        } else {
         }
         if(this.mTitleAlpha.GetOutVal() > 0.0 && this.mLoaded) {
             var _t7 = g.PushColor(GameFramework.gfx.Color.RGBAToInt(255, 255, 255, ((255.0 * this.mTitleAlpha.GetOutVal()) | 0)));
@@ -16489,9 +16247,7 @@ Game.MainMenu.prototype = {
                 if(Game.BejApp.mBejApp.mProfile != null && !Game.BejApp.mBejApp.mProfile.HasClearedTutorial((Game.DM.ETutorial.PLAY_CLASSIC_FIRST | 0))) {
                     var aDialog = Game.BejApp.mBejApp.DoModalDialog('SPEED MODE', 'New to Bejeweled?\nTry Classic Mode first.\n\nPlay Speed Mode?', '', GameFramework.widgets.Dialog.BUTTONS_YES_NO, Game.DM.EDialog.PLAY_SPEED_CONFIRM);
                     aDialog.AddEventListener(GameFramework.widgets.DialogEvent.CLOSED, ss.Delegate.create(this, this.handlePlayClassicFirstCheckDlgClosed));
-                }
-
-                else {
+                } else {
                     this.DoSpeedBtnPress();
                 }
                 break;
@@ -16713,9 +16469,7 @@ Game.Messager.prototype = {
             if(msg.LifeLeft < this.Draw_fadeAt) {
                 c1 = GameFramework.gfx.Color.RGBAToInt(0, 0, 0, ((msg.LifeLeft / this.Draw_fadeAt * 255.0) | 0));
                 c2 = GameFramework.gfx.Color.UInt_AToInt(msg.TextColor & 0xffffff, ((msg.LifeLeft / this.Draw_fadeAt * 255.0) | 0));
-            }
-
-            else {
+            } else {
                 c1 = GameFramework.gfx.Color.BLACK_RGB;
                 c2 = msg.TextColor;
             }
@@ -16823,9 +16577,7 @@ Game.Metrics.prototype = {
             this.Update();
             this.SendMetrics(aStats, (theAlternateURL != null) ? theAlternateURL : this.mMetricsURL);
             GameFramework.BaseApp.mApp.UpdateConnectedRequests();
-        }
-
-        else {
+        } else {
             this.mPendingSubmits.push(aStats);
         }
     },
@@ -16917,9 +16669,7 @@ Game.MTRand.SetRandAllowed = function Game_MTRand$SetRandAllowed(allowed) {
             Game.MTRand.gRandAllowed--;
         } else {
         }
-    }
-
-    else {
+    } else {
         Game.MTRand.gRandAllowed++;
     }
 }
@@ -16929,9 +16679,7 @@ Game.MTRand.prototype = {
     NextNoAssert_mag01 : null,
     SRandStr : function Game_MTRand$SRandStr(theSerialData) {
         if(theSerialData.length == Game.MTRand.gMtRandN * 4 + 4) {
-        }
-
-        else {
+        } else {
             this.SRand(4357);
         }
     },
@@ -17186,9 +16934,7 @@ Game.OptionsDialog.prototype = {
         if(this.mIsInGame) {
             this.mInsets = new GameFramework.Insets(120.0, 175.0, this.mWidth - 120.0, this.mHeight - 200.0);
             this.mYesButton.mVisible = false;
-        }
-
-        else {
+        } else {
             this.mInsets = new GameFramework.Insets(120.0, 300.0, this.mWidth - 120.0, this.mHeight - 200.0);
         }
         this.mFieldSeperation = 80.0;
@@ -17566,9 +17312,7 @@ Game.Piece.prototype = {
             this.mShakeAngle = 3.141593 * GameFramework.Utils.GetRandFloat();
             this.mShakeOfsX = Math.cos(this.mShakeAngle) * this.mShakeScale * Game.Board.GEM_WIDTH / 20.0;
             this.mShakeOfsY = Math.sin(this.mShakeAngle) * this.mShakeScale * Game.Board.GEM_HEIGHT / 20.0;
-        }
-
-        else {
+        } else {
             this.mShakeOfsX = 0.0;
             this.mShakeOfsY = 0.0;
         }
@@ -17603,14 +17347,10 @@ Game.Piece.prototype = {
                         if(doRedFlame) {
                             anEffect.mType = Game.Effect.EFxType.EMBER_FADEINOUT_BOTTOM;
                         }
-                    }
-
-                    else {
+                    } else {
                         anEffect.mColor = GameFramework.gfx.Color.RGBToInt(255, 255, 255);
                     }
-                }
-
-                else {
+                } else {
                     aManager = (Game.Util.Rand() % 2 == 0) ? this.mBoard.mPostFXManager : this.mBoard.mPreFXManager;
                     anEffect = aManager.AllocEffect(Game.Effect.EFxType.EMBER);
                     anEffect.mAlpha = 1.0;
@@ -17715,9 +17455,7 @@ Game.Piece.prototype = {
             if(anEffect_4.mDeleteMe) {
                 anEffect_4.mRefCount--;
                 this.mBoundEffects.removeAt(i_2);
-            }
-
-            else {
+            } else {
                 ++i_2;
             }
         }
@@ -17982,9 +17720,7 @@ Game.Points.prototype = {
             t.rotate(this.mRotation);
             t.translate(this.mX, this.mY);
             Game.Util.DrawImageMatrix(g, this.mCachedImage, t);
-        }
-
-        else {
+        } else {
             if(this.mRotation != 0) {
                 var aTrans = new GameFramework.geom.Matrix();
                 aTrans.rotate(this.mRotation);
@@ -18030,9 +17766,7 @@ Game.Points.prototype = {
                     } else {
                         aLayerColor = this.mColor;
                     }
-                }
-
-                else {
+                } else {
                     aLayerColor = this.mColorCycle[i].GetColor();
                 }
                 aLayerColor = GameFramework.gfx.Color.UInt_FAToInt(aLayerColor, this.mAlpha * ((aLayerColor >>> 24) / 255.0));
@@ -18092,9 +17826,7 @@ Game.PointsManager.prototype = {
             aPoints.Update();
             if(aPoints.mDeleteMe) {
                 this.mPointsList.removeAt(i);
-            }
-
-            else {
+            } else {
                 ++i;
             }
         }
@@ -18578,9 +18310,7 @@ Game.RankBarWidget.prototype = {
             if(this.mBoard != null) {
                 g.DrawStringEx(app.mRankNames[((Math.min((aRank | 0), (app.mRankNames.length | 0) - 1)) | 0)], this.mWidth / 2 + 40, aY, -1, 0);
                 g.DrawStringEx(String.format('{0}k to go', GameFramework.Utils.CommaSeperate((this.GetRankPointsRemaining() | 0))), this.mWidth - 40, aY, -1, 1);
-            }
-
-            else {
+            } else {
                 g.DrawStringEx(this.GetRankName(aRank), this.mWidth - 40, aY, -1, 1);
             }
         }
@@ -18948,9 +18678,7 @@ Game.RecordsDialog.prototype = {
                 Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('MAIN', 0xfffdf7b0);
                 Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('OUTLINE', 0xff404000);
                 Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('GLOW', GameFramework.gfx.Color.RGBAToInt(255, 255, 0, 215 + ((40.0 * Math.sin(this.mUpdateCnt * 0.07)) | 0)));
-            }
-
-            else {
+            } else {
                 Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('MAIN', 0xfffdf7b0);
                 Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('OUTLINE', 0xff404000);
                 Game.Resources['FONT_GAMEOVER_DIALOG'].PushLayerColor('GLOW', 0);
@@ -20422,9 +20150,7 @@ Game.QuasiRandom.prototype = {
         if(theRand < this.mLastRoll) {
             this.mSteps = 0;
             return true;
-        }
-
-        else {
+        } else {
             return false;
         }
     }
@@ -20744,9 +20470,7 @@ Game.SpeedBoard.prototype = {
             thePiece.mAlpha.SetConstant(0);
             if(thePiece.mCounter == 5) {
                 Game.SoundUtil.Play(Game.Resources['SOUND_SPEEDBOARD_TIMEBONUS_5']);
-            }
-
-            else {
+            } else {
                 Game.SoundUtil.Play(Game.Resources['SOUND_SPEEDBOARD_TIMEBONUS_10']);
             }
             var aTimeOver = ((Math.max(0, this.mBonusTime - 60)) | 0);
@@ -20842,9 +20566,7 @@ Game.SpeedBoard.prototype = {
                 if(this.mBonusTime == 0) {
                     var aPoints = this.AddPoints((aPiece.CX() | 0), (aPiece.CY() | 0), aPiece.mCounter * 50, Game.DM.gGemColors[(aPiece.mColor | 0)], aPiece.mMatchId, true, true, aPiece.mMoveCreditId, false, Game.Board.EPointType.SPECIAL);
                     aPoints.mTimer *= 1.5;
-                }
-
-                else {
+                } else {
                     if(aPiece.mCounter >= 10) {
                         this.Laserify(aPiece);
                     } else {
@@ -20885,14 +20607,10 @@ Game.SpeedBoard.prototype = {
                     aStep.mDelay = 15;
                     aStep.mBlockDuringDelay = true;
                     aSeq.Add(aStep);
-                }
-
-                else {
+                } else {
                     this.DoMultiplierUp();
                 }
-            }
-
-            else {
+            } else {
                 this.DoMultiplierUp();
             }
             return;
@@ -21092,9 +20810,7 @@ Game.SpeedBoard.prototype = {
                     Game.SoundUtil.PlayEx(Game.Resources['SOUND_COUNTDOWN_WARNING'], 0.0, Math.min(1.0, 0.5 - aTicksLeft_2 * 0.0005));
                     this.mLastWarningTick = this.mUpdateCnt;
                 }
-            }
-
-            else {
+            } else {
                 if((this.mUpdateCnt - this.mLastWarningTick >= aTimeBetweenWarnings_2) && (aTicksLeft_2 > 0) && (this.WantWarningGlow()) && (!this.mKilling)) {
                     var aWarningStartTick = (this.GetTimeLimit() > 60) ? 1500 : 1000;
                     Game.SoundUtil.PlayEx(Game.Resources['SOUND_COUNTDOWN_WARNING'], 0.0, Math.min(1.0, 0.5 - aTicksLeft_2 / aWarningStartTick / 2.0));
@@ -21107,9 +20823,7 @@ Game.SpeedBoard.prototype = {
                     this.mDoThirtySecondVoice = false;
                     Game.SoundUtil.Play(Game.Resources['SOUND_VOICE_THIRTYSECONDS']);
                 }
-            }
-
-            else {
+            } else {
                 this.mDoThirtySecondVoice = true;
             }
         }
@@ -21139,9 +20853,7 @@ Game.SpeedBoard.prototype = {
             }
             thePieceVector[anIdx].SetFlag(Game.Piece.EFlag.POINT_MULTIPLIER);
             this.mPMDropLevel++;
-        }
-
-        else {
+        } else {
             var anIdx_2 = ((this.mRand.Next() % (thePieceVector.length | 0)) | 0);
             for(var aTryCount_2 = 0; aTryCount_2 < 7; aTryCount_2++) {
                 thePieceVector[anIdx_2].mColor = (this.mRand.Next() % (Game.DM.EGemColor._COUNT | 0));
@@ -21235,9 +20947,7 @@ Game.SpeedBoard.prototype = {
             if(this.mTimeScaleOverride == 0) {
                 var aTimeScale = Math.min(1.0, 0.7 + (this.GetTicksLeft() / 360.0) * 0.3);
                 this.mGameTicksF += aTimeScale;
-            }
-
-            else {
+            } else {
                 this.mGameTicksF += this.mTimeScaleOverride;
             }
             this.m5SecChance.Step$2(this.mTimeStep / 60.0);
@@ -21316,9 +21026,7 @@ Game.SpeedBoard.prototype = {
                 this.mX = GameFramework.Utils.GetRandFloat() * (60 - this.mTimeUpCount) / 60.0 * 12.0;
                 this.mY = GameFramework.Utils.GetRandFloat() * (60 - this.mTimeUpCount) / 60.0 * 12.0;
             }
-        }
-
-        else {
+        } else {
             this.mX = 0;
             this.mY = 0;
         }
@@ -21330,9 +21038,7 @@ Game.SpeedBoard.prototype = {
                     this.mTimeScaleOverride = aTicksLeft_2 / aFlameTicksLeft;
                 }
             }
-        }
-
-        else {
+        } else {
             this.mTimeScaleOverride = 0;
         }
     },
@@ -21921,9 +21627,7 @@ Game.TimeBonusEffect.prototype = {
                         if(aHitElectDot < 0.75) {
                             deleteMe = true;
                         }
-                    }
-
-                    else {
+                    } else {
                         deleteMe = true;
                     }
                     if(GameFramework.Utils.GetRandFloatU() < 0.001) {
@@ -21990,9 +21694,7 @@ Game.TimeBonusEffect.prototype = {
             var color2 = theColor2;
             if(Game.TimeBonusEffect.mElectoLineVertices == null) {
                 Game.TimeBonusEffect.mElectoLineVertices = Array.Create2D(6, 3, null, new GameFramework.gfx.TriVertex(aStartXE + aCosT * w, theStartY + aSinT * w, 0.0, 0, color1), new GameFramework.gfx.TriVertex(aStartXE + aCosT * -w, theStartY + aSinT * -w, 0.0, 1, color1), new GameFramework.gfx.TriVertex(theStartX + aCosT * w, theStartY + aSinT * w, 0.5, 0, color1), new GameFramework.gfx.TriVertex(aStartXE + aCosT * -w, theStartY + aSinT * -w, 0.0, 1, color1), new GameFramework.gfx.TriVertex(theStartX + aCosT * w, theStartY + aSinT * w, 0.5, 0, color1), new GameFramework.gfx.TriVertex(theStartX + aCosT * -w, theStartY + aSinT * -w, 0.5, 1, color1), new GameFramework.gfx.TriVertex(theStartX + aCosT * w, theStartY + aSinT * w, 0.5, 0, color1), new GameFramework.gfx.TriVertex(theStartX + aCosT * -w, theStartY + aSinT * -w, 0.5, 1, color1), new GameFramework.gfx.TriVertex(theEndX + aCosT * w, theEndY + aSinT * w, 0.5, 0, color2), new GameFramework.gfx.TriVertex(theStartX + aCosT * -w, theStartY + aSinT * -w, 0.5, 1, color1), new GameFramework.gfx.TriVertex(theEndX + aCosT * w, theEndY + aSinT * w, 0.5, 0, color2), new GameFramework.gfx.TriVertex(theEndX + aCosT * -w, theEndY + aSinT * -w, 0.5, 1, color2), new GameFramework.gfx.TriVertex(theEndX + aCosT * w, theEndY + aSinT * w, 0.5, 0, color2), new GameFramework.gfx.TriVertex(theEndX + aCosT * -w, theEndY + aSinT * -w, 0.5, 1, color2), new GameFramework.gfx.TriVertex(aEndXE + aCosT * w, theEndY + aSinT * w, 1.0, 0, color2), new GameFramework.gfx.TriVertex(theEndX + aCosT * -w, theEndY + aSinT * -w, 0.5, 1, color2), new GameFramework.gfx.TriVertex(aEndXE + aCosT * w, theEndY + aSinT * w, 1.0, 0, color2), new GameFramework.gfx.TriVertex(aEndXE + aCosT * -w, theEndY + aSinT * -w, 1.0, 1, color2));
-            }
-
-            else {
+            } else {
                 Game.TimeBonusEffect.mElectoLineVertices[Game.TimeBonusEffect.mElectoLineVertices.mIdxMult0 * (0) + 0].x = aStartXE + aCosT * w;
                 Game.TimeBonusEffect.mElectoLineVertices[Game.TimeBonusEffect.mElectoLineVertices.mIdxMult0 * (0) + 0].y = theStartY + aSinT * w;
                 Game.TimeBonusEffect.mElectoLineVertices[Game.TimeBonusEffect.mElectoLineVertices.mIdxMult0 * (0) + 0].color = color1;
@@ -22304,9 +22006,7 @@ Game.SpeedCollectEffect.prototype = {
                 this.mScaleCv.SetCurve('b;1,3,0.01,1,~###  q####       0####');
                 this.mScaleCv.SetInRange(0.0, this.mScaleCv.mInMax * this.mTimeMod);
             }
-        }
-
-        else {
+        } else {
             this.mX = this.mSpline.GetXPoint(this.mSplineInterp.GetOutVal() * this.mSpline.GetMaxT());
             this.mY = this.mSpline.GetYPoint(this.mSplineInterp.GetOutVal() * this.mSpline.GetMaxT());
         }
@@ -22395,9 +22095,7 @@ Game.LightningBarFillEffect.prototype = {
                     aPoint.y = aCenterY;
                     aPointR.x = aCenterX;
                     aPointR.y = aCenterY;
-                }
-
-                else {
+                } else {
                     var aWidthMult = 60.0;
                     aPoint.x = aCenterX + GameFramework.Utils.GetRandFloat() * aWidthMult;
                     aPoint.y = aCenterY + GameFramework.Utils.GetRandFloat() * aWidthMult;
@@ -22520,9 +22218,7 @@ Game.LightningBarFillEffect.prototype = {
             }
             Game.Resources['IMAGE_LIGHTNING_CENTER'].set_Additive(true);
             g.DrawTrianglesTex(Game.Resources['IMAGE_LIGHTNING_CENTER'], aTriVertices);
-        }
-
-        else {
+        } else {
             var aColor_2 = GameFramework.gfx.Color.RGBToInt(255, 200, 100);
             for(var aLightningPointNum_2 = 0; aLightningPointNum_2 < Game.LightningBarFillEffect.NUM_BARFILL_LIGTNING_POINTS - 1; aLightningPointNum_2++) {
                 var aPoint_2 = this.mPoints[this.mPoints.mIdxMult0 * (aLightningPointNum_2) + 0];
@@ -23009,9 +22705,7 @@ Game.TutorialStep.prototype = {
         if(this.mSpecialBehavior == Game.TutorialStep.ESpecialBehavior.TimeGem && this.mState != Game.TutorialStep.EState.Finishing) {
             this.mFinishCountdown = ((60.0 * 2.5) | 0);
             this.mState = Game.TutorialStep.EState.Finishing;
-        }
-
-        else {
+        } else {
             this.mState = Game.TutorialStep.EState.Finished;
         }
     },
@@ -23042,9 +22736,7 @@ Game.TutorialStep.prototype = {
             } else {
                 this.Start();
             }
-        }
-
-        else {
+        } else {
             ++this.mUpdateCnt;
         }
         if(this.mState != Game.TutorialStep.EState.Finished && this.mFinishCountdown > 0) {
@@ -23138,9 +22830,7 @@ Game.TutorialStep.prototype = {
                 aBoard.mAutohintOverridePieceId = aPiece.mId;
                 aBoard.mAutohintOverrideTime = this.mAutohintTime;
             }
-        }
-
-        else {
+        } else {
             aBoard.mAutohintOverridePieceId = -1;
             aBoard.mAutohintOverrideTime = -1;
         }
