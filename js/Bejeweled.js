@@ -15735,12 +15735,10 @@ Game.MainMenu.prototype = {
         if((this.mLoaded) && (this.mRotation.GetOutVal() == 0) && (!this.mFinishedLoadSequence)) {
             this.AddMainMenuBtn();
             this.mFinishedLoadSequence = true;
-            {
-                if(Game.BejApp.mBejApp.mProfile.mProfileName.length == 0) {
-                    Game.BejApp.mBejApp.PlayVoice(Game.Resources['SOUND_VOICE_WELCOMETOBEJEWELED']);
-                } else {
-                    Game.BejApp.mBejApp.PlayVoice(Game.Resources['SOUND_VOICE_WELCOMEBACK']);
-                }
+            if(Game.BejApp.mBejApp.mProfile.mProfileName.length == 0) {
+                Game.BejApp.mBejApp.PlayVoice(Game.Resources['SOUND_VOICE_WELCOMETOBEJEWELED']);
+            } else {
+                Game.BejApp.mBejApp.PlayVoice(Game.Resources['SOUND_VOICE_WELCOMEBACK']);
             }
         }
         if((this.mLoaded) && (this.mRotation.GetOutVal() == 0) && (Game.BejApp.mBejApp.mProfile.mProfileName.length == 0)) {
