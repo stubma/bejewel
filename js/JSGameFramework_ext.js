@@ -3283,9 +3283,6 @@ function JSFExt_Timer() {
             if(gGL) {
                 gGL.colorMask(1, 1, 1, 1); // Note the last '0' disables writing to dest-alpha
                 gGL.flush();
-
-                //if (gGL.isContextLost()) {
-                //}
             }
         }
     }
@@ -3677,6 +3674,7 @@ function JSFExt_SetupMesh(theMesh) {
     }
 }
 
+// activate current shader program and enable all default attributes
 function JSFExt_ActivateShader() {
     if(gWantShaderProgram != shaderProgram) {
         shaderProgram = gWantShaderProgram;
@@ -3736,21 +3734,21 @@ function JSFExt_SetShaderUniform4fv(theName, val) {
     }
 }
 
+// render a 3d mesh with current shader program
 function JSFXExt_RenderMesh(theGraphics3D, theMesh, theWorldMatrix, theViewMatrix, theProjMatrix) {
+    // enable shader
     JSFExt_ActivateShader();
 
+    // matrix
     if(shaderProgram.worldAttribute != null) {
         gGL.uniformMatrix4fv(shaderProgram.worldAttribute, false, theWorldMatrix.m);
     }
-
     if(shaderProgram.viewAttribute != null) {
         gGL.uniformMatrix4fv(shaderProgram.viewAttribute, false, theViewMatrix.m);
     }
-
     if(shaderProgram.viewAttribute != null) {
         gGL.uniformMatrix4fv(shaderProgram.projectionAttribute, false, theProjMatrix.m);
     }
-
     if(shaderProgram.worldViewProjAttribute != null) {
         var aWorldViewProjMatrix = new GameFramework.geom.Matrix3D();
         aWorldViewProjMatrix.CopyFrom(theProjMatrix);
@@ -3759,6 +3757,7 @@ function JSFXExt_RenderMesh(theGraphics3D, theMesh, theWorldMatrix, theViewMatri
         gGL.uniformMatrix4fv(shaderProgram.worldViewProjAttribute, false, aWorldViewProjMatrix.m);
     }
 
+    // tex
     if(shaderProgram.Tex0Attribute != null) {
         gGL.uniform1i(shaderProgram.Tex0Attribute, 0);
     }
@@ -3766,6 +3765,7 @@ function JSFXExt_RenderMesh(theGraphics3D, theMesh, theWorldMatrix, theViewMatri
         gGL.uniform1i(shaderProgram.Tex1Attribute, 1);
     }
 
+    // render every piece
     for(var aPieceIdx = 0; aPieceIdx < theMesh.mPieces.length; aPieceIdx++) {
         var aMeshPiece = theMesh.mPieces[aPieceIdx];
 
@@ -3821,87 +3821,19 @@ function JSFXExt_RenderMesh(theGraphics3D, theMesh, theWorldMatrix, theViewMatri
         //gGL.bufferData(gGL.ELEMENT_ARRAY_BUFFER, aMeshPiece.mIndexBuffer, gGL.STATIC_DRAW);
         gGL.drawElements(gGL.TRIANGLES, aMeshPiece.mIndexBufferCount, gGL.UNSIGNED_SHORT, 0);
 
+        // trigger a post draw event
         anEvent = new GameFramework.resources.popanim.PopAnimEvent(GameFramework.resources.MeshEvent.POSTDRAW_SET);
         theMesh.DispatchEvent(anEvent);
     }
 }
 
-/*function drawQuadAt(x, y, a, b, c, d, src_x, src_y, src_w, src_h, stripW, stripH) {
-
- //var height = 307*scale/2/(HEIGHT/2);
- //var height = 256/2/(HEIGHT/2);
- var tex_x = src_x/stripW;
- var tex_y = src_y/stripH;
- var tex_w = src_w/stripW;
- var tex_h = src_h/stripH;
- if (vertexIndex != 0) {
- // a degenerate strip between the previous quad and this one
- positionArray[vertexIndex] = positionArray[vertexIndex-4];
- vertexIndex++;
- positionArray[vertexIndex] = positionArray[vertexIndex-4];
- vertexIndex++;
- positionArray[vertexIndex++] = 0;
- positionArray[vertexIndex++] = 0;
-
- positionArray[vertexIndex++] = x / gApp.mWidth;
- positionArray[vertexIndex++] = (y + src_h) / gApp.mHeight;
- positionArray[vertexIndex++] = 0;
- positionArray[vertexIndex++] = 0;
- } else {
- first_vertex = false;
- }
-
- positionArray[vertexIndex++] = x / gApp.mWidth;
- positionArray[vertexIndex++] = (y + src_h) / gApp.mHeight;
- positionArray[vertexIndex++] = tex_x;
- positionArray[vertexIndex++] = tex_y + tex_h;
-
- positionArray[vertexIndex++] = x / gApp.mWidth;
- positionArray[vertexIndex++] = y / gApp.mHeight;
- positionArray[vertexIndex++] = tex_x;
- positionArray[vertexIndex++] = tex_y;
-
- positionArray[vertexIndex++] = (x + src_w) / gApp.mWidth;
- positionArray[vertexIndex++] = (y + src_h) / gApp.mHeight;
- positionArray[vertexIndex++] = (tex_x + tex_w);
- positionArray[vertexIndex++] = tex_y + tex_h;
-
- positionArray[vertexIndex++] = (x + src_w) / gApp.mWidth;
- positionArray[vertexIndex++] = y / gApp.mHeight;
- positionArray[vertexIndex++] = (tex_x + tex_w);
- positionArray[vertexIndex++] = tex_y;
-
- }*/
-
+// populate a quad vertex and color
+// the tex coordinates are saved in zw components of vertex buffer
 function drawQuadAt(x, y, a, b, c, d, src_x, src_y, src_w, src_h, stripW, stripH, color) {
-
-    /*var x1 = (tx + a * (x) + c * (y)) / gApp.mWidth;
-     var y1 = (ty + b * (x) + d * (y)) / gApp.mHeight;
-     var x2 = (tx + a * (x+src_w) + c * (y)) / gApp.mWidth;
-     var y2 = (ty + b * (x+src_w) + d * (y)) / gApp.mHeight;*/
-
-    //var height = 307*scale/2/(HEIGHT/2);
-    //var height = 256/2/(HEIGHT/2);
     var tex_x = src_x / stripW;
     var tex_y = src_y / stripH;
     var tex_w = src_w / stripW;
     var tex_h = src_h / stripH;
-    /*if (vertexIndex != 0) {
-     // a degenerate strip between the previous quad and this one
-     positionArray[vertexIndex] = positionArray[vertexIndex-4];
-     vertexIndex++;
-     positionArray[vertexIndex] = positionArray[vertexIndex-4];
-     vertexIndex++;
-     positionArray[vertexIndex++] = 0;
-     positionArray[vertexIndex++] = 0;
-
-     positionArray[vertexIndex++] = x / gApp.mWidth;
-     positionArray[vertexIndex++] = (y + src_h) / gApp.mHeight;
-     positionArray[vertexIndex++] = 0;
-     positionArray[vertexIndex++] = 0;
-     } else {
-     first_vertex = false;
-     }*/
 
     //1
     positionArray[vertexIndex++] = (x + c * (src_h)) / gApp.mPhysWidth; //x / gApp.mWidth;
@@ -3947,95 +3879,118 @@ function drawQuadAt(x, y, a, b, c, d, src_x, src_y, src_w, src_h, stripW, stripH
     }
 }
 
+// last tex and last depth used
 var gLastTex;
 var gLastWriteDepth;
 
+// it flush current buffer to screen
 function JSFExt_Flush() {
     if((vertexIndex > 0) && (positionBuffer != undefined)) {
+        // ensure shader is used
         if(gWantShaderProgram != shaderProgram) {
             shaderProgram = gWantShaderProgram;
             gGL.useProgram(shaderProgram);
         }
 
+        // bind vertex buffer
         gGL.bindBuffer(gGL.ARRAY_BUFFER, positionBuffer);
         gGL.bufferData(gGL.ARRAY_BUFFER, positionArray, gGL.STREAM_DRAW);
         positionBuffer.itemSize = 4;
-        positionBuffer.numItems = vertexIndex / 4; //positionArray.length/positionBuffer.itemSize;
+        positionBuffer.numItems = vertexIndex / 4;
         gGL.vertexAttribPointer(shaderProgram.positionAttribute, positionBuffer.itemSize, gGL.FLOAT, false, 0, 0);
 
+        // bind color buffer
         gGL.bindBuffer(gGL.ARRAY_BUFFER, colorBuffer);
         gGL.bufferData(gGL.ARRAY_BUFFER, colorArray, gGL.STREAM_DRAW);
         colorBuffer.itemSize = 4;
-        colorBuffer.numItems = colorIndex / 4; //colorArray.length/colorBuffer.itemSize;
+        colorBuffer.numItems = colorIndex / 4;
         gGL.vertexAttribPointer(shaderProgram.colorAttribute, colorBuffer.itemSize, gGL.FLOAT, false, 0, 0);
 
+        // ensure write depth is correct
         if(gWriteDepth != gLastWriteDepth) {
             gGL.uniform1f(shaderProgram.writeDepth, gWriteDepth);
             gLastWriteDepth = gWriteDepth;
         }
 
+        // draw and clear counter
         gGL.drawArrays(gGL.TRIANGLES, 0, positionBuffer.numItems);
         vertexIndex = 0;
         colorIndex = 0;
     }
 }
 
+// current additive mode
 var gAdditive;
 
+// fill buffer for one texture, if buffer has many data, the buffer may be flushed
+// if texture to be drawn is different with current texture, buffer will be flushed
+// theX, theY, a, b, c, d are matrix values
 function JSFExt_GLDraw(theTex, theX, theY, a, b, c, d, theSrcX, theSrcY, theSrcW, theSrcH, theImgW, theImgH, isAdditive, color) {
-
+    // if buffer is large, flush
     if(vertexIndex > 1000) {
         JSFExt_Flush();
     }
 
+    // if tex or additive is different with current, flush and set
     if((gLastTex != theTex) || (gAdditive != isAdditive)) {
         JSFExt_Flush();
         gGL.bindTexture(gGL.TEXTURE_2D, theTex);
         gLastTex = theTex;
     }
 
+    // ensure additive is correct
     if(gAdditive != isAdditive) {
         gGL.blendFunc(gGL.SRC_ALPHA, isAdditive ? gGL.ONE : gGL.ONE_MINUS_SRC_ALPHA);
         gAdditive = isAdditive;
     }
 
-    drawQuadAt(theX, theY, a, b, c, d, theSrcX, theSrcY, theSrcW, theSrcH, theImgW, theImgH, [((color >> 16) & 0xFF) / 255.0, ((color >> 8) & 0xFF) / 255.0, ((color) & 0xFF) / 255.0, ((color >> 24) & 0xFF) / 255.0]);
+    // fill quad
+    drawQuadAt(theX, theY, a, b, c, d, theSrcX, theSrcY, theSrcW, theSrcH, theImgW, theImgH,
+        [((color >> 16) & 0xFF) / 255.0, ((color >> 8) & 0xFF) / 255.0, ((color) & 0xFF) / 255.0, ((color >> 24) & 0xFF) / 255.0]);
 }
 
+// draw a triangle shape
 function JSFExt_GLDrawTri(theTex, theX1, theY1, theX2, theY2, theX3, theY3, isAdditive, color) {
-
+    // if buffer is large, flush
     if(vertexIndex > 1000) {
         JSFExt_Flush();
     }
 
+    // if tex or additive is different with current, flush and set
     if((gLastTex != theTex) || (gAdditive != isAdditive)) {
         JSFExt_Flush();
         gGL.bindTexture(gGL.TEXTURE_2D, theTex);
         gLastTex = theTex;
     }
 
+    // ensure additive is correct
     if(gAdditive != isAdditive) {
         gGL.blendFunc(gGL.SRC_ALPHA, isAdditive ? gGL.ONE : gGL.ONE_MINUS_SRC_ALPHA);
         gAdditive = isAdditive;
     }
 
+    // color in array format
     var aColor = [((color >> 16) & 0xFF) / 255.0, ((color >> 8) & 0xFF) / 255.0, ((color) & 0xFF) / 255.0, ((color >> 24) & 0xFF) / 255.0];
 
+    // 1
     positionArray[vertexIndex++] = theX1 / gApp.mPhysWidth;
     positionArray[vertexIndex++] = theY1 / gApp.mPhysHeight;
     positionArray[vertexIndex++] = 0;
     positionArray[vertexIndex++] = 0;
 
+    // 2
     positionArray[vertexIndex++] = theX2 / gApp.mPhysWidth;
     positionArray[vertexIndex++] = theY2 / gApp.mPhysHeight;
     positionArray[vertexIndex++] = 0;
     positionArray[vertexIndex++] = 0;
 
+    // 3
     positionArray[vertexIndex++] = theX3 / gApp.mPhysWidth;
     positionArray[vertexIndex++] = theY3 / gApp.mPhysHeight;
     positionArray[vertexIndex++] = 0;
     positionArray[vertexIndex++] = 0;
 
+    // color
     for(i = 0; i < 3; i++) {
         colorArray[colorIndex++] = aColor[0];
         colorArray[colorIndex++] = aColor[1];
@@ -4044,69 +3999,82 @@ function JSFExt_GLDrawTri(theTex, theX1, theY1, theX2, theY2, theX3, theY3, isAd
     }
 }
 
+// draw a triangle but with texture
 function JSFExt_GLDrawTriTex(theTex, theX1, theY1, theU1, theV1, theColor1, theX2, theY2, theU2, theV2, theColor2, theX3, theY3, theU3, theV3, theColor3, isAdditive) {
-
+    // if buffer is large, flush
     if(vertexIndex > 1000) {
         JSFExt_Flush();
     }
 
+    // if tex or additive is different with current, flush and set
     if((gLastTex != theTex) || (gAdditive != isAdditive)) {
         JSFExt_Flush();
         gGL.bindTexture(gGL.TEXTURE_2D, theTex);
         gLastTex = theTex;
     }
 
+    // ensure additive is correct
     if(gAdditive != isAdditive) {
         gGL.blendFunc(gGL.SRC_ALPHA, isAdditive ? gGL.ONE : gGL.ONE_MINUS_SRC_ALPHA);
         gAdditive = isAdditive;
     }
 
+    // color in array format
     var aColor1 = [((theColor1 >> 16) & 0xFF) / 255.0, ((theColor1 >> 8) & 0xFF) / 255.0, ((theColor1) & 0xFF) / 255.0, ((theColor1 >> 24) & 0xFF) / 255.0];
     var aColor2 = (theColor2 == theColor1) ? aColor1 : [((theColor2 >> 16) & 0xFF) / 255.0, ((theColor2 >> 8) & 0xFF) / 255.0, ((theColor2) & 0xFF) / 255.0, ((theColor2 >> 24) & 0xFF) / 255.0];
     var aColor3 = (theColor3 == theColor1) ? aColor1 : [((theColor3 >> 16) & 0xFF) / 255.0, ((theColor3 >> 8) & 0xFF) / 255.0, ((theColor3) & 0xFF) / 255.0, ((theColor3 >> 24) & 0xFF) / 255.0];
 
+    // 1
     positionArray[vertexIndex++] = theX1 / gApp.mPhysWidth;
     positionArray[vertexIndex++] = theY1 / gApp.mPhysHeight;
     positionArray[vertexIndex++] = theU1;
     positionArray[vertexIndex++] = theV1;
 
+    // 2
     positionArray[vertexIndex++] = theX2 / gApp.mPhysWidth;
     positionArray[vertexIndex++] = theY2 / gApp.mPhysHeight;
     positionArray[vertexIndex++] = theU2;
     positionArray[vertexIndex++] = theV2;
 
+    // 3
     positionArray[vertexIndex++] = theX3 / gApp.mPhysWidth;
     positionArray[vertexIndex++] = theY3 / gApp.mPhysHeight;
     positionArray[vertexIndex++] = theU3;
     positionArray[vertexIndex++] = theV3;
 
+    // color 1
     colorArray[colorIndex++] = aColor1[0];
     colorArray[colorIndex++] = aColor1[1];
     colorArray[colorIndex++] = aColor1[2];
     colorArray[colorIndex++] = aColor1[3];
 
+    // color 2
     colorArray[colorIndex++] = aColor2[0];
     colorArray[colorIndex++] = aColor2[1];
     colorArray[colorIndex++] = aColor2[2];
     colorArray[colorIndex++] = aColor2[3];
 
+    // color 3
     colorArray[colorIndex++] = aColor3[0];
     colorArray[colorIndex++] = aColor3[1];
     colorArray[colorIndex++] = aColor3[2];
     colorArray[colorIndex++] = aColor3[3];
 }
 
+// global canvas reference
 var gCanvas = null;
 
+// reload page
 function JSFExt_Reload() {
     window.location.reload();
 }
 
+// reload page
 function JSFExt_Reinit() {
-    //setupWebGLStateAndResources();
     window.location.href = window.location.href;
 }
 
+// pause game when page is not visible
 function JSFExt_OnVisibilityChange() {
     if(document['webkitHidden']) {
         gApp.SetBackgrounded(true);
@@ -4115,13 +4083,17 @@ function JSFExt_OnVisibilityChange() {
     }
 }
 
+// the flag indicating JSFExt_Init is called
 var gDidJSFExtInit = false;
+
+// global init for html5 environment
 function JSFExt_Init(theApp, theCanvas) {
+    // global reference of app and canvas
     gApp = theApp;
     gCanvas = theCanvas;
 
+    // get webgl context if using webgl
     if(theApp.mUseGL) {
-
         var gl_attribs = {
             alpha : true,
             depth : true,
@@ -4132,12 +4104,9 @@ function JSFExt_Init(theApp, theCanvas) {
 
         try {
             gGL = theCanvas.getContext("experimental-webgl", gl_attribs);
-
             theCanvas.addEventListener("webglcontextlost", function(event) {
-                //event.preventDefault();
                 JSFExt_Reinit();
             }, false);
-
             theCanvas.addEventListener("webglcontextrestored", JSFExt_Reinit, false);
         } catch(e) {
         }
@@ -4146,8 +4115,8 @@ function JSFExt_Init(theApp, theCanvas) {
         }
     }
 
+    // init gl state if using webgl
     if(theApp.mUseGL) {
-
         gGL.viewportWidth = theCanvas.width;
         gGL.viewportHeight = theCanvas.height;
 
@@ -4173,54 +4142,30 @@ function JSFExt_Init(theApp, theCanvas) {
 
         var aWhitePixels = new Uint8Array([255, 255, 255, 255]);
         gWhiteDotTex = CreateGLTexPixels(1, 1, aWhitePixels);
-
-        //var anImage = new Image();
-        //anImage.onload = function () { gWhiteDotTex = CreateGLTex(anImage); }
-        //anImage.src = "whitedot.png";
-        //gWhiteDotTex = new HTML5CanvasElement(1, 1);
-        //var c = gWhiteDotTex.getContext('2d');        
-        //c.fillStyle = '#FFFFFF';
-        //c.fillRect(0, 0, 1, 1);        
     }
 
+    // install event handlers
     document.onkeypress = JSFExt_OnKeyPress;
     document.onkeydown = JSFExt_OnKeyDown;
     document.onkeyup = JSFExt_OnKeyUp;
-
-    /*if(window.addEventListener) 
-     {
-     window.addEventListener('load', function () {
-     theCanvas.addEventListener('mousedown', JSFExt_OnMouseDown, false);
-     theCanvas.addEventListener('mousemove', JSFExt_OnMouseMove, false);
-     theCanvas.addEventListener('mouseup', JSFExt_OnMouseUp, false);
-     });
-     }*/
-
     theCanvas.addEventListener('mousedown', JSFExt_OnMouseDown, false);
     theCanvas.addEventListener('mouseup', JSFExt_OnMouseUp, false);
     theCanvas.addEventListener('mousemove', JSFExt_OnMouseMove, false);
-
     document.addEventListener("webkitvisibilitychange", JSFExt_OnVisibilityChange, false);
-
     window.addEventListener('touchmove', function(event) {
         event.preventDefault();
         JSFExt_OnMouseMove(event);
     }, false);
-
     window.addEventListener('touchstart', function(event) {
         event.preventDefault();
         JSFExt_OnMouseDown(event);
     }, false);
-
     window.addEventListener('touchend', function(event) {
         event.preventDefault();
         JSFExt_OnMouseUp(event);
     }, false);
 
-    //theCanvas.mousemove = JSFExt_OnMouseMove;
-    //theCanvas.mousedown = JSFExt_OnMouseDown;
-    //theCanvas.mouseup = JSFExt_OnMouseUp;
-
+    // set flag
     gDidJSFExtInit = true;
 }
 window['JSFExt_Init'] = JSFExt_Init;
