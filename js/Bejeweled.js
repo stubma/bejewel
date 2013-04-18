@@ -3341,7 +3341,6 @@ Game.Board.prototype = {
         }
         switch(this.mUiConfig) {
             case Game.Board.EUIConfig.WithReset:
-
             {
                 if(this.mResetButton == null) {
                     this.mResetButton = new Game.Bej3Button((Game.Board.Widgets.BUTTON_RESET | 0));
@@ -4224,14 +4223,11 @@ Game.Board.prototype = {
     HyperspaceEvent : function Game_Board$HyperspaceEvent(inEvent) {
         switch(inEvent) {
             case Game.Hyperspace.HyperspaceEvent.Start:
-
             {
                 this.mSideXOff.SetCurve('b+0,-202,0.00625,1,####    G####     Y~Ws|');
+            	break;
             }
-
-                break;
             case Game.Hyperspace.HyperspaceEvent.HideAll:
-
             {
                 this.mSideAlpha.SetConstant(1.0);
                 this.mDrawGameElements = false;
@@ -4242,34 +4238,26 @@ Game.Board.prototype = {
                     }
                 }
                 this.RandomizeBoard();
+            	break;
             }
-
-                break;
             case Game.Hyperspace.HyperspaceEvent.BoardShatter:
-
             {
                 this.mDrawAll = false;
+            	break;
             }
-
-                break;
             case Game.Hyperspace.HyperspaceEvent.NextBkg:
-
             {
                 this.mBackground.NextBkg();
+            	break;
             }
-
-                break;
             case Game.Hyperspace.HyperspaceEvent.OldLevelClear:
-
             {
                 this.mLevel++;
                 this.mLevelPointsTotal = 0;
                 this.mMoveCounter = 0;
+            	break;
             }
-
-                break;
             case Game.Hyperspace.HyperspaceEvent.ZoomIn:
-
             {
                 this.mDrawAll = true;
                 this.mDrawGameElements = true;
@@ -4277,11 +4265,9 @@ Game.Board.prototype = {
                 this.mOfsY = 0;
                 this.mSideXOff.SetConstant(-202);
                 this.mScale.SetCurve('b+0.26,1,0.008333,1,#&Mg      /~a[J   r~P##');
+            	break;
             }
-
-                break;
             case Game.Hyperspace.HyperspaceEvent.SlideOver:
-
             {
                 this.mSideXOff.SetCurve('b+0,-202,0.009091,1,~},XB~P## ;olsb        F#O%V');
                 this.mScale.SetConstant(1.0);
@@ -4291,11 +4277,9 @@ Game.Board.prototype = {
                         aPiece_2.ClearHyperspaceEffects();
                     }
                 }
+            	break;
             }
-
-                break;
             case Game.Hyperspace.HyperspaceEvent.Finish:
-
             {
                 this.mHyperspace.RemoveSelf();
                 this.mHyperspace = null;
@@ -4305,9 +4289,8 @@ Game.Board.prototype = {
                 anAnnouncement.mHorzScaleMult.SetCurve('b+1,10,0.004,1,~### D~i%C  ,####      S####');
                 anAnnouncement.mBlocksPlay = false;
                 anAnnouncement.mDarkenBoard = false;
+            	break;
             }
-
-                break;
         }
     },
     GameOverAnnounce : function Game_Board$GameOverAnnounce() {
@@ -5334,7 +5317,6 @@ Game.Board.prototype = {
                 case Game.LightningStorm.EStormType.STAR:
                 case Game.LightningStorm.EStormType.SCREEN:
                 case Game.LightningStorm.EStormType.FLAMING:
-
                 {
                     var aSpread = (anInfo.mStormType == Game.LightningStorm.EStormType.FLAMING) ? 1 : 0;
                     var stormover = true;
@@ -5521,9 +5503,8 @@ Game.Board.prototype = {
                             }
                         }
                     }
+                	break;
                 }
-
-                    break;
             }
             if((anInfo.mDoneDelay > 0) && (--anInfo.mDoneDelay == 0)) {
                 doDelete = true;
@@ -9922,7 +9903,6 @@ Game.Board.prototype = {
                 break;
             }
             case 32:
-
             {
                 var aPiece = this.GetSelectedPiece();
                 if(aPiece != null) {
@@ -9931,9 +9911,8 @@ Game.Board.prototype = {
                 } else {
                     selectPiece = true;
                 }
+            	break;
             }
-
-                break;
             case 65:
             {
                 selectPiece = true;
@@ -11374,12 +11353,10 @@ Game.Effect = function Game_Effect(theType) {
                 this.mAlpha = 0.01;
                 this.mDAlpha = 0.02;
                 this.mStage = 0;
-            }
-
-            break;
+            	break;
+        }
         }
         case Game.Effect.EFxType.COUNTDOWN_SHARD:
-
         {
             var aType = Game.Util.Rand() % 2;
             var anAngle = Game.Util.Rand() % 2 * 3.141593;
@@ -11403,9 +11380,8 @@ Game.Effect = function Game_Effect(theType) {
             this.mScale = 0.5 + Math.abs(GameFramework.Utils.GetRandFloat()) * 0.2;
             this.mDScale = -0.0 + Math.abs(GameFramework.Utils.GetRandFloat()) * -0.01;
             this.mTimer = 0.5 + Math.abs(GameFramework.Utils.GetRandFloat()) * 0.75;
+        	break;
         }
-
-            break;
         case Game.Effect.EFxType.SMOKE_PUFF:
         {
             this.mImage = Game.Resources['IMAGE_SMOKE'];
@@ -11903,7 +11879,6 @@ Game.EffectsManager.prototype = {
                         case Game.Effect.EFxType.EMBER_BOTTOM:
                         case Game.Effect.EFxType.EMBER:
                         case Game.Effect.EFxType.EMBER_FADEINOUT:
-
                         {
                             anEffect.mScale += anEffect.mDScale;
                             anEffect.mAngle += anEffect.mDAngle;
@@ -11923,11 +11898,9 @@ Game.EffectsManager.prototype = {
                                     }
                                 }
                             }
+                        	break;
                         }
-
-                            break;
                         case Game.Effect.EFxType.COUNTDOWN_SHARD:
-
                         {
                             anEffect.mAngle += anEffect.mDAngle;
                             var aSmoke = this.AllocEffect(Game.Effect.EFxType.SMOKE_PUFF);
@@ -11945,9 +11918,8 @@ Game.EffectsManager.prototype = {
                             if(anEffect.mScale < 0.02) {
                                 anEffect.mDeleteMe = true;
                             }
+                        	break;
                         }
-
-                            break;
                         case Game.Effect.EFxType.SMOKE_PUFF:
                         {
                             anEffect.mDX *= 0.95;
@@ -11973,9 +11945,8 @@ Game.EffectsManager.prototype = {
                                     anNewEffect.mDScale = 0.0;
                                     this.AddEffect(anNewEffect);
                                 }
-                            }
-
-                            break;
+                            	break;
+                        }
                         }
                         case Game.Effect.EFxType.DROPLET:
                         {
@@ -11992,7 +11963,6 @@ Game.EffectsManager.prototype = {
                             break;
                         }
                         case Game.Effect.EFxType.STEAM:
-
                         {
                             var aSpeed = Math.sqrt(anEffect.mDX * anEffect.mDX + anEffect.mDY * anEffect.mDY);
                             anEffect.mDX *= anEffect.mValue[2];
@@ -12039,9 +12009,8 @@ Game.EffectsManager.prototype = {
                                     anEffect.mColor = Game.Util.HSLToRGB((anEffect.mCurHue | 0), 255, 128);
                                 }
                                 anEffect.mAngle += anEffect.mDAngle;
-                            }
-
-                            break;
+                            	break;
+                        }
                         }
                         case Game.Effect.EFxType.WALL_ROCK:
                         {
@@ -12056,9 +12025,8 @@ Game.EffectsManager.prototype = {
                             if(anEffect.mAlpha >= 1.0) {
                                 anEffect.mAlpha = 1.0;
                                 anEffect.mDAlpha = -0.01;
-                            }
-
-                            break;
+                            	break;
+                        }
                         }
                         case Game.Effect.EFxType.HYPERCUBE_ENERGIZE:
                         {
@@ -12066,13 +12034,11 @@ Game.EffectsManager.prototype = {
                             break;
                         }
                         case Game.Effect.EFxType.LIGHT:
-
                         {
                             anEffect.mLightSize = anEffect.mScale;
                             anEffect.mLightIntensity = anEffect.mAlpha;
+                        	break;
                         }
-
-                            break;
                         default:
                         {
                             anEffect.Update();
@@ -12175,7 +12141,6 @@ Game.EffectsManager.prototype = {
                     }
                     switch(anEffect.mType) {
                         case Game.Effect.EFxType.NONE:
-
                         {
                             var _t3 = g.PushColor(GameFramework.gfx.Color.UInt_AToInt(anEffect.mColor, ((255.0 * anAlpha) | 0)));
                             try {
@@ -12197,7 +12162,6 @@ Game.EffectsManager.prototype = {
                         }
 
                         case Game.Effect.EFxType.GEM_SHARD:
-
                         {
                             var aColor = anEffect.mColor;
                             var aScale = anEffect.mScale;
@@ -12230,11 +12194,9 @@ Game.EffectsManager.prototype = {
                             Game.Resources['IMAGE_SM_SHARDS'].mAdditive = false;
                             g.PopColor();
                             g.PopMatrix();
+                        	break;
                         }
-
-                            break;
                         case Game.Effect.EFxType.SPARKLE_SHARD:
-
                         {
                             var anImage = Game.Resources['IMAGE_SPARKLE'];
                             anImage.mAdditive = true;
@@ -12245,11 +12207,9 @@ Game.EffectsManager.prototype = {
                             g.DrawImageCel(anImage, anEffect.mX - ((aWidth / 2) | 0), anEffect.mY - ((aHeight / 2) | 0), anEffect.mFrame);
                             g.PopColor();
                             anImage.mAdditive = false;
+                        	break;
                         }
-
-                            break;
                         case Game.Effect.EFxType.STEAM:
-
                         {
                             var aColor_2 = GameFramework.gfx.Color.UInt_AToInt(anEffect.mColor, ((255.0 * anAlpha) | 0));
                             var aFrame_2 = anEffect.mFrame;
@@ -12264,21 +12224,16 @@ Game.EffectsManager.prototype = {
                             g.PopMatrix();
                             anEffect.mImage.mAdditive = false;
                             g.PopColor();
+                        	break;
                         }
-
-                            break;
                         case Game.Effect.EFxType.GLITTER_SPARK:
-
                         {
+                        	break;
                         }
-
-                            break;
                         case Game.Effect.EFxType.FRUIT_SPARK:
-
                         {
+                        	break;
                         }
-
-                            break;
                         case Game.Effect.EFxType.EMBER_BOTTOM:
                         case Game.Effect.EFxType.EMBER:
                         case Game.Effect.EFxType.EMBER_FADEINOUT_BOTTOM:
@@ -12314,14 +12269,11 @@ Game.EffectsManager.prototype = {
                             break;
                         }
                         case Game.Effect.EFxType.COUNTDOWN_SHARD:
-
                         {
+                        	break;
                         }
-
-                            break;
                         case Game.Effect.EFxType.STEAM_COMET:
                         case Game.Effect.EFxType.SMOKE_PUFF:
-
                         {
                             g.PushColor(GameFramework.gfx.Color.UInt_AToInt(anEffect.mColor, ((255.0 * anAlpha) | 0)));
                             anEffect.mImage.mAdditive = anEffect.mIsAdditive;
@@ -12333,23 +12285,17 @@ Game.EffectsManager.prototype = {
                             g.PopMatrix();
                             anEffect.mImage.mAdditive = false;
                             g.PopColor();
+                        	break;
                         }
-
-                            break;
                         case Game.Effect.EFxType.DROPLET:
-
                         {
+                        	break;
                         }
-
-                            break;
                         case Game.Effect.EFxType.LIGHT:
-
                         {
+                        	break;
                         }
-
-                            break;
                         case Game.Effect.EFxType.WALL_ROCK:
-
                         {
                             g.DrawImageCel(anEffect.mImage, anEffect.mX - ((anEffect.mImage.mPhysCelWidth / 2) | 0), anEffect.mY - ((anEffect.mImage.mPhysCelHeight / 2) | 0), anEffect.mFrame);
                             if(anEffect.mColor != GameFramework.gfx.Color.WHITE_RGB) {
@@ -12359,18 +12305,15 @@ Game.EffectsManager.prototype = {
                                 anEffect.mImage.mAdditive = false;
                                 g.PopColor();
                             }
+                        	break;
                         }
-
-                            break;
                         case Game.Effect.EFxType.QUAKE_DUST:
-
                         {
                             g.PushColor(GameFramework.gfx.Color.UInt_AToInt(GameFramework.gfx.Color.WHITE_RGB, (anEffect.mAlpha | 0) * 255));
                             g.DrawImage(anEffect.mImage, anEffect.mX, anEffect.mY);
                             g.PopColor();
+                        	break;
                         }
-
-                            break;
                         default:
                         {
                             anEffect.Draw(g);
@@ -14144,93 +14087,73 @@ Game.HyperspaceUltra.prototype = {
             var prevState = this.mState;
             switch(this.mState) {
                 case Game.HyperspaceUltra.HyperSpaceState.Init:
-
                 {
                     this.SetState(Game.HyperspaceUltra.HyperSpaceState.SlideOver);
+                	break;
                 }
-
-                    break;
                 case Game.HyperspaceUltra.HyperSpaceState.SlideOver:
-
                 {
                     if(this.mTicks - this.mStateStartTick > 160) {
                         this.SetState(Game.HyperspaceUltra.HyperSpaceState.FadeTo3D);
                     }
+                	break;
                 }
-
-                    break;
                 case Game.HyperspaceUltra.HyperSpaceState.FadeTo3D:
-
                 {
                     if(this.mPieceAlpha.HasBeenTriggered()) {
                         this.SetState(Game.HyperspaceUltra.HyperSpaceState.GemRise);
                     }
+                	break;
                 }
-
-                    break;
                 case Game.HyperspaceUltra.HyperSpaceState.GemRise:
-
                 {
                     if(this.mAnimSeq.GetCurFrame() >= 20) {
                         this.SetState(Game.HyperspaceUltra.HyperSpaceState.GemFly);
                     }
+                	break;
                 }
-
-                    break;
                 case Game.HyperspaceUltra.HyperSpaceState.GemFly:
-
                 {
                     if(this.mAnimSeq.GetCurFrame() >= 65) {
                         this.SetState(Game.HyperspaceUltra.HyperSpaceState.BoardShatter);
                     }
+                	break;
                 }
-
-                    break;
                 case Game.HyperspaceUltra.HyperSpaceState.BoardShatter:
-
                 {
                     if(this.mAnimSeq.GetCurFrame() >= 95) {
                         this.SetState(Game.HyperspaceUltra.HyperSpaceState.PortalRide);
                     }
+                	break;
                 }
-
-                    break;
                 case Game.HyperspaceUltra.HyperSpaceState.PortalRide:
-
                 {
                     if(this.mAnimSeq.GetCurFrame() >= 250) {
                         this.SetState(Game.HyperspaceUltra.HyperSpaceState.LandOnBoard);
                     }
+                	break;
                 }
-
-                    break;
                 case Game.HyperspaceUltra.HyperSpaceState.LandOnBoard:
-
                 {
                     if(this.mAnimSeq.IsComplete()) {
                         this.SetState(Game.HyperspaceUltra.HyperSpaceState.Outro);
                     }
+                	break;
                 }
-
-                    break;
                 case Game.HyperspaceUltra.HyperSpaceState.FadeFrom3D:
-
                 {
                     if(this.mFadeFrom3D <= 0.0) {
                         this.SetState(Game.HyperspaceUltra.HyperSpaceState.Outro);
                     }
+                	break;
                 }
-
-                    break;
                 case Game.HyperspaceUltra.HyperSpaceState.Outro:
-
                 {
                     if(this.mTicks - this.mStateStartTick > 0) {
                         this.SetState(Game.HyperspaceUltra.HyperSpaceState.Complete);
                     }
+                	break;
                 }
-
-                    break;
             }
             if(this.mState == prevState) {
                 break;
@@ -14252,43 +14175,34 @@ Game.HyperspaceUltra.prototype = {
         Game.HyperspaceUltra.mG3D = g.Begin3DScene();
         switch(this.mState) {
             case Game.HyperspaceUltra.HyperSpaceState.SlideOver:
-
             {
                 Game.HyperspaceUltra.mG3D.ClearDepthBuffer();
                 this.Draw3DGems(g);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.FadeTo3D:
-
             {
                 Game.HyperspaceUltra.mG3D.ClearDepthBuffer();
                 this.Draw3DGems(g);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.GemRise:
-
             {
                 Game.HyperspaceUltra.mG3D.ClearDepthBuffer();
                 this.Draw3DWarpTube(g);
                 this.Draw3DBoard(g);
                 this.Draw3DGems(g);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.GemFly:
-
             {
                 Game.HyperspaceUltra.mG3D.ClearDepthBuffer();
                 this.Draw3DWarpTube(g);
                 this.Draw3DBoard(g);
                 this.Draw3DGems(g);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.BoardShatter:
-
             {
                 Game.HyperspaceUltra.mG3D.ClearDepthBuffer();
                 this.Draw3DWarpTube(g);
@@ -14296,11 +14210,9 @@ Game.HyperspaceUltra.prototype = {
                 this.Draw2DBoardSmash(g);
                 Game.HyperspaceUltra.mG3D = g.Begin3DScene();
                 this.Draw3DGems(g);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.PortalRide:
-
             {
                 Game.HyperspaceUltra.mG3D.ClearDepthBuffer();
                 this.Draw3DWarpTube(g);
@@ -14313,34 +14225,27 @@ Game.HyperspaceUltra.prototype = {
                     this.Draw3DBoard(g);
                 }
                 this.Draw3DGems(g);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.LandOnBoard:
-
             {
                 Game.HyperspaceUltra.mG3D.ClearDepthBuffer();
                 this.Draw3DWarpTube(g);
                 this.Draw3DGems(g);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.FadeFrom3D:
-
             {
                 Game.HyperspaceUltra.mG3D.ClearDepthBuffer();
                 this.Draw3DGems(g);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.DebugDrawEveryOther:
-
             {
                 Game.HyperspaceUltra.mG3D.ClearDepthBuffer();
                 this.Draw3DGemsEveryOther(g);
+            	break;
             }
-
-                break;
         }
         g.End3DScene(Game.HyperspaceUltra.mG3D);
     },
@@ -14351,12 +14256,10 @@ Game.HyperspaceUltra.prototype = {
             case Game.HyperspaceUltra.HyperSpaceState.GemRise:
             case Game.HyperspaceUltra.HyperSpaceState.GemFly:
             case Game.HyperspaceUltra.HyperSpaceState.BoardShatter:
-
             {
                 this.Draw3DBackground(g);
+            	break;
             }
-
-                break;
         }
     },
     SetState : function Game_HyperspaceUltra$SetState(state) {
@@ -14367,7 +14270,6 @@ Game.HyperspaceUltra.prototype = {
         this.mState = state;
         switch(this.mState) {
             case Game.HyperspaceUltra.HyperSpaceState.Init:
-
             {
                 this.mTicks = 0;
                 this.mAnimSeq.Reset();
@@ -14389,20 +14291,16 @@ Game.HyperspaceUltra.prototype = {
                         gemInfoPointer.mDraw3D = false;
                     }
                 }
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.SlideOver:
-
             {
                 this.mFadeTo3D = 0.0;
                 this.mXOffsetAnim.SetCurve('b+0,-234,0.009091,1,####         ~~auJ');
                 this.mBoardInfo.mBoard.HyperspaceEvent(Game.Hyperspace.HyperspaceEvent.Start);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.FadeTo3D:
-
             {
                 this.mPieceAlpha.ClearTrigger();
                 this.mPieceAlpha.SetCurve('b-0.02,1,0.2,1,~rgP         ~#DgP');
@@ -14412,11 +14310,9 @@ Game.HyperspaceUltra.prototype = {
                         gemInfoPointer_2.mDraw3D = true;
                     }
                 }
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.GemRise:
-
             {
                 GameFramework.BaseApp.mApp.PlaySound(Game.Resources['SOUND_HYPERSPACE']);
                 this.mBoardInfo.mBoard.HyperspaceEvent(Game.Hyperspace.HyperspaceEvent.HideAll);
@@ -14429,19 +14325,15 @@ Game.HyperspaceUltra.prototype = {
                 var bgId = GameFramework.Utils.GetRand() % 4;
                 Game.HyperspaceUltra.mHypertubeTextures[0] = mapBgIdToHyperspaceTubeTextures[bgId];
                 Game.HyperspaceUltra.mHypertubeTextures[1] = Game.Resources['IMAGE_HYPERSPACE_INITIAL'];
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.GemFly:
-
             {
                 this.mXOffsetAnim.SetConstant(0.0);
                 this.mPieceAlpha.SetConstant(1.0);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.BoardShatter:
-
             {
                 this.mBoardInfo.mBoard.HyperspaceEvent(Game.Hyperspace.HyperspaceEvent.BoardShatter);
                 this.mShatterScale.SetCurve('b+0.8,2.4,0.008333,1,#.ov         ~~###');
@@ -14449,11 +14341,9 @@ Game.HyperspaceUltra.prototype = {
                     Game.Resources['POPANIM_ANIMS_BOARDSHATTER'].Play('shatter');
                     GameFramework.BaseApp.mApp.PlaySound(Game.Resources['SOUND_HYPERSPACE_SHATTER_1']);
                 }
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.PortalRide:
-
             {
                 this.mBoardInfo.mBoard.HyperspaceEvent(Game.Hyperspace.HyperspaceEvent.OldLevelClear);
                 this.mBoardInfo.mBoard.HyperspaceEvent(Game.Hyperspace.HyperspaceEvent.NextBkg);
@@ -14462,11 +14352,9 @@ Game.HyperspaceUltra.prototype = {
                 this.mRingFadeTunnelIn.SetConstant(0.0);
                 this.mWarpTubeTextureFade.SetConstant(1.0);
                 Game.HyperspaceUltra.mHypertubeTextures[1] = Game.Resources['IMAGE_HYPERSPACE'];
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.LandOnBoard:
-
             {
                 for(var row_3 = 0; row_3 < Game.Board.NUM_ROWS; ++row_3) {
                     for(var col_3 = 0; col_3 < Game.Board.NUM_COLS; ++col_3) {
@@ -14479,19 +14367,15 @@ Game.HyperspaceUltra.prototype = {
                     }
                 }
                 this.mBoardInfo.mBoard.HyperspaceEvent(Game.Hyperspace.HyperspaceEvent.ZoomIn);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.FadeFrom3D:
-
             {
                 this.mFadeFrom3D = 1.0;
                 this.mBoardInfo.mBoard.HyperspaceEvent(Game.Hyperspace.HyperspaceEvent.SlideOver);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.Outro:
-
             {
                 for(var row_4 = 0; row_4 < Game.Board.NUM_ROWS; ++row_4) {
                     for(var col_4 = 0; col_4 < Game.Board.NUM_COLS; ++col_4) {
@@ -14501,25 +14385,20 @@ Game.HyperspaceUltra.prototype = {
                     }
                 }
                 this.mBoardInfo.mBoard.HyperspaceEvent(Game.Hyperspace.HyperspaceEvent.SlideOver);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.Complete:
-
             {
                 this.mBoardInfo.mBoard.HyperspaceEvent(Game.Hyperspace.HyperspaceEvent.Finish);
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.DebugDrawEveryOther:
-
             {
                 this.mAnimSeq.Reset();
                 this.mMinAlpha.SetConstant(1.0);
                 this.mFadeTo3D = 1.0;
+            	break;
             }
-
-                break;
         }
     },
     UpdateAnimation : function Game_HyperspaceUltra$UpdateAnimation() {
@@ -14528,7 +14407,6 @@ Game.HyperspaceUltra.prototype = {
             case Game.HyperspaceUltra.HyperSpaceState.SlideOver:
             case Game.HyperspaceUltra.HyperSpaceState.DebugDrawEveryOther:
             case Game.HyperspaceUltra.HyperSpaceState.FadeTo3D:
-
             {
                 return;
             }
@@ -14543,13 +14421,11 @@ Game.HyperspaceUltra.prototype = {
             case Game.HyperspaceUltra.HyperSpaceState.SlideOver:
             case Game.HyperspaceUltra.HyperSpaceState.FadeTo3D:
             case Game.HyperspaceUltra.HyperSpaceState.GemRise:
-
             {
                 this.mXOffsetAnim.IncInVal();
                 xCamOff = 234.0 + this.mXOffsetAnim.get_v();
+            	break;
             }
-
-                break;
         }
         var animSeqFrame = this.mAnimSeq.GetCurFrame();
         var rot = this.mAnimSeq.GetCameraRot();
@@ -14564,30 +14440,24 @@ Game.HyperspaceUltra.prototype = {
     UpdateTransitionTo3D : function Game_HyperspaceUltra$UpdateTransitionTo3D() {
         switch(this.mState) {
             case Game.HyperspaceUltra.HyperSpaceState.SlideOver:
-
             {
                 if(this.mTicks - this.mStateStartTick == 66) {
                 }
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.FadeTo3D:
-
             {
                 this.mFadeTo3D += (0.15) * 1.67;
                 if(this.mFadeTo3D >= 1.0) {
                     this.mPieceAlpha.IncInVal();
                 }
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.FadeFrom3D:
-
             {
                 this.mFadeFrom3D -= 0.1 * 1.67;
+            	break;
             }
-
-                break;
         }
     },
     UpdateBackground : function Game_HyperspaceUltra$UpdateBackground() {
@@ -14597,12 +14467,10 @@ Game.HyperspaceUltra.prototype = {
             case Game.HyperspaceUltra.HyperSpaceState.GemRise:
             case Game.HyperspaceUltra.HyperSpaceState.GemFly:
             case Game.HyperspaceUltra.HyperSpaceState.BoardShatter:
-
             {
                 this.mBGScale.IncInVal();
+            	break;
             }
-
-                break;
         }
     },
     Update3DBoard : function Game_HyperspaceUltra$Update3DBoard() {
@@ -14739,13 +14607,11 @@ Game.HyperspaceUltra.prototype = {
         switch(this.mState) {
             case Game.HyperspaceUltra.HyperSpaceState.Init:
             case Game.HyperspaceUltra.HyperSpaceState.SlideOver:
-
             {
                 return;
             }
 
             case Game.HyperspaceUltra.HyperSpaceState.GemRise:
-
             {
                 this.mUVAnimTicks += 1.67;
                 this.mMinAlpha.IncInVal();
@@ -14756,29 +14622,24 @@ Game.HyperspaceUltra.prototype = {
                 this.mShatterScale.IncInVal();
                 this.mRingFadeTunnelIn.IncInVal();
                 this.mWarpTubeTextureFade.IncInVal();
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.GemFly:
             case Game.HyperspaceUltra.HyperSpaceState.BoardShatter:
-
             {
                 this.mUVAnimTicks += 1.67;
                 this.mMinAlpha.IncInVal();
                 this.mShatterScale.IncInVal();
                 this.mRingFadeTunnelIn.IncInVal();
                 this.mWarpTubeTextureFade.IncInVal();
+            	break;
             }
-
-                break;
             case Game.HyperspaceUltra.HyperSpaceState.PortalRide:
             case Game.HyperspaceUltra.HyperSpaceState.DebugDrawEveryOther:
-
             {
                 this.mUVAnimTicks += 1.67;
+            	break;
             }
-
-                break;
         }
     },
     UpdateSounds : function Game_HyperspaceUltra$UpdateSounds() {
@@ -14804,19 +14665,16 @@ Game.HyperspaceUltra.prototype = {
             case Game.HyperspaceUltra.HyperSpaceState.GemRise:
             case Game.HyperspaceUltra.HyperSpaceState.GemFly:
             case Game.HyperspaceUltra.HyperSpaceState.BoardShatter:
-
             {
                 this.Draw3DWarpTubeFlare(g);
+            	break;
             }
-
-                break;
             default:
 
             {
                 this.Draw3DWarpTubeCap(g);
+            	break;
             }
-
-                break;
         }
     },
     Draw3DWarpTubeTube : function Game_HyperspaceUltra$Draw3DWarpTubeTube(g) {
@@ -14828,19 +14686,15 @@ Game.HyperspaceUltra.prototype = {
             case Game.HyperspaceUltra.HyperSpaceState.GemRise:
             case Game.HyperspaceUltra.HyperSpaceState.GemFly:
             case Game.HyperspaceUltra.HyperSpaceState.BoardShatter:
-
             {
                 Game.HyperspaceUltra.mG3D.SetTextureWrapUV(1, true, false);
-            }
-
                 break;
+            }
             default:
-
             {
                 Game.HyperspaceUltra.mG3D.SetTextureWrap(1, true);
-            }
-
                 break;
+            }
         }
         var renderEffect = Game.Resources['EFFECT_TUBE_3D'];
         var aRunHandle = renderEffect.Begin(Game.HyperspaceUltra.mG3D, 'Tube3D');
@@ -14938,28 +14792,22 @@ Game.HyperspaceUltra.prototype = {
         }
     },
     Draw3DGems2 : function Game_HyperspaceUltra$Draw3DGems2(g) {
-
-        {
-            var $srcArray8 = this.mGemRenderOrder;
-            for(var $enum8 = 0; $enum8 < $srcArray8.length; $enum8++) {
-                var gemInfoPointer = $srcArray8[$enum8];
-                if(gemInfoPointer.mDraw3D) {
-                    var colorIndex = this.GetGemColor(gemInfoPointer);
-                    if(colorIndex < (Game.DM.EGemColor.HYPERCUBE | 0)) {
-                    }
+        var $srcArray8 = this.mGemRenderOrder;
+        for(var $enum8 = 0; $enum8 < $srcArray8.length; $enum8++) {
+            var gemInfoPointer = $srcArray8[$enum8];
+            if(gemInfoPointer.mDraw3D) {
+                var colorIndex = this.GetGemColor(gemInfoPointer);
+                if(colorIndex < (Game.DM.EGemColor.HYPERCUBE | 0)) {
                 }
             }
         }
     },
     Draw3DGemsEveryOther : function Game_HyperspaceUltra$Draw3DGemsEveryOther(g) {
-
-        {
-            var $srcArray9 = this.mGemRenderOrder;
-            for(var $enum9 = 0; $enum9 < $srcArray9.length; $enum9++) {
-                var gemInfoPointer = $srcArray9[$enum9];
-                var colorIndex = this.GetGemColor(gemInfoPointer);
-                if((colorIndex >= 0) && (colorIndex < (Game.DM.EGemColor.HYPERCUBE | 0)) && (gemInfoPointer.mPiece.mRow % 2) == 0) {
-                }
+        var $srcArray9 = this.mGemRenderOrder;
+        for(var $enum9 = 0; $enum9 < $srcArray9.length; $enum9++) {
+            var gemInfoPointer = $srcArray9[$enum9];
+            var colorIndex = this.GetGemColor(gemInfoPointer);
+            if((colorIndex >= 0) && (colorIndex < (Game.DM.EGemColor.HYPERCUBE | 0)) && (gemInfoPointer.mPiece.mRow % 2) == 0) {
             }
         }
     },
@@ -15201,7 +15049,6 @@ Game.HyperspaceUltra.prototype = {
             case Game.HyperspaceUltra.HyperSpaceState.GemRise:
             case Game.HyperspaceUltra.HyperSpaceState.GemFly:
             case Game.HyperspaceUltra.HyperSpaceState.BoardShatter:
-
             {
                 return 30000.0;
             }
@@ -15525,7 +15372,6 @@ Game.FrameButton = function Game_FrameButton() {
     Game.FrameButton.initializeBase(this);
 }
 Game.FrameButton.prototype = {
-
     Draw : function Game_FrameButton$Draw(g) {
         GameFramework.widgets.ButtonWidget.prototype.Draw.apply(this, [g]);
         g.DrawImage(Game.Resources['IMAGE_BOARD_HDSD_BUTTON_FRAME'].get_OffsetImage(), -160.0 - this.mX, 0.0 - this.mY);
@@ -18361,7 +18207,6 @@ Game.RankBarWidget.prototype = {
             switch(theChar) {
                 case 61:
                 case 43:
-
                 {
                     Game.BejApp.mBejApp.mProfile.mOfflineRank++;
                     Game.BejApp.mBejApp.mProfile.mOfflineRankPoints = (Game.BejApp.mBejApp.mProfile.GetRankPointsK((Game.BejApp.mBejApp.mProfile.mOfflineRank | 0)) | 0) + 50;
@@ -18370,7 +18215,6 @@ Game.RankBarWidget.prototype = {
                 }
 
                 case 45:
-
                 {
                     if(Game.BejApp.mBejApp.mProfile.mOfflineRank > 0) {
                         Game.BejApp.mBejApp.mProfile.mOfflineRank--;
@@ -23765,26 +23609,22 @@ Game.Util.SplitStrEx = function Game_Util$SplitStrEx(i_str, outVals, theType, th
         }
         switch(theType) {
             case Game.Util.ESplitStrType.TVector_STRING:
-
             {
                 var aStrVec = Type.safeCast(outVals, GameFramework.TVector);
                 aStrVec.push(i_str.substr(oldIdx, idx - oldIdx));
+            	break;
             }
-
-                break;
             case Game.Util.ESplitStrType.TIntVector:
             {
                 (outVals).push(GameFramework.Utils.ToInt(i_str.substr(oldIdx, idx - oldIdx)));
                 break;
             }
             case Game.Util.ESplitStrType.TVector_FLOAT:
-
             {
                 var aNumVec = Type.safeCast(outVals, GameFramework.TVector);
                 aNumVec.push(GameFramework.Utils.ToFloat(i_str.substr(oldIdx, idx - oldIdx)));
+            	break;
             }
-
-                break;
         }
         ++count;
         if(done || lastEntry) {
