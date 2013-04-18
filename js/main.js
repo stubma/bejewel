@@ -31,7 +31,7 @@ function wantsHighRes() {
         return true; // Accelerated IE?
     if (/CrOS /.test(navigator.userAgent))
         return false; // Chromebook
-    return gApp.isUseGL(); // No WebGL on these platforms means no acceleration
+    return gApp.GetUseGL(); // No WebGL on these platforms means no acceleration
 }
 
 // resize UI when window changed
@@ -96,12 +96,12 @@ function resizeElements() {
     }
 
 	// proper canvas height, and width should 4/3 of height
-    var aCanvasHeight = Math.min(gApp.getArtRes(), (anInnerHeight - 40));
+    var aCanvasHeight = Math.min(gApp.GetArtRes(), (anInnerHeight - 40));
     aGameCanvas.height = aCanvasHeight;
     aGameCanvas.width = aGameCanvas.height * 4 / 3;
 
 	// trigger size changed to app
-    gApp.onSizeChanged(aGameCanvas.width, aGameCanvas.height);
+    gApp.SizeChanged(aGameCanvas.width, aGameCanvas.height);
 
 	// canvas left and top offset
     var aCanvasLeft = ((anInnerWidth - aGameCanvas.width) / 2) | 0;
@@ -185,21 +185,21 @@ function startup() {
 	// user id
     var aUserId = getCookie('user_id');
     if (aUserId != null)
-        gApp.setUserId(aUserId);
+        gApp.SetUserId(aUserId);
 
 	// user agent
-    gApp.setUserAgent(navigator.userAgent);
+    gApp.SetUserAgent(navigator.userAgent);
 
 	// debug mode or not
     if (window.location.href.indexOf('debug') != -1) {
-        gApp.setDebugMode(true);
+        gApp.SetDebugMode(true);
     }
 
 	// webgl or not
     if (window.location.href.indexOf('nogl') != -1)
-        gApp.setUseGL(false);
+        gApp.SetUseGL(false);
     else
-        gApp.setUseGL(true);
+        gApp.SetUseGL(true);
 
 	// save app reference to curApp
 	if (typeof (curApp) == "undefined")
@@ -215,33 +215,28 @@ function startup() {
 
 	// high resolution or not
     if (!wantsHighRes())
-        gApp.setArtRes(480);
+        gApp.SetArtRes(480);
 
 	// if not webgl, access different set of resources
-    if (!gApp.isUseGL())
-        gApp.setPathPrefix('../html5canvas/');
+    if (!gApp.GetUseGL())
+        gApp.SetPathPrefix('../html5canvas/');
 
 	// init app
-    gApp.init();
+    gApp.Init();
 
 	// start load resource if html5 supported, or failed directly
     if(isHTML5Supported()) {
-        gApp.startLoad();
+        gApp.StartLoad();
     } else {
-        gApp.submitStandardMetricsDict("startup_failed", null, false);
+        gApp.SubmitStandardMetricsDict("startup_failed", null, false);
     }
 
 	// relayout
     resizeElements();
 }
 
-// some window handler for resize and sound event
+// handler for resize
 window.onresize = resizeElements;
-window.JSFExt_SoundManagerReady = function() {
-};
-window.JSFExt_SoundError = function() {
-	gApp.onException(Error("SoundManager2 error"))
-};
 
 // setup sound manager
 soundManager.debugMode = false;
@@ -262,11 +257,11 @@ gApp = new Game.BejApp();
 JFSExt_SetRequiresBinaryHack(false);
 
 // conf url, metrics url
-gApp.setThrottlingURL("http://localhost/~maruojie/bejewel/properties/jew.conf");
-gApp.setMetricsURL("http://localhost/~maruojie");
+gApp.SetThrottlingURL("http://localhost/~maruojie/bejewel/properties/jew.conf");
+gApp.SetMetricsURL("http://localhost/~maruojie");
 
 // exception handler
-gApp.setExceptionCallback(handleException);
+gApp.SetExceptionCallback(handleException);
 
 // check chrome app installed or not
 if ((!/Chrome/.test(navigator.userAgent)) || (chrome.app.isInstalled)) {
