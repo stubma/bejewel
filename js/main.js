@@ -219,7 +219,7 @@ function startup() {
 
 	// if not webgl, access different set of resources
     if (!gApp.GetUseGL())
-        gApp.SetPathPrefix('../html5canvas/');
+        gApp.SetPathPrefix('html5canvas/');
 
 	// init app
     gApp.Init();

@@ -4,7 +4,7 @@
     <list default="true" id="db2164eb-d1aa-4202-be42-6685b367841b" name="Default" comment="" />
     <ignored path="bejewel.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366256922440" ignored="false" />
+    <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366271638271" ignored="false" />
     <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366260870438" ignored="false" />
     <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365681347481" ignored="false" />
     <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366077817030" ignored="false" />
@@ -34,7 +34,7 @@
       <file leaf-file-name="resources.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/properties/resources.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1199" column="50" selection-start="309337" selection-end="309345" vertical-scroll-proportion="-9.769231">
+            <state line="11" column="81" selection-start="474" selection-end="474" vertical-scroll-proportion="-6.3461537">
               <folding />
             </state>
           </provider>
@@ -43,25 +43,34 @@
       <file leaf-file-name="Bejeweled.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Bejeweled.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="992" column="0" selection-start="34572" selection-end="34572" vertical-scroll-proportion="-1.9818182">
+            <state line="4015" column="71" selection-start="173818" selection-end="173819" vertical-scroll-proportion="-4.576923">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameFramework.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="221" column="39" selection-start="7732" selection-end="7743" vertical-scroll-proportion="-4.730769">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameFramework.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/GameFramework.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13765" column="25" selection-start="585993" selection-end="585993" vertical-scroll-proportion="0.5152439">
+            <state line="3268" column="0" selection-start="114706" selection-end="114706" vertical-scroll-proportion="-1.9818182">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JSGameFramework_ext.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="JSGameFramework_ext.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/JSGameFramework_ext.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1959" column="0" selection-start="54611" selection-end="54611" vertical-scroll-proportion="-1.9818182">
+            <state line="1734" column="41" selection-start="49036" selection-end="49036" vertical-scroll-proportion="0.5152439">
               <folding />
             </state>
           </provider>
@@ -70,7 +79,7 @@
       <file leaf-file-name="JSGameFramework.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/JSGameFramework.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="269" column="0" selection-start="12320" selection-end="12320" vertical-scroll-proportion="-1.9818182">
+            <state line="30" column="34" selection-start="1002" selection-end="1002" vertical-scroll-proportion="-2.2545455">
               <folding />
             </state>
           </provider>
@@ -104,12 +113,12 @@
         <option value="$PROJECT_DIR$/shader/bejewel.fsh" />
         <option value="$PROJECT_DIR$/shader/bejewel.vsh" />
         <option value="localhost/~maruojie/bejewel/js/main.js" />
-        <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/JSGameFramework_ext.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/Bejeweled.js" />
         <option value="$PROJECT_DIR$/js/JSGameFramework.js" />
         <option value="$PROJECT_DIR$/js/GameFramework.js" />
+        <option value="$PROJECT_DIR$/js/Bejeweled.js" />
+        <option value="$PROJECT_DIR$/js/main.js" />
       </list>
     </option>
   </component>
@@ -240,7 +249,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
+              <option name="myItemId" value="html5canvas" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -266,7 +275,7 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="options.lastSelected" value="preferences.sourceCode.JavaScript" />
+    <property name="options.lastSelected" value="reference.settings.ide.settings.web.browsers" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -291,10 +300,11 @@
       <recent name="$PROJECT_DIR$/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/swf" />
-      <recent name="$PROJECT_DIR$/img" />
-      <recent name="$PROJECT_DIR$/properties" />
-      <recent name="$PROJECT_DIR$/js" />
+      <recent name="$PROJECT_DIR$/html5canvas/atlases" />
+      <recent name="$PROJECT_DIR$/html5canvas/images/480/tex" />
+      <recent name="$PROJECT_DIR$/html5canvas/images/480" />
+      <recent name="$PROJECT_DIR$/html5canvas/images/480/backgrounds/Lion_tower_cascade" />
+      <recent name="$PROJECT_DIR$/html5canvas/bin" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.bejewel (local)">
@@ -474,39 +484,19 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/JSGameFramework.js</url>
-          <line>134</line>
-          <option name="timeStamp" value="150" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/JSGameFramework_ext.js</url>
-          <line>3010</line>
-          <option name="timeStamp" value="151" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/JSGameFramework.js</url>
-          <line>266</line>
-          <option name="timeStamp" value="153" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/GameFramework.js</url>
-          <line>6154</line>
-          <option name="timeStamp" value="155" />
+        <line-breakpoint type="javascript">
+          <url>file://$PROJECT_DIR$/js/Bejeweled.js</url>
+          <line>1246</line>
+          <option name="timeStamp" value="156" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="156" />
+      <option name="time" value="157" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMEvents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="22" selection-start="2192" selection-end="2192" vertical-scroll-proportion="0.33159268" />
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="7" selection-start="854" selection-end="854" vertical-scroll-proportion="0.33333334" />
@@ -548,13 +538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="16" selection-start="7891" selection-end="7891" vertical-scroll-proportion="-8.461538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="346" column="40" selection-start="9220" selection-end="9220" vertical-scroll-proportion="-6.75">
@@ -567,37 +550,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Bejeweled.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="992" column="0" selection-start="34572" selection-end="34572" vertical-scroll-proportion="-1.9818182">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/JSGameFramework_ext.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1959" column="0" selection-start="54611" selection-end="54611" vertical-scroll-proportion="-1.9818182">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/JSGameFramework.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="269" column="0" selection-start="12320" selection-end="12320" vertical-scroll-proportion="-1.9818182">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/properties/resources.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1199" column="50" selection-start="309337" selection-end="309345" vertical-scroll-proportion="-9.769231">
+        <state line="30" column="34" selection-start="1002" selection-end="1002" vertical-scroll-proportion="-2.2545455">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/GameFramework.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13765" column="25" selection-start="585993" selection-end="585993" vertical-scroll-proportion="0.5152439">
+        <state line="3268" column="0" selection-start="114706" selection-end="114706" vertical-scroll-proportion="-1.9818182">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Bejeweled.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4015" column="71" selection-start="173818" selection-end="173819" vertical-scroll-proportion="-4.576923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html5canvas/properties/resources.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="221" column="39" selection-start="7732" selection-end="7743" vertical-scroll-proportion="-4.730769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html5canvas/atlases/Init_768_00.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/properties/resources.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="81" selection-start="474" selection-end="474" vertical-scroll-proportion="-6.3461537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/JSGameFramework_ext.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1734" column="41" selection-start="49036" selection-end="49036" vertical-scroll-proportion="0.5152439">
           <folding />
         </state>
       </provider>

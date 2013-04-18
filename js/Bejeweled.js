@@ -154,7 +154,8 @@ Game.Background.StartBkgLoad = function Game_Background$StartBkgLoad(theBkgIdx) 
 		} else {
 			aResourceStreamer = GameFramework.BaseApp.mApp.mResourceManager.StreamImageFromPath(Game.Background.mFlattenedNames[theBkgIdx]);
 		}
-		aResourceStreamer.AddEventListener(GameFramework.events.Event.COMPLETE, ss.Delegate.create(aBackgroundLoader, aBackgroundLoader.BackgroundLoaded));
+		aResourceStreamer.AddEventListener(GameFramework.events.Event.COMPLETE,
+			ss.Delegate.create(aBackgroundLoader, aBackgroundLoader.BackgroundLoaded));
 		return aResourceStreamer;
 	}
 	return null;
@@ -207,9 +208,7 @@ Game.Background.prototype = {
 			this.mAnimActive = false;
 			if(Game.Background.mLoadedImages[theIdx] != null) {
 				this.mImage = Game.Background.mLoadedImages[theIdx];
-			}
-
-			else {
+			} else {
 				this.mImage = GameFramework.BaseApp.mApp.mResourceManager.GetImageResourceById(Game.Background.mFlattenedNames[theIdx]);
 				if((GameFramework.BaseApp.mApp.get_Is3D()) && (!Game.BejApp.mBejApp.mIsSlow)) {
 					this.mAnim = GameFramework.BaseApp.mApp.mResourceManager.GetPopAnimResourceById(Game.Background.mPopAnimNames[theIdx]);
@@ -1229,29 +1228,45 @@ Game.BejApp.prototype = {
 		this.mInitResourceStreamer.AddEventListener(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.LoadFailed));
 	},
 
+	// start to load a group resources
 	StreamResourceGroup : function Game_BejApp$StreamResourceGroup(theName) {
 		var aStreamer = this.mResourceManager.StreamResourceGroup(theName);
 		this.mGroupsLoading++;
 		aStreamer.AddEventListener(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.LoadingThreadLoadingComplete));
 		aStreamer.AddEventListener(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.LoadFailed));
 	},
+
+	// save highscores
 	SaveHighscores : function Game_BejApp$SaveHighscores(theForceSave) {
 		this.mHighScoreMgr.Save();
 	},
+
+	// invoked when Init group is loaded
 	InitLoadingComplete : function Game_BejApp$InitLoadingComplete(e) {
+		// check init load time, if larger than 25 seconds, disable music
 		var anInitLoadTimeMS = GameFramework.Utils.GetRunningMilliseconds();
 		if(anInitLoadTimeMS > 25000) {
 			this.mProfile.mMusicVolume = 0.0;
 		}
+
+		// TODO, what is this?
 		if(this.mLoadingScreen != null) {
 			this.mLoadingScreen.mHasFont = true;
 		}
+
+		// set flag
 		this.mInitLoadingComplete = true;
+
+		// notify main menu
 		this.mMainMenu.InitLoadingComplete();
+
+		// load background resource group
 		var aBgStreamer = Game.Background.StartBkgLoad(0);
 		this.mGroupsLoading++;
 		aBgStreamer.AddEventListener(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.LoadingThreadLoadingComplete));
 		aBgStreamer.AddEventListener(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.LoadFailed));
+
+		// other resource grouips
 		this.StreamResourceGroup('Gameplay');
 		this.StreamResourceGroup('Fonts');
 		this.StreamResourceGroup('LoadingThread');
@@ -1259,11 +1274,15 @@ Game.BejApp.prototype = {
 		this.StreamResourceGroup('Board');
 		this.StreamResourceGroup('Additive');
 		this.StreamResourceGroup('MainMenu');
+
+		// load hyperspace anim resource group
 		var aStreamer = this.mResourceManager.StreamBinaryFile(Game.Resources.RESFILE_3D_HYPERSPACE_MAIN_0_ID);
 		this.mGroupsLoading++;
 		aStreamer.AddEventListener(GameFramework.events.Event.COMPLETE, ss.Delegate.create(this, this.HyperspaceAnimLoaded));
 		aStreamer.AddEventListener(GameFramework.events.IOErrorEvent.IO_ERROR, ss.Delegate.create(this, this.LoadFailed));
 	},
+
+	// invoked when hyperspace animation group loaded
 	HyperspaceAnimLoaded : function Game_BejApp$HyperspaceAnimLoaded(e) {
 		var aStreamer = e.target;
 		var aByteArray = aStreamer.mResultData;
@@ -1274,16 +1293,21 @@ Game.BejApp.prototype = {
 		this.mHyperSpaceAnims.push(aHyperAnimSequence);
 		this.LoadingThreadLoadingComplete(e);
 	},
+
+	// change resulotion
 	ChangeArtRes : function Game_BejApp$ChangeArtRes(theWantRes) {
 		this.SetLocalData(this.mProdName, 'ArtRes', GameFramework.Utils.ToString(theWantRes));
 		//JS
 		JSFExt_Reload();
 		//-JS
 	},
+
 	SocialConnected : function Game_BejApp$SocialConnected(e) {
 		this.mConnecting = false;
 		this.LoadingThreadLoadingComplete(e);
 	},
+
+	// invoked when one group resource is loaded
 	LoadingThreadLoadingComplete : function Game_BejApp$LoadingThreadLoadingComplete(e) {
 		this.mGroupsLoading--;
 		if((this.mGroupsLoading == 0) && (!this.mLoadingThreadComplete)) {
@@ -1324,6 +1348,7 @@ Game.BejApp.prototype = {
 			this.mWarpTubeCap3D = this.mResourceManager.GetMeshResourceById(this.mResourceManager.PathToId('3d/warptube_cap.p3d'));
 		}
 	},
+
 	DoModalDialog : function Game_BejApp$DoModalDialog(theDialogHeader, theDialogLines, theDialogFooter, theButtonMode, theDialogId) {
 		if(theDialogId === undefined) theDialogId = Game.DM.EDialog.UNKNOWN_MODAL;
 		var aDialog = new Game.Bej3Dialog(Game.Resources['IMAGE_DIALOG_BACKGROUND'], Game.Resources['IMAGE_DIALOG_BUTTON'], theDialogId, true, theDialogHeader, theDialogLines, theDialogFooter, theButtonMode);
@@ -1359,9 +1384,7 @@ Game.BejApp.prototype = {
 		this.mBoard.Resize(0, 0, 1600, 1200);
 		this.mBaseWidgetAppState.SetFocus(this.mBoard);
 		if(!this.mIsSlow) {
-		}
-
-		else {
+		} else {
 		}
 		this.mBoard.mBackground.mVisible = false;
 		if(this.mMainMenu != null) {
@@ -15833,7 +15856,10 @@ Game.MainMenu.prototype = {
 	mHasLoaderResources : true,
 	mHighestResCount : 1,
 	Draw_txtAlpha : null,
+
+	// invoked when Init group resource is loaded
 	InitLoadingComplete : function Game_MainMenu$InitLoadingComplete() {
+		// add standard resolution button
 		var aButton = new GameFramework.widgets.ButtonWidget();
 		aButton.mButtonImage = Game.Resources['IMAGE_BOARD_SD'];
 		aButton.mX = aButton.mButtonImage.mOffsetX - 160;
@@ -15846,15 +15872,15 @@ Game.MainMenu.prototype = {
 			aButton.mOverCel = 1;
 			aButton.mDownImage = aButton.mButtonImage;
 			aButton.mDownCel = 1;
-		}
-
-		else {
+		} else {
 			aButton.mNormalCel = 2;
 			aButton.mDisabled = true;
 		}
 		aButton.AddEventListener(GameFramework.widgets.WidgetEvent.CLICKED, ss.Delegate.create(this, this.SDClicked));
 		this.AddWidget(aButton);
 		this.mSDButton = aButton;
+
+		// add high resolution button
 		aButton = new Game.FrameButton();
 		aButton.mButtonImage = Game.Resources['IMAGE_BOARD_HD'];
 		aButton.mX = aButton.mButtonImage.mOffsetX - 160;
@@ -15867,9 +15893,7 @@ Game.MainMenu.prototype = {
 			aButton.mOverCel = 1;
 			aButton.mDownImage = aButton.mButtonImage;
 			aButton.mDownCel = 1;
-		}
-
-		else {
+		} else {
 			aButton.mNormalCel = 2;
 			aButton.mDisabled = true;
 		}
@@ -15877,6 +15901,7 @@ Game.MainMenu.prototype = {
 		this.AddWidget(aButton);
 		this.mHDButton = aButton;
 	},
+
 	HandleMenuClicked : function Game_MainMenu$HandleMenuClicked(e) {
 		var aDialog = new Game.OptionsDialog(false);
 		Game.BejApp.mBejApp.mDialogMgr.AddDialog(aDialog);
@@ -15975,9 +16000,7 @@ Game.MainMenu.prototype = {
 			if(this.mSDButtonTextAlpha.GetOutFinalVal() != 1.0) {
 				this.mSDButtonTextAlpha.Intercept('MainMenu_cs_11_29_11__14_35_51_418');
 			}
-		}
-
-		else {
+		} else {
 			if(this.mSDButtonTextAlpha.GetOutFinalVal() != 0.0) {
 				this.mSDButtonTextAlpha.Intercept('MainMenu_cs_11_29_11__14_37_36_539');
 			}
@@ -15986,9 +16009,7 @@ Game.MainMenu.prototype = {
 			if(this.mHDButtonTextAlpha.GetOutFinalVal() != 1.0) {
 				this.mHDButtonTextAlpha.Intercept('MainMenu_cs_11_29_11__14_35_51_418');
 			}
-		}
-
-		else {
+		} else {
 			if(this.mHDButtonTextAlpha.GetOutFinalVal() != 0.0) {
 				this.mHDButtonTextAlpha.Intercept('MainMenu_cs_11_29_11__14_37_36_539');
 			}
@@ -16385,7 +16406,6 @@ Game.MainMenu.prototype = {
 		}
 		switch(i) {
 			case (Game.MainMenu.EId.ClassicBtn | 0):
-
 			{
 				this.mSelectedMode = Game.MainMenu.EMode.Classic;
 				Game.BejApp.mBejApp.mProfile.SetTutorialCleared((Game.DM.ETutorial.PLAY_CLASSIC_FIRST | 0));
@@ -16393,9 +16413,7 @@ Game.MainMenu.prototype = {
 				this.DoBtnAnimation(this.mLeftButton);
 				break;
 			}
-
 			case (Game.MainMenu.EId.SpeedBtn | 0):
-
 			{
 				if(Game.BejApp.mBejApp.mProfile != null && !Game.BejApp.mBejApp.mProfile.HasClearedTutorial((Game.DM.ETutorial.PLAY_CLASSIC_FIRST | 0))) {
 					var aDialog = Game.BejApp.mBejApp.DoModalDialog('SPEED MODE', 'New to Bejeweled?\nTry Classic Mode first.\n\nPlay Speed Mode?', '', GameFramework.widgets.Dialog.BUTTONS_YES_NO, Game.DM.EDialog.PLAY_SPEED_CONFIRM);
@@ -16407,16 +16425,13 @@ Game.MainMenu.prototype = {
 				}
 				break;
 			}
-
 			case (Game.MainMenu.EId.RecordsBtn | 0):
-
 			{
 				var dlg = new Game.RecordsDialog();
 				Game.BejApp.mBejApp.PlaySound(Game.Resources['SOUND_MENUSPIN']);
 				Game.BejApp.mBejApp.mDialogMgr.AddDialog(dlg);
 				break;
 			}
-
 			default:
 			{
 				break;
@@ -16452,15 +16467,11 @@ Game.MainMenu.prototype = {
 					aBoard.mScale.SetCurve('b;1,5,0.01,1,~pF[         ~####');
 					theActivateBtn.mImage = aBoard.mBackground.GetBackgroundImage$3(true, false);
 					theActivateBtn.mImageSrcRect = new GameFramework.TIntRect(0, 0, 0, 0);
-				}
-
-				else {
+				} else {
 					aBoard.mAlpha.SetCurve('b;0,1,0.012,1,#########         ~~###');
 					aBoard.mBackground.mImageOverlayAlpha.SetCurve('b;0.001,1,0.012,1,####   B####      _~###');
 				}
-			}
-
-			else {
+			} else {
 				theActivateBtn.mImage = Game.Resources['IMAGE_BACKGROUNDS_HORSE_FOREST_TREE_FLATTENEDPAM'];
 			}
 		}
