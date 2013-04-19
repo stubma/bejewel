@@ -101,7 +101,11 @@ function Kybos() {
 };
 
 var gBaseRNG = new Kybos();
-gBaseRNG.addNoise(Math.random(), document.documentElement.clientWidth, document.documentElement.clientHeight, window.screenX ? window.screenX : 0, window.screenY ? window.screenY : 0);
+gBaseRNG.addNoise(Math.random(),
+	document.documentElement.clientWidth,
+	document.documentElement.clientHeight,
+	window.screenX ? window.screenX : 0,
+	window.screenY ? window.screenY : 0);
 
 function JSFExt_AddRNGNoise(theNoise) {
 	for(var i = arguments.length - 1; i >= 0; i--) {

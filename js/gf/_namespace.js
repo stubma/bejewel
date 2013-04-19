@@ -1,1 +1,11 @@
 Type.registerNamespace('System');
+GameFramework = Type.registerNamespace('GameFramework');
+GameFramework.ads = Type.registerNamespace('GameFramework.ads');
+GameFramework.connected = Type.registerNamespace('GameFramework.connected');
+GameFramework.events = Type.registerNamespace('GameFramework.events');
+GameFramework.geom = Type.registerNamespace('GameFramework.geom');
+GameFramework.gfx = Type.registerNamespace('GameFramework.gfx');
+GameFramework.misc = Type.registerNamespace('GameFramework.misc');
+GameFramework.resources = Type.registerNamespace('GameFramework.resources');
+GameFramework.resources.popanim = Type.registerNamespace('GameFramework.resources.popanim');
+GameFramework.widgets = Type.registerNamespace('GameFramework.widgets');

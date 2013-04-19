@@ -7,16 +7,17 @@
     <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366305316253" ignored="false" />
     <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366302844310" ignored="false" />
     <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365681347481" ignored="false" />
-    <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366351570716" ignored="false" />
+    <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366351905399" ignored="false" />
     <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366167718914" ignored="false" />
     <file path="/fragment.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366267104139" ignored="false" />
     <file path="/main.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366261416957" ignored="false" />
     <file path="/Bejeweled.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366250551166" ignored="false" />
     <file path="/JSGameFramework.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366288852572" ignored="false" />
     <file path="/JSGameFramework_ext.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366296119559" ignored="false" />
-    <file path="/import.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366305995424" ignored="false" />
+    <file path="/import.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366352856065" ignored="false" />
     <file path="/EndLevelDialog.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366305198229" ignored="false" />
     <file path="/Type.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366345236273" ignored="false" />
+    <file path="/JSDataBufferData.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366356299785" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +36,17 @@
     <favorites_list name="bejewel" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="import.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/import.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="209" column="49" selection-start="6286" selection-end="6286" vertical-scroll-proportion="0.5088161">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -53,22 +64,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/gf/ext/_jsf_webgl.js" />
-        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_noise.js" />
-        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_event.h.js" />
-        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_event.js" />
-        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_sound.js" />
-        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_ajax.h.js" />
-        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_util.js" />
-        <option value="$PROJECT_DIR$/js/gf/JSGameFramework_ext.js" />
-        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_canvas.js" />
-        <option value="$PROJECT_DIR$/js/gf/ext/_global.js" />
-        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_webgl.js" />
-        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_ajax.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/gfx/JSGraphics.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/gfx/JSGraphics3D.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/resources/JSImageInst.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/resources/JSImageResource.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/resources/JSMeshPiece.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/resources/JSMeshResource.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/resources/JSRenderEffectBlock.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/resources/JSRenderEffectPass.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/resources/JSRenderEffectTechnique.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/resources/JSRenderEffectRunHandle.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/resources/JSRenderEffect.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/resources/JSResourceManager.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/resources/JSSoundInstance.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/JSGameFramework.js" />
+        <option value="$PROJECT_DIR$/js/jsgf/resources/JSSoundResource.js" />
         <option value="$PROJECT_DIR$/js/import.js" />
-        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_init.js" />
-        <option value="$PROJECT_DIR$/js/main.js" />
-        <option value="$PROJECT_DIR$/js/game/Announcement.js" />
       </list>
     </option>
   </component>
@@ -261,7 +272,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gf" />
+              <option name="myItemId" value="jsgf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -279,11 +290,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gf" />
+              <option name="myItemId" value="jsgf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ext" />
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bejewel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bejewel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsgf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gfx" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -348,11 +381,11 @@
       <recent name="$PROJECT_DIR$/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js/jsgf" />
       <recent name="$PROJECT_DIR$/js/gf/basetype" />
       <recent name="$PROJECT_DIR$/js/sound" />
       <recent name="$PROJECT_DIR$/js/gf" />
       <recent name="$PROJECT_DIR$/js/game" />
-      <recent name="$PROJECT_DIR$/html5canvas/atlases" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.bejewel (local)">
@@ -449,14 +482,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="806" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23006351" sideWeight="0.61953354" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38046646" sideWeight="0.9971831" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38046646" sideWeight="0.9971831" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978156" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -538,116 +571,107 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_event.js">
+    <entry file="file://$PROJECT_DIR$/js/jsgf/gfx/JSGraphics.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="34" selection-start="890" selection-end="915" vertical-scroll-proportion="0.697733">
+        <state line="138" column="3" selection-start="7505" selection-end="7505" vertical-scroll-proportion="0.9557292">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_sound.js">
+    <entry file="file://$PROJECT_DIR$/js/jsgf/gfx/JSGraphics3D.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="1" selection-start="2450" selection-end="2450" vertical-scroll-proportion="3.627204">
+        <state line="139" column="3" selection-start="4978" selection-end="4978" vertical-scroll-proportion="0.92443323">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_util.js">
+    <entry file="file://$PROJECT_DIR$/js/jsgf/resources/JSImageInst.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="12" selection-start="166" selection-end="166" vertical-scroll-proportion="0.28074867">
+        <state line="45" column="3" selection-start="2333" selection-end="2333" vertical-scroll-proportion="0.9557292">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_canvas.js">
+    <entry file="file://$PROJECT_DIR$/js/jsgf/resources/JSImageResource.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="27" selection-start="3473" selection-end="3473" vertical-scroll-proportion="3.671875">
+        <state line="93" column="3" selection-start="4108" selection-end="4108" vertical-scroll-proportion="0.9557292">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_ajax.js">
+    <entry file="file://$PROJECT_DIR$/js/jsgf/resources/JSMeshPiece.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="57" selection-start="4719" selection-end="4719" vertical-scroll-proportion="0.17577197">
+        <state line="19" column="3" selection-start="701" selection-end="701" vertical-scroll-proportion="0.7178841">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/gf/ext/_global.js">
+    <entry file="file://$PROJECT_DIR$/js/jsgf/resources/JSMeshResource.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="16" selection-start="713" selection-end="725" vertical-scroll-proportion="0.68010074">
+        <state line="26" column="3" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.92443323">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
+    <entry file="file://$PROJECT_DIR$/js/jsgf/resources/JSRenderEffectBlock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="252" column="36" selection-start="8436" selection-end="8436" vertical-scroll-proportion="0.96791446">
+        <state line="18" column="3" selection-start="683" selection-end="683" vertical-scroll-proportion="0.68010074">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/Announcement.js">
+    <entry file="file://$PROJECT_DIR$/js/jsgf/resources/JSRenderEffectPass.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="32" selection-start="1130" selection-end="1130" vertical-scroll-proportion="0.2540107">
+        <state line="13" column="3" selection-start="553" selection-end="553" vertical-scroll-proportion="0.49118388">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_init.js">
+    <entry file="file://$PROJECT_DIR$/js/jsgf/resources/JSRenderEffectTechnique.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="27" selection-start="4375" selection-end="4393" vertical-scroll-proportion="0.20588236">
+        <state line="14" column="3" selection-start="610" selection-end="610" vertical-scroll-proportion="0.52896726">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jsgf/resources/JSRenderEffectRunHandle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="3" selection-start="876" selection-end="876" vertical-scroll-proportion="0.6640625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jsgf/resources/JSRenderEffect.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="206" column="3" selection-start="9545" selection-end="9545" vertical-scroll-proportion="0.9557292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jsgf/resources/JSResourceManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="142" column="3" selection-start="8408" selection-end="8408" vertical-scroll-proportion="0.9557292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jsgf/resources/JSSoundInstance.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="3" selection-start="2326" selection-end="2326" vertical-scroll-proportion="0.92443323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jsgf/resources/JSSoundResource.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="3" selection-start="626" selection-end="626" vertical-scroll-proportion="0.52896726">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/import.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="46" selection-start="1898" selection-end="1898" vertical-scroll-proportion="1.4911839">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/gf/GameFramework.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4374" column="5" selection-start="171170" selection-end="171170" vertical-scroll-proportion="0.859375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/BejApp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="255" column="48" selection-start="9475" selection-end="9475" vertical-scroll-proportion="0.3125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_webgl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="28" selection-start="967" selection-end="967" vertical-scroll-proportion="0.40364584">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/gf/JSGameFramework.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="733" column="34" selection-start="35962" selection-end="35962" vertical-scroll-proportion="0.3125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/gf/ext/_Type.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="25" selection-start="2821" selection-end="2821" vertical-scroll-proportion="0.31234258">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/gf/_namespace.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="22" selection-start="5" selection-end="22" vertical-scroll-proportion="0.0">
+        <state line="209" column="49" selection-start="6286" selection-end="6286" vertical-scroll-proportion="0.5088161">
           <folding />
         </state>
       </provider>
