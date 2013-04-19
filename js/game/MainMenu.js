@@ -472,38 +472,48 @@ Game.MainMenu.prototype = {
             }
         }
 
+		// draw logo, the alpha will fade to zero when all resources are loaded
         if(this.mLogoAlpha != null) {
             var _t8 = g.PushColor(GameFramework.gfx.Color.FAlphaToInt(this.mLogoAlpha.GetOutVal()));
             try {
-                g.DrawImage(Game.Resources['IMAGE_LOADER_POPCAP'], this.mWidth / 2 - ((Game.Resources['IMAGE_LOADER_POPCAP'].mWidth / 2) | 0), 300);
+                g.DrawImage(Game.Resources['IMAGE_LOADER_POPCAP'],
+					this.mWidth / 2 - ((Game.Resources['IMAGE_LOADER_POPCAP'].mWidth / 2) | 0),
+					300);
             } finally {
                 _t8.Dispose();
             }
         }
+
+		// set font, and push outline and glow color
         g.SetFont(Game.Resources['FONT_LOADER_TIP']);
         g.mFont.PushLayerColor('GLOW', GameFramework.gfx.Color.RGBAToInt(64, 0, 32, 128));
         g.mFont.PushLayerColor('OUTLINE', 0);
-        {
-            var anAlpha = (((0.5 * Math.sin(this.mUpdateCnt * 0.03) * 0.5) * 0.5 + 0.75) * this.mLoaderAlpha.GetOutVal());
-            if(anAlpha > 0) {
-                var _t9 = g.PushColor(GameFramework.gfx.Color.RGBAToInt(255, 255, 255, ((255 * anAlpha) | 0)));
-                try {
-                    var aString = 'Loading';
-                    if((Game.BejApp.mBejApp.mConnecting) && (Game.BejApp.mBejApp.mGroupsLoading == 1)) {
-                        aString = 'Connecting';
-                    }
-                    for(var i_2 = 0; i_2 < (((((this.mUpdateCnt / 80) | 0)) | 0)) % 4; i_2++) {
-                        aString += '.';
-                    }
-                    g.DrawString(aString, 800 - g.StringWidth('Loading..') / 2, 850);
-                    g.DrawStringEx(((this.mDispLoadPct * 100) | 0) + '%', 800, 900, 0, 0);
-                } finally {
-                    _t9.Dispose();
-                }
-            }
-        }
+
+		// draw loading string, and loading percentage
+		var anAlpha = (((0.5 * Math.sin(this.mUpdateCnt * 0.03) * 0.5) * 0.5 + 0.75) * this.mLoaderAlpha.GetOutVal());
+		if(anAlpha > 0) {
+			var _t9 = g.PushColor(GameFramework.gfx.Color.RGBAToInt(255, 255, 255, ((255 * anAlpha) | 0)));
+			try {
+				var aString = 'Loading';
+				if((Game.BejApp.mBejApp.mConnecting) && (Game.BejApp.mBejApp.mGroupsLoading == 1)) {
+					aString = 'Connecting';
+				}
+				for(var i_2 = 0; i_2 < (((((this.mUpdateCnt / 80) | 0)) | 0)) % 4; i_2++) {
+					aString += '.';
+				}
+				g.DrawString(aString, 800 - g.StringWidth('Loading..') / 2, 850);
+				g.DrawStringEx(((this.mDispLoadPct * 100) | 0) + '%', 800, 900, 0, 0);
+			} finally {
+				_t9.Dispose();
+			}
+		}
+
+		// balance push layer color
         g.mFont.PopLayerColor('OUTLINE');
         g.mFont.PopLayerColor('GLOW');
+
+		// if using webgl, draw a circle progress loader bar
+		// it will populate the vertices based on current loading progress
         if(Game.BejApp.mBejApp.get_Is3D() && (this.mLoaderAlpha.GetOutVal() > 0.0)) {
             var aVertices = Array.Create2D((Game.MainMenu.NUM_LOADERBAR_POINTS - 1) * 2, 3, null);
             var aCurPct = 0;
@@ -528,44 +538,44 @@ Game.MainMenu.prototype = {
                 } else {
                     aU = 0.5;
                 }
-                {
-                    var aDist1 = (180);
-                    var aDist2 = (180 + 60);
-                    var aVtx1 = new GameFramework.gfx.TriVertex(this.mWidth / 2 + Math.cos(anAng) * aDist1, 300 + ((Game.Resources['IMAGE_LOADER_POPCAP'].mHeight / 2) | 0) + Math.sin(anAng) * aDist1, aU, 0, aTriColor);
-                    var aVtx2 = new GameFramework.gfx.TriVertex(this.mWidth / 2 + Math.cos(anAng) * aDist2, 300 + ((Game.Resources['IMAGE_LOADER_POPCAP'].mHeight / 2) | 0) + Math.sin(anAng) * aDist2, aU, 1, aTriColor);
-                    if(aLoaderBarPt != 0) {
-                        aVertices[aVertices.mIdxMult0 * (aTriIdx) + 0] = aPrevVtx1;
-                        aVertices[aVertices.mIdxMult0 * (aTriIdx) + 1] = aPrevVtx2;
-                        aVertices[aVertices.mIdxMult0 * (aTriIdx) + 2] = aVtx1;
-                        aTriIdx++;
-                        aVertices[aVertices.mIdxMult0 * (aTriIdx) + 0] = aPrevVtx2;
-                        aVertices[aVertices.mIdxMult0 * (aTriIdx) + 1] = aVtx1;
-                        aVertices[aVertices.mIdxMult0 * (aTriIdx) + 2] = aVtx2;
-                        aTriIdx++;
-                    }
-                    aPrevVtx1 = aVtx1;
-                    aPrevVtx2 = aVtx2;
-                }
+
+				var aDist1 = (180);
+				var aDist2 = (180 + 60);
+				var aVtx1 = new GameFramework.gfx.TriVertex(this.mWidth / 2 + Math.cos(anAng) * aDist1, 300 + ((Game.Resources['IMAGE_LOADER_POPCAP'].mHeight / 2) | 0) + Math.sin(anAng) * aDist1, aU, 0, aTriColor);
+				var aVtx2 = new GameFramework.gfx.TriVertex(this.mWidth / 2 + Math.cos(anAng) * aDist2, 300 + ((Game.Resources['IMAGE_LOADER_POPCAP'].mHeight / 2) | 0) + Math.sin(anAng) * aDist2, aU, 1, aTriColor);
+				if(aLoaderBarPt != 0) {
+					aVertices[aVertices.mIdxMult0 * (aTriIdx) + 0] = aPrevVtx1;
+					aVertices[aVertices.mIdxMult0 * (aTriIdx) + 1] = aPrevVtx2;
+					aVertices[aVertices.mIdxMult0 * (aTriIdx) + 2] = aVtx1;
+					aTriIdx++;
+					aVertices[aVertices.mIdxMult0 * (aTriIdx) + 0] = aPrevVtx2;
+					aVertices[aVertices.mIdxMult0 * (aTriIdx) + 1] = aVtx1;
+					aVertices[aVertices.mIdxMult0 * (aTriIdx) + 2] = aVtx2;
+					aTriIdx++;
+				}
+				aPrevVtx1 = aVtx1;
+				aPrevVtx2 = aVtx2;
             }
             g.DrawTrianglesTex(Game.Resources['IMAGE_LOADER_WHITEDOT'], aVertices);
         }
+
+		// draw tip string in the middle bottom
         if((Game.BejApp.mBejApp.mTips.length != 0) && (Game.BejApp.mBejApp.mTipIdx > 0)) {
-            var _t10 = g.PushColor(GameFramework.gfx.Color.RGBAToInt(255, 255, 255, ((255.0 * this.mTipTextAlpha.GetOutVal() * Math.max(0.0, Math.min(1.0, this.mDispLoadPct * 2.0 - 0.15))) | 0)));
+            var _t10 = g.PushColor(GameFramework.gfx.Color.RGBAToInt(255, 255, 255,
+				((255.0 * this.mTipTextAlpha.GetOutVal() * Math.max(0.0, Math.min(1.0, this.mDispLoadPct * 2.0 - 0.15))) | 0)));
             try {
                 g.SetFont(Game.Resources['FONT_LOADER_TIP']);
                 g.mFont.PushLayerColor('GLOW', GameFramework.gfx.Color.RGBAToInt(64, 0, 32, 128));
                 g.mFont.PushLayerColor('OUTLINE', 0);
-                g.DrawStringCentered(Game.BejApp.mBejApp.mTips[(Game.BejApp.mBejApp.mTipIdx - 1) % Game.BejApp.mBejApp.mTips.length], this.mWidth / 2, 1165);
+                g.DrawStringCentered(Game.BejApp.mBejApp.mTips[(Game.BejApp.mBejApp.mTipIdx - 1) % Game.BejApp.mBejApp.mTips.length],
+					this.mWidth / 2, 1165);
                 g.mFont.PopLayerColor('OUTLINE');
                 g.mFont.PopLayerColor('GLOW');
             } finally {
                 _t10.Dispose();
             }
         }
-        if(this.mLoaded) {
-            if(this.mVisible) {
-            }
-        }
+
         if(this.mSDButtonTextAlpha.get_v() > 0.0) {
             var _t11 = g.PushColor(GameFramework.gfx.Color.FAlphaToInt(this.mSDButtonTextAlpha.get_v()));
             try {
