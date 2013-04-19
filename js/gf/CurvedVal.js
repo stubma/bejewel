@@ -354,7 +354,6 @@ GameFramework.CurvedVal.prototype = {
 				return this.mOutMin;
 			}
 			case GameFramework.CurvedVal.RAMP_LINEAR:
-
 			{
 				if(this.mMode == GameFramework.CurvedVal.MODE_PING_PONG) {
 					if((theInVal - this.mInMin) <= ((this.mInMax - this.mInMin) / 2.0)) {
@@ -370,9 +369,7 @@ GameFramework.CurvedVal.prototype = {
 					}
 				}
 			}
-
 			case GameFramework.CurvedVal.RAMP_SLOW_TO_FAST:
-
 			{
 				anAngle = ((theInVal - this.mInMin) / (this.mInMax - this.mInMin)) * GameFramework.CurvedVal.PI / 2.0;
 				if(this.mMode == GameFramework.CurvedVal.MODE_PING_PONG) {
@@ -383,9 +380,7 @@ GameFramework.CurvedVal.prototype = {
 				}
 				return this.mOutMin + ((1.0 - Math.cos(anAngle)) * (this.mOutMax - this.mOutMin));
 			}
-
 			case GameFramework.CurvedVal.RAMP_FAST_TO_SLOW:
-
 			{
 				anAngle = ((theInVal - this.mInMin) / (this.mInMax - this.mInMin)) * GameFramework.CurvedVal.PI / 2.0;
 				if(this.mMode == GameFramework.CurvedVal.MODE_PING_PONG) {
@@ -393,9 +388,7 @@ GameFramework.CurvedVal.prototype = {
 				}
 				return this.mOutMin + ((Math.sin(anAngle)) * (this.mOutMax - this.mOutMin));
 			}
-
 			case GameFramework.CurvedVal.RAMP_SLOW_FAST_SLOW:
-
 			{
 				anAngle = ((theInVal - this.mInMin) / (this.mInMax - this.mInMin)) * GameFramework.CurvedVal.PI;
 				if(this.mMode == GameFramework.CurvedVal.MODE_PING_PONG) {
@@ -403,9 +396,7 @@ GameFramework.CurvedVal.prototype = {
 				}
 				return this.mOutMin + (((-Math.cos(anAngle) + 1.0) / 2.0) * (this.mOutMax - this.mOutMin));
 			}
-
 			case GameFramework.CurvedVal.RAMP_FAST_SLOW_FAST:
-
 			{
 				anAngle = ((theInVal - this.mInMin) / (this.mInMax - this.mInMin)) * GameFramework.CurvedVal.PI;
 				if(this.mMode == GameFramework.CurvedVal.MODE_PING_PONG) {
@@ -420,9 +411,7 @@ GameFramework.CurvedVal.prototype = {
 					return this.mOutMin + (((2.0 - Math.sin(anAngle)) / 2.0) * (this.mOutMax - this.mOutMin));
 				}
 			}
-
 			case GameFramework.CurvedVal.RAMP_CURVEDATA:
-
 			{
 				this.CheckCurveChange();
 				if(this.mCurveCacheRecord == null) {

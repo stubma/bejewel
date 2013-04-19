@@ -191,7 +191,7 @@ function startup() {
     gApp.SetUserAgent(navigator.userAgent);
 
 	// debug mode or not
-    if (window.location.href.indexOf('debug') != -1) {
+    if (window.location.href.indexOf('debug') != -1 || LOCAL_DEBUG) {
         gApp.SetDebugMode(true);
     }
 
@@ -258,7 +258,6 @@ JSFExt_SetRequiresBinaryHack(false);
 
 // conf url, metrics url
 gApp.SetThrottlingURL("http://localhost/~maruojie/bejewel/properties/jew.conf");
-gApp.SetMetricsURL("http://localhost/~maruojie");
 
 // exception handler
 gApp.SetExceptionCallback(handleException);

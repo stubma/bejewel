@@ -416,7 +416,7 @@ Game.BejApp.prototype = {
             this.mProfile.mMusicVolume = 0.0;
         }
 
-        // TODO, what is this?
+        // if has loading screen, set font flag
         if(this.mLoadingScreen != null) {
             this.mLoadingScreen.mHasFont = true;
         }
@@ -977,8 +977,6 @@ Game.BejApp.prototype = {
         }
         var frameCount = theDataBuffer.ReadInt();
         var lightCount = theDataBuffer.ReadInt();
-        if(theHyperSpaceAnim != null) {
-        }
         theHyperSpaceAnim.mFrameCount = frameCount;
         theHyperSpaceAnim.mLightCount = lightCount;
         theHyperSpaceAnim.mCamera = Array.Create(frameCount, null);

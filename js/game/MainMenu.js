@@ -406,6 +406,11 @@ Game.MainMenu.prototype = {
                 _t2.Dispose();
             }
         }
+
+		// if Init group resources are not loaded, and update ticks more than 200, it will
+		// draw a circle dot progress timer
+		// the Init group resournces contains logo and other basic resources, so we won't
+		// go ahead if it is not loaded
         if(!Game.BejApp.mBejApp.mInitLoadingComplete) {
             var _t3 = g.PushColor(0xff000000);
             try {
@@ -429,6 +434,8 @@ Game.MainMenu.prototype = {
             }
             return;
         }
+
+		// draw parter logo, if has, don't draw original logo
         if(this.mPartnerLogos.length > 0) {
             var pl = this.mPartnerLogos[0];
             var _t5 = g.PushColor(GameFramework.gfx.Color.RGBAToInt(255, 255, 255, pl.mAlpha));
@@ -439,6 +446,10 @@ Game.MainMenu.prototype = {
             }
             return;
         }
+
+		// draw background
+		// the background color and after can be changed dynamically if curve val is set properly
+		// by default, it doesn't change, just black
         var aBackAlpha = Math.min(1.0, 2.3 - this.mDispLoadPct * this.mBkgBlackAlpha.GetOutVal() * 2.0);
         var aColor = Math.max(0.0, Math.min(1.0, this.mDispLoadPct * this.mBkgBlackAlpha.GetOutVal() * 3.0));
         aBackAlpha -= aColor * 0.4;
@@ -450,10 +461,8 @@ Game.MainMenu.prototype = {
                 _t6.Dispose();
             }
         }
-        var aGeomGlowAlpha = Math.min(1.0, 1.9 - this.mDispLoadPct * 2.1);
-        if(Game.BejApp.mBejApp.get_Is3D()) {
-        } else {
-        }
+
+		// paint main menu background if all resources are loaded
         if(this.mTitleAlpha.GetOutVal() > 0.0 && this.mLoaded) {
             var _t7 = g.PushColor(GameFramework.gfx.Color.RGBAToInt(255, 255, 255, ((255.0 * this.mTitleAlpha.GetOutVal()) | 0)));
             try {
@@ -462,6 +471,7 @@ Game.MainMenu.prototype = {
                 _t7.Dispose();
             }
         }
+
         if(this.mLogoAlpha != null) {
             var _t8 = g.PushColor(GameFramework.gfx.Color.FAlphaToInt(this.mLogoAlpha.GetOutVal()));
             try {
