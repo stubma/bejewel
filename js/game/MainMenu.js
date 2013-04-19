@@ -576,6 +576,7 @@ Game.MainMenu.prototype = {
             }
         }
 
+		// if mouse is hover on SD button and SD button is not activated, show a hint text
         if(this.mSDButtonTextAlpha.get_v() > 0.0) {
             var _t11 = g.PushColor(GameFramework.gfx.Color.FAlphaToInt(this.mSDButtonTextAlpha.get_v()));
             try {
@@ -584,6 +585,8 @@ Game.MainMenu.prototype = {
                 _t11.Dispose();
             }
         }
+
+		// if mouse if hover on HD button and HD button is not activated, show a hint text
         if(this.mHDButtonTextAlpha.get_v() > 0.0) {
             var _t12 = g.PushColor(GameFramework.gfx.Color.FAlphaToInt(this.mHDButtonTextAlpha.get_v()));
             try {
