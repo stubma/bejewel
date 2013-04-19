@@ -38,10 +38,10 @@ Game.DM.staticInit = function Game_DM$staticInit() {
     Game.DM.gRankNames = Array.Create(131, 131, 'Novice', 'Apprentice', 'Trainee', 'Beginner', 'Amateur', 'Jr. Appraiser', 'Appraiser', 'Gem Polisher', 'Gem Scraper', 'Gem Grinder', 'Jewel Thief', 'Jewel Scavenger', 'Gem Scrounger', 'Jr. Gemfinder', 'Gemfinder', 'Sr. Gemfinder', 'Jr. Jewelkeep', 'Jewelkeep', 'Master Jewelkeep', 'Gemhunter Lv 1', 'Gemhunter Lv 2', 'Gemhunter Lv 3', 'Gemhunter Lv 4', 'Gemhunter Lv 5', 'Gemcrafter Lv 1', 'Gemcrafter Lv 2', 'Gemcrafter Lv 3', 'Gemcrafter Lv 4', 'Gemcrafter Lv 5', 'Jr. Gemstalker', 'Gemstalker', 'Sr. Gemstalker', 'Topaz Hunter', 'Onyx Hunter', 'Amethyst Hunter', 'Ruby Hunter', 'Emerald Hunter', 'Opal Hunter', 'Sapphire Hunter', 'Diamond Hunter', 'Topaz Blaster', 'Onyx Blaster', 'Amethyst Blaster', 'Ruby Blaster', 'Emerald Blaster', 'Opal Blaster', 'Sapphire Blaster', 'Diamond Blaster', 'Topaz Hoarder', 'Onyx Hoarder', 'Amethyst Hoarder', 'Ruby Hoarder', 'Emerald Hoarder', 'Opal Hoarder', 'Sapphire Hoarder', 'Diamond Hoarder', 'Topaz Master', 'Onyx Master', 'Amethyst Master', 'Ruby Master', 'Emerald Master', 'Opal Master', 'Sapphire Master', 'Diamond Master', 'Lapidary Lv 1', 'Lapidary Lv 2', 'Lapidary Lv 3', 'Lapidary Lv 4', 'Lapidary Lv 5', 'Master Lapidary', 'Supreme Lapidary', 'Ruby Wizard', 'Emerald Wizard', 'Opal Wizard', 'Sapphire Wizard', 'Diamond Wizard', 'Jeweled Wizard', 'Jeweled Mage', 'Jeweled Archmage', 'Jewelcrafter', 'Jewelforger', 'Bronze Blitzer', 'Silver Blitzer', 'Gold Blitzer', 'Platinum Blitzer', 'Bronze Master', 'Silver Master', 'Gold Master', 'Platinum Master', 'Jr. Bejeweler', 'Bejeweler', 'Sr. Bejeweler', 'Master Bejeweler', 'Mega Bejeweler', 'Hyper Bejeweler', 'Ultra Bejeweler', 'Prime Bejeweler', 'Ultimate Bejeweler', 'Bejeweled Regent', 'Bejeweled Demigod', 'Supreme Bejeweler', 'Jewelmagus Lv 1', 'Jewelmagus Lv 2', 'Jewelmagus Lv 3', 'Jewelmagus Lv 4', 'Jewelmagus Lv 5', 'Jewelmagus Lv 6', 'Jewelmagus Lv 7', 'Jewelmagus Lv 8', 'Jewelmagus Lv 9', 'Elder Jewelmagus', 'Jewelknight Lv 1', 'Jewelknight Lv 2', 'Jewelknight Lv 3', 'Jewelknight Lv 4', 'Jewelknight Lv 5', 'Jewelknight Lv 6', 'Jewelknight Lv 7', 'Jewelknight Lv 8', 'Jewelknight Lv 9', 'Elder Jewelknight', 'Bejewelian Lv 1', 'Bejewelian Lv 2', 'Bejewelian Lv 3', 'Bejewelian Lv 4', 'Bejewelian Lv 5', 'Bejewelian Lv 6', 'Bejewelian Lv 7', 'Bejewelian Lv 8', 'Bejewelian Lv 9', 'Elder Bejewelian');
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.DM.registerClass('Game.DM', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.DM.staticInit();
 });
 Game.DM.EGemColor = {};
@@ -57,7 +57,7 @@ Game.DM.EGemColor.staticInit = function Game_DM_EGemColor$staticInit() {
     Game.DM.EGemColor.HYPERCUBE = 7;
     Game.DM.EGemColor._COUNT = 8;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.DM.EGemColor.staticInit();
 });
 Game.DM.EStat = {};
@@ -109,7 +109,7 @@ Game.DM.EStat.staticInit = function Game_DM_EStat$staticInit() {
     Game.DM.EStat.HINT_USED = 44;
     Game.DM.EStat._COUNT = 45;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.DM.EStat.staticInit();
 });
 Game.DM.EDialog = {};
@@ -140,7 +140,7 @@ Game.DM.EDialog.staticInit = function Game_DM_EDialog$staticInit() {
     Game.DM.EDialog.UNKNOWN_MODAL = 23;
     Game.DM.EDialog._COUNT = 24;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.DM.EDialog.staticInit();
 });
 Game.DM.ETutorial = {};
@@ -166,7 +166,7 @@ Game.DM.ETutorial.staticInit = function Game_DM_ETutorial$staticInit() {
     Game.DM.ETutorial.SPEED_TUTORIAL_MULTIPLIER_UP = 17;
     Game.DM.ETutorial._COUNT = 18;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.DM.ETutorial.staticInit();
 });
 Game.DM.EAutoplay = {};
@@ -178,6 +178,6 @@ Game.DM.EAutoplay.staticInit = function Game_DM_EAutoplay$staticInit() {
     Game.DM.EAutoplay.TestHyper = 4;
     Game.DM.EAutoplay._COUNT = 5;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.DM.EAutoplay.staticInit();
 });

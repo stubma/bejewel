@@ -194,9 +194,9 @@ Game.TutorialMgr.staticInit = function Game_TutorialMgr$staticInit() {
 	Game.TutorialMgr.G = null;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.TutorialMgr.registerClass('Game.TutorialMgr', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.TutorialMgr.staticInit();
 });

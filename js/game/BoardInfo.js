@@ -23,9 +23,9 @@ Game.BoardInfo.prototype = {
 Game.BoardInfo.staticInit = function Game_BoardInfo$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.BoardInfo.registerClass('Game.BoardInfo', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.BoardInfo.staticInit();
 });

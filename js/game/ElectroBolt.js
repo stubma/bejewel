@@ -17,9 +17,9 @@ Game.ElectroBolt.prototype = {
 Game.ElectroBolt.staticInit = function Game_ElectroBolt$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.ElectroBolt.registerClass('Game.ElectroBolt', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.ElectroBolt.staticInit();
 });

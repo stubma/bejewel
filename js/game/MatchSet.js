@@ -13,9 +13,9 @@ Game.MatchSet.prototype = {
 Game.MatchSet.staticInit = function Game_MatchSet$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.MatchSet.registerClass('Game.MatchSet', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.MatchSet.staticInit();
 });

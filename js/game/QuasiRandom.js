@@ -38,9 +38,9 @@ Game.QuasiRandom.prototype = {
 Game.QuasiRandom.staticInit = function Game_QuasiRandom$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.QuasiRandom.registerClass('Game.QuasiRandom', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.QuasiRandom.staticInit();
 });

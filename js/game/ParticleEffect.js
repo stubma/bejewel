@@ -119,9 +119,9 @@ Game.ParticleEffect.prototype = {
 Game.ParticleEffect.staticInit = function Game_ParticleEffect$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.ParticleEffect.registerClass('Game.ParticleEffect', Game.Effect);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.ParticleEffect.staticInit();
 });

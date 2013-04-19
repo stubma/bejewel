@@ -120,9 +120,9 @@ Game.DialogMgr.staticInit = function Game_DialogMgr$staticInit() {
     Game.DialogMgr.mDialogMgr = null;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.DialogMgr.registerClass('Game.DialogMgr', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.DialogMgr.staticInit();
 });

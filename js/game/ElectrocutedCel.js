@@ -11,9 +11,9 @@ Game.ElectrocutedCel.prototype = {
 Game.ElectrocutedCel.staticInit = function Game_ElectrocutedCel$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.ElectrocutedCel.registerClass('Game.ElectrocutedCel', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.ElectrocutedCel.staticInit();
 });

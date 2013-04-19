@@ -453,9 +453,9 @@ Game.TimeBonusEffect.staticInit = function Game_TimeBonusEffect$staticInit() {
 	Game.TimeBonusEffect.mElectoLineVertices = null;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.TimeBonusEffect.registerClass('Game.TimeBonusEffect', Game.Effect);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.TimeBonusEffect.staticInit();
 });

@@ -1069,10 +1069,10 @@ Game.HyperspaceUltra.staticInit = function Game_HyperspaceUltra$staticInit() {
     Game.HyperspaceUltra.specularLightColor = Array.Create(4, 4, 1.0, 1.0, 1.0, 1.0);
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.HyperspaceUltra.registerClass('Game.HyperspaceUltra', Game.Hyperspace);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.HyperspaceUltra.staticInit();
 });
 Game.HyperspaceUltra.HyperSpaceState = {};
@@ -1092,6 +1092,6 @@ Game.HyperspaceUltra.HyperSpaceState.staticInit = function Game_HyperspaceUltra_
     Game.HyperspaceUltra.HyperSpaceState.Max = 12;
     Game.HyperspaceUltra.HyperSpaceState.Nil = -1;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.HyperspaceUltra.HyperSpaceState.staticInit();
 });

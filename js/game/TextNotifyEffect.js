@@ -48,9 +48,9 @@ Game.TextNotifyEffect.prototype = {
 Game.TextNotifyEffect.staticInit = function Game_TextNotifyEffect$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.TextNotifyEffect.registerClass('Game.TextNotifyEffect', Game.Effect);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.TextNotifyEffect.staticInit();
 });

@@ -113,9 +113,9 @@ Game.TimeBonusEffectTop.prototype = {
 Game.TimeBonusEffectTop.staticInit = function Game_TimeBonusEffectTop$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.TimeBonusEffectTop.registerClass('Game.TimeBonusEffectTop', Game.Effect);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.TimeBonusEffectTop.staticInit();
 });

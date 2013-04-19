@@ -34,9 +34,9 @@ Game.PieceIter.prototype = {
 Game.PieceIter.staticInit = function Game_PieceIter$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.PieceIter.registerClass('Game.PieceIter', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.PieceIter.staticInit();
 });

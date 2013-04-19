@@ -1087,9 +1087,9 @@ Game.SpeedBoard.prototype = {
 Game.SpeedBoard.staticInit = function Game_SpeedBoard$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.SpeedBoard.registerClass('Game.SpeedBoard', Game.Board);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.SpeedBoard.staticInit();
 });

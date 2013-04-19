@@ -66,9 +66,9 @@ Game.TopWidget.prototype = {
 Game.TopWidget.staticInit = function Game_TopWidget$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.TopWidget.registerClass('Game.TopWidget', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.TopWidget.staticInit();
 });

@@ -114,9 +114,9 @@ Game.HighScoreMgr.staticInit = function Game_HighScoreMgr$staticInit() {
     Game.HighScoreMgr.VERSION = 1;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.HighScoreMgr.registerClass('Game.HighScoreMgr', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.HighScoreMgr.staticInit();
 });

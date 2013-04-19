@@ -33,9 +33,9 @@ Game.ColorTracker.prototype = {
 Game.ColorTracker.staticInit = function Game_ColorTracker$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.ColorTracker.registerClass('Game.ColorTracker', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.ColorTracker.staticInit();
 });

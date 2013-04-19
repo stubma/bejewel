@@ -436,10 +436,10 @@ Game.Piece.prototype = {
 Game.Piece.staticInit = function Game_Piece$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Piece.registerClass('Game.Piece', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Piece.staticInit();
 });
 Game.Piece.EFlag = {};
@@ -463,6 +463,6 @@ Game.Piece.EFlag.staticInit = function Game_Piece_EFlag$staticInit() {
     Game.Piece.EFlag.BLAST_GEM = 16;
     Game.Piece.EFlag.TIME_BONUS = 17;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Piece.EFlag.staticInit();
 });

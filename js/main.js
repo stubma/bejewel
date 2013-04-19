@@ -248,13 +248,13 @@ soundManager.onload = JSFExt_SoundManagerReady;
 soundManager.onerror = JSFExt_SoundError;
 
 // init classes
-JS_Init();
+JSFExt_InitClasses();
 
 // create app instance
 gApp = new Game.BejApp();
 
 // no binary hack for resources
-JFSExt_SetRequiresBinaryHack(false);
+JSFExt_SetRequiresBinaryHack(false);
 
 // conf url, metrics url
 gApp.SetThrottlingURL("http://localhost/~maruojie/bejewel/properties/jew.conf");

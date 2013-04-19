@@ -14,9 +14,9 @@ Game.DeferredSound.prototype = {
 Game.DeferredSound.staticInit = function Game_DeferredSound$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.DeferredSound.registerClass('Game.DeferredSound', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.DeferredSound.staticInit();
 });

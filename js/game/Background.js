@@ -306,9 +306,9 @@ Game.Background.staticInit = function Game_Background$staticInit() {
     Game.Background.mLoadedImages = Array.Create(Game.Background.mBkgGroupNames.length, null);
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Background.registerClass('Game.Background', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Background.staticInit();
 });

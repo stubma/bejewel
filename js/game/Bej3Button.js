@@ -24,9 +24,9 @@ Game.Bej3Button.prototype = {
 Game.Bej3Button.staticInit = function Game_Bej3Button$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Bej3Button.registerClass('Game.Bej3Button', GameFramework.widgets.ButtonWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Bej3Button.staticInit();
 });

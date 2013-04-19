@@ -1378,9 +1378,9 @@ Game.Resources.staticInit = function Game_Resources$staticInit() {
     Game.Resources['IMAGE_TEX_YELLOW_G'] = null;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Resources.registerClass('Game.Resources', null, GameFramework.resources.IResources);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Resources.staticInit();
 });

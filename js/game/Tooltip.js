@@ -20,10 +20,10 @@ Game.Tooltip.prototype = {
 Game.Tooltip.staticInit = function Game_Tooltip$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.Tooltip.registerClass('Game.Tooltip', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.Tooltip.staticInit();
 });
 Game.Tooltip.EArrowDir = {};
@@ -34,6 +34,6 @@ Game.Tooltip.EArrowDir.staticInit = function Game_Tooltip_EArrowDir$staticInit()
 	Game.Tooltip.EArrowDir.ARROW_RIGHT = 3;
 	Game.Tooltip.EArrowDir.NONE = 4;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.Tooltip.EArrowDir.staticInit();
 });

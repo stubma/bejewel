@@ -31,9 +31,9 @@ Game.ScalingIconButton.prototype = {
 Game.ScalingIconButton.staticInit = function Game_ScalingIconButton$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.ScalingIconButton.registerClass('Game.ScalingIconButton', Game.IconButton);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.ScalingIconButton.staticInit();
 });

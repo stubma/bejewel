@@ -7249,10 +7249,10 @@ Game.Board.staticInit = function Game_Board$staticInit() {
     Game.Board.mGemLightData = Array.Create(9, null);
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Board.registerClass('Game.Board', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Board.staticInit();
 });
 Game.Board.Widgets = {};
@@ -7265,7 +7265,7 @@ Game.Board.Widgets.staticInit = function Game_Board_Widgets$staticInit() {
     Game.Board.Widgets.BUTTON_ZEN_OPTIONS = 5;
     Game.Board.Widgets.__COUNT = 6;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Board.Widgets.staticInit();
 });
 Game.Board.EPointType = {};
@@ -7277,7 +7277,7 @@ Game.Board.EPointType.staticInit = function Game_Board_EPointType$staticInit() {
     Game.Board.EPointType.COLUMN_COMBO = 4;
     Game.Board.EPointType.__COUNT = 5;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Board.EPointType.staticInit();
 });
 Game.Board.EUIConfig = {};
@@ -7285,6 +7285,6 @@ Game.Board.EUIConfig.staticInit = function Game_Board_EUIConfig$staticInit() {
     Game.Board.EUIConfig.Standard = 0;
     Game.Board.EUIConfig.WithReset = 1;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Board.EUIConfig.staticInit();
 });

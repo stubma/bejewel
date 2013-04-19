@@ -187,10 +187,10 @@ Game.Profile.staticInit = function Game_Profile$staticInit() {
     Game.Profile.VERSION = 1;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Profile.registerClass('Game.Profile', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Profile.staticInit();
 });
 Game.Profile.PROF_FLAG_HELPSEEN = {};
@@ -200,6 +200,6 @@ Game.Profile.PROF_FLAG_HELPSEEN.staticInit = function Game_Profile_PROF_FLAG_HEL
     Game.Profile.PROF_FLAG_HELPSEEN.ICESTORM = 2;
     Game.Profile.PROF_FLAG_HELPSEEN.GOLDRUSH = 3;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Profile.PROF_FLAG_HELPSEEN.staticInit();
 });

@@ -50,9 +50,9 @@ Game.SpreadCurve.prototype = {
 Game.SpreadCurve.staticInit = function Game_SpreadCurve$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.SpreadCurve.registerClass('Game.SpreadCurve', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.SpreadCurve.staticInit();
 });

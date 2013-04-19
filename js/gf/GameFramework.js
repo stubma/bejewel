@@ -12,10 +12,10 @@ GameFramework.JSONHelperData.prototype = {
 GameFramework.JSONHelperData.staticInit = function GameFramework_JSONHelperData$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.JSONHelperData.registerClass('GameFramework.JSONHelperData', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.JSONHelperData.staticInit();
 });
 /**
@@ -33,10 +33,10 @@ GameFramework.JSONFormatException.prototype = {
 GameFramework.JSONFormatException.staticInit = function GameFramework_JSONFormatException$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.JSONFormatException.registerClass('GameFramework.JSONFormatException', System.Exception);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.JSONFormatException.staticInit();
 });
 /**
@@ -50,10 +50,10 @@ GameFramework.Sprite.prototype = {
 GameFramework.Sprite.staticInit = function GameFramework_Sprite$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.Sprite.registerClass('GameFramework.Sprite', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.Sprite.staticInit();
 });
 /**
@@ -405,10 +405,10 @@ GameFramework.BaseApp.staticInit = function GameFramework_BaseApp$staticInit() {
     GameFramework.BaseApp.mApp = null;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.BaseApp.registerClass('GameFramework.BaseApp', GameFramework.Sprite);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.BaseApp.staticInit();
 });
 
@@ -1053,10 +1053,10 @@ GameFramework.CurvedVal.staticInit = function GameFramework_CurvedVal$staticInit
     GameFramework.CurvedVal.mCurveCacheMap = {};
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.CurvedVal.registerClass('GameFramework.CurvedVal', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.CurvedVal.staticInit();
 });
 
@@ -1224,10 +1224,10 @@ GameFramework.DataBuffer.prototype = {
 GameFramework.DataBuffer.staticInit = function GameFramework_DataBuffer$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.DataBuffer.registerClass('GameFramework.DataBuffer', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.DataBuffer.staticInit();
 });
 
@@ -1339,10 +1339,10 @@ GameFramework.DataBufferData.prototype = {
 GameFramework.DataBufferData.staticInit = function GameFramework_DataBufferData$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.DataBufferData.registerClass('GameFramework.DataBufferData', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.DataBufferData.staticInit();
 });
 
@@ -1394,10 +1394,10 @@ GameFramework.Insets.prototype = {
 GameFramework.Insets.staticInit = function GameFramework_Insets$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.Insets.registerClass('GameFramework.Insets', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.Insets.staticInit();
 });
 
@@ -1500,7 +1500,7 @@ GameFramework.KeyCode.staticInit = function GameFramework_KeyCode$staticInit() {
     GameFramework.KeyCode.Command = 0xf0;
     GameFramework.KeyCode.COUNT = 0xff;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.KeyCode.staticInit();
 });
 
@@ -1519,10 +1519,10 @@ GameFramework.NoRename.prototype = {
 GameFramework.NoRename.staticInit = function GameFramework_NoRename$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.NoRename.registerClass('GameFramework.NoRename', System.Attribute);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.NoRename.staticInit();
 });
 
@@ -1609,10 +1609,10 @@ GameFramework.TArray.prototype = {
 GameFramework.TArray.staticInit = function GameFramework_TArray$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TArray.registerClass('GameFramework.TArray', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TArray.staticInit();
 });
 
@@ -1655,10 +1655,10 @@ GameFramework.TDictionary.prototype = {
 GameFramework.TDictionary.staticInit = function GameFramework_TDictionary$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TDictionary.registerClass('GameFramework.TDictionary', null, GameFramework.misc.ISimpleDictionary);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TDictionary.staticInit();
 });
 /**
@@ -1691,10 +1691,10 @@ GameFramework.TDictionaryEnumerator.prototype = {
 GameFramework.TDictionaryEnumerator.staticInit = function GameFramework_TDictionaryEnumerator$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TDictionaryEnumerator.registerClass('GameFramework.TDictionaryEnumerator', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TDictionaryEnumerator.staticInit();
 });
 
@@ -1737,10 +1737,10 @@ GameFramework.TIntDictionary.prototype = {
 GameFramework.TIntDictionary.staticInit = function GameFramework_TIntDictionary$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TIntDictionary.registerClass('GameFramework.TIntDictionary', null, GameFramework.misc.ISimpleDictionary);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TIntDictionary.staticInit();
 });
 
@@ -1773,10 +1773,10 @@ GameFramework.TMapKeyEnumerator.prototype = {
 GameFramework.TMapKeyEnumerator.staticInit = function GameFramework_TMapKeyEnumerator$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TMapKeyEnumerator.registerClass('GameFramework.TMapKeyEnumerator', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TMapKeyEnumerator.staticInit();
 });
 /**
@@ -1808,10 +1808,10 @@ GameFramework.TMapValueEnumerator.prototype = {
 GameFramework.TMapValueEnumerator.staticInit = function GameFramework_TMapValueEnumerator$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TMapValueEnumerator.registerClass('GameFramework.TMapValueEnumerator', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TMapValueEnumerator.staticInit();
 });
 /**
@@ -1852,10 +1852,10 @@ GameFramework.TIntMap.prototype = {
 GameFramework.TIntMap.staticInit = function GameFramework_TIntMap$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TIntMap.registerClass('GameFramework.TIntMap', null, GameFramework.misc.ISimpleDictionary);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TIntMap.staticInit();
 });
 
@@ -1926,10 +1926,10 @@ GameFramework.TIntRect.prototype = {
 GameFramework.TIntRect.staticInit = function GameFramework_TIntRect$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TIntRect.registerClass('GameFramework.TIntRect', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TIntRect.staticInit();
 });
 
@@ -1999,10 +1999,10 @@ GameFramework.TIntVector.prototype = {
 GameFramework.TIntVector.staticInit = function GameFramework_TIntVector$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TIntVector.registerClass('GameFramework.TIntVector', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TIntVector.staticInit();
 });
 
@@ -2038,10 +2038,10 @@ GameFramework.TMapEnumerator.prototype = {
 GameFramework.TMapEnumerator.staticInit = function GameFramework_TMapEnumerator$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TMapEnumerator.registerClass('GameFramework.TMapEnumerator', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TMapEnumerator.staticInit();
 });
 /**
@@ -2082,10 +2082,10 @@ GameFramework.TMap.prototype = {
 GameFramework.TMap.staticInit = function GameFramework_TMap$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TMap.registerClass('GameFramework.TMap', null, GameFramework.misc.ISimpleDictionary);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TMap.staticInit();
 });
 
@@ -2156,10 +2156,10 @@ GameFramework.TRect.prototype = {
 GameFramework.TRect.staticInit = function GameFramework_TRect$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TRect.registerClass('GameFramework.TRect', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TRect.staticInit();
 });
 
@@ -2281,10 +2281,10 @@ GameFramework.TVector.prototype = {
 GameFramework.TVector.staticInit = function GameFramework_TVector$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.TVector.registerClass('GameFramework.TVector', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.TVector.staticInit();
 });
 
@@ -2685,10 +2685,10 @@ GameFramework.Utils.staticInit = function GameFramework_Utils$staticInit() {
     GameFramework.Utils.sStartTime = 0;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.Utils.registerClass('GameFramework.Utils', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.Utils.staticInit();
 });
 
@@ -2754,10 +2754,10 @@ GameFramework.XMLParser.prototype = {
 GameFramework.XMLParser.staticInit = function GameFramework_XMLParser$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.XMLParser.registerClass('GameFramework.XMLParser', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.XMLParser.staticInit();
 });
 
@@ -2801,10 +2801,10 @@ GameFramework.XMLParserList.prototype = {
 GameFramework.XMLParserList.staticInit = function GameFramework_XMLParserList$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.XMLParserList.registerClass('GameFramework.XMLParserList', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.XMLParserList.staticInit();
 });
 
@@ -2824,10 +2824,10 @@ GameFramework.ads.AdAPIEvent.prototype = {
 GameFramework.ads.AdAPIEvent.staticInit = function GameFramework_ads_AdAPIEvent$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.ads.AdAPIEvent.registerClass('GameFramework.ads.AdAPIEvent', GameFramework.events.Event);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.ads.AdAPIEvent.staticInit();
 });
 
@@ -2878,10 +2878,10 @@ GameFramework.connected.ConnectedRequest.staticInit = function GameFramework_con
     GameFramework.connected.ConnectedRequest.mRequestCount = 0;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.connected.ConnectedRequest.registerClass('GameFramework.connected.ConnectedRequest', GameFramework.events.EventDispatcher);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.connected.ConnectedRequest.staticInit();
 });
 
@@ -2972,10 +2972,10 @@ GameFramework.connected.Database.staticInit = function GameFramework_connected_D
     GameFramework.connected.Database.FLAGS_EXHAUST = 1 << 6;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.connected.Database.registerClass('GameFramework.connected.Database', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.connected.Database.staticInit();
 });
 
@@ -3056,10 +3056,10 @@ GameFramework.connected.Facebook.prototype = {
 GameFramework.connected.Facebook.staticInit = function GameFramework_connected_Facebook$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.connected.Facebook.registerClass('GameFramework.connected.Facebook', GameFramework.connected.SocialService);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.connected.Facebook.staticInit();
 });
 
@@ -3126,10 +3126,10 @@ GameFramework.connected.HTTPService.prototype = {
 GameFramework.connected.HTTPService.staticInit = function GameFramework_connected_HTTPService$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.connected.HTTPService.registerClass('GameFramework.connected.HTTPService', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.connected.HTTPService.staticInit();
 });
 
@@ -3163,10 +3163,10 @@ GameFramework.connected.SocialService.prototype = {
 GameFramework.connected.SocialService.staticInit = function GameFramework_connected_SocialService$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.connected.SocialService.registerClass('GameFramework.connected.SocialService', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.connected.SocialService.staticInit();
 });
 
@@ -3192,10 +3192,10 @@ GameFramework.connected.UserInfo.prototype = {
 GameFramework.connected.UserInfo.staticInit = function GameFramework_connected_UserInfo$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.connected.UserInfo.registerClass('GameFramework.connected.UserInfo', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.connected.UserInfo.staticInit();
 });
 
@@ -3223,10 +3223,10 @@ GameFramework.events.Event.staticInit = function GameFramework_events_Event$stat
     GameFramework.events.Event.EXIT_FRAME = 'exitFrame';
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.events.Event.registerClass('GameFramework.events.Event', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.events.Event.staticInit();
 });
 
@@ -3274,10 +3274,10 @@ GameFramework.events.EventDispatcher.prototype = {
 GameFramework.events.EventDispatcher.staticInit = function GameFramework_events_EventDispatcher$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.events.EventDispatcher.registerClass('GameFramework.events.EventDispatcher', null, System.IDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.events.EventDispatcher.staticInit();
 });
 
@@ -3301,10 +3301,10 @@ GameFramework.events.IOErrorEvent.staticInit = function GameFramework_events_IOE
     GameFramework.events.IOErrorEvent.IO_ERROR = 'ioError';
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.events.IOErrorEvent.registerClass('GameFramework.events.IOErrorEvent', GameFramework.events.Event);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.events.IOErrorEvent.staticInit();
 });
 
@@ -3415,10 +3415,10 @@ GameFramework.geom.Axes3.prototype = {
 GameFramework.geom.Axes3.staticInit = function GameFramework_geom_Axes3$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.geom.Axes3.registerClass('GameFramework.geom.Axes3', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.geom.Axes3.staticInit();
 });
 
@@ -3550,10 +3550,10 @@ GameFramework.geom.Coords3.prototype = {
 GameFramework.geom.Coords3.staticInit = function GameFramework_geom_Coords3$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.geom.Coords3.registerClass('GameFramework.geom.Coords3', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.geom.Coords3.staticInit();
 });
 
@@ -3662,10 +3662,10 @@ GameFramework.geom.Matrix.prototype = {
 GameFramework.geom.Matrix.staticInit = function GameFramework_geom_Matrix$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.geom.Matrix.registerClass('GameFramework.geom.Matrix', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.geom.Matrix.staticInit();
 });
 
@@ -3728,10 +3728,10 @@ GameFramework.geom.Matrix3D.staticInit = function GameFramework_geom_Matrix3D$st
     GameFramework.geom.Matrix3D.aTemp = Array.Create2D(4, 4, null);
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.geom.Matrix3D.registerClass('GameFramework.geom.Matrix3D', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.geom.Matrix3D.staticInit();
 });
 
@@ -3877,10 +3877,10 @@ GameFramework.geom.Quat3.prototype = {
 GameFramework.geom.Quat3.staticInit = function GameFramework_geom_Quat3$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.geom.Quat3.registerClass('GameFramework.geom.Quat3', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.geom.Quat3.staticInit();
 });
 
@@ -3915,10 +3915,10 @@ GameFramework.geom.TIntPoint.prototype = {
 GameFramework.geom.TIntPoint.staticInit = function GameFramework_geom_TIntPoint$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.geom.TIntPoint.registerClass('GameFramework.geom.TIntPoint', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.geom.TIntPoint.staticInit();
 });
 
@@ -3977,10 +3977,10 @@ GameFramework.geom.TPoint.prototype = {
 GameFramework.geom.TPoint.staticInit = function GameFramework_geom_TPoint$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.geom.TPoint.registerClass('GameFramework.geom.TPoint', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.geom.TPoint.staticInit();
 });
 
@@ -4068,10 +4068,10 @@ GameFramework.geom.Vector3.prototype = {
 GameFramework.geom.Vector3.staticInit = function GameFramework_geom_Vector3$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.geom.Vector3.registerClass('GameFramework.geom.Vector3', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.geom.Vector3.staticInit();
 });
 
@@ -4143,10 +4143,10 @@ GameFramework.gfx.Camera.prototype = {
 GameFramework.gfx.Camera.staticInit = function GameFramework_gfx_Camera$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.Camera.registerClass('GameFramework.gfx.Camera', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.gfx.Camera.staticInit();
 });
 
@@ -4289,10 +4289,10 @@ GameFramework.gfx.Color.staticInit = function GameFramework_gfx_Color$staticInit
     GameFramework.gfx.Color.WHITE_RGB = GameFramework.gfx.Color.WHITE.ToInt();
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.Color.registerClass('GameFramework.gfx.Color', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.gfx.Color.staticInit();
 });
 
@@ -4307,7 +4307,7 @@ GameFramework.gfx.ETextOverflowMode.staticInit = function GameFramework_gfx_ETex
     GameFramework.gfx.ETextOverflowMode.Wrap = 2;
     GameFramework.gfx.ETextOverflowMode.Ellipsis = 3;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.ETextOverflowMode.staticInit();
 });
 /**
@@ -4345,10 +4345,10 @@ GameFramework.gfx.TriVertex.prototype = {
 GameFramework.gfx.TriVertex.staticInit = function GameFramework_gfx_TriVertex$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.TriVertex.registerClass('GameFramework.gfx.TriVertex', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.gfx.TriVertex.staticInit();
 });
 /**
@@ -4897,10 +4897,10 @@ GameFramework.gfx.Graphics.prototype = {
 GameFramework.gfx.Graphics.staticInit = function GameFramework_gfx_Graphics$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.Graphics.registerClass('GameFramework.gfx.Graphics', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.gfx.Graphics.staticInit();
 });
 /**
@@ -4957,10 +4957,10 @@ GameFramework.gfx.Graphics3D.prototype = {
 GameFramework.gfx.Graphics3D.staticInit = function GameFramework_gfx_Graphics3D$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.Graphics3D.registerClass('GameFramework.gfx.Graphics3D', null, System.IDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.gfx.Graphics3D.staticInit();
 });
 GameFramework.gfx.Graphics3D.ECompareFunc = {};
@@ -4973,7 +4973,7 @@ GameFramework.gfx.Graphics3D.ECompareFunc.staticInit = function GameFramework_gf
     GameFramework.gfx.Graphics3D.ECompareFunc.GreaterEqual = 6;
     GameFramework.gfx.Graphics3D.ECompareFunc.Always = 7;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.Graphics3D.ECompareFunc.staticInit();
 });
 GameFramework.gfx.Graphics3D.EBlend = {};
@@ -4991,7 +4991,7 @@ GameFramework.gfx.Graphics3D.EBlend.staticInit = function GameFramework_gfx_Grap
     GameFramework.gfx.Graphics3D.EBlend.SrcAlphaSat = 11;
     GameFramework.gfx.Graphics3D.EBlend.Default = 0xffff;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.Graphics3D.EBlend.staticInit();
 });
 
@@ -5031,10 +5031,10 @@ GameFramework.gfx.OffsetDrawable.prototype = {
 GameFramework.gfx.OffsetDrawable.staticInit = function GameFramework_gfx_OffsetDrawable$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.OffsetDrawable.registerClass('GameFramework.gfx.OffsetDrawable', null, GameFramework.gfx.IDrawable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.gfx.OffsetDrawable.staticInit();
 });
 
@@ -5116,10 +5116,10 @@ GameFramework.gfx.PerspectiveCamera.prototype = {
 GameFramework.gfx.PerspectiveCamera.staticInit = function GameFramework_gfx_PerspectiveCamera$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.PerspectiveCamera.registerClass('GameFramework.gfx.PerspectiveCamera', GameFramework.gfx.Camera);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.gfx.PerspectiveCamera.staticInit();
 });
 
@@ -5153,10 +5153,10 @@ GameFramework.gfx.TransformedDrawable.prototype = {
 GameFramework.gfx.TransformedDrawable.staticInit = function GameFramework_gfx_TransformedDrawable$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.TransformedDrawable.registerClass('GameFramework.gfx.TransformedDrawable', null, GameFramework.gfx.IDrawable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.gfx.TransformedDrawable.staticInit();
 });
 
@@ -5454,10 +5454,10 @@ GameFramework.misc.Bezier.prototype = {
 GameFramework.misc.Bezier.staticInit = function GameFramework_misc_Bezier$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.misc.Bezier.registerClass('GameFramework.misc.Bezier', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.misc.Bezier.staticInit();
 });
 
@@ -5758,10 +5758,10 @@ GameFramework.misc.BSpline.prototype = {
 GameFramework.misc.BSpline.staticInit = function GameFramework_misc_BSpline$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.misc.BSpline.registerClass('GameFramework.misc.BSpline', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.misc.BSpline.staticInit();
 });
 
@@ -5782,10 +5782,10 @@ GameFramework.misc.CurveCacheRecord.prototype = {
 GameFramework.misc.CurveCacheRecord.staticInit = function GameFramework_misc_CurveCacheRecord$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.misc.CurveCacheRecord.registerClass('GameFramework.misc.CurveCacheRecord', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.misc.CurveCacheRecord.staticInit();
 });
 
@@ -5805,10 +5805,10 @@ GameFramework.misc.CurveValDataPoint.prototype = {
 GameFramework.misc.CurveValDataPoint.staticInit = function GameFramework_misc_CurveValDataPoint$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.misc.CurveValDataPoint.registerClass('GameFramework.misc.CurveValDataPoint', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.misc.CurveValDataPoint.staticInit();
 });
 
@@ -5830,10 +5830,10 @@ GameFramework.misc.DisposeProxy.prototype = {
 GameFramework.misc.DisposeProxy.staticInit = function GameFramework_misc_DisposeProxy$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.misc.DisposeProxy.registerClass('GameFramework.misc.DisposeProxy', null, System.IDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.misc.DisposeProxy.staticInit();
 });
 /**
@@ -5851,10 +5851,10 @@ GameFramework.misc.DisposeProxyStatic.prototype = {
 GameFramework.misc.DisposeProxyStatic.staticInit = function GameFramework_misc_DisposeProxyStatic$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.misc.DisposeProxyStatic.registerClass('GameFramework.misc.DisposeProxyStatic', null, GameFramework.IStaticDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.misc.DisposeProxyStatic.staticInit();
 });
 
@@ -5877,10 +5877,10 @@ GameFramework.misc.JSONString.prototype = {
 GameFramework.misc.JSONString.staticInit = function GameFramework_misc_JSONString$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.misc.JSONString.registerClass('GameFramework.misc.JSONString', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.misc.JSONString.staticInit();
 });
 
@@ -5899,10 +5899,10 @@ GameFramework.misc.Key1.prototype = {
 GameFramework.misc.Key1.staticInit = function GameFramework_misc_Key1$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.misc.Key1.registerClass('GameFramework.misc.Key1', GameFramework.misc.KeyVal);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.misc.Key1.staticInit();
 });
 
@@ -5923,10 +5923,10 @@ GameFramework.misc.KeyVal.prototype = {
 GameFramework.misc.KeyVal.staticInit = function GameFramework_misc_KeyVal$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.misc.KeyVal.registerClass('GameFramework.misc.KeyVal', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.misc.KeyVal.staticInit();
 });
 
@@ -6025,10 +6025,10 @@ GameFramework.misc.SexyMathHermite.staticInit = function GameFramework_misc_Sexy
     GameFramework.misc.SexyMathHermite.dim = 4;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.misc.SexyMathHermite.registerClass('GameFramework.misc.SexyMathHermite', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.misc.SexyMathHermite.staticInit();
 });
 
@@ -6052,10 +6052,10 @@ GameFramework.misc.TMapSorter.prototype = {
 GameFramework.misc.TMapSorter.staticInit = function GameFramework_misc_TMapSorter$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.misc.TMapSorter.registerClass('GameFramework.misc.TMapSorter', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.misc.TMapSorter.staticInit();
 });
 
@@ -6103,10 +6103,10 @@ GameFramework.resources.BaseRes.prototype = {
 GameFramework.resources.BaseRes.staticInit = function GameFramework_resources_BaseRes$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.BaseRes.registerClass('GameFramework.resources.BaseRes', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.BaseRes.staticInit();
 });
 
@@ -6135,10 +6135,10 @@ GameFramework.resources.FontCharData.prototype = {
 GameFramework.resources.FontCharData.staticInit = function GameFramework_resources_FontCharData$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.FontCharData.registerClass('GameFramework.resources.FontCharData', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.FontCharData.staticInit();
 });
 
@@ -6160,10 +6160,10 @@ GameFramework.resources.FontDrawCmd.prototype = {
 GameFramework.resources.FontDrawCmd.staticInit = function GameFramework_resources_FontDrawCmd$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.FontDrawCmd.registerClass('GameFramework.resources.FontDrawCmd', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.FontDrawCmd.staticInit();
 });
 
@@ -6189,10 +6189,10 @@ GameFramework.resources.FontDrawData.prototype = {
 GameFramework.resources.FontDrawData.staticInit = function GameFramework_resources_FontDrawData$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.FontDrawData.registerClass('GameFramework.resources.FontDrawData', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.FontDrawData.staticInit();
 });
 
@@ -6259,10 +6259,10 @@ GameFramework.resources.FontLayer.prototype = {
 GameFramework.resources.FontLayer.staticInit = function GameFramework_resources_FontLayer$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.FontLayer.registerClass('GameFramework.resources.FontLayer', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.FontLayer.staticInit();
 });
 
@@ -6929,10 +6929,10 @@ GameFramework.resources.FontResource.staticInit = function GameFramework_resourc
     GameFramework.resources.FontResource.mDrawCmdPool = [];
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.FontResource.registerClass('GameFramework.resources.FontResource', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.FontResource.staticInit();
 });
 
@@ -6981,10 +6981,10 @@ GameFramework.resources.ImageInst.prototype = {
 GameFramework.resources.ImageInst.staticInit = function GameFramework_resources_ImageInst$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.ImageInst.registerClass('GameFramework.resources.ImageInst', null, GameFramework.gfx.IDrawable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.ImageInst.staticInit();
 });
 
@@ -6998,7 +6998,7 @@ GameFramework.resources.PixelSnapping.staticInit = function GameFramework_resour
     GameFramework.resources.PixelSnapping.Auto = 2;
     GameFramework.resources.PixelSnapping.Default = 3;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PixelSnapping.staticInit();
 });
 /**
@@ -7098,10 +7098,10 @@ GameFramework.resources.ImageResource.staticInit = function GameFramework_resour
     GameFramework.resources.ImageResource.mInstanceCount = 0;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.ImageResource.registerClass('GameFramework.resources.ImageResource', null, GameFramework.gfx.IDrawable, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.ImageResource.staticInit();
 });
 
@@ -7139,10 +7139,10 @@ GameFramework.resources.MeshPiece.prototype = {
 GameFramework.resources.MeshPiece.staticInit = function GameFramework_resources_MeshPiece$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.MeshPiece.registerClass('GameFramework.resources.MeshPiece', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.MeshPiece.staticInit();
 });
 /**
@@ -7162,10 +7162,10 @@ GameFramework.resources.MeshEvent.staticInit = function GameFramework_resources_
     GameFramework.resources.MeshEvent.POSTDRAW_SET = 'mesh_postdrawset';
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.MeshEvent.registerClass('GameFramework.resources.MeshEvent', GameFramework.events.Event);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.MeshEvent.staticInit();
 });
 /**
@@ -7259,10 +7259,10 @@ GameFramework.resources.MeshResource.prototype = {
 GameFramework.resources.MeshResource.staticInit = function GameFramework_resources_MeshResource$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.MeshResource.registerClass('GameFramework.resources.MeshResource', GameFramework.events.EventDispatcher);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.MeshResource.staticInit();
 });
 
@@ -7283,10 +7283,10 @@ GameFramework.resources.PIValuePoint.prototype = {
 GameFramework.resources.PIValuePoint.staticInit = function GameFramework_resources_PIValuePoint$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIValuePoint.registerClass('GameFramework.resources.PIValuePoint', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIValuePoint.staticInit();
 });
 /**
@@ -7303,10 +7303,10 @@ GameFramework.resources.PIGeomDataEx.prototype = {
 GameFramework.resources.PIGeomDataEx.staticInit = function GameFramework_resources_PIGeomDataEx$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIGeomDataEx.registerClass('GameFramework.resources.PIGeomDataEx', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIGeomDataEx.staticInit();
 });
 /**
@@ -7495,10 +7495,10 @@ GameFramework.resources.PIValue.staticInit = function GameFramework_resources_PI
     GameFramework.resources.PIValue.PI_QUANT_SIZE = 256;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIValue.registerClass('GameFramework.resources.PIValue', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIValue.staticInit();
 });
 /**
@@ -7515,10 +7515,10 @@ GameFramework.resources.PIValuePoint2D.prototype = {
 GameFramework.resources.PIValuePoint2D.staticInit = function GameFramework_resources_PIValuePoint2D$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIValuePoint2D.registerClass('GameFramework.resources.PIValuePoint2D', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIValuePoint2D.staticInit();
 });
 /**
@@ -7581,10 +7581,10 @@ GameFramework.resources.PIValue2D.prototype = {
 GameFramework.resources.PIValue2D.staticInit = function GameFramework_resources_PIValue2D$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIValue2D.registerClass('GameFramework.resources.PIValue2D', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIValue2D.staticInit();
 });
 /**
@@ -7601,10 +7601,10 @@ GameFramework.resources.PIInterpolatorPoint.prototype = {
 GameFramework.resources.PIInterpolatorPoint.staticInit = function GameFramework_resources_PIInterpolatorPoint$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIInterpolatorPoint.registerClass('GameFramework.resources.PIInterpolatorPoint', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIInterpolatorPoint.staticInit();
 });
 /**
@@ -7650,10 +7650,10 @@ GameFramework.resources.PIInterpolator.prototype = {
 GameFramework.resources.PIInterpolator.staticInit = function GameFramework_resources_PIInterpolator$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIInterpolator.registerClass('GameFramework.resources.PIInterpolator', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIInterpolator.staticInit();
 });
 /**
@@ -7676,10 +7676,10 @@ GameFramework.resources.PITextureChunk.prototype = {
 GameFramework.resources.PITextureChunk.staticInit = function GameFramework_resources_PITextureChunk$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PITextureChunk.registerClass('GameFramework.resources.PITextureChunk', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PITextureChunk.staticInit();
 });
 /**
@@ -7709,10 +7709,10 @@ GameFramework.resources.PITexture.prototype = {
 GameFramework.resources.PITexture.staticInit = function GameFramework_resources_PITexture$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PITexture.registerClass('GameFramework.resources.PITexture', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PITexture.staticInit();
 });
 /**
@@ -7734,10 +7734,10 @@ GameFramework.resources.PILifeValueSample.prototype = {
 GameFramework.resources.PILifeValueSample.staticInit = function GameFramework_resources_PILifeValueSample$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PILifeValueSample.registerClass('GameFramework.resources.PILifeValueSample', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PILifeValueSample.staticInit();
 });
 /**
@@ -7755,10 +7755,10 @@ GameFramework.resources.PILifeValueTable.staticInit = function GameFramework_res
     GameFramework.resources.PILifeValueTable.LIFEVALUE_SAMPLE_SHIFT = (31 - 5);
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PILifeValueTable.registerClass('GameFramework.resources.PILifeValueTable', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PILifeValueTable.staticInit();
 });
 GameFramework.resources.PILifeValueTable.LifeValue = {};
@@ -7773,7 +7773,7 @@ GameFramework.resources.PILifeValueTable.LifeValue.staticInit = function GameFra
     GameFramework.resources.PILifeValueTable.LifeValue.ALPHA = 7;
     GameFramework.resources.PILifeValueTable.LifeValue.__COUNT = 8;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PILifeValueTable.LifeValue.staticInit();
 });
 /**
@@ -7828,10 +7828,10 @@ GameFramework.resources.PIParticleDef.staticInit = function GameFramework_resour
     GameFramework.resources.PIParticleDef.mPILifeValueTableMap = {};
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIParticleDef.registerClass('GameFramework.resources.PIParticleDef', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIParticleDef.staticInit();
 });
 GameFramework.resources.PIParticleDef.Value = {};
@@ -7866,7 +7866,7 @@ GameFramework.resources.PIParticleDef.Value.staticInit = function GameFramework_
     GameFramework.resources.PIParticleDef.Value.SIZE_Y_OVER_LIFE = 27;
     GameFramework.resources.PIParticleDef.Value.__COUNT = 28;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIParticleDef.Value.staticInit();
 });
 /**
@@ -7890,10 +7890,10 @@ GameFramework.resources.PIEmitter.prototype = {
 GameFramework.resources.PIEmitter.staticInit = function GameFramework_resources_PIEmitter$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIEmitter.registerClass('GameFramework.resources.PIEmitter', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIEmitter.staticInit();
 });
 GameFramework.resources.PIEmitter.Value = {};
@@ -7942,7 +7942,7 @@ GameFramework.resources.PIEmitter.Value.staticInit = function GameFramework_reso
     GameFramework.resources.PIEmitter.Value.F_ZOOM_OVER_LIFE = 41;
     GameFramework.resources.PIEmitter.Value.__COUNT = 42;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIEmitter.Value.staticInit();
 });
 /**
@@ -8006,10 +8006,10 @@ GameFramework.resources.PIParticleInstance.prototype = {
 GameFramework.resources.PIParticleInstance.staticInit = function GameFramework_resources_PIParticleInstance$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIParticleInstance.registerClass('GameFramework.resources.PIParticleInstance', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIParticleInstance.staticInit();
 });
 GameFramework.resources.PIParticleInstance.Variation = {};
@@ -8025,7 +8025,7 @@ GameFramework.resources.PIParticleInstance.Variation.staticInit = function GameF
     GameFramework.resources.PIParticleInstance.Variation.ZOOM = 8;
     GameFramework.resources.PIParticleInstance.Variation.__COUNT = 9;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIParticleInstance.Variation.staticInit();
 });
 /**
@@ -8055,10 +8055,10 @@ GameFramework.resources.PIParticleDefInstance.prototype = {
 GameFramework.resources.PIParticleDefInstance.staticInit = function GameFramework_resources_PIParticleDefInstance$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIParticleDefInstance.registerClass('GameFramework.resources.PIParticleDefInstance', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIParticleDefInstance.staticInit();
 });
 /**
@@ -8101,10 +8101,10 @@ GameFramework.resources.PIParticleGroup.prototype = {
 GameFramework.resources.PIParticleGroup.staticInit = function GameFramework_resources_PIParticleGroup$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIParticleGroup.registerClass('GameFramework.resources.PIParticleGroup', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIParticleGroup.staticInit();
 });
 /**
@@ -8123,10 +8123,10 @@ GameFramework.resources.PIEmitterBase.prototype = {
 GameFramework.resources.PIEmitterBase.staticInit = function GameFramework_resources_PIEmitterBase$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIEmitterBase.registerClass('GameFramework.resources.PIEmitterBase', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIEmitterBase.staticInit();
 });
 /**
@@ -8147,10 +8147,10 @@ GameFramework.resources.PIFreeEmitterInstance.prototype = {
 GameFramework.resources.PIFreeEmitterInstance.staticInit = function GameFramework_resources_PIFreeEmitterInstance$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIFreeEmitterInstance.registerClass('GameFramework.resources.PIFreeEmitterInstance', GameFramework.resources.PIParticleInstance);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIFreeEmitterInstance.staticInit();
 });
 /**
@@ -8180,10 +8180,10 @@ GameFramework.resources.PIEmitterInstanceDef.prototype = {
 GameFramework.resources.PIEmitterInstanceDef.staticInit = function GameFramework_resources_PIEmitterInstanceDef$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIEmitterInstanceDef.registerClass('GameFramework.resources.PIEmitterInstanceDef', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIEmitterInstanceDef.staticInit();
 });
 GameFramework.resources.PIEmitterInstanceDef.Value = {};
@@ -8209,7 +8209,7 @@ GameFramework.resources.PIEmitterInstanceDef.Value.staticInit = function GameFra
     GameFramework.resources.PIEmitterInstanceDef.Value.UNKNOWN4 = 18;
     GameFramework.resources.PIEmitterInstanceDef.Value.__COUNT = 19;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIEmitterInstanceDef.Value.staticInit();
 });
 GameFramework.resources.PIEmitterInstanceDef.Geom = {};
@@ -8220,7 +8220,7 @@ GameFramework.resources.PIEmitterInstanceDef.Geom.staticInit = function GameFram
     GameFramework.resources.PIEmitterInstanceDef.Geom.AREA = 3;
     GameFramework.resources.PIEmitterInstanceDef.Geom.CIRCLE = 4;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIEmitterInstanceDef.Geom.staticInit();
 });
 /**
@@ -8262,10 +8262,10 @@ GameFramework.resources.PIEmitterInstance.prototype = {
 GameFramework.resources.PIEmitterInstance.staticInit = function GameFramework_resources_PIEmitterInstance$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIEmitterInstance.registerClass('GameFramework.resources.PIEmitterInstance', GameFramework.resources.PIEmitterBase);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIEmitterInstance.staticInit();
 });
 /**
@@ -8288,10 +8288,10 @@ GameFramework.resources.PIDeflector.prototype = {
 GameFramework.resources.PIDeflector.staticInit = function GameFramework_resources_PIDeflector$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIDeflector.registerClass('GameFramework.resources.PIDeflector', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIDeflector.staticInit();
 });
 /**
@@ -8310,10 +8310,10 @@ GameFramework.resources.PIBlocker.prototype = {
 GameFramework.resources.PIBlocker.staticInit = function GameFramework_resources_PIBlocker$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIBlocker.registerClass('GameFramework.resources.PIBlocker', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIBlocker.staticInit();
 });
 /**
@@ -8337,10 +8337,10 @@ GameFramework.resources.PIForce.prototype = {
 GameFramework.resources.PIForce.staticInit = function GameFramework_resources_PIForce$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIForce.registerClass('GameFramework.resources.PIForce', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIForce.staticInit();
 });
 /**
@@ -8364,10 +8364,10 @@ GameFramework.resources.PILayerDef.prototype = {
 GameFramework.resources.PILayerDef.staticInit = function GameFramework_resources_PILayerDef$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PILayerDef.registerClass('GameFramework.resources.PILayerDef', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PILayerDef.staticInit();
 });
 /**
@@ -8412,10 +8412,10 @@ GameFramework.resources.PILayer.prototype = {
 GameFramework.resources.PILayer.staticInit = function GameFramework_resources_PILayer$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PILayer.registerClass('GameFramework.resources.PILayer', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PILayer.staticInit();
 });
 /**
@@ -8438,10 +8438,10 @@ GameFramework.resources.PIEffectDef.prototype = {
 GameFramework.resources.PIEffectDef.staticInit = function GameFramework_resources_PIEffectDef$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIEffectDef.registerClass('GameFramework.resources.PIEffectDef', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIEffectDef.staticInit();
 });
 /**
@@ -11987,10 +11987,10 @@ GameFramework.resources.PIEffect.staticInit = function GameFramework_resources_P
     GameFramework.resources.PIEffect.gRandSquareIdx = -1;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PIEffect.registerClass('GameFramework.resources.PIEffect', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PIEffect.staticInit();
 });
 
@@ -12052,10 +12052,10 @@ GameFramework.resources.PopAnimCalcObjectPosData.prototype = {
 GameFramework.resources.PopAnimCalcObjectPosData.staticInit = function GameFramework_resources_PopAnimCalcObjectPosData$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PopAnimCalcObjectPosData.registerClass('GameFramework.resources.PopAnimCalcObjectPosData', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PopAnimCalcObjectPosData.staticInit();
 });
 /**
@@ -13101,10 +13101,10 @@ GameFramework.resources.PopAnimResource.staticInit = function GameFramework_reso
     GameFramework.resources.PopAnimResource.MOVEFLAGS_HAS_ANIMFRAMENUM = 0x400;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.PopAnimResource.registerClass('GameFramework.resources.PopAnimResource', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.PopAnimResource.staticInit();
 });
 
@@ -13136,10 +13136,10 @@ GameFramework.resources.RenderEffectPass.prototype = {
 GameFramework.resources.RenderEffectPass.staticInit = function GameFramework_resources_RenderEffectPass$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.RenderEffectPass.registerClass('GameFramework.resources.RenderEffectPass', null, System.IDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.RenderEffectPass.staticInit();
 });
 /**
@@ -13168,10 +13168,10 @@ GameFramework.resources.RenderEffectRunHandle.prototype = {
 GameFramework.resources.RenderEffectRunHandle.staticInit = function GameFramework_resources_RenderEffectRunHandle$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.RenderEffectRunHandle.registerClass('GameFramework.resources.RenderEffectRunHandle', null, System.IDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.RenderEffectRunHandle.staticInit();
 });
 /**
@@ -13211,10 +13211,10 @@ GameFramework.resources.RenderEffect.prototype = {
 GameFramework.resources.RenderEffect.staticInit = function GameFramework_resources_RenderEffect$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.RenderEffect.registerClass('GameFramework.resources.RenderEffect', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.RenderEffect.staticInit();
 });
 
@@ -13699,10 +13699,10 @@ GameFramework.resources.ResourceManager.staticInit = function GameFramework_reso
     GameFramework.resources.ResourceManager.RESTYPE_BINFILE = 9;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.ResourceManager.registerClass('GameFramework.resources.ResourceManager', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.ResourceManager.staticInit();
 });
 
@@ -13744,10 +13744,10 @@ GameFramework.resources.ResourceStreamer.prototype = {
 GameFramework.resources.ResourceStreamer.staticInit = function GameFramework_resources_ResourceStreamer$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.ResourceStreamer.registerClass('GameFramework.resources.ResourceStreamer', GameFramework.events.EventDispatcher);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.ResourceStreamer.staticInit();
 });
 
@@ -13792,10 +13792,10 @@ GameFramework.resources.SoundInstance.prototype = {
 GameFramework.resources.SoundInstance.staticInit = function GameFramework_resources_SoundInstance$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.SoundInstance.registerClass('GameFramework.resources.SoundInstance', null, System.IDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.SoundInstance.staticInit();
 });
 
@@ -13825,10 +13825,10 @@ GameFramework.resources.SoundManager.staticInit = function GameFramework_resourc
     GameFramework.resources.SoundManager.MAX_GROUPS = 8;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.SoundManager.registerClass('GameFramework.resources.SoundManager', GameFramework.events.EventDispatcher);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.SoundManager.staticInit();
 });
 
@@ -13846,10 +13846,10 @@ GameFramework.resources.SoundResource.prototype = {
 GameFramework.resources.SoundResource.staticInit = function GameFramework_resources_SoundResource$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.SoundResource.registerClass('GameFramework.resources.SoundResource', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.SoundResource.staticInit();
 });
 
@@ -13869,10 +13869,10 @@ GameFramework.resources.popanim.PopAnimCommand.prototype = {
 GameFramework.resources.popanim.PopAnimCommand.staticInit = function GameFramework_resources_popanim_PopAnimCommand$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.popanim.PopAnimCommand.registerClass('GameFramework.resources.popanim.PopAnimCommand', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.popanim.PopAnimCommand.staticInit();
 });
 
@@ -13893,10 +13893,10 @@ GameFramework.resources.popanim.PopAnimDef.prototype = {
 GameFramework.resources.popanim.PopAnimDef.staticInit = function GameFramework_resources_popanim_PopAnimDef$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.popanim.PopAnimDef.registerClass('GameFramework.resources.popanim.PopAnimDef', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.popanim.PopAnimDef.staticInit();
 });
 
@@ -13916,10 +13916,10 @@ GameFramework.resources.popanim.PopAnimEvent.staticInit = function GameFramework
     GameFramework.resources.popanim.PopAnimEvent.STOPPED = 'popanim.stopped';
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.popanim.PopAnimEvent.registerClass('GameFramework.resources.popanim.PopAnimEvent', GameFramework.events.Event);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.popanim.PopAnimEvent.staticInit();
 });
 
@@ -13939,10 +13939,10 @@ GameFramework.resources.popanim.PopAnimFrame.prototype = {
 GameFramework.resources.popanim.PopAnimFrame.staticInit = function GameFramework_resources_popanim_PopAnimFrame$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.popanim.PopAnimFrame.registerClass('GameFramework.resources.popanim.PopAnimFrame', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.popanim.PopAnimFrame.staticInit();
 });
 
@@ -13975,10 +13975,10 @@ GameFramework.resources.popanim.PopAnimImage.prototype = {
 GameFramework.resources.popanim.PopAnimImage.staticInit = function GameFramework_resources_popanim_PopAnimImage$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.popanim.PopAnimImage.registerClass('GameFramework.resources.popanim.PopAnimImage', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.popanim.PopAnimImage.staticInit();
 });
 
@@ -13997,10 +13997,10 @@ GameFramework.resources.popanim.PopAnimObjectDef.prototype = {
 GameFramework.resources.popanim.PopAnimObjectDef.staticInit = function GameFramework_resources_popanim_PopAnimObjectDef$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.popanim.PopAnimObjectDef.registerClass('GameFramework.resources.popanim.PopAnimObjectDef', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.popanim.PopAnimObjectDef.staticInit();
 });
 
@@ -14025,10 +14025,10 @@ GameFramework.resources.popanim.PopAnimObjectInst.prototype = {
 GameFramework.resources.popanim.PopAnimObjectInst.staticInit = function GameFramework_resources_popanim_PopAnimObjectInst$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.popanim.PopAnimObjectInst.registerClass('GameFramework.resources.popanim.PopAnimObjectInst', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.popanim.PopAnimObjectInst.staticInit();
 });
 
@@ -14059,10 +14059,10 @@ GameFramework.resources.popanim.PopAnimObjectPos.staticInit = function GameFrame
     GameFramework.resources.popanim.PopAnimObjectPos.mInstCount = 0;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.popanim.PopAnimObjectPos.registerClass('GameFramework.resources.popanim.PopAnimObjectPos', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.popanim.PopAnimObjectPos.staticInit();
 });
 
@@ -14109,10 +14109,10 @@ GameFramework.resources.popanim.PopAnimObjectPosData.staticInit = function GameF
     GameFramework.resources.popanim.PopAnimObjectPosData.mInstCount = 0;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.popanim.PopAnimObjectPosData.registerClass('GameFramework.resources.popanim.PopAnimObjectPosData', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.popanim.PopAnimObjectPosData.staticInit();
 });
 
@@ -14137,10 +14137,10 @@ GameFramework.resources.popanim.PopAnimParticleEffect.prototype = {
 GameFramework.resources.popanim.PopAnimParticleEffect.staticInit = function GameFramework_resources_popanim_PopAnimParticleEffect$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.popanim.PopAnimParticleEffect.registerClass('GameFramework.resources.popanim.PopAnimParticleEffect', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.popanim.PopAnimParticleEffect.staticInit();
 });
 
@@ -14170,10 +14170,10 @@ GameFramework.resources.popanim.PopAnimSpriteDef.prototype = {
 GameFramework.resources.popanim.PopAnimSpriteDef.staticInit = function GameFramework_resources_popanim_PopAnimSpriteDef$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.popanim.PopAnimSpriteDef.registerClass('GameFramework.resources.popanim.PopAnimSpriteDef', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.popanim.PopAnimSpriteDef.staticInit();
 });
 
@@ -14239,10 +14239,10 @@ GameFramework.resources.popanim.PopAnimSpriteInst.prototype = {
 GameFramework.resources.popanim.PopAnimSpriteInst.staticInit = function GameFramework_resources_popanim_PopAnimSpriteInst$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.popanim.PopAnimSpriteInst.registerClass('GameFramework.resources.popanim.PopAnimSpriteInst', null, System.IDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.popanim.PopAnimSpriteInst.staticInit();
 });
 
@@ -14420,109 +14420,11 @@ GameFramework.widgets.ButtonWidget.staticInit = function GameFramework_widgets_B
     GameFramework.widgets.ButtonWidget.COLOR_LABEL_HILITE = 1;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.widgets.ButtonWidget.registerClass('GameFramework.widgets.ButtonWidget', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.widgets.ButtonWidget.staticInit();
-});
-
-//Src:C:\p4_managed\PrimeSharp\prime\PrimeSharp\GameFramework\widgets\ButtonWidget.cs
-//LineMap:2=3 3=40 6=41 8=40 9=16 10=24 16=38 18=42 23=18 45=45 63=61 64=61 65=63 76=75 77=77 86=87 90=92 106=111 109=115 111=118 112=120 116=125 119=129 121=134 123=137 124=150 128=214 130=215 135=221 137=224 141=226 143=230 145=230 146=233 147=235 151=240 153=243 154=245 
-//LineMap:159=249 161=252 164=256 165=258 167=261 168=263 180=13 
-//Start:widgets\Checkbox
-Game = Type.registerNamespace('Game');
-/**
- * @constructor
- */
-Game.Checkbox = function Game_Checkbox(theUncheckedImage, theCheckedImage) {
-    this.mCheckedRect = new GameFramework.TRect(0, 0, 0, 0);
-    this.mUncheckedRect = new GameFramework.TRect(0, 0, 0, 0);
-    Game.Checkbox.initializeBase(this);
-    this.mUncheckedImage = theUncheckedImage;
-    this.mCheckedImage = theCheckedImage;
-    this.mChecked = false;
-    this.mOutlineColor = GameFramework.gfx.Color.WHITE_RGB;
-    this.mBkgColor = GameFramework.gfx.Color.RGBToInt(80, 80, 80);
-    this.mCheckColor = GameFramework.gfx.Color.RGBToInt(255, 255, 0);
-}
-Game.Checkbox.prototype = {
-    mChecked : null,
-    mUncheckedImage : null,
-    mCheckedImage : null,
-    mCheckedRect : null,
-    mUncheckedRect : null,
-    mOutlineColor : 0,
-    mBkgColor : 0,
-    mCheckColor : 0,
-    mAlpha : 1.0,
-    SetChecked : function Game_Checkbox$SetChecked(theChecked, tellListener) {
-        if(tellListener === undefined) {
-            tellListener = true;
-        }
-        this.mChecked = theChecked;
-        if(tellListener) {
-            var e = new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.CHECKBOX_CHECKED);
-            this.DispatchEvent(e);
-        }
-    },
-    IsChecked : function Game_Checkbox$IsChecked() {
-        return this.mChecked;
-    },
-    MouseDown : function Game_Checkbox$MouseDown(x, y) {
-        GameFramework.widgets.ClassicWidget.prototype.MouseDown.apply(this, [x, y]);
-        this.mChecked = !this.mChecked;
-        var e = new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.CHECKBOX_CHECKED);
-        this.DispatchEvent(e);
-    },
-    Draw : function Game_Checkbox$Draw(g) {
-        var needAlpha = this.mAlpha != 0.0;
-        if(needAlpha) {
-            g.PushColor(GameFramework.gfx.Color.FAlphaToInt(this.mAlpha));
-        }
-        GameFramework.widgets.ClassicWidget.prototype.Draw.apply(this, [g]);
-        if((this.mCheckedRect.mWidth == 0) && (this.mCheckedImage != null) && (this.mUncheckedImage != null)) {
-            if(this.mChecked) {
-                g.DrawImage(this.mCheckedImage, 0, 0);
-            } else {
-                g.DrawImage(this.mUncheckedImage, 0, 0);
-            }
-        } else if((this.mCheckedRect.mWidth != 0) && (this.mUncheckedImage != null)) {
-        } else if((this.mUncheckedImage == null) && (this.mCheckedImage == null)) {
-            var _t1 = g.PushColor(this.mOutlineColor);
-            try {
-                g.FillRect(0, 0, this.mWidth, this.mHeight);
-            } finally {
-                _t1.Dispose();
-            }
-            var _t2 = g.PushColor(this.mBkgColor);
-            try {
-                g.FillRect(1, 1, this.mWidth - 2, this.mHeight - 2);
-            } finally {
-                _t2.Dispose();
-            }
-            if(this.mChecked) {
-                var _t3 = g.PushColor(this.mCheckColor);
-                try {
-                    g.FillRect(3, 3, this.mWidth - 6, this.mHeight - 6);
-                } finally {
-                    _t3.Dispose();
-                }
-            }
-        }
-        if(needAlpha) {
-            g.PopColor();
-        }
-    }
-}
-Game.Checkbox.staticInit = function Game_Checkbox$staticInit() {
-}
-
-JS_AddInitFunc(function() {
-    Game.Checkbox.registerClass('Game.Checkbox', GameFramework.widgets.ClassicWidget);
-});
-JS_AddStaticInitFunc(function() {
-    Game.Checkbox.staticInit();
 });
 
 //Src:C:\p4_managed\PrimeSharp\prime\PrimeSharp\GameFramework\widgets\Checkbox.cs
@@ -14793,10 +14695,10 @@ GameFramework.widgets.ClassicWidget.prototype = {
 GameFramework.widgets.ClassicWidget.staticInit = function GameFramework_widgets_ClassicWidget$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.widgets.ClassicWidget.registerClass('GameFramework.widgets.ClassicWidget', GameFramework.events.EventDispatcher);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.widgets.ClassicWidget.staticInit();
 });
 
@@ -14954,10 +14856,10 @@ GameFramework.widgets.ClassicWidgetAppState.prototype = {
 GameFramework.widgets.ClassicWidgetAppState.staticInit = function GameFramework_widgets_ClassicWidgetAppState$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.widgets.ClassicWidgetAppState.registerClass('GameFramework.widgets.ClassicWidgetAppState', GameFramework.events.EventDispatcher, GameFramework.IAppState);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.widgets.ClassicWidgetAppState.staticInit();
 });
 
@@ -14982,10 +14884,10 @@ GameFramework.widgets.DialogEvent.staticInit = function GameFramework_widgets_Di
     GameFramework.widgets.DialogEvent.CLOSED = 'closed';
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.widgets.DialogEvent.registerClass('GameFramework.widgets.DialogEvent', GameFramework.events.Event);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.widgets.DialogEvent.staticInit();
 });
 /**
@@ -15327,10 +15229,10 @@ GameFramework.widgets.Dialog.staticInit = function GameFramework_widgets_Dialog$
     GameFramework.widgets.Dialog.ID_FOOTER = 1000;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.widgets.Dialog.registerClass('GameFramework.widgets.Dialog', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.widgets.Dialog.staticInit();
 });
 
@@ -15351,10 +15253,10 @@ GameFramework.widgets.WidthCheckEntry.prototype = {
 GameFramework.widgets.WidthCheckEntry.staticInit = function GameFramework_widgets_WidthCheckEntry$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.widgets.WidthCheckEntry.registerClass('GameFramework.widgets.WidthCheckEntry', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.widgets.WidthCheckEntry.staticInit();
 });
 /**
@@ -15831,221 +15733,11 @@ GameFramework.widgets.EditWidget.staticInit = function GameFramework_widgets_Edi
     GameFramework.widgets.EditWidget.COLOR_HILITE_TEXT = 4;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.widgets.EditWidget.registerClass('GameFramework.widgets.EditWidget', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.widgets.EditWidget.staticInit();
-});
-
-//Src:C:\p4_managed\PrimeSharp\prime\PrimeSharp\GameFramework\widgets\EditWidget.cs
-//LineMap:2=10 19=16 22=72 24=49 25=69 27=75 28=77 38=88 47=34 68=99 73=102 75=102 79=105 122=149 124=152 128=161 142=185 145=189 148=190 154=192 157=193 163=233 164=235 167=239 171=244 180=254 185=258 193=262 195=263 198=265 207=270 209=271 214=275 222=280 223=282 228=289 
-//LineMap:231=293 234=294 244=299 248=304 249=306 255=315 262=324 268=331 282=346 286=351 288=354 290=354 294=356 301=364 307=369 312=380 316=385 318=388 320=391 322=394 326=479 330=484 332=488 335=489 336=492 340=494 342=498 344=501 346=505 354=511 356=515 360=520 363=524 
-//LineMap:374=536 380=538 382=544 386=549 389=553 396=561 402=563 404=569 406=569 408=573 410=573 412=578 416=583 418=591 421=595 425=600 428=604 434=611 439=617 444=621 446=624 448=627 449=629 451=632 452=634 457=640 458=642 460=645 467=650 469=654 479=665 486=673 492=680 
-//LineMap:493=682 496=686 497=688 501=693 506=699 518=712 534=731 536=740 544=749 548=754 556=763 558=766 561=771 572=784 574=787 575=789 584=799 591=25 
-//Start:widgets\Slider
-/**
- * @constructor
- */
-Game.Slider = function Game_Slider(theTrackImage, theThumbImage) {
-    if(theTrackImage === undefined) {
-        theTrackImage = null;
-    }
-    if(theThumbImage === undefined) {
-        theThumbImage = null;
-    }
-    this.mStepSound = null;
-    Game.Slider.initializeBase(this);
-    this.mTrackImage = theTrackImage;
-    this.mThumbImage = theThumbImage;
-    if(this.mTrackImage != null) {
-        this.mWidth = this.mTrackImage.mWidth;
-        this.mHeight = this.mTrackImage.mHeight;
-    } else {
-        this.mWidth = 30.0;
-        this.mHeight = 10.0;
-    }
-}
-Game.Slider.prototype = {
-    mVal : 0.0,
-    mTrackImage : null,
-    mThumbImage : null,
-    mDragging : false,
-    mRelX : 0.0,
-    mRelY : 0.0,
-    mHorizontal : true,
-    mSlidingLeft : false,
-    mSlidingRight : false,
-    mStepMode : false,
-    mNumSteps : 1,
-    mCurStep : 0,
-    mStepSound : null,
-    mOutlineColor : GameFramework.gfx.Color.WHITE_RGB,
-    mBkgColor : GameFramework.gfx.Color.RGBToInt(80, 80, 80),
-    mSliderColor : GameFramework.gfx.Color.WHITE_RGB,
-    mKnobSize : 5,
-    SetValue : function Game_Slider$SetValue(theValue) {
-        var oldval = this.mVal;
-        this.mVal = theValue;
-        if(this.mVal < 0.0) {
-            this.mVal = 0.0;
-        } else if(this.mVal > 1.0) {
-            this.mVal = 1.0;
-        }
-        if(this.mVal != oldval) {
-            var e = new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.SLIDER_CHANGED);
-            this.DispatchEvent(e);
-        }
-    },
-    SetStepMode : function Game_Slider$SetStepMode(num_steps, cur_step, step_sound) {
-        if(step_sound === undefined) {
-            step_sound = null;
-        }
-        this.mStepMode = true;
-        this.mNumSteps = num_steps;
-        this.SetStepValue(cur_step);
-        this.mStepSound = step_sound;
-    },
-    SetStepValue : function Game_Slider$SetStepValue(cur_step) {
-        if(cur_step < 0) {
-            cur_step = 0;
-        }
-        if(cur_step > this.mNumSteps) {
-            cur_step = this.mNumSteps;
-        }
-        if(this.mCurStep != cur_step) {
-            this.mCurStep = cur_step;
-            this.SetValue(cur_step / this.mNumSteps);
-            if(this.mStepSound != null) {
-                GameFramework.BaseApp.mApp.PlaySound(this.mStepSound);
-            }
-        }
-    },
-    Update : function Game_Slider$Update() {
-        GameFramework.widgets.ClassicWidget.prototype.Update.apply(this);
-        this.mSlidingLeft = false;
-        this.mSlidingRight = false;
-    },
-    HasTransparencies : function Game_Slider$HasTransparencies() {
-        return true;
-    },
-    Draw : function Game_Slider$Draw(g) {
-        if(this.mTrackImage != null) {
-            if(this.mHorizontal) {
-                g.DrawButton(this.mTrackImage, 0, (this.mHeight - this.mTrackImage.mHeight) / 2, this.mWidth, 0);
-            } else {
-            }
-        } else if(this.mTrackImage == null) {
-            var _t1 = g.PushColor(this.mOutlineColor);
-            try {
-                g.FillRect(0, 0, this.mWidth, this.mHeight);
-            } finally {
-                _t1.Dispose();
-            }
-            var _t2 = g.PushColor(this.mBkgColor);
-            try {
-                g.FillRect(1, 1, this.mWidth - 2, this.mHeight - 2);
-            } finally {
-                _t2.Dispose();
-            }
-        }
-        if(this.mHorizontal && (this.mThumbImage != null)) {
-            g.DrawImage(this.mThumbImage, ((this.mVal * (this.mWidth - this.mThumbImage.mWidth)) | 0), (this.mHeight - this.mThumbImage.mHeight) / 2);
-        } else if(!this.mHorizontal && (this.mThumbImage != null)) {
-            g.DrawImage(this.mThumbImage, (this.mWidth - this.mThumbImage.mWidth) / 2, ((this.mVal * (this.mHeight - this.mThumbImage.mHeight)) | 0));
-        } else if(this.mThumbImage == null) {
-            g.SetColor(this.mSliderColor);
-            if(this.mHorizontal) {
-                g.FillRect(((this.mVal * (this.mWidth - this.mKnobSize)) | 0), 0, this.mKnobSize, this.mHeight);
-            } else {
-                g.FillRect(0, ((this.mVal * (this.mHeight - this.mKnobSize)) | 0), this.mWidth, this.mKnobSize);
-            }
-        }
-    },
-    MouseMove : function Game_Slider$MouseMove(x, y) {
-        if(this.mHorizontal) {
-            var knobWidth = this.mThumbImage == null ? this.mKnobSize : this.mThumbImage.mWidth;
-            var aThumbX = ((this.mVal * (this.mWidth - knobWidth)) | 0);
-        } else {
-            var knobHeight = this.mThumbImage == null ? this.mKnobSize : this.mThumbImage.mHeight;
-            var aThumbY = ((this.mVal * (this.mHeight - knobHeight)) | 0);
-        }
-        if(this.mIsDown) {
-            this.MouseDrag(x, y);
-        }
-    },
-    MouseDown : function Game_Slider$MouseDown(x, y) {
-        if(this.mHorizontal) {
-            var knobWidth = this.mThumbImage == null ? this.mKnobSize : this.mThumbImage.mWidth;
-            var aThumbX = (this.mVal * (this.mWidth - knobWidth));
-            if((x >= aThumbX) && (x < aThumbX + knobWidth)) {
-                this.mDragging = true;
-                this.mRelX = x - aThumbX;
-            } else {
-                var pos = (x - knobWidth / 2) / (this.mWidth - knobWidth);
-                if(pos < 0.0) {
-                    pos = 0.0;
-                }
-                if(pos > 1.0) {
-                    pos = 1.0;
-                }
-                this.SetValue(pos);
-                this.mDragging = true;
-                this.mRelX = knobWidth / 2.0;
-            }
-        } else {
-            var knobHeight = this.mThumbImage == null ? this.mKnobSize : this.mThumbImage.mHeight;
-            var aThumbY = ((this.mVal * (this.mHeight - knobHeight)) | 0);
-            if((y >= aThumbY) && (y < aThumbY + knobHeight)) {
-                this.mDragging = true;
-                this.mRelY = y - aThumbY;
-            } else {
-                var pos_2 = y / this.mHeight;
-                this.SetValue(pos_2);
-            }
-        }
-        GameFramework.widgets.ClassicWidget.prototype.MouseDown.apply(this, [x, y]);
-    },
-    MouseDrag : function Game_Slider$MouseDrag(x, y) {
-        if(this.mDragging) {
-            var anOldVal = this.mVal;
-            if(this.mHorizontal) {
-                var knobWidth = this.mThumbImage == null ? this.mKnobSize : this.mThumbImage.mWidth;
-                this.mVal = (x - this.mRelX) / (this.mWidth - knobWidth);
-            } else {
-                var knobHeight = this.mThumbImage == null ? this.mKnobSize : this.mThumbImage.mHeight;
-                this.mVal = (y - this.mRelY) / (this.mHeight - knobHeight);
-            }
-            if(this.mVal < 0.0) {
-                this.mVal = 0.0;
-            }
-            if(this.mVal > 1.0) {
-                this.mVal = 1.0;
-            }
-            if(this.mVal != anOldVal) {
-                var e = new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.SLIDER_CHANGED);
-                this.DispatchEvent(e);
-            }
-        }
-    },
-    MouseUp : function Game_Slider$MouseUp(x, y) {
-        this.mDragging = false;
-        var e = new GameFramework.widgets.WidgetEvent(GameFramework.widgets.WidgetEvent.SLIDER_CHANGED);
-        this.DispatchEvent(e);
-        GameFramework.widgets.ClassicWidget.prototype.MouseUp.apply(this, [x, y]);
-    },
-    MouseLeave : function Game_Slider$MouseLeave() {
-        GameFramework.widgets.ClassicWidget.prototype.MouseLeave.apply(this);
-    }
-}
-Game.Slider.staticInit = function Game_Slider$staticInit() {
-}
-
-JS_AddInitFunc(function() {
-    Game.Slider.registerClass('Game.Slider', GameFramework.widgets.ClassicWidget);
-});
-JS_AddStaticInitFunc(function() {
-    Game.Slider.staticInit();
 });
 
 //Src:C:\p4_managed\PrimeSharp\prime\PrimeSharp\GameFramework\widgets\Slider.cs
@@ -16080,10 +15772,10 @@ GameFramework.widgets.WidgetEvent.staticInit = function GameFramework_widgets_Wi
     GameFramework.widgets.WidgetEvent.KEY_CHAR = 'key_char';
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.widgets.WidgetEvent.registerClass('GameFramework.widgets.WidgetEvent', GameFramework.events.Event);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.widgets.WidgetEvent.staticInit();
 });
 

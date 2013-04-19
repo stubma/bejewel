@@ -12,9 +12,9 @@ Game.CurvedAlphaButton.prototype = {
 Game.CurvedAlphaButton.staticInit = function Game_CurvedAlphaButton$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.CurvedAlphaButton.registerClass('Game.CurvedAlphaButton', GameFramework.widgets.ButtonWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.CurvedAlphaButton.staticInit();
 });

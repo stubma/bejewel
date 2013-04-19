@@ -125,9 +125,9 @@ Game.Metrics.prototype = {
 Game.Metrics.staticInit = function Game_Metrics$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Metrics.registerClass('Game.Metrics', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Metrics.staticInit();
 });

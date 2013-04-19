@@ -272,9 +272,9 @@ Game.CrystalBall.staticInit = function Game_CrystalBall$staticInit() {
     Game.CrystalBall.NUM_RADIAL_POINTS = 30;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.CrystalBall.registerClass('Game.CrystalBall', GameFramework.widgets.ButtonWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.CrystalBall.staticInit();
 });

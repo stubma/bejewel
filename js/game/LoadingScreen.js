@@ -41,9 +41,9 @@ Game.LoadingScreen.prototype = {
 Game.LoadingScreen.staticInit = function Game_LoadingScreen$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.LoadingScreen.registerClass('Game.LoadingScreen', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.LoadingScreen.staticInit();
 });

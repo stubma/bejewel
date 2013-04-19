@@ -91,9 +91,9 @@ Game.TooltipManager.prototype = {
 Game.TooltipManager.staticInit = function Game_TooltipManager$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.TooltipManager.registerClass('Game.TooltipManager', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.TooltipManager.staticInit();
 });

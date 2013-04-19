@@ -8,9 +8,9 @@ Game.MessagerMsg.prototype = {
 Game.MessagerMsg.staticInit = function Game_MessagerMsg$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.MessagerMsg.registerClass('Game.MessagerMsg', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.MessagerMsg.staticInit();
 });

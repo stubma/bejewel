@@ -108,9 +108,9 @@ Game.ClassicEndLevelDialog.prototype = {
 Game.ClassicEndLevelDialog.staticInit = function Game_ClassicEndLevelDialog$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.ClassicEndLevelDialog.registerClass('Game.ClassicEndLevelDialog', Game.EndLevelDialog);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.ClassicEndLevelDialog.staticInit();
 });

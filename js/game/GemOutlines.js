@@ -2003,9 +2003,9 @@ Game.GemOutlines.prototype = {
 Game.GemOutlines.staticInit = function Game_GemOutlines$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.GemOutlines.registerClass( 'Game.GemOutlines', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.GemOutlines.staticInit();
 });

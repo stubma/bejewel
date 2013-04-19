@@ -38,9 +38,9 @@ Game.SwapData.prototype = {
 Game.SwapData.staticInit = function Game_SwapData$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.SwapData.registerClass('Game.SwapData', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.SwapData.staticInit();
 });

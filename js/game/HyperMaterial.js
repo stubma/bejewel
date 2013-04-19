@@ -25,9 +25,9 @@ Game.HyperMaterial.prototype = {
 Game.HyperMaterial.staticInit = function Game_HyperMaterial$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.HyperMaterial.registerClass('Game.HyperMaterial', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.HyperMaterial.staticInit();
 });

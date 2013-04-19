@@ -16,9 +16,9 @@ Game.GfxUtil.prototype = {
 Game.GfxUtil.staticInit = function Game_GfxUtil$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.GfxUtil.registerClass('Game.GfxUtil', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.GfxUtil.staticInit();
 });

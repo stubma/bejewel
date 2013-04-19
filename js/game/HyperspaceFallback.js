@@ -98,9 +98,9 @@ Game.HyperspaceFallback.prototype = {
 Game.HyperspaceFallback.staticInit = function Game_HyperspaceFallback$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.HyperspaceFallback.registerClass('Game.HyperspaceFallback', Game.Hyperspace);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.HyperspaceFallback.staticInit();
 });

@@ -10,9 +10,9 @@ Game.DeferredTutorial.prototype = {
 Game.DeferredTutorial.staticInit = function Game_DeferredTutorial$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.DeferredTutorial.registerClass('Game.DeferredTutorial', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.DeferredTutorial.staticInit();
 });

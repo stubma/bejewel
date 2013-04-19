@@ -104,10 +104,10 @@ Game.Messager.prototype = {
 Game.Messager.staticInit = function Game_Messager$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Messager.registerClass('Game.Messager', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Messager.staticInit();
 });
 Game.Messager.EJustification = {};
@@ -115,6 +115,6 @@ Game.Messager.EJustification.staticInit = function Game_Messager_EJustification$
     Game.Messager.EJustification.eJustification_Left = 0;
     Game.Messager.EJustification.eJustification_Right = 1;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Messager.EJustification.staticInit();
 });

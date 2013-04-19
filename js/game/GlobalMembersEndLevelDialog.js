@@ -13,9 +13,9 @@ Game.GlobalMembersEndLevelDialog.prototype = {
 Game.GlobalMembersEndLevelDialog.staticInit = function Game_GlobalMembersEndLevelDialog$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.GlobalMembersEndLevelDialog.registerClass('Game.GlobalMembersEndLevelDialog', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.GlobalMembersEndLevelDialog.staticInit();
 });

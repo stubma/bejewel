@@ -21,9 +21,9 @@ Game.MathUtil.staticInit = function Game_MathUtil$staticInit() {
 	Game.MathUtil.EPSILONSQ = 0.000001;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.MathUtil.registerClass('Game.MathUtil', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.MathUtil.staticInit();
 });

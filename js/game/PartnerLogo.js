@@ -13,9 +13,9 @@ Game.PartnerLogo.prototype = {
 Game.PartnerLogo.staticInit = function Game_PartnerLogo$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.PartnerLogo.registerClass('Game.PartnerLogo', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.PartnerLogo.staticInit();
 });

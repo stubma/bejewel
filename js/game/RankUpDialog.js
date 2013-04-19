@@ -95,9 +95,9 @@ Game.RankUpDialog.prototype = {
 Game.RankUpDialog.staticInit = function Game_RankUpDialog$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.RankUpDialog.registerClass('Game.RankUpDialog', Game.Bej3Dialog);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.RankUpDialog.staticInit();
 });

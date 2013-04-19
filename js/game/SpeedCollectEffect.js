@@ -165,9 +165,9 @@ Game.SpeedCollectEffect.prototype = {
 Game.SpeedCollectEffect.staticInit = function Game_SpeedCollectEffect$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.SpeedCollectEffect.registerClass('Game.SpeedCollectEffect', Game.Effect);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.SpeedCollectEffect.staticInit();
 });

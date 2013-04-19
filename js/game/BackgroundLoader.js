@@ -19,9 +19,9 @@ Game.BackgroundLoader.prototype = {
 Game.BackgroundLoader.staticInit = function Game_BackgroundLoader$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.BackgroundLoader.registerClass('Game.BackgroundLoader', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.BackgroundLoader.staticInit();
 });

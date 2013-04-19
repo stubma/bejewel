@@ -15,9 +15,9 @@ Game.LoadingError.prototype = {
 Game.LoadingError.staticInit = function Game_LoadingError$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.LoadingError.registerClass('Game.LoadingError', System.Exception);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.LoadingError.staticInit();
 });

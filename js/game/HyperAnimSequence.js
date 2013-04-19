@@ -102,9 +102,9 @@ Game.HyperAnimSequence.prototype = {
 Game.HyperAnimSequence.staticInit = function Game_HyperAnimSequence$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.HyperAnimSequence.registerClass('Game.HyperAnimSequence', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.HyperAnimSequence.staticInit();
 });

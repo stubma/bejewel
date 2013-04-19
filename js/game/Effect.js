@@ -224,10 +224,10 @@ Game.Effect.prototype = {
 Game.Effect.staticInit = function Game_Effect$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Effect.registerClass('Game.Effect', null, GameFramework.IExplicitDisposable);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Effect.staticInit();
 });
 Game.Effect.EFxType = {};
@@ -259,7 +259,7 @@ Game.Effect.EFxType.staticInit = function Game_Effect_EFxType$staticInit() {
     Game.Effect.EFxType.TIME_BONUS_TOP = 24;
     Game.Effect.EFxType.__COUNT = 25;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Effect.EFxType.staticInit();
 });
 Game.Effect.EFlag = {};
@@ -269,6 +269,6 @@ Game.Effect.EFlag.staticInit = function Game_Effect_EFlag$staticInit() {
     Game.Effect.EFlag.ALPHA_FADEINDELAY = 1 << 2;
     Game.Effect.EFlag.HYPERSPACE_ONLY = 1 << 3;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Effect.EFlag.staticInit();
 });

@@ -14,9 +14,9 @@ Game.Lightning.staticInit = function Game_Lightning$staticInit() {
     Game.Lightning.NUM_LIGHTNING_POINTS = 8;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Lightning.registerClass('Game.Lightning', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Lightning.staticInit();
 });

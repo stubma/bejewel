@@ -153,9 +153,9 @@ Game.PointsManager.prototype = {
 Game.PointsManager.staticInit = function Game_PointsManager$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.PointsManager.registerClass('Game.PointsManager', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.PointsManager.staticInit();
 });

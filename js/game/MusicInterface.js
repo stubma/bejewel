@@ -13,9 +13,9 @@ Game.MusicInterface.prototype = {
 Game.MusicInterface.staticInit = function Game_MusicInterface$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.MusicInterface.registerClass('Game.MusicInterface', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.MusicInterface.staticInit();
 });

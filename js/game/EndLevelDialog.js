@@ -517,10 +517,10 @@ Game.EndLevelDialog.staticInit = function Game_EndLevelDialog$staticInit() {
     Game.EndLevelDialog.MAX_HIGH_SCORES = 5;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.EndLevelDialog.registerClass('Game.EndLevelDialog', Game.Bej3Dialog, GameFramework.widgets.EditWidgetTextValidator);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.EndLevelDialog.staticInit();
 });
 Game.EndLevelDialog.EWidgetId = {};
@@ -531,6 +531,6 @@ Game.EndLevelDialog.EWidgetId.staticInit = function Game_EndLevelDialog_EWidgetI
     Game.EndLevelDialog.EWidgetId.eId_HighScoreAccept = 3;
     Game.EndLevelDialog.EWidgetId._COUNT = 4;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.EndLevelDialog.EWidgetId.staticInit();
 });

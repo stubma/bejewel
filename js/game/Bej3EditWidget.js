@@ -29,9 +29,9 @@ Game.Bej3EditWidget.prototype = {
 Game.Bej3EditWidget.staticInit = function Game_Bej3EditWidget$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Bej3EditWidget.registerClass('Game.Bej3EditWidget', GameFramework.widgets.EditWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Bej3EditWidget.staticInit();
 });

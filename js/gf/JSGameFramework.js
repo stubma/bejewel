@@ -184,17 +184,17 @@ GameFramework.JSBaseApp.prototype = {
                                 this.mGroupBinDataDict[aGroupBinDataName] = true; // Placeholder
 
                                 var aGetPath = this.mPathPrefix + aGroupBinDataName;
-                                if(!JFSExt_IsGetBinarySupported()) {
+                                if(!JSFExt_IsGetBinarySupported()) {
                                     var aDotBinPos = aGetPath.indexOf('.bin');
                                     if(aDotBinPos != -1) {
                                         aGetPath = aGetPath.substr(0, aDotBinPos) + ".utf8";
                                     }
                                 }
 
-                                aRequest = JFSExt_GetBinaryGroupData(aResourceStreamer, aGroupBinDataName, aGetPath);
+                                aRequest = JSFExt_GetBinaryGroupData(aResourceStreamer, aGroupBinDataName, aGetPath);
                             }
                         } else {
-                            aRequest = JFSExt_GetBinary(aResourceStreamer, this.mPathPrefix + aResourceStreamer.mPath);
+                            aRequest = JSFExt_GetBinary(aResourceStreamer, this.mPathPrefix + aResourceStreamer.mPath);
                             aRequest.mResourceStreamer = aResourceStreamer;
                             this.mHTTPToResourceStreamer[aRequest.toString()] = aResourceStreamer;
                             aResourceStreamer.mResultData = aRequest;
@@ -630,10 +630,10 @@ GameFramework.JSBaseApp.staticInit = function GameFramework_JSBaseApp$staticInit
     GameFramework.JSBaseApp.mJSApp = null;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.JSBaseApp.registerClass('GameFramework.JSBaseApp', GameFramework.BaseApp);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.JSBaseApp.staticInit();
 });
 
@@ -716,10 +716,10 @@ GameFramework.JSDataBufferData.prototype = {
 GameFramework.JSDataBufferData.staticInit = function GameFramework_JSDataBufferData$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.JSDataBufferData.registerClass('GameFramework.JSDataBufferData', GameFramework.DataBufferData);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.JSDataBufferData.staticInit();
 });
 
@@ -863,10 +863,10 @@ GameFramework.gfx.JSGraphics.prototype = {
 GameFramework.gfx.JSGraphics.staticInit = function GameFramework_gfx_JSGraphics$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.JSGraphics.registerClass('GameFramework.gfx.JSGraphics', GameFramework.gfx.Graphics);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.gfx.JSGraphics.staticInit();
 });
 /**
@@ -891,12 +891,12 @@ GameFramework.gfx.JSGraphics3D.prototype = {
             theDrawDepth = 0.0;
         }
         //JS
-        JSFXExt_Setup2DDrawing(theDrawDepth);
+        JSFExt_Setup2DDrawing(theDrawDepth);
         //-JS
     },
     End2DDrawing : function GameFramework_gfx_JSGraphics3D$End2DDrawing() {
         //JS
-        JSFXExt_End2DDrawing();
+        JSFExt_End2DDrawing();
         //-JS
     },
     SetViewTransform : function GameFramework_gfx_JSGraphics3D$SetViewTransform(theTransform) {
@@ -999,17 +999,17 @@ GameFramework.gfx.JSGraphics3D.prototype = {
     },
     RenderMesh : function GameFramework_gfx_JSGraphics3D$RenderMesh(theMeshResource) {
         //JS
-        JSFXExt_RenderMesh(this, theMeshResource, this.mWorldMatrix, this.mViewMatrix, this.mProjMatrix);
+        JSFExt_RenderMesh(this, theMeshResource, this.mWorldMatrix, this.mViewMatrix, this.mProjMatrix);
         //-JS
     }
 }
 GameFramework.gfx.JSGraphics3D.staticInit = function GameFramework_gfx_JSGraphics3D$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.gfx.JSGraphics3D.registerClass('GameFramework.gfx.JSGraphics3D', GameFramework.gfx.Graphics3D);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.gfx.JSGraphics3D.staticInit();
 });
 
@@ -1060,10 +1060,10 @@ GameFramework.resources.JSImageInst.prototype = {
 GameFramework.resources.JSImageInst.staticInit = function GameFramework_resources_JSImageInst$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.JSImageInst.registerClass('GameFramework.resources.JSImageInst', GameFramework.resources.ImageInst);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.JSImageInst.staticInit();
 });
 
@@ -1161,10 +1161,10 @@ GameFramework.resources.JSImageResource.prototype = {
 GameFramework.resources.JSImageResource.staticInit = function GameFramework_resources_JSImageResource$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.JSImageResource.registerClass('GameFramework.resources.JSImageResource', GameFramework.resources.ImageResource);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.JSImageResource.staticInit();
 });
 
@@ -1188,10 +1188,10 @@ GameFramework.resources.JSMeshPiece.prototype = {
 GameFramework.resources.JSMeshPiece.staticInit = function GameFramework_resources_JSMeshPiece$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.JSMeshPiece.registerClass('GameFramework.resources.JSMeshPiece', GameFramework.resources.MeshPiece);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.JSMeshPiece.staticInit();
 });
 /**
@@ -1218,10 +1218,10 @@ GameFramework.resources.JSMeshResource.prototype = {
 GameFramework.resources.JSMeshResource.staticInit = function GameFramework_resources_JSMeshResource$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.JSMeshResource.registerClass('GameFramework.resources.JSMeshResource', GameFramework.resources.MeshResource);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.JSMeshResource.staticInit();
 });
 
@@ -1244,10 +1244,10 @@ GameFramework.resources.JSRenderEffectBlock.prototype = {
 GameFramework.resources.JSRenderEffectBlock.staticInit = function GameFramework_resources_JSRenderEffectBlock$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.JSRenderEffectBlock.registerClass('GameFramework.resources.JSRenderEffectBlock', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.JSRenderEffectBlock.staticInit();
 });
 /**
@@ -1261,10 +1261,10 @@ GameFramework.resources.JSRenderEffectPass.prototype = {
 GameFramework.resources.JSRenderEffectPass.staticInit = function GameFramework_resources_JSRenderEffectPass$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.JSRenderEffectPass.registerClass('GameFramework.resources.JSRenderEffectPass', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.JSRenderEffectPass.staticInit();
 });
 /**
@@ -1279,10 +1279,10 @@ GameFramework.resources.JSRenderEffectTechnique.prototype = {
 GameFramework.resources.JSRenderEffectTechnique.staticInit = function GameFramework_resources_JSRenderEffectTechnique$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.JSRenderEffectTechnique.registerClass('GameFramework.resources.JSRenderEffectTechnique', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.JSRenderEffectTechnique.staticInit();
 });
 /**
@@ -1300,10 +1300,10 @@ GameFramework.resources.JSRenderEffectRunHandle.prototype = {
 GameFramework.resources.JSRenderEffectRunHandle.staticInit = function GameFramework_resources_JSRenderEffectRunHandle$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.JSRenderEffectRunHandle.registerClass('GameFramework.resources.JSRenderEffectRunHandle', GameFramework.resources.RenderEffectRunHandle);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.JSRenderEffectRunHandle.staticInit();
 });
 /**
@@ -1510,10 +1510,10 @@ GameFramework.resources.JSRenderEffect.prototype = {
 GameFramework.resources.JSRenderEffect.staticInit = function GameFramework_resources_JSRenderEffect$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.JSRenderEffect.registerClass('GameFramework.resources.JSRenderEffect', GameFramework.resources.RenderEffect);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.JSRenderEffect.staticInit();
 });
 
@@ -1575,20 +1575,20 @@ GameFramework.resources.JSResourceManager.prototype = {
                     aRTParent.mTexHeight = aRTParentBaseRes.mHeight;
                     aRTParent.mOwnsImageData = true;
                     //JS
-                    aRTParent.mGLTex = JFSExt_CreateEmptyGLTex();
+                    aRTParent.mGLTex = JSFExt_CreateEmptyGLTex();
                     aRTParent.mCompositeImageData = JSFExt_CreateCompositeImageData(aRTParentBaseRes.mWidth, aRTParentBaseRes.mHeight);
                     //-JS
                     this.mImages[aRTParentBaseRes.mId] = aRTParent;
                 }
                 //JS
-                //JSFXExt_CopyTexBits(aRTParent.mGLTex, theResourceStreamer.mBaseRes.mAtlasX, theResourceStreamer.mBaseRes.mAtlasY, theResourceStreamer.mBaseRes.mAtlasWidth, theResourceStreamer.mBaseRes.mAtlasHeight,
+                //JSFExt_CopyTexBits(aRTParent.mGLTex, theResourceStreamer.mBaseRes.mAtlasX, theResourceStreamer.mBaseRes.mAtlasY, theResourceStreamer.mBaseRes.mAtlasWidth, theResourceStreamer.mBaseRes.mAtlasHeight,
                 //aParent.mColorImage, aParent.mAlphaImage, theResourceStreamer.mBaseRes.mAtlasRTX, theResourceStreamer.mBaseRes.mAtlasRTY);
-                JSFXExt_CopyToImageData(aRTParent.mCompositeImageData, theResourceStreamer.mBaseRes.mAtlasX, theResourceStreamer.mBaseRes.mAtlasY, theResourceStreamer.mBaseRes.mAtlasWidth, theResourceStreamer.mBaseRes.mAtlasHeight, aParent.mColorImage, aParent.mAlphaImage, theResourceStreamer.mBaseRes.mAtlasRTX, theResourceStreamer.mBaseRes.mAtlasRTY);
+                JSFExt_CopyToImageData(aRTParent.mCompositeImageData, theResourceStreamer.mBaseRes.mAtlasX, theResourceStreamer.mBaseRes.mAtlasY, theResourceStreamer.mBaseRes.mAtlasWidth, theResourceStreamer.mBaseRes.mAtlasHeight, aParent.mColorImage, aParent.mAlphaImage, theResourceStreamer.mBaseRes.mAtlasRTX, theResourceStreamer.mBaseRes.mAtlasRTY);
                 //-JS
                 aRTParentBaseRes.mRTChildLoadedCount++;
                 if(aRTParentBaseRes.mRTChildLoadedCount == aRTParentBaseRes.mRTChildCount) {
                     //JS
-                    JFSExt_SetGLTexImage(aRTParent.mGLTex, aRTParent.mCompositeImageData);
+                    JSFExt_SetGLTexImage(aRTParent.mGLTex, aRTParent.mCompositeImageData);
                     aRTParent.mCompositeImageData = null; // We're done with this now...
                     //-JS
                 }
@@ -1661,10 +1661,10 @@ GameFramework.resources.JSResourceManager.prototype = {
 GameFramework.resources.JSResourceManager.staticInit = function GameFramework_resources_JSResourceManager$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.JSResourceManager.registerClass('GameFramework.resources.JSResourceManager', GameFramework.resources.ResourceManager);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.JSResourceManager.staticInit();
 });
 
@@ -1733,10 +1733,10 @@ GameFramework.resources.JSSoundInstance.prototype = {
 GameFramework.resources.JSSoundInstance.staticInit = function GameFramework_resources_JSSoundInstance$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.JSSoundInstance.registerClass('GameFramework.resources.JSSoundInstance', GameFramework.resources.SoundInstance);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.JSSoundInstance.staticInit();
 });
 
@@ -1755,10 +1755,10 @@ GameFramework.resources.JSSoundResource.prototype = {
 GameFramework.resources.JSSoundResource.staticInit = function GameFramework_resources_JSSoundResource$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     GameFramework.resources.JSSoundResource.registerClass('GameFramework.resources.JSSoundResource', GameFramework.resources.SoundResource);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     GameFramework.resources.JSSoundResource.staticInit();
 });
 

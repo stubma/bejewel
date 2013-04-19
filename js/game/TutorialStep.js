@@ -257,10 +257,10 @@ Game.TutorialStep.prototype = {
 Game.TutorialStep.staticInit = function Game_TutorialStep$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.TutorialStep.registerClass('Game.TutorialStep', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.TutorialStep.staticInit();
 });
 Game.TutorialStep.EType = {};
@@ -269,7 +269,7 @@ Game.TutorialStep.EType.staticInit = function Game_TutorialStep_EType$staticInit
 	Game.TutorialStep.EType.ModalDialogMoveClear = 1;
 	Game.TutorialStep.EType.ModalDialog = 2;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.TutorialStep.EType.staticInit();
 });
 Game.TutorialStep.EArrowDir = {};
@@ -280,7 +280,7 @@ Game.TutorialStep.EArrowDir.staticInit = function Game_TutorialStep_EArrowDir$st
 	Game.TutorialStep.EArrowDir.Up = 2;
 	Game.TutorialStep.EArrowDir.Down = 3;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.TutorialStep.EArrowDir.staticInit();
 });
 Game.TutorialStep.EState = {};
@@ -290,7 +290,7 @@ Game.TutorialStep.EState.staticInit = function Game_TutorialStep_EState$staticIn
 	Game.TutorialStep.EState.Finishing = 2;
 	Game.TutorialStep.EState.Finished = 3;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.TutorialStep.EState.staticInit();
 });
 Game.TutorialStep.ESpecialBehavior = {};
@@ -301,7 +301,7 @@ Game.TutorialStep.ESpecialBehavior.staticInit = function Game_TutorialStep_ESpec
 	Game.TutorialStep.ESpecialBehavior.TimeGem = 3;
 	Game.TutorialStep.ESpecialBehavior.MultiplierUp = 4;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.TutorialStep.ESpecialBehavior.staticInit();
 });
 Game.TutorialStep.EBlockTimerType = {};
@@ -313,6 +313,6 @@ Game.TutorialStep.EBlockTimerType.staticInit = function Game_TutorialStep_EBlock
 	Game.TutorialStep.EBlockTimerType.PlayBetweenParams = 4;
 	Game.TutorialStep.EBlockTimerType.PauseBetweenParams = 5;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.TutorialStep.EBlockTimerType.staticInit();
 });

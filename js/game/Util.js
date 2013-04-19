@@ -298,10 +298,10 @@ Game.Util.staticInit = function Game_Util$staticInit() {
 	Game.Util.gRand = new Game.MTRand();
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.Util.registerClass('Game.Util', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.Util.staticInit();
 });
 Game.Util.ESplitStrType = {};
@@ -310,6 +310,6 @@ Game.Util.ESplitStrType.staticInit = function Game_Util_ESplitStrType$staticInit
 	Game.Util.ESplitStrType.TVector_STRING = 1;
 	Game.Util.ESplitStrType.TVector_FLOAT = 2;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.Util.ESplitStrType.staticInit();
 });

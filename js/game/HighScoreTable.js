@@ -60,9 +60,9 @@ Game.HighScoreTable.staticInit = function Game_HighScoreTable$staticInit() {
     Game.HighScoreTable.HASH_KEY = 0x42beef;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.HighScoreTable.registerClass('Game.HighScoreTable', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.HighScoreTable.staticInit();
 });

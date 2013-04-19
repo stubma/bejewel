@@ -18,10 +18,10 @@ Game.Hyperspace.staticInit = function Game_Hyperspace$staticInit() {
     Game.Hyperspace.MAX_HYPERSPACE_LIGHT = 4;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Hyperspace.registerClass('Game.Hyperspace', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Hyperspace.staticInit();
 });
 Game.Hyperspace.HyperspaceEvent = {};
@@ -35,6 +35,6 @@ Game.Hyperspace.HyperspaceEvent.staticInit = function Game_Hyperspace_Hyperspace
     Game.Hyperspace.HyperspaceEvent.OldLevelClear = 6;
     Game.Hyperspace.HyperspaceEvent.Finish = 7;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Hyperspace.HyperspaceEvent.staticInit();
 });

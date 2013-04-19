@@ -677,9 +677,9 @@ Game.EffectsManager.prototype = {
 Game.EffectsManager.staticInit = function Game_EffectsManager$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.EffectsManager.registerClass('Game.EffectsManager', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.EffectsManager.staticInit();
 });

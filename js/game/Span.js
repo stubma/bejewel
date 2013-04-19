@@ -12,9 +12,9 @@ Game.Span.prototype = {
 Game.Span.staticInit = function Game_Span$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Span.registerClass('Game.Span', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Span.staticInit();
 });

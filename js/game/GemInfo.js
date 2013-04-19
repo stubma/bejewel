@@ -43,9 +43,9 @@ Game.GemInfo.prototype = {
 Game.GemInfo.staticInit = function Game_GemInfo$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.GemInfo.registerClass('Game.GemInfo', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.GemInfo.staticInit();
 });

@@ -67,9 +67,9 @@ Game.TextButton.prototype = {
 Game.TextButton.staticInit = function Game_TextButton$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.TextButton.registerClass('Game.TextButton', Game.Bej3Button);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.TextButton.staticInit();
 });

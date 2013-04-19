@@ -66,9 +66,9 @@ Game.PopAnimEffect.prototype = {
 Game.PopAnimEffect.staticInit = function Game_PopAnimEffect$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.PopAnimEffect.registerClass('Game.PopAnimEffect', Game.Effect);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.PopAnimEffect.staticInit();
 });

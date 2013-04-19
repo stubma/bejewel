@@ -29,9 +29,9 @@ Game.GridData.prototype = {
 Game.GridData.staticInit = function Game_GridData$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.GridData.registerClass('Game.GridData', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.GridData.staticInit();
 });

@@ -280,10 +280,10 @@ Game.Points.staticInit = function Game_Points$staticInit() {
     Game.Points.MAX_LAYERS = 5;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Points.registerClass('Game.Points', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Points.staticInit();
 });
 Game.Points.EState = {};
@@ -292,6 +292,6 @@ Game.Points.EState.staticInit = function Game_Points_EState$staticInit() {
     Game.Points.EState.FADING = 1;
     Game.Points.EState.VERT_SHIFTING = 2;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Points.EState.staticInit();
 });

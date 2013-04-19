@@ -20,9 +20,9 @@ Game.HighScoreEntry.prototype = {
 Game.HighScoreEntry.staticInit = function Game_HighScoreEntry$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.HighScoreEntry.registerClass('Game.HighScoreEntry', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.HighScoreEntry.staticInit();
 });

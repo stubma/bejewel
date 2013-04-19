@@ -193,9 +193,9 @@ Game.RecordsDialog.staticInit = function Game_RecordsDialog$staticInit() {
     Game.RecordsDialog.mColorInts = Array.Create(7, 7, 0xffff0000, 0xffffffff, 0xff00ff00, 0xffffff00, 0xffff00ff, 0xffff9900, 0xff0099ff);
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.RecordsDialog.registerClass('Game.RecordsDialog', Game.Bej3Dialog);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.RecordsDialog.staticInit();
 });

@@ -88,9 +88,9 @@ Game.TutorialSequence.prototype = {
 Game.TutorialSequence.staticInit = function Game_TutorialSequence$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.TutorialSequence.registerClass('Game.TutorialSequence', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.TutorialSequence.staticInit();
 });

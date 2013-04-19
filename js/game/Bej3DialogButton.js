@@ -42,9 +42,9 @@ Game.Bej3DialogButton.prototype = {
 Game.Bej3DialogButton.staticInit = function Game_Bej3DialogButton$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Bej3DialogButton.registerClass('Game.Bej3DialogButton', GameFramework.widgets.ButtonWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Bej3DialogButton.staticInit();
 });

@@ -10,9 +10,9 @@ Game.SpanRow.prototype = {
 Game.SpanRow.staticInit = function Game_SpanRow$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.SpanRow.registerClass('Game.SpanRow', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.SpanRow.staticInit();
 });

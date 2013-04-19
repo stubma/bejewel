@@ -99,9 +99,9 @@ Game.SpeedEndLevelDialog.prototype = {
 Game.SpeedEndLevelDialog.staticInit = function Game_SpeedEndLevelDialog$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.SpeedEndLevelDialog.registerClass('Game.SpeedEndLevelDialog', Game.EndLevelDialog);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.SpeedEndLevelDialog.staticInit();
 });

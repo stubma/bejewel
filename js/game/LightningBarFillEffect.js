@@ -220,9 +220,9 @@ Game.LightningBarFillEffect.staticInit = function Game_LightningBarFillEffect$st
 	Game.LightningBarFillEffect.NUM_BARFILL_LIGTNING_POINTS = 8;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.LightningBarFillEffect.registerClass('Game.LightningBarFillEffect', Game.Effect);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.LightningBarFillEffect.staticInit();
 });

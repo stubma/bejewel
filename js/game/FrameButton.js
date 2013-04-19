@@ -10,9 +10,9 @@ Game.FrameButton.prototype = {
 Game.FrameButton.staticInit = function Game_FrameButton$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.FrameButton.registerClass('Game.FrameButton', GameFramework.widgets.ButtonWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.FrameButton.staticInit();
 });

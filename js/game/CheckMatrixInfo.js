@@ -9,9 +9,9 @@ Game.CheckMatrixInfo.prototype = {
 Game.CheckMatrixInfo.staticInit = function Game_CheckMatrixInfo$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.CheckMatrixInfo.registerClass('Game.CheckMatrixInfo', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.CheckMatrixInfo.staticInit();
 });

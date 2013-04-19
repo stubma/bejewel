@@ -146,16 +146,16 @@ Game.Bej3Dialog.prototype = {
 Game.Bej3Dialog.staticInit = function Game_Bej3Dialog$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Bej3Dialog.registerClass('Game.Bej3Dialog', GameFramework.widgets.Dialog);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.Bej3Dialog.staticInit();
 });
 Game.Bej3Dialog.EId = {};
 Game.Bej3Dialog.EId.staticInit = function Game_Bej3Dialog_EId$staticInit() {
     Game.Bej3Dialog.EId.ID_CANCEL = 1002;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.Bej3Dialog.EId.staticInit();
 });

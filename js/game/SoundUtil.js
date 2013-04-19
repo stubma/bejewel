@@ -25,9 +25,9 @@ Game.SoundUtil.staticInit = function Game_SoundUtil$staticInit() {
 	Game.SoundUtil.mNextVoice = null;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.SoundUtil.registerClass('Game.SoundUtil', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.SoundUtil.staticInit();
 });

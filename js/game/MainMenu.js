@@ -708,10 +708,10 @@ Game.MainMenu.staticInit = function Game_MainMenu$staticInit() {
     Game.MainMenu.NUM_LOADERBAR_POINTS = 50;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.MainMenu.registerClass('Game.MainMenu', GameFramework.widgets.ClassicWidget);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.MainMenu.staticInit();
 });
 Game.MainMenu.EId = {};
@@ -721,7 +721,7 @@ Game.MainMenu.EId.staticInit = function Game_MainMenu_EId$staticInit() {
     Game.MainMenu.EId.RecordsBtn = 2;
     Game.MainMenu.EId._COUNT = 3;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.MainMenu.EId.staticInit();
 });
 Game.MainMenu.EMode = {};
@@ -731,6 +731,6 @@ Game.MainMenu.EMode.staticInit = function Game_MainMenu_EMode$staticInit() {
     Game.MainMenu.EMode.Speed = 1;
     Game.MainMenu.EMode._COUNT = 2;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.MainMenu.EMode.staticInit();
 });

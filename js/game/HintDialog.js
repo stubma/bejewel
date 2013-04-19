@@ -119,9 +119,9 @@ Game.HintDialog.prototype = {
 Game.HintDialog.staticInit = function Game_HintDialog$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.HintDialog.registerClass('Game.HintDialog', Game.Bej3Dialog);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.HintDialog.staticInit();
 });

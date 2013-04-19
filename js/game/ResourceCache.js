@@ -12,9 +12,9 @@ Game.ResourceCache.prototype = {
 Game.ResourceCache.staticInit = function Game_ResourceCache$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.ResourceCache.registerClass('Game.ResourceCache', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.ResourceCache.staticInit();
 });

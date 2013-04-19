@@ -404,10 +404,10 @@ Game.LightningStorm.staticInit = function Game_LightningStorm$staticInit() {
     Game.LightningStorm.NUM_LIGTNING_POINTS = 8;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.LightningStorm.registerClass('Game.LightningStorm', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.LightningStorm.staticInit();
 });
 Game.LightningStorm.EStormType = {};
@@ -421,6 +421,6 @@ Game.LightningStorm.EStormType.staticInit = function Game_LightningStorm_EStormT
     Game.LightningStorm.EStormType.FLAMING = 6;
     Game.LightningStorm.EStormType.HYPERCUBE = 7;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.LightningStorm.EStormType.staticInit();
 });

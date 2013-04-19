@@ -9,9 +9,9 @@ Game.GlobalMembersHighScoreMgr.staticInit = function Game_GlobalMembersHighScore
     Game.GlobalMembersHighScoreMgr.HIGHSCORE_KEY = 0xb9e7e3f9;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.GlobalMembersHighScoreMgr.registerClass('Game.GlobalMembersHighScoreMgr', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.GlobalMembersHighScoreMgr.staticInit();
 });

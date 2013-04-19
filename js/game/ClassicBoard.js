@@ -274,9 +274,9 @@ Game.ClassicBoard.prototype = {
 Game.ClassicBoard.staticInit = function Game_ClassicBoard$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.ClassicBoard.registerClass('Game.ClassicBoard', Game.Board);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.ClassicBoard.staticInit();
 });

@@ -37,9 +37,9 @@ Game.CurvedValTable.staticInit = function Game_CurvedValTable$staticInit() {
     Game.CurvedValTable['TutorialMgr_cs_11_14_11__19_18_09_946'] = 'b;0,1,0.01,0.1,~###         ~#B}2';
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.CurvedValTable.registerClass('Game.CurvedValTable', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.CurvedValTable.staticInit();
 });

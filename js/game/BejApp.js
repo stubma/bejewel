@@ -1129,9 +1129,9 @@ Game.BejApp.staticInit = function Game_BejApp$staticInit() {
     Game.BejApp.mBejApp = null;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.BejApp.registerClass('Game.BejApp', GameFramework.JSBaseApp);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.BejApp.staticInit();
 });

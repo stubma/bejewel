@@ -89,9 +89,9 @@ Game.ColorCycle.staticInit = function Game_ColorCycle$staticInit() {
     Game.ColorCycle.gCycleColors = Array.Create(6, null, 0xffff0000, 0xffffff00, 0xff00ff00, 0xff00ffff, 0xff0000ff, 0xffff00ff);
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.ColorCycle.registerClass('Game.ColorCycle', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.ColorCycle.staticInit();
 });

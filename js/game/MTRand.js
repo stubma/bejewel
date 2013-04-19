@@ -103,9 +103,9 @@ Game.MTRand.staticInit = function Game_MTRand$staticInit() {
     Game.MTRand.gRandAllowed = 0;
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.MTRand.registerClass('Game.MTRand', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.MTRand.staticInit();
 });

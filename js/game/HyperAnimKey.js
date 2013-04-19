@@ -11,9 +11,9 @@ Game.HyperAnimKey.prototype = {
 Game.HyperAnimKey.staticInit = function Game_HyperAnimKey$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.HyperAnimKey.registerClass('Game.HyperAnimKey', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.HyperAnimKey.staticInit();
 });

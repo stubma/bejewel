@@ -7,7 +7,7 @@
     <file path="/a.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366305316253" ignored="false" />
     <file path="/index.html" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366302844310" ignored="false" />
     <file path="/Bejeweled_min.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1365681347481" ignored="false" />
-    <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366306233929" ignored="false" />
+    <file path="/a.dummy" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366351570716" ignored="false" />
     <file path="/Dummy.txt" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366167718914" ignored="false" />
     <file path="/fragment.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366267104139" ignored="false" />
     <file path="/main.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366261416957" ignored="false" />
@@ -16,6 +16,7 @@
     <file path="/JSGameFramework_ext.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366296119559" ignored="false" />
     <file path="/import.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366305995424" ignored="false" />
     <file path="/EndLevelDialog.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366305198229" ignored="false" />
+    <file path="/Type.js" changelist="db2164eb-d1aa-4202-be42-6685b367841b" time="1366345236273" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,17 +35,7 @@
     <favorites_list name="bejewel" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="import.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/import.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="28" selection-start="3202" selection-end="3202" vertical-scroll-proportion="0.24433249">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -62,22 +53,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/game/TooltipManager.j.js" />
-        <option value="$PROJECT_DIR$/js/game/TooltipManager.js" />
-        <option value="$PROJECT_DIR$/js/game/Tooltip.js" />
-        <option value="$PROJECT_DIR$/js/game/TutorialStep.js" />
-        <option value="$PROJECT_DIR$/js/game/TutorialSequence.js" />
-        <option value="$PROJECT_DIR$/js/game/TutorialMgr.js" />
-        <option value="$PROJECT_DIR$/js/game/CheckMatrixInfo.js" />
-        <option value="$PROJECT_DIR$/js/game/ColorTracker.js" />
-        <option value="$PROJECT_DIR$/js/game/BejUtil.js" />
-        <option value="$PROJECT_DIR$/js/game/GfxUtil.js" />
-        <option value="$PROJECT_DIR$/js/game/MathUtil.js" />
-        <option value="$PROJECT_DIR$/js/game/SoundUtil.js" />
-        <option value="$PROJECT_DIR$/js/game/Util.js" />
+        <option value="$PROJECT_DIR$/js/gf/ext/_jsf_webgl.js" />
+        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_noise.js" />
+        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_event.h.js" />
+        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_event.js" />
+        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_sound.js" />
+        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_ajax.h.js" />
+        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_util.js" />
+        <option value="$PROJECT_DIR$/js/gf/JSGameFramework_ext.js" />
+        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_canvas.js" />
+        <option value="$PROJECT_DIR$/js/gf/ext/_global.js" />
+        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_webgl.js" />
+        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_ajax.js" />
         <option value="$PROJECT_DIR$/js/import.js" />
-        <option value="$PROJECT_DIR$/js/game/Bejeweled.js" />
-        <option value="$PROJECT_DIR$/js/game/Version.js" />
+        <option value="$PROJECT_DIR$/js/gf/ext/_jsfext_init.js" />
+        <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/js/game/Announcement.js" />
       </list>
     </option>
   </component>
@@ -288,7 +279,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
+              <option name="myItemId" value="gf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ext" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -353,11 +348,11 @@
       <recent name="$PROJECT_DIR$/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js/gf/basetype" />
       <recent name="$PROJECT_DIR$/js/sound" />
       <recent name="$PROJECT_DIR$/js/gf" />
       <recent name="$PROJECT_DIR$/js/game" />
       <recent name="$PROJECT_DIR$/html5canvas/atlases" />
-      <recent name="$PROJECT_DIR$/html5canvas/images/480/tex" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.bejewel (local)">
@@ -454,13 +449,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="806" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23006351" sideWeight="0.61953354" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38046646" sideWeight="0.9971831" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38046646" sideWeight="0.9971831" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978156" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -469,7 +465,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32790223" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.60901165" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32994187" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -539,111 +534,120 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="157" />
+      <option name="time" value="163" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/game/SpreadCurve.js">
+    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_event.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="3" selection-start="1634" selection-end="1634" vertical-scroll-proportion="0.92443323">
+        <state line="46" column="34" selection-start="890" selection-end="915" vertical-scroll-proportion="0.697733">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/TooltipManager.js">
+    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_sound.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="3" selection-start="3528" selection-end="3528" vertical-scroll-proportion="0.9557292">
+        <state line="96" column="1" selection-start="2450" selection-end="2450" vertical-scroll-proportion="3.627204">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/Tooltip.js">
+    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="3" selection-start="1019" selection-end="1019" vertical-scroll-proportion="0.92443323">
+        <state line="7" column="12" selection-start="166" selection-end="166" vertical-scroll-proportion="0.28074867">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/TutorialStep.js">
+    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_canvas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="317" column="3" selection-start="12332" selection-end="12332" vertical-scroll-proportion="0.9557292">
+        <state line="94" column="27" selection-start="3473" selection-end="3473" vertical-scroll-proportion="3.671875">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/TutorialSequence.js">
+    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_ajax.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="3" selection-start="3011" selection-end="3011" vertical-scroll-proportion="0.92443323">
+        <state line="168" column="57" selection-start="4719" selection-end="4719" vertical-scroll-proportion="0.17577197">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/TutorialMgr.js">
+    <entry file="file://$PROJECT_DIR$/js/gf/ext/_global.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="3" selection-start="7472" selection-end="7472" vertical-scroll-proportion="0.9557292">
+        <state line="36" column="16" selection-start="713" selection-end="725" vertical-scroll-proportion="0.68010074">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/CheckMatrixInfo.js">
+    <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="3" selection-start="421" selection-end="421" vertical-scroll-proportion="0.60453403">
+        <state line="252" column="36" selection-start="8436" selection-end="8436" vertical-scroll-proportion="0.96791446">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/ColorTracker.js">
+    <entry file="file://$PROJECT_DIR$/js/game/Announcement.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="3" selection-start="992" selection-end="992" vertical-scroll-proportion="0.92443323">
+        <state line="33" column="32" selection-start="1130" selection-end="1130" vertical-scroll-proportion="0.2540107">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/BejUtil.js">
+    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="3" selection-start="1893" selection-end="1893" vertical-scroll-proportion="0.92443323">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/GfxUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="3" selection-start="663" selection-end="663" vertical-scroll-proportion="0.86901766">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/MathUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="3" selection-start="755" selection-end="755" vertical-scroll-proportion="1.0579345">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/SoundUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="3" selection-start="1030" selection-end="1030" vertical-scroll-proportion="0.92443323">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/Util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="314" column="3" selection-start="9900" selection-end="9900" vertical-scroll-proportion="0.9557292">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/game/Version.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="3" selection-start="409" selection-end="409" vertical-scroll-proportion="0.64231735">
+        <state line="173" column="27" selection-start="4375" selection-end="4393" vertical-scroll-proportion="0.20588236">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/import.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="28" selection-start="3202" selection-end="3202" vertical-scroll-proportion="0.24433249">
+        <state line="64" column="46" selection-start="1898" selection-end="1898" vertical-scroll-proportion="1.4911839">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/gf/GameFramework.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4374" column="5" selection-start="171170" selection-end="171170" vertical-scroll-proportion="0.859375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/game/BejApp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="255" column="48" selection-start="9475" selection-end="9475" vertical-scroll-proportion="0.3125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/gf/ext/_jsfext_webgl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="28" selection-start="967" selection-end="967" vertical-scroll-proportion="0.40364584">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/gf/JSGameFramework.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="733" column="34" selection-start="35962" selection-end="35962" vertical-scroll-proportion="0.3125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/gf/ext/_Type.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="25" selection-start="2821" selection-end="2821" vertical-scroll-proportion="0.31234258">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/gf/_namespace.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="22" selection-start="5" selection-end="22" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

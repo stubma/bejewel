@@ -15,9 +15,9 @@ Game.MoveData.prototype = {
 Game.MoveData.staticInit = function Game_MoveData$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.MoveData.registerClass('Game.MoveData', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.MoveData.staticInit();
 });

@@ -16,9 +16,9 @@ Game.QueuedMove.prototype = {
 Game.QueuedMove.staticInit = function Game_QueuedMove$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.QueuedMove.registerClass('Game.QueuedMove', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.QueuedMove.staticInit();
 });

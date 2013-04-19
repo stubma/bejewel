@@ -12,9 +12,9 @@ Game.BarInstance.prototype = {
 Game.BarInstance.staticInit = function Game_BarInstance$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.BarInstance.registerClass('Game.BarInstance', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.BarInstance.staticInit();
 });

@@ -229,10 +229,10 @@ Game.OptionsDialog.prototype = {
 Game.OptionsDialog.staticInit = function Game_OptionsDialog$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.OptionsDialog.registerClass('Game.OptionsDialog', Game.Bej3Dialog);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.OptionsDialog.staticInit();
 });
 Game.OptionsDialog.EResult = {};
@@ -241,6 +241,6 @@ Game.OptionsDialog.EResult.staticInit = function Game_OptionsDialog_EResult$stat
     Game.OptionsDialog.EResult.ResumePlay = 1;
     Game.OptionsDialog.EResult.LaunchTutorial = 2;
 }
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.OptionsDialog.EResult.staticInit();
 });

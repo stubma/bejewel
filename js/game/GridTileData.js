@@ -13,9 +13,9 @@ Game.GridTileData.prototype = {
 Game.GridTileData.staticInit = function Game_GridTileData$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
     Game.GridTileData.registerClass('Game.GridTileData', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
     Game.GridTileData.staticInit();
 });

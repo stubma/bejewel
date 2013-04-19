@@ -74,9 +74,9 @@ Game.BejUtil.prototype = {
 Game.BejUtil.staticInit = function Game_BejUtil$staticInit() {
 }
 
-JS_AddInitFunc(function() {
+JSFExt_AddInitFunc(function() {
 	Game.BejUtil.registerClass('Game.BejUtil', null);
 });
-JS_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function() {
 	Game.BejUtil.staticInit();
 });
