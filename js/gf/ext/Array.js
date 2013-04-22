@@ -16,6 +16,11 @@ Array.Create = function Array$Create(theSize, theDefault) {
 	return aNewArray;
 }
 
+// create two dimension array
+// theSize0: array length
+// theSize1: array element length
+// theDefault: default value, after this, you can append more arguments to
+// 		initialize array, then uninitialized element will be set to theDefault
 Array.Create2D = function Array$Create2D(theSize0, theSize1, theDefault) {
 	var aNewArray = new Array(theSize0 * theSize1);
 	aNewArray.mLengths = [theSize0, theSize1];
@@ -31,6 +36,12 @@ Array.Create2D = function Array$Create2D(theSize0, theSize1, theDefault) {
 	return aNewArray;
 }
 
+// create three dimension array
+// theSize0: array length
+// theSize1: array sub length
+// theSize2: final element length
+// theDefault: default value, after this, you can append more arguments to
+// 		initialize array, then uninitialized element will be set to theDefault
 Array.Create3D = function Array$Create3D(theSize0, theSize1, theSize2, theDefault) {
 	var aNewArray = new Array(theSize0 * theSize1);
 	aNewArray.mLengths = [theSize0, theSize1, theSize2];
