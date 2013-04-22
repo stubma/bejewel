@@ -541,8 +541,16 @@ Game.MainMenu.prototype = {
 
 				var aDist1 = (180);
 				var aDist2 = (180 + 60);
-				var aVtx1 = new GameFramework.gfx.TriVertex(this.mWidth / 2 + Math.cos(anAng) * aDist1, 300 + ((Game.Resources['IMAGE_LOADER_POPCAP'].mHeight / 2) | 0) + Math.sin(anAng) * aDist1, aU, 0, aTriColor);
-				var aVtx2 = new GameFramework.gfx.TriVertex(this.mWidth / 2 + Math.cos(anAng) * aDist2, 300 + ((Game.Resources['IMAGE_LOADER_POPCAP'].mHeight / 2) | 0) + Math.sin(anAng) * aDist2, aU, 1, aTriColor);
+				var aVtx1 = new GameFramework.gfx.TriVertex(this.mWidth / 2 + Math.cos(anAng) * aDist1,
+					300 + ((Game.Resources['IMAGE_LOADER_POPCAP'].mHeight / 2) | 0) + Math.sin(anAng) * aDist1,
+					aU,
+					0,
+					aTriColor);
+				var aVtx2 = new GameFramework.gfx.TriVertex(this.mWidth / 2 + Math.cos(anAng) * aDist2,
+					300 + ((Game.Resources['IMAGE_LOADER_POPCAP'].mHeight / 2) | 0) + Math.sin(anAng) * aDist2,
+					aU,
+					1,
+					aTriColor);
 				if(aLoaderBarPt != 0) {
 					aVertices[aVertices.mIdxMult0 * (aTriIdx) + 0] = aPrevVtx1;
 					aVertices[aVertices.mIdxMult0 * (aTriIdx) + 1] = aPrevVtx2;
