@@ -1,352 +1,300 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/adpkifcfcacgmnggcbpbjbkdijciiigm">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=9">
-    <meta name="viewport" content="initial-scale = 1.0, user-scalable = no">
-    <title>Bejeweled</title>
-</head>
-<style type="text/css">
-    body {
-        overflow: hidden;
-    }
+    <head>
+        <link
+            rel="chrome-webstore-item"
+            href="https://chrome.google.com/webstore/detail/adpkifcfcacgmnggcbpbjbkdijciiigm"
+        />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=9" />
+        <meta name="viewport" content="initial-scale = 1.0, user-scalable = no" />
+        <title>Bejeweled</title>
+    </head>
+    <style type="text/css">
+        body {
+            overflow: hidden;
+        }
 
-    A {
-        color: #3aa0ff;
-        cursor: pointer;
-    }
+        A {
+            color: #3aa0ff;
+            cursor: pointer;
+        }
 
-    A:visited {
-        color: #3aa0ff;
-        cursor: pointer;
-    }
+        A:visited {
+            color: #3aa0ff;
+            cursor: pointer;
+        }
 
-    div.gamediv {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        overflow: hidden;
-    }
+        div.gamediv {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            overflow: hidden;
+        }
 
-    img.bkgImage {
-        position: absolute;
-        z-index: -2;
-        -webkit-user-select: none;
-        left: -2000px;
-    }
+        img.bkgImage {
+            position: absolute;
+            z-index: -2;
+            -webkit-user-select: none;
+            left: -2000px;
+        }
 
-    img.waitSpinner {
-        position: absolute;
-        z-index: 1;
-        -webkit-user-select: none;
-        top: 50%;
-        left: 50%;
-        margin-top: -62px;
-        margin-left: -62px;
-    }
+        img.waitSpinner {
+            position: absolute;
+            z-index: 1;
+            -webkit-user-select: none;
+            top: 50%;
+            left: 50%;
+            margin-top: -62px;
+            margin-left: -62px;
+        }
 
-    img.leftPillar {
-        position: absolute;
-        z-index: -1;
-        -webkit-user-select: none;
-        left: -2000px;
-        top: 0px;
-        overflow: hidden;
-    }
+        img.leftPillar {
+            position: absolute;
+            z-index: -1;
+            -webkit-user-select: none;
+            left: -2000px;
+            top: 0px;
+            overflow: hidden;
+        }
 
-    img.leftPillarBot {
-        position: absolute;
-        z-index: -1;
-        -webkit-user-select: none;
-        left: -2000px;
-        top: 0px;
-        overflow: hidden;
-    }
+        img.leftPillarBot {
+            position: absolute;
+            z-index: -1;
+            -webkit-user-select: none;
+            left: -2000px;
+            top: 0px;
+            overflow: hidden;
+        }
 
-    img.rightPillar {
-        position: absolute;
-        z-index: -1;
-        -webkit-user-select: none;
-        -webkit-transform: scale(-1, 1);
-        -moz-transform: scale(-1, 1);
-        left: -2000px;
-        top: 0px;
-        overflow: hidden;
-    }
+        img.rightPillar {
+            position: absolute;
+            z-index: -1;
+            -webkit-user-select: none;
+            -webkit-transform: scale(-1, 1);
+            -moz-transform: scale(-1, 1);
+            left: -2000px;
+            top: 0px;
+            overflow: hidden;
+        }
 
-    img.rightPillarBot {
-        position: absolute;
-        z-index: -1;
-        -webkit-user-select: none;
-        -webkit-transform: scale(-1, 1);
-        -moz-transform: scale(-1, 1);
-        left: -2000px;
-        top: 0px;
-        overflow: hidden;
-    }
+        img.rightPillarBot {
+            position: absolute;
+            z-index: -1;
+            -webkit-user-select: none;
+            -webkit-transform: scale(-1, 1);
+            -moz-transform: scale(-1, 1);
+            left: -2000px;
+            top: 0px;
+            overflow: hidden;
+        }
 
-    canvas.ScratchCanvas {
-        border: 2px solid #000;
-        position: absolute;
-        visibility: hidden;
-    }
+        canvas.ScratchCanvas {
+            border: 2px solid #000;
+            position: absolute;
+            visibility: hidden;
+        }
 
-    canvas.GameCanvas {
-        border: 2px solid #000;
-        position: absolute;
-        left: -2000px;
-        top: 0px;
-    }
+        canvas.GameCanvas {
+            border: 2px solid #000;
+            position: absolute;
+            left: -2000px;
+            top: 0px;
+        }
 
-    .sorry-container {
-        position: absolute;
-        text-align: left;
-        margin-top: -242px;
-        width: 644px;
-        background: url(img/sorry_bkg.jpg) #000 no-repeat right bottom;
-        height: 484px;
-        margin-left: -322px;
-        top: 50%;
-        left: 50%;
-        visibility: hidden;
-        z-index: 2;
-    }
+        .sorry-container {
+            position: absolute;
+            text-align: left;
+            margin-top: -242px;
+            width: 644px;
+            background: url(img/sorry_bkg.jpg) #000 no-repeat right bottom;
+            height: 484px;
+            margin-left: -322px;
+            top: 50%;
+            left: 50%;
+            visibility: hidden;
+            z-index: 2;
+        }
 
-    .install-container {
-        position: absolute;
-        text-align: left;
-        margin-top: -242px;
-        width: 644px;
-        background: url(img/sorry_bkg.jpg) #000 no-repeat right bottom;
-        height: 484px;
-        margin-left: -322px;
-        top: 50%;
-        left: 50%;
-        visibility: hidden;
-        z-index: 2;
-    }
+        .sorry {
+            padding-bottom: 0em;
+            line-height: 1.4em;
+            padding-left: 1em;
+            padding-right: 1em;
+            font-family: sans-serif;
+            color: #fff;
+            font-size: 16pt;
+            padding-top: 0em;
+            left: 50%;
+        }
 
-    .sorry {
-        padding-bottom: 0em;
-        line-height: 1.4em;
-        padding-left: 1em;
-        padding-right: 1em;
-        font-family: sans-serif;
-        color: #fff;
-        font-size: 16pt;
-        padding-top: 0em;
-        left: 50%;
-    }
+        .sorry .larger {
+            font-size: 1.2em;
+        }
 
-    .sorry .larger {
-        font-size: 1.2em;
-    }
+        .sorry .smaller {
+            font-size: 0.85em;
+        }
 
-    .sorry .smaller {
-        font-size: 0.85em;
-    }
+        .legal {
+            position: absolute;
+            padding-bottom: 0em;
+            line-height: 1.4em;
+            padding-left: 0em;
+            padding-right: 0em;
+            font-family: sans-serif;
+            color: #404060;
+            font-size: 10pt;
+            padding-top: 0em;
+            width: 100%;
+            text-align: center;
+            top: -1000px;
+            left: 0px;
+            z-index: 1;
+        }
 
-    .legal {
-        position: absolute;
-        padding-bottom: 0em;
-        line-height: 1.4em;
-        padding-left: 0em;
-        padding-right: 0em;
-        font-family: sans-serif;
-        color: #404060;
-        font-size: 10pt;
-        padding-top: 0em;
-        width: 100%;
-        text-align: center;
-        top: -1000px;
-        left: 0px;
-        z-index: 1;
-    }
+        .legal A {
+            color: #404060;
+            cursor: pointer;
+            text-decoration: none;
+        }
 
-    .legal A {
-        color: #404060;
-        cursor: pointer;
-        text-decoration: none
-    }
+        .legal A:visited {
+            color: #404060;
+        }
 
-    .legal A:visited {
-        color: #404060;
-    }
+        .sorry P {
+            margin: 1em 0em;
+        }
 
-    .sorry P {
-        margin: 1em 0em;
-    }
+        .sorry TABLE {
+            margin: 1em 0em;
+        }
 
-    .sorry TABLE {
-        margin: 1em 0em;
-    }
+        .sorry OL {
+            margin-left: 2em;
+        }
 
-    .sorry OL {
-        margin-left: 2em;
-    }
+        .sorry LI {
+            margin: 1em;
+        }
 
-    .sorry LI {
-        margin: 1em;
-    }
+        IMG {
+            border-bottom: 0px;
+            border-left: 0px;
+            border-top: 0px;
+            border-right: 0px;
+        }
+    </style>
+    <body>
+        <img id="waitSpinner" class="waitSpinner" src="img/spinwait.gif" />
 
-    IMG {
-        border-bottom: 0px;
-        border-left: 0px;
-        border-top: 0px;
-        border-right: 0px;
-    }
-</style>
-<body>
-<img id="waitSpinner" class="waitSpinner" src="img/spinwait.gif"/>
+        <div id="sorry-container" class="sorry-container">
+            <div class="sorry">
+                <p class="larger">
+                    We're sorry, but it appears that your browser does not currently support the web technologies needed
+                    to play Bejeweled.
+                </p>
 
-<div id="sorry-container" class="sorry-container">
-    <div class="sorry">
-        <p class="larger">
-            We're sorry, but it appears that your browser does not currently support the web
-            technologies needed to play Bejeweled.
-        </p>
+                <p class="smaller">To play you need to either:</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="http://www.google.com/chrome" target="_top">
+                                    <img style="width: 66px; height: 66px" class="chrome" src="img/chrome-icon.png"
+                                /></a>
+                            </td>
+                            <td>
+                                <a href="http://www.google.com/chrome" target="_top">Download Google Chrome</a>, a fast
+                                new browser (Recommended)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center">or</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="http://www.google.com/chromeframe?redirect=true&amp;user=true" target="_top">
+                                    <img style="width: 66px; height: 66px" class="chrome" src="img/chrome-icon.png"
+                                /></a>
+                            </td>
+                            <td>
+                                <a href="http://www.google.com/chromeframe?redirect=true&amp;user=true" target="_top">
+                                    Install the free Google Chrome Frame plug-in</a
+                                >
+                                and load this site again.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <p class="smaller">
-            To play you need to either:
-        </p>
-        <table>
-            <tbody>
-            <tr>
-                <td>
-                    <a href="http://www.google.com/chrome" target="_top">
-                        <img style="width: 66px; height: 66px" class="chrome" src="img/chrome-icon.png"></a>
-                </td>
-                <td>
-                    <a href="http://www.google.com/chrome" target="_top">Download Google Chrome</a>,
-                    a fast new browser (Recommended)
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align: center">
-                    or
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="http://www.google.com/chromeframe?redirect=true&amp;user=true" target="_top">
-                        <img style="width: 66px; height: 66px" class="chrome" src="img/chrome-icon.png"></a>
-                </td>
-                <td>
-                    <a href="http://www.google.com/chromeframe?redirect=true&amp;user=true" target="_top">
-                        Install the free Google Chrome Frame plug-in</a> and load this site again.
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+        <div id="sorry-container-error" class="sorry-container">
+            <div class="sorry">
+                <p class="larger">
+                    <br />
+                    Bejeweled has experienced an error and can not continue.
+                    <br /><br />Please try
+                    <a onclick="javascript:window.location = window.location">reloading the page</a>.
+                </p>
+            </div>
+        </div>
 
-<div id="install-container" class="install-container">
-    <div class="sorry">
-        <p class="larger">
-            Bejeweled Installation
-        </p>
+        <div id="legal" class="legal">
+            <p class="smaller">
+                <a onclick="window.open('http://tos.ea.com/legalapp/WEBPRIVACY/US/en/PC/')">Privacy Policy</a> &nbsp; |
+                &nbsp;
+                <a onclick="window.open('http://tos.ea.com/legalapp/WEBTERMS/US/en/PC/')">Terms of Service</a>
+            </p>
+        </div>
 
-        <p class="smaller">
-            Would you like to install Bejeweled as a Chrome App?
-        </p>
-        <table>
-            <tbody>
-            <tr>
-                <td>
-                    <a onclick="chrome.webstore.install(undefined, startup, startup);" target="_top">
-                        <img style="width: 66px; height: 66px" class="chrome" src="img/chrome-icon.png"></a>
-                </td>
-                <td>
-                    <a onclick="chrome.webstore.install(undefined, startup, startup);" target="_top">Install Chrome
-                        Bejeweled App</a>
-                    (Recommended)
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align: center">
-                    or
-                </td>
-            </tr>
-            <tr>
-                <td>
-                </td>
-                <td>
-                    <a onclick="startup()" target="_top">
-                        Play Bejeweled without installing</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+        <div id="gamediv" class="gamediv" onmousedown="return false">
+            <canvas id="ScratchCanvas" class="ScratchCanvas" width="256" height="256" bgcolor="#FFFF00" hidden>
+            </canvas>
+            <canvas id="GameCanvas" class="GameCanvas" width="1024" height="768" bgcolor="#00FF00"> </canvas>
+            <img id="bkgImage" class="bkgImage" src="img/DistantBackground_01.jpg" />
+            <img id="leftPillar" class="leftPillar" src="img/pillars_left_top.png" />
+            <img id="leftPillarBot" class="leftPillarBot" src="img/pillars_left_bottom.png" />
+            <!--[if IE]>
+                <img id="rightPillar" class="rightPillar" src="img/pillars_right_top.png" />
+                <img id="rightPillarBot" class="rightPillar" src="img/pillars_right_bottom.png" />
+            <![endif]-->
+            <img id="rightPillar" class="rightPillar" src="img/pillars_left_top.png" />
+            <img id="rightPillarBot" class="rightPillar" src="img/pillars_left_bottom.png" />
+        </div>
 
-<div id="sorry-container-error" class="sorry-container">
-    <div class="sorry">
-        <p class="larger">
-            <br/>
-            Bejeweled has experienced an error and can not continue.
-            <br/><br/>Please try <a onclick="javascript:window.location = window.location">reloading the page</a>.
-        </p>
-    </div>
-</div>
+        <script id="shader-fs" type="x-shader/x-fragment">
+            #ifdef GL_ES
+            precision mediump float;
+            #endif
 
-<div id="legal" class="legal">
-    <p class="smaller">
-        <a onclick="window.open('http://tos.ea.com/legalapp/WEBPRIVACY/US/en/PC/')">Privacy Policy</a> &nbsp; | &nbsp;
-        <a onclick="window.open('http://tos.ea.com/legalapp/WEBTERMS/US/en/PC/')">Terms of Service</a>
-    </p>
-</div>
+            varying vec2 vTexCoord;
+            varying vec4 vColor;
 
-<div id="gamediv" class="gamediv" onmousedown="return false">
-    <canvas id="ScratchCanvas" class="ScratchCanvas" width="256" height="256" bgcolor="#FFFF00"
-            hidden>
-    </canvas>
-    <canvas id="GameCanvas" class="GameCanvas" width="1024" height="768" bgcolor="#00FF00">
-    </canvas>
-    <img id="bkgImage" class="bkgImage" src="img/DistantBackground_01.jpg"/>
-    <img id="leftPillar" class="leftPillar" src="img/pillars_left_top.png"/>
-    <img id="leftPillarBot" class="leftPillarBot" src="img/pillars_left_bottom.png"/>
-    <!--[if IE]>
-    <img id="rightPillar" class="rightPillar" src="img/pillars_right_top.png"/>
-    <img id="rightPillarBot" class="rightPillar" src="img/pillars_right_bottom.png"/>
-    <![endif]-->
-    <img id="rightPillar" class="rightPillar" src="img/pillars_left_top.png"/>
-    <img id="rightPillarBot" class="rightPillar" src="img/pillars_left_bottom.png"/>
-</div>
+            uniform sampler2D sTexture;
 
-<script id="shader-fs" type="x-shader/x-fragment">
-    #ifdef GL_ES
-    precision mediump float;
-    #endif
+            void main(void) {
+                gl_FragColor = texture2D(sTexture, vTexCoord) * vColor;
+            }
+        </script>
+        <script id="shader-vs" type="x-shader/x-vertex">
+            attribute vec4 aPosition;
+            attribute vec4 aVertexColor;
 
-    varying vec2 vTexCoord;
-    varying vec4 vColor;
+            varying vec2 vTexCoord;
+            varying vec4 vColor;
 
-    uniform sampler2D sTexture;
+            uniform float writeDepth;
 
-    void main(void) {
-        gl_FragColor = texture2D(sTexture, vTexCoord) * vColor;
-    }
-</script>
-<script id="shader-vs" type="x-shader/x-vertex">
-    attribute vec4 aPosition;
-    attribute vec4 aVertexColor;
+            void main(void) {
+                vTexCoord = aPosition.zw;
+                vColor = aVertexColor;
+                gl_Position.zw = vec2(writeDepth, 1.0);
+                gl_Position.xy = (aPosition.xy - vec2(0.5, 0.5)) * vec2(2.0, -2.0);
+            }
+        </script>
 
-    varying vec2 vTexCoord;
-    varying vec4 vColor;
-
-    uniform float writeDepth;
-
-    void main(void) {
-        vTexCoord = aPosition.zw;
-        vColor = aVertexColor;
-        gl_Position.zw = vec2(writeDepth, 1.0);
-        gl_Position.xy = (aPosition.xy - vec2(0.5, 0.5)) * vec2(2.0, -2.0);
-    }
-</script>
-
-<script type="text/javascript" src="js/import.js"></script>
-
-</body>
+        <script type="text/javascript" src="js/import.js"></script>
+    </body>
 </html>
