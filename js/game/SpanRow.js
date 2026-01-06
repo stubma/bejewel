@@ -3,16 +3,15 @@
  */
 Game.SpanRow = function Game_SpanRow() {
     this.mSpans = [];
-}
+};
 Game.SpanRow.prototype = {
-    mSpans : null
-}
-Game.SpanRow.staticInit = function Game_SpanRow$staticInit() {
-}
+    mSpans: null,
+};
+Game.SpanRow.staticInit = function Game_SpanRow$staticInit() {};
 
-JSFExt_AddInitFunc(function() {
-    Game.SpanRow.registerClass('Game.SpanRow', null);
+JSFExt_AddInitFunc(function () {
+    Game.SpanRow.registerClass("Game.SpanRow", null);
 });
-JSFExt_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function () {
     Game.SpanRow.staticInit();
 });

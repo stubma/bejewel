@@ -3,25 +3,25 @@ Game.GemInfo = function Game_GemInfo() {
     this.mCoords = new GameFramework.geom.Coords3();
     this.mPos = new GameFramework.geom.Vector3();
     this.mPosScreen = new GameFramework.geom.Vector3();
-}
+};
 Game.GemInfo.prototype = {
-    mLightingCamOffset : null,
-    mCoords : null,
-    mPos : null,
-    mPosScreen : null,
-    mScaleScreen : 0,
-    mPiece : null,
-    mDistToCamera : 0,
-    mBoardHitFrame : 0,
-    mColorIndexStart : 0,
-    mColorIndexEnd : 0,
-    mDraw3D : null,
-    SetCoords : function Game_GemInfo$SetCoords(inCoords) {
+    mLightingCamOffset: null,
+    mCoords: null,
+    mPos: null,
+    mPosScreen: null,
+    mScaleScreen: 0,
+    mPiece: null,
+    mDistToCamera: 0,
+    mBoardHitFrame: 0,
+    mColorIndexStart: 0,
+    mColorIndexEnd: 0,
+    mDraw3D: null,
+    SetCoords: function Game_GemInfo$SetCoords(inCoords) {
         this.mCoords = inCoords;
     },
-    Init : function Game_GemInfo$Init(piece, animSeq) {
+    Init: function Game_GemInfo$Init(piece, animSeq) {
         this.mPiece = piece;
-        this.mColorIndexStart = (this.mPiece.mColor | 0);
+        this.mColorIndexStart = this.mPiece.mColor | 0;
         this.mColorIndexEnd = -1;
         this.mDraw3D = false;
         this.mBoardHitFrame = animSeq.GetGemHitFrame(piece.mRow, piece.mCol);
@@ -38,14 +38,13 @@ Game.GemInfo.prototype = {
         this.mLightingCamOffset = gemCoords.t.Scale(-1.0);
         this.mLightingCamOffset.z = 0.0;
         this.SetCoords(gemCoords);
-    }
-}
-Game.GemInfo.staticInit = function Game_GemInfo$staticInit() {
-}
+    },
+};
+Game.GemInfo.staticInit = function Game_GemInfo$staticInit() {};
 
-JSFExt_AddInitFunc(function() {
-    Game.GemInfo.registerClass('Game.GemInfo', null);
+JSFExt_AddInitFunc(function () {
+    Game.GemInfo.registerClass("Game.GemInfo", null);
 });
-JSFExt_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function () {
     Game.GemInfo.staticInit();
 });

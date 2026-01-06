@@ -1,11 +1,37 @@
-Game.DM = function Game_DM() {
-}
-Game.DM.prototype = {
-
-}
+Game.DM = function Game_DM() {};
+Game.DM.prototype = {};
 Game.DM.staticInit = function Game_DM$staticInit() {
-    Game.DM.gAutoplayDesc = Array.Create(5, 5, 'Off', 'Random moves', 'Aggressive moves', 'Aggressive with invalid moves', 'Test hyperspace');
-    Game.DM.gTutorialNames = Array.Create(18, 18, null, null, 'LASER', 'HYPERCUBE', null, null, 'SUPERNOVA', null, 'CLASSIC_TUTORIAL_VERT_MATCH', 'CLASSIC_TUTORIAL_HORIZ_MATCH', 'CLASSIC_TUTORIAL_SPECIAL_GEM_CREATE', 'CLASSIC_TUTORIAL_SPECIAL_GEM_MATCH', 'CLASSIC_TUTORIAL_HINT_BUTTON', 'CLASSIC_TUTORIAL_MAKE_MORE_MATCHES', 'SPEED_TUTORIAL_BASIC_MATCH', 'SPEED_TUTORIAL_TIMER', 'SPEED_TUTORIAL_TIME_GEM', 'SPEED_TUTORIAL_MULTIPLIER_UP');
+    Game.DM.gAutoplayDesc = Array.Create(
+        5,
+        5,
+        "Off",
+        "Random moves",
+        "Aggressive moves",
+        "Aggressive with invalid moves",
+        "Test hyperspace"
+    );
+    Game.DM.gTutorialNames = Array.Create(
+        18,
+        18,
+        null,
+        null,
+        "LASER",
+        "HYPERCUBE",
+        null,
+        null,
+        "SUPERNOVA",
+        null,
+        "CLASSIC_TUTORIAL_VERT_MATCH",
+        "CLASSIC_TUTORIAL_HORIZ_MATCH",
+        "CLASSIC_TUTORIAL_SPECIAL_GEM_CREATE",
+        "CLASSIC_TUTORIAL_SPECIAL_GEM_MATCH",
+        "CLASSIC_TUTORIAL_HINT_BUTTON",
+        "CLASSIC_TUTORIAL_MAKE_MORE_MATCHES",
+        "SPEED_TUTORIAL_BASIC_MATCH",
+        "SPEED_TUTORIAL_TIMER",
+        "SPEED_TUTORIAL_TIME_GEM",
+        "SPEED_TUTORIAL_MULTIPLIER_UP"
+    );
     Game.DM.SAVEGAME_VERSION = 17;
     Game.DM.SAVEGAME_VERSION_MIN = 17;
     Game.DM.SAVEBOARD_VERSION = 7;
@@ -28,20 +54,236 @@ Game.DM.staticInit = function Game_DM$staticInit() {
     Game.DM.SPEED_MED_THRESHOLD = 0.25;
     Game.DM.SPEED_HIGH_THRESHOLD = 0.75;
     Game.DM.gCommonMTRand = null;
-    Game.DM.gArcColors = Array.Create(8, 8, GameFramework.gfx.Color.RGBToInt(255, 96, 96), GameFramework.gfx.Color.RGBToInt(255, 255, 255), GameFramework.gfx.Color.RGBToInt(128, 255, 64), GameFramework.gfx.Color.RGBToInt(225, 225, 128), GameFramework.gfx.Color.RGBToInt(225, 128, 225), GameFramework.gfx.Color.RGBToInt(255, 160, 64), GameFramework.gfx.Color.RGBToInt(48, 160, 255), GameFramework.gfx.Color.RGBToInt(0, 0, 0));
-    Game.DM.gCrossoverColors = Array.Create(8, 8, GameFramework.gfx.Color.RGBToInt(255, 200, 200), GameFramework.gfx.Color.RGBToInt(255, 250, 255), GameFramework.gfx.Color.RGBToInt(220, 255, 128), GameFramework.gfx.Color.RGBToInt(255, 255, 200), GameFramework.gfx.Color.RGBToInt(255, 128, 255), GameFramework.gfx.Color.RGBToInt(255, 160, 64), GameFramework.gfx.Color.RGBToInt(80, 200, 255), GameFramework.gfx.Color.RGBToInt(0, 0, 0));
-    Game.DM.gAllGemColors = Array.Create(9, null, GameFramework.gfx.Color.RGBToInt(255, 255, 255), GameFramework.gfx.Color.RGBToInt(255, 0, 0), GameFramework.gfx.Color.RGBToInt(255, 255, 255), GameFramework.gfx.Color.RGBToInt(0, 255, 0), GameFramework.gfx.Color.RGBToInt(255, 255, 0), GameFramework.gfx.Color.RGBToInt(255, 0, 255), GameFramework.gfx.Color.RGBToInt(255, 128, 0), GameFramework.gfx.Color.RGBToInt(0, 128, 255), GameFramework.gfx.Color.RGBToInt(255, 255, 255));
-    Game.DM.gGemColors = Array.Create(9, null, GameFramework.gfx.Color.RGBToInt(255, 255, 255), GameFramework.gfx.Color.RGBToInt(255, 0, 0), GameFramework.gfx.Color.RGBToInt(255, 255, 255), GameFramework.gfx.Color.RGBToInt(0, 255, 0), GameFramework.gfx.Color.RGBToInt(255, 255, 0), GameFramework.gfx.Color.RGBToInt(255, 0, 255), GameFramework.gfx.Color.RGBToInt(255, 128, 0), GameFramework.gfx.Color.RGBToInt(0, 128, 255), GameFramework.gfx.Color.RGBToInt(255, 255, 255));
-    Game.DM.gElectColors = Array.Create(9, null, GameFramework.gfx.Color.RGBToInt(255, 255, 255), GameFramework.gfx.Color.RGBToInt(255, 0, 0), GameFramework.gfx.Color.RGBToInt(255, 255, 255), GameFramework.gfx.Color.RGBToInt(0, 255, 0), GameFramework.gfx.Color.RGBToInt(255, 255, 0), GameFramework.gfx.Color.RGBToInt(255, 0, 255), GameFramework.gfx.Color.RGBToInt(255, 128, 0), GameFramework.gfx.Color.RGBToInt(0, 128, 255), GameFramework.gfx.Color.RGBToInt(255, 255, 255));
-    Game.DM.gPointColors = Array.Create(9, null, GameFramework.gfx.Color.RGBToInt(255, 255, 255), GameFramework.gfx.Color.RGBToInt(255, 0, 0), GameFramework.gfx.Color.RGBToInt(255, 255, 255), GameFramework.gfx.Color.RGBToInt(0, 255, 0), GameFramework.gfx.Color.RGBToInt(255, 255, 0), GameFramework.gfx.Color.RGBToInt(255, 0, 255), GameFramework.gfx.Color.RGBToInt(255, 128, 0), GameFramework.gfx.Color.RGBToInt(0, 128, 255), GameFramework.gfx.Color.RGBToInt(255, 255, 255));
-    Game.DM.gComboColors = Array.Create(9, null, GameFramework.gfx.Color.RGBToInt(255, 0, 0), GameFramework.gfx.Color.RGBToInt(192, 192, 192), GameFramework.gfx.Color.RGBToInt(0, 224, 0), GameFramework.gfx.Color.RGBToInt(224, 224, 0), GameFramework.gfx.Color.RGBToInt(224, 0, 224), GameFramework.gfx.Color.RGBToInt(255, 128, 0), GameFramework.gfx.Color.RGBToInt(0, 0, 255), GameFramework.gfx.Color.RGBToInt(0, 0, 0), GameFramework.gfx.Color.RGBToInt(255, 255, 255));
-    Game.DM.gRankNames = Array.Create(131, 131, 'Novice', 'Apprentice', 'Trainee', 'Beginner', 'Amateur', 'Jr. Appraiser', 'Appraiser', 'Gem Polisher', 'Gem Scraper', 'Gem Grinder', 'Jewel Thief', 'Jewel Scavenger', 'Gem Scrounger', 'Jr. Gemfinder', 'Gemfinder', 'Sr. Gemfinder', 'Jr. Jewelkeep', 'Jewelkeep', 'Master Jewelkeep', 'Gemhunter Lv 1', 'Gemhunter Lv 2', 'Gemhunter Lv 3', 'Gemhunter Lv 4', 'Gemhunter Lv 5', 'Gemcrafter Lv 1', 'Gemcrafter Lv 2', 'Gemcrafter Lv 3', 'Gemcrafter Lv 4', 'Gemcrafter Lv 5', 'Jr. Gemstalker', 'Gemstalker', 'Sr. Gemstalker', 'Topaz Hunter', 'Onyx Hunter', 'Amethyst Hunter', 'Ruby Hunter', 'Emerald Hunter', 'Opal Hunter', 'Sapphire Hunter', 'Diamond Hunter', 'Topaz Blaster', 'Onyx Blaster', 'Amethyst Blaster', 'Ruby Blaster', 'Emerald Blaster', 'Opal Blaster', 'Sapphire Blaster', 'Diamond Blaster', 'Topaz Hoarder', 'Onyx Hoarder', 'Amethyst Hoarder', 'Ruby Hoarder', 'Emerald Hoarder', 'Opal Hoarder', 'Sapphire Hoarder', 'Diamond Hoarder', 'Topaz Master', 'Onyx Master', 'Amethyst Master', 'Ruby Master', 'Emerald Master', 'Opal Master', 'Sapphire Master', 'Diamond Master', 'Lapidary Lv 1', 'Lapidary Lv 2', 'Lapidary Lv 3', 'Lapidary Lv 4', 'Lapidary Lv 5', 'Master Lapidary', 'Supreme Lapidary', 'Ruby Wizard', 'Emerald Wizard', 'Opal Wizard', 'Sapphire Wizard', 'Diamond Wizard', 'Jeweled Wizard', 'Jeweled Mage', 'Jeweled Archmage', 'Jewelcrafter', 'Jewelforger', 'Bronze Blitzer', 'Silver Blitzer', 'Gold Blitzer', 'Platinum Blitzer', 'Bronze Master', 'Silver Master', 'Gold Master', 'Platinum Master', 'Jr. Bejeweler', 'Bejeweler', 'Sr. Bejeweler', 'Master Bejeweler', 'Mega Bejeweler', 'Hyper Bejeweler', 'Ultra Bejeweler', 'Prime Bejeweler', 'Ultimate Bejeweler', 'Bejeweled Regent', 'Bejeweled Demigod', 'Supreme Bejeweler', 'Jewelmagus Lv 1', 'Jewelmagus Lv 2', 'Jewelmagus Lv 3', 'Jewelmagus Lv 4', 'Jewelmagus Lv 5', 'Jewelmagus Lv 6', 'Jewelmagus Lv 7', 'Jewelmagus Lv 8', 'Jewelmagus Lv 9', 'Elder Jewelmagus', 'Jewelknight Lv 1', 'Jewelknight Lv 2', 'Jewelknight Lv 3', 'Jewelknight Lv 4', 'Jewelknight Lv 5', 'Jewelknight Lv 6', 'Jewelknight Lv 7', 'Jewelknight Lv 8', 'Jewelknight Lv 9', 'Elder Jewelknight', 'Bejewelian Lv 1', 'Bejewelian Lv 2', 'Bejewelian Lv 3', 'Bejewelian Lv 4', 'Bejewelian Lv 5', 'Bejewelian Lv 6', 'Bejewelian Lv 7', 'Bejewelian Lv 8', 'Bejewelian Lv 9', 'Elder Bejewelian');
-}
+    Game.DM.gArcColors = Array.Create(
+        8,
+        8,
+        GameFramework.gfx.Color.RGBToInt(255, 96, 96),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255),
+        GameFramework.gfx.Color.RGBToInt(128, 255, 64),
+        GameFramework.gfx.Color.RGBToInt(225, 225, 128),
+        GameFramework.gfx.Color.RGBToInt(225, 128, 225),
+        GameFramework.gfx.Color.RGBToInt(255, 160, 64),
+        GameFramework.gfx.Color.RGBToInt(48, 160, 255),
+        GameFramework.gfx.Color.RGBToInt(0, 0, 0)
+    );
+    Game.DM.gCrossoverColors = Array.Create(
+        8,
+        8,
+        GameFramework.gfx.Color.RGBToInt(255, 200, 200),
+        GameFramework.gfx.Color.RGBToInt(255, 250, 255),
+        GameFramework.gfx.Color.RGBToInt(220, 255, 128),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 200),
+        GameFramework.gfx.Color.RGBToInt(255, 128, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 160, 64),
+        GameFramework.gfx.Color.RGBToInt(80, 200, 255),
+        GameFramework.gfx.Color.RGBToInt(0, 0, 0)
+    );
+    Game.DM.gAllGemColors = Array.Create(
+        9,
+        null,
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 0, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255),
+        GameFramework.gfx.Color.RGBToInt(0, 255, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 0, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 128, 0),
+        GameFramework.gfx.Color.RGBToInt(0, 128, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255)
+    );
+    Game.DM.gGemColors = Array.Create(
+        9,
+        null,
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 0, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255),
+        GameFramework.gfx.Color.RGBToInt(0, 255, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 0, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 128, 0),
+        GameFramework.gfx.Color.RGBToInt(0, 128, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255)
+    );
+    Game.DM.gElectColors = Array.Create(
+        9,
+        null,
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 0, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255),
+        GameFramework.gfx.Color.RGBToInt(0, 255, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 0, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 128, 0),
+        GameFramework.gfx.Color.RGBToInt(0, 128, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255)
+    );
+    Game.DM.gPointColors = Array.Create(
+        9,
+        null,
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 0, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255),
+        GameFramework.gfx.Color.RGBToInt(0, 255, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 0, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 128, 0),
+        GameFramework.gfx.Color.RGBToInt(0, 128, 255),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255)
+    );
+    Game.DM.gComboColors = Array.Create(
+        9,
+        null,
+        GameFramework.gfx.Color.RGBToInt(255, 0, 0),
+        GameFramework.gfx.Color.RGBToInt(192, 192, 192),
+        GameFramework.gfx.Color.RGBToInt(0, 224, 0),
+        GameFramework.gfx.Color.RGBToInt(224, 224, 0),
+        GameFramework.gfx.Color.RGBToInt(224, 0, 224),
+        GameFramework.gfx.Color.RGBToInt(255, 128, 0),
+        GameFramework.gfx.Color.RGBToInt(0, 0, 255),
+        GameFramework.gfx.Color.RGBToInt(0, 0, 0),
+        GameFramework.gfx.Color.RGBToInt(255, 255, 255)
+    );
+    Game.DM.gRankNames = Array.Create(
+        131,
+        131,
+        "Novice",
+        "Apprentice",
+        "Trainee",
+        "Beginner",
+        "Amateur",
+        "Jr. Appraiser",
+        "Appraiser",
+        "Gem Polisher",
+        "Gem Scraper",
+        "Gem Grinder",
+        "Jewel Thief",
+        "Jewel Scavenger",
+        "Gem Scrounger",
+        "Jr. Gemfinder",
+        "Gemfinder",
+        "Sr. Gemfinder",
+        "Jr. Jewelkeep",
+        "Jewelkeep",
+        "Master Jewelkeep",
+        "Gemhunter Lv 1",
+        "Gemhunter Lv 2",
+        "Gemhunter Lv 3",
+        "Gemhunter Lv 4",
+        "Gemhunter Lv 5",
+        "Gemcrafter Lv 1",
+        "Gemcrafter Lv 2",
+        "Gemcrafter Lv 3",
+        "Gemcrafter Lv 4",
+        "Gemcrafter Lv 5",
+        "Jr. Gemstalker",
+        "Gemstalker",
+        "Sr. Gemstalker",
+        "Topaz Hunter",
+        "Onyx Hunter",
+        "Amethyst Hunter",
+        "Ruby Hunter",
+        "Emerald Hunter",
+        "Opal Hunter",
+        "Sapphire Hunter",
+        "Diamond Hunter",
+        "Topaz Blaster",
+        "Onyx Blaster",
+        "Amethyst Blaster",
+        "Ruby Blaster",
+        "Emerald Blaster",
+        "Opal Blaster",
+        "Sapphire Blaster",
+        "Diamond Blaster",
+        "Topaz Hoarder",
+        "Onyx Hoarder",
+        "Amethyst Hoarder",
+        "Ruby Hoarder",
+        "Emerald Hoarder",
+        "Opal Hoarder",
+        "Sapphire Hoarder",
+        "Diamond Hoarder",
+        "Topaz Master",
+        "Onyx Master",
+        "Amethyst Master",
+        "Ruby Master",
+        "Emerald Master",
+        "Opal Master",
+        "Sapphire Master",
+        "Diamond Master",
+        "Lapidary Lv 1",
+        "Lapidary Lv 2",
+        "Lapidary Lv 3",
+        "Lapidary Lv 4",
+        "Lapidary Lv 5",
+        "Master Lapidary",
+        "Supreme Lapidary",
+        "Ruby Wizard",
+        "Emerald Wizard",
+        "Opal Wizard",
+        "Sapphire Wizard",
+        "Diamond Wizard",
+        "Jeweled Wizard",
+        "Jeweled Mage",
+        "Jeweled Archmage",
+        "Jewelcrafter",
+        "Jewelforger",
+        "Bronze Blitzer",
+        "Silver Blitzer",
+        "Gold Blitzer",
+        "Platinum Blitzer",
+        "Bronze Master",
+        "Silver Master",
+        "Gold Master",
+        "Platinum Master",
+        "Jr. Bejeweler",
+        "Bejeweler",
+        "Sr. Bejeweler",
+        "Master Bejeweler",
+        "Mega Bejeweler",
+        "Hyper Bejeweler",
+        "Ultra Bejeweler",
+        "Prime Bejeweler",
+        "Ultimate Bejeweler",
+        "Bejeweled Regent",
+        "Bejeweled Demigod",
+        "Supreme Bejeweler",
+        "Jewelmagus Lv 1",
+        "Jewelmagus Lv 2",
+        "Jewelmagus Lv 3",
+        "Jewelmagus Lv 4",
+        "Jewelmagus Lv 5",
+        "Jewelmagus Lv 6",
+        "Jewelmagus Lv 7",
+        "Jewelmagus Lv 8",
+        "Jewelmagus Lv 9",
+        "Elder Jewelmagus",
+        "Jewelknight Lv 1",
+        "Jewelknight Lv 2",
+        "Jewelknight Lv 3",
+        "Jewelknight Lv 4",
+        "Jewelknight Lv 5",
+        "Jewelknight Lv 6",
+        "Jewelknight Lv 7",
+        "Jewelknight Lv 8",
+        "Jewelknight Lv 9",
+        "Elder Jewelknight",
+        "Bejewelian Lv 1",
+        "Bejewelian Lv 2",
+        "Bejewelian Lv 3",
+        "Bejewelian Lv 4",
+        "Bejewelian Lv 5",
+        "Bejewelian Lv 6",
+        "Bejewelian Lv 7",
+        "Bejewelian Lv 8",
+        "Bejewelian Lv 9",
+        "Elder Bejewelian"
+    );
+};
 
-JSFExt_AddInitFunc(function() {
-    Game.DM.registerClass('Game.DM', null);
+JSFExt_AddInitFunc(function () {
+    Game.DM.registerClass("Game.DM", null);
 });
-JSFExt_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function () {
     Game.DM.staticInit();
 });
 Game.DM.EGemColor = {};
@@ -56,8 +298,8 @@ Game.DM.EGemColor.staticInit = function Game_DM_EGemColor$staticInit() {
     Game.DM.EGemColor.BLUE = 6;
     Game.DM.EGemColor.HYPERCUBE = 7;
     Game.DM.EGemColor._COUNT = 8;
-}
-JSFExt_AddInitFunc(function() {
+};
+JSFExt_AddInitFunc(function () {
     Game.DM.EGemColor.staticInit();
 });
 Game.DM.EStat = {};
@@ -108,8 +350,8 @@ Game.DM.EStat.staticInit = function Game_DM_EStat$staticInit() {
     Game.DM.EStat.FPS_SAMPLE_TOTAL = 43;
     Game.DM.EStat.HINT_USED = 44;
     Game.DM.EStat._COUNT = 45;
-}
-JSFExt_AddInitFunc(function() {
+};
+JSFExt_AddInitFunc(function () {
     Game.DM.EStat.staticInit();
 });
 Game.DM.EDialog = {};
@@ -139,8 +381,8 @@ Game.DM.EDialog.staticInit = function Game_DM_EDialog$staticInit() {
     Game.DM.EDialog.PLAY_SPEED_CONFIRM = 22;
     Game.DM.EDialog.UNKNOWN_MODAL = 23;
     Game.DM.EDialog._COUNT = 24;
-}
-JSFExt_AddInitFunc(function() {
+};
+JSFExt_AddInitFunc(function () {
     Game.DM.EDialog.staticInit();
 });
 Game.DM.ETutorial = {};
@@ -165,8 +407,8 @@ Game.DM.ETutorial.staticInit = function Game_DM_ETutorial$staticInit() {
     Game.DM.ETutorial.SPEED_TUTORIAL_TIME_GEM = 16;
     Game.DM.ETutorial.SPEED_TUTORIAL_MULTIPLIER_UP = 17;
     Game.DM.ETutorial._COUNT = 18;
-}
-JSFExt_AddInitFunc(function() {
+};
+JSFExt_AddInitFunc(function () {
     Game.DM.ETutorial.staticInit();
 });
 Game.DM.EAutoplay = {};
@@ -177,7 +419,7 @@ Game.DM.EAutoplay.staticInit = function Game_DM_EAutoplay$staticInit() {
     Game.DM.EAutoplay.NoDelayWithInvalidMoves = 3;
     Game.DM.EAutoplay.TestHyper = 4;
     Game.DM.EAutoplay._COUNT = 5;
-}
-JSFExt_AddInitFunc(function() {
+};
+JSFExt_AddInitFunc(function () {
     Game.DM.EAutoplay.staticInit();
 });

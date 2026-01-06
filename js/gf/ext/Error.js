@@ -1,48 +1,52 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Error Extensions
 
-Error.__typeName = 'Error';
+Error.__typeName = "Error";
 
 Error.prototype.popStackFrame = function Error$popStackFrame() {
-	if(ss.isNullOrUndefined(this.stack) || ss.isNullOrUndefined(this.fileName) || ss.isNullOfUndefined(this.lineNumber)) {
-		return;
-	}
+    if (
+        ss.isNullOrUndefined(this.stack) ||
+        ss.isNullOrUndefined(this.fileName) ||
+        ss.isNullOfUndefined(this.lineNumber)
+    ) {
+        return;
+    }
 
-	var stackFrames = this.stack.split('\n');
-	var currentFrame = stackFrames[0];
-	var pattern = this.fileName + ':' + this.lineNumber;
-	while(!ss.isNullOrUndefined(currentFrame) && currentFrame.indexOf(pattern) === -1) {
-		stackFrames.shift();
-		currentFrame = stackFrames[0];
-	}
+    var stackFrames = this.stack.split("\n");
+    var currentFrame = stackFrames[0];
+    var pattern = this.fileName + ":" + this.lineNumber;
+    while (!ss.isNullOrUndefined(currentFrame) && currentFrame.indexOf(pattern) === -1) {
+        stackFrames.shift();
+        currentFrame = stackFrames[0];
+    }
 
-	var nextFrame = stackFrames[1];
-	if(isNullOrUndefined(nextFrame)) {
-		return;
-	}
+    var nextFrame = stackFrames[1];
+    if (isNullOrUndefined(nextFrame)) {
+        return;
+    }
 
-	var nextFrameParts = nextFrame.match(/@(.*):(\d+)$/);
-	if(ss.isNullOrUndefined(nextFrameParts)) {
-		return;
-	}
+    var nextFrameParts = nextFrame.match(/@(.*):(\d+)$/);
+    if (ss.isNullOrUndefined(nextFrameParts)) {
+        return;
+    }
 
-	stackFrames.shift();
-	this.stack = stackFrames.join("\n");
-	this.fileName = nextFrameParts[1];
-	this.lineNumber = parseInt(nextFrameParts[2]);
-}
+    stackFrames.shift();
+    this.stack = stackFrames.join("\n");
+    this.fileName = nextFrameParts[1];
+    this.lineNumber = parseInt(nextFrameParts[2]);
+};
 
 Error.createError = function Error$createError(message, errorInfo, innerException) {
-	var e = new Error(message);
-	if(errorInfo) {
-		for(var v in errorInfo) {
-			e[v] = errorInfo[v];
-		}
-	}
-	if(innerException) {
-		e.innerException = innerException;
-	}
+    var e = new Error(message);
+    if (errorInfo) {
+        for (var v in errorInfo) {
+            e[v] = errorInfo[v];
+        }
+    }
+    if (innerException) {
+        e.innerException = innerException;
+    }
 
-	e.popStackFrame();
-	return e;
-}
+    e.popStackFrame();
+    return e;
+};

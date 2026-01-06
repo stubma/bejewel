@@ -1,1 +1,1 @@
-Game = Type.registerNamespace('Game');
+Game = Type.registerNamespace("Game");

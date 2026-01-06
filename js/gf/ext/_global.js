@@ -67,18 +67,17 @@ var gDeferredNewHeight;
 ///////////////////////////////////////////////////////////////////////////////
 // XMLHttpRequest
 
-if(!window.XMLHttpRequest) {
-	window.XMLHttpRequest = function() {
-		var progIDs = ['Msxml2.XMLHTTP', 'Microsoft.XMLHTTP'];
+if (!window.XMLHttpRequest) {
+    window.XMLHttpRequest = function () {
+        var progIDs = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"];
 
-		for(var i = 0; i < progIDs.length; i++) {
-			try {
-				var xmlHttp = new ActiveXObject(progIDs[i]);
-				return xmlHttp;
-			} catch(ex) {
-			}
-		}
+        for (var i = 0; i < progIDs.length; i++) {
+            try {
+                var xmlHttp = new ActiveXObject(progIDs[i]);
+                return xmlHttp;
+            } catch (ex) {}
+        }
 
-		return null;
-	}
+        return null;
+    };
 }

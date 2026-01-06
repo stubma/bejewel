@@ -3,19 +3,18 @@ Game.PartnerLogo = function Game_PartnerLogo() {
     this.mTime = 0;
     this.mOrgTime = 0;
     this.mAlpha = 0;
-}
+};
 Game.PartnerLogo.prototype = {
-    mImage : null,
-    mTime : 0,
-    mOrgTime : 0,
-    mAlpha : 0
-}
-Game.PartnerLogo.staticInit = function Game_PartnerLogo$staticInit() {
-}
+    mImage: null,
+    mTime: 0,
+    mOrgTime: 0,
+    mAlpha: 0,
+};
+Game.PartnerLogo.staticInit = function Game_PartnerLogo$staticInit() {};
 
-JSFExt_AddInitFunc(function() {
-    Game.PartnerLogo.registerClass('Game.PartnerLogo', null);
+JSFExt_AddInitFunc(function () {
+    Game.PartnerLogo.registerClass("Game.PartnerLogo", null);
 });
-JSFExt_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function () {
     Game.PartnerLogo.staticInit();
 });

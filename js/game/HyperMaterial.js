@@ -1,33 +1,32 @@
 Game.HyperMaterial = function Game_HyperMaterial(theAmbient, theDiffuse, theSpecular, thePower) {
-    if(theAmbient === undefined) {
+    if (theAmbient === undefined) {
         theAmbient = null;
     }
-    if(theDiffuse === undefined) {
+    if (theDiffuse === undefined) {
         theDiffuse = null;
     }
-    if(theSpecular === undefined) {
+    if (theSpecular === undefined) {
         theSpecular = null;
     }
-    if(thePower === undefined) {
+    if (thePower === undefined) {
         thePower = 0;
     }
-    this.ambient = (theAmbient != null) ? theAmbient : Array.Create(4, null);
-    this.diffuse = (theDiffuse != null) ? theDiffuse : Array.Create(4, null);
-    this.specular = (theSpecular != null) ? theSpecular : Array.Create(4, null);
+    this.ambient = theAmbient != null ? theAmbient : Array.Create(4, null);
+    this.diffuse = theDiffuse != null ? theDiffuse : Array.Create(4, null);
+    this.specular = theSpecular != null ? theSpecular : Array.Create(4, null);
     this.power = thePower;
-}
+};
 Game.HyperMaterial.prototype = {
-    ambient : null,
-    diffuse : null,
-    specular : null,
-    power : 0
-}
-Game.HyperMaterial.staticInit = function Game_HyperMaterial$staticInit() {
-}
+    ambient: null,
+    diffuse: null,
+    specular: null,
+    power: 0,
+};
+Game.HyperMaterial.staticInit = function Game_HyperMaterial$staticInit() {};
 
-JSFExt_AddInitFunc(function() {
-    Game.HyperMaterial.registerClass('Game.HyperMaterial', null);
+JSFExt_AddInitFunc(function () {
+    Game.HyperMaterial.registerClass("Game.HyperMaterial", null);
 });
-JSFExt_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function () {
     Game.HyperMaterial.staticInit();
 });

@@ -1,2 +1,1 @@
-System.IDisposable = function System_IDisposable() {
-}
+System.IDisposable = function System_IDisposable() {};

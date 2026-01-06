@@ -1,12 +1,11 @@
-Game.BoardInfo = function Game_BoardInfo() {
-}
+Game.BoardInfo = function Game_BoardInfo() {};
 Game.BoardInfo.prototype = {
-    mCoords : null,
-    mBoard : null,
-    SetCoords : function Game_BoardInfo$SetCoords(inCoords) {
+    mCoords: null,
+    mBoard: null,
+    SetCoords: function Game_BoardInfo$SetCoords(inCoords) {
         this.mCoords = inCoords;
     },
-    Init : function Game_BoardInfo$Init(board, animSeq) {
+    Init: function Game_BoardInfo$Init(board, animSeq) {
         this.mBoard = board;
         var rot = animSeq.GetBoardRot();
         var pos = animSeq.GetBoardPos();
@@ -18,14 +17,13 @@ Game.BoardInfo.prototype = {
         boardCoords.Scale(scale.x, scale.y, scale.z);
         boardCoords.Translate(pos.x, pos.y, pos.z);
         this.SetCoords(boardCoords);
-    }
-}
-Game.BoardInfo.staticInit = function Game_BoardInfo$staticInit() {
-}
+    },
+};
+Game.BoardInfo.staticInit = function Game_BoardInfo$staticInit() {};
 
-JSFExt_AddInitFunc(function() {
-    Game.BoardInfo.registerClass('Game.BoardInfo', null);
+JSFExt_AddInitFunc(function () {
+    Game.BoardInfo.registerClass("Game.BoardInfo", null);
 });
-JSFExt_AddStaticInitFunc(function() {
+JSFExt_AddStaticInitFunc(function () {
     Game.BoardInfo.staticInit();
 });
